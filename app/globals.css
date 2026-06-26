@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root {
+  --green: #1a6b45;
+  --gold: #c9a227;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #1a1a1a;
+}
