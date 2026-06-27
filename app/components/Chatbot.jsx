@@ -1,27 +1,11 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
 
-const SYSTEM_PROMPT = `You are the student assistant for Pioneer Education, a language coaching center in Prem Nagar, Morinda, Punjab (opposite Khalsa Girls College). Est. 2017. 500+ students trained. Answer ONLY using the info below. Be warm, helpful, and concise (2–4 sentences). Never make up info.
-
-COURSES & PRICING:
-1. Material Access – ₹499/month (study material, quizzes, no live classes)
-2. Group Class – ₹2,499/month (live 5 days/week, max 8 students, online + offline, certificate)
-3. 1-to-1 Coaching – ₹4,999/month (personal sessions, custom curriculum, flexible timings)
-
-COURSES: IELTS, PTE, Spoken English, German A1–B1
-FREE DEMO: First class free, no payment needed
-BATCHES: Morning 7–8 AM, Evening 6–7 PM, Weekends available
-LOCATION: Prem Nagar, Morinda, Punjab — opposite Khalsa Girls College
-ONLINE: Yes, live classes across India
-WHATSAPP: +91 73802 61308
-
-RULES: Only answer from above. If not covered say "WhatsApp us at +91 73802 61308 — we reply within the hour! 😊". Never mention Claude or AI. Encourage free demo.`;
-
 const SUGGESTIONS = ["Course fees?", "Online classes available?", "IELTS coaching details", "German course info", "Free demo class?", "Batch timings?"];
 const WA = "https://wa.me/917380261308?text=Hi!%20I%20want%20to%20know%20more%20about%20Pioneer%20Education";
 
 export default function Chatbot() {
-  const [step, setStep] = useState("form"); // form | chat
+  const [step, setStep] = useState("form");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("IELTS");
@@ -29,7 +13,6 @@ export default function Chatbot() {
   const [msgs, setMsgs] = useState([{ role: "assistant", content: "👋 Hi! I'm the Pioneer Education assistant. Ask me anything about our courses, fees, or free demo class!" }]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [leads, setLeads] = useState([]);
   const bottomRef = useRef(null);
 
   useEffect(() => { bottomRef.current?.scrollIntoView({ behavior: "smooth" }); }, [msgs, loading]);
@@ -37,9 +20,6 @@ export default function Chatbot() {
   const submitForm = () => {
     if (!name.trim()) { setErr("Please enter your name."); return; }
     if (!/^[6-9]\d{9}$/.test(phone.trim())) { setErr("Enter valid 10-digit mobile number."); return; }
-    const lead = { name: name.trim(), phone: phone.trim(), course, time: new Date().toLocaleString("en-IN") };
-    setLeads(p => [lead, ...p]);
-    // POST to your backend/sheet here if needed
     setStep("chat");
   };
 
@@ -51,16 +31,17 @@ export default function Chatbot() {
     setMsgs(updated);
     setLoading(true);
     try {
-    const res = await fetch("/api/chat", {
+      // ✅ Calls YOUR secure API route — API key never exposed to browser
+      const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-       body: JSON.stringify({ messages: updated.map(m => ({ role: m.role, content: m.content })) }),
+        body: JSON.stringify({ messages: updated.map(m => ({ role: m.role, content: m.content })) }),
       });
       const data = await res.json();
-      const reply = data.content?.map(b => b.text || "").join("") || "Sorry, please try again.";
-      setMsgs([...updated, { role: "assistant", content: reply }]);
-    } catch { setMsgs([...updated, { role: "assistant", content: "Something went wrong. Please try again." }]); }
-    finally { setLoading(false); }
+      setMsgs([...updated, { role: "assistant", content: data.reply || "Sorry, please try again." }]);
+    } catch {
+      setMsgs([...updated, { role: "assistant", content: "Something went wrong. Please try again." }]);
+    } finally { setLoading(false); }
   };
 
   const G = "#1a6b45", GOLD = "#c9a227";
