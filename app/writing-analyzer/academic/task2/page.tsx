@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const STOPWORDS = new Set("the a an and or but if of to in on at for with as by from is are was were be been being this that these those it its i you he she we they my your his her our their not no so very can could will would should may might do does did have has had".split(" "));
-function words(text) { return (text.trim().match(/[A-Za-z'']+/g) || []); }
-function sentences(text) { return (text.trim().match(/[^.!?]+[.!?]+/g) || (text.trim() ? [text.trim()] : [])); }
-function paragraphs(text) { return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean); }
+function words(text: string) {
+function sentences(text: string) {
+function paragraphs(text: string) {
 
 const LINKERS = ["however","moreover","furthermore","in addition","additionally","on the other hand","therefore","consequently","as a result","for example","for instance","in conclusion","to conclude","overall","in summary","firstly","secondly","finally","in contrast","despite","although","while","whereas","nevertheless","nonetheless","besides","similarly","likewise","thus","hence","in particular","specifically","to illustrate"];
 const COMPLEX_MARKERS = ["because","although","though","while","whereas","if","unless","since","which","who","whom","that","whenever","wherever","despite","in spite of","even though","provided that","as long as"];
