@@ -25,9 +25,9 @@ function overusedWords(ws) {
   const total = lower.length || 1;
   return Object.entries(counts).filter(([w, c]) => c >= 4 && (c / total) > 0.025).sort((a, b) => b[1] - a[1]).slice(0, 5);
 }
-function countOccurrences(text, list) string[]) {
+function countOccurrences(text: string, list: string[]) {
   const t = text.toLowerCase();
-  let n = 0; let found = : string[]
+  let n = 0; let found: string[] = [];
   list.forEach(l => {
     const re = new RegExp("\\b" + l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "gi");
     const m = t.match(re);
