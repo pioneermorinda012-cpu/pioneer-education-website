@@ -11,21 +11,21 @@ const LINKERS = ["however","moreover","furthermore","in addition","additionally"
 const COMPLEX_MARKERS = ["because","although","though","while","whereas","if","unless","since","which","who","whom","that","whenever","wherever","despite","in spite of","even though","provided that","as long as"];
 const PASSIVE_RE = /\b(is|are|was|were|been|being|be)\s+\w+ed\b/gi;
 
-function uniqueWordRatio(ws) {
+function uniqueWordRatio(ws: string[]) {
   const lower = ws.map(w => w.toLowerCase());
   const content = lower.filter(w => !STOPWORDS.has(w) && w.length > 2);
   if (content.length === 0) return { ttr: 0, content: [] };
   const set = new Set(content);
   return { ttr: set.size / content.length, content };
 }
-function overusedWords(ws) {
+function overusedWords(ws: string[]) {
   const lower = ws.map(w => w.toLowerCase()).filter(w => !STOPWORDS.has(w) && w.length > 3);
   const counts = {};
   lower.forEach(w => counts[w] = (counts[w] || 0) + 1);
   const total = lower.length || 1;
   return Object.entries(counts).filter(([w, c]) => c >= 4 && (c / total) > 0.025).sort((a, b) => b[1] - a[1]).slice(0, 5);
 }
-function countOccurrences(text, list) {
+function countOccurrences(text: string, list: string[]) {
   const t = text.toLowerCase();
   let n = 0; let found = [];
   list.forEach(l => {
@@ -35,7 +35,7 @@ function countOccurrences(text, list) {
   });
   return { n, found };
 }
-function round5(x) { return Math.round(x * 2) / 2; }
+function round5(x: number) { return Math.round(x * 2) / 2; }
 function clampBand(x) { return Math.min(9, Math.max(2.5, x)); }
 function band5label(b) {
   if (b >= 8.5) return "Expert"; if (b >= 7.5) return "Very Good"; if (b >= 6.5) return "Good";
