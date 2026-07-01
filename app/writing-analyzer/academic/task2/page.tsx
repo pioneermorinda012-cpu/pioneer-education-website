@@ -3,31 +3,31 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const STOPWORDS = new Set("the a an and or but if of to in on at for with as by from is are was were be been being this that these those it its i you he she we they my your his her our their not no so very can could will would should may might do does did have has had".split(" "));
-function words(text: string) { return text.trim().match(/[A-Za-z']+/g) || []; }
-function sentences(text: string) { return text.trim().match(/[^.!?]+[.!?]+/g) || (text.trim() ? [text.trim()] : []); }
-function paragraphs(text: string) { return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean); }
+function words(text) { return (text.trim().match(/[A-Za-z'']+/g) || []); }
+function sentences(text) { return (text.trim().match(/[^.!?]+[.!?]+/g) || (text.trim() ? [text.trim()] : [])); }
+function paragraphs(text) { return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean); }
 
 const LINKERS = ["however","moreover","furthermore","in addition","additionally","on the other hand","therefore","consequently","as a result","for example","for instance","in conclusion","to conclude","overall","in summary","firstly","secondly","finally","in contrast","despite","although","while","whereas","nevertheless","nonetheless","besides","similarly","likewise","thus","hence","in particular","specifically","to illustrate"];
 const COMPLEX_MARKERS = ["because","although","though","while","whereas","if","unless","since","which","who","whom","that","whenever","wherever","despite","in spite of","even though","provided that","as long as"];
 const PASSIVE_RE = /\b(is|are|was|were|been|being|be)\s+\w+ed\b/gi;
 
-function uniqueWordRatio(ws: string[]) {
+function uniqueWordRatio(ws) {
   const lower = ws.map(w => w.toLowerCase());
   const content = lower.filter(w => !STOPWORDS.has(w) && w.length > 2);
   if (content.length === 0) return { ttr: 0, content: [] };
   const set = new Set(content);
   return { ttr: set.size / content.length, content };
 }
-function overusedWords(ws: string[]) {
+function overusedWords(ws) {
   const lower = ws.map(w => w.toLowerCase()).filter(w => !STOPWORDS.has(w) && w.length > 3);
- const counts: Record<string, number> = {};
+  const counts = {};
   lower.forEach(w => counts[w] = (counts[w] || 0) + 1);
   const total = lower.length || 1;
   return Object.entries(counts).filter(([w, c]) => c >= 4 && (c / total) > 0.025).sort((a, b) => b[1] - a[1]).slice(0, 5);
 }
-function countOccurrences(text: string, list: string[]) {
+function countOccurrences(text, list) string[]) {
   const t = text.toLowerCase();
-  let n = 0; let found = [];
+  let n = 0; let found = : string[]
   list.forEach(l => {
     const re = new RegExp("\\b" + l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "gi");
     const m = t.match(re);
@@ -35,7 +35,7 @@ function countOccurrences(text: string, list: string[]) {
   });
   return { n, found };
 }
-function round5(x: number) { return Math.round(x * 2) / 2; }
+function round5(x) { return Math.round(x * 2) / 2; }
 function clampBand(x) { return Math.min(9, Math.max(2.5, x)); }
 function band5label(b) {
   if (b >= 8.5) return "Expert"; if (b >= 7.5) return "Very Good"; if (b >= 6.5) return "Good";
