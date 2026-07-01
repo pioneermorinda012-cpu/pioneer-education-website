@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import Chatbot from "../components/Chatbot";
 
 const WA = "https://wa.me/917380261308?text=Hi!%20I%20want%20to%20know%20more%20about%20Pioneer%20Education";
@@ -53,9 +54,10 @@ export default function Home() {
         </div>
         <div style={{ display: "flex", gap: 20, fontSize: 13, color: "#555" }}>
           <a href="#courses" style={{ textDecoration: "none", color: "#555" }}>Courses</a>
-          <a href="#results" style={{ textDecoration: "none", color: "#555" }}>Results</a>
+          <a href="#results" style={{ textDecoration: "none", color: "#555" }}>Results</a><a href="/writing-analyzer" style={{ textDecoration: "none", color: "#555" }}>Writing Analyzer</a>
           <a href="#reviews" style={{ textDecoration: "none", color: "#555" }}>Reviews</a>
           <a href="#contact" style={{ textDecoration: "none", color: "#555" }}>Contact</a>
+    
         </div>
         <a href={WA} target="_blank" rel="noreferrer" style={{ background: G, color: "#fff", padding: "8px 18px", borderRadius: 24, fontSize: 13, fontWeight: 700, textDecoration: "none" }}>Free Demo →</a>
       </nav>
