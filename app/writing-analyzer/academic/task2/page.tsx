@@ -3,31 +3,31 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const STOPWORDS = new Set("the a an and or but if of to in on at for with as by from is are was were be been being this that these those it its i you he she we they my your his her our their not no so very can could will would should may might do does did have has had".split(" "));
-function words(text) { return (text.trim().match(/[A-Za-z'']+/g) || []); }
-function sentences(text) { return (text.trim().match(/[^.!?]+[.!?]+/g) || (text.trim() ? [text.trim()] : [])); }
-function paragraphs(text) { return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean); }
+function words(text: string): string[] { return text.trim().match(/[A-Za-z']+/g) || []; }
+function sentences(text: string): string[] { return text.trim().match(/[^.!?]+[.!?]+/g) || (text.trim() ? [text.trim()] : []); }
+function paragraphs(text: string): string[] { return text.split(/\n\s*\n/).map(p => p.trim()).filter(Boolean); }
 
 const LINKERS = ["however","moreover","furthermore","in addition","additionally","on the other hand","therefore","consequently","as a result","for example","for instance","in conclusion","to conclude","overall","in summary","firstly","secondly","finally","in contrast","despite","although","while","whereas","nevertheless","nonetheless","besides","similarly","likewise","thus","hence","in particular","specifically","to illustrate"];
 const COMPLEX_MARKERS = ["because","although","though","while","whereas","if","unless","since","which","who","whom","that","whenever","wherever","despite","in spite of","even though","provided that","as long as"];
 const PASSIVE_RE = /\b(is|are|was|were|been|being|be)\s+\w+ed\b/gi;
 
-function uniqueWordRatio(ws) {
+function uniqueWordRatio(ws: string[]) {
   const lower = ws.map(w => w.toLowerCase());
   const content = lower.filter(w => !STOPWORDS.has(w) && w.length > 2);
   if (content.length === 0) return { ttr: 0, content: [] };
   const set = new Set(content);
   return { ttr: set.size / content.length, content };
 }
-function overusedWords(ws) {
+function overusedWords(ws: string[]) {
   const lower = ws.map(w => w.toLowerCase()).filter(w => !STOPWORDS.has(w) && w.length > 3);
-  const counts = {};
+  const counts: Record<string, number> = {};
   lower.forEach(w => counts[w] = (counts[w] || 0) + 1);
   const total = lower.length || 1;
-  return Object.entries(counts).filter(([w, c]) => c >= 4 && (c / total) > 0.025).sort((a, b) => b[1] - a[1]).slice(0, 5);
+  return Object.entries(counts).filter(([, c]) => c >= 4 && (c / total) > 0.025).sort((a, b) => b[1] - a[1]).slice(0, 5);
 }
 function countOccurrences(text: string, list: string[]) {
   const t = text.toLowerCase();
-  let n = 0; let found: string[] = [];
+  let n = 0; const found: string[] = [];
   list.forEach(l => {
     const re = new RegExp("\\b" + l.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + "\\b", "gi");
     const m = t.match(re);
@@ -35,14 +35,14 @@ function countOccurrences(text: string, list: string[]) {
   });
   return { n, found };
 }
-function round5(x) { return Math.round(x * 2) / 2; }
-function clampBand(x) { return Math.min(9, Math.max(2.5, x)); }
-function band5label(b) {
+function round5(x: number) { return Math.round(x * 2) / 2; }
+function clampBand(x: number) { return Math.min(9, Math.max(2.5, x)); }
+function band5label(b: number) {
   if (b >= 8.5) return "Expert"; if (b >= 7.5) return "Very Good"; if (b >= 6.5) return "Good";
   if (b >= 5.5) return "Competent"; if (b >= 4.5) return "Modest"; return "Limited";
 }
 
-function analyzeTask2(text, prompt) {
+function analyzeTask2(text: string, prompt: string) {
   const ws = words(text);
   const wc = ws.length;
   const sents = sentences(text);
@@ -58,21 +58,17 @@ function analyzeTask2(text, prompt) {
   const hasConclusionMarker = /(in conclusion|to conclude|to sum up|overall,|in summary)/.test(lowerText);
   const passiveCount = (text.match(PASSIVE_RE) || []).length;
 
-  let tr = 6.5; const trFb = [];
-  if (wc < 180) { tr -= 2; trFb.push({ t: "bad", m: `Only ${wc} words — significantly under the 250-word minimum. Capped at Band 5 or below.` }); }
+  let tr = 6.5; const trFb: {t: string; m: string}[] = [];
+  if (wc < 180) { tr -= 2; trFb.push({ t: "bad", m: `Only ${wc} words — significantly under the 250-word minimum.` }); }
   else if (wc < 250) { tr -= 1; trFb.push({ t: "bad", m: `${wc} words is under the 250-word minimum; aim for 270–320.` }); }
-  else if (wc > 400) { trFb.push({ t: "tip", m: `${wc} words — long. Make sure length comes from development, not repetition.` }); }
+  else if (wc > 400) { trFb.push({ t: "tip", m: `${wc} words — long. Ensure length comes from development, not repetition.` }); }
   else { trFb.push({ t: "good", m: `Length (${wc} words) is appropriate for Task 2.` }); }
-
   if (paras.length < 4) { tr -= 0.5; trFb.push({ t: "bad", m: `Only ${paras.length} paragraph(s) — need intro, 2 body paragraphs, and conclusion.` }); }
   else { trFb.push({ t: "good", m: `Organised into ${paras.length} paragraphs.` }); }
-
-  if (hasOpinionMarker) { trFb.push({ t: "good", m: "A clear position/stance is signalled in the text." }); }
+  if (hasOpinionMarker) { trFb.push({ t: "good", m: "A clear position/stance is signalled." }); }
   else { tr -= 1; trFb.push({ t: "bad", m: "No clear position or thesis statement detected." }); }
-
   if (hasConclusionMarker) { trFb.push({ t: "good", m: "A concluding statement is present." }); }
   else { tr -= 0.5; trFb.push({ t: "bad", m: "No clear conclusion marker found." }); }
-
   if (prompt && prompt.trim().length > 5) {
     const promptWords = new Set(words(prompt).map(w => w.toLowerCase()).filter(w => !STOPWORDS.has(w) && w.length > 3));
     const bodyWords = new Set(content);
@@ -80,34 +76,33 @@ function analyzeTask2(text, prompt) {
     const coverage = promptWords.size ? covered / promptWords.size : 1;
     if (coverage < 0.25) { tr -= 1; trFb.push({ t: "bad", m: "Essay doesn't engage closely with the key terms of the question." }); }
     else { trFb.push({ t: "good", m: "Content engages with the key terms of the question." }); }
-  } else { trFb.push({ t: "tip", m: "Add the essay question above next time for an accurate Task Response check." }); }
-
-  const exampleHits = countOccurrences(text, ["for example", "for instance", "such as", "in particular", "to illustrate"]).n;
-  if (exampleHits === 0) { tr -= 0.5; trFb.push({ t: "bad", m: "No explicit examples detected — support ideas with specific examples." }); }
-  else { trFb.push({ t: "good", m: "Ideas are supported with examples/illustration." }); }
+  } else { trFb.push({ t: "tip", m: "Add the essay question above for an accurate Task Response check." }); }
+  const exampleHits = countOccurrences(text, ["for example","for instance","such as","in particular","to illustrate"]).n;
+  if (exampleHits === 0) { tr -= 0.5; trFb.push({ t: "bad", m: "No explicit examples detected." }); }
+  else { trFb.push({ t: "good", m: "Ideas are supported with examples." }); }
   tr = round5(clampBand(tr));
 
-  let cc = 6.5; const ccFb = [];
+  let cc = 6.5; const ccFb: {t: string; m: string}[] = [];
   if (linkerInfo.n === 0) { cc -= 1.5; ccFb.push({ t: "bad", m: "No cohesive devices detected." }); }
   else if (linkerInfo.n < 4) { cc -= 0.5; ccFb.push({ t: "tip", m: "Some linking devices present, but variety is limited." }); }
-  else { ccFb.push({ t: "good", m: `Good range of cohesive devices (${linkerInfo.n} instances, e.g. ${linkerInfo.found.slice(0, 4).join(", ")}).` }); }
-  if (paras.length >= 4) { ccFb.push({ t: "good", m: "Clear paragraphing (intro/body/body/conclusion structure)." }); }
+  else { ccFb.push({ t: "good", m: `Good range of cohesive devices (${linkerInfo.n} instances).` }); }
+  if (paras.length >= 4) { ccFb.push({ t: "good", m: "Clear paragraphing structure." }); }
   else { cc -= 0.5; ccFb.push({ t: "bad", m: "Paragraphing could be clearer." }); }
   if (avgSentLen > 30) { cc -= 0.5; ccFb.push({ t: "bad", m: `Avg sentence length is ${avgSentLen.toFixed(1)} words — watch for run-ons.` }); }
   cc = round5(clampBand(cc));
 
-  let lr = 6.5; const lrFb = [];
+  let lr = 6.5; const lrFb: {t: string; m: string}[] = [];
   if (ttr > 0.8) { lrFb.push({ t: "good", m: `Strong vocabulary range (${(ttr * 100).toFixed(0)}% unique).` }); }
   else if (ttr > 0.65) { lr -= 0.5; lrFb.push({ t: "tip", m: `Moderate vocabulary variety (${(ttr * 100).toFixed(0)}% unique).` }); }
   else { lr -= 1; lrFb.push({ t: "bad", m: `Limited vocabulary variety (${(ttr * 100).toFixed(0)}% unique).` }); }
   if (overused.length) { lrFb.push({ t: "bad", m: `Repeated frequently: ${overused.map(([w, c]) => `"${w}" (${c}×)`).join(", ")}.` }); lr -= 0.5; }
   const informalCount = (text.match(/\b(stuff|things|a lot of|kids|guys|gonna)\b/gi) || []).length;
-  if (informalCount > 0) { lr -= 0.3; lrFb.push({ t: "bad", m: `${informalCount} informal/vague word(s) found — use precise, formal vocabulary.` }); }
+  if (informalCount > 0) { lr -= 0.3; lrFb.push({ t: "bad", m: `${informalCount} informal word(s) found — use formal vocabulary.` }); }
   lr = round5(clampBand(lr));
 
-  let gra = 6.5; const graFb = [];
+  let gra = 6.5; const graFb: {t: string; m: string}[] = [];
   if (complexInfo.n === 0) { gra -= 1.5; graFb.push({ t: "bad", m: "No complex sentence structures detected." }); }
-  else if (complexInfo.n < 5) { gra -= 0.5; graFb.push({ t: "tip", m: `Moderate use of complex structures (${complexInfo.n}) — increase variety.` }); }
+  else if (complexInfo.n < 5) { gra -= 0.5; graFb.push({ t: "tip", m: `Moderate complex structures (${complexInfo.n}) — increase variety.` }); }
   else { graFb.push({ t: "good", m: `Strong range of complex structures (${complexInfo.n} instances).` }); }
   if (passiveCount > 0) { graFb.push({ t: "good", m: `Passive voice used (${passiveCount}×) — shows grammatical range.` }); }
   if (sc < 8) { gra -= 0.5; graFb.push({ t: "bad", m: "Relatively few sentences for the word count." }); }
@@ -117,7 +112,7 @@ function analyzeTask2(text, prompt) {
   return { wc, sc, tr, cc, lr, gra, overall, trFb, ccFb, lrFb, graFb };
 }
 
-function FbList({ arr }) {
+function FbList({ arr }: { arr: {t: string; m: string}[] }) {
   return <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
     {arr.map((f, i) => (
       <li key={i} style={{ padding: "6px 0 6px 22px", position: "relative", fontSize: 13.5 }}>
@@ -129,7 +124,7 @@ function FbList({ arr }) {
   </ul>;
 }
 
-function Timer({ minutes }) {
+function Timer({ minutes }: { minutes: number }) {
   const [remaining, setRemaining] = useState(minutes * 60);
   const [running, setRunning] = useState(false);
   const total = minutes * 60;
@@ -152,7 +147,7 @@ function Timer({ minutes }) {
 export default function AcademicTask2Page() {
   const [text, setText] = useState("");
   const [prompt, setPrompt] = useState("");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<ReturnType<typeof analyzeTask2> | null>(null);
 
   const analyze = () => {
     if (words(text).length < 10) { alert("Please write at least 10 words before analyzing."); return; }
@@ -167,7 +162,6 @@ export default function AcademicTask2Page() {
         <h1 style={{ fontFamily: "Georgia, serif", fontWeight: 700, fontSize: "clamp(26px,4vw,40px)", margin: "0 0 6px" }}>Essay Writing</h1>
         <p style={{ fontFamily: "Georgia, serif", fontStyle: "italic", color: "#4a4538", margin: 0, fontSize: 14 }}>Paste your essay below for a band-by-band breakdown</p>
       </header>
-
       <div style={{ maxWidth: 800, margin: "0 auto", padding: "30px 20px 70px" }}>
         <div style={{ background: "#fffdf7", border: "1px solid #cfc8b4", boxShadow: "0 6px 18px rgba(0,0,0,0.05)" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "16px 20px 10px 26px", borderBottom: "1px solid #cfc8b4" }}>
@@ -184,12 +178,10 @@ export default function AcademicTask2Page() {
             <span>Words: <b>{words(text).length}</b></span><span>Sentences: <b>{sentences(text).length}</b></span>
           </div>
         </div>
-
         <div style={{ textAlign: "center", margin: "32px 0" }}>
           <button onClick={analyze} style={{ fontFamily: "'Courier New', monospace", textTransform: "uppercase", letterSpacing: "0.14em", fontSize: 13, background: "#1b2420", color: "#f4f1e9", border: "none", padding: "15px 38px", cursor: "pointer" }}>Analyze My Writing</button>
           <div style={{ fontFamily: "Georgia, serif", fontStyle: "italic", fontSize: 12.5, color: "#7a7259", marginTop: 10 }}>Estimates are based on official IELTS band descriptors — informed approximation, not a certified score.</div>
         </div>
-
         {result && (
           <div id="results">
             <div style={{ textAlign: "center", padding: "36px 20px", marginBottom: 30, background: "#1b2420", color: "#f4f1e9" }}>
@@ -200,7 +192,7 @@ export default function AcademicTask2Page() {
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "18px 26px", borderBottom: "3px double #1b2420", background: "#eae5d8" }}>
                 <h3 style={{ fontFamily: "Georgia, serif", fontSize: 22, margin: 0 }}>Essay Report</h3>
               </div>
-              {[["Task Response", result.tr, result.trFb], ["Coherence & Cohesion", result.cc, result.ccFb], ["Lexical Resource", result.lr, result.lrFb], ["Grammatical Range & Accuracy", result.gra, result.graFb]].map(([title, score, fb], i) => (
+              {([["Task Response", result.tr, result.trFb], ["Coherence & Cohesion", result.cc, result.ccFb], ["Lexical Resource", result.lr, result.lrFb], ["Grammatical Range & Accuracy", result.gra, result.graFb]] as [string, number, {t:string;m:string}[]][]).map(([title, score, fb], i) => (
                 <div key={i} style={{ borderBottom: "1px solid #cfc8b4", padding: "18px 26px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <h4 style={{ fontFamily: "Georgia, serif", fontSize: 16.5, margin: 0 }}>{title}</h4>
@@ -212,7 +204,6 @@ export default function AcademicTask2Page() {
             </div>
           </div>
         )}
-
         <div style={{ textAlign: "center", marginTop: 40 }}>
           <Link href="/writing-analyzer/academic" style={{ fontFamily: "'Courier New', monospace", fontSize: 12, color: "#8a8266", textDecoration: "none", textTransform: "uppercase" }}>← Back to Task Selection</Link>
         </div>
