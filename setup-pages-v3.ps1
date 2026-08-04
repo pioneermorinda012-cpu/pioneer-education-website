@@ -1,24 +1,30 @@
-# Pioneer Education website — auto-setup script
-# This creates every folder and file correctly, with the exact content
-# baked in — no copy-pasting needed, which is what kept going wrong.
+# Pioneer Education website - auto-setup script (v3 - fixed path + error handling)
 #
 # HOW TO RUN:
-# 1. Open PowerShell
-# 2. cd into your project folder, e.g.:
-#      cd C:\Users\Dell\pioneer-website-real
-# 3. Run this script:
-#      .\setup-pages.ps1
+# 1. Make sure this .ps1 file is sitting directly inside your project folder
+#    (same folder as package.json)
+# 2. Open PowerShell, cd into that folder, then run:
+#      .\setup-pages-v3.ps1
 #
-# If PowerShell blocks it with a security message, run this first:
+# If PowerShell blocks it:
 #      Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
+$ErrorActionPreference = "Stop"
+
+# Use the folder this script itself is sitting in as the base - this is
+# reliable no matter what PowerShell thinks the "current directory" is,
+# which is what broke the previous version.
+$base = $PSScriptRoot
+Write-Host "Project folder detected as: $base" -ForegroundColor Cyan
+
 Write-Host "Creating folders..." -ForegroundColor Cyan
-New-Item -ItemType Directory -Force -Path "app\about" | Out-Null
-New-Item -ItemType Directory -Force -Path "app\courses\[slug]" | Out-Null
-New-Item -ItemType Directory -Force -Path "app\data" | Out-Null
-New-Item -ItemType Directory -Force -Path "public\images" | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $base "app\about") | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $base "app\courses\[slug]") | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $base "app\data") | Out-Null
+New-Item -ItemType Directory -Force -Path (Join-Path $base "public\images") | Out-Null
 
 Write-Host "Writing files..." -ForegroundColor Cyan
+$failed = @()
 $content = @'
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -158,8 +164,21 @@ export default function AboutPage() {
 }
 
 '@
-[System.IO.File]::WriteAllText("app\about\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\about\page.tsx"
+$targetPath = Join-Path $base "app\about\page.tsx"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\about\page.tsx  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\about\page.tsx" -ForegroundColor Red
+    $failed += "app\about\page.tsx"
+  }
+} catch {
+  Write-Host "  FAILED: app\about\page.tsx -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\about\page.tsx"
+}
 $content = @'
 import { COURSES, getCourse } from "../../data/courses";
 import Link from "next/link";
@@ -311,8 +330,21 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 }
 
 '@
-[System.IO.File]::WriteAllText("app\courses\[slug]\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\courses\[slug]\page.tsx"
+$targetPath = Join-Path $base "app\courses\[slug]\page.tsx"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\courses\[slug]\page.tsx  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\courses\[slug]\page.tsx" -ForegroundColor Red
+    $failed += "app\courses\[slug]\page.tsx"
+  }
+} catch {
+  Write-Host "  FAILED: app\courses\[slug]\page.tsx -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\courses\[slug]\page.tsx"
+}
 $content = @'
 export type Course = {
   slug: string;
@@ -434,8 +466,21 @@ export function getCourse(slug: string) {
 }
 
 '@
-[System.IO.File]::WriteAllText("app\data\courses.ts", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\data\courses.ts"
+$targetPath = Join-Path $base "app\data\courses.ts"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\data\courses.ts  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\data\courses.ts" -ForegroundColor Red
+    $failed += "app\data\courses.ts"
+  }
+} catch {
+  Write-Host "  FAILED: app\data\courses.ts -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\data\courses.ts"
+}
 $content = @'
 "use client";
 
@@ -1034,8 +1079,21 @@ export default function Home() {
 }
 
 '@
-[System.IO.File]::WriteAllText("app\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\page.tsx"
+$targetPath = Join-Path $base "app\page.tsx"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\page.tsx  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\page.tsx" -ForegroundColor Red
+    $failed += "app\page.tsx"
+  }
+} catch {
+  Write-Host "  FAILED: app\page.tsx -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\page.tsx"
+}
 $content = @'
 import type { Metadata } from "next";
 import "./globals.css";
@@ -1124,8 +1182,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 '@
-[System.IO.File]::WriteAllText("app\layout.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\layout.tsx"
+$targetPath = Join-Path $base "app\layout.tsx"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\layout.tsx  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\layout.tsx" -ForegroundColor Red
+    $failed += "app\layout.tsx"
+  }
+} catch {
+  Write-Host "  FAILED: app\layout.tsx -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\layout.tsx"
+}
 $content = @'
 :root{
     --navy:#161616; --navy-light:#262626;
@@ -1363,12 +1434,31 @@ $content = @'
   .footer-bottom{display:flex;justify-content:space-between;color:var(--grey);font-size:0.82rem;flex-wrap:wrap;gap:12px;}
 
 '@
-[System.IO.File]::WriteAllText("app\globals.css", $content, (New-Object System.Text.UTF8Encoding($true)))
-Write-Host "  Wrote app\globals.css"
+$targetPath = Join-Path $base "app\globals.css"
+try {
+  [System.IO.File]::WriteAllText($targetPath, $content, (New-Object System.Text.UTF8Encoding($true)))
+  $written = Test-Path $targetPath
+  $size = (Get-Item $targetPath -ErrorAction SilentlyContinue).Length
+  if ($written -and $size -gt 100) {
+    Write-Host "  OK  app\globals.css  ($size bytes)" -ForegroundColor Green
+  } else {
+    Write-Host "  FAILED (file too small or missing): app\globals.css" -ForegroundColor Red
+    $failed += "app\globals.css"
+  }
+} catch {
+  Write-Host "  FAILED: app\globals.css -- $($_.Exception.Message)" -ForegroundColor Red
+  $failed += "app\globals.css"
+}
 
 Write-Host ""
-Write-Host "Done! All files created correctly." -ForegroundColor Green
-Write-Host "Next, copy the 2 image files from the zip into public\images\ manually (instructor.jpg and ielts-classroom.jpg)."
+if ($failed.Count -eq 0) {
+  Write-Host "SUCCESS: All 6 files written correctly." -ForegroundColor Green
+} else {
+  Write-Host "WARNING: These files FAILED and need attention:" -ForegroundColor Red
+  $failed | ForEach-Object { Write-Host "  - $_" -ForegroundColor Red }
+}
+Write-Host ""
+Write-Host "Next: copy the 2 image files from the zip into public\images\ manually."
 Write-Host "Then run:"
 Write-Host "  git add ."
 Write-Host "  git commit -m 'Fix encoding, add About/Courses pages'"

@@ -232,4 +232,3 @@
   .footer-grid a{display:block;color:var(--grey);font-size:0.9rem;margin-bottom:10px;}
   .footer-grid a:hover{color:var(--coral);}
   .footer-bottom{display:flex;justify-content:space-between;color:var(--grey);font-size:0.82rem;flex-wrap:wrap;gap:12px;}
-

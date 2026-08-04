@@ -116,4 +116,3 @@ export const COURSES: Course[] = [
 export function getCourse(slug: string) {
   return COURSES.find((c) => c.slug === slug);
 }
-
