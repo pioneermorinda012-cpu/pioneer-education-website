@@ -1,10 +1,10 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Pioneer Education — Morinda, Punjab",
+  title: "About Pioneer Education â€” Morinda, Punjab",
   description:
-    "Pioneer Education Center was founded in 2017 by Narinder Singh in Prem Nagar, Morinda. TEFL-certified, 5.0★ rated, 125+ reviews. IELTS, PTE, Spoken English & German coaching.",
+    "Pioneer Education Center was founded in 2017 by Narinder Singh in Prem Nagar, Morinda. TEFL-certified, 5.0â˜… rated, 125+ reviews. IELTS, PTE, Spoken English & German coaching.",
 };
 
 export default function AboutPage() {
@@ -29,13 +29,13 @@ export default function AboutPage() {
 
       <section style={{ paddingBottom: 0 }}>
         <div className="wrap">
-          <div className="eyebrow">Prem Nagar, Morinda · Since 2017</div>
+          <div className="eyebrow">Prem Nagar, Morinda Â· Since 2017</div>
           <h1 style={{ fontFamily: "Fraunces, serif", fontSize: "2.6rem", fontWeight: 600, color: "var(--navy)", lineHeight: 1.15, marginBottom: "18px" }}>
             Nine years of watching exactly where students lose marks.
           </h1>
           <p style={{ fontSize: "1.1rem", color: "var(--grey)", maxWidth: "640px" }}>
             Pioneer Education Center opened in Prem Nagar, Morinda in 2017. What started as one instructor teaching IELTS
-            has grown into a full teaching team covering IELTS, PTE, Spoken English, and German — while keeping the same
+            has grown into a full teaching team covering IELTS, PTE, Spoken English, and German â€” while keeping the same
             batch sizes and personal attention that built our reputation in the first place.
           </p>
         </div>
@@ -59,14 +59,14 @@ export default function AboutPage() {
             </blockquote>
             <p className="bio">
               Narinder Singh founded Pioneer Education in 2017 as a TEFL-certified instructor, building a teaching
-              approach rooted in pattern recognition — identifying exactly where each student&apos;s English breaks down,
+              approach rooted in pattern recognition â€” identifying exactly where each student&apos;s English breaks down,
               and fixing that specific gap rather than teaching generically. Today he leads a team of instructors
               delivering the same method across all four courses.
             </p>
             <div className="cred-row">
-              <div className="cred"><div className="cred-icon">🎓</div><span>TEFL Certified</span></div>
-              <div className="cred"><div className="cred-icon">⭐</div><span>5.0★ Google Rating</span></div>
-              <div className="cred"><div className="cred-icon">📍</div><span>Prem Nagar, Morinda</span></div>
+              <div className="cred"><div className="cred-icon">ðŸŽ“</div><span>TEFL Certified</span></div>
+              <div className="cred"><div className="cred-icon">â­</div><span>5.0â˜… Google Rating</span></div>
+              <div className="cred"><div className="cred-icon">ðŸ“</div><span>Prem Nagar, Morinda</span></div>
             </div>
           </div>
         </div>
@@ -76,7 +76,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="section-head">
             <div className="section-eyebrow">How We're Different</div>
-            <h2>Not a generic curriculum — a diagnosis-first approach.</h2>
+            <h2>Not a generic curriculum â€” a diagnosis-first approach.</h2>
             <p>
               Most institutes teach a fixed syllabus regardless of who's in the room. We've spent nearly a decade
               cataloguing the specific mistakes Punjabi-speaking students make in English and German, and built that
@@ -85,28 +85,28 @@ export default function AboutPage() {
           </div>
           <div className="facts-grid">
             <div className="fact-card">
-              <h4>⏰ 4–5 hours daily</h4>
+              <h4>â° 4â€“5 hours daily</h4>
               <p>Intensive classes from 9 AM to 1 PM, with evening batches for working students.</p>
             </div>
             <div className="fact-card">
-              <h4>👤 Max 8 per batch</h4>
+              <h4>ðŸ‘¤ Max 8 per batch</h4>
               <p>Small batches by design, so every student gets real speaking time and attention.</p>
             </div>
             <div className="fact-card">
-              <h4>📊 3-level material</h4>
-              <p>Beginner, Intermediate, and Advanced — you start where you actually are, not where a syllabus assumes.</p>
+              <h4>ðŸ“Š 3-level material</h4>
+              <p>Beginner, Intermediate, and Advanced â€” you start where you actually are, not where a syllabus assumes.</p>
             </div>
             <div className="fact-card">
-              <h4>📝 Weekly mock tests</h4>
+              <h4>ðŸ“ Weekly mock tests</h4>
               <p>Every Friday, with detailed written feedback so progress is tracked, not just assumed.</p>
             </div>
             <div className="fact-card">
-              <h4>💬 Daily app practice</h4>
+              <h4>ðŸ’¬ Daily app practice</h4>
               <p>The Lexio app extends every class into daily vocabulary, grammar, and pronunciation practice.</p>
             </div>
             <div className="fact-card">
-              <h4>🇩🇪 Beyond English</h4>
-              <p>The same structured, pattern-based method applied to German A1–B1 for visa and study applicants.</p>
+              <h4>ðŸ‡©ðŸ‡ª Beyond English</h4>
+              <p>The same structured, pattern-based method applied to German A1â€“B1 for visa and study applicants.</p>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function AboutPage() {
         <div className="wrap">
           <div className="final-cta">
             <h2>Come see it for yourself.</h2>
-            <p>Book a free demo class in Prem Nagar, Morinda — no payment, no commitment.</p>
+            <p>Book a free demo class in Prem Nagar, Morinda â€” no payment, no commitment.</p>
             <div className="btns">
               <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Message Us on WhatsApp</a>
               <Link href="/#demo" className="btn" style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1.5px solid rgba(255,255,255,0.3)" }}>Book Free Demo</Link>
@@ -127,10 +127,11 @@ export default function AboutPage() {
 
       <footer>
         <div className="wrap footer-bottom">
-          <div>© 2026 Pioneer Education Center. All rights reserved.</div>
-          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>← Back to homepage</Link>
+          <div>Â© 2026 Pioneer Education Center. All rights reserved.</div>
+          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>â† Back to homepage</Link>
         </div>
       </footer>
     </>
   );
 }
+
