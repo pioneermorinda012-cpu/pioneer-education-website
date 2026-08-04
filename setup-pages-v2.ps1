@@ -158,7 +158,7 @@ export default function AboutPage() {
 }
 
 '@
-Set-Content -Path "app\about\page.tsx" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\about\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\about\page.tsx"
 $content = @'
 import { COURSES, getCourse } from "../../data/courses";
@@ -311,7 +311,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 }
 
 '@
-Set-Content -Path "app\courses\[slug]\page.tsx" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\courses\[slug]\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\courses\[slug]\page.tsx"
 $content = @'
 export type Course = {
@@ -434,7 +434,7 @@ export function getCourse(slug: string) {
 }
 
 '@
-Set-Content -Path "app\data\courses.ts" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\data\courses.ts", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\data\courses.ts"
 $content = @'
 "use client";
@@ -1034,7 +1034,7 @@ export default function Home() {
 }
 
 '@
-Set-Content -Path "app\page.tsx" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\page.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\page.tsx"
 $content = @'
 import type { Metadata } from "next";
@@ -1124,7 +1124,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 }
 
 '@
-Set-Content -Path "app\layout.tsx" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\layout.tsx", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\layout.tsx"
 $content = @'
 :root{
@@ -1363,7 +1363,7 @@ $content = @'
   .footer-bottom{display:flex;justify-content:space-between;color:var(--grey);font-size:0.82rem;flex-wrap:wrap;gap:12px;}
 
 '@
-Set-Content -Path "app\globals.css" -Value $content -Encoding UTF8
+[System.IO.File]::WriteAllText("app\globals.css", $content, (New-Object System.Text.UTF8Encoding($true)))
 Write-Host "  Wrote app\globals.css"
 
 Write-Host ""
@@ -1371,5 +1371,5 @@ Write-Host "Done! All files created correctly." -ForegroundColor Green
 Write-Host "Next, copy the 2 image files from the zip into public\images\ manually (instructor.jpg and ielts-classroom.jpg)."
 Write-Host "Then run:"
 Write-Host "  git add ."
-Write-Host "  git commit -m 'Added About page, course detail pages, wired lead form to Sheet'"
+Write-Host "  git commit -m 'Fix encoding, add About/Courses pages'"
 Write-Host "  git push"
