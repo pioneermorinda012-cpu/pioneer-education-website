@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import Chatbot from "../components/Chatbot";
+import Link from "next/link";
 
 function Barcode() {
   // Purely decorative — generated client-side only, after mount, so the
@@ -19,16 +20,19 @@ function Barcode() {
   );
 }
 
+// Same Google Sheet the chatbot saves leads to — keeps everything in one place.
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbwExqnIZvubS7LLWU6ZgNdK73GJDI3jY0fwhLyMlDtNorIfGwotRdRl17wEJX5U9dVYJQ/exec";
+
 export default function Home() {
   const nameRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   const courseRef = useRef<HTMLSelectElement>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  // Opens WhatsApp with the lead's details pre-filled.
-  // NOTE: this does not save the lead anywhere on its own — see the
-  // note in chat about wiring this to Firebase/Google Sheets for real
-  // lead capture and follow-up.
-  function submitLead() {
+  // Saves the lead to the shared Google Sheet, then opens WhatsApp with
+  // the details pre-filled — so every lead is captured even if the
+  // visitor never actually sends the WhatsApp message.
+  async function submitLead() {
     const name = nameRef.current?.value.trim() || "";
     const phone = phoneRef.current?.value.trim() || "";
     const course = courseRef.current?.value || "";
@@ -36,6 +40,22 @@ export default function Home() {
       alert("Please enter your name and mobile number.");
       return;
     }
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      alert("Please enter a valid 10-digit mobile number.");
+      return;
+    }
+    setSubmitting(true);
+    try {
+      await fetch(SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, course, source: "Homepage Demo Form" }),
+      });
+    } catch (e) {
+      console.log("Sheet save error:", e);
+    }
+    setSubmitting(false);
     const msg = `Hi Pioneer Education, I'd like to book a free demo class.%0A%0AName: ${name}%0AMobile: ${phone}%0ACourse: ${course}`;
     window.open("https://wa.me/917380261308?text=" + msg, "_blank");
   }
@@ -50,6 +70,7 @@ export default function Home() {
       <a href="#results">Results</a>
       <a href="#pricing">Pricing</a>
       <a href="#app">Lexio App</a>
+      <a href="/about">About</a>
       <a href="/writing-analyzer">Writing Analyzer</a>
       <a href="#reviews">Reviews</a>
       <a href="#demo">Free Demo</a>
@@ -125,7 +146,7 @@ export default function Home() {
       <p>Every course pairs in-person coaching with practice on the Lexio app, so what you learn in class gets reinforced every single day, not just once a week.</p>
     </div>
     <div className="courses-grid">
-      <div className="course-card">
+      <Link href="/courses/ielts" className="course-card">
         <div className="stamp-num mono">01</div>
         <div className="course-icon" style={{background: 'var(--coral-light)', color: 'var(--coral-dark)'}}>✈️</div>
         <h3>IELTS</h3>
@@ -137,8 +158,8 @@ export default function Home() {
           <li>Expected writing topics</li>
         </ul>
         <span className="go">Explore IELTS →</span>
-      </div>
-      <div className="course-card">
+      </Link>
+      <Link href="/courses/pte" className="course-card">
         <div className="stamp-num mono">02</div>
         <div className="course-icon" style={{background: 'var(--teal-light)', color: 'var(--teal)'}}>💻</div>
         <h3>PTE</h3>
@@ -150,8 +171,8 @@ export default function Home() {
           <li>Exam filling guidance</li>
         </ul>
         <span className="go">Explore PTE →</span>
-      </div>
-      <div className="course-card">
+      </Link>
+      <Link href="/courses/spoken-english" className="course-card">
         <div className="stamp-num mono">03</div>
         <div className="course-icon" style={{background: 'var(--gold-light)', color: 'var(--coral-dark)'}}>💬</div>
         <h3>Spoken English</h3>
@@ -163,8 +184,8 @@ export default function Home() {
           <li>Everyday English</li>
         </ul>
         <span className="go">Explore Spoken English →</span>
-      </div>
-      <div className="course-card">
+      </Link>
+      <Link href="/courses/german" className="course-card">
         <div className="stamp-num mono">04</div>
         <div className="course-icon" style={{background: 'var(--navy)', color: '#fff'}}>🇩🇪</div>
         <h3>German A1–B1</h3>
@@ -176,7 +197,7 @@ export default function Home() {
           <li>Exam preparation</li>
         </ul>
         <span className="go">Explore German →</span>
-      </div>
+      </Link>
     </div>
   </div>
 </section>
@@ -490,7 +511,7 @@ export default function Home() {
             <option>Not sure yet</option>
           </select>
         </div>
-        <button type="button" className="btn btn-coral" style={{width: '100%', justifyContent: 'center', marginTop: '6px'}} onClick={submitLead}>Request Free Demo Class</button>
+        <button type="button" className="btn btn-coral" style={{width: '100%', justifyContent: 'center', marginTop: '6px', opacity: submitting ? 0.6 : 1}} onClick={submitLead} disabled={submitting}>{submitting ? 'Saving...' : 'Request Free Demo Class'}</button>
         <div className="lead-note">We'll only use your number to contact you about classes.</div>
       </div>
     </div>
