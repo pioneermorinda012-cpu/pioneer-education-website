@@ -10,9 +10,7 @@ TEACHER:
 
 LOCATIONS:
 - Morinda: 1st Floor Kalsi Cafe, Opp. Khalsa Girls College, Morinda 140101
-- Kurali: Ward No. 6, Near Veer Ji Spare Parts, Siswan Road, Kurali
-- Phone Morinda: +91 75892-10921
-- Phone Kurali: +91 98559-91214
+- Phone Morinda: +91 73802-61308
 
 COURSES & PRICING:
 1. Material Access – ₹499/month (study material, quizzes, self-paced, no live classes)
@@ -144,7 +142,7 @@ Q: How do I enroll?
 A: WhatsApp us at +91 73802 61308 or book a free demo. We guide you from there.
 
 Q: Do you have branches?
-A: Yes! We have centres in Morinda (Opp. Khalsa Girls College) and Kurali (Siswan Road).
+A: We have one centre in Morinda (Opp. Khalsa Girls College).
 
 Q: What social media are you on?
 A: Find all our links at https://linktr.ee/PioneerEducationCenter

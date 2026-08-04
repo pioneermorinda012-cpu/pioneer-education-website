@@ -1,15 +1,15 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Pioneer Education â€” IELTS, PTE, Spoken English & German | Morinda, Punjab",
+  title: "Pioneer Education — IELTS, PTE, Spoken English & German | Morinda, Punjab",
   description:
-    "Pioneer Education Center, Prem Nagar, Morinda, Punjab â€” IELTS, PTE, Spoken English & German coaching since 2017, led by Narinder Singh. Rated 5.0 stars from 125+ students. Practice with our Lexio app and real test simulations.",
+    "Pioneer Education Center, Prem Nagar, Morinda, Punjab — IELTS, PTE, Spoken English & German coaching since 2017, led by Narinder Singh. Rated 5.0 stars from 125+ students. Practice with our Lexio app and real test simulations.",
   metadataBase: new URL("https://pioneermorinda.com"),
   openGraph: {
-    title: "Pioneer Education â€” IELTS, PTE, Spoken English & German",
+    title: "Pioneer Education — IELTS, PTE, Spoken English & German",
     description:
-      "IELTS, PTE, Spoken English & German coaching in Morinda, Punjab. 5.0â˜… rating, 125+ reviews. Free demo class available.",
+      "IELTS, PTE, Spoken English & German coaching in Morinda, Punjab. 5.0★ rating, 125+ reviews. Free demo class available.",
     url: "https://pioneermorinda.com",
     siteName: "Pioneer Education Center",
     locale: "en_IN",
@@ -23,9 +23,9 @@ const jsonLd = {
   name: "Pioneer Education Center",
   alternateName: "Pioneer Spoken English IELTS",
   description:
-    "IELTS, PTE, Spoken English and German A1â€“B1 coaching in Prem Nagar, Morinda, Punjab. Established 2017.",
+    "IELTS, PTE, Spoken English and German A1–B1 coaching in Prem Nagar, Morinda, Punjab. Established 2017.",
   url: "https://pioneermorinda.com",
-  telephone: "+91-98559-91214",
+  telephone: "+91-73802-61308",
   foundingDate: "2017",
   address: {
     "@type": "PostalAddress",
@@ -60,7 +60,7 @@ const jsonLd = {
       { "@type": "Course", name: "IELTS Coaching", description: "Academic & General Training preparation for all four modules.", provider: { "@type": "Organization", name: "Pioneer Education Center" } },
       { "@type": "Course", name: "PTE Coaching", description: "Computer-delivered test strategy and timed practice.", provider: { "@type": "Organization", name: "Pioneer Education Center" } },
       { "@type": "Course", name: "Spoken English", description: "Confidence-first speaking practice, beginner to advanced.", provider: { "@type": "Organization", name: "Pioneer Education Center" } },
-      { "@type": "Course", name: "German A1â€“B1", description: "Structured German for study and work visas.", provider: { "@type": "Organization", name: "Pioneer Education Center" } },
+      { "@type": "Course", name: "German A1–B1", description: "Structured German for study and work visas.", provider: { "@type": "Organization", name: "Pioneer Education Center" } },
     ],
   },
 };

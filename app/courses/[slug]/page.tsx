@@ -1,4 +1,4 @@
-﻿import { COURSES, getCourse } from "../../data/courses";
+import { COURSES, getCourse } from "../../data/courses";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -8,9 +8,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const course = getCourse(params.slug);
-  if (!course) return { title: "Course Not Found â€” Pioneer Education" };
+  if (!course) return { title: "Course Not Found — Pioneer Education" };
   return {
-    title: `${course.name} â€” Pioneer Education, Morinda`,
+    title: `${course.name} — Pioneer Education, Morinda`,
     description: course.tagline + " " + course.description.slice(0, 120) + "...",
   };
 }
@@ -23,7 +23,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
       <main style={{ padding: "80px 24px", textAlign: "center" }}>
         <h1 style={{ fontFamily: "Fraunces, serif", fontSize: "2rem", color: "var(--navy)" }}>Course not found</h1>
         <p style={{ color: "var(--grey)", marginTop: "12px" }}>
-          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>â† Back to homepage</Link>
+          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>← Back to homepage</Link>
         </p>
       </main>
     );
@@ -52,7 +52,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
       <section style={{ paddingBottom: 0 }}>
         <div className="wrap">
-          <Link href="/#courses" style={{ color: "var(--coral)", fontWeight: 700, fontSize: "0.85rem" }}>â† All Courses</Link>
+          <Link href="/#courses" style={{ color: "var(--coral)", fontWeight: 700, fontSize: "0.85rem" }}>← All Courses</Link>
           <div style={{ display: "flex", alignItems: "center", gap: "16px", marginTop: "16px", marginBottom: "12px" }}>
             <div style={{ fontSize: "2.4rem" }}>{course.icon}</div>
             <h1 style={{ fontFamily: "Fraunces, serif", fontSize: "2.3rem", fontWeight: 600, color: "var(--navy)" }}>{course.name}</h1>
@@ -95,7 +95,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
             <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
               {course.forWhom.map((f, i) => (
                 <li key={i} style={{ fontSize: "0.95rem", color: "var(--ink)", display: "flex", gap: "10px" }}>
-                  <span style={{ color: "var(--coral)", fontWeight: 700 }}>âœ“</span>{f}
+                  <span style={{ color: "var(--coral)", fontWeight: 700 }}>✓</span>{f}
                 </li>
               ))}
             </ul>
@@ -128,7 +128,7 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
         <div className="wrap">
           <div className="final-cta">
             <h2>Ready to start {course.name}?</h2>
-            <p>Book a free demo class â€” no payment, no commitment.</p>
+            <p>Book a free demo class — no payment, no commitment.</p>
             <div className="btns">
               <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Message Us on WhatsApp</a>
               <Link href="/#demo" className="btn" style={{ background: "rgba(255,255,255,0.1)", color: "#fff", border: "1.5px solid rgba(255,255,255,0.3)" }}>Book Free Demo</Link>
@@ -139,8 +139,8 @@ export default function CoursePage({ params }: { params: { slug: string } }) {
 
       <footer>
         <div className="wrap footer-bottom">
-          <div>Â© 2026 Pioneer Education Center. All rights reserved.</div>
-          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>â† Back to homepage</Link>
+          <div>© 2026 Pioneer Education Center. All rights reserved.</div>
+          <Link href="/" style={{ color: "var(--coral)", fontWeight: 700 }}>← Back to homepage</Link>
         </div>
       </footer>
     </>
