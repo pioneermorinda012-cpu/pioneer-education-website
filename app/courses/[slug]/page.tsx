@@ -6,8 +6,11 @@ export function generateStaticParams() {
   return COURSES.map((c) => ({ slug: c.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const course = getCourse(params.slug);
+type ParamsPromise = Promise<{ slug: string }>;
+
+export async function generateMetadata({ params }: { params: ParamsPromise }): Promise<Metadata> {
+  const { slug } = await params;
+  const course = getCourse(slug);
   if (!course) return { title: "Course Not Found — Pioneer Education" };
   return {
     title: `${course.name} — Pioneer Education, Morinda`,
@@ -15,8 +18,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function CoursePage({ params }: { params: { slug: string } }) {
-  const course = getCourse(params.slug);
+export default async function CoursePage({ params }: { params: ParamsPromise }) {
+  const { slug } = await params;
+  const course = getCourse(slug);
 
   if (!course) {
     return (
