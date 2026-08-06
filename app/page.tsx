@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Chatbot from "../components/Chatbot";
 import Link from "next/link";
+import Image from "next/image";
 
 function Barcode() {
   // Purely decorative — generated client-side only, after mount, so the
@@ -310,7 +311,7 @@ export default function Home() {
       </div>
     </div>
     <div style={{marginTop: '20px', borderRadius: '20px', overflow: 'hidden', position: 'relative'}}>
-      <img src="/images/ielts-classroom.jpg" alt="IELTS Writing Task 1 class in progress at Pioneer Education Center, Morinda" style={{width: '100%', display: 'block'}} />
+      <Image src="/images/ielts-classroom.jpg" alt="IELTS Writing Task 1 class in progress at Pioneer Education Center, Morinda" width={2560} height={1441} style={{width: '100%', height: 'auto', display: 'block'}} />
       <div style={{position: 'absolute', left: '0', right: '0', bottom: '0', padding: '40px 24px 18px', background: 'linear-gradient(transparent,rgba(0,0,0,0.75))', color: '#fff', fontSize: '0.88rem', fontWeight: '600'}}>A real IELTS Writing Task 1 session — Prem Nagar, Morinda</div>
     </div>
   </div>
@@ -410,8 +411,8 @@ export default function Home() {
           <div>🎯 &nbsp;1,434+ practice questions with Punjabi explanations</div>
         </div>
         <div style={{marginTop: '28px', display: 'flex', gap: '14px'}}>
-          <a href="#" className="btn" style={{background: '#fff', color: 'var(--coral-dark)'}}>Get the App</a>
-          <a href="#contact" className="btn btn-ghost-light">Ask About Access</a>
+          <a href="https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I'd%20like%20to%20know%20more%20about%20the%20Lexio%20app." target="_blank" rel="noopener noreferrer" className="btn" style={{background: '#fff', color: 'var(--coral-dark)'}}>Ask About the App</a>
+          <a href="#contact" className="btn btn-ghost-light">Book a Demo</a>
         </div>
       </div>
       <div className="phone-mock">
@@ -431,7 +432,7 @@ export default function Home() {
   <div className="wrap instructor">
     <div>
       <div style={{borderRadius: '22px', overflow: 'hidden', marginBottom: '0'}}>
-        <img src="/images/instructor.jpg" alt="Narinder Singh, founder of Pioneer Education Center, Morinda" style={{width: '100%', display: 'block'}} />
+        <Image src="/images/instructor.jpg" alt="Narinder Singh, founder of Pioneer Education Center, Morinda" width={1280} height={1280} style={{width: '100%', height: 'auto', display: 'block'}} />
       </div>
     </div>
     <div>
