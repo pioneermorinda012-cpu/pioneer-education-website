@@ -28,15 +28,24 @@ export default function Home() {
   const nameRef = useRef<HTMLInputElement>(null);
   const phoneRef = useRef<HTMLInputElement>(null);
   const courseRef = useRef<HTMLSelectElement>(null);
+  const budgetRef = useRef<HTMLSelectElement>(null);
+  const timingRef = useRef<HTMLSelectElement>(null);
+  const levelRef = useRef<HTMLSelectElement>(null);
+  const tongueRef = useRef<HTMLSelectElement>(null);
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState<{ name: string } | null>(null);
 
-  // Saves the lead to the shared Google Sheet, then opens WhatsApp with
-  // the details pre-filled — so every lead is captured even if the
-  // visitor never actually sends the WhatsApp message.
+  // Saves the lead to the shared Google Sheet (which also emails a
+  // notification — see the Apps Script). Shows an inline thank-you state
+  // instead of forcing the visitor into WhatsApp for a second click.
   async function submitLead() {
     const name = nameRef.current?.value.trim() || "";
     const phone = phoneRef.current?.value.trim() || "";
     const course = courseRef.current?.value || "";
+    const budget = budgetRef.current?.value || "";
+    const timing = timingRef.current?.value || "";
+    const level = levelRef.current?.value || "";
+    const motherTongue = tongueRef.current?.value || "";
     if (!name || !phone) {
       alert("Please enter your name and mobile number.");
       return;
@@ -51,14 +60,13 @@ export default function Home() {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, course, source: "Homepage Demo Form" }),
+        body: JSON.stringify({ name, phone, course, budget, timing, level, motherTongue, source: "Homepage Demo Form" }),
       });
     } catch (e) {
       console.log("Sheet save error:", e);
     }
     setSubmitting(false);
-    const msg = `Hi Pioneer Education, I'd like to book a free demo class.%0A%0AName: ${name}%0AMobile: ${phone}%0ACourse: ${course}`;
-    window.open("https://wa.me/917380261308?text=" + msg, "_blank");
+    setSubmitted({ name });
   }
 
   return (
@@ -493,6 +501,14 @@ export default function Home() {
           <div>✓ &nbsp;Refer &amp; Earn ₹500</div>
         </div>
       </div>
+      {submitted ? (
+        <div style={{textAlign: 'center', padding: '30px 12px'}}>
+          <div style={{fontSize: '2.4rem', marginBottom: '10px'}}>✅</div>
+          <h3 style={{color: 'var(--navy)', marginBottom: '10px'}}>Thanks, {submitted.name}!</h3>
+          <p style={{color: 'var(--grey)', fontSize: '0.95rem', marginBottom: '18px'}}>We've got your details — our team will contact you shortly to confirm your free demo slot.</p>
+          <a href="https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I%20just%20submitted%20the%20demo%20form%20and%20wanted%20to%20follow%20up." target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{fontSize: '0.85rem'}}>Prefer to talk now? Message us on WhatsApp</a>
+        </div>
+      ) : (
       <div className="lead-form">
         <div>
           <label htmlFor="lead-name">Your Name</label>
@@ -512,9 +528,45 @@ export default function Home() {
             <option>Not sure yet</option>
           </select>
         </div>
+        <div>
+          <label htmlFor="lead-budget">Budget (monthly)</label>
+          <select id="lead-budget" ref={budgetRef}>
+            <option>₹499 — Material Access</option>
+            <option>₹2,499 — Group Class</option>
+            <option>₹4,999 — 1-to-1 Coaching</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="lead-timing">Preferred Timing</label>
+          <select id="lead-timing" ref={timingRef}>
+            <option>Morning</option>
+            <option>Evening</option>
+            <option>Weekend</option>
+            <option>Flexible / Online</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="lead-level">Current English Level</label>
+          <select id="lead-level" ref={levelRef}>
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Not sure</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="lead-tongue">Mother Tongue</label>
+          <select id="lead-tongue" ref={tongueRef}>
+            <option>Punjabi</option>
+            <option>Hindi</option>
+            <option>Other</option>
+          </select>
+        </div>
         <button type="button" className="btn btn-coral" style={{width: '100%', justifyContent: 'center', marginTop: '6px', opacity: submitting ? 0.6 : 1}} onClick={submitLead} disabled={submitting}>{submitting ? 'Saving...' : 'Request Free Demo Class'}</button>
         <div className="lead-note">We'll only use your number to contact you about classes.</div>
       </div>
+      )}
     </div>
   </div>
 </section>
