@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Required by Google Play for the Lexio app. Low priority — these
     // exist for compliance and for users who need them, not for search.
     { url: `${BASE_URL}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/delete-account`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 
