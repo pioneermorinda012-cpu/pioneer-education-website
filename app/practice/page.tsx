@@ -23,8 +23,10 @@ export default async function PracticeHome({
   const label = SKILLS.find((s) => s.code === active)!.label;
   const ready = mine.filter((t) => t.keyed).length;
 
+  const track = active === "GR" || active === "GL" ? "gt" : "ac";
+
   return (
-    <div className="wrap">
+    <div className="wrap" data-track={track}>
       <nav className="pr-skills" aria-label="Choose a skill">
         {SKILLS.map((s) =>
           s.available ? (

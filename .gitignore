@@ -42,8 +42,11 @@ next-env.d.ts
 
 .vercel
 
-# practice media — 112 MB of audio, served from Supabase Storage instead
-/public/practice/media/
+# practice media: the audio is ~110 MB and is served from Supabase Storage,
+# but the reading and listening diagrams are small and must ship with the site
+/public/practice/media/**/*.mp3
+/public/practice/media/**/*.m4a
+/public/practice/media/**/*.wav
 
 # working folders, not part of the site
 /_to_delete/

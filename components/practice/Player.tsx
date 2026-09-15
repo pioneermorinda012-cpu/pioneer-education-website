@@ -38,10 +38,13 @@ const mmss = (t: number) =>
   `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
 
 /* ================================================================= */
-export default function Player({ test }: { test: Test }) {
+export default function Player(
+  { test, student }: { test: Test; student?: { name: string; code: string } },
+) {
+  // General Training runs blue, Academic runs coral — see practice.css
+  const track = test.catalogue.skillLabel.startsWith("General") ? "gt" : "ac";
   const [started, setStarted] = useState(false);
-  const [name, setName] = useState("");
-  const [warn, setWarn] = useState(false);
+  const [name] = useState(student?.name ?? "");
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
   const [left, setLeft] = useState(test.minutes * 60);
@@ -99,29 +102,17 @@ export default function Player({ test }: { test: Test }) {
   /* ================= start screen ================= */
   if (!started) {
     return (
-      <div className="wrap" style={{ maxWidth: 720, paddingTop: 36, paddingBottom: 60 }}>
+      <div className="wrap" data-track={track} style={{ maxWidth: 720, paddingTop: 36, paddingBottom: 60 }}>
         <div className="pr-rows" style={{ padding: 28 }}>
           <h1 style={{ fontFamily: "'Fraunces',serif", fontSize: "1.9rem", color: "var(--navy)", marginBottom: 4 }}>
             {test.catalogue.skillLabel} — {test.catalogue.label}
           </h1>
           <p style={{ color: "var(--grey)", marginBottom: 22 }}>{test.blurb}</p>
 
-          <label htmlFor="student-name" style={{ display: "block", fontWeight: 700, fontSize: "0.78rem",
-            letterSpacing: "0.06em", textTransform: "uppercase", color: "var(--grey)", marginBottom: 6 }}>
-            Your name
-          </label>
-          <input
-            id="student-name" type="text" value={name}
-            onChange={(e) => { setName(e.target.value); if (e.target.value.trim()) setWarn(false); }}
-            placeholder="Enter your full name" autoComplete="name"
-            style={{ width: "100%", padding: "12px 14px", border: "1.5px solid var(--grey-light)",
-              borderRadius: 10, fontSize: 16, fontFamily: "inherit", marginBottom: warn ? 8 : 18 }}
-          />
-          {warn && (
-            <p style={{ color: "#A3251A", fontSize: "0.85rem", marginBottom: 14 }}>
-              Please enter your name so your teacher can find your result.
-            </p>
-          )}
+          <div className="pr-note" style={{ marginTop: 0, marginBottom: 20 }}>
+            Signed in as <b>{name || "—"}</b>{student?.code ? <> · {student.code}</> : null}.
+            Your result is saved against this account.
+          </div>
 
           <ul style={{ paddingLeft: 20, color: "var(--grey)", lineHeight: 1.8, fontSize: "0.92rem", marginBottom: 24 }}>
             {test.rules.map((r, i) => (
@@ -131,7 +122,7 @@ export default function Player({ test }: { test: Test }) {
 
           <button
             className="btn btn-coral" type="button"
-            onClick={() => (name.trim() ? setStarted(true) : setWarn(true))}
+            onClick={() => setStarted(true)}
           >
             Start test →
           </button>
@@ -148,7 +139,7 @@ export default function Player({ test }: { test: Test }) {
   const lowTime = left <= 300;
 
   return (
-    <div className="wrap" style={{ paddingBottom: 60 }}>
+    <div className="wrap" data-track={track} style={{ paddingBottom: 60 }}>
       {/* timer + tabs */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
         <div className="pr-skills" style={{ paddingTop: 0, flex: 1 }}>
@@ -574,6 +565,7 @@ function QuestionBlock({
 /* ================= results ================= */
 function Results({ test, result, name }: { test: Test; result: Marked; name: string }) {
   const [showReview, setShowReview] = useState(false);
+  const track = test.catalogue.skillLabel.startsWith("General") ? "gt" : "ac";
   const share = () => {
     const msg =
       `*Pioneer Education Center*\n${test.catalogue.skillLabel} — ${test.catalogue.label}\n\n` +
@@ -582,7 +574,7 @@ function Results({ test, result, name }: { test: Test; result: Marked; name: str
   };
 
   return (
-    <div className="wrap" style={{ maxWidth: 760, paddingTop: 30, paddingBottom: 60 }}>
+    <div className="wrap" data-track={track} style={{ maxWidth: 760, paddingTop: 30, paddingBottom: 60 }}>
       <div className="pr-rows" style={{ padding: 28, textAlign: "center" }}>
         <div style={{ width: 132, height: 132, borderRadius: "50%", border: "5px double var(--coral)",
           margin: "0 auto 18px", display: "flex", flexDirection: "column", alignItems: "center",

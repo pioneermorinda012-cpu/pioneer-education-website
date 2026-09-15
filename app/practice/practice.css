@@ -113,3 +113,19 @@
 .pr-out { background: none; border: none; font: inherit; font-size: 0.78rem; color: var(--grey);
   cursor: pointer; padding: 6px 4px; text-decoration: underline; min-height: 40px; }
 .pr-out:hover { color: var(--coral-dark); }
+
+/* ── General Training: blue, so a student never confuses the two tracks ──
+   The whole practice section is built on the site tokens, so re-pointing
+   three of them here re-colours every button, chip, tab and highlight
+   without touching a single component. */
+[data-track="gt"] {
+  --coral: #1565C0;
+  --coral-dark: #0D47A1;
+  --coral-light: #E3F2FD;
+}
+[data-track="gt"] .btn-coral { background: #1565C0; border-color: #1565C0; }
+[data-track="gt"] .btn-coral:hover { background: #0D47A1; border-color: #0D47A1; }
+[data-track="gt"] .btn-outline { color: #0D47A1; border-color: #BBDEFB; }
+[data-track="gt"] .btn-outline:hover { background: #E3F2FD; border-color: #1565C0; }
+[data-track="gt"] .pr-note { background: #E3F2FD; border-color: #BBDEFB; }
+[data-track="gt"] .pr-band.mid { background: #E3F2FD; color: #0D47A1; }

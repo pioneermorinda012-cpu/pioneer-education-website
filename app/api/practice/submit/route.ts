@@ -19,11 +19,25 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Missing test id or answers." }, { status: 400 });
   }
 
-  let test, key: AnswerKey;
+  // Read the paper and the key separately, so a failure says which one broke.
+  // Collapsing both into "that test could not be found" hid a real production
+  // fault once already.
+  let test;
   try {
-    [test, key] = await Promise.all([getTest(testId), getKey(testId)]);
+    test = await getTest(testId);
   } catch {
-    return NextResponse.json({ error: "That test could not be found." }, { status: 404 });
+    return NextResponse.json(
+      { error: `The paper "${testId}" could not be read on the server.` }, { status: 404 },
+    );
+  }
+  let key: AnswerKey;
+  try {
+    key = await getKey(testId);
+  } catch {
+    return NextResponse.json(
+      { error: "The answer key for this test has not been added yet, so it cannot be marked." },
+      { status: 409 },
+    );
   }
 
   if (!Object.keys(key).length) {
