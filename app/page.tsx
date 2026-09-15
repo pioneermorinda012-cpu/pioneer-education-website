@@ -80,6 +80,7 @@ export default function Home() {
       <a href="#pricing">Pricing</a>
       <a href="#app">Lexio App</a>
       <a href="/about">About</a>
+      <a href="/practice">Practice Tests</a>
       <a href="/writing-analyzer">Writing Analyzer</a>
       <a href="#reviews">Reviews</a>
       <a href="#demo">Free Demo</a>
