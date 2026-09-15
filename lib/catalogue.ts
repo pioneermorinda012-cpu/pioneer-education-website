@@ -44,6 +44,15 @@ export async function getTest(id: string) {
   const raw = await fs.readFile(path.join(CONTENT, "tests", `${id}.json`), "utf8");
   const test = JSON.parse(raw);
 
+  // The papers still carry the id they were authored under ("plus1_R1"), while
+  // the files, the catalogue and the answer keys all use the library id
+  // ("ar-a1"). The player sends test.id back when it submits, so leaving the
+  // old one in place made every single test fail to mark. One source of truth:
+  // the id the file is stored under wins.
+  test.internalId = test.id;
+  test.id = id;
+  if (test.catalogue) test.catalogue.id = id;
+
   // Each paper stores site-relative media paths like /practice/media/al-a1/audio_main.mp3.
   // The recordings are far too large to keep in the repository, so when a media host is
   // configured those paths are re-pointed at it. With the variable unset the local files
