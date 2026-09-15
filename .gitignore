@@ -51,3 +51,7 @@ next-env.d.ts
 # working folders, not part of the site
 /_to_delete/
 /Claude outputs/
+
+# audio waiting to be processed by "npm run add-audio"
+/new-audio/*
+!/new-audio/README.txt

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "add-audio": "node scripts/add-audio.mjs"
   },
   "dependencies": {
     "mammoth": "^1.12.3",
