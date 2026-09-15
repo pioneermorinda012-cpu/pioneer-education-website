@@ -41,3 +41,10 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
+
+# practice media — 112 MB of audio, served from Supabase Storage instead
+/public/practice/media/
+
+# working folders, not part of the site
+/_to_delete/
+/Claude outputs/

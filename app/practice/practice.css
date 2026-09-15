@@ -1,0 +1,83 @@
+/* Practice section — uses the site tokens from globals.css
+   (--coral, --cream, --navy, --ink, --grey …) so it stays in the
+   Pioneer look rather than introducing a second visual language. */
+
+.pr-shell { min-height: 100vh; background: var(--cream); }
+
+/* ── section bar ───────────────────────────────────────── */
+.pr-bar { background: var(--paper); border-bottom: 1px solid var(--grey-light); position: sticky; top: 0; z-index: 90; }
+.pr-bar-in { max-width: 1180px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; gap: 16px; }
+.pr-bar .home { display: flex; align-items: center; gap: 10px; font-weight: 800; color: var(--navy); font-size: 1rem; }
+.pr-bar .home .mk { width: 32px; height: 32px; border-radius: 9px; background: var(--coral); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; }
+.pr-bar .sep { color: var(--grey-light); }
+.pr-bar .here { font-weight: 600; color: var(--grey); font-size: 0.95rem; }
+.pr-bar .grow { flex: 1; }
+.pr-who { display: flex; align-items: center; gap: 9px; font-size: 0.88rem; }
+.pr-who .av { width: 30px; height: 30px; border-radius: 50%; background: var(--coral-light); color: var(--coral-dark);
+  display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.75rem; }
+.pr-who .nm { font-weight: 600; color: var(--navy); line-height: 1.2; }
+.pr-who .cd { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--grey); }
+
+/* ── skill tabs ────────────────────────────────────────── */
+.pr-skills { display: flex; gap: 8px; overflow-x: auto; padding: 20px 0 0; scrollbar-width: none; }
+.pr-skills::-webkit-scrollbar { display: none; }
+.pr-skills a, .pr-skills span {
+  flex: 0 0 auto; padding: 9px 18px; border-radius: 100px; border: 1.5px solid var(--grey-light);
+  background: var(--paper); font-weight: 700; font-size: 0.85rem; color: var(--grey);
+  white-space: nowrap; min-height: 40px; display: inline-flex; align-items: center;
+}
+.pr-skills a:hover { border-color: var(--coral); color: var(--coral-dark); }
+.pr-skills a[aria-current="page"] { background: var(--coral); border-color: var(--coral); color: #fff; }
+.pr-skills span { opacity: 0.5; }
+
+/* ── page head ─────────────────────────────────────────── */
+.pr-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 28px 0 2px; }
+.pr-head h1 { font-family: 'Fraunces', serif; font-size: 2rem; color: var(--navy); font-weight: 600; }
+.pr-head .meta { color: var(--grey); font-size: 0.88rem; }
+
+/* ── test rows ─────────────────────────────────────────── */
+.pr-set { margin-top: 30px; }
+.pr-set > h2 { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--grey); margin-bottom: 10px; }
+.pr-rows { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px; overflow: hidden; }
+.pr-row { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center;
+  padding: 15px 18px; border-top: 1px solid var(--gold-light); }
+.pr-row:first-child { border-top: none; }
+.pr-row .nm { font-weight: 700; color: var(--navy); font-size: 1rem; }
+.pr-row .fx { color: var(--grey); font-size: 0.8rem; margin-top: 2px; }
+.pr-row .fx span + span::before { content: "·"; margin: 0 7px; opacity: 0.5; }
+@media (max-width: 640px) {
+  .pr-row { grid-template-columns: 1fr auto; row-gap: 12px; }
+  .pr-row .go { grid-column: 1 / -1; }
+  .pr-row .go .btn { width: 100%; justify-content: center; }
+}
+
+/* ── band chip ─────────────────────────────────────────── */
+.pr-band { display: inline-flex; align-items: baseline; gap: 6px; padding: 5px 11px; border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.85rem;
+  font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pr-band .lb { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+.pr-band.hi   { background: #E6F4EC; color: #0F7A4D; }
+.pr-band.mid  { background: var(--coral-light); color: var(--coral-dark); }
+.pr-band.lo   { background: #FBE9E7; color: #A3251A; }
+.pr-band.none { background: var(--gold-light); color: var(--grey); }
+
+/* ── notice ────────────────────────────────────────────── */
+.pr-note { background: var(--coral-light); border: 1px solid #F3D9C2; border-radius: 12px;
+  padding: 14px 16px; font-size: 0.88rem; color: var(--navy); margin-top: 22px; }
+.pr-note b { font-weight: 700; }
+
+/* ── trademark footer ──────────────────────────────────── */
+.pr-legal { border-top: 1px solid var(--grey-light); background: var(--paper); margin-top: 52px;
+  padding: 26px 0 34px; }
+.pr-legal .in { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.pr-legal p { font-size: 0.74rem; color: var(--grey); line-height: 1.65; max-width: 78ch; }
+.pr-legal p + p { margin-top: 8px; }
+.pr-legal b { color: var(--navy); font-weight: 700; }
+
+/* ── reading split view ────────────────────────────────── */
+@media (min-width: 900px) {
+  .pr-split { grid-template-columns: 1fr 1fr !important; gap: 18px !important; }
+  .pr-split > * { min-width: 0; }
+}
