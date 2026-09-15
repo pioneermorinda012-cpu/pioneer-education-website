@@ -13,7 +13,7 @@ create extension if not exists "pgcrypto";
 create table if not exists students (
   id           uuid primary key default gen_random_uuid(),
   code         text unique not null,          -- e.g. 'PEC-2431', what they type to sign in
-  pin_hash     text not null,                 -- bcrypt; never store the PIN itself
+  pin_hash     text not null,                 -- PBKDF2-SHA256, written by the teacher page; never the PIN itself
   full_name    text not null,
   batch        text,                          -- 'Morning', 'Evening' …
   track        text check (track in ('academic','gt')) default 'academic',

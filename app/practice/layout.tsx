@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { readSession, COOKIE } from "@/lib/session";
+import SignOut from "@/components/practice/SignOut";
 import "./practice.css";
 
 export const metadata: Metadata = {
@@ -10,7 +13,15 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function PracticeLayout({ children }: { children: React.ReactNode }) {
+function initials(name: string): string {
+  return name.trim().split(/\s+/).slice(0, 2).map((w) => w[0]?.toUpperCase() ?? "").join("") || "?";
+}
+
+export default async function PracticeLayout({ children }: { children: React.ReactNode }) {
+  const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
+  const store = await cookies();
+  const session = secret ? await readSession(store.get(COOKIE)?.value, secret) : null;
+
   return (
     <div className="pr-shell">
       <div className="pr-bar">
@@ -22,14 +33,17 @@ export default function PracticeLayout({ children }: { children: React.ReactNode
           <span className="sep">/</span>
           <Link href="/practice" className="here">Practice Tests</Link>
           <span className="grow" />
-          <div className="pr-who">
-            <span className="av">SK</span>
-            <span>
-              <span className="nm">Simranjeet Kaur</span>
-              <br />
-              <span className="cd">PEC-2431</span>
-            </span>
-          </div>
+          {session && (
+            <div className="pr-who">
+              <span className="av">{initials(session.name)}</span>
+              <span>
+                <span className="nm">{session.name}</span>
+                <br />
+                <span className="cd">{session.code}</span>
+              </span>
+              <SignOut />
+            </div>
+          )}
         </div>
       </div>
 

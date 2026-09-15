@@ -81,3 +81,35 @@
   .pr-split { grid-template-columns: 1fr 1fr !important; gap: 18px !important; }
   .pr-split > * { min-width: 0; }
 }
+
+/* ── sign-in / teacher forms ───────────────────────────── */
+.pr-signin { max-width: 420px; margin: 56px auto; background: var(--paper);
+  border: 1px solid var(--grey-light); border-radius: 16px; padding: 30px 26px; }
+.pr-signin h1 { font-family: 'Fraunces', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 6px; }
+.pr-signin .lede { color: var(--grey); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+.pr-signin label, .pr-form label { display: block; font-weight: 700; font-size: 0.72rem;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); margin: 14px 0 6px; }
+.pr-signin input, .pr-form input, .pr-form select {
+  width: 100%; font: inherit; font-size: 16px; padding: 11px 13px; border-radius: 10px;
+  border: 1.5px solid var(--grey-light); background: var(--paper); color: var(--navy);
+  -webkit-appearance: none; appearance: none; }
+.pr-signin input:focus, .pr-form input:focus, .pr-form select:focus {
+  outline: none; border-color: var(--coral); }
+.pr-signin .btn { width: 100%; justify-content: center; margin-top: 20px; min-height: 48px; }
+.pr-help { font-size: 0.8rem; color: var(--grey); margin-top: 18px; line-height: 1.6; }
+.pr-err { background: #FBE9E7; border: 1px solid #EFC3BD; color: #A3251A;
+  border-radius: 10px; padding: 11px 13px; font-size: 0.85rem; margin-top: 16px; line-height: 1.5; }
+
+.pr-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 4px 16px; background: var(--paper); border: 1px solid var(--grey-light);
+  border-radius: 16px; padding: 18px 20px 22px; }
+.pr-form-go { display: flex; align-items: flex-end; }
+.pr-form-go .btn { width: 100%; justify-content: center; margin-top: 14px; min-height: 46px; }
+.pr-off { font-size: 0.62rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gold-light); color: var(--grey); padding: 2px 8px; border-radius: 100px;
+  vertical-align: middle; margin-left: 6px; }
+
+/* ── who is signed in ──────────────────────────────────── */
+.pr-out { background: none; border: none; font: inherit; font-size: 0.78rem; color: var(--grey);
+  cursor: pointer; padding: 6px 4px; text-decoration: underline; min-height: 40px; }
+.pr-out:hover { color: var(--coral-dark); }
