@@ -1,13 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { getTest, getKey } from "@/lib/catalogue";
 import { markAttempt, type AnswerKey, type StudentAnswers } from "@/lib/marking";
+import { saveAttempt, attemptsReady } from "@/lib/attempts";
+import { readSession, COOKIE } from "@/lib/session";
 
 /**
  * The student's answers come in, the band score goes out.
  * The answer key is read here on the server and never leaves it.
  */
 export async function POST(req: NextRequest) {
-  let body: { testId?: string; answers?: StudentAnswers };
+  let body: { testId?: string; answers?: StudentAnswers; secondsUsed?: number };
   try {
     body = await req.json();
   } catch {
@@ -56,8 +59,28 @@ export async function POST(req: NextRequest) {
     test.total
   );
 
-  // TODO(next): save this attempt to Supabase against the signed-in student,
-  // so the teacher dashboard and progress chart have something to read.
+  // Record it against the signed-in student. A failure here must not cost the
+  // student their result — they have just sat a 40-question paper — so the
+  // score is returned either way and the page says whether it was kept.
+  let saved = false;
+  try {
+    const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
+    const store = await cookies();
+    const session = secret ? await readSession(store.get(COOKIE)?.value, secret) : null;
+    if (session && attemptsReady()) {
+      await saveAttempt({
+        student_id: session.sid,
+        test_id: testId,
+        skill: String(test.catalogue?.skill ?? ""),
+        result,
+        answers: answers as Record<string, unknown>,
+        seconds_used: typeof body.secondsUsed === "number" ? body.secondsUsed : undefined,
+      });
+      saved = true;
+    }
+  } catch (e) {
+    console.error("could not save attempt:", (e as Error).message);
+  }
 
-  return NextResponse.json(result);
+  return NextResponse.json({ ...result, saved });
 }

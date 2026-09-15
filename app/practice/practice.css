@@ -129,3 +129,26 @@
 [data-track="gt"] .btn-outline:hover { background: #E3F2FD; border-color: #1565C0; }
 [data-track="gt"] .pr-note { background: #E3F2FD; border-color: #BBDEFB; }
 [data-track="gt"] .pr-band.mid { background: #E3F2FD; color: #0D47A1; }
+
+/* ── results ───────────────────────────────────────────── */
+.pr-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+.pr-stat { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 14px;
+  padding: 16px 14px; text-align: center; }
+.pr-stat .v { display: block; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+  font-size: 1.7rem; color: var(--navy); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.pr-stat .k { display: block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--grey); margin-top: 5px; }
+@media (max-width: 460px) { .pr-stat .v { font-size: 1.4rem; } }
+
+.pr-chart { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px;
+  padding: 16px 14px; color: var(--navy); }
+.pr-chart svg { width: 100%; height: auto; display: block; }
+
+.pr-meter { width: 110px; height: 9px; border-radius: 5px; background: var(--gold-light); overflow: hidden; }
+.pr-meter i { display: block; height: 100%; border-radius: 5px; background: var(--coral); }
+@media (max-width: 640px) { .pr-meter { width: 100%; } }
+.pr-mine { font-size: 0.78rem; font-weight: 700; color: var(--coral-dark);
+  padding: 8px 12px; border-radius: 100px; border: 1.5px solid var(--coral-light);
+  white-space: nowrap; min-height: 38px; display: inline-flex; align-items: center; }
+.pr-mine:hover { background: var(--coral-light); border-color: var(--coral); }
+@media (max-width: 560px) { .pr-who .nm, .pr-who .cd { display: none; } }

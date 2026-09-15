@@ -68,7 +68,7 @@ export default function Player(
       const res = await fetch("/api/practice/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ testId: test.id, answers }),
+        body: JSON.stringify({ testId: test.id, answers, secondsUsed: test.minutes * 60 - left }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Marking failed.");

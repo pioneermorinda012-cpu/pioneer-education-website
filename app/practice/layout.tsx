@@ -41,6 +41,7 @@ export default async function PracticeLayout({ children }: { children: React.Rea
                 <br />
                 <span className="cd">{session.code}</span>
               </span>
+              <Link href="/practice/results" className="pr-mine">My results</Link>
               <SignOut />
             </div>
           )}
