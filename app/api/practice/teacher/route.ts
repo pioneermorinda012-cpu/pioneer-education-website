@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   listStudents, createStudent, setStudentActive, setStudentPin, supabaseReady,
 } from "@/lib/students";
+import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
+import { getCatalogue } from "@/lib/catalogue";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
 } from "@/lib/session";
@@ -38,11 +40,29 @@ export async function GET(req: NextRequest) {
     });
   }
   if (!(await signedIn(req))) return NextResponse.json({ configured: true, authed: false });
+
+  // ?student=<id> returns one student's full history; otherwise the overview.
+  const who = req.nextUrl.searchParams.get("student");
   try {
-    return NextResponse.json({ configured: true, authed: true, students: await listStudents() });
+    if (who) {
+      const [students, attempts, catalogue] = await Promise.all([
+        listStudents(), attemptsForStudent(who), getCatalogue(),
+      ]);
+      const student = students.find((s) => s.id === who) ?? null;
+      const names: Record<string, string> = {};
+      for (const c of catalogue) names[c.id] = c.name;
+      return NextResponse.json({ configured: true, authed: true, student, attempts, names });
+    }
+    const [students, attempts, catalogue] = await Promise.all([
+      listStudents(), recentAttempts(), getCatalogue(),
+    ]);
+    const names: Record<string, string> = {};
+    for (const c of catalogue) names[c.id] = c.name;
+    return NextResponse.json({ configured: true, authed: true, students, attempts, names });
   } catch (e) {
     return NextResponse.json(
-      { configured: true, authed: true, students: [], error: String((e as Error).message) },
+      { configured: true, authed: true, students: [], attempts: [], names: {},
+        error: String((e as Error).message) },
       { status: 200 },
     );
   }
