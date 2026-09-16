@@ -151,4 +151,47 @@
   padding: 8px 12px; border-radius: 100px; border: 1.5px solid var(--coral-light);
   white-space: nowrap; min-height: 38px; display: inline-flex; align-items: center; }
 .pr-mine:hover { background: var(--coral-light); border-color: var(--coral); }
-@media (max-width: 560px) { .pr-who .nm, .pr-who .cd { display: none; } }
+
+/* ── header on phones and tablets ───────────────────────
+   It was one flex row that could not wrap, so on a narrow screen the student's
+   name, My results and Sign out were pushed off the right edge and clipped.
+   It now wraps, and the pieces that carry no information on a small screen —
+   the word "Pioneer" beside the logo, and the breadcrumb slash — step aside
+   before anything a student actually needs to tap. */
+.pr-bar-in { flex-wrap: wrap; row-gap: 10px; }
+.pr-bar .home { flex-shrink: 0; }
+
+@media (max-width: 860px) {
+  .pr-bar-in { padding: 11px 16px; gap: 12px; }
+  .pr-bar .home .word { display: none; }
+  .pr-bar .sep { display: none; }
+  .pr-bar .here { font-size: 0.9rem; font-weight: 700; color: var(--navy); }
+  .pr-who { gap: 8px; }
+  .pr-who .nm { font-size: 0.82rem; }
+  .pr-mine { font-size: 0.72rem; padding: 7px 11px; }
+  .pr-out { font-size: 0.72rem; }
+}
+
+@media (max-width: 520px) {
+  .pr-bar-in { padding: 10px 14px; gap: 9px; }
+  .pr-who .cd { display: none; }
+  .pr-who .nm { max-width: 8ch; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; display: block; }
+}
+
+/* Under ~400px there is no room for a row of controls beside the name, so the
+   student block takes a line of its own rather than shrinking into nothing. */
+@media (max-width: 400px) {
+  .pr-bar .grow { flex-basis: 100%; height: 0; }
+  .pr-who { width: 100%; justify-content: flex-start; }
+  .pr-who .nm { max-width: none; }
+  .pr-mine { margin-left: auto; }
+}
+
+/* the library's skill tabs and page head also need room on a phone */
+@media (max-width: 520px) {
+  .pr-head h1 { font-size: 1.5rem; }
+  .pr-skills a, .pr-skills span { padding: 8px 14px; font-size: 0.8rem; }
+  .pr-stats { gap: 8px; }
+  .pr-stat { padding: 13px 8px; }
+}

@@ -28,7 +28,7 @@ export default async function PracticeLayout({ children }: { children: React.Rea
         <div className="pr-bar-in">
           <Link href="/" className="home">
             <span className="mk">P</span>
-            Pioneer
+            <span className="word">Pioneer</span>
           </Link>
           <span className="sep">/</span>
           <Link href="/practice" className="here">Practice Tests</Link>
