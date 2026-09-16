@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "add-audio": "node scripts/add-audio.mjs"
+    "add-audio": "node scripts/add-audio.mjs",
+    "add-test": "node scripts/add-test.mjs"
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",

@@ -55,3 +55,7 @@ next-env.d.ts
 # audio waiting to be processed by "npm run add-audio"
 /new-audio/*
 !/new-audio/README.txt
+
+# papers waiting to be installed by "npm run add-test"
+/new-tests/*
+!/new-tests/README.txt
