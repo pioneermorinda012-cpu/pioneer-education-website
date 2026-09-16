@@ -10,6 +10,8 @@
     "add-audio": "node scripts/add-audio.mjs"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@ffprobe-installer/ffprobe": "^2.1.2",
     "mammoth": "^1.12.3",
     "next": "16.2.9",
     "postcss": "^8.5.15",
