@@ -69,26 +69,66 @@ export default function Home() {
     setSubmitted({ name });
   }
 
+  /* Mobile menu. The links were previously just hidden below 860px with
+     nothing to replace them, so a phone had no navigation at all. */
+  const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // The panel hangs below the bar, so it needs the bar's real height.
+    const measure = () => {
+      const h = navRef.current?.offsetHeight;
+      if (h) document.documentElement.style.setProperty("--nav-h", `${h}px`);
+    };
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setMenuOpen(false); };
+    const onClick = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) setMenuOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("click", onClick);
+    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("click", onClick); };
+  }, [menuOpen]);
+
   return (
     <>
-<nav>
+<nav ref={navRef}>
   <div className="nav-inner">
     <div className="logo"><div className="logo-mark">P</div>Pioneer Education</div>
-    <div className="nav-links">
-      <a href="#courses">Courses</a>
-      <a href="#results">Results</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#app">Lexio App</a>
-      <a href="/about">About</a>
-      <a href="/practice">Practice Tests</a>
-      <a href="/writing-analyzer">Writing Analyzer</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#demo">Free Demo</a>
-      <a href="#contact">Contact</a>
+    <div className="nav-links" id="site-menu" data-open={menuOpen ? "true" : "false"}>
+      {[
+        ["#courses", "Courses"],
+        ["#results", "Results"],
+        ["#pricing", "Pricing"],
+        ["#app", "Lexio App"],
+        ["/about", "About"],
+        ["/practice", "Practice Tests"],
+        ["/writing-analyzer", "Writing Analyzer"],
+        ["#reviews", "Reviews"],
+        ["#contact", "Contact"],
+      ].map(([href, label]) => (
+        <a key={href} href={href} onClick={() => setMenuOpen(false)}>{label}</a>
+      ))}
+      <a href="#demo" className="btn btn-coral m-cta" onClick={() => setMenuOpen(false)}>
+        Book Free Demo
+      </a>
     </div>
     <div className="nav-cta">
       <a href="#demo" className="btn btn-coral">Book Free Demo</a>
     </div>
+    <button
+      type="button" className="nav-burger" aria-label="Menu"
+      aria-expanded={menuOpen} aria-controls="site-menu"
+      onClick={() => setMenuOpen((v) => !v)}
+    >
+      <span /><span /><span />
+    </button>
   </div>
 </nav>
 
