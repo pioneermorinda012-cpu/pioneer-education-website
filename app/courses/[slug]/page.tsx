@@ -1,5 +1,6 @@
 import { COURSES, getCourse } from "../../data/courses";
 import Link from "next/link";
+import SiteNav from "../../../components/SiteNav";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -39,20 +40,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
 
   return (
     <>
-      <nav>
-        <div className="nav-inner">
-          <Link href="/" className="logo"><div className="logo-mark">P</div>Pioneer Education</Link>
-          <div className="nav-links">
-            <Link href="/#courses">Courses</Link>
-            <Link href="/#pricing">Pricing</Link>
-            <Link href="/#reviews">Reviews</Link>
-            <Link href="/#contact">Contact</Link>
-          </div>
-          <div className="nav-cta">
-            <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Book Free Demo</a>
-          </div>
-        </div>
-      </nav>
+      <SiteNav ctaHref={wa} />
 
       <section style={{ paddingBottom: 0 }}>
         <div className="wrap">
