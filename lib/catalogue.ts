@@ -57,10 +57,14 @@ export async function getTest(id: string) {
   // The recordings are far too large to keep in the repository, so when a media host is
   // configured those paths are re-pointed at it. With the variable unset the local files
   // are used instead, which is what lets `npm run dev` work with no extra setup.
+  // Only the recordings move. They are ~9 MB each, far too large for the
+  // repository, so they live in storage. The diagrams are a few kilobytes,
+  // ship with the site, and are deliberately left alone — one less thing that
+  // can break, and maps and charts keep working even if storage is misconfigured.
   if (MEDIA_BASE && test.mediaUrls) {
     for (const k of Object.keys(test.mediaUrls)) {
       const v = String(test.mediaUrls[k]);
-      if (v.startsWith("/practice/media/")) {
+      if (v.startsWith("/practice/media/") && /\.(mp3|m4a|wav|ogg|aac)$/i.test(v)) {
         test.mediaUrls[k] = MEDIA_BASE + v.slice("/practice/media".length);
       }
     }
