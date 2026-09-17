@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 function SignInForm() {
-  const router = useRouter();
   const params = useSearchParams();
   const next = params.get("next") || "/practice";
 
@@ -12,6 +11,7 @@ function SignInForm() {
   const [pin, setPin] = useState("");
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
+  const [stuck, setStuck] = useState("");
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -24,8 +24,23 @@ function SignInForm() {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) { setErr(data.error || "Could not sign you in."); setBusy(false); return; }
-      router.replace(next.startsWith("/practice") ? next : "/practice");
-      router.refresh();
+
+      // A full page load, not a client-side navigation. The App Router keeps a
+      // cache of the pages it has visited, and /practice is in it as "middleware
+      // sent me to the sign-in page" from a moment ago — so router.replace()
+      // serves that cached answer and lands the student straight back here,
+      // signed in but looking at the sign-in form. Reloading makes the browser
+      // ask the server again, with the new cookie attached.
+      const to = next.startsWith("/practice") ? next : "/practice";
+      window.location.replace(to);
+
+      // If the browser has not moved on after a few seconds, say so rather than
+      // leaving "Signing in…" on screen for ever.
+      setTimeout(() => {
+        setBusy(false);
+        setErr("Signed in, but the page did not move on. Tap Continue below.");
+        setStuck(to);
+      }, 4000);
     } catch {
       setErr("No connection. Check your internet and try again.");
       setBusy(false);
@@ -57,9 +72,15 @@ function SignInForm() {
 
         {err && <div className="pr-err">{err}</div>}
 
-        <button className="btn" type="submit" disabled={busy}>
-          {busy ? "Signing in…" : "Sign in"}
-        </button>
+        {stuck ? (
+          <a className="btn" href={stuck} style={{ width: "100%", justifyContent: "center", marginTop: 20 }}>
+            Continue →
+          </a>
+        ) : (
+          <button className="btn" type="submit" disabled={busy}>
+            {busy ? "Signing in…" : "Sign in"}
+          </button>
+        )}
       </form>
 
       <p className="pr-help">

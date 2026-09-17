@@ -1,10 +1,8 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function SignOut() {
-  const router = useRouter();
   const [busy, setBusy] = useState(false);
   return (
     <button
@@ -12,8 +10,10 @@ export default function SignOut() {
       onClick={async () => {
         setBusy(true);
         await fetch("/api/practice/logout", { method: "POST" });
-        router.replace("/practice/sign-in");
-        router.refresh();
+        // Full reload for the same reason as signing in: the router cache still
+        // holds the signed-in pages, and they must be fetched again without the
+        // cookie rather than served from memory.
+        window.location.replace("/practice/sign-in");
       }}
     >
       {busy ? "Signing out…" : "Sign out"}

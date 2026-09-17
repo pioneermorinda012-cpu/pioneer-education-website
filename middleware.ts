@@ -26,7 +26,13 @@ export async function middleware(req: NextRequest) {
   url.pathname = "/practice/sign-in";
   url.search = "";
   url.searchParams.set("next", pathname + (req.nextUrl.search || ""));
-  return NextResponse.redirect(url);
+
+  // Tell the browser and the router not to keep this answer. It is only true
+  // while the student is signed out, and a cached copy would send them back to
+  // the sign-in page moments after they successfully signed in.
+  const res = NextResponse.redirect(url);
+  res.headers.set("Cache-Control", "no-store, must-revalidate");
+  return res;
 }
 
 export const config = {
