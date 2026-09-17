@@ -61,11 +61,19 @@ export async function getTest(id: string) {
   // repository, so they live in storage. The diagrams are a few kilobytes,
   // ship with the site, and are deliberately left alone — one less thing that
   // can break, and maps and charts keep working even if storage is misconfigured.
+  //
+  // The recording is addressed as a single flat name, "al-b1.mp3", rather than
+  // a folder. Supabase's uploader silently discards folders, and since every
+  // recording was called audio_main.mp3 they all collided in the root and were
+  // renamed "audio_main (1).mp3" and so on. Giving each file a name of its own
+  // removes the problem instead of asking anyone to fight the uploader.
   if (MEDIA_BASE && test.mediaUrls) {
     for (const k of Object.keys(test.mediaUrls)) {
       const v = String(test.mediaUrls[k]);
-      if (v.startsWith("/practice/media/") && /\.(mp3|m4a|wav|ogg|aac)$/i.test(v)) {
-        test.mediaUrls[k] = MEDIA_BASE + v.slice("/practice/media".length);
+      const ext = v.match(/\.(mp3|m4a|wav|ogg|aac)$/i);
+      if (v.startsWith("/practice/media/") && ext) {
+        const suffix = k === "audio_main" ? "" : `__${k}`;
+        test.mediaUrls[k] = `${MEDIA_BASE}/${id}${suffix}${ext[0].toLowerCase()}`;
       }
     }
   }
