@@ -39,6 +39,18 @@ create table if not exists attempts (
 create index if not exists attempts_student_idx on attempts (student_id, submitted_at desc);
 create index if not exists attempts_test_idx    on attempts (test_id);
 
+-- ── explanations, written once and then remembered ─────────
+-- The same question is got wrong all year and the reasoning does not change,
+-- so the first student to ask pays the wait and everyone after reads it
+-- instantly. Nothing here is student data — it is teaching material.
+create table if not exists explanations (
+  test_id      text not null,                 -- matches content/tests/<id>.json
+  q            int  not null,                 -- the leading question number
+  body         text not null,
+  created_at   timestamptz not null default now(),
+  primary key (test_id, q)
+);
+
 -- ── best score per student per test, for the library ───────
 create or replace view student_best as
 select student_id, test_id, skill,
@@ -64,6 +76,7 @@ group by s.id, s.code, s.full_name, s.batch;
 -- ── lock everything down ───────────────────────────────────
 alter table students enable row level security;
 alter table attempts enable row level security;
+alter table explanations enable row level security;
 -- No policies are created on purpose: with RLS on and no policy, the anon
 -- and authenticated keys can read nothing. Only the service-role key used
 -- by the Next.js server can touch these tables.

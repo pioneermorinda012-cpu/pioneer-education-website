@@ -69,6 +69,57 @@ export async function attemptsForStudent(studentId: string, limit = 200): Promis
   return Array.isArray(rows) ? rows : [];
 }
 
+/**
+ * The top ten on one test — each student's best attempt, once.
+ *
+ * Only a first name and an initial leave this function. A board that names
+ * everyone in full is a class ranking on a public wall, and a student who has a
+ * bad week should not have to explain it to the rest of the batch.
+ */
+export type BoardRow = {
+  name: string; raw: number; total: number; band: number; seconds: number | null; me?: boolean;
+};
+
+const shortName = (full: string): string => {
+  const parts = String(full).trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return "A student";
+  return parts.length === 1 ? parts[0] : `${parts[0]} ${parts[1][0].toUpperCase()}.`;
+};
+
+export async function leaderboard(testId: string, meId?: string, top = 10): Promise<BoardRow[]> {
+  const rows = await rest(
+    "attempts?select=student_id,raw_score,total,band,seconds_used,students(full_name)" +
+    `&test_id=eq.${encodeURIComponent(testId)}` +
+    "&order=raw_score.desc,seconds_used.asc&limit=500",
+  );
+  if (!Array.isArray(rows)) return [];
+
+  // Already sorted best first, so the first row seen for a student is their best.
+  const best = new Map<string, BoardRow>();
+  for (const r of rows as {
+    student_id: string; raw_score: number; total: number; band: number;
+    seconds_used: number | null; students?: { full_name?: string } | null;
+  }[]) {
+    if (best.has(r.student_id)) continue;
+    best.set(r.student_id, {
+      name: shortName(r.students?.full_name ?? ""),
+      raw: r.raw_score,
+      total: r.total,
+      band: Number(r.band),
+      seconds: r.seconds_used,
+      ...(meId && r.student_id === meId ? { me: true } : {}),
+    });
+  }
+  return [...best.values()].slice(0, top);
+}
+
+/** One attempt in full, for reopening a review later. */
+export async function attemptById(id: string): Promise<Attempt | null> {
+  if (!/^[0-9a-f-]{10,40}$/i.test(id)) return null;
+  const rows = await rest(`attempts?id=eq.${encodeURIComponent(id)}&limit=1`);
+  return Array.isArray(rows) && rows[0] ? (rows[0] as Attempt) : null;
+}
+
 /** Light rows for the teacher's list — no answer blobs. */
 export async function recentAttempts(limit = 300) {
   const rows = await rest(

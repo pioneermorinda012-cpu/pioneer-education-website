@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { readSession, COOKIE } from "@/lib/session";
+import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 
 /* Everything under /practice is for enrolled students only. The sign-in page
  * and the teacher area are the two exceptions — the teacher area carries its
@@ -15,6 +15,11 @@ export async function middleware(req: NextRequest) {
   if (secret) {
     const session = await readSession(req.cookies.get(COOKIE)?.value, secret);
     if (session) return NextResponse.next();
+
+    // A signed-in teacher gets through too, so a student's marked paper can be
+    // opened from the dashboard. The page itself still checks who is asking.
+    const teacher = await readSession(req.cookies.get(TEACHER_COOKIE)?.value, secret);
+    if (teacher && teacher.role === "teacher") return NextResponse.next();
   }
 
   // An API call should get an error it can act on, not a redirect to HTML.

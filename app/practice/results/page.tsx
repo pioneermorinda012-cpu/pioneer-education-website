@@ -183,6 +183,13 @@ export default async function ResultsPage() {
                   <span>{a.raw_score}/{a.total} correct</span>
                 </div>
               </div>
+              {/* Reopen the review: the passage, the right answers and the
+                  explanations, days after the test rather than only in the
+                  minute the timer stops. */}
+              <Link className="btn btn-outline" href={`/practice/results/${a.id}`}
+                style={{ padding: "7px 13px", fontSize: "0.8rem", minHeight: 38 }}>
+                Review
+              </Link>
               <span className={"pr-band " + (Number(a.band) >= 7 ? "hi" : Number(a.band) >= 5.5 ? "mid" : "lo")}>
                 <span className="lb">band</span>{Number(a.band).toFixed(1)}
               </span>

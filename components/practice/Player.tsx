@@ -2,6 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { coverageIn, rangeLabel } from "@/lib/coverage";
+import ReviewPanel, { Leaderboard } from "./Review";
+
 
 /* ---------- the shape of an exported test ---------- */
 type Opt = string | { l: string; t: string };
@@ -30,12 +33,13 @@ type Answers = Record<string, string | string[]>;
 type Marked = {
   raw: number; total: number; band: number;
   sections: { label: string; got: number; outOf: number }[];
-  questions: { n: string; correct: boolean; given: string; expected: string }[];
+  questions: { n: string; correct: boolean; given: string; expected: string; type?: string }[];
 };
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const mmss = (t: number) =>
   `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
+
 
 /* ================================================================= */
 export default function Player(
@@ -93,11 +97,23 @@ export default function Player(
     if (started && left === 0 && !result) void submit();
   }, [left, started, result, submit]);
 
-  const answeredIn = (s: Section) =>
-    s.qs.filter((n) => {
-      const v = answers[String(n)];
-      return Array.isArray(v) ? v.length > 0 : v != null && String(v).trim() !== "";
-    }).length;
+  const covers = useMemo(
+    () => test.sections.map((s) => coverageIn(s)),
+    [test.sections],
+  );
+
+  /* A three-mark task counts as three answered once three boxes are ticked,
+   * so "11/13" no longer appears on a paper the student has finished. */
+  const answeredIn = (s: Section, si: number) => {
+    const cover = covers[si];
+    let done = 0;
+    for (const [lead, claimed] of Object.entries(cover)) {
+      const v = answers[lead];
+      if (Array.isArray(v)) done += Math.min(v.length, claimed.length);
+      else if (v != null && String(v).trim() !== "") done += 1;
+    }
+    return Math.min(done, s.qs.length);
+  };
 
   /* ================= start screen ================= */
   if (!started) {
@@ -157,7 +173,7 @@ export default function Player(
             >
               {s.label}
               <span style={{ display: "block", fontSize: "0.62rem", opacity: 0.85 }}>
-                {answeredIn(s)}/{s.qs.length}
+                {answeredIn(s, i)}/{s.qs.length}
               </span>
             </button>
           ))}
@@ -213,7 +229,8 @@ export default function Player(
         {(!isReading || !section.passage || view !== "p") && (
           <div>
             {section.groups.map((g, i) => (
-              <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls} />
+              <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
+                cover={covers[current]} />
             ))}
           </div>
         )}
@@ -288,7 +305,7 @@ function AudioBar({
 }
 
 /* ================= passage ================= */
-function Passage({
+export function Passage({
   passage, media,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
@@ -336,9 +353,9 @@ function Passage({
 
 /* ================= a group of questions ================= */
 function GroupBlock({
-  group, answers, set, media,
+  group, answers, set, media, cover,
 }: {
-  group: Group; answers: Answers;
+  group: Group; answers: Answers; cover?: Record<number, number[]>;
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
 }) {
@@ -433,7 +450,8 @@ function GroupBlock({
       )}
 
       {group.questions?.map((q) => (
-        <QuestionBlock key={q.n} q={q} group={group} answers={answers} set={set} media={media} />
+        <QuestionBlock key={q.n} q={q} group={group} answers={answers} set={set} media={media}
+          covers={cover?.[q.n] ?? [q.n]} />
       ))}
     </section>
   );
@@ -478,15 +496,17 @@ function Gapped({
 
 /* ---- a question with options ---- */
 function QuestionBlock({
-  q, group, answers, set, media,
+  q, group, answers, set, media, covers = [q.n],
 }: {
-  q: Question; group: Group; answers: Answers;
+  q: Question; group: Group; answers: Answers; covers?: number[];
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
 }) {
   const opts = q.opts ?? group.opts ?? [];
   const compact = group.compact || opts.length > 5;
   const current = answers[String(q.n)];
+  const span = covers.length > 1;
+  const picked = Array.isArray(current) ? current.length : current ? 1 : 0;
 
   const toggle = (letter: string) => {
     if (q.multi) {
@@ -503,10 +523,14 @@ function QuestionBlock({
   return (
     <div style={{ margin: "16px 0" }}>
       <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-        <span style={{ minWidth: 26, width: 26, height: 26, borderRadius: "50%", background: "var(--coral-light)",
+        {/* A task worth several marks shows the whole range it covers, so the
+            numbers on screen match the numbers the paper promises. */}
+        <span style={{ minWidth: span ? 54 : 26, width: span ? "auto" : 26, height: 26,
+          padding: span ? "0 9px" : 0, borderRadius: span ? 13 : "50%", background: "var(--coral-light)",
           color: "var(--coral-dark)", fontWeight: 800, fontSize: "0.72rem", display: "flex",
-          alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2 }}>
-          {q.n}
+          alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: 2,
+          fontVariantNumeric: "tabular-nums" }}>
+          {rangeLabel(covers)}
         </span>
         <span style={{ fontSize: "0.98rem", lineHeight: 1.5 }}
           dangerouslySetInnerHTML={{ __html: q.stem }} />
@@ -558,14 +582,23 @@ function QuestionBlock({
           );
         })}
       </div>
+
+      {span && (
+        <p style={{ margin: "7px 0 0 36px", fontSize: "0.78rem", fontWeight: 700,
+          color: picked === covers.length ? "#0F7A4D" : "var(--grey)" }}>
+          {picked} of {covers.length} chosen — this task is worth {covers.length} marks
+          (questions {rangeLabel(covers)}).
+        </p>
+      )}
     </div>
   );
 }
 
 /* ================= results ================= */
 function Results({ test, result, name }: { test: Test; result: Marked; name: string }) {
-  const [showReview, setShowReview] = useState(false);
+  const [showReview, setShowReview] = useState(true);
   const track = test.catalogue.skillLabel.startsWith("General") ? "gt" : "ac";
+
   const share = () => {
     const msg =
       `*Pioneer Education Center*\n${test.catalogue.skillLabel} — ${test.catalogue.label}\n\n` +
@@ -574,7 +607,7 @@ function Results({ test, result, name }: { test: Test; result: Marked; name: str
   };
 
   return (
-    <div className="wrap" data-track={track} style={{ maxWidth: 760, paddingTop: 30, paddingBottom: 60 }}>
+    <div className="wrap" data-track={track} style={{ maxWidth: 900, paddingTop: 30, paddingBottom: 60 }}>
       <div className="pr-rows" style={{ padding: 28, textAlign: "center" }}>
         <div style={{ width: 132, height: 132, borderRadius: "50%", border: "5px double var(--coral)",
           margin: "0 auto 18px", display: "flex", flexDirection: "column", alignItems: "center",
@@ -607,26 +640,17 @@ function Results({ test, result, name }: { test: Test; result: Marked; name: str
           </button>
           <Link className="btn btn-outline" href="/practice">Back to tests</Link>
         </div>
-
-        {showReview && (
-          <div style={{ borderTop: "1px dashed var(--grey-light)", marginTop: 24, paddingTop: 16, textAlign: "left" }}>
-            {result.questions.map((q) => (
-              <div key={q.n} style={{ display: "flex", gap: 10, flexWrap: "wrap", padding: "9px 0",
-                borderBottom: "1px solid var(--gold-light)", fontSize: "0.85rem" }}>
-                <b style={{ minWidth: 36 }}>{q.n}</b>
-                <span style={{ flex: 1, minWidth: 130 }}>
-                  Your answer:{" "}
-                  <b style={{ color: q.correct ? "#0F7A4D" : "#A3251A" }}>{q.given}</b>
-                </span>
-                <span style={{ flex: 1, minWidth: 130, color: "var(--grey)" }}>Correct: {q.expected}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
+
+      <Leaderboard testId={test.id} band={result.band} />
+
+      {showReview && (
+        <ReviewPanel test={test} questions={result.questions} Passage={Passage} />
+      )}
     </div>
   );
 }
+
 
 function Stat({ n, l }: { n: string; l: string }) {
   return (

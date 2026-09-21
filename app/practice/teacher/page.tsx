@@ -235,6 +235,13 @@ export default function TeacherPage() {
                         <span>{a.raw_score}/{a.total} correct</span>
                       </div>
                     </div>
+                    {/* Open what the student actually wrote, question by
+                        question, beside the passage it came from. */}
+                    <a className="btn btn-outline" href={`/practice/results/${a.id}`}
+                      target="_blank" rel="noreferrer"
+                      style={{ padding: "7px 13px", fontSize: "0.8rem", minHeight: 38 }}>
+                      Review
+                    </a>
                     <span className={"pr-band " + (Number(a.band) >= 7 ? "hi" : Number(a.band) >= 5.5 ? "mid" : "lo")}>
                       <span className="lb">band</span>{Number(a.band).toFixed(1)}
                     </span>
