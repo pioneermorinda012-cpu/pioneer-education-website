@@ -1,0 +1,247 @@
+{
+ "1": {
+  "accept": [
+   "shock"
+  ],
+  "display": "shock"
+ },
+ "2": {
+  "accept": [
+   "death toll"
+  ],
+  "display": "death toll"
+ },
+ "3": {
+  "accept": [
+   "shatter rock"
+  ],
+  "display": "shatter rock"
+ },
+ "4": {
+  "accept": [
+   "detonates",
+   "detonated"
+  ],
+  "display": "detonates / detonated"
+ },
+ "5": {
+  "accept": [
+   "frozen"
+  ],
+  "display": "frozen"
+ },
+ "6": {
+  "accept": [
+   "iron and steel",
+   "iron, steel",
+   "iron & steel"
+  ],
+  "display": "iron and steel / iron, steel / iron & steel"
+ },
+ "7": {
+  "accept": [
+   "blasting oil"
+  ],
+  "display": "blasting oil"
+ },
+ "8": {
+  "accept": [
+   "volcanic pumice"
+  ],
+  "display": "volcanic pumice"
+ },
+ "9": {
+  "accept": [
+   "engineering projects"
+  ],
+  "display": "engineering projects"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "14": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "15": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "16": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "17": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "18": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "19": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "20": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "linguistic circles"
+  ],
+  "display": "linguistic circles"
+ },
+ "28": {
+  "accept": [
+   "tightly-knit",
+   "tightly knit"
+  ],
+  "display": "tightly-knit / tightly knit"
+ },
+ "29": {
+  "accept": [
+   "Caspian Steppe"
+  ],
+  "display": "Caspian Steppe"
+ },
+ "30": {
+  "accept": [
+   "volcanic eruption"
+  ],
+  "display": "volcanic eruption"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "Proto-Human"
+  ],
+  "display": "Proto-Human"
+ },
+ "37": {
+  "accept": [
+   "Proto-Nostratic"
+  ],
+  "display": "Proto-Nostratic"
+ },
+ "38": {
+  "accept": [
+   "Altaic"
+  ],
+  "display": "Altaic"
+ },
+ "39": {
+  "accept": [
+   "Southern India",
+   "Southern Indian"
+  ],
+  "display": "Southern India / Southern Indian"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

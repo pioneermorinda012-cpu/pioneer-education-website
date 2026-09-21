@@ -1,0 +1,245 @@
+{
+ "1": {
+  "accept": [
+   "visible"
+  ],
+  "display": "visible"
+ },
+ "2": {
+  "accept": [
+   "natural clays"
+  ],
+  "display": "natural clays"
+ },
+ "3": {
+  "accept": [
+   "biological matter"
+  ],
+  "display": "biological matter"
+ },
+ "4": {
+  "accept": [
+   "carminic acid"
+  ],
+  "display": "carminic acid"
+ },
+ "5": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "6": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "7": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "8": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "9": {
+  "accept": [
+   "mucus"
+  ],
+  "display": "mucus"
+ },
+ "10": {
+  "accept": [
+   "leaves"
+  ],
+  "display": "leaves"
+ },
+ "11": {
+  "accept": [
+   "stone",
+   "semi-precious stone",
+   "lapis lazuli"
+  ],
+  "display": "stone / semi-precious stone / lapis lazuli"
+ },
+ "12": {
+  "accept": [
+   "stable"
+  ],
+  "display": "stable"
+ },
+ "13": {
+  "accept": [
+   "accidentally"
+  ],
+  "display": "accidentally"
+ },
+ "14": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "15": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "16": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "antibodies"
+  ],
+  "display": "antibodies"
+ },
+ "20": {
+  "accept": [
+   "filariasis"
+  ],
+  "display": "filariasis"
+ },
+ "21": {
+  "accept": [
+   "liver"
+  ],
+  "display": "liver"
+ },
+ "22": {
+  "accept": [
+   "urban"
+  ],
+  "display": "urban"
+ },
+ "23": {
+  "accept": [
+   "jungle"
+  ],
+  "display": "jungle"
+ },
+ "24": {
+  "accept": [
+   "parasite"
+  ],
+  "display": "parasite"
+ },
+ "25": {
+  "accept": [
+   "sprayed"
+  ],
+  "display": "sprayed"
+ },
+ "26": {
+  "accept": [
+   "strategies"
+  ],
+  "display": "strategies"
+ },
+ "27": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "28": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "29": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "30": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "31": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "32": {
+  "accept": [
+   "pebbles and grit"
+  ],
+  "display": "pebbles and grit"
+ },
+ "33": {
+  "accept": [
+   "rock bed",
+   "resistant rock bed"
+  ],
+  "display": "rock bed / resistant rock bed"
+ },
+ "34": {
+  "accept": [
+   "Retreat"
+  ],
+  "display": "Retreat"
+ },
+ "35": {
+  "accept": [
+   "eddies and whirlpools"
+  ],
+  "display": "eddies and whirlpools"
+ },
+ "36": {
+  "accept": [
+   "Undercutting"
+  ],
+  "display": "Undercutting"
+ },
+ "37": {
+  "accept": [
+   "geological features"
+  ],
+  "display": "geological features"
+ },
+ "38": {
+  "accept": [
+   "Canada"
+  ],
+  "display": "Canada"
+ },
+ "39": {
+  "accept": [
+   "underwater barriers"
+  ],
+  "display": "underwater barriers"
+ },
+ "40": {
+  "accept": [
+   "unstable rock"
+  ],
+  "display": "unstable rock"
+ }
+}

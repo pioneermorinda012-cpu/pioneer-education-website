@@ -1,0 +1,252 @@
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "4": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "phantom"
+  ],
+  "display": "phantom"
+ },
+ "7": {
+  "accept": [
+   "echoes",
+   "obstacles",
+   "echoes of their footsteps"
+  ],
+  "display": "echoes / obstacles / echoes of their footsteps"
+ },
+ "8": {
+  "accept": [
+   "depth"
+  ],
+  "display": "depth"
+ },
+ "9": {
+  "accept": [
+   "submarines"
+  ],
+  "display": "submarines"
+ },
+ "10": {
+  "accept": [
+   "natural selection"
+  ],
+  "display": "natural selection"
+ },
+ "11": {
+  "accept": [
+   "radio waves",
+   "echoes",
+   "radio echoes"
+  ],
+  "display": "radio waves / echoes / radio echoes"
+ },
+ "12": {
+  "accept": [
+   "mathematical theories",
+   "similar mathematical theories",
+   "mathematical theory"
+  ],
+  "display": "mathematical theories / similar mathematical theories / mathematical theory"
+ },
+ "13": {
+  "accept": [
+   "zoologist"
+  ],
+  "display": "zoologist"
+ },
+ "14": {
+  "accept": [
+   "xi"
+  ],
+  "display": "xi"
+ },
+ "15": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "16": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "17": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "18": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "19": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "20": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "21": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "22": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "23": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "24": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "25": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "26": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "32": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "33": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "34": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "F",
+   "ritual"
+  ],
+  "display": "F — ritual"
+ },
+ "38": {
+  "accept": [
+   "H",
+   "placebo"
+  ],
+  "display": "H — placebo"
+ },
+ "39": {
+  "accept": [
+   "K",
+   "well known"
+  ],
+  "display": "K — well known"
+ },
+ "40": {
+  "accept": [
+   "G",
+   "unspectacular"
+  ],
+  "display": "G — unspectacular"
+ }
+}
