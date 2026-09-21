@@ -1,5 +1,10 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { getCatalogue, SKILLS, type SkillCode } from "@/lib/catalogue";
+import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
+import { readSession, COOKIE } from "@/lib/session";
+
+export const dynamic = "force-dynamic";
 
 export default async function PracticeHome({
   searchParams,
@@ -19,6 +24,28 @@ export default async function PracticeHome({
     if (found) found.tests.push(t);
     else sets.push({ name: t.set, tests: [t] });
   }
+
+  // What this student has already done, so a finished test says so.
+  const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
+  const store = await cookies();
+  const session = secret ? await readSession(store.get(COOKIE)?.value, secret) : null;
+
+  const best: Record<string, { band: number; tries: number; when: string }> = {};
+  if (session && attemptsReady()) {
+    try {
+      for (const a of await attemptsForStudent(session.sid)) {
+        const cur = best[a.test_id];
+        const band = Number(a.band);
+        if (!cur) best[a.test_id] = { band, tries: 1, when: a.submitted_at };
+        else {
+          cur.tries++;
+          if (band > cur.band) cur.band = band;
+          if (a.submitted_at > cur.when) cur.when = a.submitted_at;
+        }
+      }
+    } catch { /* results are a nicety; never keep a student out of the library */ }
+  }
+  const doneCount = mine.filter((t) => best[t.id]).length;
 
   const label = SKILLS.find((s) => s.code === active)!.label;
   const ready = mine.filter((t) => t.keyed).length;
@@ -76,12 +103,25 @@ export default async function PracticeHome({
                   </div>
                 </div>
                 <div>
-                  <span className="pr-band none">Not attempted</span>
+                  {best[t.id] ? (
+                    <span
+                      className={"pr-band " + (best[t.id].band >= 7 ? "hi" : best[t.id].band >= 5.5 ? "mid" : "lo")}
+                      title={`${best[t.id].tries} attempt${best[t.id].tries === 1 ? "" : "s"}`}
+                    >
+                      <span className="lb">done</span>{best[t.id].band.toFixed(1)}
+                      {best[t.id].tries > 1 && <span className="lb">×{best[t.id].tries}</span>}
+                    </span>
+                  ) : (
+                    <span className="pr-band none">Not attempted</span>
+                  )}
                 </div>
                 <div className="go">
                   {t.keyed ? (
-                    <Link className="btn btn-coral" href={`/practice/test/${t.id}`}>
-                      Start
+                    <Link
+                      className={best[t.id] ? "btn btn-outline" : "btn btn-coral"}
+                      href={`/practice/test/${t.id}`}
+                    >
+                      {best[t.id] ? "Do it again" : "Start"}
                     </Link>
                   ) : (
                     <span className="pr-band none">Answer key pending</span>

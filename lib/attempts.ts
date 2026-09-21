@@ -12,7 +12,7 @@ export type Attempt = {
   total: number;
   band: number;
   answers: Record<string, unknown>;
-  per_question: { n: string; correct: boolean; given: string; expected: string }[];
+  per_question: { n: string; correct: boolean; given: string; expected: string; type?: string }[];
   seconds_used: number | null;
   submitted_at: string;
 };

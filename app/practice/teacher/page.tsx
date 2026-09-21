@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { byType } from "@/lib/qtypes";
 
 type Student = {
   id: string; code: string; full_name: string;
@@ -9,7 +10,7 @@ type Student = {
 type Att = {
   id: string; student_id: string; test_id: string; skill: string;
   raw_score: number; total: number; band: number; submitted_at: string;
-  per_question?: { n: string; correct: boolean; given: string; expected: string }[];
+  per_question?: { n: string; correct: boolean; given: string; expected: string; type?: string }[];
 };
 const SKILL_NAME: Record<string, string> = {
   AL: "Academic Listening", AR: "Academic Reading", GL: "GT Listening", GR: "GT Reading",
@@ -146,38 +147,31 @@ export default function TeacherPage() {
   const centreAvg = done.length
     ? done.reduce((s2, r) => s2 + (r.best ?? 0), 0) / done.length : 0;
 
-  /* ---- which quarter of the paper the whole centre struggles with ---- */
-  const quarters: Record<string, { wrong: number; total: number }> = {};
+  /* ---- what the whole centre gets wrong, by question type ----
+     The list view only carries scores, not per-question detail, so this fills
+     in as students are opened. Splitting reading from listening matters: the
+     same named skill behaves differently under time pressure with audio. */
+  const centreR: { correct: boolean; type?: string }[] = [];
+  const centreL: { correct: boolean; type?: string }[] = [];
   for (const a of attempts) {
-    for (const q of a.per_question ?? []) {
-      const n = Number(q.n);
-      const k = n <= 10 ? "Questions 1\u201310" : n <= 20 ? "Questions 11\u201320"
-        : n <= 30 ? "Questions 21\u201330" : "Questions 31\u201340";
-      const slot = (quarters[k] ??= { wrong: 0, total: 0 });
-      slot.total++; if (!q.correct) slot.wrong++;
-    }
+    const into = a.skill === "AR" || a.skill === "GR" ? centreR : centreL;
+    for (const q of a.per_question ?? []) if (q.type) into.push(q);
   }
-  const classWeak = Object.entries(quarters)
-    .map(([label, v]) => ({ label, pct: v.total ? (v.wrong / v.total) * 100 : 0, ...v }))
-    .sort((a, b) => b.pct - a.pct);
+  const classReading = byType(centreR);
+  const classListening = byType(centreL);
 
   /* ================= one student, opened ================= */
   if (open) {
     const st = open.student;
     const bands = open.attempts.map((a) => Number(a.band));
-    const qw: Record<string, { wrong: number; total: number }> = {};
+    const rowsR: { correct: boolean; type?: string }[] = [];
+    const rowsL: { correct: boolean; type?: string }[] = [];
     for (const a of open.attempts) {
-      for (const q of a.per_question ?? []) {
-        const n = Number(q.n);
-        const k = n <= 10 ? "Questions 1\u201310" : n <= 20 ? "Questions 11\u201320"
-          : n <= 30 ? "Questions 21\u201330" : "Questions 31\u201340";
-        const slot = (qw[k] ??= { wrong: 0, total: 0 });
-        slot.total++; if (!q.correct) slot.wrong++;
-      }
+      const into = a.skill === "AR" || a.skill === "GR" ? rowsR : rowsL;
+      for (const q of a.per_question ?? []) if (q.type) into.push(q);
     }
-    const weak = Object.entries(qw)
-      .map(([label, v]) => ({ label, pct: v.total ? (v.wrong / v.total) * 100 : 0, ...v }))
-      .sort((a, b) => b.pct - a.pct);
+    const weakR = byType(rowsR);
+    const weakL = byType(rowsL);
 
     return (
       <div className="wrap">
@@ -199,21 +193,35 @@ export default function TeacherPage() {
               <div className="pr-stat"><span className="v">{(bands.reduce((a, b) => a + b, 0) / bands.length).toFixed(1)}</span><span className="k">Average</span></div>
             </div>
 
-            <section className="pr-set">
-              <h2>Where this student loses marks</h2>
-              <div className="pr-rows">
-                {weak.map((w) => (
-                  <div className="pr-row" key={w.label}>
-                    <div>
-                      <div className="nm">{w.label}</div>
-                      <div className="fx"><span>{w.wrong} wrong of {w.total}</span></div>
-                    </div>
-                    <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-                    <span className="pr-band none">{w.pct.toFixed(0)}%</span>
-                  </div>
-                ))}
+            {!weakR.length && !weakL.length && (
+              <div className="pr-note">
+                Question-type detail appears from their next test onward.
               </div>
-            </section>
+            )}
+            {([["Reading", weakR], ["Listening", weakL]] as const).map(([title, rows]) =>
+              rows.length ? (
+                <section className="pr-set" key={title}>
+                  <h2>{title} — where this student loses marks</h2>
+                  <div className="pr-rows">
+                    {rows.map((w) => (
+                      <div className="pr-row" key={w.type}>
+                        <div>
+                          <div className="nm">{w.type}</div>
+                          <div className="fx">
+                            <span>{w.total - w.wrong} right of {w.total}</span>
+                            {w.total < 5 && <span>small sample</span>}
+                          </div>
+                        </div>
+                        <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
+                        <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
+                          {w.pct.toFixed(0)}% wrong
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ) : null,
+            )}
 
             <section className="pr-set">
               <h2>Every attempt</h2>
@@ -278,21 +286,36 @@ export default function TeacherPage() {
                 <div className="pr-stat"><span className="v">{centreAvg.toFixed(1)}</span><span className="k">Average best band</span></div>
               </div>
 
-              <section className="pr-set">
-                <h2>What the whole centre finds hardest</h2>
-                <div className="pr-rows">
-                  {classWeak.map((w) => (
-                    <div className="pr-row" key={w.label}>
-                      <div>
-                        <div className="nm">{w.label}</div>
-                        <div className="fx"><span>{w.wrong} wrong of {w.total} across all students</span></div>
-                      </div>
-                      <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-                      <span className="pr-band none">{w.pct.toFixed(0)}%</span>
-                    </div>
-                  ))}
+              {!classReading.length && !classListening.length ? (
+                <div className="pr-note">
+                  Open a student below to load their question-level detail, and this
+                  fills in with what the centre as a whole finds hardest.
                 </div>
-              </section>
+              ) : (
+                ([["Reading", classReading], ["Listening", classListening]] as const).map(([title, rows]) =>
+                  rows.length ? (
+                    <section className="pr-set" key={title}>
+                      <h2>{title} — hardest for the centre</h2>
+                      <div className="pr-rows">
+                        {rows.map((w) => (
+                          <div className="pr-row" key={w.type}>
+                            <div>
+                              <div className="nm">{w.type}</div>
+                              <div className="fx">
+                                <span>{w.wrong} wrong of {w.total} across all students</span>
+                              </div>
+                            </div>
+                            <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
+                            <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
+                              {w.pct.toFixed(0)}% wrong
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  ) : null,
+                )
+              )}
             </>
           )}
 

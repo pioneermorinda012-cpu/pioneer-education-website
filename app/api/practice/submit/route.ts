@@ -4,6 +4,7 @@ import { getTest, getKey } from "@/lib/catalogue";
 import { markAttempt, type AnswerKey, type StudentAnswers } from "@/lib/marking";
 import { saveAttempt, attemptsReady } from "@/lib/attempts";
 import { readSession, COOKIE } from "@/lib/session";
+import { typeMap } from "@/lib/qtypes";
 
 /**
  * The student's answers come in, the band score goes out.
@@ -62,6 +63,11 @@ export async function POST(req: NextRequest) {
   // Record it against the signed-in student. A failure here must not cost the
   // student their result — they have just sat a 40-question paper — so the
   // score is returned either way and the page says whether it was kept.
+  // Tag every question with the kind of question it was, so the analysis can
+  // say "matching headings" rather than "the second half of the paper".
+  const types = typeMap(test);
+  result.questions = result.questions.map((q) => ({ ...q, type: types[String(q.n)] ?? "Other" }));
+
   let saved = false;
   try {
     const secret = process.env.PRACTICE_SESSION_SECRET ?? "";

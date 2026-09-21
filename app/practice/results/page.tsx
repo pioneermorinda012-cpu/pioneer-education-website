@@ -5,6 +5,7 @@ import { readSession, COOKIE } from "@/lib/session";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
 import Trend from "@/components/practice/Trend";
+import { byType } from "@/lib/qtypes";
 
 export const dynamic = "force-dynamic";
 
@@ -59,23 +60,20 @@ export default async function ResultsPage() {
   const bySkill: Record<string, number[]> = {};
   for (const a of attempts) (bySkill[a.skill] ??= []).push(Number(a.band));
 
-  /* ---- which question numbers go wrong most often ----
-     Position in the paper is a decent proxy for question type: the same
-     section of an IELTS paper always tests the same kind of skill. */
-  const sectionMiss: Record<string, { wrong: number; total: number }> = {};
+  /* ---- accuracy by question type, kept apart for Listening and Reading ----
+     A student can be strong at Matching Headings in Reading and hopeless at
+     the same skill in Listening, so averaging the two hides the thing worth
+     teaching. Attempts sat before question types were recorded simply have
+     fewer rows here; nothing breaks. */
+  type Row = { correct: boolean; type?: string };
+  const readingRows: Row[] = [], listeningRows: Row[] = [];
   for (const a of attempts) {
-    for (const q of a.per_question ?? []) {
-      const n = Number(q.n);
-      const band = n <= 10 ? "Questions 1–10" : n <= 20 ? "Questions 11–20"
-        : n <= 30 ? "Questions 21–30" : "Questions 31–40";
-      const slot = (sectionMiss[band] ??= { wrong: 0, total: 0 });
-      slot.total++;
-      if (!q.correct) slot.wrong++;
-    }
+    const into = a.skill === "AR" || a.skill === "GR" ? readingRows : listeningRows;
+    for (const q of a.per_question ?? []) if (q.type) into.push(q);
   }
-  const weak = Object.entries(sectionMiss)
-    .map(([label, v]) => ({ label, pct: v.total ? (v.wrong / v.total) * 100 : 0, ...v }))
-    .sort((a, b) => b.pct - a.pct);
+  const weakReading = byType(readingRows);
+  const weakListening = byType(listeningRows);
+  const noTypes = !readingRows.length && !listeningRows.length;
 
   /* ---- spelling: right answer, wrong letters ---- */
   let nearMiss = 0;
@@ -125,22 +123,47 @@ export default async function ResultsPage() {
         </div>
       </section>
 
-      <section className="pr-set">
-        <h2>Where you lose marks</h2>
-        <div className="pr-rows">
-          {weak.map((w) => (
-            <div className="pr-row" key={w.label}>
-              <div>
-                <div className="nm">{w.label}</div>
-                <div className="fx"><span>{w.wrong} wrong out of {w.total}</span></div>
-              </div>
-              <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-              <span className="pr-band none">{w.pct.toFixed(0)}%</span>
-            </div>
-          ))}
-        </div>
-        {nearMiss > 0 && (
+      {noTypes ? (
+        <section className="pr-set">
+          <h2>Where you lose marks</h2>
           <div className="pr-note">
+            Your next test will show this broken down by question type — matching
+            headings, true/false/not given, note completion and so on.
+          </div>
+        </section>
+      ) : (
+        <>
+          {[["Reading", weakReading], ["Listening", weakListening]].map(([title, rows]) =>
+            (rows as ReturnType<typeof byType>).length ? (
+              <section className="pr-set" key={title as string}>
+                <h2>{title as string} — where you lose marks</h2>
+                <div className="pr-rows">
+                  {(rows as ReturnType<typeof byType>).map((w) => (
+                    <div className="pr-row" key={w.type}>
+                      <div>
+                        <div className="nm">{w.type}</div>
+                        <div className="fx">
+                          <span>{w.total - w.wrong} right of {w.total}</span>
+                          {w.total < 5 && <span>only seen {w.total} time{w.total === 1 ? "" : "s"}</span>}
+                        </div>
+                      </div>
+                      <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
+                      <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
+                        {w.pct.toFixed(0)}% wrong
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ) : null,
+          )}
+        </>
+      )}
+
+      <section className="pr-set">
+        <h2 style={{ marginBottom: 0 }} />
+        {nearMiss > 0 && (
+          <div className="pr-note" style={{ marginTop: 0 }}>
             <b>{nearMiss} answer{nearMiss === 1 ? " was" : "s were"} nearly right</b> — the right
             word, spelled wrongly or in the wrong form. In IELTS those score zero.
             Worth practising spelling before anything else: it is the quickest band you will gain.

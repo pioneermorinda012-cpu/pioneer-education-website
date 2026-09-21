@@ -46,6 +46,8 @@ export type MarkedQuestion = {
   correct: boolean;
   given: string;
   expected: string;
+  /** filled in after marking — see lib/qtypes */
+  type?: string;
 };
 
 export type MarkResult = {
