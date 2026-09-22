@@ -5,6 +5,7 @@ import { readSession, COOKIE } from "@/lib/session";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
 import Trend from "@/components/practice/Trend";
+import MistakeBook, { type Miss } from "@/components/practice/MistakeBook";
 import { byType } from "@/lib/qtypes";
 
 export const dynamic = "force-dynamic";
@@ -75,6 +76,36 @@ export default async function ResultsPage() {
   const weakListening = byType(listeningRows);
   const noTypes = !readingRows.length && !listeningRows.length;
 
+  /* ---- every question still unanswered correctly ----
+     The chart above says which skill is costing marks; this says exactly
+     which questions, so a weakness can actually be worked through. Multi-mark
+     tasks repeat their row under each number they cover, so only the first is
+     kept. */
+  const misses: Miss[] = [];
+  for (const a of attempts) {
+    // A task worth three marks appears three times, once per number, with the
+    // same answer against each. Keep the first and drop the run that follows
+    // it, so the list shows tasks to redo rather than the same one three times.
+    let prev: { n: number; given: string; expected: string } | null = null;
+    for (const q of a.per_question ?? []) {
+      const num = Number(q.n);
+      const runsOn = Boolean(prev && prev.n + 1 === num &&
+        prev.given === q.given && prev.expected === q.expected);
+      prev = { n: num, given: q.given, expected: q.expected };
+      if (q.correct || runsOn) continue;
+      misses.push({
+        attemptId: a.id,
+        testId: a.test_id,
+        testName: nameOf(a.test_id),
+        when: a.submitted_at,
+        n: String(q.n),
+        type: q.type ?? "Other",
+        given: q.given,
+        expected: q.expected,
+      });
+    }
+  }
+
   /* ---- spelling: right answer, wrong letters ---- */
   let nearMiss = 0;
   for (const a of attempts) {
@@ -133,23 +164,27 @@ export default async function ResultsPage() {
         </section>
       ) : (
         <>
+          {/* Scored as accuracy, not as failure. "100% wrong" is the worst
+              possible first sentence about a student's own work, and it says
+              no more than "0 right of 22" does. The weakest type still leads,
+              because that is the one worth a lesson. */}
           {[["Reading", weakReading], ["Listening", weakListening]].map(([title, rows]) =>
             (rows as ReturnType<typeof byType>).length ? (
               <section className="pr-set" key={title as string}>
-                <h2>{title as string} — where you lose marks</h2>
+                <h2>{title as string} — your accuracy by question type</h2>
                 <div className="pr-rows">
                   {(rows as ReturnType<typeof byType>).map((w) => (
                     <div className="pr-row" key={w.type}>
                       <div>
                         <div className="nm">{w.type}</div>
                         <div className="fx">
-                          <span>{w.total - w.wrong} right of {w.total}</span>
+                          <span>{w.right} right of {w.total}</span>
                           {w.total < 5 && <span>only seen {w.total} time{w.total === 1 ? "" : "s"}</span>}
                         </div>
                       </div>
-                      <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-                      <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
-                        {w.pct.toFixed(0)}% wrong
+                      <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pctRight)}%` }} /></div>
+                      <span className={"pr-band " + (w.pctRight >= 75 ? "hi" : w.pctRight >= 50 ? "mid" : "lo")}>
+                        {w.pctRight.toFixed(0)}% correct
                       </span>
                     </div>
                   ))}
@@ -169,6 +204,15 @@ export default async function ResultsPage() {
             Worth practising spelling before anything else: it is the quickest band you will gain.
           </div>
         )}
+      </section>
+
+      <section className="pr-set">
+        <h2>Correct your mistakes</h2>
+        <p style={{ color: "var(--grey)", fontSize: "0.88rem", marginBottom: 12 }}>
+          Every question you have not yet got right. Narrow it to one test, or to
+          one kind of question, and work through them.
+        </p>
+        <MistakeBook misses={misses} />
       </section>
 
       <section className="pr-set">

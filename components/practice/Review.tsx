@@ -185,7 +185,7 @@ function ReviewRow({
 }
 
 /* ---------- the explanation, written once and then remembered ---------- */
-function Explain({ testId, n }: { testId: string; n: number }) {
+export function Explain({ testId, n }: { testId: string; n: number }) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [text, setText] = useState("");
 

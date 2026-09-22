@@ -201,20 +201,20 @@ export default function TeacherPage() {
             {([["Reading", weakR], ["Listening", weakL]] as const).map(([title, rows]) =>
               rows.length ? (
                 <section className="pr-set" key={title}>
-                  <h2>{title} — where this student loses marks</h2>
+                  <h2>{title} — accuracy by question type</h2>
                   <div className="pr-rows">
                     {rows.map((w) => (
                       <div className="pr-row" key={w.type}>
                         <div>
                           <div className="nm">{w.type}</div>
                           <div className="fx">
-                            <span>{w.total - w.wrong} right of {w.total}</span>
+                            <span>{w.right} right of {w.total}</span>
                             {w.total < 5 && <span>small sample</span>}
                           </div>
                         </div>
-                        <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-                        <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
-                          {w.pct.toFixed(0)}% wrong
+                        <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pctRight)}%` }} /></div>
+                        <span className={"pr-band " + (w.pctRight >= 75 ? "hi" : w.pctRight >= 50 ? "mid" : "lo")}>
+                          {w.pctRight.toFixed(0)}% correct
                         </span>
                       </div>
                     ))}
@@ -302,6 +302,9 @@ export default function TeacherPage() {
                 ([["Reading", classReading], ["Listening", classListening]] as const).map(([title, rows]) =>
                   rows.length ? (
                     <section className="pr-set" key={title}>
+                      {/* The teacher's own view stays blunt: this list exists
+                          to pick next week's lesson, and "hardest" is the
+                          useful ordering. */}
                       <h2>{title} — hardest for the centre</h2>
                       <div className="pr-rows">
                         {rows.map((w) => (
@@ -309,12 +312,12 @@ export default function TeacherPage() {
                             <div>
                               <div className="nm">{w.type}</div>
                               <div className="fx">
-                                <span>{w.wrong} wrong of {w.total} across all students</span>
+                                <span>{w.right} right of {w.total} across all students</span>
                               </div>
                             </div>
-                            <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pct)}%` }} /></div>
-                            <span className={"pr-band " + (w.pct >= 50 ? "lo" : w.pct >= 25 ? "mid" : "hi")}>
-                              {w.pct.toFixed(0)}% wrong
+                            <div className="pr-meter"><i style={{ width: `${Math.min(100, w.pctRight)}%` }} /></div>
+                            <span className={"pr-band " + (w.pctRight >= 75 ? "hi" : w.pctRight >= 50 ? "mid" : "lo")}>
+                              {w.pctRight.toFixed(0)}% correct
                             </span>
                           </div>
                         ))}

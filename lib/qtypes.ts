@@ -113,10 +113,17 @@ function numbersIn(group: Record<string, unknown>): number[] {
   return [...new Set(out)];
 }
 
-/** Roll per-question results up by type, worst accuracy first. */
+/**
+ * Roll per-question results up by type.
+ *
+ * Reports how many a student gets *right*, because "100% wrong" as the first
+ * thing someone reads about their own work is discouraging and no more
+ * informative than "0 right of 22". The weakest type still comes first — that
+ * is the one worth a lesson — but it is described by what they are scoring.
+ */
 export function byType(
   rows: { type?: string; correct?: boolean }[],
-): { type: string; wrong: number; total: number; pct: number }[] {
+): { type: string; right: number; wrong: number; total: number; pct: number; pctRight: number }[] {
   const acc: Record<string, { wrong: number; total: number }> = {};
   for (const r of rows) {
     const t = r.type || "Other";
@@ -125,7 +132,12 @@ export function byType(
     if (!r.correct) slot.wrong++;
   }
   return Object.entries(acc)
-    .map(([type, v]) => ({ type, ...v, pct: v.total ? (v.wrong / v.total) * 100 : 0 }))
-    // A type seen twice tells you nothing; rank by how wrong, then how often.
-    .sort((a, b) => b.pct - a.pct || b.total - a.total);
+    .map(([type, v]) => ({
+      type, ...v,
+      right: v.total - v.wrong,
+      pct: v.total ? (v.wrong / v.total) * 100 : 0,
+      pctRight: v.total ? ((v.total - v.wrong) / v.total) * 100 : 0,
+    }))
+    // A type seen twice tells you nothing; rank by weakest, then by how often.
+    .sort((a, b) => a.pctRight - b.pctRight || b.total - a.total);
 }

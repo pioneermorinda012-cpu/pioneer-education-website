@@ -503,7 +503,14 @@ function QuestionBlock({
   media: Record<string, string>;
 }) {
   const opts = q.opts ?? group.opts ?? [];
-  const compact = group.compact || opts.length > 5;
+  /* "Compact" means show the letter and nothing else, which is right for a
+   * list of headings or a TRUE/FALSE row — the wording is in the bank above.
+   * It is wrong whenever the options are statements in their own right. The
+   * old rule was "more than five options", so a Choose THREE letters task with
+   * six statements rendered as six bare letters and the student was asked to
+   * pick between A and F with nothing to read. Count the wording instead. */
+  const labelsOnly = opts.every((o) => String(typeof o === "object" ? o.t : o).trim().length <= 3);
+  const compact = group.compact || labelsOnly;
   const current = answers[String(q.n)];
   const span = covers.length > 1;
   const picked = Array.isArray(current) ? current.length : current ? 1 : 0;
