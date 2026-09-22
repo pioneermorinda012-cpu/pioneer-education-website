@@ -1,0 +1,255 @@
+{
+ "1": {
+  "accept": [
+   "Developmental Art"
+  ],
+  "display": "Developmental Art"
+ },
+ "2": {
+  "accept": [
+   "4.5",
+   "4.50"
+  ],
+  "display": "4.50/4.5"
+ },
+ "3": {
+  "accept": [
+   "Developmental art"
+  ],
+  "display": "Developmental art"
+ },
+ "4": {
+  "accept": [
+   "5",
+   "5.00",
+   "five"
+  ],
+  "display": "5.00/5/five"
+ },
+ "5": {
+  "accept": [
+   "The North Gallery"
+  ],
+  "display": "The North Gallery"
+ },
+ "6": {
+  "accept": [
+   "New Year festivities"
+  ],
+  "display": "New Year festivities"
+ },
+ "7": {
+  "accept": [
+   "632"
+  ],
+  "display": "632"
+ },
+ "8": {
+  "accept": [
+   "132"
+  ],
+  "display": "132"
+ },
+ "9": {
+  "accept": [
+   "317"
+  ],
+  "display": "317"
+ },
+ "10": {
+  "accept": [
+   "122"
+  ],
+  "display": "122"
+ },
+ "11": {
+  "accept": [
+   "443"
+  ],
+  "display": "443"
+ },
+ "12": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "13": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "Language Centre Students"
+  ],
+  "display": "Language Centre Students"
+ },
+ "17": {
+  "accept": [
+   "Photo-ID card"
+  ],
+  "display": "Photo-ID card"
+ },
+ "18": {
+  "accept": [
+   "cash",
+   "in cash"
+  ],
+  "display": "(in) cash"
+ },
+ "19": {
+  "accept": [
+   "REF in red"
+  ],
+  "display": "REF in red"
+ },
+ "20": {
+  "accept": [
+   "IELTS",
+   "IELTS materials"
+  ],
+  "display": "IELTS (materials)"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "23": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "24": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "25": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "26": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "27": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "28": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "29": {
+  "accept": [
+   "language development"
+  ],
+  "display": "language development"
+ },
+ "30": {
+  "accept": [
+   "3 or 4",
+   "3 or 4 4 years",
+   "3 or 4 years",
+   "3 or 4 – 4 years",
+   "3 – 4 years"
+  ],
+  "display": "3 or 4/ 3 – 4 years"
+ },
+ "31": {
+  "accept": [
+   "model",
+   "model speakers"
+  ],
+  "display": "model( speakers)"
+ },
+ "32": {
+  "accept": [
+   "exaggerate"
+  ],
+  "display": "exaggerate"
+ },
+ "33": {
+  "accept": [
+   "recognise",
+   "recognize"
+  ],
+  "display": "recognize/recognise"
+ },
+ "34": {
+  "accept": [
+   "communication",
+   "conversation",
+   "interaction"
+  ],
+  "display": "conversation/ interaction/ communication"
+ },
+ "35": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "36": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "37": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "40": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ }
+}

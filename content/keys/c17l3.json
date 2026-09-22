@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "family"
+  ],
+  "display": "family"
+ },
+ "2": {
+  "accept": [
+   "fit"
+  ],
+  "display": "fit"
+ },
+ "3": {
+  "accept": [
+   "hotels",
+   "hotel"
+  ],
+  "display": "hotels"
+ },
+ "4": {
+  "accept": [
+   "Carrowniskey"
+  ],
+  "display": "Carrowniskey"
+ },
+ "5": {
+  "accept": [
+   "week"
+  ],
+  "display": "week"
+ },
+ "6": {
+  "accept": [
+   "bay"
+  ],
+  "display": "bay"
+ },
+ "7": {
+  "accept": [
+   "September"
+  ],
+  "display": "September"
+ },
+ "8": {
+  "accept": [
+   "19",
+   "nineteen"
+  ],
+  "display": "19 / nineteen"
+ },
+ "9": {
+  "accept": [
+   "30",
+   "thirty"
+  ],
+  "display": "30 / thirty"
+ },
+ "10": {
+  "accept": [
+   "boots"
+  ],
+  "display": "boots"
+ },
+ "11": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 11,
+  "idx": 0,
+  "display": "B, E  (Q11–12, either order)"
+ },
+ "12": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 11,
+  "idx": 1,
+  "display": "B, E  (Q11–12, either order)"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "19": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "30": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "31": {
+  "accept": [
+   "mud"
+  ],
+  "display": "mud"
+ },
+ "32": {
+  "accept": [
+   "feathers"
+  ],
+  "display": "feathers"
+ },
+ "33": {
+  "accept": [
+   "shape"
+  ],
+  "display": "shape"
+ },
+ "34": {
+  "accept": [
+   "moon"
+  ],
+  "display": "moon"
+ },
+ "35": {
+  "accept": [
+   "neck"
+  ],
+  "display": "neck"
+ },
+ "36": {
+  "accept": [
+   "evidence"
+  ],
+  "display": "evidence"
+ },
+ "37": {
+  "accept": [
+   "destinations"
+  ],
+  "display": "destinations"
+ },
+ "38": {
+  "accept": [
+   "oceans"
+  ],
+  "display": "oceans"
+ },
+ "39": {
+  "accept": [
+   "recovery"
+  ],
+  "display": "recovery"
+ },
+ "40": {
+  "accept": [
+   "atlas"
+  ],
+  "display": "atlas"
+ }
+}

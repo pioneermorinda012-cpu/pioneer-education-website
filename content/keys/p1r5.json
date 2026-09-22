@@ -1,0 +1,244 @@
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "8": {
+  "accept": [
+   "8-14",
+   "8-14 year-olds"
+  ],
+  "display": "8-14 (year -olds)"
+ },
+ "9": {
+  "accept": [
+   "Orion"
+  ],
+  "display": "Orion"
+ },
+ "10": {
+  "accept": [
+   "J.K. Rowling"
+  ],
+  "display": "J.K. Rowling"
+ },
+ "11": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "12": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "16": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "17": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "18": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "19": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "20": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "21": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "22": {
+  "accept": [
+   "income levels"
+  ],
+  "display": "income levels"
+ },
+ "23": {
+  "accept": [
+   "non-luxury spending"
+  ],
+  "display": "non-luxury spending"
+ },
+ "24": {
+  "accept": [
+   "holiday time"
+  ],
+  "display": "holiday time"
+ },
+ "25": {
+  "accept": [
+   "computer technology"
+  ],
+  "display": "computer technology"
+ },
+ "26": {
+  "accept": [
+   "recreational activities"
+  ],
+  "display": "recreational activities"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "32": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "33": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "34": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "35": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "38": {
+  "accept": [
+   "2nd century",
+   "2nd century BC"
+  ],
+  "display": "2nd century (BC)"
+ },
+ "39": {
+  "accept": [
+   "prescriptions"
+  ],
+  "display": "prescriptions"
+ },
+ "40": {
+  "accept": [
+   "Sun Simiao"
+  ],
+  "display": "Sun Simiao"
+ }
+}

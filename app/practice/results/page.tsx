@@ -5,6 +5,7 @@ import { readSession, COOKIE } from "@/lib/session";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { getCatalogue, getTest } from "@/lib/catalogue";
 import { contextFor } from "@/lib/qcontext";
+import { currentId } from "@/lib/aliases";
 import Trend from "@/components/practice/Trend";
 import MistakeBook, { type Miss } from "@/components/practice/MistakeBook";
 import { byType } from "@/lib/qtypes";
@@ -35,8 +36,9 @@ export default async function ResultsPage() {
     attemptsForStudent(session.sid),
     getCatalogue(),
   ]);
+  // A test sat before the renaming is still the same paper.
   const nameOf = (id: string) =>
-    catalogue.find((c) => c.id === id)?.name ?? id;
+    catalogue.find((c) => c.id === currentId(id))?.name ?? id;
 
   if (!attempts.length) {
     return (

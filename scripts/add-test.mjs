@@ -84,13 +84,20 @@ async function main() {
 
   for (const f of papers) {
     const id = f.replace(/\.json$/i, "");
-    if (!/^[a-z]{2}-[a-z0-9]+$/.test(id)) {
-      rejected.push(`${f} — the name must look like ar-a5.json`);
+    if (!/^[a-z0-9]{3,12}$/.test(id) && !/^[a-z]{2}-[a-z0-9]+$/.test(id)) {
+      rejected.push(`${f} — the name must be short and plain, like p1r6.json`);
       continue;
     }
-    const skill = SKILLS[id.slice(0, 2)];
+    /* Tests are named after the book now: p1r3 is Plus 1, Reading, Test 3.
+     * The skill is the letter before the number — r or l — with the old
+     * al-/ar-/gl-/gr- prefixes still understood. */
+    const m = id.match(/^(?:([ag])([lr])-|.*?([lr])\d+$)/);
+    const letter = m ? (m[3] ?? m[2]) : null;
+    const track = m && m[1] ? m[1] : (/^gt/.test(id) ? "g" : "a");
+    const skill = letter ? SKILLS[`${track}${letter}`] : null;
     if (!skill) {
-      rejected.push(`${f} — "${id.slice(0, 2)}" is not a skill. Use al, ar, gl or gr.`);
+      rejected.push(`${f} — could not tell if this is reading or listening. ` +
+        `Name it like p1r3 (reading) or p1l3 (listening).`);
       continue;
     }
 
@@ -165,7 +172,7 @@ async function main() {
     console.log("   git add -A content public/practice");
     console.log('   git commit -m "Add ' + installed.join(", ") + '"');
     console.log("   git push origin main");
-    const withAudio = installed.filter((id) => SKILLS[id.slice(0, 2)].mode === "listening");
+    const withAudio = installed.filter((id) => /l\d+$/.test(id) || /^[ag]l-/.test(id));
     if (withAudio.length) {
       console.log("\n   Then upload public/practice/media into the practice-media bucket in Supabase.");
     }

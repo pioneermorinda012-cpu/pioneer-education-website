@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { currentId } from "./aliases";
 
 export type SkillCode = "AL" | "AR" | "GL" | "GR";
 
@@ -39,8 +40,10 @@ export async function getCatalogue(): Promise<CatalogueEntry[]> {
 const MEDIA_BASE = (process.env.NEXT_PUBLIC_MEDIA_BASE ?? "").replace(/\/+$/, "");
 
 /** The paper, with no answers in it — safe to send to the browser. */
-export async function getTest(id: string) {
-  if (!/^[a-z0-9-]+$/.test(id)) throw new Error("bad test id");
+export async function getTest(wanted: string) {
+  if (!/^[a-z0-9-]+$/.test(wanted)) throw new Error("bad test id");
+  // A result saved before the tests were renamed still asks for "ar-a1".
+  const id = currentId(wanted);
   const raw = await fs.readFile(path.join(CONTENT, "tests", `${id}.json`), "utf8");
   const test = JSON.parse(raw);
 
@@ -81,8 +84,9 @@ export async function getTest(id: string) {
 }
 
 /** SERVER ONLY. Never return this from a route the browser can read. */
-export async function getKey(id: string) {
-  if (!/^[a-z0-9-]+$/.test(id)) throw new Error("bad test id");
+export async function getKey(wanted: string) {
+  if (!/^[a-z0-9-]+$/.test(wanted)) throw new Error("bad test id");
+  const id = currentId(wanted);
   const raw = await fs.readFile(path.join(CONTENT, "keys", `${id}.json`), "utf8");
   return JSON.parse(raw);
 }
