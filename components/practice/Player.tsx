@@ -43,7 +43,8 @@ const mmss = (t: number) =>
 
 /* ================================================================= */
 export default function Player(
-  { test, student }: { test: Test; student?: { name: string; code: string } },
+  { test, student, marked = true }:
+  { test: Test; student?: { name: string; code: string }; marked?: boolean },
 ) {
   // General Training runs blue, Academic runs coral — see practice.css
   const track = test.catalogue.skillLabel.startsWith("General") ? "gt" : "ac";
@@ -53,6 +54,7 @@ export default function Player(
   const [answers, setAnswers] = useState<Answers>({});
   const [left, setLeft] = useState(test.minutes * 60);
   const [result, setResult] = useState<Marked | null>(null);
+  const [done, setDone] = useState(false);   // an unmarked paper, finished
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [view, setView] = useState<"s" | "p" | "q">("s");   // reading split state
@@ -66,6 +68,11 @@ export default function Player(
   /* ---- submit ---- */
   const submit = useCallback(async () => {
     if (sending || result) return;
+    // No key on the server yet. Sending it would only come back as an error,
+    // so the paper simply ends here and the student is shown what they wrote,
+    // to mark against the book themselves. Far better than a paper they are
+    // not allowed to open at all.
+    if (!marked) { setDone(true); window.scrollTo(0, 0); return; }
     setSending(true);
     setError(null);
     try {
@@ -84,7 +91,7 @@ export default function Player(
     } finally {
       setSending(false);
     }
-  }, [answers, sending, result, test.id]);
+  }, [answers, sending, result, test.id, marked, left, test.minutes]);
 
   /* ---- timer ---- */
   useEffect(() => {
@@ -94,8 +101,8 @@ export default function Player(
   }, [started, result]);
 
   useEffect(() => {
-    if (started && left === 0 && !result) void submit();
-  }, [left, started, result, submit]);
+    if (started && left === 0 && !result && !done) void submit();
+  }, [left, started, result, done, submit]);
 
   const covers = useMemo(
     () => test.sections.map((s) => coverageIn(s)),
@@ -127,7 +134,9 @@ export default function Player(
 
           <div className="pr-note" style={{ marginTop: 0, marginBottom: 20 }}>
             Signed in as <b>{name || "—"}</b>{student?.code ? <> · {student.code}</> : null}.
-            Your result is saved against this account.
+            {marked
+              ? " Your result is saved against this account."
+              : " This paper has no answer key yet, so it will not be given a band score — but everything else works, and you can sit it under exam conditions."}
           </div>
 
           <ul style={{ paddingLeft: 20, color: "var(--grey)", lineHeight: 1.8, fontSize: "0.92rem", marginBottom: 24 }}>
@@ -149,6 +158,13 @@ export default function Player(
 
   /* ================= results ================= */
   if (result) return <Results test={test} result={result} name={name} />;
+
+  /* ================= finished, but no key to mark it against =================
+     The paper is over and there is nothing to compare it with, so the one
+     useful thing left is to hand the student their own answers, in order, in a
+     form they can hold next to the book. It is how these were always marked
+     before there was a website. */
+  if (done) return <Unmarked test={test} answers={answers} name={name} />;
 
   /* ================= the test ================= */
   const section = test.sections[current];
@@ -257,7 +273,7 @@ export default function Player(
           </button>
         ) : (
           <button className="btn btn-coral" type="button" onClick={() => void submit()} disabled={sending}>
-            {sending ? "Marking…" : "Submit test ✓"}
+            {sending ? "Marking…" : marked ? "Submit test ✓" : "Finish ✓"}
           </button>
         )}
       </div>
@@ -746,6 +762,61 @@ function Stat({ n, l }: { n: string; l: string }) {
     <div style={{ background: "var(--coral-light)", borderRadius: 12, padding: 13 }}>
       <div className="mono" style={{ fontSize: "1.25rem", fontWeight: 700, color: "var(--coral-dark)" }}>{n}</div>
       <div style={{ fontSize: "0.7rem", color: "var(--grey)" }}>{l}</div>
+    </div>
+  );
+}
+
+/* ================= a paper with no key yet ================= */
+function Unmarked(
+  { test, answers, name }:
+  { test: Test; answers: Record<string, string | string[]>; name: string },
+) {
+  /* Read the sheet exactly the way the rest of the paper does — through the
+     coverage map. Walking the groups by hand missed every question that is not
+     a plain one-box-one-number, which on a reading paper is most of them, and
+     it looked up answers under numbers the boxes never wrote to: a student who
+     had answered forty questions was told they had answered none. */
+  const rows: { n: string; given: string }[] = [];
+  let answered = 0;
+  for (const s of test.sections) {
+    for (const [lead, claimed] of Object.entries(coverageIn(s))) {
+      const v = answers[lead];
+      const given = Array.isArray(v) ? v.filter(Boolean).join(", ") : String(v ?? "").trim();
+      if (given) answered += Array.isArray(v) ? Math.min(v.filter(Boolean).length, claimed.length) : 1;
+      rows.push({ n: rangeLabel(claimed), given });
+    }
+  }
+  rows.sort((a, b) => parseInt(a.n, 10) - parseInt(b.n, 10));
+
+  return (
+    <div className="wrap" style={{ maxWidth: 720, paddingTop: 30, paddingBottom: 60 }}>
+      <div className="pr-head"><h1>Your answers</h1></div>
+      <div className="pr-note" style={{ marginTop: 6 }}>
+        <b>{name || "You"} answered {answered} of {test.total}.</b> This paper has no
+        answer key on the site yet, so there is no band score — mark it against the book
+        and keep the sheet. The moment the key is added, the paper becomes markable and
+        you can sit it again for a real score.
+      </div>
+
+      <section className="pr-set">
+        <div className="pr-rows">
+          {rows.map((r) => (
+            <div className="pr-row" key={r.n} style={{ gridTemplateColumns: "44px 1fr" }}>
+              <div className="nm" style={{ color: "var(--grey)" }}>{r.n}</div>
+              <div className="nm" style={{ fontWeight: r.given ? 700 : 400, color: r.given ? "var(--navy)" : "var(--grey)" }}>
+                {r.given || "— not answered —"}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div style={{ display: "flex", gap: 10, marginTop: 18, flexWrap: "wrap" }}>
+        <button className="btn btn-outline" type="button" onClick={() => window.print()}>
+          Print this sheet
+        </button>
+        <a className="btn btn-coral" href="/practice">Back to the tests</a>
+      </div>
     </div>
   );
 }

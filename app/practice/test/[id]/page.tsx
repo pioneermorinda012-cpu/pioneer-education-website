@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Player, { type Test } from "@/components/practice/Player";
-import { getTest } from "@/lib/catalogue";
+import { getTest, getCatalogue } from "@/lib/catalogue";
 import { requireStudent } from "@/lib/guard";
 
 /* A test paper is never prerendered and never cached. It is one student's
@@ -22,6 +22,16 @@ export default async function TestPage({ params }: { params: Promise<{ id: strin
     notFound();
   }
 
+  // A paper with no answer key still opens; it simply cannot be scored, and the
+  // player says so at the end instead of inventing a band.
+  const entry = (await getCatalogue()).find((t) => t.id === test.id);
+
   // The JSON handed to the browser has no answers in it — see lib/catalogue.ts
-  return <Player test={test} student={{ name: session.name, code: session.code }} />;
+  return (
+    <Player
+      test={test}
+      student={{ name: session.name, code: session.code }}
+      marked={entry?.keyed !== false}
+    />
+  );
 }

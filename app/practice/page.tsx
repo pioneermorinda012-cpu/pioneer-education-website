@@ -114,7 +114,7 @@ export default async function PracticeHome({
                       {best[t.id].tries > 1 && <span className="lb">×{best[t.id].tries}</span>}
                     </span>
                   ) : (
-                    <span className="pr-band none">Not attempted</span>
+                    <span className="pr-band none">{t.keyed ? "Not attempted" : "Not marked here"}</span>
                   )}
                 </div>
                 <div className="go">
@@ -126,7 +126,13 @@ export default async function PracticeHome({
                       {best[t.id] ? "Do it again" : "Start"}
                     </Link>
                   ) : (
-                    <span className="pr-band none">Answer key pending</span>
+                    /* No answer key yet is not a reason to lock the paper away.
+                       A student can still sit it under the clock and take their
+                       answer sheet to class; what they cannot get is a band
+                       score, and the button says so rather than pretending. */
+                    <Link className="btn btn-outline" href={`/practice/test/${t.id}`}>
+                      Practise
+                    </Link>
                   )}
                 </div>
               </div>
@@ -137,9 +143,10 @@ export default async function PracticeHome({
 
       {ready < mine.length && (
         <div className="pr-note">
-          <b>Some tests are not markable yet.</b> The question papers are ready, but their
-          answer keys have not been added, so they cannot give a band score. They will turn
-          on automatically once the keys are in.
+          <b>Some papers are marked “Practise”.</b> The questions are ready and you can sit
+          them under the clock, but their answer key is not on the site yet, so there is no
+          band score — you get your answer sheet to mark against the book in class. They
+          start scoring automatically the day the key is added.
         </div>
       )}
     </div>
