@@ -195,3 +195,11 @@
   .pr-stats { gap: 8px; }
   .pr-stat { padding: 13px 8px; }
 }
+
+/* ── the marketing pages' section padding ──────────────────
+   globals.css gives every <section> 90px of breathing room, which is right on
+   the home page and wrong here: inside a student's results it is a hole in the
+   middle of the page, and it pushed the answer review a screenful down. */
+.pr-set,
+.pr-rows section,
+[data-track] section { padding: 0; }

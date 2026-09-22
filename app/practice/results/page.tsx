@@ -3,7 +3,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { readSession, COOKIE } from "@/lib/session";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
-import { getCatalogue } from "@/lib/catalogue";
+import { getCatalogue, getTest } from "@/lib/catalogue";
+import { contextFor } from "@/lib/qcontext";
 import Trend from "@/components/practice/Trend";
 import MistakeBook, { type Miss } from "@/components/practice/MistakeBook";
 import { byType } from "@/lib/qtypes";
@@ -104,6 +105,32 @@ export default async function ResultsPage() {
         expected: q.expected,
       });
     }
+  }
+
+  /* ---- put the wording back behind the letters ----
+     "Correct answer: D" tells a student nothing a week later. Each paper is
+     read once here and the letters expanded into what they actually said. */
+  const papers = new Map<string, Awaited<ReturnType<typeof getTest>> | null>();
+  for (const id of new Set(misses.map((m) => m.testId))) {
+    try { papers.set(id, await getTest(id)); } catch { papers.set(id, null); }
+  }
+  const split = (s: string) =>
+    !s || s === "(blank)" || s === "—" ? [] : s.split("(")[0].split(/[,/]/).map((x) => x.trim()).filter(Boolean);
+
+  for (const m of misses) {
+    const paper = papers.get(m.testId);
+    if (!paper) continue;
+    const ctx = contextFor(paper, Number(m.n));
+    if (!ctx?.choices?.length) continue;
+    // choices arrive as "D Transfer (the full expression is given…)"
+    const wording = (letter: string) => {
+      const hit = ctx.choices!.find((c) => c.split(/\s+/)[0].toLowerCase() === letter.toLowerCase());
+      return hit ? hit.replace(/^\S+\s+/, "") : null;
+    };
+    const expectedText = split(m.expected).map(wording).filter(Boolean).join(" · ");
+    const givenText = split(m.given).map(wording).filter(Boolean).join(" · ");
+    if (expectedText) m.expectedText = expectedText;
+    if (givenText) m.givenText = givenText;
   }
 
   /* ---- spelling: right answer, wrong letters ---- */

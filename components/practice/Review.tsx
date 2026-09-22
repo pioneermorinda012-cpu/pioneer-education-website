@@ -17,19 +17,58 @@ export type MarkedQuestion = {
 };
 
 type Group = Test["sections"][number]["groups"][number];
-type ReviewEntry = { si: number; title?: string; instr?: string; stem: string; covers: number[] };
+type Choice = { l: string; t: string };
+type ReviewEntry = {
+  si: number; title?: string; instr?: string; stem: string; covers: number[];
+  /** the options the student was choosing between, so a bare "D" means something */
+  choices?: Choice[];
+};
+
+const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 const stripTags = (s: string) =>
   String(s).replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+
+/* The wording behind the letters. A review that says the answer was "D" and
+ * stops there is no use: the student needs to see what D said, and what they
+ * picked instead. Options come from the question, or the group, or the bank
+ * printed above it — whichever the paper used. */
+const SELF_EVIDENT = /^(TRUE|FALSE|YES|NO|NOT GIVEN)$/i;
+
+function choicesOf(g: Group, q?: { opts?: Test["sections"][number]["groups"][number]["opts"] }): Choice[] | undefined {
+  const opts = q?.opts ?? g.opts;
+  const bank = g.bank?.length
+    ? new Map(g.bank.map(([l, t]) => [l.toLowerCase(), t]))
+    : null;
+
+  if (opts?.length) {
+    return opts.map((o, i) => {
+      const l = typeof o === "object" ? o.l : LETTERS[i] ?? String(i + 1);
+      const t = typeof o === "object" ? o.t : String(o);
+      // A heading picker's options are bare numerals — "vii" and nothing else,
+      // because the wording is in the bank printed above the question. Put the
+      // two back together, or the review shows a letter and no lesson.
+      if (t === l && !SELF_EVIDENT.test(l)) {
+        const fromBank = bank?.get(l.toLowerCase());
+        if (fromBank && fromBank !== l) return { l, t: fromBank };
+      }
+      return { l, t };
+    });
+  }
+  if (g.bank?.length) return g.bank.map(([l, t]) => ({ l, t }));
+  return undefined;
+}
 
 function reviewIndex(test: Test): Record<string, ReviewEntry> {
   const idx: Record<string, ReviewEntry> = {};
   test.sections.forEach((s, si) => {
     const cover = coverageIn(s);
-    const put = (n: number, g: Group, stem: string) => {
+    const put = (n: number, g: Group, stem: string, choices?: Choice[]) => {
       const covers = cover[n] ?? [n];
       // A three-mark task is one entry, filed under every number it covers.
-      covers.forEach((c) => { idx[String(c)] = { si, title: g.title, instr: g.instr, stem, covers }; });
+      covers.forEach((c) => {
+        idx[String(c)] = { si, title: g.title, instr: g.instr, stem, covers, choices };
+      });
     };
     const fromText = (g: Group, t: string) => {
       for (const m of [...String(t).matchAll(/\{\{(\d+)[a-z]?\}\}/g)]) {
@@ -37,13 +76,14 @@ function reviewIndex(test: Test): Record<string, ReviewEntry> {
         // the gap being asked about becomes a blank; its neighbours keep their numbers
         const shown = String(t).replace(/\{\{(\d+)[a-z]?\}\}/g, (_, d) =>
           Number(d) === n ? " _____ " : ` (${d}) `);
-        put(n, g, stripTags(shown));
+        // A gap filled from a word bank still has options behind it.
+        put(n, g, stripTags(shown), g.bank?.length ? choicesOf(g) : undefined);
       }
     };
     for (const g of s.groups) {
       g.lines?.forEach((l) => fromText(g, typeof l === "object" ? l.t : l));
       g.table?.forEach((r) => r.forEach((c) => fromText(g, typeof c === "object" ? c.t : c)));
-      g.questions?.forEach((q) => put(q.n, g, stripTags(q.stem)));
+      g.questions?.forEach((q) => put(q.n, g, stripTags(q.stem), choicesOf(g, q)));
     }
   });
   return idx;
@@ -55,10 +95,24 @@ export default function ReviewPanel({
   test: Test;
   questions: MarkedQuestion[];
   /** the player's passage renderer, passed in so there is only one of them */
-  Passage: (p: { passage: NonNullable<Test["sections"][number]["passage"]>; media: Record<string, string> }) => React.ReactElement;
+  Passage: (p: {
+    passage: NonNullable<Test["sections"][number]["passage"]>;
+    media: Record<string, string>;
+    highlight?: string | null;
+  }) => React.ReactElement;
 }) {
   const [openPassage, setOpenPassage] = useState<number | null>(null);
   const [only, setOnly] = useState<"all" | "wrong">("wrong");
+  /* The sentence an explanation quoted, and the passage it belongs to. Asking
+   * why an answer is right opens that passage and lights the line up, which is
+   * the whole point: a student learns far more from seeing where the answer
+   * was hiding than from being told what it was. */
+  const [hit, setHit] = useState<{ si: number; quote: string } | null>(null);
+  const showQuote = (si: number, quote: string | null) => {
+    if (!quote) return;
+    setHit({ si, quote });
+    setOpenPassage(si);
+  };
   const idx = useMemo(() => reviewIndex(test), [test]);
 
   // One entry per task, not per mark: a question worth three marks is reviewed
@@ -129,13 +183,15 @@ export default function ReviewPanel({
             </div>
 
             {passage && openPassage === si && (
-              <div style={{ maxHeight: 420, overflowY: "auto", marginBottom: 14 }}>
-                <Passage passage={passage} media={test.mediaUrls} />
+              <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
+                <Passage passage={passage} media={test.mediaUrls}
+                  highlight={hit?.si === si ? hit.quote : null} />
               </div>
             )}
 
             {items.map((q) => (
-              <ReviewRow key={q.n} q={q} entry={idx[q.n]} testId={test.id} />
+              <ReviewRow key={q.n} q={q} entry={idx[q.n]} testId={test.id}
+                onQuote={(quote) => showQuote(si, quote)} />
             ))}
           </section>
         );
@@ -146,9 +202,10 @@ export default function ReviewPanel({
 
 /* ---------- one question in the review ---------- */
 function ReviewRow({
-  q, entry, testId,
+  q, entry, testId, onQuote,
 }: {
   q: MarkedQuestion; entry?: ReviewEntry; testId: string;
+  onQuote?: (quote: string | null) => void;
 }) {
   const label = entry ? rangeLabel(entry.covers) : q.n;
   return (
@@ -179,18 +236,118 @@ function ReviewRow({
         </span>
       </div>
 
-      {!q.correct && <Explain testId={testId} n={entry ? entry.covers[0] : Number(q.n)} />}
+      <Options entry={entry} q={q} />
+
+      {!q.correct && (
+        <Explain testId={testId} n={entry ? entry.covers[0] : Number(q.n)} onQuote={onQuote} />
+      )}
+    </div>
+  );
+}
+
+/* ---------- the options, with the right one and the chosen one marked ----------
+ *
+ * The marker stores letters, because that is what the student submitted. On
+ * its own a letter teaches nothing: "the answer was D" leaves them no wiser
+ * than before. So the wording goes back beside it, with the correct option
+ * marked and — when they picked one — their own choice marked too.
+ *
+ * A short list is shown whole, because the distractors are half the lesson. A
+ * long one (a list of ten headings, a bank of words) would bury the answer, so
+ * only the two lines that matter are shown.
+ */
+function letters(s: string): string[] {
+  if (!s || s === "(blank)" || s === "—") return [];
+  return s.split("(")[0].split(/[,/]/).map((x) => x.trim()).filter(Boolean);
+}
+
+function Options({ entry, q }: { entry?: ReviewEntry; q: MarkedQuestion }) {
+  const all = entry?.choices;
+  if (!all?.length) return null;
+
+  const want = letters(q.expected).map((x) => x.toLowerCase());
+  const got = letters(q.given).map((x) => x.toLowerCase());
+  if (!want.length) return null;
+
+  const isRight = (c: Choice) => want.includes(c.l.toLowerCase());
+  const isMine = (c: Choice) => got.includes(c.l.toLowerCase());
+  const shown = all.length <= 6 ? all : all.filter((c) => isRight(c) || isMine(c));
+  if (!shown.length) return null;
+
+  return (
+    <div style={{ display: "grid", gap: 4, margin: "10px 0 0 4px" }}>
+      {all.length > 6 && (
+        <p style={{ margin: "0 0 2px", fontSize: "0.76rem", color: "var(--grey)" }}>
+          From the list of {all.length}:
+        </p>
+      )}
+      {shown.map((c) => {
+        const right = isRight(c), mine = isMine(c);
+        return (
+          <div key={c.l}
+            style={{ display: "flex", gap: 8, alignItems: "flex-start", fontSize: "0.85rem",
+              lineHeight: 1.45, padding: "6px 9px", borderRadius: 8,
+              background: right ? "#E8F5EE" : mine ? "#FBE9E7" : "transparent",
+              color: right ? "#0B5D3B" : mine ? "#8E2016" : "var(--navy)" }}>
+            <b style={{ flexShrink: 0, minWidth: 18 }}>{c.l}</b>
+            <span style={{ flex: 1 }}>{c.t === c.l ? "" : c.t}</span>
+            {right && <b style={{ flexShrink: 0, fontSize: "0.74rem" }}>✓ correct</b>}
+            {!right && mine && <b style={{ flexShrink: 0, fontSize: "0.74rem" }}>✗ you chose this</b>}
+          </div>
+        );
+      })}
     </div>
   );
 }
 
 /* ---------- the explanation, written once and then remembered ---------- */
-export function Explain({ testId, n }: { testId: string; n: number }) {
+
+const MARK: React.CSSProperties = {
+  background: "#FFE38A", borderRadius: 3, padding: "1px 3px", boxDecorationBreak: "clone",
+};
+
+/** Anything the explanation put in quotation marks came out of the passage, so
+ *  show it the way it will be shown in the passage: highlighted. */
+function withQuotes(s: string, k: string) {
+  return s.split(/([“"][^“”"]{8,}[”"])/g).map((p, i) =>
+    /^[“"]/.test(p) && p.length > 9
+      ? <span key={`${k}-${i}`} style={MARK}>{p}</span>
+      : <span key={`${k}-${i}`}>{p}</span>);
+}
+
+function ExplainText({ text }: { text: string }) {
+  const lines = text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
+  return (
+    <div style={{ display: "grid", gap: 7 }}>
+      {lines.map((line, i) => {
+        const m = line.match(/^(?:\d+[.)]\s*)?(Keywords|In the passage|Why|Answer)\s*:\s*([\s\S]*)$/i);
+        return m ? (
+          <p key={i} style={{ margin: 0 }}>
+            <b style={{ color: "var(--coral-dark)" }}>{m[1]}: </b>
+            {withQuotes(m[2], String(i))}
+          </p>
+        ) : (
+          <p key={i} style={{ margin: 0 }}>{withQuotes(line, String(i))}</p>
+        );
+      })}
+    </div>
+  );
+}
+
+export function Explain({
+  testId, n, onQuote,
+}: {
+  testId: string; n: number;
+  /** hands the panel the sentence to light up in the passage */
+  onQuote?: (quote: string | null) => void;
+}) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [text, setText] = useState("");
+  const [quote, setQuote] = useState<string | null>(null);
 
   const ask = async () => {
-    if (state === "loading" || state === "done") return;
+    if (state === "loading") return;
+    if (state === "done") { onQuote?.(quote); return; }
     setState("loading");
     try {
       const res = await fetch("/api/practice/explain", {
@@ -201,6 +358,9 @@ export function Explain({ testId, n }: { testId: string; n: number }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error ?? "Could not write an explanation.");
       setText(String(data.text ?? ""));
+      const q = data.quote ? String(data.quote) : null;
+      setQuote(q);
+      onQuote?.(q);
       setState("done");
     } catch (e) {
       setText(e instanceof Error ? e.message : "Could not write an explanation.");
@@ -220,10 +380,19 @@ export function Explain({ testId, n }: { testId: string; n: number }) {
   }
 
   return (
-    <div style={{ marginTop: 10, background: "var(--gold-light)", borderRadius: 10, padding: "11px 13px",
-      fontSize: "0.87rem", lineHeight: 1.65, whiteSpace: "pre-wrap",
+    <div style={{ marginTop: 10, background: "var(--gold-light)", borderRadius: 10, padding: "12px 14px",
+      fontSize: "0.87rem", lineHeight: 1.65,
       color: state === "error" ? "#A3251A" : "var(--navy)" }}>
-      {state === "loading" ? "Working through the passage…" : text}
+      {state === "loading" ? "Working through the passage…" : <ExplainText text={text} />}
+
+      {state === "done" && quote && onQuote && (
+        <button type="button" onClick={() => onQuote(quote)}
+          style={{ marginTop: 10, border: "1.5px solid var(--navy)", background: "transparent",
+            color: "var(--navy)", borderRadius: 9, padding: "6px 11px", cursor: "pointer",
+            fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem", minHeight: 36 }}>
+          📍 Show me this line in the passage
+        </button>
+      )}
     </div>
   );
 }

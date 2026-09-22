@@ -16,6 +16,37 @@ import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 
 export const maxDuration = 40;
 
+/**
+ * Pull out the sentence the explanation quoted, but only if it really is in
+ * the passage. The point of highlighting is to show the student the line that
+ * settles it; highlighting a line the model invented would teach them to
+ * trust something that is not there, so an unverified quote is dropped and the
+ * explanation simply appears without a highlight.
+ */
+function verifiedQuote(text: string, passage?: string): string | null {
+  if (!passage) return null;
+  const norm = (s: string) =>
+    s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+      .replace(/[-–—]/g, "-").replace(/\s+/g, " ").trim();
+  const hay = norm(passage);
+
+  const candidates = [...text.matchAll(/[“"]([^“”"]{25,400})[”"]/g)]
+    .map((m) => m[1].trim())
+    .sort((a, b) => b.length - a.length);
+
+  for (const c of candidates) if (hay.includes(norm(c))) return c;
+
+  // The model sometimes tidies a sentence as it quotes it. Fall back to its
+  // longest clause, which is still enough to point at the right line.
+  for (const c of candidates) {
+    const clauses = c.split(/[,;:]/).map((s) => s.trim())
+      .filter((s) => s.split(/\s+/).length >= 5)
+      .sort((a, b) => b.length - a.length);
+    for (const cl of clauses) if (hay.includes(norm(cl))) return cl;
+  }
+  return null;
+}
+
 const SYSTEM = `You are an experienced IELTS teacher at Pioneer Education Center, explaining one
 reading or listening question to a student who got it wrong.
 
@@ -58,15 +89,9 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Bad request." }, { status: 400 });
   }
 
-  const hit = await cachedExplanation(testId, n);
-  if (hit) return NextResponse.json({ text: hit, cached: true });
-
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return NextResponse.json(
-      { error: "Explanations are not switched on yet. Ask your teacher." }, { status: 503 },
-    );
-  }
-
+  // The paper is loaded before the cache is consulted, because the passage is
+  // what lets the quoted sentence be checked and then highlighted — a stored
+  // explanation needs it just as much as a fresh one.
   let test, key;
   try {
     test = await getTest(testId);
@@ -79,6 +104,17 @@ export async function POST(req: NextRequest) {
   const answer = key[String(n)];
   if (!ctx || !answer) {
     return NextResponse.json({ error: "That question could not be found." }, { status: 404 });
+  }
+
+  const hit = await cachedExplanation(testId, n);
+  if (hit) {
+    return NextResponse.json({ text: hit, quote: verifiedQuote(hit, ctx.passage), cached: true });
+  }
+
+  if (!process.env.ANTHROPIC_API_KEY) {
+    return NextResponse.json(
+      { error: "Explanations are not switched on yet. Ask your teacher." }, { status: 503 },
+    );
   }
 
   const wanted = "display" in answer ? answer.display : String(answer);
@@ -118,7 +154,7 @@ export async function POST(req: NextRequest) {
     if (!out) throw new Error("empty reply");
 
     await storeExplanation(testId, n, out);
-    return NextResponse.json({ text: out, cached: false });
+    return NextResponse.json({ text: out, quote: verifiedQuote(out, ctx.passage), cached: false });
   } catch (e) {
     console.error("explain failed:", (e as Error).message);
     return NextResponse.json(

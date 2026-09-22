@@ -305,11 +305,51 @@ function AudioBar({
 }
 
 /* ================= passage ================= */
+/* Build a forgiving matcher for a sentence the model quoted back at us. The
+ * quote is faithful in its words but not always in its whitespace or its
+ * apostrophes, so match on the words and be permissive about everything
+ * between and around them. */
+function quoteRegex(quote: string): RegExp | null {
+  const words = quote.trim().replace(/^[“"'\s]+|[”"'\s.]+$/g, "").split(/\s+/);
+  if (words.length < 4) return null;                       // too short to be safe
+  const body = words
+    .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+    .join("[\\s\\u00a0]+")
+    .replace(/['’]/g, "['’]")
+    .replace(/["“”]/g, "[\"“”]")
+    .replace(/[-–—]/g, "[-–—]");
+  try { return new RegExp(body, "i"); } catch { return null; }
+}
+
 export function Passage({
-  passage, media,
+  passage, media, highlight,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
+  /** the sentence that answers the question the student just asked about */
+  highlight?: string | null;
 }) {
+  const re = useMemo(() => (highlight ? quoteRegex(highlight) : null), [highlight]);
+
+  // Bring the highlighted line into view — a passage is long and the point of
+  // marking it is lost if the student has to hunt for the mark.
+  useEffect(() => {
+    if (!re) return;
+    const t = setTimeout(() => {
+      document.querySelector("mark[data-hit]")?.scrollIntoView({ block: "center", behavior: "smooth" });
+    }, 120);
+    return () => clearTimeout(t);
+  }, [re]);
+
+  const marked = (html: string): string => {
+    if (!re) return html;
+    const plain = html.replace(/<[^>]+>/g, "");
+    if (!re.test(plain)) return html;
+    // Rendering the stripped text loses inline italics on this one paragraph,
+    // which is a fair trade for a highlight that lands in the right place.
+    return plain.replace(re, (s) =>
+      `<mark data-hit style="background:#FFE38A;border-radius:3px;padding:1px 2px;box-shadow:0 0 0 3px #FFE38A">${s}</mark>`);
+  };
+
   return (
     <article style={{ background: "var(--paper)", border: "1px solid var(--grey-light)",
       borderRadius: 16, padding: "22px 20px", fontSize: "1rem", lineHeight: 1.75, marginTop: 12 }}>
@@ -333,7 +373,7 @@ export function Passage({
                 {letter}
               </span>
             )}
-            <span dangerouslySetInnerHTML={{ __html: text }} />
+            <span dangerouslySetInnerHTML={{ __html: marked(text) }} />
           </p>
         );
       })}

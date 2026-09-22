@@ -22,6 +22,9 @@ export type Miss = {
   type: string;
   given: string;
   expected: string;
+  /** what the letters actually said, when the question had options */
+  expectedText?: string;
+  givenText?: string;
 };
 
 const SELECT: React.CSSProperties = {
@@ -106,11 +109,18 @@ export default function MistakeBook({ misses }: { misses: Miss[] }) {
             </Link>
           </div>
 
-          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", margin: "9px 0 0 4px", fontSize: "0.86rem" }}>
-            <span>You wrote: <b style={{ color: "#A3251A" }}>{x.given}</b></span>
-            <span style={{ color: "var(--grey)" }}>
-              Correct answer: <b style={{ color: "var(--navy)" }}>{x.expected}</b>
-            </span>
+          {/* A letter on its own teaches nothing, so the wording goes with it. */}
+          <div style={{ display: "grid", gap: 4, margin: "9px 0 0 4px", fontSize: "0.86rem" }}>
+            <div style={{ padding: x.givenText ? "6px 9px" : 0, borderRadius: 8,
+              background: x.givenText ? "#FBE9E7" : undefined }}>
+              You wrote: <b style={{ color: "#A3251A" }}>{x.given}</b>
+              {x.givenText && <span style={{ color: "#8E2016" }}> — {x.givenText}</span>}
+            </div>
+            <div style={{ padding: x.expectedText ? "6px 9px" : 0, borderRadius: 8,
+              background: x.expectedText ? "#E8F5EE" : undefined, color: "var(--grey)" }}>
+              Correct answer: <b style={{ color: x.expectedText ? "#0B5D3B" : "var(--navy)" }}>{x.expected}</b>
+              {x.expectedText && <span style={{ color: "#0B5D3B" }}> — {x.expectedText}</span>}
+            </div>
           </div>
 
           <Explain testId={x.testId} n={Number(x.n)} />
