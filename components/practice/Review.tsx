@@ -89,6 +89,41 @@ function reviewIndex(test: Test): Record<string, ReviewEntry> {
   return idx;
 }
 
+
+/* ---------- finding the answer in the passage, without asking anyone ----------
+ *
+ * For most of an IELTS reading paper the answer IS a phrase from the passage:
+ * a gap fill, a short answer, a table or a diagram label is marked right only
+ * if the student copied the wording out. So the answer can simply be looked up
+ * where it came from — no model, no waiting, no cost, and it cannot be wrong.
+ *
+ * True/False and multiple choice have no such phrase; those still need the
+ * explanation to point at the line. This covers everything else, which on a
+ * typical paper is more than half of it.
+ */
+const NOT_A_PHRASE = /^(TRUE|FALSE|YES|NO|NOT GIVEN)$/i;
+const JUST_A_LABEL = /^([A-Za-z]|[ivxlIVXL]+)$/;
+
+function answerPhrases(expected: string): string[] {
+  return expected
+    // "(the) (tabloid) newspapers" — the optional words are not needed to find it
+    .replace(/\([^)]*\)/g, " ")
+    .split(/\s*\/\s*|\s*·\s*/)
+    .map((s) => s.trim().replace(/[.,;:]+$/, ""))
+    .filter((s) => s.length >= 4 && !NOT_A_PHRASE.test(s) && !JUST_A_LABEL.test(s))
+    .sort((a, b) => b.length - a.length);
+}
+
+/** The letter answer of a "which paragraph…" or heading-match question. */
+function answerLetter(expected: string): string | null {
+  const s = expected.trim();
+  return /^[A-Z]$/.test(s) ? s : null;
+}
+
+const flat = (p: NonNullable<Test["sections"][number]["passage"]>) =>
+  p.paras.map((x) => (typeof x === "object" ? x.t : x)).join("\n")
+    .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").toLowerCase();
+
 export default function ReviewPanel({
   test, questions, Passage,
 }: {
@@ -99,6 +134,7 @@ export default function ReviewPanel({
     passage: NonNullable<Test["sections"][number]["passage"]>;
     media: Record<string, string>;
     highlights?: { quote: string; label: string }[];
+    paraMarks?: Record<string, string[]>;
   }) => React.ReactElement;
 }) {
   const [openPassage, setOpenPassage] = useState<number | null>(null);
@@ -163,6 +199,44 @@ export default function ReviewPanel({
 
   const wrongCount = rows.filter((q) => !q.correct).length;
 
+  /* Where each answer sits in its passage, worked out from the answer itself.
+   * Done once when the review opens, so a student who opens a passage sees it
+   * already marked up rather than having to ask question by question. */
+  const found = useMemo(() => {
+    const out: { si: number; label: string; quote: string }[] = [];
+    const paras: { si: number; letter: string; label: string }[] = [];
+    for (const q of rows) {
+      const e = idx[q.n];
+      const si = e?.si ?? 0;
+      const passage = test.sections[si]?.passage;
+      if (!passage) continue;
+      const label = e ? rangeLabel(e.covers) : q.n;
+      const hay = flat(passage);
+      const phrase = answerPhrases(q.expected).find((p) => hay.includes(p.toLowerCase()));
+      if (phrase) { out.push({ si, label, quote: phrase }); continue; }
+      const letter = answerLetter(q.expected);
+      if (letter && passage.paras.some((p) => typeof p === "object" && p.l === letter)) {
+        paras.push({ si, letter, label });
+      }
+    }
+    return { out, paras };
+  }, [rows, idx, test.sections]);
+
+  const highlightsFor = (si: number) => {
+    const seen = new Set<string>();
+    const all = [
+      ...found.out.filter((f) => f.si === si).map((f) => ({ label: f.label, quote: f.quote })),
+      ...Object.entries(marks).filter(([, v]) => v.si === si).map(([label, v]) => ({ label, quote: v.quote })),
+    ];
+    // an explained sentence wins over the bare phrase for the same question
+    return all.reverse().filter((h) => !seen.has(h.label) && seen.add(h.label)).reverse();
+  };
+  const paraMarksFor = (si: number) => {
+    const m: Record<string, string[]> = {};
+    for (const p of found.paras.filter((x) => x.si === si)) (m[p.letter] ??= []).push(p.label);
+    return m;
+  };
+
   return (
     <div className="pr-rows" style={{ padding: 24, marginTop: 18, textAlign: "left" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginBottom: 16 }}>
@@ -203,7 +277,9 @@ export default function ReviewPanel({
                   style={{ border: "1.5px solid var(--grey-light)", background: "var(--paper)", cursor: "pointer",
                     borderRadius: 9, padding: "6px 11px", fontFamily: "inherit", fontWeight: 700,
                     fontSize: "0.76rem", color: "var(--navy)", minHeight: 36 }}>
-                  {openPassage === si ? "Hide passage" : "📖 Read the passage"}
+                  {openPassage === si ? "Hide passage"
+                    : `📖 Read the passage${highlightsFor(si).length || Object.keys(paraMarksFor(si)).length
+                        ? " — answers marked" : ""}`}
                 </button>
               )}
               {passage && items.some((q) => !q.correct) && (
@@ -221,9 +297,7 @@ export default function ReviewPanel({
             {passage && openPassage === si && (
               <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
                 <Passage passage={passage} media={test.mediaUrls}
-                  highlights={Object.entries(marks)
-                    .filter(([, v]) => v.si === si)
-                    .map(([label, v]) => ({ label, quote: v.quote }))} />
+                  highlights={highlightsFor(si)} paraMarks={paraMarksFor(si)} />
               </div>
             )}
 

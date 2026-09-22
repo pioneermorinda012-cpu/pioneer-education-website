@@ -310,26 +310,36 @@ function AudioBar({
  * apostrophes, so match on the words and be permissive about everything
  * between and around them. */
 function quoteRegex(quote: string): RegExp | null {
-  const words = quote.trim().replace(/^[“"'\s]+|[”"'\s.]+$/g, "").split(/\s+/);
-  if (words.length < 4) return null;                       // too short to be safe
+  const trimmed = quote.trim().replace(/^[“"'\s]+|[”"'\s.]+$/g, "");
+  const words = trimmed.split(/\s+/).filter(Boolean);
+  // A quoted sentence is long; an answer key phrase can be two words, or one
+  // long one. Anything shorter than that would light up half the passage.
+  if (!words.length || (words.length < 2 && trimmed.length < 6)) return null;
   const body = words
     .map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
     .join("[\\s\\u00a0]+")
     .replace(/['’]/g, "['’]")
     .replace(/["“”]/g, "[\"“”]")
     .replace(/[-–—]/g, "[-–—]");
-  try { return new RegExp(body, "i"); } catch { return null; }
+  // A short phrase can be the answer in more than one place, so mark them all;
+  // a whole sentence appears once and marking it twice would be noise.
+  const flags = words.length < 4 ? "gi" : "i";
+  try {
+    return new RegExp(words.length < 4 ? `\\b${body}\\b` : body, flags);
+  } catch { return null; }
 }
 
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
 export function Passage({
-  passage, media, highlights,
+  passage, media, highlights, paraMarks,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
-  /** every sentence an explanation has quoted, tagged with its question number */
+  /** every phrase or sentence that answers a question, tagged with its number */
   highlights?: { quote: string; label: string }[];
+  /** whole paragraphs that are the answer — "which paragraph mentions…" */
+  paraMarks?: Record<string, string[]>;
 }) {
   const hits = useMemo(
     () => (highlights ?? [])
@@ -356,7 +366,9 @@ export function Passage({
     const plain = html.replace(/<[^>]+>/g, "");
     let out = plain, touched = false;
     for (const h of hits) {
+      h.re.lastIndex = 0;                       // a /g regex remembers where it got to
       if (!h.re.test(out)) continue;
+      h.re.lastIndex = 0;
       touched = true;
       out = out.replace(h.re, (s) =>
         `<mark data-hit style="background:#FFD7A8;border-radius:4px;padding:1px 3px;` +
@@ -381,8 +393,15 @@ export function Passage({
       {passage.paras.map((p, i) => {
         const letter = typeof p === "object" ? p.l : undefined;
         const text = typeof p === "object" ? p.t : p;
+        // A "which paragraph contains…" answer is the paragraph itself, so the
+        // whole thing is tinted rather than one line inside it.
+        const owns = letter ? paraMarks?.[letter] : undefined;
         return (
-          <p key={i} style={{ marginBottom: 13 }}>
+          <p key={i} data-hit={owns ? "" : undefined}
+            style={{ marginBottom: 13, ...(owns ? {
+              background: "#FFF3DF", borderLeft: "4px solid #F3B15E",
+              borderRadius: 8, padding: "9px 12px", margin: "0 0 13px -4px",
+            } : {}) }}>
             {letter && (
               <span style={{ display: "inline-block", fontWeight: 800, color: "var(--coral-dark)",
                 background: "var(--coral-light)", borderRadius: 5, padding: "1px 8px", marginRight: 8,
@@ -390,6 +409,12 @@ export function Passage({
                 {letter}
               </span>
             )}
+            {owns?.map((l) => (
+              <b key={l} style={{ background: "#F3B15E", borderRadius: 3, padding: "0 5px",
+                marginRight: 5, fontSize: "0.76rem", color: "#4A2A05" }}>
+                Q{l}
+              </b>
+            ))}
             <span dangerouslySetInnerHTML={{ __html: marked(text) }} />
           </p>
         );
