@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import { getCatalogue, SKILLS, type SkillCode } from "@/lib/catalogue";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
-import { readSession, COOKIE } from "@/lib/session";
+import { requireStudent } from "@/lib/guard";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +13,9 @@ export default async function PracticeHome({
 }) {
   const { skill } = await searchParams;
   const active: SkillCode = (SKILLS.some((s) => s.code === skill) ? skill : "AL") as SkillCode;
+
+  // Nothing is read, and nothing is rendered, until we know who is asking.
+  const session = await requireStudent(`/practice?skill=${active}`);
 
   const catalogue = await getCatalogue();
   const mine = catalogue.filter((t) => t.skill === active);
@@ -26,10 +29,6 @@ export default async function PracticeHome({
   }
 
   // What this student has already done, so a finished test says so.
-  const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
-  const store = await cookies();
-  const session = secret ? await readSession(store.get(COOKIE)?.value, secret) : null;
-
   const best: Record<string, { band: number; tries: number; when: string }> = {};
   if (session && attemptsReady()) {
     try {
