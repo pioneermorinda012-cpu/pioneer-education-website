@@ -74,12 +74,25 @@ export async function getTest(wanted: string) {
     for (const k of Object.keys(test.mediaUrls)) {
       const v = String(test.mediaUrls[k]);
       const ext = v.match(/\.(mp3|m4a|wav|ogg|aac)$/i);
-      if (v.startsWith("/practice/media/") && ext) {
-        const suffix = k === "audio_main" ? "" : `__${k}`;
-        test.mediaUrls[k] = `${MEDIA_BASE}/${id}${suffix}${ext[0].toLowerCase()}`;
+      if (!v.startsWith("/practice/media/") || !ext) continue;
+
+      // The recording's filename is RECORDED on the paper, not rebuilt from the
+      // test id. It used to be rebuilt, and the day the two Plus sets turned
+      // out to be labelled the wrong way round every recording in storage
+      // pointed at the wrong paper — with no fix but uploading all thirteen
+      // files again by hand. A name stamped with the file's own checksum
+      // survives any rename, so that chore happens once and never returns.
+      if (k === test.audioId) {
+        if (test.audioFile) {
+          test.mediaUrls[k] = `${MEDIA_BASE}/${test.audioFile}`;
+          continue;
+        }
       }
+      const suffix = k === "audio_main" ? "" : `__${k}`;
+      test.mediaUrls[k] = `${MEDIA_BASE}/${id}${suffix}${ext[0].toLowerCase()}`;
     }
   }
+
   return test;
 }
 
