@@ -14,7 +14,7 @@ import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
  * question wrong gets the answer instantly and it costs nothing.
  */
 
-export const maxDuration = 40;
+export const maxDuration = 60;
 
 /**
  * Pull out the sentence the explanation quoted, but only if it really is in
@@ -46,6 +46,8 @@ function verifiedQuote(text: string, passage?: string): string | null {
   }
   return null;
 }
+
+const MODEL = process.env.EXPLAIN_MODEL ?? "claude-sonnet-4-6";
 
 const SYSTEM = `You are an experienced IELTS teacher at Pioneer Education Center, explaining one
 reading or listening question to a student who got it wrong.
@@ -112,6 +114,52 @@ function verify(e: Explained, passage?: string): Explained {
     sentence: has(e.sentence) ? e.sentence : (verifiedQuote(`"${e.sentence}"`, passage) ?? ""),
     note: e.note,
   };
+}
+
+/**
+ * A self-test for the teacher: is the key set, does the model answer?
+ * Open /api/practice/explain while signed in on the teacher page.
+ */
+export async function GET() {
+  const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
+  const store = await cookies();
+  const teacher = secret ? await readSession(store.get(TEACHER_COOKIE)?.value, secret) : null;
+  if (!teacher || teacher.role !== "teacher") {
+    return NextResponse.json({ error: "Teachers only." }, { status: 401 });
+  }
+
+  const key = process.env.ANTHROPIC_API_KEY ?? "";
+  const out: Record<string, unknown> = {
+    apiKeySet: Boolean(key),
+    apiKeyLooksRight: /^sk-ant-/.test(key),
+    model: MODEL,
+    supabaseConfigured: Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY),
+  };
+  if (!key) { out.verdict = "No ANTHROPIC_API_KEY in this environment."; return NextResponse.json(out); }
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-api-key": key, "anthropic-version": "2023-06-01" },
+      body: JSON.stringify({ model: MODEL, max_tokens: 8, messages: [{ role: "user", content: "Say OK" }] }),
+    });
+    const data = await res.json();
+    out.httpStatus = res.status;
+    out.verdict = res.ok ? "The model answered. Explanations should work."
+      : `The model refused: ${data?.error?.type ?? "?"} — ${data?.error?.message ?? "no message"}`;
+  } catch (e) {
+    out.verdict = `Could not reach the API: ${(e as Error).message}`;
+  }
+
+  // Does the cache table exist? A missing table is silent by design, but the
+  // teacher should be able to see that every explanation is being rewritten.
+  try {
+    await storeExplanation("__selftest", 1, "ok");
+    const back = await cachedExplanation("__selftest", 1);
+    out.cacheTable = back ? "working" : "NOT working — run the explanations SQL";
+  } catch { out.cacheTable = "NOT working — run the explanations SQL"; }
+
+  return NextResponse.json(out);
 }
 
 export async function POST(req: NextRequest) {
@@ -195,8 +243,8 @@ export async function POST(req: NextRequest) {
         "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify({
-        model: "claude-sonnet-4-6",
-        max_tokens: 500,
+        model: MODEL,
+        max_tokens: 900,
         system: SYSTEM,
         messages: [{ role: "user", content: prompt }],
       }),
@@ -218,9 +266,13 @@ export async function POST(req: NextRequest) {
     await storeExplanation(testId, n, JSON.stringify(ok));
     return NextResponse.json({ ...ok, answer: answerShown, quote: ok.sentence || null, cached: false });
   } catch (e) {
-    console.error("explain failed:", (e as Error).message);
+    const why = (e as Error).message;
+    console.error("explain failed:", why);
+    // The reason travels back too. Without it this fails silently in
+    // production and the only way to find out why is to guess, which cost a
+    // day once already. It is an API status, not a secret.
     return NextResponse.json(
-      { error: "Could not write an explanation just now. Try again in a moment." },
+      { error: "Could not write an explanation just now.", detail: why },
       { status: 502 },
     );
   }

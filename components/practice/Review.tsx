@@ -444,6 +444,7 @@ export function Explain({
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [data, setData] = useState<Explained | null>(null);
   const [error, setError] = useState("");
+  const [detail, setDetail] = useState("");
   const [quote, setQuote] = useState<string | null>(null);
 
   const ask = async () => {
@@ -457,7 +458,7 @@ export function Explain({
         body: JSON.stringify({ testId, n }),
       });
       const d = await res.json();
-      if (!res.ok) throw new Error(d.error ?? "Could not write an explanation.");
+      if (!res.ok) { setDetail(String(d.detail ?? "")); throw new Error(d.error ?? "Could not write an explanation."); }
       setData(d);
       const q = d.quote ? String(d.quote) : null;
       setQuote(q);
@@ -494,6 +495,13 @@ export function Explain({
       <div style={{ marginTop: 10, background: "#FBE9E7", borderRadius: 10, padding: "12px 14px",
         fontSize: "0.87rem", color: "#A3251A" }}>
         {error}
+        {detail && (
+          // The reason, small and out of the way. A student ignores it; the
+          // teacher can read it out down the phone instead of guessing.
+          <span style={{ display: "block", marginTop: 5, fontSize: "0.76rem", opacity: 0.85 }}>
+            {detail}
+          </span>
+        )}
       </div>
     );
   }
