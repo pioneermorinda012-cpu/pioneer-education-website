@@ -67,6 +67,9 @@ export default async function PracticeHome({
             <span key={s.code}>{s.label} — soon</span>
           )
         )}
+        {/* Writing is not a marked paper like the others, so it sits at the end
+            of the row rather than pretending to be one. */}
+        <Link href="/practice/writing?task=2">Writing</Link>
       </nav>
 
       <div className="pr-head">

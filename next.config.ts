@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
     "/practice": ["./content/catalogue.json"],
     "/practice/**": ["./content/catalogue.json", "./content/tests/**/*"],
     "/api/practice/submit": ["./content/**/*"],
+    // The writing library is read the same way, from a path built at runtime.
+    "/practice/writing": ["./content/writing/*.json"],
+    "/practice/writing/**": ["./content/writing/*.json"],
   },
 };
 
