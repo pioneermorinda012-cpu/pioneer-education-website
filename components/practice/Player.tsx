@@ -321,33 +321,50 @@ function quoteRegex(quote: string): RegExp | null {
   try { return new RegExp(body, "i"); } catch { return null; }
 }
 
+const esc = (s: string) =>
+  s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 export function Passage({
-  passage, media, highlight,
+  passage, media, highlights,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
-  /** the sentence that answers the question the student just asked about */
-  highlight?: string | null;
+  /** every sentence an explanation has quoted, tagged with its question number */
+  highlights?: { quote: string; label: string }[];
 }) {
-  const re = useMemo(() => (highlight ? quoteRegex(highlight) : null), [highlight]);
+  const hits = useMemo(
+    () => (highlights ?? [])
+      .map((h) => ({ label: h.label, re: quoteRegex(h.quote) }))
+      .filter((h): h is { label: string; re: RegExp } => Boolean(h.re)),
+    [highlights],
+  );
 
-  // Bring the highlighted line into view — a passage is long and the point of
+  // Bring the newest mark into view — a passage is long and the point of
   // marking it is lost if the student has to hunt for the mark.
   useEffect(() => {
-    if (!re) return;
+    if (!hits.length) return;
     const t = setTimeout(() => {
-      document.querySelector("mark[data-hit]")?.scrollIntoView({ block: "center", behavior: "smooth" });
-    }, 120);
+      const all = document.querySelectorAll("mark[data-hit]");
+      all[all.length - 1]?.scrollIntoView({ block: "center", behavior: "smooth" });
+    }, 140);
     return () => clearTimeout(t);
-  }, [re]);
+  }, [hits.length]);
 
   const marked = (html: string): string => {
-    if (!re) return html;
+    if (!hits.length) return html;
+    // Rendering the stripped text loses inline italics on a marked paragraph,
+    // which is a fair trade for highlights that land in the right place.
     const plain = html.replace(/<[^>]+>/g, "");
-    if (!re.test(plain)) return html;
-    // Rendering the stripped text loses inline italics on this one paragraph,
-    // which is a fair trade for a highlight that lands in the right place.
-    return plain.replace(re, (s) =>
-      `<mark data-hit style="background:#FFE38A;border-radius:3px;padding:1px 2px;box-shadow:0 0 0 3px #FFE38A">${s}</mark>`);
+    let out = plain, touched = false;
+    for (const h of hits) {
+      if (!h.re.test(out)) continue;
+      touched = true;
+      out = out.replace(h.re, (s) =>
+        `<mark data-hit style="background:#FFD7A8;border-radius:4px;padding:1px 3px;` +
+        `box-shadow:0 0 0 2px #FFD7A8">` +
+        `<b style="background:#F3B15E;border-radius:3px;padding:0 4px;margin-right:4px;` +
+        `font-size:0.78em;color:#4A2A05">Q${esc(h.label)}</b>${s}</mark>`);
+    }
+    return touched ? out : html;
   };
 
   return (

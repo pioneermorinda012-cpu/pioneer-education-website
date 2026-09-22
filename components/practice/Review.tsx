@@ -98,20 +98,46 @@ export default function ReviewPanel({
   Passage: (p: {
     passage: NonNullable<Test["sections"][number]["passage"]>;
     media: Record<string, string>;
-    highlight?: string | null;
+    highlights?: { quote: string; label: string }[];
   }) => React.ReactElement;
 }) {
   const [openPassage, setOpenPassage] = useState<number | null>(null);
   const [only, setOnly] = useState<"all" | "wrong">("wrong");
-  /* The sentence an explanation quoted, and the passage it belongs to. Asking
-   * why an answer is right opens that passage and lights the line up, which is
-   * the whole point: a student learns far more from seeing where the answer
-   * was hiding than from being told what it was. */
-  const [hit, setHit] = useState<{ si: number; quote: string } | null>(null);
-  const showQuote = (si: number, quote: string | null) => {
+  /* Every sentence an explanation has quoted so far, tagged with the question
+   * it answers. They build up rather than replacing each other: once a student
+   * has been through a passage, the whole thing is marked up like a teacher's
+   * copy, and the shape of where answers hide becomes visible. */
+  const [marks, setMarks] = useState<Record<string, { si: number; quote: string }>>({});
+  const [markingAll, setMarkingAll] = useState<number | null>(null);
+  const showQuote = (si: number, label: string, quote: string | null, open = true) => {
     if (!quote) return;
-    setHit({ si, quote });
+    setMarks((m) => ({ ...m, [label]: { si, quote } }));
+    if (open) setOpenPassage(si);
+  };
+
+  /* One button for the whole passage. Every explanation is stored the first
+   * time anyone asks for it, so this is slow once and instant afterwards. */
+  const markAll = async (si: number, items: MarkedQuestion[]) => {
+    setMarkingAll(si);
     setOpenPassage(si);
+    try {
+      await Promise.all(items.map(async (q) => {
+        const e = idx[q.n];
+        const n = e ? e.covers[0] : Number(q.n);
+        const label = e ? rangeLabel(e.covers) : q.n;
+        if (marks[label]) return;
+        try {
+          const res = await fetch("/api/practice/explain", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ testId: test.id, n }),
+          });
+          const d = await res.json();
+          if (res.ok && d.quote) showQuote(si, label, String(d.quote), false);
+        } catch { /* one failure must not stop the rest */ }
+      }));
+    } finally {
+      setMarkingAll(null);
+    }
   };
   const idx = useMemo(() => reviewIndex(test), [test]);
 
@@ -180,19 +206,34 @@ export default function ReviewPanel({
                   {openPassage === si ? "Hide passage" : "📖 Read the passage"}
                 </button>
               )}
+              {passage && items.some((q) => !q.correct) && (
+                <button type="button" disabled={markingAll === si}
+                  onClick={() => void markAll(si, items.filter((q) => !q.correct))}
+                  style={{ border: "1.5px solid var(--coral)", background: "var(--paper)",
+                    cursor: markingAll === si ? "wait" : "pointer", borderRadius: 9, padding: "6px 11px",
+                    fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem",
+                    color: "var(--coral-dark)", minHeight: 36 }}>
+                  {markingAll === si ? "Marking the passage…" : "🖍 Mark every answer in this passage"}
+                </button>
+              )}
             </div>
 
             {passage && openPassage === si && (
               <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
                 <Passage passage={passage} media={test.mediaUrls}
-                  highlight={hit?.si === si ? hit.quote : null} />
+                  highlights={Object.entries(marks)
+                    .filter(([, v]) => v.si === si)
+                    .map(([label, v]) => ({ label, quote: v.quote }))} />
               </div>
             )}
 
-            {items.map((q) => (
-              <ReviewRow key={q.n} q={q} entry={idx[q.n]} testId={test.id}
-                onQuote={(quote) => showQuote(si, quote)} />
-            ))}
+            {items.map((q) => {
+              const e = idx[q.n];
+              return (
+                <ReviewRow key={q.n} q={q} entry={e} testId={test.id}
+                  onQuote={(quote) => showQuote(si, e ? rangeLabel(e.covers) : q.n, quote)} />
+              );
+            })}
           </section>
         );
       })}
@@ -300,39 +341,24 @@ function Options({ entry, q }: { entry?: ReviewEntry; q: MarkedQuestion }) {
   );
 }
 
-/* ---------- the explanation, written once and then remembered ---------- */
+/* ---------- the explanation, written once and then remembered ----------
+ *
+ * Laid out the way an IELTS teacher marks: the words in the question beside
+ * the words in the passage that carry the same meaning, then a note joining
+ * them. Seeing that "plastic filament" in the question is "the plastic
+ * filament during printing" in the passage is the whole skill — a paragraph of
+ * prose hides it, two columns show it.
+ */
 
-const MARK: React.CSSProperties = {
-  background: "#FFE38A", borderRadius: 3, padding: "1px 3px", boxDecorationBreak: "clone",
+const Q_MARK: React.CSSProperties = {
+  background: "#CFEBD8", borderRadius: 3, padding: "1px 4px", fontWeight: 700,
+};
+const P_MARK: React.CSSProperties = {
+  background: "#FFE38A", borderRadius: 3, padding: "1px 4px",
 };
 
-/** Anything the explanation put in quotation marks came out of the passage, so
- *  show it the way it will be shown in the passage: highlighted. */
-function withQuotes(s: string, k: string) {
-  return s.split(/([“"][^“”"]{8,}[”"])/g).map((p, i) =>
-    /^[“"]/.test(p) && p.length > 9
-      ? <span key={`${k}-${i}`} style={MARK}>{p}</span>
-      : <span key={`${k}-${i}`}>{p}</span>);
-}
-
-function ExplainText({ text }: { text: string }) {
-  const lines = text.split(/\n+/).map((l) => l.trim()).filter(Boolean);
-  return (
-    <div style={{ display: "grid", gap: 7 }}>
-      {lines.map((line, i) => {
-        const m = line.match(/^(?:\d+[.)]\s*)?(Keywords|In the passage|Why|Answer)\s*:\s*([\s\S]*)$/i);
-        return m ? (
-          <p key={i} style={{ margin: 0 }}>
-            <b style={{ color: "var(--coral-dark)" }}>{m[1]}: </b>
-            {withQuotes(m[2], String(i))}
-          </p>
-        ) : (
-          <p key={i} style={{ margin: 0 }}>{withQuotes(line, String(i))}</p>
-        );
-      })}
-    </div>
-  );
-}
+type Pair = { question: string; passage: string };
+type Explained = { pairs?: Pair[]; sentence?: string; note?: string; text?: string };
 
 export function Explain({
   testId, n, onQuote,
@@ -342,7 +368,8 @@ export function Explain({
   onQuote?: (quote: string | null) => void;
 }) {
   const [state, setState] = useState<"idle" | "loading" | "done" | "error">("idle");
-  const [text, setText] = useState("");
+  const [data, setData] = useState<Explained | null>(null);
+  const [error, setError] = useState("");
   const [quote, setQuote] = useState<string | null>(null);
 
   const ask = async () => {
@@ -355,15 +382,15 @@ export function Explain({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ testId, n }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error ?? "Could not write an explanation.");
-      setText(String(data.text ?? ""));
-      const q = data.quote ? String(data.quote) : null;
+      const d = await res.json();
+      if (!res.ok) throw new Error(d.error ?? "Could not write an explanation.");
+      setData(d);
+      const q = d.quote ? String(d.quote) : null;
       setQuote(q);
       onQuote?.(q);
       setState("done");
     } catch (e) {
-      setText(e instanceof Error ? e.message : "Could not write an explanation.");
+      setError(e instanceof Error ? e.message : "Could not write an explanation.");
       setState("error");
     }
   };
@@ -379,19 +406,82 @@ export function Explain({
     );
   }
 
-  return (
-    <div style={{ marginTop: 10, background: "var(--gold-light)", borderRadius: 10, padding: "12px 14px",
-      fontSize: "0.87rem", lineHeight: 1.65,
-      color: state === "error" ? "#A3251A" : "var(--navy)" }}>
-      {state === "loading" ? "Working through the passage…" : <ExplainText text={text} />}
+  if (state === "loading") {
+    return (
+      <div style={{ marginTop: 10, background: "var(--gold-light)", borderRadius: 10,
+        padding: "12px 14px", fontSize: "0.87rem", color: "var(--navy)" }}>
+        Working through the passage…
+      </div>
+    );
+  }
 
-      {state === "done" && quote && onQuote && (
-        <button type="button" onClick={() => onQuote(quote)}
-          style={{ marginTop: 10, border: "1.5px solid var(--navy)", background: "transparent",
-            color: "var(--navy)", borderRadius: 9, padding: "6px 11px", cursor: "pointer",
-            fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem", minHeight: 36 }}>
-          📍 Show me this line in the passage
-        </button>
+  if (state === "error") {
+    return (
+      <div style={{ marginTop: 10, background: "#FBE9E7", borderRadius: 10, padding: "12px 14px",
+        fontSize: "0.87rem", color: "#A3251A" }}>
+        {error}
+      </div>
+    );
+  }
+
+  const pairs = (data?.pairs ?? []).filter((p) => p.question);
+  const note = data?.note ?? data?.text ?? "";
+
+  return (
+    <div style={{ marginTop: 10, border: "1px solid var(--grey-light)", borderRadius: 10,
+      overflow: "hidden", fontSize: "0.87rem", lineHeight: 1.6 }}>
+
+      {pairs.length > 0 && (
+        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+          <thead>
+            <tr style={{ background: "#EDE6D6" }}>
+              <th style={{ textAlign: "left", padding: "8px 11px", fontSize: "0.8rem",
+                color: "var(--navy)", width: "42%", borderRight: "1px solid var(--grey-light)" }}>
+                Keywords in the question
+              </th>
+              <th style={{ textAlign: "left", padding: "8px 11px", fontSize: "0.8rem", color: "var(--navy)" }}>
+                The same idea in the passage
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {pairs.map((p, i) => (
+              <tr key={i} style={{ borderTop: "1px solid var(--grey-light)" }}>
+                <td style={{ padding: "9px 11px", verticalAlign: "top",
+                  borderRight: "1px solid var(--grey-light)" }}>
+                  <span style={Q_MARK}>{p.question}</span>
+                </td>
+                <td style={{ padding: "9px 11px", verticalAlign: "top" }}>
+                  {p.passage
+                    ? <span style={P_MARK}>{p.passage}</span>
+                    : <span style={{ color: "var(--grey)", fontStyle: "italic" }}>
+                        not stated in these words
+                      </span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {note && (
+        <div style={{ padding: "11px 13px", borderTop: pairs.length ? "1px solid var(--grey-light)" : undefined,
+          background: "var(--paper)" }}>
+          <b style={{ display: "block", marginBottom: 4, color: "var(--navy)" }}>Note</b>
+          <span style={{ color: "var(--navy)" }}>{note}</span>
+        </div>
+      )}
+
+      {quote && onQuote && (
+        <div style={{ padding: "9px 13px", borderTop: "1px solid var(--grey-light)",
+          background: "var(--gold-light)" }}>
+          <button type="button" onClick={() => onQuote(quote)}
+            style={{ border: "1.5px solid var(--navy)", background: "transparent", color: "var(--navy)",
+              borderRadius: 9, padding: "6px 11px", cursor: "pointer", fontFamily: "inherit",
+              fontWeight: 700, fontSize: "0.76rem", minHeight: 36 }}>
+            📍 Show me this line in the passage
+          </button>
+        </div>
       )}
     </div>
   );

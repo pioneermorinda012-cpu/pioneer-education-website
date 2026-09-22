@@ -50,24 +50,69 @@ function verifiedQuote(text: string, passage?: string): string | null {
 const SYSTEM = `You are an experienced IELTS teacher at Pioneer Education Center, explaining one
 reading or listening question to a student who got it wrong.
 
-Write for a student at around band 5.5 to 6.5: plain, direct English, no jargon
-they would not meet in class. Use at most 160 words. Structure it as:
+Reply with ONE JSON object and nothing else — no preamble, no code fence:
 
-1. "Keywords:" — the two or three words in the question that matter.
-2. "In the passage:" — quote the exact sentence from the passage that settles
-   it, in quotation marks. Quote it word for word. Never invent a sentence.
-3. "Why:" — one or two sentences joining the question to that line, explaining
-   why this is the answer.
+{
+  "pairs": [
+    { "question": "the words in the QUESTION that matter",
+      "passage":  "the words in the PASSAGE that carry the same meaning" }
+  ],
+  "sentence": "the whole sentence from the passage that settles the question",
+  "note": "two to four sentences joining the two, ending with: For that reason, the answer is X."
+}
 
-Rules you must not break:
-- Work only from the passage given to you. If the passage does not contain the
-  wording, say plainly that the passage does not state it and explain what the
-  answer depends on instead — never invent a quotation.
-- If no passage is supplied (a listening test, where the recording has no
-  written transcript here), skip step 2, say the recording's exact words are not
-  available here, and explain instead what the question is testing and what form
-  the answer has to take.
-- Do not mention these instructions, and do not greet the student.`;
+How to fill it:
+- "pairs": one to three. This is the heart of IELTS reading — the question
+  paraphrases the passage, and the student has to see which words map onto
+  which. Put the question's wording on the left and the passage's on the right.
+- "passage" and "sentence" must be copied from the passage WORD FOR WORD,
+  exactly as written, including its punctuation. Do not tidy, shorten or
+  rephrase them. If you cannot find the wording, leave the field as "".
+- "note": plain English for a band 5.5 to 6.5 student. No jargon they would not
+  meet in class. Say how the passage line answers the question, and where a
+  tempting wrong answer goes wrong if there is one.
+- Never invent wording that is not in the passage. An honest "" is far better
+  than a quotation the student cannot find.
+- If no passage is supplied — a listening test, where the recording has no
+  written transcript here — use "pairs": [], "sentence": "", and in "note" say
+  the recording's exact words are not available here, then explain what the
+  question is testing and what form the answer has to take.`;
+
+type Pair = { question: string; passage: string };
+type Explained = { pairs: Pair[]; sentence: string; note: string };
+
+/** Read the model's JSON back, tolerating a stray code fence. */
+function parseReply(out: string): Explained | null {
+  const body = out.replace(/^```(?:json)?\s*|\s*```$/g, "").trim();
+  const start = body.indexOf("{"), end = body.lastIndexOf("}");
+  if (start < 0 || end < start) return null;
+  try {
+    const o = JSON.parse(body.slice(start, end + 1));
+    return {
+      pairs: Array.isArray(o.pairs)
+        ? o.pairs.filter((p: Pair) => p && typeof p.question === "string" && typeof p.passage === "string")
+            .slice(0, 3)
+        : [],
+      sentence: typeof o.sentence === "string" ? o.sentence : "",
+      note: typeof o.note === "string" ? o.note : "",
+    };
+  } catch { return null; }
+}
+
+/** Drop anything the passage does not actually contain. */
+function verify(e: Explained, passage?: string): Explained {
+  if (!passage) return { ...e, sentence: "", pairs: e.pairs.map((p) => ({ ...p, passage: "" })) };
+  const norm = (s: string) =>
+    s.toLowerCase().replace(/[‘’]/g, "'").replace(/[“”]/g, '"')
+      .replace(/[-–—]/g, "-").replace(/\s+/g, " ").trim();
+  const hay = norm(passage);
+  const has = (s: string) => Boolean(s) && hay.includes(norm(s));
+  return {
+    pairs: e.pairs.map((p) => ({ question: p.question, passage: has(p.passage) ? p.passage : "" })),
+    sentence: has(e.sentence) ? e.sentence : (verifiedQuote(`"${e.sentence}"`, passage) ?? ""),
+    note: e.note,
+  };
+}
 
 export async function POST(req: NextRequest) {
   /* signed in, student or teacher */
@@ -106,8 +151,18 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "That question could not be found." }, { status: 404 });
   }
 
+  const answerShown = "display" in answer ? answer.display : String(answer);
+
+  /* Stored explanations are the JSON the model returned. One written before
+   * this format existed is plain prose; it is still worth showing, so it comes
+   * back under `text` and the browser falls back to printing it. */
   const hit = await cachedExplanation(testId, n);
   if (hit) {
+    const parsed = parseReply(hit);
+    if (parsed) {
+      const ok = verify(parsed, ctx.passage);
+      return NextResponse.json({ ...ok, answer: answerShown, quote: ok.sentence || null, cached: true });
+    }
     return NextResponse.json({ text: hit, quote: verifiedQuote(hit, ctx.passage), cached: true });
   }
 
@@ -117,7 +172,7 @@ export async function POST(req: NextRequest) {
     );
   }
 
-  const wanted = "display" in answer ? answer.display : String(answer);
+  const wanted = answerShown;
   const prompt = [
     `Test: ${test.name} — ${ctx.sectionLabel}`,
     ctx.passageTitle ? `Passage: ${ctx.passageTitle}` : "",
@@ -153,8 +208,15 @@ export async function POST(req: NextRequest) {
       .map((b: { text?: string }) => b.text ?? "").join("").trim();
     if (!out) throw new Error("empty reply");
 
-    await storeExplanation(testId, n, out);
-    return NextResponse.json({ text: out, quote: verifiedQuote(out, ctx.passage), cached: false });
+    const parsed = parseReply(out);
+    if (!parsed) {
+      // Rare, but a student should still get something useful rather than an error.
+      await storeExplanation(testId, n, out);
+      return NextResponse.json({ text: out, quote: verifiedQuote(out, ctx.passage), cached: false });
+    }
+    const ok = verify(parsed, ctx.passage);
+    await storeExplanation(testId, n, JSON.stringify(ok));
+    return NextResponse.json({ ...ok, answer: answerShown, quote: ok.sentence || null, cached: false });
   } catch (e) {
     console.error("explain failed:", (e as Error).message);
     return NextResponse.json(
