@@ -1,1 +1,265 @@
-{}
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "MacDonald",
+   "Macdonald",
+   "McDonald"
+  ],
+  "display": "McDonald/Macdonald/MacDonald"
+ },
+ "5": {
+  "accept": [
+   "PO Box 676",
+   "Post Office Box",
+   "Post Office Box 676",
+   "Post Office Box Box 676"
+  ],
+  "display": "Post Office Box/PO Box 676"
+ },
+ "6": {
+  "accept": [
+   "775431"
+  ],
+  "display": "775431"
+ },
+ "7": {
+  "accept": [
+   "Visa",
+   "credit card"
+  ],
+  "display": "credit card/Visa"
+ },
+ "8": {
+  "any": [
+   "D",
+   "F"
+  ],
+  "pick": 2,
+  "display": "D, F"
+ },
+ "9": {
+  "any": [
+   "A",
+   "F"
+  ],
+  "pick": 2,
+  "display": "A, F"
+ },
+ "10": {
+  "accept": [
+   "after exams",
+   "after the exams"
+  ],
+  "display": "after (the) exams"
+ },
+ "11": {
+  "accept": [
+   "473"
+  ],
+  "display": "473"
+ },
+ "12": {
+  "accept": [
+   "2",
+   "open 2",
+   "two-seater",
+   "twoseater"
+  ],
+  "display": "(open) 2/two( -)seater"
+ },
+ "13": {
+  "accept": [
+   "smooth"
+  ],
+  "display": "smooth"
+ },
+ "14": {
+  "accept": [
+   "180"
+  ],
+  "display": "180"
+ },
+ "15": {
+  "accept": [
+   "frame and engine"
+  ],
+  "display": "frame and engine"
+ },
+ "16": {
+  "accept": [
+   "instrument panel",
+   "instruments",
+   "stop-watch"
+  ],
+  "display": "instrument panel/instruments/stop - watch"
+ },
+ "17": {
+  "accept": [
+   "30"
+  ],
+  "display": "30"
+ },
+ "18": {
+  "accept": [
+   "light aircraft",
+   "plane"
+  ],
+  "display": "light aircraft/plane"
+ },
+ "19": {
+  "accept": [
+   "wings"
+  ],
+  "display": "wings"
+ },
+ "20": {
+  "accept": [
+   "rear wheels"
+  ],
+  "display": "rear wheels"
+ },
+ "21": {
+  "accept": [
+   "Out and About"
+  ],
+  "display": "Out and About"
+ },
+ "22": {
+  "accept": [
+   "the university campus",
+   "university campus"
+  ],
+  "display": "(the) university campus"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "activities",
+   "human activities",
+   "human activity"
+  ],
+  "display": "human activity/activities"
+ },
+ "32": {
+  "accept": [
+   "farming and drainage"
+  ],
+  "display": "farming and drainage"
+ },
+ "33": {
+  "accept": [
+   "30s",
+   "Dirty Thirties"
+  ],
+  "display": "Dirty Thirties/30s"
+ },
+ "34": {
+  "accept": [
+   "dry thunderstorms"
+  ],
+  "display": "dry thunderstorms"
+ },
+ "35": {
+  "accept": [
+   "machine operators"
+  ],
+  "display": "machine operators"
+ },
+ "36": {
+  "accept": [
+   "drought"
+  ],
+  "display": "drought"
+ },
+ "37": {
+  "accept": [
+   "irrigation"
+  ],
+  "display": "irrigation"
+ },
+ "38": {
+  "accept": [
+   "two-thirds"
+  ],
+  "display": "two-thirds"
+ },
+ "39": {
+  "accept": [
+   "salinity"
+  ],
+  "display": "salinity"
+ },
+ "40": {
+  "accept": [
+   "agriculture",
+   "crops",
+   "plants"
+  ],
+  "display": "crops/plants/agriculture"
+ }
+}

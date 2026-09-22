@@ -1,1 +1,267 @@
-{}
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "6": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "7": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "8": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "9": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "10": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "11": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "12": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "15": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "16": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "17": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "18": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "any": [
+   "B",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "display": "B, D, E  (Q20–22, any order)",
+  "lead": 20,
+  "idx": 0
+ },
+ "21": {
+  "any": [
+   "B",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "display": "B, D, E  (Q20–22, any order)",
+  "lead": 20,
+  "idx": 1
+ },
+ "22": {
+  "any": [
+   "B",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "display": "B, D, E  (Q20–22, any order)",
+  "lead": 20,
+  "idx": 2
+ },
+ "23": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "display": "A, D  (Q23–24, any order)",
+  "lead": 23,
+  "idx": 0
+ },
+ "24": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "display": "A, D  (Q23–24, any order)",
+  "lead": 23,
+  "idx": 1
+ },
+ "25": {
+  "accept": [
+   "Organisation",
+   "World Tourism Organisation",
+   "World Tourism Organization"
+  ],
+  "display": "World Tourism Organization/Organisation"
+ },
+ "26": {
+  "accept": [
+   "city entrepreneurs"
+  ],
+  "display": "city entrepreneurs"
+ },
+ "27": {
+  "accept": [
+   "1992 Earth Summit"
+  ],
+  "display": "1992 Earth Summit"
+ },
+ "28": {
+  "accept": [
+   "ability"
+  ],
+  "display": "ability"
+ },
+ "29": {
+  "accept": [
+   "note"
+  ],
+  "display": "note"
+ },
+ "30": {
+  "accept": [
+   "relative"
+  ],
+  "display": "relative"
+ },
+ "31": {
+  "accept": [
+   "music lessons"
+  ],
+  "display": "music lessons"
+ },
+ "32": {
+  "accept": [
+   "tone"
+  ],
+  "display": "tone"
+ },
+ "33": {
+  "accept": [
+   "words"
+  ],
+  "display": "words"
+ },
+ "34": {
+  "accept": [
+   "pitch"
+  ],
+  "display": "pitch"
+ },
+ "35": {
+  "accept": [
+   "cultures"
+  ],
+  "display": "cultures"
+ },
+ "36": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "37": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "38": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "39": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

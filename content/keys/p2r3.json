@@ -1,1 +1,261 @@
-{}
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "6": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "7": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "8": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "11": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "12": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "13": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "14": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "15": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "16": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "17": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "18": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "19": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "20": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "21": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "22": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "23": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "24": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "25": {
+  "accept": [
+   "video camera"
+  ],
+  "display": "video camera"
+ },
+ "26": {
+  "accept": [
+   "database"
+  ],
+  "display": "database"
+ },
+ "27": {
+  "accept": [
+   "pressure pads",
+   "small pressure pads",
+   "tiny",
+   "tiny pads",
+   "tiny pressure pads"
+  ],
+  "display": "(tiny/small) pressure pads"
+ },
+ "28": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "29": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "30": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "31": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "32": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "33": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "display": "B, D, F  (Q33–35, any order)",
+  "lead": 33,
+  "idx": 0
+ },
+ "34": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "display": "B, D, F  (Q33–35, any order)",
+  "lead": 33,
+  "idx": 1
+ },
+ "35": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "display": "B, D, F  (Q33–35, any order)",
+  "lead": 33,
+  "idx": 2
+ },
+ "36": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "37": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "40": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ }
+}
