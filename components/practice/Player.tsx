@@ -57,6 +57,7 @@ export default function Player(
   const [done, setDone] = useState(false);   // an unmarked paper, finished
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [warned, setWarned] = useState(false);   // told once about blank answers
   const [view, setView] = useState<"s" | "p" | "q">("s");   // reading split state
   const audioRef = useRef<HTMLAudioElement>(null);
   const isReading = test.mode === "reading";
@@ -66,12 +67,40 @@ export default function Player(
   }, []);
 
   /* ---- submit ---- */
-  const submit = useCallback(async () => {
+  const submit = useCallback(async (force = false) => {
     if (sending || result) return;
     // No key on the server yet. Sending it would only come back as an error,
     // so the paper simply ends here and the student is shown what they wrote,
     // to mark against the book themselves. Far better than a paper they are
     // not allowed to open at all.
+    /* A blank is a mark thrown away, and an unanswered question is almost
+     * always a question the student meant to come back to rather than one they
+     * chose to skip. Say so once, plainly, and then get out of the way — the
+     * second press goes through whatever is left empty, and the clock running
+     * out never asks at all. */
+    if (!force && !warned) {
+      let blank = 0;
+      for (const s of test.sections) {
+        for (const [lead, claimed] of Object.entries(coverageIn(s))) {
+          const v = answers[lead];
+          const filled = Array.isArray(v)
+            ? Math.min(v.filter(Boolean).length, claimed.length)
+            : v != null && String(v).trim() !== "" ? 1 : 0;
+          blank += claimed.length - filled;
+        }
+      }
+      if (blank > 0) {
+        setWarned(true);
+        setError(
+          `${blank} question${blank === 1 ? " is" : "s are"} still blank. ` +
+          `There is no penalty for a wrong answer in IELTS, so a guess is always worth more ` +
+          `than an empty box. Press ${marked ? "Submit test" : "Finish"} again to hand it in as it is.`,
+        );
+        window.scrollTo(0, 0);
+        return;
+      }
+    }
+
     if (!marked) { setDone(true); window.scrollTo(0, 0); return; }
     setSending(true);
     setError(null);
@@ -91,7 +120,7 @@ export default function Player(
     } finally {
       setSending(false);
     }
-  }, [answers, sending, result, test.id, marked, left, test.minutes]);
+  }, [answers, sending, result, test.id, test.sections, marked, warned, left, test.minutes]);
 
   /* ---- timer ---- */
   useEffect(() => {
@@ -101,7 +130,8 @@ export default function Player(
   }, [started, result]);
 
   useEffect(() => {
-    if (started && left === 0 && !result && !done) void submit();
+    // Time is up: hand it in exactly as it stands, blanks and all.
+    if (started && left === 0 && !result && !done) void submit(true);
   }, [left, started, result, done, submit]);
 
   const covers = useMemo(
@@ -169,9 +199,10 @@ export default function Player(
   /* ================= the test ================= */
   const section = test.sections[current];
   const lowTime = left <= 300;
+  const answeredAll = test.sections.reduce((n, s, i) => n + answeredIn(s, i), 0);
 
   return (
-    <div className="wrap" data-track={track} style={{ paddingBottom: 60 }}>
+    <div className="wrap" data-track={track} style={{ paddingBottom: 96 }}>
       {/* timer + tabs */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
         <div className="pr-skills" style={{ paddingTop: 0, flex: 1 }}>
@@ -276,6 +307,25 @@ export default function Player(
             {sending ? "Marking…" : marked ? "Submit test ✓" : "Finish ✓"}
           </button>
         )}
+        {/* Finishing early should not mean paging back to the last section to
+            find the button. */}
+        {current < test.sections.length - 1 && (
+          <button className="btn btn-outline" type="button" onClick={() => void submit()} disabled={sending}>
+            {marked ? "Submit test ✓" : "Finish ✓"}
+          </button>
+        )}
+      </div>
+
+      {/* How much of the paper is done, on screen at all times. In the exam a
+          candidate can see their whole answer sheet; on a phone they can see
+          about four questions, and without this they have no idea whether they
+          have left a dozen behind. */}
+      <div className="pr-progress" role="status" aria-live="polite">
+        <span className="num">{answeredAll} / {test.total} answered</span>
+        <span className="bar">
+          <span className="fill" style={{ width: `${Math.round((answeredAll / test.total) * 100)}%` }} />
+        </span>
+        <span className="num" style={{ color: lowTime ? "#A3251A" : "var(--grey)" }}>{mmss(left)}</span>
       </div>
     </div>
   );
@@ -348,14 +398,145 @@ function quoteRegex(quote: string): RegExp | null {
 const esc = (s: string) =>
   s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
+/* ---------- putting a mark exactly where the paper says it goes ----------
+ *
+ * The evidence sentence was copied out of this passage when the paper was
+ * written, so it matches the words but not the markup: the passage has bold
+ * headings, line breaks and &nbsp; in it and the sentence has none of them.
+ *
+ * The old code solved that by throwing the markup away — it stripped every tag
+ * from any paragraph it wanted to mark, which landed the highlight in the right
+ * place and flattened the advert, the table heading and the price list around
+ * it. So instead of deleting the tags, read past them: walk the HTML once,
+ * collecting the visible characters and remembering where each one came from.
+ * Matching happens on the visible text; the marks are then spliced back into
+ * the real HTML at the positions that text came from, and everything else on
+ * the page survives untouched.
+ */
+const ENTITY: Record<string, string> = {
+  nbsp: " ", amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", "#39": "'",
+  rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”",
+  ndash: "–", mdash: "—", middot: "·", hellip: "…",
+};
+/* Tags that end a line on screen: two words either side of one of these are
+ * not neighbours, so a space goes between them before anything is matched. */
+const BREAKS = /^<\/?(br|p|div|li|tr|td|th|h[1-6]|ul|ol|table|blockquote)\b/i;
+
+type Scan = { text: string; at: number[] };
+
+function scan(html: string): Scan {
+  const chars: string[] = [];
+  const at: number[] = [];
+  let i = 0;
+  let space = true;              // leading whitespace is not worth recording
+  const pushSpace = (pos: number) => {
+    if (!space) { chars.push(" "); at.push(pos); space = true; }
+  };
+  while (i < html.length) {
+    const c = html[i];
+    if (c === "<") {
+      const close = html.indexOf(">", i);
+      const tag = html.slice(i, close === -1 ? html.length : close + 1);
+      i = close === -1 ? html.length : close + 1;
+      if (BREAKS.test(tag)) pushSpace(i);
+      continue;
+    }
+    let ch = c;
+    let step = 1;
+    if (c === "&") {
+      const semi = html.indexOf(";", i);
+      if (semi > i && semi - i <= 8) {
+        const name = html.slice(i + 1, semi);
+        if (ENTITY[name]) { ch = ENTITY[name]; step = semi - i + 1; }
+      }
+    }
+    if (/\s/.test(ch)) pushSpace(i);
+    else { chars.push(ch); at.push(i); space = false; }
+    i += step;
+  }
+  return { text: chars.join(""), at };
+}
+
+const tidy = (s: string) => s.replace(/\s+/g, " ").trim();
+
+export type EvMark = { label: string; text: string; ok?: boolean };
+
+/** A question label is digits and maybe an en-dash; quote it for a selector. */
+export const cssq = (s: string) => s.replace(/["\\]/g, "\\$&");
+
+/** Asked for by the passage, answered by the review: "show me question N". */
+export const JUMP_EVENT = "pec:jump-to-question";
+
+/** Scroll something into the middle of the screen and make it blink once. */
+export function flashTo(selector: string): boolean {
+  const el = document.querySelector(selector) as HTMLElement | null;
+  if (!el) return false;
+  el.scrollIntoView({ block: "center", behavior: "smooth" });
+  el.classList.remove("ev-flash");
+  void el.offsetWidth;            // restart the animation rather than ignore it
+  el.classList.add("ev-flash");
+  return true;
+}
+
+/** Take the student to the sentence that answers question `label`. */
+export const locateEvidence = (label: string) =>
+  flashTo(`mark[data-ev="${cssq(label)}"]`);
+
+/** Splice every mark that belongs in this paragraph into its HTML. */
+function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean } {
+  if (!marks.length) return { html, hit: false };
+  const s = scan(html);
+  const hay = s.text.toLowerCase();
+
+  type Span = { from: number; to: number; m: EvMark };
+  const spans: Span[] = [];
+  for (const m of marks) {
+    const needle = tidy(m.text).toLowerCase();
+    if (needle.length < 4) continue;
+    const from = hay.indexOf(needle);
+    if (from === -1) continue;
+    spans.push({ from, to: from + needle.length, m });
+  }
+  if (!spans.length) return { html, hit: false };
+
+  // Two answers can come from the same sentence. Keep the first and drop
+  // anything that would start inside it, so no tag is ever split in half.
+  spans.sort((a, b) => a.from - b.from || b.to - a.to);
+  const kept: Span[] = [];
+  for (const sp of spans) {
+    if (kept.length && sp.from < kept[kept.length - 1].to) continue;
+    kept.push(sp);
+  }
+
+  let out = "";
+  let cursor = 0;
+  for (const sp of kept) {
+    const start = s.at[sp.from];
+    const end = sp.to < s.at.length ? s.at[sp.to] : html.length;
+    const tone = sp.m.ok === false ? "bad" : "ok";
+    out += html.slice(cursor, start);
+    out +=
+      `<mark class="ev ev-${tone}" data-ev="${esc(sp.m.label)}">` +
+      `<sup class="ev-badge" data-jump="${esc(sp.m.label)}" role="button" tabindex="0" ` +
+      `title="Back to question ${esc(sp.m.label)}">Q${esc(sp.m.label)}</sup>` +
+      html.slice(start, end) +
+      `</mark>`;
+    cursor = end;
+  }
+  out += html.slice(cursor);
+  return { html: out, hit: true };
+}
+
 export function Passage({
-  passage, media, highlights, paraMarks,
+  passage, media, highlights, paraMarks, evidence,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
   /** every phrase or sentence that answers a question, tagged with its number */
   highlights?: { quote: string; label: string }[];
   /** whole paragraphs that are the answer — "which paragraph mentions…" */
   paraMarks?: Record<string, string[]>;
+  /** the lines the paper itself points at, green if the student got it right */
+  evidence?: EvMark[];
 }) {
   const hits = useMemo(
     () => (highlights ?? [])
@@ -376,6 +557,11 @@ export function Passage({
   }, [hits.length]);
 
   const marked = (html: string): string => {
+    // A line the paper itself points at beats anything worked out from the
+    // answer's wording, so the authored marks go on first and the guesswork
+    // only fills whatever is left.
+    const authored = applyMarks(html, evidence ?? []);
+    if (authored.hit) return authored.html;
     if (!hits.length) return html;
     // Rendering the stripped text loses inline italics on a marked paragraph,
     // which is a fair trade for highlights that land in the right place.
@@ -395,8 +581,39 @@ export function Passage({
     return touched ? out : html;
   };
 
+  /* The Q badge inside a mark is a way back. A student reading the passage has
+   * found the line; what they want next is the question it answered, and
+   * hunting for it down the page is exactly the friction that stops people
+   * reviewing at all.
+   *
+   * The passage does not know which questions the review is currently showing —
+   * by default it shows only the mistakes, so the row behind a green mark is
+   * not on the page at all. So it asks rather than scrolls: the review hears
+   * the request, shows every question if it has to, and then scrolls. */
+  const article = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const root = article.current;
+    if (!root) return;
+    const jump = (e: Event) => {
+      const el = (e.target as HTMLElement | null)?.closest?.("[data-jump]");
+      if (!el) return;
+      e.preventDefault();
+      const label = el.getAttribute("data-jump") ?? "";
+      window.dispatchEvent(new CustomEvent(JUMP_EVENT, { detail: label }));
+    };
+    const key = (e: KeyboardEvent) => {
+      if (e.key === "Enter" || e.key === " ") jump(e);
+    };
+    root.addEventListener("click", jump);
+    root.addEventListener("keydown", key as EventListener);
+    return () => {
+      root.removeEventListener("click", jump);
+      root.removeEventListener("keydown", key as EventListener);
+    };
+  }, []);
+
   return (
-    <article style={{ background: "var(--paper)", border: "1px solid var(--grey-light)",
+    <article ref={article} style={{ background: "var(--paper)", border: "1px solid var(--grey-light)",
       borderRadius: 16, padding: "22px 20px", fontSize: "1rem", lineHeight: 1.75, marginTop: 12 }}>
       <h2 style={{ fontFamily: "'Fraunces',serif", color: "var(--navy)", fontSize: "1.4rem", marginBottom: 4 }}>
         {passage.title}

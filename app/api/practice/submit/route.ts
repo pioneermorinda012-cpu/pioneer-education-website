@@ -5,6 +5,7 @@ import { markAttempt, type AnswerKey, type StudentAnswers } from "@/lib/marking"
 import { saveAttempt, attemptsReady } from "@/lib/attempts";
 import { readSession, COOKIE } from "@/lib/session";
 import { typeMap } from "@/lib/qtypes";
+import { getEvidence } from "@/lib/evidence";
 
 /**
  * The student's answers come in, the band score goes out.
@@ -66,7 +67,18 @@ export async function POST(req: NextRequest) {
   // Tag every question with the kind of question it was, so the analysis can
   // say "matching headings" rather than "the second half of the paper".
   const types = typeMap(test);
-  result.questions = result.questions.map((q) => ({ ...q, type: types[String(q.n)] ?? "Other" }));
+
+  // Where each answer sits in the passage, written down when the paper was made.
+  // It is attached here, after marking, and never before: on a gap-fill the
+  // sentence contains the answer, so it must not be in the page a student is
+  // still sitting. A paper with no evidence file simply gets none, and the
+  // review falls back to searching the passage for the answer's own words.
+  const evidence = await getEvidence(testId);
+  result.questions = result.questions.map((q) => ({
+    ...q,
+    type: types[String(q.n)] ?? "Other",
+    ...(evidence[String(q.n)] ? { ev: evidence[String(q.n)] } : {}),
+  }));
 
   let saved = false;
   try {

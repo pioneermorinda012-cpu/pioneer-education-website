@@ -48,6 +48,8 @@ export type MarkedQuestion = {
   expected: string;
   /** filled in after marking — see lib/qtypes */
   type?: string;
+  /** filled in after marking — the line in the passage, see lib/evidence */
+  ev?: { s: number; t: string[] };
 };
 
 export type MarkResult = {

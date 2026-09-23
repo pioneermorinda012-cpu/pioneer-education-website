@@ -10,10 +10,12 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { coverageIn, rangeLabel } from "@/lib/coverage";
-import type { Test } from "./Player";
+import { locateEvidence, flashTo, cssq, JUMP_EVENT, type EvMark, type Test } from "./Player";
 
 export type MarkedQuestion = {
   n: string; correct: boolean; given: string; expected: string; type?: string;
+  /** the line in the passage the paper points at — see lib/evidence */
+  ev?: { s: number; t: string[] };
 };
 
 type Group = Test["sections"][number]["groups"][number];
@@ -135,6 +137,7 @@ export default function ReviewPanel({
     media: Record<string, string>;
     highlights?: { quote: string; label: string }[];
     paraMarks?: Record<string, string[]>;
+    evidence?: EvMark[];
   }) => React.ReactElement;
 }) {
   const [openPassage, setOpenPassage] = useState<number | null>(null);
@@ -206,6 +209,8 @@ export default function ReviewPanel({
     const out: { si: number; label: string; quote: string }[] = [];
     const paras: { si: number; letter: string; label: string }[] = [];
     for (const q of rows) {
+      // The paper already says where this one is; no need to go hunting.
+      if (q.ev?.t?.length) continue;
       const e = idx[q.n];
       const si = e?.si ?? 0;
       const passage = test.sections[si]?.passage;
@@ -221,6 +226,55 @@ export default function ReviewPanel({
     }
     return { out, paras };
   }, [rows, idx, test.sections]);
+
+  /* The marks the paper was written with. Unlike everything below, these were
+   * put there by the person who made the test, so they are exact and they exist
+   * for every question — including the True/False and multiple choice ones,
+   * where there is no answer phrase to go looking for. Green when the student
+   * got it, red when they did not, which turns the passage into the marked-up
+   * copy a teacher would hand back. */
+  const authoredFor = (si: number): EvMark[] =>
+    rows.flatMap((q) =>
+      q.ev && q.ev.s === si
+        ? q.ev.t.map((text) => ({
+            label: idx[q.n] ? rangeLabel(idx[q.n].covers) : q.n,
+            text,
+            ok: q.correct,
+          }))
+        : []);
+
+  /* The other direction: a Q badge in the passage asking to be taken back to
+   * its question. The filter usually has everything but the mistakes hidden, so
+   * the row may not exist yet — drop the filter first, then scroll once React
+   * has drawn it. */
+  useEffect(() => {
+    const onJump = (e: Event) => {
+      const label = String((e as CustomEvent).detail ?? "");
+      if (!label) return;
+      setOnly("all");
+      let tries = 0;
+      const tick = () => {
+        if (flashTo(`[data-qrow="${cssq(label)}"]`) || ++tries > 12) return;
+        setTimeout(tick, 40);
+      };
+      setTimeout(tick, 40);
+    };
+    window.addEventListener(JUMP_EVENT, onJump);
+    return () => window.removeEventListener(JUMP_EVENT, onJump);
+  }, []);
+
+  /* Take the student to the line, opening the passage first if it is shut.
+   * One frame is not always enough for a long passage to lay out, so it tries
+   * again briefly rather than scrolling to the wrong place. */
+  const goToEvidence = (si: number, label: string) => {
+    setOpenPassage(si);
+    let tries = 0;
+    const tick = () => {
+      if (locateEvidence(label) || ++tries > 12) return;
+      setTimeout(tick, 40);
+    };
+    setTimeout(tick, 40);
+  };
 
   const highlightsFor = (si: number) => {
     const seen = new Set<string>();
@@ -266,6 +320,12 @@ export default function ReviewPanel({
         const items = sec.items.filter((q) => only === "all" || !q.correct);
         const passage = test.sections[si].passage;
         if (!items.length) return null;
+        const authored = authoredFor(si);
+        // A paper that carries its own marks has nothing to fetch and nothing to
+        // wait for, so the marked-up passage is simply open. Asking a student to
+        // press a button first is a step between them and the thing they came
+        // for. Papers without marks keep the button.
+        const open = openPassage === si || (openPassage === null && authored.length > 0);
         return (
           <section key={sec.label} style={{ marginBottom: 26 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
@@ -273,16 +333,16 @@ export default function ReviewPanel({
                 {sec.label}{passage ? ` — ${passage.title}` : ""}
               </h3>
               {passage && (
-                <button type="button" onClick={() => setOpenPassage(openPassage === si ? null : si)}
+                <button type="button" onClick={() => setOpenPassage(open ? -1 : si)}
                   style={{ border: "1.5px solid var(--grey-light)", background: "var(--paper)", cursor: "pointer",
                     borderRadius: 9, padding: "6px 11px", fontFamily: "inherit", fontWeight: 700,
                     fontSize: "0.76rem", color: "var(--navy)", minHeight: 36 }}>
-                  {openPassage === si ? "Hide passage"
-                    : `📖 Read the passage${highlightsFor(si).length || Object.keys(paraMarksFor(si)).length
+                  {open ? "Hide passage"
+                    : `📖 Read the passage${authored.length || highlightsFor(si).length || Object.keys(paraMarksFor(si)).length
                         ? " — answers marked" : ""}`}
                 </button>
               )}
-              {passage && items.some((q) => !q.correct) && (
+              {passage && !authored.length && items.some((q) => !q.correct) && (
                 <button type="button" disabled={markingAll === si}
                   onClick={() => void markAll(si, items.filter((q) => !q.correct))}
                   style={{ border: "1.5px solid var(--coral)", background: "var(--paper)",
@@ -294,18 +354,31 @@ export default function ReviewPanel({
               )}
             </div>
 
-            {passage && openPassage === si && (
-              <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
-                <Passage passage={passage} media={test.mediaUrls}
-                  highlights={highlightsFor(si)} paraMarks={paraMarksFor(si)} />
-              </div>
+            {passage && open && (
+              <>
+                {authored.length > 0 && (
+                  <p style={{ fontSize: "0.78rem", color: "var(--grey)", margin: "0 0 8px" }}>
+                    Every answer is marked in the passage —{" "}
+                    <span style={{ background: "#DCF5E6", borderRadius: 4, padding: "1px 6px" }}>green</span>{" "}
+                    you got right,{" "}
+                    <span style={{ background: "#FDE2E2", borderRadius: 4, padding: "1px 6px" }}>red</span>{" "}
+                    you did not. Tap a <b>Q</b> badge to go back to the question.
+                  </p>
+                )}
+                <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
+                  <Passage passage={passage} media={test.mediaUrls} evidence={authored}
+                    highlights={highlightsFor(si)} paraMarks={paraMarksFor(si)} />
+                </div>
+              </>
             )}
 
             {items.map((q) => {
               const e = idx[q.n];
+              const label = e ? rangeLabel(e.covers) : q.n;
               return (
                 <ReviewRow key={q.n} q={q} entry={e} testId={test.id}
-                  onQuote={(quote) => showQuote(si, e ? rangeLabel(e.covers) : q.n, quote)} />
+                  onLocate={q.ev?.t?.length ? () => goToEvidence(si, label) : undefined}
+                  onQuote={(quote) => showQuote(si, label, quote)} />
               );
             })}
           </section>
@@ -317,14 +390,17 @@ export default function ReviewPanel({
 
 /* ---------- one question in the review ---------- */
 function ReviewRow({
-  q, entry, testId, onQuote,
+  q, entry, testId, onQuote, onLocate,
 }: {
   q: MarkedQuestion; entry?: ReviewEntry; testId: string;
   onQuote?: (quote: string | null) => void;
+  /** present when the paper says where this answer is; scrolls to it */
+  onLocate?: () => void;
 }) {
   const label = entry ? rangeLabel(entry.covers) : q.n;
   return (
-    <div style={{ border: "1px solid var(--grey-light)", borderLeft: `4px solid ${q.correct ? "#0F7A4D" : "#C2452F"}`,
+    <div data-qrow={label}
+      style={{ border: "1px solid var(--grey-light)", borderLeft: `4px solid ${q.correct ? "#0F7A4D" : "#C2452F"}`,
       borderRadius: 11, padding: "12px 14px", marginBottom: 10, background: "var(--paper)" }}>
       <div style={{ display: "flex", gap: 10, alignItems: "flex-start", flexWrap: "wrap" }}>
         <span style={{ fontWeight: 800, color: "var(--coral-dark)", fontSize: "0.8rem",
@@ -342,18 +418,34 @@ function ReviewRow({
         )}
       </div>
 
-      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", margin: "9px 0 0 4px", fontSize: "0.86rem" }}>
+      <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center",
+        margin: "9px 0 0 4px", fontSize: "0.86rem" }}>
         <span>
           You wrote: <b style={{ color: q.correct ? "#0F7A4D" : "#A3251A" }}>{q.given}</b>
         </span>
+        {/* The right answer sits next to the wrong one, not in a panel further
+            down. A student comparing the two side by side is the whole review. */}
         <span style={{ color: "var(--grey)" }}>
-          Correct answer: <b style={{ color: "var(--navy)" }}>{q.expected}</b>
+          {q.correct ? "✔ " : "✔ Correct answer: "}
+          <b style={{ color: "#0B5D3B" }}>{q.expected}</b>
         </span>
+        <span style={{ flex: 1 }} />
+        {onLocate && (
+          <button type="button" onClick={onLocate}
+            style={{ border: "1.5px solid var(--navy)", background: "transparent", color: "var(--navy)",
+              borderRadius: 9, padding: "5px 11px", cursor: "pointer", fontFamily: "inherit",
+              fontWeight: 700, fontSize: "0.76rem", minHeight: 34, whiteSpace: "nowrap" }}>
+            📍 Q{label} in the passage
+          </button>
+        )}
       </div>
 
       <Options entry={entry} q={q} />
 
-      {!q.correct && (
+      {/* Where the paper carries its own marks there is nothing to ask a model
+          for: the line is already highlighted and one tap away. The button is
+          kept for the older papers, which have no marks yet. */}
+      {!q.correct && !onLocate && (
         <Explain testId={testId} n={entry ? entry.covers[0] : Number(q.n)} onQuote={onQuote} />
       )}
     </div>

@@ -1,0 +1,266 @@
+{
+ "1": {
+  "accept": [
+   "1821",
+   "in 1821"
+  ],
+  "display": "1821"
+ },
+ "2": {
+  "accept": [
+   "hunter",
+   "the hunter",
+   "hunter river",
+   "the hunter river"
+  ],
+  "display": "(the) Hunter (River)"
+ },
+ "3": {
+  "accept": [
+   "1870",
+   "in 1870"
+  ],
+  "display": "1870"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "I"
+  ],
+  "display": "I — Surgeon’s Cottage"
+ },
+ "9": {
+  "accept": [
+   "G"
+  ],
+  "display": "G — Morpeth Bridge"
+ },
+ "10": {
+  "accept": [
+   "K"
+  ],
+  "display": "K — Courthouse"
+ },
+ "11": {
+  "accept": [
+   "J"
+  ],
+  "display": "J — Railway Station"
+ },
+ "12": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Church of the Immaculate Conception"
+ },
+ "13": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — shopping district"
+ },
+ "14": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Closebourne House"
+ },
+ "15": {
+  "accept": [
+   "free",
+   "free of charge",
+   "$0",
+   "nothing"
+  ],
+  "display": "free"
+ },
+ "16": {
+  "accept": [
+   "lecture",
+   "3-hour lecture",
+   "3 hour lecture",
+   "a lecture",
+   "three-hour lecture"
+  ],
+  "display": "lecture / 3-hour lecture"
+ },
+ "17": {
+  "accept": [
+   "9",
+   "nine"
+  ],
+  "display": "9 / nine"
+ },
+ "18": {
+  "accept": [
+   "tutorial",
+   "tutorials",
+   "two-hour tutorial",
+   "2-hour tutorial"
+  ],
+  "display": "tutorial"
+ },
+ "19": {
+  "accept": [
+   "course b",
+   "statistics for marketing",
+   "bridging course in statistics for marketing",
+   "b",
+   "bridging course"
+  ],
+  "display": "Course B / Statistics for Marketing"
+ },
+ "20": {
+  "accept": [
+   "workshops",
+   "workshop"
+  ],
+  "display": "workshops"
+ },
+ "21": {
+  "accept": [
+   "15",
+   "fifteen",
+   "$15"
+  ],
+  "display": "15 / fifteen"
+ },
+ "22": {
+  "accept": [
+   "workshops",
+   "workshop"
+  ],
+  "display": "workshops"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "N"
+  ],
+  "display": "N"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "29": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "30": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "31": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "32": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "33": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "34": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Find information"
+ },
+ "36": {
+  "accept": [
+   "J"
+  ],
+  "display": "J — Can my business make enough money?"
+ },
+ "37": {
+  "accept": [
+   "I"
+  ],
+  "display": "I — Create your business plan"
+ },
+ "38": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Organisational structure"
+ },
+ "39": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — Operations"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Keep your business up-to-date"
+ }
+}

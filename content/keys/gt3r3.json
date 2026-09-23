@@ -1,0 +1,260 @@
+{
+ "1": {
+  "accept": [
+   "18"
+  ],
+  "display": "18"
+ },
+ "2": {
+  "any": [
+   "28",
+   "33"
+  ],
+  "pick": 2,
+  "display": "28, 33"
+ },
+ "3": {
+  "accept": [
+   "32"
+  ],
+  "display": "32"
+ },
+ "4": {
+  "accept": [
+   "monthly",
+   "every month",
+   "each month",
+   "once a month"
+  ],
+  "display": "monthly / every month"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "8": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "$68.50",
+   "68.50",
+   "$68.5",
+   "68.5"
+  ],
+  "display": "$68.50"
+ },
+ "21": {
+  "accept": [
+   "$154",
+   "154"
+  ],
+  "display": "$154"
+ },
+ "22": {
+  "accept": [
+   "21",
+   "twenty-one",
+   "twenty one"
+  ],
+  "display": "21"
+ },
+ "23": {
+  "accept": [
+   "17",
+   "seventeen"
+  ],
+  "display": "17"
+ },
+ "24": {
+  "accept": [
+   "boronia",
+   "boronia college"
+  ],
+  "display": "Boronia"
+ },
+ "25": {
+  "accept": [
+   "women",
+   "woman",
+   "female students",
+   "women students"
+  ],
+  "display": "women"
+ },
+ "26": {
+  "accept": [
+   "1989"
+  ],
+  "display": "1989"
+ },
+ "27": {
+  "accept": [
+   "860"
+  ],
+  "display": "860"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "pre-secondary",
+   "pre secondary",
+   "presecondary"
+  ],
+  "display": "Pre-Secondary"
+ },
+ "30": {
+  "accept": [
+   "supported secondary"
+  ],
+  "display": "Supported Secondary"
+ },
+ "31": {
+  "accept": [
+   "secondary"
+  ],
+  "display": "Secondary"
+ },
+ "32": {
+  "accept": [
+   "english"
+  ],
+  "display": "English"
+ },
+ "33": {
+  "accept": [
+   "science"
+  ],
+  "display": "Science"
+ },
+ "34": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ }
+}

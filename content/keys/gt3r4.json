@@ -1,0 +1,297 @@
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — The Ferry Hotel"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Oceanrest Motel"
+ },
+ "3": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Sanctuary Beach cabins"
+ },
+ "4": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Island Escape Lodge"
+ },
+ "5": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Seabreeze Hotel"
+ },
+ "6": {
+  "accept": [
+   "x"
+  ],
+  "display": "x — In what situations am I covered when travelling?"
+ },
+ "7": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — What is not covered?"
+ },
+ "8": {
+  "accept": [
+   "i"
+  ],
+  "display": "i — Do I have to reveal my medical history?"
+ },
+ "9": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii — If I want to stay longer can I extend my policy?"
+ },
+ "10": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Can I travel anywhere in the world?"
+ },
+ "11": {
+  "accept": [
+   "lost/stolen luggage",
+   "lost or stolen luggage",
+   "lost luggage",
+   "stolen luggage",
+   "luggage",
+   "lost and stolen luggage"
+  ],
+  "display": "lost / stolen luggage"
+ },
+ "12": {
+  "accept": [
+   "alcohol, illegal drugs",
+   "alcohol or illegal drugs",
+   "alcohol and illegal drugs",
+   "alcohol",
+   "illegal drugs",
+   "alcohol illegal drugs"
+  ],
+  "display": "alcohol, illegal drugs"
+ },
+ "13": {
+  "accept": [
+   "transit only",
+   "transit",
+   "5 days transit",
+   "five days transit",
+   "transit for 5 days",
+   "5 days only",
+   "5-day transit"
+  ],
+  "display": "transit (only) / 5 days transit"
+ },
+ "14": {
+  "accept": [
+   "mask, snorkel, fins",
+   "mask snorkel fins",
+   "mask, snorkel and fins",
+   "mask, snorkel, and fins",
+   "a mask, snorkel, fins"
+  ],
+  "display": "mask, snorkel, fins"
+ },
+ "15": {
+  "accept": [
+   "safety and comfort",
+   "for safety and comfort",
+   "safety",
+   "comfort",
+   "safety, comfort",
+   "for safety",
+   "for comfort"
+  ],
+  "display": "(for) safety / (and) comfort"
+ },
+ "16": {
+  "accept": [
+   "safety practices",
+   "dive environment",
+   "physics",
+   "the dive environment"
+  ],
+  "display": "safety practices / dive environment / physics"
+ },
+ "17": {
+  "accept": [
+   "c-card",
+   "c card",
+   "your c-card",
+   "their c-card",
+   "a c-card"
+  ],
+  "display": "C-card"
+ },
+ "18": {
+  "accept": [
+   "your own equipment",
+   "own equipment",
+   "personal equipment",
+   "equipment"
+  ],
+  "display": "your own equipment"
+ },
+ "19": {
+  "accept": [
+   "diving internship",
+   "a diving internship",
+   "serve a diving internship",
+   "an internship",
+   "internship"
+  ],
+  "display": "(a) diving internship"
+ },
+ "20": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — if you run out of air"
+ },
+ "21": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — if I get the bends"
+ },
+ "22": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — don't get eaten"
+ },
+ "23": {
+  "accept": [
+   "i"
+  ],
+  "display": "i — do not panic"
+ },
+ "24": {
+  "accept": [
+   "60 feet",
+   "sixty feet",
+   "60 ft",
+   "60ft"
+  ],
+  "display": "60 feet"
+ },
+ "25": {
+  "accept": [
+   "too quickly",
+   "too fast"
+  ],
+  "display": "too quickly"
+ },
+ "26": {
+  "accept": [
+   "remain calm",
+   "stay calm",
+   "keep calm"
+  ],
+  "display": "remain calm"
+ },
+ "27": {
+  "accept": [
+   "practise",
+   "practice"
+  ],
+  "display": "practise"
+ },
+ "28": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "31": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "32": {
+  "any": [
+   "B",
+   "F"
+  ],
+  "pick": 2,
+  "display": "B, F"
+ },
+ "33": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — operates in Europe, Asia and Australia"
+ },
+ "34": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — a resource for agricultural biodiversity"
+ },
+ "35": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — helping local producers compete in the international market"
+ },
+ "36": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — a showcase for Italian food products"
+ },
+ "37": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — produces food using industrial methods"
+ },
+ "38": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — published four times a year"
+ },
+ "39": {
+  "accept": [
+   "mad cow disease",
+   "the mad cow disease",
+   "mad cow",
+   "mad cow disease crisis"
+  ],
+  "display": "mad cow disease"
+ },
+ "40": {
+  "accept": [
+   "fast food",
+   "fast food giants",
+   "the spread of fast food",
+   "spread of fast food"
+  ],
+  "display": "fast food (giants)"
+ }
+}

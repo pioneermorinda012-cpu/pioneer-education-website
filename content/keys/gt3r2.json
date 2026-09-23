@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "R"
+  ],
+  "display": "R"
+ },
+ "8": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "9": {
+  "accept": [
+   "R"
+  ],
+  "display": "R"
+ },
+ "10": {
+  "accept": [
+   "CP"
+  ],
+  "display": "CP"
+ },
+ "11": {
+  "accept": [
+   "R"
+  ],
+  "display": "R"
+ },
+ "12": {
+  "accept": [
+   "CP"
+  ],
+  "display": "CP"
+ },
+ "13": {
+  "accept": [
+   "birdsong",
+   "bird song",
+   "birdsongs"
+  ],
+  "display": "birdsong"
+ },
+ "14": {
+  "accept": [
+   "binoculars"
+  ],
+  "display": "binoculars"
+ },
+ "15": {
+  "accept": [
+   "billy tea",
+   "tea"
+  ],
+  "display": "(billy) tea"
+ },
+ "16": {
+  "accept": [
+   "damper"
+  ],
+  "display": "damper"
+ },
+ "17": {
+  "accept": [
+   "possum prowl"
+  ],
+  "display": "Possum Prowl"
+ },
+ "18": {
+  "accept": [
+   "torch",
+   "a torch"
+  ],
+  "display": "torch"
+ },
+ "19": {
+  "accept": [
+   "non-slip shoes",
+   "non slip shoes",
+   "nonslip shoes"
+  ],
+  "display": "non-slip shoes"
+ },
+ "20": {
+  "accept": [
+   "lovely water views",
+   "water views",
+   "views",
+   "lovely views"
+  ],
+  "display": "(lovely) (water) views"
+ },
+ "21": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — Introductory computer skills"
+ },
+ "22": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Exceptional customer service"
+ },
+ "23": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — Restaurant management for non-managers"
+ },
+ "24": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii — Effective workplace communication"
+ },
+ "25": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — Making career changes for women"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "30": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "31": {
+  "accept": [
+   "Business Communication"
+  ],
+  "display": "Business Communication"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — in the first half of the twentieth century"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — in the first half of the twentieth century"
+ },
+ "34": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — at the end of the twentieth century"
+ },
+ "35": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — before the nineteenth century"
+ },
+ "36": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — during the nineteenth century"
+ },
+ "37": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — at the end of the twentieth century"
+ },
+ "38": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ }
+}
