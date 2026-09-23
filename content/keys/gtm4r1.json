@@ -1,0 +1,262 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "3": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "4": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "7": {
+  "accept": [
+   "annoying"
+  ],
+  "display": "annoying"
+ },
+ "8": {
+  "accept": [
+   "stop talking",
+   "talk quietly"
+  ],
+  "display": "stop talking / talk quietly"
+ },
+ "9": {
+  "accept": [
+   "secrets"
+  ],
+  "display": "secrets"
+ },
+ "10": {
+  "accept": [
+   "your distance",
+   "distance",
+   "3 metres",
+   "three metres"
+  ],
+  "display": "your distance"
+ },
+ "11": {
+  "accept": [
+   "text messaging",
+   "texting",
+   "text messages"
+  ],
+  "display": "text messaging"
+ },
+ "12": {
+  "accept": [
+   "queue"
+  ],
+  "display": "queue"
+ },
+ "13": {
+  "accept": [
+   "350"
+  ],
+  "display": "350"
+ },
+ "14": {
+  "accept": [
+   "common sense"
+  ],
+  "display": "common sense"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Kim Peek"
+ },
+ "16": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Daniel Tammet"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Orlando Serrell"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Leslie Lemke"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Kim Peek"
+ },
+ "20": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Ellen Boudreaux"
+ },
+ "21": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Stephen Wiltshire"
+ },
+ "22": {
+  "accept": [
+   "standards"
+  ],
+  "display": "standards"
+ },
+ "23": {
+  "accept": [
+   "seamless"
+  ],
+  "display": "seamless"
+ },
+ "24": {
+  "accept": [
+   "things"
+  ],
+  "display": "things"
+ },
+ "25": {
+  "accept": [
+   "income"
+  ],
+  "display": "income"
+ },
+ "26": {
+  "accept": [
+   "praise"
+  ],
+  "display": "praise"
+ },
+ "27": {
+  "accept": [
+   "commitment"
+  ],
+  "display": "commitment"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "press conferences"
+  ],
+  "display": "press conferences"
+ },
+ "33": {
+  "accept": [
+   "online",
+   "on-line",
+   "an online application",
+   "online application"
+  ],
+  "display": "online"
+ },
+ "34": {
+  "accept": [
+   "3",
+   "three"
+  ],
+  "display": "3 / three"
+ },
+ "35": {
+  "accept": [
+   "6",
+   "six",
+   "around six",
+   "around 6"
+  ],
+  "display": "6 / six"
+ },
+ "36": {
+  "accept": [
+   "location",
+   "remote location"
+  ],
+  "display": "location"
+ },
+ "37": {
+  "accept": [
+   "food",
+   "their own food",
+   "own food"
+  ],
+  "display": "food"
+ },
+ "38": {
+  "accept": [
+   "medical procedures"
+  ],
+  "display": "medical procedures"
+ },
+ "39": {
+  "accept": [
+   "communication satellite",
+   "a communication satellite",
+   "communications satellite"
+  ],
+  "display": "communication satellite"
+ },
+ "40": {
+  "accept": [
+   "no return",
+   "the point of no return",
+   "point of no return"
+  ],
+  "display": "(the point of) no return"
+ }
+}

@@ -1,0 +1,284 @@
+{
+ "1": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "2": {
+  "any": [
+   "A",
+   "B"
+  ],
+  "pick": 2,
+  "display": "A, B"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "133"
+  ],
+  "display": "133"
+ },
+ "6": {
+  "accept": [
+   "146"
+  ],
+  "display": "146"
+ },
+ "7": {
+  "accept": [
+   "104"
+  ],
+  "display": "104"
+ },
+ "8": {
+  "accept": [
+   "103"
+  ],
+  "display": "103"
+ },
+ "9": {
+  "accept": [
+   "144"
+  ],
+  "display": "144"
+ },
+ "10": {
+  "accept": [
+   "156"
+  ],
+  "display": "156"
+ },
+ "11": {
+  "accept": [
+   "work experiences",
+   "your work experiences",
+   "work experience"
+  ],
+  "display": "work experiences"
+ },
+ "12": {
+  "accept": [
+   "answers to questions",
+   "answers"
+  ],
+  "display": "answers to questions"
+ },
+ "13": {
+  "accept": [
+   "the interviewer's",
+   "interviewer's",
+   "the interviewer",
+   "interviewer",
+   "the interviewers",
+   "interviewers"
+  ],
+  "display": "the interviewer's"
+ },
+ "14": {
+  "accept": [
+   "personal qualities",
+   "your personal qualities",
+   "qualities"
+  ],
+  "display": "(your) personal qualities"
+ },
+ "15": {
+  "accept": [
+   "single bedroom",
+   "a single bedroom",
+   "single room",
+   "a single room",
+   "bedroom"
+  ],
+  "display": "(a) single bedroom"
+ },
+ "16": {
+  "accept": [
+   "breakfast and evening meal",
+   "breakfast evening meal",
+   "breakfast and evening meals",
+   "half board",
+   "breakfast & evening meal"
+  ],
+  "display": "breakfast (and) evening meal"
+ },
+ "17": {
+  "accept": [
+   "experiencing the culture",
+   "experiencing culture",
+   "making local friends",
+   "local friends",
+   "opportunities for language practice",
+   "language practice",
+   "making friends"
+  ],
+  "display": "experiencing the culture / making local friends / opportunities for language practice"
+ },
+ "18": {
+  "accept": [
+   "en-suite shower facilities",
+   "shower facilities",
+   "en-suite shower",
+   "ensuite shower facilities",
+   "en suite shower facilities",
+   "shower"
+  ],
+  "display": "(en-suite) shower facilities"
+ },
+ "19": {
+  "accept": [
+   "other workers",
+   "workers",
+   "other summer workers",
+   "summer workers"
+  ],
+  "display": "(other) workers"
+ },
+ "20": {
+  "accept": [
+   "kitchen",
+   "a kitchen",
+   "fully-equipped kitchen",
+   "fully equipped kitchen",
+   "a fully equipped kitchen",
+   "a fully-equipped kitchen"
+  ],
+  "display": "(a) (fully-equipped) kitchen"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "29": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "30": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "31": {
+  "accept": [
+   "qualities"
+  ],
+  "display": "qualities"
+ },
+ "32": {
+  "accept": [
+   "10",
+   "ten"
+  ],
+  "display": "10 / ten"
+ },
+ "33": {
+  "accept": [
+   "achievements",
+   "particular achievements"
+  ],
+  "display": "(particular) achievements"
+ },
+ "34": {
+  "accept": [
+   "personal interests",
+   "interests"
+  ],
+  "display": "personal interests"
+ },
+ "35": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — look"
+ },
+ "36": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — check for"
+ },
+ "37": {
+  "accept": [
+   "J"
+  ],
+  "display": "J — attach"
+ },
+ "38": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — deliver"
+ },
+ "39": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — customise"
+ },
+ "40": {
+  "accept": [
+   "K"
+  ],
+  "display": "K — follow"
+ }
+}

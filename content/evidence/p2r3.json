@@ -1,0 +1,45 @@
+{
+ "11": {
+  "s": 0,
+  "t": [
+   "This is significant because many people are so concerned about water-borne pollutants that they drink only bottled water, worldwide sales of which are forecast to reach $72 billion by next year."
+  ],
+  "k": "near"
+ },
+ "21": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "24": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "video camera"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "database"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 1,
+  "t": [
+   "tiny pressure pads"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ }
+}

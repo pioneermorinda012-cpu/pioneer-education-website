@@ -32,7 +32,18 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { currentId } from "./aliases";
 
-export type Evidence = Record<string, { s: number; t: string[] }>;
+/**
+ * s  which section's passage
+ * t  the sentence itself, verbatim — empty when there deliberately isn't one
+ * k  how it is known, absent on a paper a teacher marked up by hand:
+ *      "exact" the answer is that phrase, so this cannot be wrong
+ *      "near"  the closest line, found by wording — usually right, not certain
+ *      "none"  NOT GIVEN: there is no such line, and that is the answer
+ */
+export type Evidence = Record<
+  string,
+  { s: number; t: string[]; k?: "exact" | "near" | "none" }
+>;
 
 const CONTENT = path.join(process.cwd(), "content");
 

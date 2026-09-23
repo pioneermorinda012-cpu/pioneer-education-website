@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "6": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "15": {
+  "accept": [
+   "marketing environment",
+   "a marketing environment"
+  ],
+  "display": "marketing environment"
+ },
+ "16": {
+  "accept": [
+   "corporate travel consultant",
+   "corporate travel consultants"
+  ],
+  "display": "Corporate Travel Consultant"
+ },
+ "17": {
+  "accept": [
+   "rewards"
+  ],
+  "display": "rewards"
+ },
+ "18": {
+  "accept": [
+   "outstanding efforts"
+  ],
+  "display": "outstanding efforts"
+ },
+ "19": {
+  "accept": [
+   "ambitions"
+  ],
+  "display": "ambitions"
+ },
+ "20": {
+  "accept": [
+   "psychometric test"
+  ],
+  "display": "psychometric test"
+ },
+ "21": {
+  "accept": [
+   "team",
+   "the team"
+  ],
+  "display": "team"
+ },
+ "22": {
+  "accept": [
+   "authorisation",
+   "authorization"
+  ],
+  "display": "authorisation / authorization"
+ },
+ "23": {
+  "accept": [
+   "obstructions",
+   "obstruction"
+  ],
+  "display": "obstructions"
+ },
+ "24": {
+  "accept": [
+   "wrapped",
+   "wrapped carefully",
+   "carefully wrapped"
+  ],
+  "display": "wrapped (carefully)"
+ },
+ "25": {
+  "accept": [
+   "waste",
+   "rubbish"
+  ],
+  "display": "waste / rubbish"
+ },
+ "26": {
+  "accept": [
+   "trolleys",
+   "trolleys provided",
+   "the trolleys"
+  ],
+  "display": "Trolleys"
+ },
+ "27": {
+  "accept": [
+   "regular breaks",
+   "breaks"
+  ],
+  "display": "(regular) breaks"
+ },
+ "28": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi — Nearly a record in the zebra world"
+ },
+ "29": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — The original aim of the work"
+ },
+ "30": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Some confusing information"
+ },
+ "31": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — An obstruction on the traditional route"
+ },
+ "32": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix — How was the information passed on?"
+ },
+ "33": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — Three different ways of living"
+ },
+ "34": {
+  "accept": [
+   "x"
+  ],
+  "display": "x — Why it is important to study zebras"
+ },
+ "35": {
+  "accept": [
+   "harems"
+  ],
+  "display": "harems"
+ },
+ "36": {
+  "accept": [
+   "mares"
+  ],
+  "display": "mares"
+ },
+ "37": {
+  "accept": [
+   "herds"
+  ],
+  "display": "herds"
+ },
+ "38": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

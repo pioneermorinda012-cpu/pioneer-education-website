@@ -1,0 +1,255 @@
+{
+ "1": {
+  "accept": [
+   "evacuate the area",
+   "evacuate area",
+   "evacuate"
+  ],
+  "display": "evacuate the area"
+ },
+ "2": {
+  "accept": [
+   "seal it",
+   "seal"
+  ],
+  "display": "seal it"
+ },
+ "3": {
+  "accept": [
+   "work area"
+  ],
+  "display": "work area"
+ },
+ "4": {
+  "accept": [
+   "potential contamination",
+   "contamination"
+  ],
+  "display": "potential contamination"
+ },
+ "5": {
+  "accept": [
+   "exact location"
+  ],
+  "display": "exact location"
+ },
+ "6": {
+  "accept": [
+   "face to avoid"
+  ],
+  "display": "face to avoid"
+ },
+ "7": {
+  "accept": [
+   "immediate danger",
+   "danger"
+  ],
+  "display": "immediate danger"
+ },
+ "8": {
+  "accept": [
+   "pass them around"
+  ],
+  "display": "pass them around"
+ },
+ "9": {
+  "accept": [
+   "material has spilt",
+   "material has split",
+   "material has spilled",
+   "material spilt",
+   "material has spilled"
+  ],
+  "display": "material has spilt"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "14": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "15": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "16": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "19": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — redundancy"
+ },
+ "23": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — minor misconduct"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — sacking"
+ },
+ "25": {
+  "accept": [
+   "G"
+  ],
+  "display": "G — gross misconduct"
+ },
+ "26": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — constructive dismissal"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — unfair dismissal"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — wrongful dismissal"
+ },
+ "29": {
+  "accept": [
+   "viral infection"
+  ],
+  "display": "viral infection"
+ },
+ "30": {
+  "accept": [
+   "physical strain"
+  ],
+  "display": "physical strain"
+ },
+ "31": {
+  "accept": [
+   "side effects",
+   "side-effects"
+  ],
+  "display": "side effects"
+ },
+ "32": {
+  "accept": [
+   "less likely"
+  ],
+  "display": "less likely"
+ },
+ "33": {
+  "accept": [
+   "often modest",
+   "modest"
+  ],
+  "display": "(often) modest"
+ },
+ "34": {
+  "accept": [
+   "some impact",
+   "impact"
+  ],
+  "display": "(some) impact"
+ },
+ "35": {
+  "accept": [
+   "disposable",
+   "disposable paper"
+  ],
+  "display": "disposable"
+ },
+ "36": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "37": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "38": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "39": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

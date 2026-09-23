@@ -1,0 +1,162 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "DEVELOPMENTAL ART"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "4.50"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "DEVELOPMENTAL ART"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "5.00"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "the North Gallery"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "NEW YEAR FESTIVITIES"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "Language Centre students"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "photo-ID card"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "in cash"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "REF in red"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "IELTS materials"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "To help new students, the International Business Institute (IBI) plans to set up a buddy peer support scheme."
+  ],
+  "k": "near"
+ },
+ "23": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "Meet to explain information to the new student in person, if required."
+  ],
+  "k": "near"
+ },
+ "26": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "28": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "language development"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "model speakers"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "exaggerate"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "recognise"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "conversation"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "It is interesting just how easily children learn language."
+  ],
+  "k": "near"
+ },
+ "38": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "Although there is concern that baby talk may persist too long, Dr Golinkoff says that it stops being used as the child gets older, that is, when the child is better able to communicate with the parents."
+  ],
+  "k": "near"
+ }
+}

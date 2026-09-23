@@ -1,0 +1,170 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "Same time, same place."
+  ],
+  "k": "near"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "TEXT B — DAILY WORK RECORD"
+  ],
+  "k": "near"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "TEXT B — DAILY WORK RECORD"
+  ],
+  "k": "near"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "hh:mm"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "DAILY WORK RECORD"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "your Supervisor"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "Monday"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "Your Tax Number"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "your home address"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "table tennis"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "international clubs"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "University Health Center"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "health insurance"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "emergency weather conditions"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "15 minutes"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "Time of Withdrawal Amount of Refund Registration week 90% First week of classes 75% Second week of classes 50% Third week and after No refund"
+  ],
+  "k": "near"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "Students who do not meet these standards may be placed on academic probation."
+  ],
+  "k": "near"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "Students who do not meet these standards may be placed on academic probation."
+  ],
+  "k": "near"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "This will also likely result in loss of student status with the US Immigration and Naturalization Service."
+  ],
+  "k": "near"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "Students who have 30 hours of absences are in danger of being placed on academic probation."
+  ],
+  "k": "near"
+ },
+ "27": {
+  "s": 1,
+  "t": [
+   "Students who have 50 hours of absences will not receive a Certificate of Successful Completion and will be terminated from the program."
+  ],
+  "k": "near"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "Loyalty"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "twice a year"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "mentor"
+  ],
+  "k": "exact"
+ }
+}

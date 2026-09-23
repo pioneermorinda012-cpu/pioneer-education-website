@@ -1,0 +1,133 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "shock"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "death toll"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "shatter rock"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "detonates"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "frozen"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "iron and steel"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "blasting oil"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "volcanic pumice"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "engineering projects"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "linguistic circles"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "tightly-knit"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "Caspian Steppe"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "volcanic eruption"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "This is often done with nationalistic overtones, raising the anger of others in this field, and there still remains controversy over each claim."
+  ],
+  "k": "near"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "Proto-Human"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "Proto-Nostratic"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "Altaic"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "Southern India"
+  ],
+  "k": "exact"
+ }
+}

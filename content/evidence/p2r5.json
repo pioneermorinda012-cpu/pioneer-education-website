@@ -1,0 +1,61 @@
+{
+ "9": {
+  "s": 0,
+  "t": [
+   "Orion"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "If they like something, they have to pass it on.’ After Rowling, Wilson is currently the best-selling children’s writer, and her sales have boomed over the past three years."
+  ],
+  "k": "near"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "income levels"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "36": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "Sun Simiao was the first Chinese author known to compose an elaborate medical ethical code."
+  ],
+  "k": "near"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "2nd century BC"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "prescriptions"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "Sun Simiao"
+  ],
+  "k": "exact"
+ }
+}

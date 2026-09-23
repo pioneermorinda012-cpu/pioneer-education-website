@@ -1,0 +1,206 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "visible"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "natural clays"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "biological matter"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "carminic acid"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "mucus"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "leaves"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "semi-precious stone"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "stable"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "accidentally"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "It infects over two million people a year, most of them children, killing over one quarter in the process."
+  ],
+  "k": "near"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "antibodies"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "filariasis"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "liver"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "urban"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "jungle"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "parasite"
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "sprayed"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "strategies"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "pebbles and grit"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "resistant rock bed"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "retreat"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "eddies and whirlpools"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "undercutting"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "geological features"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "Canada"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "underwater barriers"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "unstable rock"
+  ],
+  "k": "exact"
+ }
+}

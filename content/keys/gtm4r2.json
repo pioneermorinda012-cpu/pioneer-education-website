@@ -1,0 +1,260 @@
+{
+ "1": {
+  "accept": [
+   "southerly"
+  ],
+  "display": "southerly"
+ },
+ "2": {
+  "accept": [
+   "art scene",
+   "dynamic art scene"
+  ],
+  "display": "art scene"
+ },
+ "3": {
+  "accept": [
+   "london"
+  ],
+  "display": "London"
+ },
+ "4": {
+  "accept": [
+   "celtic"
+  ],
+  "display": "Celtic"
+ },
+ "5": {
+  "accept": [
+   "lanhydrock"
+  ],
+  "display": "Lanhydrock"
+ },
+ "6": {
+  "accept": [
+   "tin mine",
+   "geevor tin mine"
+  ],
+  "display": "(Geevor) tin mine"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "forewing",
+   "forewings"
+  ],
+  "display": "forewing(s)"
+ },
+ "12": {
+  "accept": [
+   "antennae",
+   "antenna",
+   "antennas"
+  ],
+  "display": "antennae"
+ },
+ "13": {
+  "accept": [
+   "hindwing",
+   "hindwings"
+  ],
+  "display": "hindwing(s)"
+ },
+ "14": {
+  "accept": [
+   "pollen basket",
+   "pollen baskets"
+  ],
+  "display": "pollen basket"
+ },
+ "15": {
+  "accept": [
+   "printing press",
+   "first printing press"
+  ],
+  "display": "printing press"
+ },
+ "16": {
+  "accept": [
+   "thousands"
+  ],
+  "display": "thousands"
+ },
+ "17": {
+  "accept": [
+   "electronic data"
+  ],
+  "display": "electronic data"
+ },
+ "18": {
+  "accept": [
+   "hard copy",
+   "hardcopy",
+   "a pdf file",
+   "pdf file",
+   "pdf"
+  ],
+  "display": "hard copy / a PDF file"
+ },
+ "19": {
+  "accept": [
+   "impossible",
+   "virtually impossible"
+  ],
+  "display": "impossible"
+ },
+ "20": {
+  "accept": [
+   "e-book",
+   "ebook",
+   "e book"
+  ],
+  "display": "e-book"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Vinyasa"
+ },
+ "22": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Iyengar"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Hatha"
+ },
+ "24": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Iyengar"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Ashtanga"
+ },
+ "26": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Bikram"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Ashtanga"
+ },
+ "28": {
+  "accept": [
+   "joseph cleaver"
+  ],
+  "display": "Joseph Cleaver"
+ },
+ "29": {
+  "accept": [
+   "vocational colleges"
+  ],
+  "display": "vocational colleges"
+ },
+ "30": {
+  "accept": [
+   "2002"
+  ],
+  "display": "2002"
+ },
+ "31": {
+  "accept": [
+   "2004"
+  ],
+  "display": "2004"
+ },
+ "32": {
+  "accept": [
+   "london"
+  ],
+  "display": "London"
+ },
+ "33": {
+  "accept": [
+   "5 institutes",
+   "five institutes"
+  ],
+  "display": "5 institutes"
+ },
+ "34": {
+  "accept": [
+   "video conferencing technology",
+   "video-conferencing technology",
+   "video conferencing"
+  ],
+  "display": "video conferencing technology"
+ },
+ "35": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "40": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ }
+}

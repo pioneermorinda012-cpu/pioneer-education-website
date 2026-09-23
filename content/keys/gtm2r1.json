@@ -1,0 +1,279 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "display": "A, E"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "display": "A, E"
+ },
+ "5": {
+  "accept": [
+   "9"
+  ],
+  "display": "9"
+ },
+ "6": {
+  "accept": [
+   "2"
+  ],
+  "display": "2"
+ },
+ "7": {
+  "accept": [
+   "1"
+  ],
+  "display": "1"
+ },
+ "8": {
+  "accept": [
+   "11"
+  ],
+  "display": "11"
+ },
+ "9": {
+  "accept": [
+   "6"
+  ],
+  "display": "6"
+ },
+ "10": {
+  "accept": [
+   "2"
+  ],
+  "display": "2"
+ },
+ "11": {
+  "accept": [
+   "a surgery",
+   "surgery",
+   "to a surgery",
+   "the surgery"
+  ],
+  "display": "(a) surgery"
+ },
+ "12": {
+  "accept": [
+   "nhs number",
+   "your nhs number",
+   "the nhs number"
+  ],
+  "display": "(your) NHS number"
+ },
+ "13": {
+  "accept": [
+   "receptionist",
+   "the receptionist"
+  ],
+  "display": "(the) receptionist"
+ },
+ "14": {
+  "accept": [
+   "cancel/rearrange",
+   "cancel/rearrange it",
+   "cancel",
+   "rearrange",
+   "cancel it",
+   "rearrange it",
+   "cancel or rearrange",
+   "cancel or rearrange it"
+  ],
+  "display": "cancel/rearrange (it)"
+ },
+ "15": {
+  "accept": [
+   "international university students",
+   "university students",
+   "international students"
+  ],
+  "display": "international university students"
+ },
+ "16": {
+  "accept": [
+   "5 months",
+   "five months"
+  ],
+  "display": "5 months"
+ },
+ "17": {
+  "accept": [
+   "during the summer",
+   "summer",
+   "during summer",
+   "the summer"
+  ],
+  "display": "(during) (the) summer"
+ },
+ "18": {
+  "accept": [
+   "6 months",
+   "six months",
+   "for 6 months",
+   "for six months"
+  ],
+  "display": "(for) 6 months"
+ },
+ "19": {
+  "accept": [
+   "throughout canada",
+   "throughout"
+  ],
+  "display": "throughout (Canada)"
+ },
+ "20": {
+  "accept": [
+   "3 months",
+   "three months"
+  ],
+  "display": "3 months"
+ },
+ "21": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Make objects accessible"
+ },
+ "22": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — Avoid wrist pain"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Place your screen at eye level"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Rest your feet on floor"
+ },
+ "25": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Avoid screen reflection"
+ },
+ "26": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — Avoid wrist pain"
+ },
+ "27": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Make objects accessible"
+ },
+ "28": {
+  "accept": [
+   "david graddol",
+   "graddol"
+  ],
+  "display": "David Graddol"
+ },
+ "29": {
+  "accept": [
+   "science",
+   "the journal science"
+  ],
+  "display": "Science"
+ },
+ "30": {
+  "accept": [
+   "1.5 billion",
+   "up to 1.5 billion",
+   "1,500,000,000",
+   "1500 million"
+  ],
+  "display": "1.5 billion"
+ },
+ "31": {
+  "accept": [
+   "confucius institutes",
+   "confucius institute",
+   "the confucius institutes"
+  ],
+  "display": "Confucius Institutes"
+ },
+ "32": {
+  "accept": [
+   "once a week",
+   "once weekly",
+   "weekly"
+  ],
+  "display": "once a week"
+ },
+ "33": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "34": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "39": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "40": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ }
+}

@@ -1,0 +1,99 @@
+{
+ "6": {
+  "s": 0,
+  "t": [
+   "phantom"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "obstacles"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "depth"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "submarines"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "natural selection"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "radio echoes"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "mathematical theories"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "zoologist"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "26": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "Educating Psyche by Bernie Neville is a book which looks at radical new approaches to learning, describing the effects of emotion, imagination and the unconscious on learning."
+  ],
+  "k": "near"
+ },
+ "34": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "35": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "ritual"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "placebo"
+  ],
+  "k": "exact"
+ }
+}

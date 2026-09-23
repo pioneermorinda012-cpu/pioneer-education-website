@@ -49,7 +49,7 @@ export type MarkedQuestion = {
   /** filled in after marking — see lib/qtypes */
   type?: string;
   /** filled in after marking — the line in the passage, see lib/evidence */
-  ev?: { s: number; t: string[] };
+  ev?: { s: number; t: string[]; k?: "exact" | "near" | "none" };
 };
 
 export type MarkResult = {

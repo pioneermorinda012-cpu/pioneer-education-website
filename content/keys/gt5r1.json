@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "2": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "3": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "4": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "5": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "6": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "7": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "8": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "9": {
+  "accept": [
+   "mercury"
+  ],
+  "display": "Mercury"
+ },
+ "10": {
+  "accept": [
+   "reflects light",
+   "reflects the light"
+  ],
+  "display": "reflects light"
+ },
+ "11": {
+  "accept": [
+   "species"
+  ],
+  "display": "species"
+ },
+ "12": {
+  "accept": [
+   "the orion arm",
+   "orion arm",
+   "the orion arm of the milky way"
+  ],
+  "display": "the Orion Arm"
+ },
+ "13": {
+  "accept": [
+   "dark"
+  ],
+  "display": "dark"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "25": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "26": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "27": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "28": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "29": {
+  "accept": [
+   "one-story houses",
+   "one story houses",
+   "one-storey houses",
+   "one-story house"
+  ],
+  "display": "one-story houses"
+ },
+ "30": {
+  "accept": [
+   "plans"
+  ],
+  "display": "plans"
+ },
+ "31": {
+  "accept": [
+   "map",
+   "a map"
+  ],
+  "display": "map"
+ },
+ "32": {
+  "accept": [
+   "emergency exits",
+   "emergency exit"
+  ],
+  "display": "emergency exits"
+ },
+ "33": {
+  "accept": [
+   "doorknob",
+   "door knob"
+  ],
+  "display": "doorknob"
+ },
+ "34": {
+  "accept": [
+   "pours"
+  ],
+  "display": "pours"
+ },
+ "35": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

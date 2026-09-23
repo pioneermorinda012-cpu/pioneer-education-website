@@ -1,0 +1,295 @@
+{
+ "1": {
+  "any": [
+   "A",
+   "B"
+  ],
+  "pick": 2,
+  "display": "A, B"
+ },
+ "2": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "5": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "6": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "7": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "8": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "heavy rain",
+   "rain"
+  ],
+  "display": "heavy rain"
+ },
+ "12": {
+  "accept": [
+   "portable gas stove",
+   "gas stove"
+  ],
+  "display": "portable gas stove"
+ },
+ "13": {
+  "accept": [
+   "gemstones and fossils",
+   "gemstones, fossils",
+   "gemstones or fossils",
+   "gemstones & fossils"
+  ],
+  "display": "gemstones and fossils"
+ },
+ "14": {
+  "accept": [
+   "travel 60 km",
+   "travel 60km",
+   "drive 60 km",
+   "drive 60km",
+   "travel about 60 km",
+   "travel about 60km",
+   "drive about 60 km",
+   "drive about 60km",
+   "be arranged",
+   "travel",
+   "drive",
+   "travel 60 kilometres",
+   "drive 60 kilometres"
+  ],
+  "display": "travel/drive 60 km / be arranged"
+ },
+ "15": {
+  "accept": [
+   "people under 18",
+   "people under eighteen",
+   "young people",
+   "young people under 18",
+   "young people under eighteen",
+   "under 18",
+   "under eighteen"
+  ],
+  "display": "people under 18"
+ },
+ "16": {
+  "accept": [
+   "australian culture"
+  ],
+  "display": "australian culture"
+ },
+ "17": {
+  "accept": [
+   "travel and expenses",
+   "travel and out-of-pocket expenses",
+   "travel",
+   "expenses",
+   "travel & expenses"
+  ],
+  "display": "travel and expenses"
+ },
+ "18": {
+  "accept": [
+   "undertake training",
+   "undertake a training program",
+   "undertake training program",
+   "do training"
+  ],
+  "display": "undertake training"
+ },
+ "19": {
+  "accept": [
+   "awareness",
+   "cross-cultural awareness",
+   "cross cultural awareness"
+  ],
+  "display": "(cross-cultural) awareness"
+ },
+ "20": {
+  "accept": [
+   "home tutor scheme",
+   "the home tutor scheme"
+  ],
+  "display": "Home Tutor Scheme"
+ },
+ "21": {
+  "accept": [
+   "one hour",
+   "1 hour",
+   "an hour"
+  ],
+  "display": "one hour"
+ },
+ "22": {
+  "accept": [
+   "will be assessed",
+   "will be marked",
+   "will be assessed/marked",
+   "is assessed",
+   "is marked"
+  ],
+  "display": "will be assessed / marked"
+ },
+ "23": {
+  "accept": [
+   "what is required",
+   "its requirements",
+   "the requirements",
+   "requirements"
+  ],
+  "display": "what is required / the requirements"
+ },
+ "24": {
+  "accept": [
+   "strengths",
+   "strong points"
+  ],
+  "display": "strengths / strong points"
+ },
+ "25": {
+  "accept": [
+   "finish tasks",
+   "complete tasks",
+   "finish tasks on time",
+   "complete tasks on time",
+   "finish/complete tasks"
+  ],
+  "display": "finish / complete tasks"
+ },
+ "26": {
+  "accept": [
+   "organise and volunteer",
+   "organize and volunteer",
+   "organise & volunteer"
+  ],
+  "display": "organise and volunteer"
+ },
+ "27": {
+  "accept": [
+   "powerpoint",
+   "powerpoint presentation",
+   "team powerpoint"
+  ],
+  "display": "PowerPoint (presentation)"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ }
+}

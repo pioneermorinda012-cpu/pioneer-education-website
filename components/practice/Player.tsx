@@ -459,7 +459,7 @@ function scan(html: string): Scan {
 
 const tidy = (s: string) => s.replace(/\s+/g, " ").trim();
 
-export type EvMark = { label: string; text: string; ok?: boolean };
+export type EvMark = { label: string; text: string; ok?: boolean; near?: boolean };
 
 /** A question label is digits and maybe an en-dash; quote it for a selector. */
 export const cssq = (s: string) => s.replace(/["\\]/g, "\\$&");
@@ -478,9 +478,10 @@ export function flashTo(selector: string): boolean {
   return true;
 }
 
-/** Take the student to the sentence that answers question `label`. */
+/** Take the student to the sentence that answers question `label`.
+ *  ~= rather than = because one line can carry several question numbers. */
 export const locateEvidence = (label: string) =>
-  flashTo(`mark[data-ev="${cssq(label)}"]`);
+  flashTo(`mark[data-ev~="${cssq(label)}"]`);
 
 /** Splice every mark that belongs in this paragraph into its HTML. */
 function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean } {
@@ -499,13 +500,22 @@ function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean
   }
   if (!spans.length) return { html, hit: false };
 
-  // Two answers can come from the same sentence. Keep the first and drop
-  // anything that would start inside it, so no tag is ever split in half.
+  /* Two answers can come from the same sentence, and nesting one mark inside
+   * another would split a tag in half. So the overlapping ones merge: the
+   * first span survives and carries both question numbers on its badge. That
+   * is also the truth of it — one line really did answer both — and it keeps
+   * the second question's 📍 working, which dropping it quietly did not. */
   spans.sort((a, b) => a.from - b.from || b.to - a.to);
-  const kept: Span[] = [];
+  const kept: (Span & { labels: string[] })[] = [];
   for (const sp of spans) {
-    if (kept.length && sp.from < kept[kept.length - 1].to) continue;
-    kept.push(sp);
+    const last = kept[kept.length - 1];
+    if (last && sp.from < last.to) {
+      if (!last.labels.includes(sp.m.label)) last.labels.push(sp.m.label);
+      // one of them wrong makes the shared line a wrong one
+      if (sp.m.ok === false) last.m = { ...last.m, ok: false };
+      continue;
+    }
+    kept.push({ ...sp, labels: [sp.m.label] });
   }
 
   let out = "";
@@ -514,11 +524,18 @@ function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean
     const start = s.at[sp.from];
     const end = sp.to < s.at.length ? s.at[sp.to] : html.length;
     const tone = sp.m.ok === false ? "bad" : "ok";
+    // A line found by wording rather than pointed at by a teacher is drawn
+    // differently, because it is the closest match and not a promise.
+    const sure = sp.m.near ? " ev-near" : "";
     out += html.slice(cursor, start);
+    const badges = sp.labels
+      .map((l) =>
+        `<sup class="ev-badge" data-jump="${esc(l)}" role="button" tabindex="0" ` +
+        `title="Back to question ${esc(l)}">Q${esc(l)}</sup>`)
+      .join("");
     out +=
-      `<mark class="ev ev-${tone}" data-ev="${esc(sp.m.label)}">` +
-      `<sup class="ev-badge" data-jump="${esc(sp.m.label)}" role="button" tabindex="0" ` +
-      `title="Back to question ${esc(sp.m.label)}">Q${esc(sp.m.label)}</sup>` +
+      `<mark class="ev ev-${tone}${sure}" data-ev="${esc(sp.labels.join(" "))}">` +
+      badges +
       html.slice(start, end) +
       `</mark>`;
     cursor = end;

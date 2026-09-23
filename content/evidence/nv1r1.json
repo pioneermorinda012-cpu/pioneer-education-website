@@ -1,0 +1,148 @@
+{
+ "3": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "focal point"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "focal length"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "convex lenses"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "Johannes Kepler"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "A conscious effort"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "temperature changes"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "peripheral vision"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "20": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "22": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "Laurasia"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "Pangaea"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "Plate boundaries see most of the world's active volcanoes, with the Pacific Plate's 'Ring of Fire' being a good example."
+  ],
+  "k": "near"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "tectonic plate"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "cools"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "rotation"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "Aegir Ridge"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "Divergent"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "continental collision"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "mighty rivers"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "subduction zone"
+  ],
+  "k": "exact"
+ }
+}

@@ -1,0 +1,242 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "3": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "4": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "7": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "8": {
+  "accept": [
+   "aluminium drink can"
+  ],
+  "display": "aluminium drink can"
+ },
+ "9": {
+  "accept": [
+   "telephone book"
+  ],
+  "display": "telephone book"
+ },
+ "10": {
+  "accept": [
+   "magazines"
+  ],
+  "display": "magazines"
+ },
+ "11": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "12": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "13": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "14": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "15": {
+  "accept": [
+   "G"
+  ],
+  "display": "G — …offers expanding opportunities for employment."
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — …has links with overseas institutions."
+ },
+ "17": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — …combines study with industry placements."
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — …can be done by distance mode."
+ },
+ "19": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "20": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "21": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "22": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "23": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "24": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — Hotel Front Office Reception"
+ },
+ "25": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Hotel Front Office Management"
+ },
+ "26": {
+  "accept": [
+   "i"
+  ],
+  "display": "i — Food and Wine Service"
+ },
+ "27": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — Bars and Service of Drinks"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "luminaries"
+  ],
+  "display": "luminaries"
+ },
+ "33": {
+  "accept": [
+   "downside"
+  ],
+  "display": "downside"
+ },
+ "34": {
+  "accept": [
+   "novel"
+  ],
+  "display": "novel"
+ },
+ "35": {
+  "accept": [
+   "issue"
+  ],
+  "display": "issue"
+ },
+ "36": {
+  "accept": [
+   "frown"
+  ],
+  "display": "frown"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ }
+}

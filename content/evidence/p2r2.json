@@ -1,0 +1,49 @@
+{
+ "9": {
+  "s": 0,
+  "t": [
+   "metabolism"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "genetic"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "behaviour"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "intelligence"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "multifaceted approach"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "Different strains of rats show great differences in intelligence or ‘rat reasoning’."
+  ],
+  "k": "near"
+ },
+ "35": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ }
+}

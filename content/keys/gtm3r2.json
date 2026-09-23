@@ -1,0 +1,266 @@
+{
+ "1": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Vibrio parahaemolyticus"
+ },
+ "6": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — Listeria monocytogenes"
+ },
+ "7": {
+  "accept": [
+   "i"
+  ],
+  "display": "i — Salmonella"
+ },
+ "8": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi — Campylobacter"
+ },
+ "9": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — Staphylococcus aureus"
+ },
+ "10": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii — Clostridium perfringens"
+ },
+ "11": {
+  "accept": [
+   "milk bottles",
+   "plastic milk bottles"
+  ],
+  "display": "milk bottles"
+ },
+ "12": {
+  "accept": [
+   "new soft drink bottles",
+   "soft drink bottles",
+   "new drink bottles"
+  ],
+  "display": "(new) soft drink bottles"
+ },
+ "13": {
+  "accept": [
+   "lightweight",
+   "light weight",
+   "light"
+  ],
+  "display": "lightweight"
+ },
+ "14": {
+  "accept": [
+   "south pacific islands",
+   "uninhabited south pacific islands",
+   "pacific islands"
+  ],
+  "display": "South Pacific islands"
+ },
+ "15": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — Express others' work your own way and acknowledge that it is not yours."
+ },
+ "16": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — To get better marks, use your own work as much as possible."
+ },
+ "17": {
+  "accept": [
+   "i"
+  ],
+  "display": "i — Everything must be referenced, unless you made it yourself."
+ },
+ "18": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — Note all sources used and reference them in the body of the text also."
+ },
+ "19": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — Know where your material comes from and keep the information handy."
+ },
+ "20": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi — You can copy work as long as you reference it."
+ },
+ "21": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — Don't say another student's work is yours."
+ },
+ "22": {
+  "accept": [
+   "healthcare",
+   "health care",
+   "health-care",
+   "health-care needs",
+   "healthcare needs",
+   "health care needs"
+  ],
+  "display": "healthcare"
+ },
+ "23": {
+  "accept": [
+   "8:30 am",
+   "8:30am",
+   "8.30 am",
+   "8.30am",
+   "8:30",
+   "8.30",
+   "8:30 a.m."
+  ],
+  "display": "8:30 am"
+ },
+ "24": {
+  "accept": [
+   "main clinic",
+   "the main clinic"
+  ],
+  "display": "main clinic"
+ },
+ "25": {
+  "accept": [
+   "cholesterol check",
+   "cholesterol test"
+  ],
+  "display": "cholesterol check"
+ },
+ "26": {
+  "accept": [
+   "permission",
+   "their permission",
+   "your permission"
+  ],
+  "display": "permission"
+ },
+ "27": {
+  "accept": [
+   "diving course",
+   "scuba diving course",
+   "a diving course"
+  ],
+  "display": "diving course"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ }
+}

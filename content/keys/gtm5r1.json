@@ -1,0 +1,265 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — The Seafood Restaurant"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — China Tang"
+ },
+ "3": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Maze"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — The Seafood Restaurant"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Claridge’s"
+ },
+ "6": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Fifteen"
+ },
+ "7": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "8": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "9": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "10": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "13": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "14": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "15": {
+  "accept": [
+   "sightseeing",
+   "going sightseeing"
+  ],
+  "display": "sightseeing"
+ },
+ "16": {
+  "accept": [
+   "queue",
+   "queue up",
+   "wait in line"
+  ],
+  "display": "queue"
+ },
+ "17": {
+  "accept": [
+   "one simple pass",
+   "one pass"
+  ],
+  "display": "one (simple) pass"
+ },
+ "18": {
+  "accept": [
+   "travelcard",
+   "travel card",
+   "optional travelcard"
+  ],
+  "display": "Travelcard"
+ },
+ "19": {
+  "accept": [
+   "money back guarantee",
+   "money-back guarantee"
+  ],
+  "display": "Money Back Guarantee"
+ },
+ "20": {
+  "accept": [
+   "thames river cruise",
+   "river cruise"
+  ],
+  "display": "Thames River Cruise"
+ },
+ "21": {
+  "accept": [
+   "£24.00",
+   "£24",
+   "24.00",
+   "24",
+   "24 pounds"
+  ],
+  "display": "£24.00"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "29": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "ring in the nose",
+   "a ring in the nose",
+   "nose ring"
+  ],
+  "display": "ring in the nose"
+ },
+ "34": {
+  "accept": [
+   "friendship"
+  ],
+  "display": "friendship"
+ },
+ "35": {
+  "accept": [
+   "to beg",
+   "beg"
+  ],
+  "display": "to beg"
+ },
+ "36": {
+  "accept": [
+   "a package holiday",
+   "package holiday",
+   "package holidays"
+  ],
+  "display": "a package holiday"
+ },
+ "37": {
+  "accept": [
+   "flexible and adapt",
+   "be flexible and adapt",
+   "flexible"
+  ],
+  "display": "(be) flexible and adapt"
+ },
+ "38": {
+  "accept": [
+   "educate yourself",
+   "educate yourself about your destination"
+  ],
+  "display": "educate yourself"
+ },
+ "39": {
+  "accept": [
+   "trash",
+   "their trash",
+   "rubbish"
+  ],
+  "display": "trash"
+ },
+ "40": {
+  "accept": [
+   "potentially destructive practices",
+   "destructive practices"
+  ],
+  "display": "potentially destructive practices"
+ }
+}

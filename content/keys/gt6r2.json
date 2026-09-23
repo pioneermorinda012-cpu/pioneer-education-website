@@ -1,0 +1,242 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Canford Wildlife Centre"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Withney Wetland Centre"
+ },
+ "3": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Oakwell Museum"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Withney Wetland Centre"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Blackthorn Castle"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Headley Hall"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Blackthorn Castle"
+ },
+ "8": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "11": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "12": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "13": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "14": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "15": {
+  "accept": [
+   "confidence"
+  ],
+  "display": "confidence"
+ },
+ "16": {
+  "accept": [
+   "website"
+  ],
+  "display": "website"
+ },
+ "17": {
+  "accept": [
+   "duties"
+  ],
+  "display": "duties"
+ },
+ "18": {
+  "accept": [
+   "charity"
+  ],
+  "display": "charity"
+ },
+ "19": {
+  "accept": [
+   "ambitions"
+  ],
+  "display": "ambitions"
+ },
+ "20": {
+  "accept": [
+   "gaps"
+  ],
+  "display": "gaps"
+ },
+ "21": {
+  "accept": [
+   "salary"
+  ],
+  "display": "salary"
+ },
+ "22": {
+  "accept": [
+   "competitors"
+  ],
+  "display": "competitors"
+ },
+ "23": {
+  "accept": [
+   "delivery"
+  ],
+  "display": "delivery"
+ },
+ "24": {
+  "accept": [
+   "premises"
+  ],
+  "display": "premises"
+ },
+ "25": {
+  "accept": [
+   "law"
+  ],
+  "display": "law"
+ },
+ "26": {
+  "accept": [
+   "costs"
+  ],
+  "display": "costs"
+ },
+ "27": {
+  "accept": [
+   "funding"
+  ],
+  "display": "funding"
+ },
+ "28": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — A possible solution to falling numbers"
+ },
+ "29": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix — Useful physical features"
+ },
+ "30": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii — Reproductive patterns"
+ },
+ "31": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — A rather lonely beginning"
+ },
+ "32": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — The problem with being a fussy eater"
+ },
+ "33": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — A comparison between past and present survival rates"
+ },
+ "34": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "35": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "36": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "37": {
+  "accept": [
+   "stamina"
+  ],
+  "display": "stamina"
+ },
+ "38": {
+  "accept": [
+   "dog"
+  ],
+  "display": "dog"
+ },
+ "39": {
+  "accept": [
+   "vision"
+  ],
+  "display": "vision"
+ },
+ "40": {
+  "accept": [
+   "ears"
+  ],
+  "display": "ears"
+ }
+}

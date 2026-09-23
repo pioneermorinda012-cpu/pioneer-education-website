@@ -1,0 +1,270 @@
+{
+ "1": {
+  "accept": [
+   "recently deceased",
+   "deceased",
+   "died recently",
+   "recently died"
+  ],
+  "display": "recently deceased"
+ },
+ "2": {
+  "accept": [
+   "pollen",
+   "pollen and dust"
+  ],
+  "display": "pollen"
+ },
+ "3": {
+  "accept": [
+   "hair analysis"
+  ],
+  "display": "hair analysis"
+ },
+ "4": {
+  "accept": [
+   "pollen",
+   "fresh pollen",
+   "very fresh pollen"
+  ],
+  "display": "(very fresh) pollen"
+ },
+ "5": {
+  "accept": [
+   "3 times",
+   "three times",
+   "3",
+   "three"
+  ],
+  "display": "3 / three times"
+ },
+ "6": {
+  "accept": [
+   "pain relief"
+  ],
+  "display": "pain relief"
+ },
+ "7": {
+  "accept": [
+   "chief"
+  ],
+  "display": "chief"
+ },
+ "8": {
+  "accept": [
+   "a waterproof coat",
+   "waterproof coat",
+   "waterproof coats"
+  ],
+  "display": "A waterproof coat"
+ },
+ "9": {
+  "accept": [
+   "family business",
+   "his family business"
+  ],
+  "display": "family business"
+ },
+ "10": {
+  "accept": [
+   "20",
+   "twenty"
+  ],
+  "display": "20 / twenty"
+ },
+ "11": {
+  "accept": [
+   "industrial revolution"
+  ],
+  "display": "industrial revolution"
+ },
+ "12": {
+  "accept": [
+   "waste product",
+   "waste"
+  ],
+  "display": "waste product"
+ },
+ "13": {
+  "accept": [
+   "textiles",
+   "other textiles"
+  ],
+  "display": "textiles"
+ },
+ "14": {
+  "accept": [
+   "k",
+   "'k'",
+   "letter k"
+  ],
+  "display": "k"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — About the Potting Shed"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — About the Restaurant"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — About the Treehouse"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — About the Restaurant"
+ },
+ "19": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — About the Treehouse"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — About the Potting Shed"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "25": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "26": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "27": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "arabica"
+  ],
+  "display": "Arabica"
+ },
+ "33": {
+  "accept": [
+   "robusta"
+  ],
+  "display": "Robusta"
+ },
+ "34": {
+  "accept": [
+   "caffeine"
+  ],
+  "display": "caffeine"
+ },
+ "35": {
+  "accept": [
+   "1.7-4%",
+   "1.7-4",
+   "1.7–4%",
+   "1.7 - 4%",
+   "1.7% - 4%",
+   "1.7%-4%"
+  ],
+  "display": "1.7-4%"
+ },
+ "36": {
+  "accept": [
+   "ghee",
+   "clarified butter"
+  ],
+  "display": "ghee / clarified butter"
+ },
+ "37": {
+  "accept": [
+   "learned imam",
+   "a learned imam",
+   "imam",
+   "the imam"
+  ],
+  "display": "learned imam"
+ },
+ "38": {
+  "accept": [
+   "a few",
+   "few"
+  ],
+  "display": "a few"
+ },
+ "39": {
+  "accept": [
+   "peaberry",
+   "a peaberry"
+  ],
+  "display": "peaberry"
+ },
+ "40": {
+  "accept": [
+   "ditch water"
+  ],
+  "display": "ditch water"
+ }
+}

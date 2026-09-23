@@ -1,0 +1,101 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "Weldown"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "10.30 am"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "marshals"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "Fenton"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "half-hour"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "10 km"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "EU students EU students are welcome to take part in this programme for a fee of £195, exclusive of accommodation."
+  ],
+  "k": "near"
+ },
+ "17": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "EU students EU students are welcome to take part in this programme for a fee of £195, exclusive of accommodation."
+  ],
+  "k": "near"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "Alternatively, you can arrange your own accommodation for that week in a flat, with friends or a local family."
+  ],
+  "k": "near"
+ },
+ "34": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "Fireflies very similar to those we see today have been found fossilised in rocks which were formed about 30 million years ago, and their ancestors were probably glowing long before then."
+  ],
+  "k": "near"
+ },
+ "36": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "In the final stage of a glow-worm’s life, the larva encases itself in a pupal skin while it changes from the simple larva to the more complex adult fly."
+  ],
+  "k": "near"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "In some countries the numbers of glow-worms have been falling."
+  ],
+  "k": "near"
+ }
+}

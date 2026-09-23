@@ -1,0 +1,112 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "scientists"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "science"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "fields"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "collaboration"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "observations"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "dinosaurs"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "conservation programme"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "acknowledge"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "The debate surrounding literacy is one of the most charged in education."
+  ],
+  "k": "near"
+ },
+ "20": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "manuscript"
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "the tabloid newspapers"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "shopping lists"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "columns"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "vertical walls"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "hollow boxes"
+  ],
+  "k": "exact"
+ }
+}

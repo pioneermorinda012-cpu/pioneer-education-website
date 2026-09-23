@@ -1,0 +1,61 @@
+{
+ "6": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "7": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "Food handlers need to have an annual dental examination by the company dentist."
+  ],
+  "k": "near"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "prosperous"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "population"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "modern technology"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "leaks"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "management"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "water run-off"
+  ],
+  "k": "exact"
+ }
+}

@@ -15,7 +15,7 @@ import { locateEvidence, flashTo, cssq, JUMP_EVENT, type EvMark, type Test } fro
 export type MarkedQuestion = {
   n: string; correct: boolean; given: string; expected: string; type?: string;
   /** the line in the passage the paper points at — see lib/evidence */
-  ev?: { s: number; t: string[] };
+  ev?: { s: number; t: string[]; k?: "exact" | "near" | "none" };
 };
 
 type Group = Test["sections"][number]["groups"][number];
@@ -240,6 +240,7 @@ export default function ReviewPanel({
             label: idx[q.n] ? rangeLabel(idx[q.n].covers) : q.n,
             text,
             ok: q.correct,
+            near: q.ev!.k === "near",
           }))
         : []);
 
@@ -357,12 +358,22 @@ export default function ReviewPanel({
             {passage && open && (
               <>
                 {authored.length > 0 && (
-                  <p style={{ fontSize: "0.78rem", color: "var(--grey)", margin: "0 0 8px" }}>
-                    Every answer is marked in the passage —{" "}
+                  <p style={{ fontSize: "0.78rem", color: "var(--grey)", margin: "0 0 8px", lineHeight: 1.7 }}>
+                    The answers are marked in the passage —{" "}
                     <span style={{ background: "#DCF5E6", borderRadius: 4, padding: "1px 6px" }}>green</span>{" "}
                     you got right,{" "}
                     <span style={{ background: "#FDE2E2", borderRadius: 4, padding: "1px 6px" }}>red</span>{" "}
                     you did not. Tap a <b>Q</b> badge to go back to the question.
+                    {authored.some((m) => m.near) && (
+                      <>
+                        {" "}A{" "}
+                        <span style={{ borderBottom: "2px dashed var(--grey)", padding: "0 2px" }}>
+                          dashed
+                        </span>{" "}
+                        mark is the closest line we could find rather than one a teacher
+                        pointed at — read around it.
+                      </>
+                    )}
                   </p>
                 )}
                 <div style={{ maxHeight: 460, overflowY: "auto", marginBottom: 14 }}>
@@ -378,6 +389,8 @@ export default function ReviewPanel({
               return (
                 <ReviewRow key={q.n} q={q} entry={e} testId={test.id}
                   onLocate={q.ev?.t?.length ? () => goToEvidence(si, label) : undefined}
+                  near={q.ev?.k === "near"}
+                  noLine={q.ev?.k === "none"}
                   onQuote={(quote) => showQuote(si, label, quote)} />
               );
             })}
@@ -390,12 +403,16 @@ export default function ReviewPanel({
 
 /* ---------- one question in the review ---------- */
 function ReviewRow({
-  q, entry, testId, onQuote, onLocate,
+  q, entry, testId, onQuote, onLocate, near, noLine,
 }: {
   q: MarkedQuestion; entry?: ReviewEntry; testId: string;
   onQuote?: (quote: string | null) => void;
   /** present when the paper says where this answer is; scrolls to it */
   onLocate?: () => void;
+  /** the line was found by wording, not pointed at by a teacher */
+  near?: boolean;
+  /** NOT GIVEN — there is deliberately no line, and that is the lesson */
+  noLine?: boolean;
 }) {
   const label = entry ? rangeLabel(entry.covers) : q.n;
   return (
@@ -432,13 +449,27 @@ function ReviewRow({
         <span style={{ flex: 1 }} />
         {onLocate && (
           <button type="button" onClick={onLocate}
-            style={{ border: "1.5px solid var(--navy)", background: "transparent", color: "var(--navy)",
-              borderRadius: 9, padding: "5px 11px", cursor: "pointer", fontFamily: "inherit",
-              fontWeight: 700, fontSize: "0.76rem", minHeight: 34, whiteSpace: "nowrap" }}>
-            📍 Q{label} in the passage
+            style={{ border: `1.5px ${near ? "dashed" : "solid"} var(--navy)`, background: "transparent",
+              color: "var(--navy)", borderRadius: 9, padding: "5px 11px", cursor: "pointer",
+              fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem", minHeight: 34,
+              whiteSpace: "nowrap" }}>
+            📍 {near ? `Q${label} — closest line` : `Q${label} in the passage`}
           </button>
         )}
       </div>
+
+      {/* NOT GIVEN is the one answer with no sentence behind it, and saying
+          nothing here is what makes students think the review is broken. The
+          absence IS the explanation, so it is written down. */}
+      {noLine && (
+        <p style={{ margin: "10px 0 0 4px", fontSize: "0.83rem", lineHeight: 1.6,
+          background: "var(--gold-light)", borderRadius: 9, padding: "9px 12px", color: "var(--navy)" }}>
+          <b>Nothing is highlighted, and that is the answer.</b> The passage never says
+          this either way — no sentence confirms it and none contradicts it. That is
+          exactly what <b>NOT GIVEN</b> means, and it is different from FALSE, where the
+          passage says the opposite.
+        </p>
+      )}
 
       <Options entry={entry} q={q} />
 

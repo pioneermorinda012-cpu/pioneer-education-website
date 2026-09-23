@@ -336,3 +336,11 @@ mark.ev .ev-badge:focus-visible { outline: 2px solid var(--navy); outline-offset
 .pr-progress .fill { height: 100%; background: var(--coral); border-radius: 4px;
   transition: width 0.25s ease; }
 .pr-progress .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* A line found by matching wording rather than pointed at by a teacher. Drawn
+   as a dashed outline with no fill, so a student can see at a glance which
+   marks are certain and which are a best effort. */
+mark.ev-near { background: transparent; box-shadow: none;
+  border-bottom: 2px dashed var(--ev-ok-edge); border-radius: 0; }
+mark.ev-near.ev-bad { border-bottom-color: var(--ev-bad-edge); }
+mark.ev-near .ev-badge { opacity: 0.85; }

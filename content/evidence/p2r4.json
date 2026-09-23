@@ -1,0 +1,106 @@
+{
+ "9": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "11": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "Park officials, who recognise that the fence is to blame, respond to the excess of kangaroos by saying ‘The fence is there, and we have to live with it.’"
+  ],
+  "k": "near"
+ },
+ "16": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "19": {
+  "s": 1,
+  "t": [],
+  "k": "none"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "World Tourism Organisation"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "city entrepreneurs"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 1,
+  "t": [
+   "1992 Earth Summit"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "ability"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "note"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "relative"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "music lessons"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "tone"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "words"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "pitch"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "For one thing, those with absolute pitch started lessons, on average, when they were five years old, while those without absolute pitch started around the age of eight."
+  ],
+  "k": "near"
+ }
+}

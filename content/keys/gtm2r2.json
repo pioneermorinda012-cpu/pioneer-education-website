@@ -1,0 +1,261 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "any": [
+   "D",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "display": "D, E, F"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "9": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "10": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "11": {
+  "accept": [
+   "hands infected",
+   "infected hands"
+  ],
+  "display": "hands infected"
+ },
+ "12": {
+  "accept": [
+   "get vaccinated",
+   "be vaccinated"
+  ],
+  "display": "get vaccinated"
+ },
+ "13": {
+  "accept": [
+   "pneumonia and bronchitis",
+   "pneumonia and/or bronchitis",
+   "pneumonia or bronchitis",
+   "pneumonia, bronchitis",
+   "pneumonia",
+   "bronchitis"
+  ],
+  "display": "pneumonia and/or bronchitis"
+ },
+ "14": {
+  "accept": [
+   "immunity can develop",
+   "immunity develops",
+   "immunity to develop",
+   "immunity develop",
+   "immunity has developed",
+   "immunity"
+  ],
+  "display": "immunity can develop"
+ },
+ "15": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "16": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "17": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "18": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "19": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "20": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "21": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "22": {
+  "accept": [
+   "II"
+  ],
+  "display": "II"
+ },
+ "23": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "24": {
+  "accept": [
+   "III"
+  ],
+  "display": "III"
+ },
+ "25": {
+  "accept": [
+   "VI"
+  ],
+  "display": "VI"
+ },
+ "26": {
+  "accept": [
+   "III"
+  ],
+  "display": "III"
+ },
+ "27": {
+  "accept": [
+   "IV"
+  ],
+  "display": "IV"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "33": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "vegetables"
+  ],
+  "display": "vegetables"
+ },
+ "36": {
+  "accept": [
+   "over-use of pickling",
+   "overuse of pickling",
+   "over use of pickling"
+  ],
+  "display": "over-use of pickling"
+ },
+ "37": {
+  "accept": [
+   "seafood",
+   "sea food"
+  ],
+  "display": "seafood"
+ },
+ "38": {
+  "accept": [
+   "south of"
+  ],
+  "display": "south of"
+ },
+ "39": {
+  "accept": [
+   "french",
+   "france"
+  ],
+  "display": "French"
+ },
+ "40": {
+  "accept": [
+   "beautiful surroundings"
+  ],
+  "display": "beautiful surroundings"
+ }
+}

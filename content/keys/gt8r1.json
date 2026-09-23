@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "employee",
+   "an employee",
+   "temp",
+   "temporary employee"
+  ],
+  "display": "employee"
+ },
+ "2": {
+  "accept": [
+   "wednesday"
+  ],
+  "display": "Wednesday"
+ },
+ "3": {
+  "accept": [
+   "continuing"
+  ],
+  "display": "continuing"
+ },
+ "4": {
+  "accept": [
+   "hh:mm",
+   "hh mm",
+   "hh.mm"
+  ],
+  "display": "hh:mm"
+ },
+ "5": {
+  "accept": [
+   "supervisor",
+   "your supervisor",
+   "the supervisor"
+  ],
+  "display": "supervisor"
+ },
+ "6": {
+  "accept": [
+   "93907733",
+   "9390 7733",
+   "9390-7733"
+  ],
+  "display": "9390 7733"
+ },
+ "7": {
+  "accept": [
+   "tax number",
+   "your tax number"
+  ],
+  "display": "Tax Number"
+ },
+ "8": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "9": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "10": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "soccer"
+  ],
+  "display": "soccer"
+ },
+ "15": {
+  "accept": [
+   "first",
+   "1st"
+  ],
+  "display": "first"
+ },
+ "16": {
+  "accept": [
+   "minor"
+  ],
+  "display": "minor"
+ },
+ "17": {
+  "accept": [
+   "attendance"
+  ],
+  "display": "attendance"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — may be put on academic probation"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — receives advice and counselling"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — expelled from the program"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — may lose student status with US Immigration and Naturalisation Service"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — expelled from the program"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "25": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "26": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "27": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "28": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "29": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "32": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "33": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "37": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

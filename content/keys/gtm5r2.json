@@ -1,0 +1,266 @@
+{
+ "1": {
+  "accept": [
+   "correct fee",
+   "the correct fee",
+   "fee"
+  ],
+  "display": "(the) correct fee"
+ },
+ "2": {
+  "accept": [
+   "enrolment form",
+   "enrollment form",
+   "the enrolment form"
+  ],
+  "display": "enrolment form"
+ },
+ "3": {
+  "accept": [
+   "call you back",
+   "call back"
+  ],
+  "display": "call you back"
+ },
+ "4": {
+  "accept": [
+   "one week",
+   "1 week",
+   "a week"
+  ],
+  "display": "one week"
+ },
+ "5": {
+  "accept": [
+   "vat"
+  ],
+  "display": "VAT"
+ },
+ "6": {
+  "accept": [
+   "insufficient enrolments",
+   "insufficient enrollments"
+  ],
+  "display": "insufficient enrolments"
+ },
+ "7": {
+  "accept": [
+   "2",
+   "two",
+   "2 people",
+   "two people"
+  ],
+  "display": "2 / two"
+ },
+ "8": {
+  "accept": [
+   "beautiful landscaped garden",
+   "landscaped garden"
+  ],
+  "display": "beautiful landscaped garden"
+ },
+ "9": {
+  "accept": [
+   "one week",
+   "1 week",
+   "a week"
+  ],
+  "display": "one week"
+ },
+ "10": {
+  "accept": [
+   "provided"
+  ],
+  "display": "provided"
+ },
+ "11": {
+  "accept": [
+   "fishing"
+  ],
+  "display": "fishing"
+ },
+ "12": {
+  "accept": [
+   "the sea",
+   "sea"
+  ],
+  "display": "the sea"
+ },
+ "13": {
+  "accept": [
+   "babies",
+   "children/babies",
+   "children and babies"
+  ],
+  "display": "babies"
+ },
+ "14": {
+  "accept": [
+   "parking"
+  ],
+  "display": "parking"
+ },
+ "15": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "16": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "17": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Northern Cardinals"
+ },
+ "22": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — Frigates"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Peacock Spiders"
+ },
+ "24": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Chameleons"
+ },
+ "25": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Hooded Seals"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A — Peacock Spiders"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Bowerbirds"
+ },
+ "28": {
+  "accept": [
+   "30",
+   "thirty"
+  ],
+  "display": "30 / thirty"
+ },
+ "29": {
+  "accept": [
+   "cities overseas"
+  ],
+  "display": "cities overseas"
+ },
+ "30": {
+  "accept": [
+   "various skills"
+  ],
+  "display": "various skills"
+ },
+ "31": {
+  "accept": [
+   "wages"
+  ],
+  "display": "wages"
+ },
+ "32": {
+  "accept": [
+   "primitive labor union",
+   "labor union",
+   "primitive labour union",
+   "labour union"
+  ],
+  "display": "(primitive) labor union"
+ },
+ "33": {
+  "accept": [
+   "white mulberry leaves",
+   "mulberry leaves"
+  ],
+  "display": "(white) mulberry leaves"
+ },
+ "34": {
+  "accept": [
+   "world depression",
+   "the world depression"
+  ],
+  "display": "world depression"
+ },
+ "35": {
+  "accept": [
+   "investment clubs",
+   "investment club"
+  ],
+  "display": "investment clubs"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "39": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "40": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ }
+}

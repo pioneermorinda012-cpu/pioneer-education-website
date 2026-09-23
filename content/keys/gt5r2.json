@@ -1,0 +1,244 @@
+{
+ "1": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "6": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "9": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "10": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "11": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "12": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "13": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "colleague"
+  ],
+  "display": "colleague"
+ },
+ "16": {
+  "accept": [
+   "power cut"
+  ],
+  "display": "power cut"
+ },
+ "17": {
+  "accept": [
+   "breathing"
+  ],
+  "display": "breathing"
+ },
+ "18": {
+  "accept": [
+   "displacement activity"
+  ],
+  "display": "displacement activity"
+ },
+ "19": {
+  "accept": [
+   "conversation"
+  ],
+  "display": "conversation"
+ },
+ "20": {
+  "accept": [
+   "reactions"
+  ],
+  "display": "reactions"
+ },
+ "21": {
+  "accept": [
+   "examples"
+  ],
+  "display": "examples"
+ },
+ "22": {
+  "accept": [
+   "handouts",
+   "hand-outs"
+  ],
+  "display": "handouts"
+ },
+ "23": {
+  "accept": [
+   "internships"
+  ],
+  "display": "internships"
+ },
+ "24": {
+  "accept": [
+   "skills"
+  ],
+  "display": "skills"
+ },
+ "25": {
+  "accept": [
+   "cuttings"
+  ],
+  "display": "cuttings"
+ },
+ "26": {
+  "accept": [
+   "research"
+  ],
+  "display": "research"
+ },
+ "27": {
+  "accept": [
+   "errors",
+   "mistakes"
+  ],
+  "display": "errors"
+ },
+ "28": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii — Noticing when customers need assistance"
+ },
+ "29": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii — Preparing for customers to arrive"
+ },
+ "30": {
+  "accept": [
+   "x"
+  ],
+  "display": "x — Perriss’s early career"
+ },
+ "31": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv — Demonstrating a different way of organising a store"
+ },
+ "32": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii — Making sure the items on sale are good enough"
+ },
+ "33": {
+  "accept": [
+   "v"
+  ],
+  "display": "v — The benefit of accurate forecasting"
+ },
+ "34": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii — Helping staff to develop"
+ },
+ "35": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi — Keeping everything running as smoothly as possible"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "40": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ }
+}

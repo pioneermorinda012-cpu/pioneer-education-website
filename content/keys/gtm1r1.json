@@ -1,0 +1,270 @@
+{
+ "1": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "display": "A, C"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "4": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "during business hours",
+   "business hours"
+  ],
+  "display": "during business hours"
+ },
+ "10": {
+  "accept": [
+   "in writing",
+   "writing",
+   "apply in writing"
+  ],
+  "display": "in writing"
+ },
+ "11": {
+  "accept": [
+   "97765489",
+   "9776 5489",
+   "9776-5489"
+  ],
+  "display": "9776 5489"
+ },
+ "12": {
+  "accept": [
+   "driver's licence",
+   "drivers licence",
+   "driver's license",
+   "drivers license",
+   "a driver's licence",
+   "driving licence"
+  ],
+  "display": "driver's licence"
+ },
+ "13": {
+  "accept": [
+   "two referees",
+   "2 referees",
+   "referees"
+  ],
+  "display": "two referees"
+ },
+ "14": {
+  "accept": [
+   "year 10 maths",
+   "year 10 math",
+   "year ten maths",
+   "year 10 mathematics"
+  ],
+  "display": "Year 10 Maths"
+ },
+ "15": {
+  "accept": [
+   "tutorial",
+   "tutorials",
+   "two-hour tutorial",
+   "2-hour tutorial",
+   "a two-hour tutorial"
+  ],
+  "display": "tutorial"
+ },
+ "16": {
+  "accept": [
+   "course b",
+   "b"
+  ],
+  "display": "Course B"
+ },
+ "17": {
+  "accept": [
+   "8 hours",
+   "eight hours",
+   "8-hour",
+   "8 hrs"
+  ],
+  "display": "8 hours"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "19": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "20": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "23": {
+  "accept": [
+   "interview",
+   "an interview"
+  ],
+  "display": "interview"
+ },
+ "24": {
+  "accept": [
+   "articulates"
+  ],
+  "display": "articulates"
+ },
+ "25": {
+  "accept": [
+   "achievement",
+   "significant achievement"
+  ],
+  "display": "achievement"
+ },
+ "26": {
+  "accept": [
+   "experience"
+  ],
+  "display": "experience"
+ },
+ "27": {
+  "accept": [
+   "permission",
+   "permission beforehand"
+  ],
+  "display": "permission"
+ },
+ "28": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "29": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "30": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "31": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "32": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "33": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "34": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C — Find information"
+ },
+ "36": {
+  "accept": [
+   "J"
+  ],
+  "display": "J — Can my business make enough money?"
+ },
+ "37": {
+  "accept": [
+   "I"
+  ],
+  "display": "I — Create your business plan"
+ },
+ "38": {
+  "accept": [
+   "F"
+  ],
+  "display": "F — Organisational structure"
+ },
+ "39": {
+  "accept": [
+   "H"
+  ],
+  "display": "H — Operations"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — Revise your business plan"
+ }
+}
