@@ -147,37 +147,12 @@ export default function ReviewPanel({
    * has been through a passage, the whole thing is marked up like a teacher's
    * copy, and the shape of where answers hide becomes visible. */
   const [marks, setMarks] = useState<Record<string, { si: number; quote: string }>>({});
-  const [markingAll, setMarkingAll] = useState<number | null>(null);
   const showQuote = (si: number, label: string, quote: string | null, open = true) => {
     if (!quote) return;
     setMarks((m) => ({ ...m, [label]: { si, quote } }));
     if (open) setOpenPassage(si);
   };
 
-  /* One button for the whole passage. Every explanation is stored the first
-   * time anyone asks for it, so this is slow once and instant afterwards. */
-  const markAll = async (si: number, items: MarkedQuestion[]) => {
-    setMarkingAll(si);
-    setOpenPassage(si);
-    try {
-      await Promise.all(items.map(async (q) => {
-        const e = idx[q.n];
-        const n = e ? e.covers[0] : Number(q.n);
-        const label = e ? rangeLabel(e.covers) : q.n;
-        if (marks[label]) return;
-        try {
-          const res = await fetch("/api/practice/explain", {
-            method: "POST", headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ testId: test.id, n }),
-          });
-          const d = await res.json();
-          if (res.ok && d.quote) showQuote(si, label, String(d.quote), false);
-        } catch { /* one failure must not stop the rest */ }
-      }));
-    } finally {
-      setMarkingAll(null);
-    }
-  };
   const idx = useMemo(() => reviewIndex(test), [test]);
 
   // One entry per task, not per mark: a question worth three marks is reviewed
@@ -343,16 +318,6 @@ export default function ReviewPanel({
                         ? " — answers marked" : ""}`}
                 </button>
               )}
-              {passage && !authored.length && items.some((q) => !q.correct) && (
-                <button type="button" disabled={markingAll === si}
-                  onClick={() => void markAll(si, items.filter((q) => !q.correct))}
-                  style={{ border: "1.5px solid var(--coral)", background: "var(--paper)",
-                    cursor: markingAll === si ? "wait" : "pointer", borderRadius: 9, padding: "6px 11px",
-                    fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem",
-                    color: "var(--coral-dark)", minHeight: 36 }}>
-                  {markingAll === si ? "Marking the passage…" : "🖍 Mark every answer in this passage"}
-                </button>
-              )}
             </div>
 
             {passage && open && (
@@ -388,7 +353,8 @@ export default function ReviewPanel({
               const label = e ? rangeLabel(e.covers) : q.n;
               return (
                 <ReviewRow key={q.n} q={q} entry={e} testId={test.id}
-                  onLocate={q.ev?.t?.length ? () => goToEvidence(si, label) : undefined}
+                  onLocate={q.ev?.t?.length && passage ? () => goToEvidence(si, label) : undefined}
+                  heard={!passage && q.ev?.t?.length ? q.ev.t : undefined}
                   near={q.ev?.k === "near"}
                   noLine={q.ev?.k === "none"}
                   onQuote={(quote) => showQuote(si, label, quote)} />
@@ -403,7 +369,7 @@ export default function ReviewPanel({
 
 /* ---------- one question in the review ---------- */
 function ReviewRow({
-  q, entry, testId, onQuote, onLocate, near, noLine,
+  q, entry, testId, onQuote, onLocate, near, noLine, heard,
 }: {
   q: MarkedQuestion; entry?: ReviewEntry; testId: string;
   onQuote?: (quote: string | null) => void;
@@ -413,6 +379,8 @@ function ReviewRow({
   near?: boolean;
   /** NOT GIVEN — there is deliberately no line, and that is the lesson */
   noLine?: boolean;
+  /** listening: the words in the recording that give the answer (no passage to pin) */
+  heard?: string[];
 }) {
   const label = entry ? rangeLabel(entry.covers) : q.n;
   return (
@@ -461,6 +429,17 @@ function ReviewRow({
       {/* NOT GIVEN is the one answer with no sentence behind it, and saying
           nothing here is what makes students think the review is broken. The
           absence IS the explanation, so it is written down. */}
+      {/* A listening paper has no passage to highlight, so the line from the
+          recording is quoted under the question instead. */}
+      {heard && (
+        <blockquote style={{ margin: "10px 0 0 4px", fontSize: "0.86rem", lineHeight: 1.6,
+          background: "var(--gold-light)", borderRadius: 9, padding: "9px 12px", color: "var(--navy)",
+          borderLeft: "4px solid var(--coral)" }}>
+          <b style={{ display: "block", fontSize: "0.74rem", marginBottom: 3 }}>🎧 In the recording:</b>
+          {heard.map((line, i) => <span key={i} style={{ display: "block" }}>“{line}”</span>)}
+        </blockquote>
+      )}
+
       {noLine && (
         <p style={{ margin: "10px 0 0 4px", fontSize: "0.83rem", lineHeight: 1.6,
           background: "var(--gold-light)", borderRadius: 9, padding: "9px 12px", color: "var(--navy)" }}>
@@ -476,9 +455,10 @@ function ReviewRow({
       {/* Where the paper carries its own marks there is nothing to ask a model
           for: the line is already highlighted and one tap away. The button is
           kept for the older papers, which have no marks yet. */}
-      {!q.correct && !onLocate && (
-        <Explain testId={testId} n={entry ? entry.covers[0] : Number(q.n)} onQuote={onQuote} />
-      )}
+      {/* Explanations come only from the hand-authored evidence files. The old
+          model-written "Explain this answer" button was slow, billed per question
+          and failed in production, so a paper without evidence simply shows the
+          correct answer until its evidence file is written. */}
     </div>
   );
 }

@@ -109,9 +109,8 @@
  },
  "19": {
   "s": 1,
-  "t": [
-   "You will be able to soak up the atmosphere at the start line with exclusive access to the paddock area"
-  ]
+  "t": [],
+  "k": "none"
  },
  "20": {
   "s": 1,
@@ -181,9 +180,8 @@
  },
  "37": {
   "s": 2,
-  "t": [
-   "collect any letters that had been sent to her from her family in China"
-  ]
+  "t": [],
+  "k": "none"
  },
  "28": {
   "s": 2,
@@ -235,8 +233,7 @@
  },
  "40": {
   "s": 2,
-  "t": [
-   "they were seen as an elite group of servants"
-  ]
+  "t": [],
+  "k": "none"
  }
 }

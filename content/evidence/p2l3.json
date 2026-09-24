@@ -1,0 +1,284 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "It's Melanie Mitchell. — Is that M-I-T-C-H-E-L-L? — Yes, that's right."
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "My address there is Room 66, Women's College, Newtown."
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "I'm in the Faculty of Education."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "My number is 994578ED."
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "I'll register for all three days, please."
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "I'll have my own room, but I'll share the bathroom."
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "I'll have the lunch, but not the dinner or breakfast, if that's OK."
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "Technology in the classroom is really my area of interest, rather than reading, so I'll go for that."
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "I'm really interested in how boys and girls behave differently… so I'd better opt for the third session."
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "I'll have to put it on my card, because I don't have enough cash on me right now."
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "This beach is one kilometre away from the old fishing village of Bandela."
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "The whole beach is backed by pine trees, so it's very sheltered."
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "The land around this beach is marshland. It's all marsh."
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "There is a handful of shops and bars, and you can hire sunbeds and umbrellas."
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "It's exactly two and a half kilometres long."
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "This beach operates a flag system, as the sea can get rough, and you should always swim between the flags."
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "Blanaka is another popular beach, just in the north-west corner of the island."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "Blanaka has white cliffs all around it."
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "You can reach Dissidor by a steep slope, which goes over some sandbanks."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "It's a good idea to take some food and drink with you if you decide to go here."
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "We contact course conveners in May, and ask them to send us their book lists."
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "Or whether it's what they would term recommended reading."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "When it comes to ordering, it's a lot safer to go by the previous year's sales figures."
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "…the type of course that the books are for, the students' year group, and a measure of our own judgement."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "The standard procedure they use is to mail out catalogues to lecturers or colleges and universities."
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "Some even go so far as writing individual letters to the appropriate lecturers."
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "The publishers send us, the booksellers, inspection copies."
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "Often the critical issue is what represents value for money for students."
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "They tend to go for books that are clear and easy to use."
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "They tend to go for books that are clear and easy to use."
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "When you leave college you find yourself saying things like, 'I'll have one more cup of coffee and then I'll sit down to work.'"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "It's a real challenge making a decent living as a new artist.",
+   "If people don't like what they create, then it can be a very emotional and upsetting experience hearing them say this."
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "It's a real challenge making a decent living as a new artist.",
+   "If people don't like what they create, then it can be a very emotional and upsetting experience hearing them say this."
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "This offered me the opportunity to become more emotionally detached from my work."
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "Without this evidence they tend to hold back still when it comes to offering a contract."
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "The first way was by submitting my work for a competition."
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "The other approach I took was to design and print some mock-up pages of a book."
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "…so that I could vary my style and wasn't limited to a certain technique."
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "One remedy for this is to separate your work into distinct categories."
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "Working under two names is also useful."
+  ],
+  "k": "exact"
+ }
+}

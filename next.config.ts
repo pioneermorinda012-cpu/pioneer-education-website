@@ -13,6 +13,8 @@ const nextConfig: NextConfig = {
     // The writing library is read the same way, from a path built at runtime.
     "/practice/writing": ["./content/writing/*.json"],
     "/practice/writing/**": ["./content/writing/*.json"],
+    // The PTE trainers are whole HTML pages served by app/practice/pte/[id]/route.ts.
+    "/practice/pte/**": ["./content/pte/*.html"],
   },
 };
 

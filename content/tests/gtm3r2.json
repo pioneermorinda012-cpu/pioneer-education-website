@@ -1,1 +1,985 @@
-{"id": "gtm3r2", "mode": "reading", "name": "GTM3R2 — Reading Test 2", "blurb": "3 sections · 40 questions · 60 minutes", "minutes": 60, "total": 40, "theme": "blue", "bandsReading": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "bandsListening": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "rules": ["The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.", "You should spend about <b>20 minutes</b> on each section.", "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.", "Answer all 40 questions, then tap <b>Submit test</b> for your band score.", "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.", "A 60-minute timer runs in the background; the test submits itself at zero."], "sections": [{"label": "Section 1", "qs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "passage": {"title": "Total Fire Bans", "paras": ["Total Fire Bans affect everyone. Whether you live in the city, the suburbs or in the country, you need to know when one is declared and what this means you can't do.", "<b>What is a Total Fire Ban?</b>", "A Total Fire Ban prohibits:<br>• the lighting of any fires in the open air<br>• any other activities in the open air that may start a fire.", "Undercover areas such as patios, pergolas and huts that are open or partially open to the weather are deemed to be in the open air.", "<b>When will a Total Fire Ban be declared?</b>", "The decision to put a ban in place is based on weather forecast and local conditions. A Total Fire Ban will be declared on days when fires are most likely to threaten lives and property.", "<b>How will I know when a Total Fire Ban has been declared?</b>", "When a ban has been declared it will be:<br>• on the DFES website www.dfes.wa.gov.au<br>• on the Total Fire Ban information line 1800 709 355<br>• broadcast on ABC local radio and other media outlets<br>• published to subscribers through the DFES website's automated RSS feeds<br>• published on DFES's Twitter account<br>• displayed on local government roadside Fire Danger Rating signs.", "<b>How long is a Total Fire Ban in place for?</b>", "The ban will generally be in place from 12.01am to 11.59pm on the day declared; however, if weather conditions change significantly, times may vary.", "<b>What are the penalties for ignoring a Total Fire Ban?</b>", "You could be fined up to $25 000 and/or jailed for 12 months for ignoring the ban.", "<small>Source: Department of Fire and Emergency Services, WA</small>", "<b>Food Poisoning</b>", "<table>\n<tr><th>Type</th><th>Origins</th><th>Onset</th><th>Symptoms</th></tr>\n<tr><td><b>i.</b> Salmonella</td><td>Bowel, intestine of humans and animals (especially chickens), raw foods, untreated water</td><td>12-48 hours</td><td>Nausea, vomiting, stomach cramps, diarrhoea, fever and headache for 3-21 days</td></tr>\n<tr><td><b>ii.</b> Staphylococcus aureus (Toxin)</td><td>Skin, nose, saliva, bowel of humans</td><td>1-8 hours</td><td>Diarrhoea, stomach cramps, nausea and vomiting. Lasts for about 24 hours</td></tr>\n<tr><td><b>iii.</b> Clostridium perfringens</td><td>Soil, bowel, intestine of humans and animals</td><td>8-12 hours</td><td>Stomach pains, diarrhoea and sometimes nausea and vomiting. Lasts for about 24 hours</td></tr>\n<tr><td><b>iv.</b> Vibrio parahaemolyticus</td><td>Drinking water, shellfish and fish</td><td>12-24 hours</td><td>Diarrhoea, stomach cramps, sometimes nausea and vomiting. May last for several days</td></tr>\n<tr><td><b>v.</b> Listeria monocytogenes</td><td>Soil, bowel, intestine of humans and animals, raw vegetables, processed foods</td><td>2 days to 3 months</td><td>Flu-like symptoms: fever, headaches and pains. May cause miscarriage and stillbirth, meningitis and septicaemia</td></tr>\n<tr><td><b>vi.</b> Campylobacter</td><td>Raw poultry, raw meats, untreated water, unpasteurised milk; puppies, kittens, wild animals and birds</td><td>2-5 days</td><td>Diarrhoea, abdominal pain, vomiting, fever and nausea. Lasts for 2-5 days</td></tr>\n</table>", "<b>The Facts About Plastic</b>", "<b>Plastic bottles</b>", "• It takes less energy to manufacture and transport a plastic sauce bottle than a glass sauce bottle, as plastics are lightweight.", "• It takes 125 recycled plastic milk bottles to manufacture one 140-litre wheelie-bin from recycled plastic.", "• Over 24 000 tonnes of PET was recovered in Australia last year – that's over 575 million PET soft drink bottles! Around 18 000 tonnes of these were recycled in Australia – mainly into new soft drink bottles.", "• It takes 33 000 plastic soft drink bottles to make one tonne of plastic.", "<b>Save our oceans</b>", "• There are about 46 000 pieces of plastic floating in each square mile of our oceans. Discarded plastic has even been found on uninhabited South Pacific islands!", "• It is estimated that plastic kills up to 1 million sea birds, 100 000 sea mammals and countless fish each year, with many getting entangled in plastic six-pack rings, plastic strapping and nylon ropes.", "• The disposal of plastics into the ocean is prohibited under the international Convention for the Prevention of Pollution from Ships (MARPOL).", "<b>Sources of waste plastic</b><br>"], "img": "fig1", "sub": "You should spend about 20 minutes on Questions 1–14."}, "groups": [{"title": "Questions 1–4", "instr": "Do the following statements agree with the notice on Total Fire Bans? Choose<br><b>TRUE</b> if the statement is true<br><b>FALSE</b> if the statement is false<br><b>NOT GIVEN</b> if the information is not given in the passage", "lines": ["You can go to prison for a year if you light a fire outside. {{1}}", "Fire bans last for two days. {{2}}", "You can contact your local radio station for more information. {{3}}", "You can use your pizza oven if it is under your patio. {{4}}"]}, {"title": "Questions 5–10", "instr": "Look at the information on food poisoning and match each statement with the appropriate type of poisoning, <b>i–vi</b>.", "questions": [{"n": 5, "stem": "Found in seafood.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}, {"n": 6, "stem": "Dangerous for pregnant women.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}, {"n": 7, "stem": "You can be sick for up to three weeks.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}, {"n": 8, "stem": "You can catch this from some common household pets.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}, {"n": 9, "stem": "Not usually found in animals.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}, {"n": 10, "stem": "You can pick this disease up from the garden and it starts within a few hours.", "opts": [{"l": "i", "t": "i. Salmonella"}, {"l": "ii", "t": "ii. Staphylococcus aureus"}, {"l": "iii", "t": "iii. Clostridium perfringens"}, {"l": "iv", "t": "iv. Vibrio parahaemolyticus"}, {"l": "v", "t": "v. Listeria monocytogenes"}, {"l": "vi", "t": "vi. Campylobacter"}]}]}, {"title": "Questions 11–14", "instr": "Read 'The Facts About Plastic' (including the chart). Choose <b>NO MORE THAN THREE WORDS</b> from the text for each answer.", "lines": ["Just under a quarter of waste plastic comes from <input type=\"text\" class=\"ans\" id=\"q11\" data-q=\"11\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"11\">. {{11}}", "Just over two-thirds of recovered PET was made into <input type=\"text\" class=\"ans\" id=\"q12\" data-q=\"12\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"12\">. {{12}}", "Plastic bottles are more energy efficient because they are <input type=\"text\" class=\"ans\" id=\"q13\" data-q=\"13\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"13\">. {{13}}", "Plastic that is thrown away has been found on <input type=\"text\" class=\"ans\" id=\"q14\" data-q=\"14\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"14\"> where no people live. {{14}}"]}]}, {"label": "Section 2", "qs": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "passage": {"title": "Advice to Help You Prevent Plagiarism in Your Work", "paras": ["<b>Section A</b>", "You must clearly indicate which part of your work is drawn from somewhere else. Paraphrasing is when you use what someone else has said or written, but you write it in your own words. If you paraphrase you must include an in-text citation so that readers can locate the source.", "<b>Section B</b>", "Carefully selected quotations add to the points you are making, but they don't, in themselves, add to the quality of your work. Put another way, if you submitted an essay made up entirely of quotations from other sources you would probably gain a low or zero mark. It is fine to quote other people occasionally, and it is expected that you do – but make sure you provide your own contribution or viewpoint. It is your work that earns you marks.", "Direct quotes ... should always be put inside quotation marks. Longer quotes can be indented so they stand apart from the main body of the text. Each quote must be followed by an in-text citation.", "<b>Section C</b>", "Creation is when you produce something new. If you edit an existing item it would still need to be referenced.", "<b>Section D</b>", "Make sure you understand what type of referencing protocol you are required to follow for your unit.", "• For text-based assessments you will usually need to include in-text citations and a reference list that gives the full details of the source material.", "• For visual-based artefacts or portfolios you will usually need to include a reference list that gives the full details of the sources that you referred to when creating your work; anything that you have used and modified must be listed.", "<b>Section E</b>", "Always keep your work and the original reference together. Losing the original source of the information is poor academic practice, and it means you might end up submitting work without a reference, or you might end up submitting it with the wrong reference. You could, at any time, be required to produce the original source for comparison.", "<b>Section F</b>", "This is very important. If you copy and paste from a source and fail to reference it properly, then you have plagiarised. It doesn't matter whether you did this intentionally or not. Depending on the circumstances of the case, plagiarism may be treated as academic misconduct where serious penalties can apply.", "<b>Section G</b>", "Often students are encouraged to work together, to cooperate by sharing ideas and understandings. However, individual assessments (where your name is the only name on the cover sheet) are meant to be your own work.", "Copying from someone else's work is plagiarism, and serious penalties can apply.", "Do not allow anyone else to submit your work as their own: this is collusion, which is considered academic misconduct.", "<small>Source: Academic Integrity at Curtin: Student Guidelines for Avoiding Plagiarism (2013), Curtin University of Technology, Perth, Western Australia</small>", "<b>Acton Community Health Centre</b>", "The Acton Community Health Centre seeks to assist the local community and businesses with their health-care needs. The centre offers high standards of care in general practice as well as specialists in travel medicine and occupational health. This expertise offers solutions for local communities, local businesses and employers, medical specialists and insurers.", "<b>Services available</b>", "• preventative services such as immunisations, well woman examinations and physicals<br>• blood tests<br>• treatment of chronic medical conditions such as diabetes, asthma, hypertension and heart disease<br>• pregnancy testing and antenatal care<br>• specialised medicals: diving, commercial drivers, aviation and insurance medicals.", "<b>Office hours, appointments and physician referrals</b>", "New patients may schedule an appointment by calling (317) 555-2611, extension 3310. Office hours are 8:30 am to 5:00 pm, Monday to Friday, although some doctors may see patients as early as 7:30 am. Established patients should contact their doctor's secretary for a convenient appointment time or to obtain test results.", "<b>After-hours care</b>", "Patients needing urgent medical attention when the centre is closed may contact their physician by calling the main clinic telephone number: (317) 555-2611. The clinic's answering service will then contact the physician on call. While it is not usual for doctors to make home visits, in an emergency, such a visit is possible.", "<b>Preventive medicine</b>", "Acton Health Centre has a strong commitment to preventive medicine. The College of General Practitioners recommends checkups according to the following schedule:", "<table>\n<tr><th>Check</th><th>Frequency*</th><th>Who**</th></tr>\n<tr><td>Smoking discussion</td><td>Annual</td><td>Smokers</td></tr>\n<tr><td>Physical activity advice</td><td>Annual</td><td>All</td></tr>\n<tr><td>Cardio-vascular risk check</td><td>2 yearly</td><td>&gt; 45 years</td></tr>\n<tr><td>Blood pressure check</td><td>Annual</td><td>&gt; 18 years</td></tr>\n<tr><td>Cholesterol check</td><td>2 yearly</td><td>&gt; 45 years</td></tr>\n<tr><td>Diabetes check</td><td>Annual</td><td>&gt; 40 years</td></tr>\n<tr><td>Kidney disease check</td><td>5 yearly</td><td>&gt; 50 years</td></tr>\n</table>", "<small>*Minimum frequency; more often for some at-risk groups. **For general population; earlier checks necessary for some at-risk groups.</small>", "All consultations at Acton Community Health Centre are completely confidential. We never disclose anything discussed at a consultation to anyone without your permission.", "<b>SCUBA diving medicals</b>", "Because the underwater environment places unique physiological stresses on the body, before doing a diving course you will need a valid SCUBA Diving Medical Certificate. Acton Community Health Centre has been performing diving medicals for over 40 years, carrying out a large number each week. For the medical, the doctor will review your medical history, and perform a lung function test, audiometry (hearing test), a urine test, a physical exam and, in some cases, an ECG (heart tracing)."], "sub": "You should spend about 20 minutes on Questions 15–27."}, "groups": [{"title": "Questions 15–21", "instr": "The plagiarism text has seven sections, <b>A–G</b>. Choose the correct heading for each section from the list of headings below.", "questions": [{"n": 15, "stem": "Section A", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 16, "stem": "Section B", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 17, "stem": "Section C", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 18, "stem": "Section D", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 19, "stem": "Section E", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 20, "stem": "Section F", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 21, "stem": "Section G", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}], "bank": [["i", "Everything must be referenced, unless you made it yourself."], ["ii", "Express others' work your own way and acknowledge that it is not yours."], ["iii", "It is a bad habit to forget your sources."], ["iv", "To get better marks, use your own work as much as possible."], ["v", "Don't say another student's work is yours."], ["vi", "You can copy work as long as you reference it."], ["vii", "Note all sources used and reference them in the body of the text also."], ["viii", "Know where your material comes from and keep the information handy."], ["ix", "Copying and pasting is plagiarism."]]}, {"title": "Questions 22–27", "instr": "Complete the sentences below. Choose <b>NO MORE THAN THREE WORDS</b> from the text for each answer.", "lines": ["The main focus of the health centre is to ensure simple <input type=\"text\" class=\"ans\" id=\"q22\" data-q=\"22\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"22\"> for patients. {{22}}", "Patients may be able to see some doctors before <input type=\"text\" class=\"ans\" id=\"q23\" data-q=\"23\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"23\">. {{23}}", "In an emergency, you should call the <input type=\"text\" class=\"ans\" id=\"q24\" data-q=\"24\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"24\"> telephone number. {{24}}", "If you are over 45 years of age, you should have a heart check-up and a <input type=\"text\" class=\"ans\" id=\"q25\" data-q=\"25\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"25\"> every two years. {{25}}", "Patients must give <input type=\"text\" class=\"ans\" id=\"q26\" data-q=\"26\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"26\"> for their medical history to be disclosed to a third party. {{26}}", "You will need a valid certificate before you undertake a <input type=\"text\" class=\"ans\" id=\"q27\" data-q=\"27\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"27\">. {{27}}"]}]}, {"label": "Section 3", "qs": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], "passage": {"title": "Trolley Psychology", "paras": ["Have you ever noticed that when you walk into a shop, you tend to look over or veer to the right? Consumer psychologists say this is a classic biological trait, linked to most people's preference for using their right hand. While it's something we tend to do in shops as well as places such as museums and art galleries, supermarkets really capitalise on this. It's to the right where you'll see temporary displays of products designed to grab your attention and entice you to make a snap purchase. This can be anything from fresh flowers and chocolates to umbrellas if it's been raining.", "Consumer psychologist and Senior Lecturer at Deakin University Dr Paul Harrison says the location of a store's entry point has a significant effect on how people shop, and even how much they spend. 'Right-hand side entries favour anti-clockwise movement through the shop, while left-hand side entries favour clockwise patterns. Research in the US has shown that shoppers who travel in an anti-clockwise direction will spend, on average, two dollars more per trip than clockwise shoppers.'", "Contrary to popular belief, once we're in the store most of us don't weave up and down the aisles in an orderly way. Research conducted on shopper movement patterns in-store suggests people travel to some aisles only, and rarely in a systematic up-and-down pattern. Even longer, planned shopping trips follow this pattern.", "The most common path to travel in-store is around the outside perimeter, dipping in and out of the aisles as needed. As a result, the ends of each aisle are the most profitable part of the store. Product manufacturers pay big dollars to place their products there to grab shoppers' attention, and it's usually familiar brands that provide the greatest profit margin.", "Many supermarkets micro-manage the various fresh food sections of the shop. Instead of approaching the shop as a single entity, they separate areas into particular zones and have developed different marketing plans for each of these areas. These anchor departments usually include fresh fruit and vegetables, meat, dairy, and the bakery – and all are designed to give shoppers a sense of individual difference. Research indicates consumers will spend more time in the supermarket because of these different zones.", "Ever walked into a big supermarket just to buy some bread and milk and found yourself leaving with a basket of additional items? A classic retailing trick is to locate the milk and bread at the very back of the store (often at either end) to encourage short-term shoppers to walk right through the shop and be tempted by the other, more expensive products along the way.", "According to Harrison, no matter what we might like to think, it's human nature to be attracted to a bargain. 'Although we think we know we're being manipulated, we tend to fall for it anyway.' Even the word 'special' plays on our subconscious. 'Just the word sets off a psychological process in your mind where if something is labelled \"special\" we think it must be good. It also feeds into a theory known as the scarcity effect. This is where we think that if it's on special, then it must only be available at this shop or for a short time, and we afford it more value than the products around it.'", "Confusion and emotional involvement will have an effect on how long a person spends in front of a particular area in the supermarket. You might, for example, find consumers spending a long time in front of the coffee selection area. Similarly, baby food and pet food purchases take longer because of emotional involvement.", "Soups and dressings often involve long buy times because of the sometimes-confusing variety of options on offer. As a result, long buy-time products are placed where shoppers will not feel hurried, crowded or that they're getting in the way of other customers while they work out what they're going to buy. These product areas will often be clearly marked out in a separate area.", "<b>Take a list.</b> People who shop with a list tend to spend less.", "<b>Shop alone.</b> People who shop as a couple tend to put more in their trolley, as each person will have their own ideas about what's important and should be purchased.", "<b>Avoid big supermarkets.</b> Don't shop at a big supermarket if you just want to drop in and pick up a few things – you're much better off in a small store. It takes more effort to get in and out of a big supermarket, and as a result you may feel the need to stock up once you're in there.", "<b>Eat before you shop.</b> Don't shop when you're hungry – it's a sure-fire way to end up with a trolley full of unnecessary purchases.", "<small>Source: adapted from Choice.com.au</small>"], "sub": "You should spend about 20 minutes on Questions 28–40."}, "groups": [{"title": "Questions 28–33", "instr": "Choose the correct letter, <b>A, B, C or D</b>.", "questions": [{"n": 28, "stem": "Shoppers generally move:", "opts": [{"l": "A", "t": "anti-clockwise around a shop"}, {"l": "B", "t": "clockwise around a shop"}, {"l": "C", "t": "around the edge and go down the aisles when they want something"}, {"l": "D", "t": "up one aisle and down the next."}]}, {"n": 29, "stem": "Why are essential, everyday items generally found at the back of the shop?", "opts": [{"l": "A", "t": "It's easier for the staff to restock."}, {"l": "B", "t": "It tempts you to buy more as you walk through the shop."}, {"l": "C", "t": "Walking through is good exercise for the customer."}, {"l": "D", "t": "It's cooler at the back and better for fresh food."}]}, {"n": 30, "stem": "Why are there different fresh food sections in a supermarket?", "opts": [{"l": "A", "t": "to make you feel you are visiting more than one shop"}, {"l": "B", "t": "to make you think the staff are experts in these sections"}, {"l": "C", "t": "to provide extra customer service"}, {"l": "D", "t": "to create a stronger aroma."}]}, {"n": 31, "stem": "The word 'special' in a supermarket specifically refers to:", "opts": [{"l": "A", "t": "an item you believe must be worthwhile buying"}, {"l": "B", "t": "items you think you cannot buy anywhere else"}, {"l": "C", "t": "items you think might be available for only a short time"}, {"l": "D", "t": "all of the above."}]}, {"n": 32, "stem": "What makes us spend a long time in certain sections of a supermarket?", "opts": [{"l": "A", "t": "price and freshness"}, {"l": "B", "t": "price and quality"}, {"l": "C", "t": "brand and who we are buying for"}, {"l": "D", "t": "too much choice and who we are buying for."}]}, {"n": 33, "stem": "Which of the following will make you spend more?", "opts": [{"l": "A", "t": "taking a shopping list"}, {"l": "B", "t": "shopping alone"}, {"l": "C", "t": "shopping in a big store"}, {"l": "D", "t": "having a meal before you go to the supermarket."}]}]}, {"title": "Questions 34–40", "instr": "Do the following statements agree with the information in the passage? Choose<br><b>TRUE</b> if the statement is true<br><b>FALSE</b> if the statement is false<br><b>NOT GIVEN</b> if the information is not given in the passage", "lines": ["People spend millions of dollars in supermarkets. {{34}}", "People tend to spend more than they intended in supermarkets. {{35}}", "Bread and milk are usually more expensive than other items in the store. {{36}}", "You will usually save money by going on one big shopping trip, less frequently. {{37}}", "Bread and milk are usually found together. {{38}}", "Left-handed people tend to walk over to the left in a shop. {{39}}", "Most shoppers can't resist a bargain. {{40}}"]}]}], "mediaUrls": {"fig1": "/practice/media/gtm3r2/gtm3r2__fig1.png"}, "catalogue": {"label": "Reading Test 2", "skillLabel": "General Training Reading"}}
+{
+ "id": "gtm3r2",
+ "mode": "reading",
+ "name": "GTM3R2 — Reading Test 2",
+ "blurb": "3 sections · 40 questions · 60 minutes",
+ "minutes": 60,
+ "total": 40,
+ "theme": "blue",
+ "bandsReading": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "bandsListening": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "rules": [
+  "The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.",
+  "You should spend about <b>20 minutes</b> on each section.",
+  "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.",
+  "Answer all 40 questions, then tap <b>Submit test</b> for your band score.",
+  "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.",
+  "A 60-minute timer runs in the background; the test submits itself at zero."
+ ],
+ "sections": [
+  {
+   "label": "Section 1",
+   "qs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "passage": {
+    "title": "Total Fire Bans",
+    "paras": [
+     "Total Fire Bans affect everyone. Whether you live in the city, the suburbs or in the country, you need to know when one is declared and what this means you can't do.",
+     "<b>What is a Total Fire Ban?</b>",
+     "A Total Fire Ban prohibits:<br>• the lighting of any fires in the open air<br>• any other activities in the open air that may start a fire.",
+     "Undercover areas such as patios, pergolas and huts that are open or partially open to the weather are deemed to be in the open air.",
+     "<b>When will a Total Fire Ban be declared?</b>",
+     "The decision to put a ban in place is based on weather forecast and local conditions. A Total Fire Ban will be declared on days when fires are most likely to threaten lives and property.",
+     "<b>How will I know when a Total Fire Ban has been declared?</b>",
+     "When a ban has been declared it will be:<br>• on the DFES website www.dfes.wa.gov.au<br>• on the Total Fire Ban information line 1800 709 355<br>• broadcast on ABC local radio and other media outlets<br>• published to subscribers through the DFES website's automated RSS feeds<br>• published on DFES's Twitter account<br>• displayed on local government roadside Fire Danger Rating signs.",
+     "<b>How long is a Total Fire Ban in place for?</b>",
+     "The ban will generally be in place from 12.01am to 11.59pm on the day declared; however, if weather conditions change significantly, times may vary.",
+     "<b>What are the penalties for ignoring a Total Fire Ban?</b>",
+     "You could be fined up to $25 000 and/or jailed for 12 months for ignoring the ban.",
+     "<small>Source: Department of Fire and Emergency Services, WA</small>",
+     "<b>Food Poisoning</b>",
+     "<table>\n<tr><th>Type</th><th>Origins</th><th>Onset</th><th>Symptoms</th></tr>\n<tr><td><b>i.</b> Salmonella</td><td>Bowel, intestine of humans and animals (especially chickens), raw foods, untreated water</td><td>12-48 hours</td><td>Nausea, vomiting, stomach cramps, diarrhoea, fever and headache for 3-21 days</td></tr>\n<tr><td><b>ii.</b> Staphylococcus aureus (Toxin)</td><td>Skin, nose, saliva, bowel of humans</td><td>1-8 hours</td><td>Diarrhoea, stomach cramps, nausea and vomiting. Lasts for about 24 hours</td></tr>\n<tr><td><b>iii.</b> Clostridium perfringens</td><td>Soil, bowel, intestine of humans and animals</td><td>8-12 hours</td><td>Stomach pains, diarrhoea and sometimes nausea and vomiting. Lasts for about 24 hours</td></tr>\n<tr><td><b>iv.</b> Vibrio parahaemolyticus</td><td>Drinking water, shellfish and fish</td><td>12-24 hours</td><td>Diarrhoea, stomach cramps, sometimes nausea and vomiting. May last for several days</td></tr>\n<tr><td><b>v.</b> Listeria monocytogenes</td><td>Soil, bowel, intestine of humans and animals, raw vegetables, processed foods</td><td>2 days to 3 months</td><td>Flu-like symptoms: fever, headaches and pains. May cause miscarriage and stillbirth, meningitis and septicaemia</td></tr>\n<tr><td><b>vi.</b> Campylobacter</td><td>Raw poultry, raw meats, untreated water, unpasteurised milk; puppies, kittens, wild animals and birds</td><td>2-5 days</td><td>Diarrhoea, abdominal pain, vomiting, fever and nausea. Lasts for 2-5 days</td></tr>\n</table>",
+     "<b>The Facts About Plastic</b>",
+     "<b>Plastic bottles</b>",
+     "• It takes less energy to manufacture and transport a plastic sauce bottle than a glass sauce bottle, as plastics are lightweight.",
+     "• It takes 125 recycled plastic milk bottles to manufacture one 140-litre wheelie-bin from recycled plastic.",
+     "• Over 24 000 tonnes of PET was recovered in Australia last year – that's over 575 million PET soft drink bottles! Around 18 000 tonnes of these were recycled in Australia – mainly into new soft drink bottles.",
+     "• It takes 33 000 plastic soft drink bottles to make one tonne of plastic.",
+     "<b>Save our oceans</b>",
+     "• There are about 46 000 pieces of plastic floating in each square mile of our oceans. Discarded plastic has even been found on uninhabited South Pacific islands!",
+     "• It is estimated that plastic kills up to 1 million sea birds, 100 000 sea mammals and countless fish each year, with many getting entangled in plastic six-pack rings, plastic strapping and nylon ropes.",
+     "• The disposal of plastics into the ocean is prohibited under the international Convention for the Prevention of Pollution from Ships (MARPOL).",
+     "<b>Sources of waste plastic</b><br>"
+    ],
+    "img": "fig1",
+    "sub": "You should spend about 20 minutes on Questions 1–14."
+   },
+   "groups": [
+    {
+     "title": "Questions 1–4",
+     "instr": "Do the following statements agree with the notice on Total Fire Bans? Choose<br><b>TRUE</b> if the statement is true<br><b>FALSE</b> if the statement is false<br><b>NOT GIVEN</b> if the information is not given in the passage",
+     "lines": [
+      "You can go to prison for a year if you light a fire outside. {{1}}",
+      "Fire bans last for two days. {{2}}",
+      "You can contact your local radio station for more information. {{3}}",
+      "You can use your pizza oven if it is under your patio. {{4}}"
+     ]
+    },
+    {
+     "title": "Questions 5–10",
+     "instr": "Look at the information on food poisoning and match each statement with the appropriate type of poisoning, <b>i–vi</b>.",
+     "questions": [
+      {
+       "n": 5,
+       "stem": "Found in seafood.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      },
+      {
+       "n": 6,
+       "stem": "Dangerous for pregnant women.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      },
+      {
+       "n": 7,
+       "stem": "You can be sick for up to three weeks.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      },
+      {
+       "n": 8,
+       "stem": "You can catch this from some common household pets.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      },
+      {
+       "n": 9,
+       "stem": "Not usually found in animals.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      },
+      {
+       "n": 10,
+       "stem": "You can pick this disease up from the garden and it starts within a few hours.",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i. Salmonella"
+        },
+        {
+         "l": "ii",
+         "t": "ii. Staphylococcus aureus"
+        },
+        {
+         "l": "iii",
+         "t": "iii. Clostridium perfringens"
+        },
+        {
+         "l": "iv",
+         "t": "iv. Vibrio parahaemolyticus"
+        },
+        {
+         "l": "v",
+         "t": "v. Listeria monocytogenes"
+        },
+        {
+         "l": "vi",
+         "t": "vi. Campylobacter"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 11–14",
+     "instr": "Read 'The Facts About Plastic' (including the chart). Choose <b>NO MORE THAN THREE WORDS</b> from the text for each answer.",
+     "lines": [
+      "Just under a quarter of waste plastic comes from <input type=\"text\" class=\"ans\" id=\"q11\" data-q=\"11\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"11\">. {{11}}",
+      "Just over two-thirds of recovered PET was made into <input type=\"text\" class=\"ans\" id=\"q12\" data-q=\"12\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"12\">. {{12}}",
+      "Plastic bottles are more energy efficient because they are <input type=\"text\" class=\"ans\" id=\"q13\" data-q=\"13\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"13\">. {{13}}",
+      "Plastic that is thrown away has been found on <input type=\"text\" class=\"ans\" id=\"q14\" data-q=\"14\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"14\"> where no people live. {{14}}"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 2",
+   "qs": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "passage": {
+    "title": "Advice to Help You Prevent Plagiarism in Your Work",
+    "paras": [
+     "<b>Section A</b>",
+     "You must clearly indicate which part of your work is drawn from somewhere else. Paraphrasing is when you use what someone else has said or written, but you write it in your own words. If you paraphrase you must include an in-text citation so that readers can locate the source.",
+     "<b>Section B</b>",
+     "Carefully selected quotations add to the points you are making, but they don't, in themselves, add to the quality of your work. Put another way, if you submitted an essay made up entirely of quotations from other sources you would probably gain a low or zero mark. It is fine to quote other people occasionally, and it is expected that you do – but make sure you provide your own contribution or viewpoint. It is your work that earns you marks.",
+     "Direct quotes ... should always be put inside quotation marks. Longer quotes can be indented so they stand apart from the main body of the text. Each quote must be followed by an in-text citation.",
+     "<b>Section C</b>",
+     "Creation is when you produce something new. If you edit an existing item it would still need to be referenced.",
+     "<b>Section D</b>",
+     "Make sure you understand what type of referencing protocol you are required to follow for your unit.",
+     "• For text-based assessments you will usually need to include in-text citations and a reference list that gives the full details of the source material.",
+     "• For visual-based artefacts or portfolios you will usually need to include a reference list that gives the full details of the sources that you referred to when creating your work; anything that you have used and modified must be listed.",
+     "<b>Section E</b>",
+     "Always keep your work and the original reference together. Losing the original source of the information is poor academic practice, and it means you might end up submitting work without a reference, or you might end up submitting it with the wrong reference. You could, at any time, be required to produce the original source for comparison.",
+     "<b>Section F</b>",
+     "This is very important. If you copy and paste from a source and fail to reference it properly, then you have plagiarised. It doesn't matter whether you did this intentionally or not. Depending on the circumstances of the case, plagiarism may be treated as academic misconduct where serious penalties can apply.",
+     "<b>Section G</b>",
+     "Often students are encouraged to work together, to cooperate by sharing ideas and understandings. However, individual assessments (where your name is the only name on the cover sheet) are meant to be your own work.",
+     "Copying from someone else's work is plagiarism, and serious penalties can apply.",
+     "Do not allow anyone else to submit your work as their own: this is collusion, which is considered academic misconduct.",
+     "<small>Source: Academic Integrity at Curtin: Student Guidelines for Avoiding Plagiarism (2013), Curtin University of Technology, Perth, Western Australia</small>",
+     "<b>Acton Community Health Centre</b>",
+     "The Acton Community Health Centre seeks to assist the local community and businesses with their health-care needs. The centre offers high standards of care in general practice as well as specialists in travel medicine and occupational health. This expertise offers solutions for local communities, local businesses and employers, medical specialists and insurers.",
+     "<b>Services available</b>",
+     "• preventative services such as immunisations, well woman examinations and physicals<br>• blood tests<br>• treatment of chronic medical conditions such as diabetes, asthma, hypertension and heart disease<br>• pregnancy testing and antenatal care<br>• specialised medicals: diving, commercial drivers, aviation and insurance medicals.",
+     "<b>Office hours, appointments and physician referrals</b>",
+     "New patients may schedule an appointment by calling (317) 555-2611, extension 3310. Office hours are 8:30 am to 5:00 pm, Monday to Friday, although some doctors may see patients as early as 7:30 am. Established patients should contact their doctor's secretary for a convenient appointment time or to obtain test results.",
+     "<b>After-hours care</b>",
+     "Patients needing urgent medical attention when the centre is closed may contact their physician by calling the main clinic telephone number: (317) 555-2611. The clinic's answering service will then contact the physician on call. While it is not usual for doctors to make home visits, in an emergency, such a visit is possible.",
+     "<b>Preventive medicine</b>",
+     "Acton Health Centre has a strong commitment to preventive medicine. The College of General Practitioners recommends checkups according to the following schedule:",
+     "<table>\n<tr><th>Check</th><th>Frequency*</th><th>Who**</th></tr>\n<tr><td>Smoking discussion</td><td>Annual</td><td>Smokers</td></tr>\n<tr><td>Physical activity advice</td><td>Annual</td><td>All</td></tr>\n<tr><td>Cardio-vascular risk check</td><td>2 yearly</td><td>&gt; 45 years</td></tr>\n<tr><td>Blood pressure check</td><td>Annual</td><td>&gt; 18 years</td></tr>\n<tr><td>Cholesterol check</td><td>2 yearly</td><td>&gt; 45 years</td></tr>\n<tr><td>Diabetes check</td><td>Annual</td><td>&gt; 40 years</td></tr>\n<tr><td>Kidney disease check</td><td>5 yearly</td><td>&gt; 50 years</td></tr>\n</table>",
+     "<small>*Minimum frequency; more often for some at-risk groups. **For general population; earlier checks necessary for some at-risk groups.</small>",
+     "All consultations at Acton Community Health Centre are completely confidential. We never disclose anything discussed at a consultation to anyone without your permission.",
+     "<b>SCUBA diving medicals</b>",
+     "Because the underwater environment places unique physiological stresses on the body, before doing a diving course you will need a valid SCUBA Diving Medical Certificate. Acton Community Health Centre has been performing diving medicals for over 40 years, carrying out a large number each week. For the medical, the doctor will review your medical history, and perform a lung function test, audiometry (hearing test), a urine test, a physical exam and, in some cases, an ECG (heart tracing)."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 15–27."
+   },
+   "groups": [
+    {
+     "title": "Questions 15–21",
+     "instr": "The plagiarism text has seven sections, <b>A–G</b>. Choose the correct heading for each section from the list of headings below.",
+     "questions": [
+      {
+       "n": 15,
+       "stem": "Section A",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 16,
+       "stem": "Section B",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 17,
+       "stem": "Section C",
+       "opts": [
+        "i",
+        "ii",
+        "iii",
+        "iv",
+        "v",
+        "vi",
+        "vii",
+        "viii",
+        "ix"
+       ]
+      },
+      {
+       "n": 18,
+       "stem": "Section D",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 19,
+       "stem": "Section E",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 20,
+       "stem": "Section F",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 21,
+       "stem": "Section G",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "i",
+       "Everything must be referenced, unless you made it yourself."
+      ],
+      [
+       "ii",
+       "Express others' work your own way and acknowledge that it is not yours."
+      ],
+      [
+       "iii",
+       "It is a bad habit to forget your sources."
+      ],
+      [
+       "iv",
+       "To get better marks, use your own work as much as possible."
+      ],
+      [
+       "v",
+       "Don't say another student's work is yours."
+      ],
+      [
+       "vi",
+       "You can copy work as long as you reference it."
+      ],
+      [
+       "vii",
+       "Note all sources used and reference them in the body of the text also."
+      ],
+      [
+       "viii",
+       "Know where your material comes from and keep the information handy."
+      ],
+      [
+       "ix",
+       "Copying and pasting is plagiarism."
+      ]
+     ]
+    },
+    {
+     "title": "Questions 22–27",
+     "instr": "Complete the sentences below. Choose <b>NO MORE THAN THREE WORDS</b> from the text for each answer.",
+     "lines": [
+      "The main focus of the health centre is to ensure simple <input type=\"text\" class=\"ans\" id=\"q22\" data-q=\"22\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"22\"> for patients. {{22}}",
+      "Patients may be able to see some doctors before <input type=\"text\" class=\"ans\" id=\"q23\" data-q=\"23\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"23\">. {{23}}",
+      "In an emergency, you should call the <input type=\"text\" class=\"ans\" id=\"q24\" data-q=\"24\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"24\"> telephone number. {{24}}",
+      "If you are over 45 years of age, you should have a heart check-up and a <input type=\"text\" class=\"ans\" id=\"q25\" data-q=\"25\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"25\"> every two years. {{25}}",
+      "Patients must give <input type=\"text\" class=\"ans\" id=\"q26\" data-q=\"26\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"26\"> for their medical history to be disclosed to a third party. {{26}}",
+      "You will need a valid certificate before you undertake a <input type=\"text\" class=\"ans\" id=\"q27\" data-q=\"27\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"27\">. {{27}}"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 3",
+   "qs": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "passage": {
+    "title": "Trolley Psychology",
+    "paras": [
+     "Have you ever noticed that when you walk into a shop, you tend to look over or veer to the right? Consumer psychologists say this is a classic biological trait, linked to most people's preference for using their right hand. While it's something we tend to do in shops as well as places such as museums and art galleries, supermarkets really capitalise on this. It's to the right where you'll see temporary displays of products designed to grab your attention and entice you to make a snap purchase. This can be anything from fresh flowers and chocolates to umbrellas if it's been raining.",
+     "Consumer psychologist and Senior Lecturer at Deakin University Dr Paul Harrison says the location of a store's entry point has a significant effect on how people shop, and even how much they spend. 'Right-hand side entries favour anti-clockwise movement through the shop, while left-hand side entries favour clockwise patterns. Research in the US has shown that shoppers who travel in an anti-clockwise direction will spend, on average, two dollars more per trip than clockwise shoppers.'",
+     "Contrary to popular belief, once we're in the store most of us don't weave up and down the aisles in an orderly way. Research conducted on shopper movement patterns in-store suggests people travel to some aisles only, and rarely in a systematic up-and-down pattern. Even longer, planned shopping trips follow this pattern.",
+     "The most common path to travel in-store is around the outside perimeter, dipping in and out of the aisles as needed. As a result, the ends of each aisle are the most profitable part of the store. Product manufacturers pay big dollars to place their products there to grab shoppers' attention, and it's usually familiar brands that provide the greatest profit margin.",
+     "Many supermarkets micro-manage the various fresh food sections of the shop. Instead of approaching the shop as a single entity, they separate areas into particular zones and have developed different marketing plans for each of these areas. These anchor departments usually include fresh fruit and vegetables, meat, dairy, and the bakery – and all are designed to give shoppers a sense of individual difference. Research indicates consumers will spend more time in the supermarket because of these different zones.",
+     "Ever walked into a big supermarket just to buy some bread and milk and found yourself leaving with a basket of additional items? A classic retailing trick is to locate the milk and bread at the very back of the store (often at either end) to encourage short-term shoppers to walk right through the shop and be tempted by the other, more expensive products along the way.",
+     "According to Harrison, no matter what we might like to think, it's human nature to be attracted to a bargain. 'Although we think we know we're being manipulated, we tend to fall for it anyway.' Even the word 'special' plays on our subconscious. 'Just the word sets off a psychological process in your mind where if something is labelled \"special\" we think it must be good. It also feeds into a theory known as the scarcity effect. This is where we think that if it's on special, then it must only be available at this shop or for a short time, and we afford it more value than the products around it.'",
+     "Confusion and emotional involvement will have an effect on how long a person spends in front of a particular area in the supermarket. You might, for example, find consumers spending a long time in front of the coffee selection area. Similarly, baby food and pet food purchases take longer because of emotional involvement.",
+     "Soups and dressings often involve long buy times because of the sometimes-confusing variety of options on offer. As a result, long buy-time products are placed where shoppers will not feel hurried, crowded or that they're getting in the way of other customers while they work out what they're going to buy. These product areas will often be clearly marked out in a separate area.",
+     "<b>Take a list.</b> People who shop with a list tend to spend less.",
+     "<b>Shop alone.</b> People who shop as a couple tend to put more in their trolley, as each person will have their own ideas about what's important and should be purchased.",
+     "<b>Avoid big supermarkets.</b> Don't shop at a big supermarket if you just want to drop in and pick up a few things – you're much better off in a small store. It takes more effort to get in and out of a big supermarket, and as a result you may feel the need to stock up once you're in there.",
+     "<b>Eat before you shop.</b> Don't shop when you're hungry – it's a sure-fire way to end up with a trolley full of unnecessary purchases.",
+     "<small>Source: adapted from Choice.com.au</small>"
+    ],
+    "sub": "You should spend about 20 minutes on Questions 28–40."
+   },
+   "groups": [
+    {
+     "title": "Questions 28–33",
+     "instr": "Choose the correct letter, <b>A, B, C or D</b>.",
+     "questions": [
+      {
+       "n": 28,
+       "stem": "Shoppers generally move:",
+       "opts": [
+        {
+         "l": "A",
+         "t": "anti-clockwise around a shop"
+        },
+        {
+         "l": "B",
+         "t": "clockwise around a shop"
+        },
+        {
+         "l": "C",
+         "t": "around the edge and go down the aisles when they want something"
+        },
+        {
+         "l": "D",
+         "t": "up one aisle and down the next."
+        }
+       ]
+      },
+      {
+       "n": 29,
+       "stem": "Why are essential, everyday items generally found at the back of the shop?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "It's easier for the staff to restock."
+        },
+        {
+         "l": "B",
+         "t": "It tempts you to buy more as you walk through the shop."
+        },
+        {
+         "l": "C",
+         "t": "Walking through is good exercise for the customer."
+        },
+        {
+         "l": "D",
+         "t": "It's cooler at the back and better for fresh food."
+        }
+       ]
+      },
+      {
+       "n": 30,
+       "stem": "Why are there different fresh food sections in a supermarket?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "to make you feel you are visiting more than one shop"
+        },
+        {
+         "l": "B",
+         "t": "to make you think the staff are experts in these sections"
+        },
+        {
+         "l": "C",
+         "t": "to provide extra customer service"
+        },
+        {
+         "l": "D",
+         "t": "to create a stronger aroma."
+        }
+       ]
+      },
+      {
+       "n": 31,
+       "stem": "The word 'special' in a supermarket specifically refers to:",
+       "opts": [
+        {
+         "l": "A",
+         "t": "an item you believe must be worthwhile buying"
+        },
+        {
+         "l": "B",
+         "t": "items you think you cannot buy anywhere else"
+        },
+        {
+         "l": "C",
+         "t": "items you think might be available for only a short time"
+        },
+        {
+         "l": "D",
+         "t": "all of the above."
+        }
+       ]
+      },
+      {
+       "n": 32,
+       "stem": "What makes us spend a long time in certain sections of a supermarket?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "price and freshness"
+        },
+        {
+         "l": "B",
+         "t": "price and quality"
+        },
+        {
+         "l": "C",
+         "t": "brand and who we are buying for"
+        },
+        {
+         "l": "D",
+         "t": "too much choice and who we are buying for."
+        }
+       ]
+      },
+      {
+       "n": 33,
+       "stem": "Which of the following will make you spend more?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "taking a shopping list"
+        },
+        {
+         "l": "B",
+         "t": "shopping alone"
+        },
+        {
+         "l": "C",
+         "t": "shopping in a big store"
+        },
+        {
+         "l": "D",
+         "t": "having a meal before you go to the supermarket."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 34–40",
+     "instr": "Do the following statements agree with the information in the passage? Choose<br><b>TRUE</b> if the statement is true<br><b>FALSE</b> if the statement is false<br><b>NOT GIVEN</b> if the information is not given in the passage",
+     "lines": [
+      "People spend millions of dollars in supermarkets. {{34}}",
+      "People tend to spend more than they intended in supermarkets. {{35}}",
+      "Bread and milk are usually more expensive than other items in the store. {{36}}",
+      "You will usually save money by going on one big shopping trip, less frequently. {{37}}",
+      "Bread and milk are usually found together. {{38}}",
+      "Left-handed people tend to walk over to the left in a shop. {{39}}",
+      "Most shoppers can't resist a bargain. {{40}}"
+     ]
+    }
+   ]
+  }
+ ],
+ "mediaUrls": {
+  "fig1": "/practice/media/gtm3r2/gtm3r2__fig1.png"
+ },
+ "catalogue": {
+  "label": "Reading Test 2",
+  "skillLabel": "General Training Reading"
+ }
+}

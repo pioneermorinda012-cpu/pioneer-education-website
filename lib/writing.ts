@@ -19,7 +19,10 @@ const CONTENT = path.join(process.cwd(), "content", "writing");
 
 export type WritingTask = {
   id: string;
-  kind: "task1" | "task2";
+  /** task1 = Academic chart, gt1 = General Training letter, task2 = essay */
+  kind: "task1" | "gt1" | "task2";
+  /** GT letters: Formal / Semi-formal / Informal */
+  register?: string;
   /** Task 1: the sentence that sets the task. Task 2: the topic name. */
   title: string;
   minutes: number;
@@ -38,7 +41,7 @@ export type WritingTask = {
 
 type Raw = Omit<WritingTask, "kind" | "title"> & { title?: string; topic?: string };
 
-async function read(file: string, kind: "task1" | "task2"): Promise<WritingTask[]> {
+async function read(file: string, kind: WritingTask["kind"]): Promise<WritingTask[]> {
   let raw: Raw[];
   try {
     raw = JSON.parse(await fs.readFile(path.join(CONTENT, `${file}.json`), "utf8"));
@@ -49,14 +52,14 @@ async function read(file: string, kind: "task1" | "task2"): Promise<WritingTask[
     ...t,
     kind,
     title: t.title ?? t.topic ?? t.id,
-    minutes: t.minutes ?? (kind === "task1" ? 20 : 40),
-    minWords: t.minWords ?? (kind === "task1" ? 150 : 250),
+    minutes: t.minutes ?? (kind === "task2" ? 40 : 20),
+    minWords: t.minWords ?? (kind === "task2" ? 250 : 150),
   }));
 }
 
 export async function getWriting(): Promise<WritingTask[]> {
-  const [a, b] = await Promise.all([read("task1", "task1"), read("task2", "task2")]);
-  return [...a, ...b];
+  const [a, g, b] = await Promise.all([read("task1", "task1"), read("task1gt", "gt1"), read("task2", "task2")]);
+  return [...a, ...g, ...b];
 }
 
 export async function getWritingTask(id: string): Promise<WritingTask | null> {

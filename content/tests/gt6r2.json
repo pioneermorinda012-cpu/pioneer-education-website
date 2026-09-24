@@ -1,1 +1,951 @@
-{"id": "gt6r2", "mode": "reading", "name": "GT6R2 — Reading Test 2", "blurb": "3 sections · 40 questions · 60 minutes", "minutes": 60, "total": 40, "theme": "blue", "bandsReading": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "bandsListening": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "rules": ["The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.", "You should spend about <b>20 minutes</b> on each section.", "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.", "Answer all 40 questions, then tap <b>Submit test</b> for your band score.", "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.", "A 60-minute timer runs in the background; the test submits itself at zero."], "sections": [{"label": "Section 1", "qs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "passage": {"title": "Visitor attractions in southern England", "paras": ["<b>A &nbsp;Blackthorn Castle</b>", "This famous, historically accurate, reconstructed castle and village enables visitors to travel back in time. Explore the grounds and experience the atmosphere of an ancient lifestyle. In the fields you can see the type of sheep that the original inhabitants of the castle probably kept. Homemade snacks are on sale.", "<b>B &nbsp;Withney Wetland Centre</b>", "Visitors will enjoy a visit to Withney whatever the season. In winter, for example, they can watch from the centrally heated observatory as thousands of swans feed on the water. Trained wardens give informative talks or lead guided walks round the site. The visitors’ centre may also be hired for private or corporate events.", "<b>C &nbsp;Headley Hall</b>", "Headley Hall is a large seventeenth-century country house, preserved as it was when it was built. Take time to admire the various works of art displayed, and visit the huge kitchen complete with period equipment – demonstrations are given at weekends. In the park there is space for the younger visitors to run around, and picnic tables are available.", "<b>D &nbsp;Lewis House</b>", "Lewis House is the birthplace of Frank Lewis, a renowned painter of the eighteenth century. More of his works are on display here than anywhere else in the world. Visitors can see Lewis’s studio and some of the articles he used on a daily basis.", "<b>E &nbsp;Canford Wildlife Centre</b>", "At Canford we have a new walk-through exhibit called Island Magic. Here visitors can observe many species from the tropical island of Madagascar and read about some of the urgent conservation projects that are taking place there to save endangered species from extinction.", "<b>F &nbsp;Oakwell Museum</b>", "This is an ideal venue for families. They can visit the childhood gallery with its large playroom, and listen to stories told by actors dressed in the costumes of a hundred years ago. They can also enjoy the popular games and wooden animals of that period.", "<b>Paragliding in Australia</b>", "<b>What is paragliding?</b>", "Paragliding is a kind of flying, but instead of the wing being made of metal, wood or plastic, it is made of nylon or polyester. The wing (known as a canopy) is attached to a harness by lines, not dissimilar to a parachute. The harness is where the pilots sit – and they report that it outperforms a parachute in terms of comfort.", "<b>Is it safe?</b>", "Like sailing and deep-sea diving, paragliding is as safe as the person doing it. The big advantage is that it’s probably the slowest form of aviation, so if you do crash you’ll hit the ground quite gently!", "<b>Where do I learn?</b>", "There are lots of schools, mainly based inland by appropriate hills or mountains, and there are also schools on the coast near spectacular cliffs. These are very attractive, though the prospect of landing in the sea seems to dissuade beginners! All schools will show you within a couple of days how to inflate the canopy, launch and land. They use radio instruction, tandem flying practice and schoolroom theory sessions to help you get the most from paragliding. It takes about seven days to get your basic licence; then you’re free to fly independently at sites across Australia.", "<b>What do I need?</b>", "Pilots normally wear warm clothes, in case they get very high up, and a helmet in case they stumble on landing. In terms of gear, schools supply basic training, canopies, harnesses, etc. However, you’ll probably want to buy your own more sophisticated equipment, which you’ll be able to choose much better once you’ve tried some out on your course.", "<b>Who can do it?</b>", "There’s no upper age limit provided your instructor deems you capable, but the youngest anybody can paraglide is 14. Anybody with good eyesight and good balance is a potential paraglider pilot. It’s a very relaxed sport as you’re mostly sitting down. You’ll probably experience pain in some muscles you didn’t know you had whilst learning, but many of those will be due to the walk up the training hill to launch. Flying a paraglider is a great sport. We hope to see you in the air with us this season!"], "sub": "You should spend about 20 minutes on Questions 1–14."}, "groups": [{"title": "Questions 1–7", "instr": "Look at the six visitor attractions in southern England, <b>A–F</b>. For which visitor attraction are the following statements true? <i>NB You may use any letter more than once.</i>", "questions": [{"n": 1, "stem": "Visitors can look at animals from another part of the world.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 2, "stem": "People can hold a business conference in this place.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 3, "stem": "Visitors can find out what toys were used in the last century.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 4, "stem": "Activities are available all year round here.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 5, "stem": "You can buy light meals here.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 6, "stem": "Visitors can see how food was prepared in the past.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}, {"n": 7, "stem": "You can visit modern imitations of old buildings here.", "opts": [{"l": "A", "t": "A – Blackthorn Castle"}, {"l": "B", "t": "B – Withney Wetland Centre"}, {"l": "C", "t": "C – Headley Hall"}, {"l": "D", "t": "D – Lewis House"}, {"l": "E", "t": "E – Canford Wildlife Centre"}, {"l": "F", "t": "F – Oakwell Museum"}]}], "bank": [["A", "Blackthorn Castle"], ["B", "Withney Wetland Centre"], ["C", "Headley Hall"], ["D", "Lewis House"], ["E", "Canford Wildlife Centre"], ["F", "Oakwell Museum"]]}, {"title": "Questions 8–14", "instr": "Do the following statements agree with the information in <i>Paragliding in Australia</i>? Choose<br><b>TRUE</b> if the statement agrees with the information<br><b>FALSE</b> if the statement contradicts the information<br><b>NOT GIVEN</b> if there is no information on this", "lines": ["A paraglider is more comfortable than a parachute. {{8}}", "Most paragliding schools are situated by the sea. {{9}}", "Learners must pass a theory test in order to get their licence. {{10}}", "Learners are able to paraglide unaccompanied after a week’s course. {{11}}", "It is advisable to purchase some equipment before you do your training. {{12}}", "Fit people of any age can take up paragliding. {{13}}", "The preliminary uphill walk may strain some of your muscles. {{14}}"]}]}, {"label": "Section 2", "qs": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "passage": {"title": "How to prepare for an interview", "paras": ["<b>Why prepare?</b>", "There are three main reasons.", "One: Although you can’t guess every question you might be asked, if you are prepared you can tailor your answers to fit.", "Two: If you’re well prepared, you will have more confidence and this will affect the way you come across.", "Three: Attitude matters. Prospective employers will choose a not-quite-perfect but willing candidate over a brilliant one who obviously isn’t bothered.", "<b>What to prepare?</b>", "<b>Find out about the organisation</b>", "<ul><li>Visit the website and read any materials that you have been sent. If nothing has been sent, phone the company to ask for any reading matter they may have.</li>\n<li>Talk to anyone you know who works there already.</li></ul>", "<b>Find out about the job</b>", "<ul><li>Ask for a job description or specification. This will tell you the duties that go with the job.</li>\n<li>Talk to anyone you know who is familiar with the work you may be doing.</li></ul>", "<b>Find out what the employer is looking for</b>", "<ul><li>Make a list of the skills specified in the job advertisement.</li>\n<li>Think of examples to back up claims that you have these skills.</li></ul>", "You can then answer most of the questions that will come up, such as ‘Tell me more about how you work in a team’.", "Add in a few ‘lessons learned’ – what you did and how you might have done it better. You can also outline any voluntary work you have done for a charity, or any experience of paid work in an unrelated sector.", "<b>Preparing for other kinds of questions</b>", "Interviewers are also looking for someone who is likely to stay with the organisation and progress within it. Prepare to answer questions about your ambitions for the future.", "You may also be asked to account for gaps in your career history, if you have any. Be positive and accentuate the learning or experience you gained during these periods.", "<b>Preparing your own questions</b>", "<ul><li>Do ask technical questions about software, systems and structures and how things are done.</li>\n<li>Do ask about possibilities for training.</li>\n<li>Don’t ask about salary unless you have been offered the job.</li></ul>", "When you’ve prepared as much as this, you’ve got a good chance of success.", "Good luck!", "<b>Setting up your own business</b>", "Here are some ideas about how you should start:", "<b>Know your market</b>", "So you know what you want to sell – the most important thing is that it should be something that people want to buy. Start by thinking about who your target customers are. Are they people who live locally? Are they a particular group of people?", "Now look at your competitors. What is different about what you will be doing and how will you persuade people to come to you instead of going to someone who is already established?", "<b>How will you reach the customers?</b>", "Will you promote your product by phoning people, or visiting local traders, or advertising in magazines or online? Will your delivery system be direct or through shops?", "<b>How will your business work?</b>", "Now think about what your business needs to succeed. Do you need to look for premises or can you work from home? Do you need to invest in manufacturing equipment to start with?", "Is the business something that you can do on your own, or if you get more work will you be looking to recruit staff? If so, what skills would they need?", "Whether you’re a sole operator or are looking to recruit a team, effective management is essential.", "The law regulates how companies are run and you need to set aside the time to see that this is done properly, in relation to issues like accounting, insurance and tax.", "<b>The money!</b>", "As you are working out the prices for your products, you need to make sure you build in all your costs. Remember you will probably need help from an accountant at least once a year, so build that in too, and do a forecast of how much money you think will flow in and out of the business.", "Look at what you expect to happen over the next three years — and work out what you need to do to break even, as well as the turnover that you hope to achieve to give you a profit. If you think you will need to find some funding to help get the business off the ground, how much will you need and who will you approach to get it?", "<b>Your business plan</b>", "Now write it all up and call it a business plan."], "sub": "You should spend about 20 minutes on Questions 15–27."}, "groups": [{"title": "Questions 15–21", "instr": "Complete the sentences below. Choose <b>ONE WORD ONLY</b> from the text for each answer.", "lines": ["By preparing for your interview, you will gain <input type=\"text\" class=\"ans\" id=\"q15\" data-q=\"15\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"15\"> which will help you present yourself well. {{15}}", "Read through any documents you have received about the company and also go to their <input type=\"text\" class=\"ans\" id=\"q16\" data-q=\"16\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"16\">. {{16}}", "Check the job description to find out what <input type=\"text\" class=\"ans\" id=\"q17\" data-q=\"17\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"17\"> are involved in the post you have applied for. {{17}}", "Interviewers may be interested to hear about any unpaid help you have given to a <input type=\"text\" class=\"ans\" id=\"q18\" data-q=\"18\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"18\">. {{18}}", "Be ready to talk about your <input type=\"text\" class=\"ans\" id=\"q19\" data-q=\"19\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"19\"> for the development of your career. {{19}}", "Explain any <input type=\"text\" class=\"ans\" id=\"q20\" data-q=\"20\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"20\"> that there are in your work record and clarify how you used the time to improve your skills. {{20}}", "Questions about <input type=\"text\" class=\"ans\" id=\"q21\" data-q=\"21\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"21\"> should be delayed until a later stage. {{21}}"]}, {"title": "Questions 22–27", "instr": "Complete the notes below. Choose <b>ONE WORD ONLY</b> from the text for each answer.", "lines": ["<b>Step 1:</b> Decide who you are going to sell to and compare yourself with the {{22}} you are going to have.", "<b>Step 2:</b> Consider how you will market your product and your method of {{23}}.", "<b>Step 3:</b> Decide if you will have to find {{24}} to work in, or buy equipment.", "<b>Step 5:</b> Make sure you deal with the accounts and other essentials in accordance with the {{25}}.", "<b>Step 6:</b> Calculate all the {{26}} involved in your business when deciding how much to charge.", "<b>Step 8:</b> Consider if you require any {{27}} to start your business, and where to find it."]}]}, {"label": "Section 3", "qs": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], "passage": {"title": "Understanding hares", "paras": ["With its wild stare, swift speed and secretive nature, the UK’s brown hare is the rabbit’s mysterious cousin. Even in these days of agricultural intensification, the hare is still to be seen in open countryside, but its numbers are falling.", "<b>A</b>&nbsp; Like many herbivores, brown hares spend a relatively large amount of their time feeding. They prefer to do this in the dark, but when nights are short, their activities do spill into daylight hours. Wherever they live, hares appear to have a fondness for fields with a variety of vegetation, for example short as well as longer clumps of grasses. Studies have demonstrated that they benefit from uncultivated land and other unploughed areas on farms, such as field margins. Therefore, if farmers provided patches of woodland in areas of pasture as well as assorted crops in arable areas, there would be year-round shelter and food, and this could be the key to turning round the current decline in hare populations.", "<b>B</b>&nbsp; Brown hares have a number of physical adaptations that enable them to survive in open countryside. They have exceptionally large ears that move independently, so that a range of sounds can be pinpointed accurately. Positioned high up on their heads, the hares’ large golden eyes give them 360° vision, making it hard to take a hare by surprise. Compared to mammals of a similar size, hares have a greatly enlarged heart and a higher volume of blood in their bodies, and this allows for superior speed and stamina. In addition, their legs are longer than those of a rabbit, enabling hares to run more like a dog and reach speeds of up to 70 kph.", "<b>C</b>&nbsp; Brown hares have unusual lifestyles for their large size, breeding from a young age and producing many leverets (babies). There are about three litters of up to four leverets every year. Both males and females are able to breed at about seven months old, but they have to be quick because they seldom live for more than two years. The breeding season runs from January to October, and by late February most females are pregnant or giving birth to their first litter of the year. So it seems strange, therefore, that it is in March, when the breeding season is already underway, that hares seemingly go mad: boxing, dancing, running and fighting. This has given rise to the age-old reference to ‘mad March hares’. In fact, boxing occurs throughout the breeding season, but people tend to see this behaviour more often in March. This is because in the succeeding months, dusk – the time when hares are most active – is later, when fewer people are about. Crops and vegetation are also taller, hiding the hares from view. Though it is often thought that they are males fighting over females, boxing hares are usually females fighting off males. Hares are mostly solitary, but a female fights off a series of males until she is ready to mate. This occurs several times through the breeding season because, as soon as the female has given birth, she will be ready to mate again.", "<b>D</b>&nbsp; But how can females manage to do this while simultaneously feeding themselves and rearing their young? The reason is that hares have evolved such self-sufficient young. Unlike baby rabbits, leverets are born furry and mobile. They weigh about 100 g at birth and are immediately left to their own devices by their mothers. A few days later, the members of the litter creep away to create their own individual resting places, known as ‘forms’. Incredibly, their mother visits them only once every 24 hours and, even then, she only suckles them for a maximum of five minutes each. This lack of family contact may seem harsh to us, but it is a strategy that draws less attention from predators. At the tender age of two weeks, leverets start to feed themselves, while still drinking their mother’s milk. They grow swiftly and are fully weaned at four weeks, reaching adult weight at about six months.", "<b>E</b>&nbsp; Research has shown that hares’ milk is extremely rich and fatty, so a little goes a long way. In order to produce such nutritious milk, females need a high-quality, high-calorie diet. Hares are selective feeders at the best of times: unlike many herbivores, they can’t sit around waiting to digest low-quality food – they need high-energy herbs and other leaves in order to sprint. This causes them problems when faced with the smallest alterations in food availability and abundance. So, as well as reductions in the diversity of farmland habitat, the decline in the range of food plants is injurious to hares.", "<b>F</b>&nbsp; The rapid turnaround in the breeding cycle suggests that hares should, in principle, be able to increase their populations quickly to exploit new habitats. They certainly used to: studies show that hares evolved on the open plains and spread rapidly westward from the Black Sea after the last ice age (though they were probably introduced to Britain as a species to be hunted for the pot by the Romans). But today’s hares are thwarted by the lack of rich farmland habitat. When the delicate herbs and other plants they rely on are ploughed up or poisoned by herbicides, these wonderful, agile runners disappear too, taking with them some of the wildness from our lives."], "sub": "You should spend about 20 minutes on Questions 28–40."}, "groups": [{"title": "Questions 28–33", "instr": "The text has six sections, <b>A–F</b>. Choose the correct heading for each section from the list of headings below.", "questions": [{"n": 28, "stem": "Paragraph A", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 29, "stem": "Paragraph B", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 30, "stem": "Paragraph C", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 31, "stem": "Paragraph D", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 32, "stem": "Paragraph E", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}, {"n": 33, "stem": "Paragraph F", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"]}], "bank": [["i", "The need for population reduction"], ["ii", "The problem with being a fussy eater"], ["iii", "Reproductive patterns"], ["iv", "The need for further research"], ["v", "A possible solution to falling numbers"], ["vi", "The fastest runners"], ["vii", "A rather lonely beginning"], ["viii", "A comparison between past and present survival rates"], ["ix", "Useful physical features"]]}, {"title": "Questions 34–36", "instr": "Choose the correct letter, <b>A, B, C or D</b>.", "questions": [{"n": 34, "stem": "According to the writer, what is the ideal habitat for hares?", "opts": [{"l": "A", "t": "open grassland which they can run across"}, {"l": "B", "t": "densely wooded areas to breed in"}, {"l": "C", "t": "areas which include a range of vegetation"}, {"l": "D", "t": "land that has been farmed intensively for years"}]}, {"n": 35, "stem": "When leverets are living alone they are not visited often by their mother because", "opts": [{"l": "A", "t": "this helps to protect them from being eaten by other animals."}, {"l": "B", "t": "the ‘forms’ are so far apart."}, {"l": "C", "t": "they are very energetic from a surprisingly early age."}, {"l": "D", "t": "they know how to find their own food from birth."}]}, {"n": 36, "stem": "What does the writer suggest about the adult hares’ diet?", "opts": [{"l": "A", "t": "They need some plants with a high fat content."}, {"l": "B", "t": "They need time to digest the plants that they eat."}, {"l": "C", "t": "It is difficult for them to adapt to changes in vegetation."}, {"l": "D", "t": "It is vital for them to have a supply of one particular herb."}]}]}, {"title": "Questions 37–40", "instr": "Complete the summary below. Choose <b>ONE WORD ONLY</b> from the text for each answer.", "lines": ["The brown hare is well known for its ability to run fast, at speeds of up to 70 kph, largely due to the length of its legs as well as the unusual size of its heart. An increased amount of blood also gives it the necessary {{37}} to continue running fast for some time. A running hare resembles the {{38}} more closely than its relative, the rabbit.", "The hare has some other characteristics that help it to avoid capture. The first is its excellent all-round {{39}}. This means that predators cannot easily creep up behind it. Another feature is its ability to position its massive {{40}} separately, to sense the slightest indication of danger."]}]}], "mediaUrls": {}, "catalogue": {"label": "Reading Test 2", "skillLabel": "General Training Reading"}}
+{
+ "id": "gt6r2",
+ "mode": "reading",
+ "name": "GT6R2 — Reading Test 2",
+ "blurb": "3 sections · 40 questions · 60 minutes",
+ "minutes": 60,
+ "total": 40,
+ "theme": "blue",
+ "bandsReading": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "bandsListening": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "rules": [
+  "The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.",
+  "You should spend about <b>20 minutes</b> on each section.",
+  "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.",
+  "Answer all 40 questions, then tap <b>Submit test</b> for your band score.",
+  "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.",
+  "A 60-minute timer runs in the background; the test submits itself at zero."
+ ],
+ "sections": [
+  {
+   "label": "Section 1",
+   "qs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "passage": {
+    "title": "Visitor attractions in southern England",
+    "paras": [
+     "<b>A &nbsp;Blackthorn Castle</b>",
+     "This famous, historically accurate, reconstructed castle and village enables visitors to travel back in time. Explore the grounds and experience the atmosphere of an ancient lifestyle. In the fields you can see the type of sheep that the original inhabitants of the castle probably kept. Homemade snacks are on sale.",
+     "<b>B &nbsp;Withney Wetland Centre</b>",
+     "Visitors will enjoy a visit to Withney whatever the season. In winter, for example, they can watch from the centrally heated observatory as thousands of swans feed on the water. Trained wardens give informative talks or lead guided walks round the site. The visitors’ centre may also be hired for private or corporate events.",
+     "<b>C &nbsp;Headley Hall</b>",
+     "Headley Hall is a large seventeenth-century country house, preserved as it was when it was built. Take time to admire the various works of art displayed, and visit the huge kitchen complete with period equipment – demonstrations are given at weekends. In the park there is space for the younger visitors to run around, and picnic tables are available.",
+     "<b>D &nbsp;Lewis House</b>",
+     "Lewis House is the birthplace of Frank Lewis, a renowned painter of the eighteenth century. More of his works are on display here than anywhere else in the world. Visitors can see Lewis’s studio and some of the articles he used on a daily basis.",
+     "<b>E &nbsp;Canford Wildlife Centre</b>",
+     "At Canford we have a new walk-through exhibit called Island Magic. Here visitors can observe many species from the tropical island of Madagascar and read about some of the urgent conservation projects that are taking place there to save endangered species from extinction.",
+     "<b>F &nbsp;Oakwell Museum</b>",
+     "This is an ideal venue for families. They can visit the childhood gallery with its large playroom, and listen to stories told by actors dressed in the costumes of a hundred years ago. They can also enjoy the popular games and wooden animals of that period.",
+     "<b>Paragliding in Australia</b>",
+     "<b>What is paragliding?</b>",
+     "Paragliding is a kind of flying, but instead of the wing being made of metal, wood or plastic, it is made of nylon or polyester. The wing (known as a canopy) is attached to a harness by lines, not dissimilar to a parachute. The harness is where the pilots sit – and they report that it outperforms a parachute in terms of comfort.",
+     "<b>Is it safe?</b>",
+     "Like sailing and deep-sea diving, paragliding is as safe as the person doing it. The big advantage is that it’s probably the slowest form of aviation, so if you do crash you’ll hit the ground quite gently!",
+     "<b>Where do I learn?</b>",
+     "There are lots of schools, mainly based inland by appropriate hills or mountains, and there are also schools on the coast near spectacular cliffs. These are very attractive, though the prospect of landing in the sea seems to dissuade beginners! All schools will show you within a couple of days how to inflate the canopy, launch and land. They use radio instruction, tandem flying practice and schoolroom theory sessions to help you get the most from paragliding. It takes about seven days to get your basic licence; then you’re free to fly independently at sites across Australia.",
+     "<b>What do I need?</b>",
+     "Pilots normally wear warm clothes, in case they get very high up, and a helmet in case they stumble on landing. In terms of gear, schools supply basic training, canopies, harnesses, etc. However, you’ll probably want to buy your own more sophisticated equipment, which you’ll be able to choose much better once you’ve tried some out on your course.",
+     "<b>Who can do it?</b>",
+     "There’s no upper age limit provided your instructor deems you capable, but the youngest anybody can paraglide is 14. Anybody with good eyesight and good balance is a potential paraglider pilot. It’s a very relaxed sport as you’re mostly sitting down. You’ll probably experience pain in some muscles you didn’t know you had whilst learning, but many of those will be due to the walk up the training hill to launch. Flying a paraglider is a great sport. We hope to see you in the air with us this season!"
+    ],
+    "sub": "You should spend about 20 minutes on Questions 1–14."
+   },
+   "groups": [
+    {
+     "title": "Questions 1–7",
+     "instr": "Look at the six visitor attractions in southern England, <b>A–F</b>. For which visitor attraction are the following statements true? <i>NB You may use any letter more than once.</i>",
+     "questions": [
+      {
+       "n": 1,
+       "stem": "Visitors can look at animals from another part of the world.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 2,
+       "stem": "People can hold a business conference in this place.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 3,
+       "stem": "Visitors can find out what toys were used in the last century.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 4,
+       "stem": "Activities are available all year round here.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 5,
+       "stem": "You can buy light meals here.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 6,
+       "stem": "Visitors can see how food was prepared in the past.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      },
+      {
+       "n": 7,
+       "stem": "You can visit modern imitations of old buildings here.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Blackthorn Castle"
+        },
+        {
+         "l": "B",
+         "t": "B – Withney Wetland Centre"
+        },
+        {
+         "l": "C",
+         "t": "C – Headley Hall"
+        },
+        {
+         "l": "D",
+         "t": "D – Lewis House"
+        },
+        {
+         "l": "E",
+         "t": "E – Canford Wildlife Centre"
+        },
+        {
+         "l": "F",
+         "t": "F – Oakwell Museum"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "A",
+       "Blackthorn Castle"
+      ],
+      [
+       "B",
+       "Withney Wetland Centre"
+      ],
+      [
+       "C",
+       "Headley Hall"
+      ],
+      [
+       "D",
+       "Lewis House"
+      ],
+      [
+       "E",
+       "Canford Wildlife Centre"
+      ],
+      [
+       "F",
+       "Oakwell Museum"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 8–14",
+     "instr": "Do the following statements agree with the information in <i>Paragliding in Australia</i>? Choose<br><b>TRUE</b> if the statement agrees with the information<br><b>FALSE</b> if the statement contradicts the information<br><b>NOT GIVEN</b> if there is no information on this",
+     "lines": [
+      "A paraglider is more comfortable than a parachute. {{8}}",
+      "Most paragliding schools are situated by the sea. {{9}}",
+      "Learners must pass a theory test in order to get their licence. {{10}}",
+      "Learners are able to paraglide unaccompanied after a week’s course. {{11}}",
+      "It is advisable to purchase some equipment before you do your training. {{12}}",
+      "Fit people of any age can take up paragliding. {{13}}",
+      "The preliminary uphill walk may strain some of your muscles. {{14}}"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 2",
+   "qs": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "passage": {
+    "title": "How to prepare for an interview",
+    "paras": [
+     "<b>Why prepare?</b>",
+     "There are three main reasons.",
+     "One: Although you can’t guess every question you might be asked, if you are prepared you can tailor your answers to fit.",
+     "Two: If you’re well prepared, you will have more confidence and this will affect the way you come across.",
+     "Three: Attitude matters. Prospective employers will choose a not-quite-perfect but willing candidate over a brilliant one who obviously isn’t bothered.",
+     "<b>What to prepare?</b>",
+     "<b>Find out about the organisation</b>",
+     "<ul><li>Visit the website and read any materials that you have been sent. If nothing has been sent, phone the company to ask for any reading matter they may have.</li>\n<li>Talk to anyone you know who works there already.</li></ul>",
+     "<b>Find out about the job</b>",
+     "<ul><li>Ask for a job description or specification. This will tell you the duties that go with the job.</li>\n<li>Talk to anyone you know who is familiar with the work you may be doing.</li></ul>",
+     "<b>Find out what the employer is looking for</b>",
+     "<ul><li>Make a list of the skills specified in the job advertisement.</li>\n<li>Think of examples to back up claims that you have these skills.</li></ul>",
+     "You can then answer most of the questions that will come up, such as ‘Tell me more about how you work in a team’.",
+     "Add in a few ‘lessons learned’ – what you did and how you might have done it better. You can also outline any voluntary work you have done for a charity, or any experience of paid work in an unrelated sector.",
+     "<b>Preparing for other kinds of questions</b>",
+     "Interviewers are also looking for someone who is likely to stay with the organisation and progress within it. Prepare to answer questions about your ambitions for the future.",
+     "You may also be asked to account for gaps in your career history, if you have any. Be positive and accentuate the learning or experience you gained during these periods.",
+     "<b>Preparing your own questions</b>",
+     "<ul><li>Do ask technical questions about software, systems and structures and how things are done.</li>\n<li>Do ask about possibilities for training.</li>\n<li>Don’t ask about salary unless you have been offered the job.</li></ul>",
+     "When you’ve prepared as much as this, you’ve got a good chance of success.",
+     "Good luck!",
+     "<b>Setting up your own business</b>",
+     "Here are some ideas about how you should start:",
+     "<b>Know your market</b>",
+     "So you know what you want to sell – the most important thing is that it should be something that people want to buy. Start by thinking about who your target customers are. Are they people who live locally? Are they a particular group of people?",
+     "Now look at your competitors. What is different about what you will be doing and how will you persuade people to come to you instead of going to someone who is already established?",
+     "<b>How will you reach the customers?</b>",
+     "Will you promote your product by phoning people, or visiting local traders, or advertising in magazines or online? Will your delivery system be direct or through shops?",
+     "<b>How will your business work?</b>",
+     "Now think about what your business needs to succeed. Do you need to look for premises or can you work from home? Do you need to invest in manufacturing equipment to start with?",
+     "Is the business something that you can do on your own, or if you get more work will you be looking to recruit staff? If so, what skills would they need?",
+     "Whether you’re a sole operator or are looking to recruit a team, effective management is essential.",
+     "The law regulates how companies are run and you need to set aside the time to see that this is done properly, in relation to issues like accounting, insurance and tax.",
+     "<b>The money!</b>",
+     "As you are working out the prices for your products, you need to make sure you build in all your costs. Remember you will probably need help from an accountant at least once a year, so build that in too, and do a forecast of how much money you think will flow in and out of the business.",
+     "Look at what you expect to happen over the next three years — and work out what you need to do to break even, as well as the turnover that you hope to achieve to give you a profit. If you think you will need to find some funding to help get the business off the ground, how much will you need and who will you approach to get it?",
+     "<b>Your business plan</b>",
+     "Now write it all up and call it a business plan."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 15–27."
+   },
+   "groups": [
+    {
+     "title": "Questions 15–21",
+     "instr": "Complete the sentences below. Choose <b>ONE WORD ONLY</b> from the text for each answer.",
+     "lines": [
+      "By preparing for your interview, you will gain <input type=\"text\" class=\"ans\" id=\"q15\" data-q=\"15\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"15\"> which will help you present yourself well. {{15}}",
+      "Read through any documents you have received about the company and also go to their <input type=\"text\" class=\"ans\" id=\"q16\" data-q=\"16\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"16\">. {{16}}",
+      "Check the job description to find out what <input type=\"text\" class=\"ans\" id=\"q17\" data-q=\"17\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"17\"> are involved in the post you have applied for. {{17}}",
+      "Interviewers may be interested to hear about any unpaid help you have given to a <input type=\"text\" class=\"ans\" id=\"q18\" data-q=\"18\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"18\">. {{18}}",
+      "Be ready to talk about your <input type=\"text\" class=\"ans\" id=\"q19\" data-q=\"19\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"19\"> for the development of your career. {{19}}",
+      "Explain any <input type=\"text\" class=\"ans\" id=\"q20\" data-q=\"20\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"20\"> that there are in your work record and clarify how you used the time to improve your skills. {{20}}",
+      "Questions about <input type=\"text\" class=\"ans\" id=\"q21\" data-q=\"21\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"21\"> should be delayed until a later stage. {{21}}"
+     ]
+    },
+    {
+     "title": "Questions 22–27",
+     "instr": "Complete the notes below. Choose <b>ONE WORD ONLY</b> from the text for each answer.",
+     "lines": [
+      "<b>Step 1:</b> Decide who you are going to sell to and compare yourself with the {{22}} you are going to have.",
+      "<b>Step 2:</b> Consider how you will market your product and your method of {{23}}.",
+      "<b>Step 3:</b> Decide if you will have to find {{24}} to work in, or buy equipment.",
+      "<b>Step 5:</b> Make sure you deal with the accounts and other essentials in accordance with the {{25}}.",
+      "<b>Step 6:</b> Calculate all the {{26}} involved in your business when deciding how much to charge.",
+      "<b>Step 8:</b> Consider if you require any {{27}} to start your business, and where to find it."
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 3",
+   "qs": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "passage": {
+    "title": "Understanding hares",
+    "paras": [
+     "With its wild stare, swift speed and secretive nature, the UK’s brown hare is the rabbit’s mysterious cousin. Even in these days of agricultural intensification, the hare is still to be seen in open countryside, but its numbers are falling.",
+     "<b>A</b>&nbsp; Like many herbivores, brown hares spend a relatively large amount of their time feeding. They prefer to do this in the dark, but when nights are short, their activities do spill into daylight hours. Wherever they live, hares appear to have a fondness for fields with a variety of vegetation, for example short as well as longer clumps of grasses. Studies have demonstrated that they benefit from uncultivated land and other unploughed areas on farms, such as field margins. Therefore, if farmers provided patches of woodland in areas of pasture as well as assorted crops in arable areas, there would be year-round shelter and food, and this could be the key to turning round the current decline in hare populations.",
+     "<b>B</b>&nbsp; Brown hares have a number of physical adaptations that enable them to survive in open countryside. They have exceptionally large ears that move independently, so that a range of sounds can be pinpointed accurately. Positioned high up on their heads, the hares’ large golden eyes give them 360° vision, making it hard to take a hare by surprise. Compared to mammals of a similar size, hares have a greatly enlarged heart and a higher volume of blood in their bodies, and this allows for superior speed and stamina. In addition, their legs are longer than those of a rabbit, enabling hares to run more like a dog and reach speeds of up to 70 kph.",
+     "<b>C</b>&nbsp; Brown hares have unusual lifestyles for their large size, breeding from a young age and producing many leverets (babies). There are about three litters of up to four leverets every year. Both males and females are able to breed at about seven months old, but they have to be quick because they seldom live for more than two years. The breeding season runs from January to October, and by late February most females are pregnant or giving birth to their first litter of the year. So it seems strange, therefore, that it is in March, when the breeding season is already underway, that hares seemingly go mad: boxing, dancing, running and fighting. This has given rise to the age-old reference to ‘mad March hares’. In fact, boxing occurs throughout the breeding season, but people tend to see this behaviour more often in March. This is because in the succeeding months, dusk – the time when hares are most active – is later, when fewer people are about. Crops and vegetation are also taller, hiding the hares from view. Though it is often thought that they are males fighting over females, boxing hares are usually females fighting off males. Hares are mostly solitary, but a female fights off a series of males until she is ready to mate. This occurs several times through the breeding season because, as soon as the female has given birth, she will be ready to mate again.",
+     "<b>D</b>&nbsp; But how can females manage to do this while simultaneously feeding themselves and rearing their young? The reason is that hares have evolved such self-sufficient young. Unlike baby rabbits, leverets are born furry and mobile. They weigh about 100 g at birth and are immediately left to their own devices by their mothers. A few days later, the members of the litter creep away to create their own individual resting places, known as ‘forms’. Incredibly, their mother visits them only once every 24 hours and, even then, she only suckles them for a maximum of five minutes each. This lack of family contact may seem harsh to us, but it is a strategy that draws less attention from predators. At the tender age of two weeks, leverets start to feed themselves, while still drinking their mother’s milk. They grow swiftly and are fully weaned at four weeks, reaching adult weight at about six months.",
+     "<b>E</b>&nbsp; Research has shown that hares’ milk is extremely rich and fatty, so a little goes a long way. In order to produce such nutritious milk, females need a high-quality, high-calorie diet. Hares are selective feeders at the best of times: unlike many herbivores, they can’t sit around waiting to digest low-quality food – they need high-energy herbs and other leaves in order to sprint. This causes them problems when faced with the smallest alterations in food availability and abundance. So, as well as reductions in the diversity of farmland habitat, the decline in the range of food plants is injurious to hares.",
+     "<b>F</b>&nbsp; The rapid turnaround in the breeding cycle suggests that hares should, in principle, be able to increase their populations quickly to exploit new habitats. They certainly used to: studies show that hares evolved on the open plains and spread rapidly westward from the Black Sea after the last ice age (though they were probably introduced to Britain as a species to be hunted for the pot by the Romans). But today’s hares are thwarted by the lack of rich farmland habitat. When the delicate herbs and other plants they rely on are ploughed up or poisoned by herbicides, these wonderful, agile runners disappear too, taking with them some of the wildness from our lives."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 28–40."
+   },
+   "groups": [
+    {
+     "title": "Questions 28–33",
+     "instr": "The text has six sections, <b>A–F</b>. Choose the correct heading for each section from the list of headings below.",
+     "questions": [
+      {
+       "n": 28,
+       "stem": "Paragraph A",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 29,
+       "stem": "Paragraph B",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 30,
+       "stem": "Paragraph C",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 31,
+       "stem": "Paragraph D",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 32,
+       "stem": "Paragraph E",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      },
+      {
+       "n": 33,
+       "stem": "Paragraph F",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "i",
+       "The need for population reduction"
+      ],
+      [
+       "ii",
+       "The problem with being a fussy eater"
+      ],
+      [
+       "iii",
+       "Reproductive patterns"
+      ],
+      [
+       "iv",
+       "The need for further research"
+      ],
+      [
+       "v",
+       "A possible solution to falling numbers"
+      ],
+      [
+       "vi",
+       "The fastest runners"
+      ],
+      [
+       "vii",
+       "A rather lonely beginning"
+      ],
+      [
+       "viii",
+       "A comparison between past and present survival rates"
+      ],
+      [
+       "ix",
+       "Useful physical features"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 34–36",
+     "instr": "Choose the correct letter, <b>A, B, C or D</b>.",
+     "questions": [
+      {
+       "n": 34,
+       "stem": "According to the writer, what is the ideal habitat for hares?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "open grassland which they can run across"
+        },
+        {
+         "l": "B",
+         "t": "densely wooded areas to breed in"
+        },
+        {
+         "l": "C",
+         "t": "areas which include a range of vegetation"
+        },
+        {
+         "l": "D",
+         "t": "land that has been farmed intensively for years"
+        }
+       ]
+      },
+      {
+       "n": 35,
+       "stem": "When leverets are living alone they are not visited often by their mother because",
+       "opts": [
+        {
+         "l": "A",
+         "t": "this helps to protect them from being eaten by other animals."
+        },
+        {
+         "l": "B",
+         "t": "the ‘forms’ are so far apart."
+        },
+        {
+         "l": "C",
+         "t": "they are very energetic from a surprisingly early age."
+        },
+        {
+         "l": "D",
+         "t": "they know how to find their own food from birth."
+        }
+       ]
+      },
+      {
+       "n": 36,
+       "stem": "What does the writer suggest about the adult hares’ diet?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "They need some plants with a high fat content."
+        },
+        {
+         "l": "B",
+         "t": "They need time to digest the plants that they eat."
+        },
+        {
+         "l": "C",
+         "t": "It is difficult for them to adapt to changes in vegetation."
+        },
+        {
+         "l": "D",
+         "t": "It is vital for them to have a supply of one particular herb."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 37–40",
+     "instr": "Complete the summary below. Choose <b>ONE WORD ONLY</b> from the text for each answer.",
+     "lines": [
+      "The brown hare is well known for its ability to run fast, at speeds of up to 70 kph, largely due to the length of its legs as well as the unusual size of its heart. An increased amount of blood also gives it the necessary {{37}} to continue running fast for some time. A running hare resembles the {{38}} more closely than its relative, the rabbit.",
+      "The hare has some other characteristics that help it to avoid capture. The first is its excellent all-round {{39}}. This means that predators cannot easily creep up behind it. Another feature is its ability to position its massive {{40}} separately, to sense the slightest indication of danger."
+     ]
+    }
+   ]
+  }
+ ],
+ "mediaUrls": {},
+ "catalogue": {
+  "label": "Reading Test 2",
+  "skillLabel": "General Training Reading"
+ }
+}

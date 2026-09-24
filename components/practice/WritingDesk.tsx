@@ -82,7 +82,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
       <section className="pr-set">
         <div className="wr-head">
           <div>
-            <span className="wr-kind">{task.kind === "task1" ? "Writing Task 1" : "Writing Task 2"}</span>
+            <span className="wr-kind">{task.kind === "task1" ? "Writing Task 1 · Academic" : task.kind === "gt1" ? `Writing Task 1 · GT letter${task.register ? ` · ${task.register}` : ""}` : "Writing Task 2"}</span>
             <h1>{task.title}</h1>
           </div>
           <span className={"wr-clock" + (left < 0 ? " over" : left < 300 ? " low" : "")}>

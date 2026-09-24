@@ -27,9 +27,8 @@
  },
  "5": {
   "s": 0,
-  "t": [
-   "Discover the city's colonial sights"
-  ]
+  "t": [],
+  "k": "none"
  },
  "6": {
   "s": 0,
@@ -51,9 +50,8 @@
  },
  "9": {
   "s": 0,
-  "t": [
-   "farewell dinner with wine and folklore show in Cusco"
-  ]
+  "t": [],
+  "k": "none"
  },
  "10": {
   "s": 0,
@@ -87,15 +85,13 @@
  },
  "17": {
   "s": 1,
-  "t": [
-   "Burnout doesn't just affect people in the workforce – high school students who feel bored, overwhelmed and overworked can also be at risk."
-  ]
+  "t": [],
+  "k": "none"
  },
  "21": {
   "s": 1,
-  "t": [
-   "A Finnish study looking at burnout in students found it was linked to high expectations of school demands, feeling cynical about school work and feeling inadequate as a student."
-  ]
+  "t": [],
+  "k": "none"
  },
  "15": {
   "s": 1,

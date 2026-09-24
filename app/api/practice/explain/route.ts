@@ -163,6 +163,13 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  /* Retired. Explanations now come from the hand-authored files in
+     content/evidence, which cost nothing and cannot change under anyone. The
+     model path stays in the code only so it can be switched back on
+     deliberately (EXPLAIN_ENABLED=1); nothing in the site calls it. */
+  if (process.env.EXPLAIN_ENABLED !== "1") {
+    return NextResponse.json({ error: "Explanations are shown in the review from the paper's own evidence." }, { status: 410 });
+  }
   /* signed in, student or teacher */
   const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
   const store = await cookies();

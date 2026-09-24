@@ -7,9 +7,8 @@
  },
  "3": {
   "s": 0,
-  "t": [
-   "broadcast on ABC local radio and other media outlets"
-  ]
+  "t": [],
+  "k": "none"
  },
  "2": {
   "s": 0,
@@ -77,10 +76,6 @@
   "t": [
    "uninhabited South Pacific islands"
   ]
- },
- "11": {
-  "s": 0,
-  "t": []
  },
  "15": {
   "s": 1,
@@ -164,15 +159,13 @@
  },
  "39": {
   "s": 2,
-  "t": [
-   "linked to most people's preference for using their right hand"
-  ]
+  "t": [],
+  "k": "none"
  },
  "34": {
   "s": 2,
-  "t": [
-   "Research in the US has shown that shoppers who travel in an anti-clockwise direction will spend, on average, two dollars more per trip than clockwise shoppers."
-  ]
+  "t": [],
+  "k": "none"
  },
  "28": {
   "s": 2,
@@ -188,15 +181,13 @@
  },
  "35": {
   "s": 2,
-  "t": [
-   "Ever walked into a big supermarket just to buy some bread and milk and found yourself leaving with a basket of additional items?"
-  ]
+  "t": [],
+  "k": "none"
  },
  "38": {
   "s": 2,
-  "t": [
-   "locate the milk and bread at the very back of the store (often at either end)"
-  ]
+  "t": [],
+  "k": "none"
  },
  "29": {
   "s": 2,
@@ -231,9 +222,8 @@
  },
  "37": {
   "s": 2,
-  "t": [
-   "Don't shop at a big supermarket if you just want to drop in and pick up a few things – you're much better off in a small store."
-  ]
+  "t": [],
+  "k": "none"
  },
  "33": {
   "s": 2,

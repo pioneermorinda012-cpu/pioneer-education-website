@@ -1,1 +1,249 @@
-{}
+{
+ "1": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "2": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "3": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "4": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "5": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "6": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "9": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "10": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "11": {
+  "accept": [
+   "managers and sportsmen",
+   "managers sportsmen",
+   "sportsmen and managers",
+   "sportsmen managers",
+   "managers or sportsmen"
+  ],
+  "display": "managers (and) sportsmen"
+ },
+ "12": {
+  "accept": [
+   "driving"
+  ],
+  "display": "driving"
+ },
+ "13": {
+  "accept": [
+   "pharmaceutical companies",
+   "pharmaceutical company",
+   "pharmaceutical"
+  ],
+  "display": "pharmaceutical companies"
+ },
+ "14": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "15": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "16": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "20": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "23": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "33": {
+  "accept": [
+   "asphalt"
+  ],
+  "display": "asphalt"
+ },
+ "34": {
+  "accept": [
+   "9",
+   "nine"
+  ],
+  "display": "9"
+ },
+ "35": {
+  "accept": [
+   "concrete"
+  ],
+  "display": "concrete"
+ },
+ "36": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "37": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "38": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "39": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "40": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ }
+}

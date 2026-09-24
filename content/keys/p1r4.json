@@ -1,1 +1,247 @@
-{}
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "3": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "10": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "11": {
+  "accept": [
+   "natural resource",
+   "resource"
+  ],
+  "display": "(natural) resource"
+ },
+ "12": {
+  "accept": [
+   "recycling industry"
+  ],
+  "display": "recycling industry"
+ },
+ "13": {
+  "accept": [
+   "drinkable liquids",
+   "drinkable liquid"
+  ],
+  "display": "drinkable liquids"
+ },
+ "14": {
+  "accept": [
+   "sand",
+   "real sand"
+  ],
+  "display": "(real) sand"
+ },
+ "15": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "16": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "17": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "18": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "19": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "29": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "30": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "31": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "32": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "33": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "34": {
+  "accept": [
+   "thousands of years"
+  ],
+  "display": "thousands of years"
+ },
+ "35": {
+  "accept": [
+   "tree bark",
+   "bark"
+  ],
+  "display": "(tree) bark"
+ },
+ "36": {
+  "accept": [
+   "overseas museums"
+  ],
+  "display": "overseas museums"
+ },
+ "37": {
+  "accept": [
+   "school walls",
+   "the school walls"
+  ],
+  "display": "school walls"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

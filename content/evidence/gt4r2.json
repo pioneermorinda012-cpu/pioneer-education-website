@@ -13,21 +13,18 @@
  },
  "3": {
   "s": 0,
-  "t": [
-   "(Your child’s school will have an attendance policy explaining how this should be done.)"
-  ]
+  "t": [],
+  "k": "none"
  },
  "4": {
   "s": 0,
-  "t": [
-   "If you know or think that your child is having difficulties attending school you should contact the school."
-  ]
+  "t": [],
+  "k": "none"
  },
  "5": {
   "s": 0,
-  "t": [
-   "it will record your child’s absence as ‘unauthorised’, that is, as truancy"
-  ]
+  "t": [],
+  "k": "none"
  },
  "9": {
   "s": 0,

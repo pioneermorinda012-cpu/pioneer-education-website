@@ -1,1 +1,275 @@
-{}
+{
+ "1": {
+  "accept": [
+   "transportation"
+  ],
+  "display": "transportation"
+ },
+ "2": {
+  "accept": [
+   "pharmaceuticals"
+  ],
+  "display": "pharmaceuticals"
+ },
+ "3": {
+  "accept": [
+   "manuscripts",
+   "valuable manuscripts"
+  ],
+  "display": "(valuable) manuscripts"
+ },
+ "4": {
+  "accept": [
+   "sublimation"
+  ],
+  "display": "sublimation"
+ },
+ "5": {
+  "accept": [
+   "simple drying",
+   "simple drying techniques"
+  ],
+  "display": "simple drying (techniques)"
+ },
+ "6": {
+  "accept": [
+   "freeze-drying chamber",
+   "freeze drying chamber",
+   "chamber",
+   "drying chamber"
+  ],
+  "display": "(freeze-drying) chamber"
+ },
+ "7": {
+  "accept": [
+   "shelves"
+  ],
+  "display": "shelves"
+ },
+ "8": {
+  "accept": [
+   "freezing coil"
+  ],
+  "display": "freezing coil"
+ },
+ "9": {
+  "accept": [
+   "refrigerator compressor",
+   "compressor"
+  ],
+  "display": "(refrigerator) compressor"
+ },
+ "10": {
+  "accept": [
+   "enzymes"
+  ],
+  "display": "enzymes"
+ },
+ "11": {
+  "accept": [
+   "composition"
+  ],
+  "display": "composition"
+ },
+ "12": {
+  "accept": [
+   "overheating"
+  ],
+  "display": "overheating"
+ },
+ "13": {
+  "accept": [
+   "high altitudes",
+   "high altitude",
+   "mountain peaks"
+  ],
+  "display": "high altitudes"
+ },
+ "14": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "15": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "16": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "17": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "18": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "19": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "20": {
+  "accept": [
+   "woodland species"
+  ],
+  "display": "woodland species"
+ },
+ "21": {
+  "accept": [
+   "exotic flowers"
+  ],
+  "display": "exotic flowers"
+ },
+ "22": {
+  "accept": [
+   "domestic cats",
+   "cats",
+   "the domestic cats"
+  ],
+  "display": "(domestic) cats"
+ },
+ "23": {
+  "accept": [
+   "81",
+   "eighty-one",
+   "eighty one"
+  ],
+  "display": "81"
+ },
+ "24": {
+  "accept": [
+   "C",
+   "E",
+   "G"
+  ],
+  "display": "C, E, G  (Q24–26, any order)",
+  "pool": [
+   "24",
+   "25",
+   "26"
+  ]
+ },
+ "25": {
+  "accept": [
+   "C",
+   "E",
+   "G"
+  ],
+  "display": "C, E, G  (Q24–26, any order)",
+  "pool": [
+   "24",
+   "25",
+   "26"
+  ]
+ },
+ "26": {
+  "accept": [
+   "C",
+   "E",
+   "G"
+  ],
+  "display": "C, E, G  (Q24–26, any order)",
+  "pool": [
+   "24",
+   "25",
+   "26"
+  ]
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "29": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "30": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "31": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "32": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "33": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "34": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "35": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "36": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "37": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

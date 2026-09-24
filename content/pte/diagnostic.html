@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#0D6E63">
+<title>Pioneer Education | PTE Academic Diagnostic</title>
+<style>
+:root{
+  --brand:#0D6E63; --brand-deep:#084F47; --brand-wash:#E3F1EE; --brand-line:#BEDCD6;
+  --ink:#14201E; --ink-2:#3C4E4B; --grey:#667875; --faint:#8B9B98;
+  --paper:#FFFFFF; --ground:#F6F8F7; --line:#DDE5E3; --line-2:#EDF2F1;
+  --good:#0F7A4D; --good-wash:#E6F4EC;
+  --warn:#A05A06; --warn-wash:#FBF0E1;
+  --bad:#A3251A;  --bad-wash:#FBE9E7;
+  --new:#6B3FA0;  --new-wash:#F0EAF8;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:rgba(13,110,99,.14);}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
+body{
+  margin:0;background:var(--ground);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{margin:0;line-height:1.25;text-wrap:balance;}
+.mono{font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;}
+.wrap{max-width:800px;margin:0 auto;padding:0 16px;}
+
+/* ---------- top bar ---------- */
+.bar{background:linear-gradient(135deg,var(--brand),var(--brand-deep));color:#fff;
+  padding:11px 0;padding-top:calc(11px + env(safe-area-inset-top));
+  position:sticky;top:0;z-index:60;box-shadow:0 2px 10px rgba(0,0,0,.14);}
+.bar .wrap{display:flex;align-items:center;gap:12px;}
+.bar .mk{width:34px;height:34px;border-radius:9px;background:#fff;color:var(--brand-deep);
+  display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;flex-shrink:0;}
+.bar h1{font-size:14.5px;font-weight:700;}
+.bar .sub{font-size:11px;opacity:.9;}
+.bar .grow{flex:1;}
+.clock{background:rgba(255,255,255,.18);padding:6px 13px;border-radius:20px;font-weight:700;
+  font-size:14.5px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.clock.low{background:#fff;color:var(--bad);}
+
+/* ---------- progress ---------- */
+.prog{height:4px;background:var(--line);overflow:hidden;}
+.prog i{display:block;height:100%;background:var(--brand);transition:width .3s;}
+
+/* ---------- cards ---------- */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  padding:22px 18px;margin:18px 0;box-shadow:0 1px 2px rgba(20,32,30,.05);}
+.card h2{font-size:20px;color:var(--brand-deep);margin-bottom:6px;}
+.lede{color:var(--grey);font-size:15px;}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--brand);color:#fff;border:none;border-radius:10px;padding:13px 22px;
+  font:inherit;font-weight:700;font-size:16px;cursor:pointer;min-height:48px;
+  -webkit-appearance:none;appearance:none;touch-action:manipulation;}
+.btn:hover{background:var(--brand-deep);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.btn.ghost{background:var(--paper);color:var(--brand-deep);border:1.5px solid var(--line);}
+.btn.ghost:hover{background:var(--brand-wash);border-color:var(--brand);}
+.btn.rec{background:var(--bad);}
+.btn.rec:hover{background:#8A1E15;}
+.btn.wide{width:100%;}
+.btn.sm{padding:9px 15px;min-height:40px;font-size:14px;}
+
+/* ---------- task frame ---------- */
+.tasktop{display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px;}
+.ttl{flex:1;min-width:200px;}
+.ttl h2{font-size:18px;color:var(--ink);}
+.kind{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--brand);margin-bottom:3px;}
+.chip{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:100px;background:var(--new-wash);color:var(--new);white-space:nowrap;}
+.instr{color:var(--grey);font-size:14.5px;margin:10px 0 16px;line-height:1.6;}
+.coach{background:var(--new-wash);border-left:3px solid var(--new);border-radius:0 9px 9px 0;
+  padding:11px 14px;font-size:13.5px;color:var(--ink-2);margin:0 0 16px;}
+.coach b{color:var(--new);}
+
+/* ---------- stimulus ---------- */
+.stim{background:var(--brand-wash);border:1px solid var(--brand-line);border-radius:11px;
+  padding:16px 16px;font-size:16px;line-height:1.75;margin-bottom:16px;}
+.stim.plain{background:#FCFDFD;border-color:var(--line);}
+.stim p+p{margin-top:12px;}
+.stim .lbl{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--brand);margin-bottom:7px;}
+
+/* ---------- inputs ---------- */
+input[type=text],textarea,select{
+  font:inherit;font-size:16px;background:var(--paper);color:var(--ink);
+  border:1.5px solid var(--line);border-radius:9px;padding:10px 12px;
+  -webkit-appearance:none;appearance:none;max-width:100%;}
+input[type=text]:focus,textarea:focus,select:focus{outline:none;border-color:var(--brand);}
+textarea{width:100%;min-height:150px;resize:vertical;line-height:1.7;}
+select{padding-right:30px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' stroke='%23667875' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+  background-repeat:no-repeat;background-position:right 10px center;}
+.gapsel{display:inline-block;min-width:130px;margin:0 3px;vertical-align:baseline;}
+.wordcount{font-size:12.5px;color:var(--grey);margin-top:7px;font-variant-numeric:tabular-nums;}
+.wordcount.over{color:var(--bad);font-weight:700;}
+.wordcount.ok{color:var(--good);font-weight:700;}
+
+/* ---------- options ---------- */
+.opts{display:flex;flex-direction:column;gap:4px;margin-top:6px;}
+.opts label{display:flex;gap:11px;align-items:flex-start;padding:11px 12px;border-radius:10px;
+  cursor:pointer;border:1.5px solid transparent;font-size:15.5px;line-height:1.5;min-height:46px;}
+.opts label:hover{background:var(--line-2);}
+.opts label.on{background:var(--brand-wash);border-color:var(--brand);}
+.opts input{width:20px;height:20px;margin:2px 0 0;accent-color:var(--brand);flex-shrink:0;}
+
+/* ---------- reorder ---------- */
+.reord{display:flex;flex-direction:column;gap:8px;}
+.ritem{display:flex;gap:10px;align-items:flex-start;background:var(--paper);
+  border:1.5px solid var(--line);border-radius:11px;padding:11px 12px;}
+.ritem .pos{width:26px;height:26px;border-radius:50%;background:var(--brand-wash);color:var(--brand);
+  font-weight:800;font-size:12.5px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.ritem .txt{flex:1;font-size:15px;line-height:1.55;}
+.ritem .mv{display:flex;flex-direction:column;gap:3px;}
+.ritem .mv button{width:32px;height:26px;border:1.5px solid var(--line);background:var(--paper);
+  border-radius:6px;cursor:pointer;font-size:13px;line-height:1;color:var(--brand-deep);
+  display:flex;align-items:center;justify-content:center;padding:0;}
+.ritem .mv button:hover:not(:disabled){background:var(--brand-wash);border-color:var(--brand);}
+.ritem .mv button:disabled{opacity:.3;cursor:default;}
+
+/* ---------- highlight incorrect words ---------- */
+.hiw{font-size:16.5px;line-height:2.1;}
+.hiw w{cursor:pointer;padding:2px 3px;border-radius:5px;border-bottom:2px dotted var(--faint);}
+.hiw w:hover{background:var(--line-2);}
+.hiw w.on{background:var(--bad-wash);color:var(--bad);font-weight:700;border-bottom-color:var(--bad);}
+
+/* ---------- audio / speech ---------- */
+.audio{background:var(--brand-wash);border:1px solid var(--brand-line);border-radius:11px;
+  padding:14px;margin-bottom:16px;}
+.audio .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.audio .state{font-size:13.5px;color:var(--ink-2);flex:1;min-width:140px;}
+.bars{display:flex;gap:3px;align-items:flex-end;height:22px;}
+.bars i{width:4px;background:var(--brand);border-radius:2px;height:5px;}
+.bars.on i{animation:eq .9s ease-in-out infinite;}
+.bars i:nth-child(2){animation-delay:.12s}.bars i:nth-child(3){animation-delay:.24s}
+.bars i:nth-child(4){animation-delay:.36s}.bars i:nth-child(5){animation-delay:.48s}
+@keyframes eq{0%,100%{height:5px}50%{height:20px}}
+@media(prefers-reduced-motion:reduce){.bars.on i{animation:none;height:13px;}}
+
+/* ---------- recorder ---------- */
+.rec{background:#FFF8F7;border:1px solid #F2CFC9;border-radius:11px;padding:14px;margin-bottom:16px;
+  transition:background .18s ease,border-color .18s ease,box-shadow .18s ease;}
+.rec .row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.rec .dot{width:11px;height:11px;border-radius:50%;background:var(--bad);flex-shrink:0;}
+.rec .state{font-size:13.5px;flex:1;min-width:150px;color:var(--ink-2);}
+.rec audio{width:100%;margin-top:11px;display:block;}
+
+/* preparing — amber, calm */
+.rec.prep{background:var(--warn-wash);border-color:#EDD3A8;}
+.rec.prep .dot{background:var(--warn);}
+.rec.prep .state{color:#6E3D04;font-weight:600;}
+
+/* RECORDING — dark and unmistakable */
+.rec.armed{background:#6E140C;border-color:#6E140C;color:#fff;
+  box-shadow:0 0 0 4px rgba(167,37,26,.18);}
+.rec.armed .state{color:#fff;font-weight:700;}
+.rec.armed .mono{color:#fff;}
+.rec.armed .dot{background:#FF6B5A;box-shadow:0 0 0 4px rgba(255,107,90,.28);
+  animation:blink 1s infinite;}
+.rec.armed .live{display:inline-flex;}
+.live{display:none;align-items:center;gap:6px;font-size:11px;font-weight:800;
+  letter-spacing:.1em;text-transform:uppercase;background:#fff;color:#6E140C;
+  padding:3px 9px;border-radius:100px;}
+@keyframes blink{50%{opacity:.25}}
+@media(prefers-reduced-motion:reduce){.rec.armed .dot{animation:none;}}
+
+/* ---------- notices ---------- */
+.note{border-radius:10px;padding:12px 14px;font-size:13.5px;line-height:1.6;margin:14px 0;}
+.note.info{background:var(--brand-wash);border:1px solid var(--brand-line);color:var(--ink-2);}
+.note.warn{background:var(--warn-wash);border:1px solid #EDD3A8;color:#6E3D04;}
+.note.bad{background:var(--bad-wash);border:1px solid #EFC3BD;color:var(--bad);}
+
+/* ---------- nav ---------- */
+.nav{display:flex;gap:10px;margin:22px 0 0;padding-bottom:calc(28px + env(safe-area-inset-bottom));
+  flex-wrap:wrap;}
+.nav .btn{flex:1 1 150px;}
+.nav .btn.skip{flex:0 0 auto;min-width:96px;color:var(--grey);border-color:var(--line);}
+.nav .btn.skip:hover{background:var(--line-2);border-color:var(--faint);color:var(--ink-2);}
+.skiprow{display:flex;justify-content:flex-end;margin-top:10px;}
+
+/* ---------- diagnosis ---------- */
+.dx{border-left:3px solid var(--brand);background:var(--brand-wash);border-radius:0 11px 11px 0;
+  padding:14px 16px;margin:14px 0;font-size:14.5px;line-height:1.7;color:var(--ink-2);}
+.dx b{color:var(--ink);}
+.dxlist{display:flex;flex-direction:column;gap:11px;margin-top:6px;}
+.dxi{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;line-height:1.65;}
+.dxi .mk{flex-shrink:0;width:23px;height:23px;border-radius:7px;display:flex;align-items:center;
+  justify-content:center;font-size:12px;font-weight:800;margin-top:1px;}
+.dxi.good .mk{background:var(--good-wash);color:var(--good);}
+.dxi.bad  .mk{background:var(--bad-wash);color:var(--bad);}
+.dxi.warn .mk{background:var(--warn-wash);color:#6E3D04;}
+.dxi .tx b{color:var(--ink);}
+.plan{counter-reset:p;display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+.plan .step{display:flex;gap:12px;align-items:flex-start;}
+.plan .step::before{counter-increment:p;content:counter(p);flex-shrink:0;
+  width:25px;height:25px;border-radius:50%;background:var(--brand);color:#fff;
+  font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.plan .step .tx{font-size:14.5px;line-height:1.65;color:var(--ink-2);}
+.plan .step .tx b{color:var(--ink);}
+
+/* ---------- teacher panel ---------- */
+.lock{background:#FCFDFD;border:1.5px dashed var(--line);border-radius:12px;padding:18px 16px;
+  text-align:center;}
+.lock p{font-size:13.5px;color:var(--grey);margin-bottom:12px;line-height:1.6;}
+.lockrow{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+.lockrow input{width:150px;text-align:center;letter-spacing:.16em;text-transform:uppercase;}
+.rv{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:12px;}
+.rv .hd{display:flex;gap:10px;align-items:baseline;padding:11px 13px;background:#FCFDFD;
+  border-bottom:1px solid var(--line-2);}
+.rv .hd .n{font-weight:800;font-size:13.5px;color:var(--ink);flex:1;}
+.rv .hd .sc{font-size:12.5px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rv .bd{padding:4px 13px 11px;}
+.qrow{display:grid;grid-template-columns:22px 1fr;gap:9px;padding:8px 0;
+  border-top:1px solid var(--line-2);font-size:13.5px;line-height:1.6;}
+.qrow:first-child{border-top:none;}
+.qrow .st{font-weight:800;font-size:13px;}
+.qrow .yours{color:var(--bad);}
+.qrow .right{color:var(--good);font-weight:700;}
+.qrow .q{color:var(--grey);font-size:12.5px;margin-bottom:2px;}
+.qrow.ok .yours{color:var(--good);}
+.badge{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;padding:2px 8px;border-radius:100px;}
+.badge.skip{background:var(--line-2);color:var(--grey);}
+@media print{
+  .bar,.prog,footer,.noprint{display:none!important;}
+  .card{box-shadow:none;border:1px solid #ccc;break-inside:avoid;}
+  body{background:#fff;}
+}
+
+/* ---------- results ---------- */
+.scorehead{text-align:center;padding:10px 0 4px;}
+.bigscore{font-size:52px;font-weight:800;color:var(--brand-deep);line-height:1;
+  font-variant-numeric:tabular-nums;}
+.bigscore small{font-size:16px;color:var(--grey);font-weight:600;}
+.skills{display:flex;flex-direction:column;gap:12px;margin:22px 0;}
+.skill{display:grid;grid-template-columns:118px 1fr 54px;gap:11px;align-items:center;}
+.skill .nm{font-weight:700;font-size:14.5px;}
+.skill .track{height:11px;border-radius:6px;background:var(--line-2);overflow:hidden;}
+.skill .track i{display:block;height:100%;border-radius:6px;background:var(--brand);}
+.skill .val{text-align:right;font-weight:800;font-variant-numeric:tabular-nums;font-size:15px;}
+.skill.est .track i{background:repeating-linear-gradient(45deg,var(--faint),var(--faint) 5px,#C3CFCD 5px,#C3CFCD 10px);}
+@media(max-width:480px){.skill{grid-template-columns:96px 1fr 46px;gap:8px;}}
+
+table.brk{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px;}
+table.brk th,table.brk td{padding:9px 8px;text-align:left;border-bottom:1px solid var(--line-2);}
+table.brk th{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);
+  font-weight:700;border-bottom:1px solid var(--line);}
+table.brk td.n{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap;}
+.tick{color:var(--good);font-weight:800;}
+.cross{color:var(--bad);font-weight:800;}
+.pend{color:var(--warn);font-weight:700;font-size:12.5px;}
+
+.revq{border-top:1px solid var(--line-2);padding:12px 0;}
+.revq:first-child{border-top:none;}
+.revq .qh{font-weight:700;font-size:14px;margin-bottom:3px;}
+.revq .ln{font-size:13.5px;color:var(--ink-2);}
+.revq .ln b{color:var(--ink);}
+
+
+/* ---------- question-weight chart ---------- */
+.wlegend{font-size:12.5px;color:var(--grey);line-height:2.1;margin:14px 0 4px;}
+.wlist{display:flex;flex-direction:column;gap:15px;margin-top:14px;}
+.wq-h{display:flex;align-items:baseline;gap:10px;}
+.wq-n{flex:1;font-weight:700;font-size:14px;line-height:1.35;}
+.wq-c{font-weight:800;font-size:13px;color:var(--ink-2);white-space:nowrap;}
+.wq-bar{height:9px;border-radius:5px;background:var(--line-2);overflow:hidden;margin:5px 0 6px;}
+.wq-bar i{display:block;height:100%;border-radius:5px;}
+.wq-bar i.p-Speaking{background:var(--brand);}
+.wq-bar i.p-Reading{background:#2E6FA8;}
+.wq-bar i.p-Listening{background:#6B3FA0;}
+.wq-bar i.p-Writing{background:#A05A06;}
+.wq-m{display:flex;flex-wrap:wrap;gap:5px;}
+.wq-note{font-size:12.5px;color:var(--grey);line-height:1.55;margin-top:5px;}
+.tag{font-size:10.5px;font-weight:700;letter-spacing:.03em;padding:2px 8px;border-radius:100px;
+  background:var(--line-2);color:var(--ink-2);white-space:nowrap;}
+.tag.p-Speaking{background:var(--brand-wash);color:var(--brand-deep);}
+.tag.p-Reading{background:#E4EEF7;color:#1F4E76;}
+.tag.p-Listening{background:var(--new-wash);color:var(--new);}
+.tag.p-Writing{background:var(--warn-wash);color:#6E3D04;}
+.tag.sk{background:#fff;border:1px solid var(--line);color:var(--grey);}
+.tag.pc{background:var(--good-wash);color:var(--good);}
+.tag.ci{background:var(--bad-wash);color:var(--bad);}
+.tag.ns{background:var(--line-2);color:var(--faint);}
+.tag.dm{background:#EFEAFB;color:var(--new);}
+
+.hidden{display:none!important;}
+footer{text-align:center;color:var(--faint);font-size:11.5px;padding:26px 16px 34px;line-height:1.7;}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="mk">PE</div>
+    <div>
+      <h1>Pioneer Education Center</h1>
+      <div class="sub" id="barSub">PTE Academic — Skills Diagnostic</div>
+    </div>
+    <div class="grow"></div>
+    <div class="clock hidden" id="clock">--:--</div>
+  </div>
+</div>
+<div class="prog"><i id="prog" style="width:0%"></i></div>
+
+<div class="wrap" id="app"></div>
+
+<footer>
+  Pioneer Education Center · Morinda &amp; Kurali, Punjab<br>
+  PTE Academic® is a trademark of Pearson. Pioneer Education Center is not affiliated with,
+  approved by or endorsed by Pearson. This is original practice material, not an official PTE test,
+  and the scores it gives are an indication only.
+</footer>
+
+<script>
+"use strict";
+
+/* ============================================================
+   PTE ACADEMIC DIAGNOSTIC — 22 task types, post-Aug-2025 pattern
+   All passages, prompts and scripts below are original.
+   ============================================================ */
+
+/* ── Teacher code ──────────────────────────────────────────────
+   Change this to whatever you want. It unlocks the answer review
+   and the list of past attempts at the bottom of the results page.
+   Keep it in CAPITALS.                                          */
+const TEACHER_CODE = "PIONEER";
+
+const TASKS = [
+
+/* ══════════ PART 1 — SPEAKING & WRITING ══════════ */
+{
+  part:"Speaking", kind:"Personal Introduction", type:"speak",
+  title:"Introduce yourself",
+  unscored:true, prep:25, answer:30,
+  instr:"Read the prompt, then speak into your microphone. This task is not scored in the real exam — it is sent to the institutions you apply to.",
+  prompt:"You have 25 seconds to prepare. Please speak for 30 seconds about yourself, your interests, your study plans and why you want to study abroad."
+},
+{
+  part:"Speaking", kind:"Read Aloud", type:"speak", skills:["S"],
+  title:"Read the text aloud",
+  prep:35, answer:35,
+  instr:"Look at the text below. In 35 seconds you must read this text aloud as naturally and as clearly as possible.",
+  prompt:"Coastal mangrove forests occupy a narrow band between land and sea, yet they store up to four times more carbon per hectare than tropical rainforest. Their tangled roots trap sediment, slow storm surges and shelter juvenile fish, which makes them valuable both as a carbon sink and as a nursery for coastal fisheries."
+},
+{
+  part:"Speaking", kind:"Repeat Sentence", type:"speak", skills:["S","L"],
+  title:"Repeat the sentence",
+  listen:"The committee agreed to postpone the decision until the funding review is complete.",
+  prep:0, answer:15, autoplay:true,
+  instr:"You will hear a sentence. Please repeat the sentence exactly as you hear it. You will hear the sentence only once."
+},
+{
+  part:"Speaking", kind:"Repeat Sentence", type:"speak", skills:["S","L"],
+  title:"Repeat the sentence",
+  listen:"Most first-year students underestimate how much independent reading the course requires.",
+  prep:0, answer:15, autoplay:true,
+  instr:"You will hear a sentence. Please repeat the sentence exactly as you hear it. You will hear the sentence only once."
+},
+{
+  part:"Speaking", kind:"Describe Image", type:"speak", skills:["S"],
+  title:"Describe the image",
+  prep:25, answer:40, chart:true,
+  instr:"Look at the chart below. In 25 seconds, please prepare to speak about it. You will have 40 seconds to give your response."
+},
+{
+  part:"Speaking", kind:"Re-tell Lecture", type:"speak", skills:["S","L"],
+  title:"Re-tell the lecture",
+  listen:"Archaeologists working in northern Peru have re-dated a group of irrigation canals that were long assumed to be about two thousand years old. New sediment analysis suggests the earliest channels were cut roughly five thousand years ago, which would make them among the oldest engineered waterworks anywhere in the Americas. What matters here is not simply the date. Building canals of that scale requires people to agree on where water goes, who maintains the channels, and how disputes are settled. In other words, it implies a level of social organisation that we previously placed much later in the record. Some researchers now argue that irrigation did not follow the rise of complex society, but helped to produce it.",
+  prep:10, answer:40, autoplay:true,
+  instr:"You will hear a short lecture. After the lecture, you will have 10 seconds to prepare, then 40 seconds to re-tell what you heard in your own words."
+},
+{
+  part:"Speaking", kind:"Answer Short Question", type:"speak", skills:["L"], short:true,
+  title:"Answer the question",
+  listen:"What do we call the frozen water that falls from clouds in soft white flakes?",
+  prep:0, answer:10, autoplay:true,
+  instr:"You will hear a question. Please give a simple and short answer — often only one or two words."
+},
+{
+  part:"Speaking", kind:"Answer Short Question", type:"speak", skills:["L"], short:true,
+  title:"Answer the question",
+  listen:"If you want to borrow a book for your research, which building on campus would you go to?",
+  prep:0, answer:10, autoplay:true,
+  instr:"You will hear a question. Please give a simple and short answer — often only one or two words."
+},
+{
+  part:"Speaking", kind:"Respond to a Situation", type:"speak", skills:["S"], isNew:true,
+  title:"Respond to the situation",
+  prep:10, answer:40,
+  coach:"<b>New in August 2025.</b> The examiner is listening for natural, appropriate spoken English — the right level of politeness for the situation, not a memorised template. Speak as you would to a real person.",
+  instr:"You will hear and read a description of a situation. Prepare for 10 seconds, then respond for 40 seconds as if you were speaking to the person described.",
+  listen:"You borrowed a friend's laptop for a presentation and accidentally spilled water on the keyboard. It still works, but some keys are sticking. You are meeting your friend to return it. What do you say?",
+  prompt:"You borrowed a friend's laptop for a presentation and accidentally spilled water on the keyboard. It still works, but some keys are sticking. You are meeting your friend to return it. What do you say?"
+},
+{
+  part:"Speaking", kind:"Summarize Group Discussion", type:"speak", skills:["S","L"], isNew:true,
+  title:"Summarize the group discussion",
+  prep:10, answer:120, autoplay:true,
+  coach:"<b>New in August 2025.</b> You must summarise <i>all three</i> speakers, not just the one you remember best. Note who said what — examiners look for whether you separate the different positions.",
+  instr:"You will hear three students discussing a topic. Take notes. You will then have 10 seconds to prepare and 120 seconds to summarise the discussion, covering the views of all three speakers.",
+  listen:"Priya: I still think the university should make attendance compulsory. When lectures are optional, the students who are already struggling are the ones who stop coming, and nobody notices until the exam. ... Daniel: I'd push back on that. Compulsory attendance measures presence, not learning. I've sat through lectures where I understood nothing, and I've learned more from a recorded lecture I could pause and replay. If the lecture is good, people come. ... Aisha: You're both assuming it's one rule for everyone. I'd separate it. Make the small group seminars compulsory, because those genuinely fall apart if half the room is missing, and leave the big lectures optional with recordings. That way we protect the sessions that depend on participation without forcing people into a hall where they're just transcribing slides."
+},
+{
+  part:"Writing", kind:"Summarize Written Text", type:"write", skills:["W","R"],
+  title:"Summarize the text in one sentence",
+  minutes:8, minWords:5, maxWords:75, oneSentence:true,
+  instr:"Read the passage below and summarise it using <b>one single sentence</b>. Type your response in the box. You have 8 minutes. Your response will be judged on the quality of your writing and on how well it captures the key points.",
+  passage:[
+    "For most of the twentieth century, urban planners treated rainfall as waste. Streets were graded to shed water quickly into drains, drains fed culverts, and culverts discharged into rivers well beyond the city edge. The logic was straightforward: standing water was associated with disease, and moving it away fast seemed obviously desirable.",
+    "That assumption is now being reversed. As cities expanded, the proportion of sealed surface rose, and drainage systems designed for a wetter-but-gentler climate began to fail under short, intense downpours. Water that once soaked slowly into soil now arrives at the drain within minutes, all at once, and overwhelms it.",
+    "The response, often called sponge city design, deliberately slows water down. Permeable paving lets rain through rather than over. Shallow planted depressions beside roads hold run-off for a few hours and release it gradually. Rooftop gardens absorb a first flush before it ever reaches the ground. None of these measures is individually dramatic; their effect is cumulative.",
+    "Early results from pilot districts in several Asian and European cities suggest peak run-off reductions of between forty and seventy per cent, alongside measurable cooling in summer. The difficulty is not technical but institutional: such schemes cross the boundaries of drainage, parks, transport and housing departments, and few cities have a budget line that belongs to all four at once."
+  ],
+  key:{
+    mustCover:[
+      {label:"the old approach — drain water away fast", any:["drain","drainage","away","shed","rapid","quick"]},
+      {label:"why it fails now — sealed surfaces, intense rain", any:["sealed","impermeable","paved","intense","downpour","overwhelm","surface"]},
+      {label:"the sponge city solution — slow water down / absorb", any:["sponge","slow","absorb","permeable","soak","retain","green"]},
+      {label:"the obstacle — departments, not technology", any:["department","institution","budget","administrat","cross","coordinat","organis","organiz"]}
+    ]
+  }
+},
+
+/* ══════════ PART 2 — READING ══════════ */
+{
+  part:"Reading", kind:"Reading & Writing: Fill in the Blanks", type:"rwfib", skills:["R"],
+  title:"Choose the best word for each gap",
+  instr:"Below is a text with blanks. Click on each blank and choose the correct word from the list.",
+  text:"Peer review is often described as the {{1}} of scientific publishing, yet the practice is more recent than most people assume. Before the middle of the twentieth century, editors frequently accepted papers on their own judgement. The system that replaced this was designed to {{2}} errors before publication, but it has never been a guarantee of correctness. Reviewers are unpaid, working to deadlines, and rarely able to {{3}} the underlying data. What peer review reliably filters out is work that is obviously flawed; what it cannot {{4}} is a result that is wrong in a subtle or unexpected way.",
+  gaps:{
+    "1":{options:["cornerstone","cornerpiece","doorstep","landmark"], answer:"cornerstone"},
+    "2":{options:["catch","grab","seize","fetch"], answer:"catch"},
+    "3":{options:["reproduce","reproduct","reprocess","reproach"], answer:"reproduce"},
+    "4":{options:["detect","deduct","deflect","depict"], answer:"detect"}
+  }
+},
+{
+  part:"Reading", kind:"Multiple Choice, Multiple Answers", type:"mcma", skills:["R"],
+  title:"Choose all the correct answers",
+  instr:"Read the text and answer the question by selecting <b>all</b> the correct responses. More than one response is correct. <b>Every wrong choice loses a mark</b>, so do not guess.",
+  passage:[
+    "The idea that a language dies when its last fluent speaker dies is tidy but misleading. Linguists working on endangered languages increasingly describe a long intermediate period, sometimes lasting three generations, in which the language is still known but no longer transmitted to children. During this period speakers may retain rich vocabulary for traditional activities while losing the grammatical complexity needed to form new sentences spontaneously.",
+    "This matters for revival efforts. A community that has documented word lists but no recordings of connected speech may be able to reconstruct nouns and greetings, but not the syntax that makes the language usable. Several successful revivals — Hebrew being the most cited, though it is an unusual case — depended on the existence of substantial written texts. Where no such corpus exists, what is recovered is often better described as a new language built on old material."
+  ],
+  question:"According to the text, which of the following are true?",
+  options:[
+    {l:"A", t:"A language can be known by adults while no longer being passed to children."},
+    {l:"B", t:"Word lists alone are usually sufficient for a full revival."},
+    {l:"C", t:"Loss of grammatical complexity can precede the loss of vocabulary."},
+    {l:"D", t:"Hebrew is presented as a typical example of language revival."},
+    {l:"E", t:"A revival without a substantial corpus may produce something different from the original."}
+  ],
+  answer:["A","C","E"]
+},
+{
+  part:"Reading", kind:"Re-order Paragraphs", type:"reorder", skills:["R"],
+  title:"Put the paragraphs in the correct order",
+  instr:"The text boxes below are in the wrong order. Use the arrows to move them into the correct order.",
+  items:[
+    {id:"a", t:"The result was a map of the sea floor that looked nothing like the flat plain textbooks had described. Instead there were ridges, trenches and vast mountain chains."},
+    {id:"b", t:"During the Second World War, naval vessels were fitted with echo sounders to detect submarines, bouncing sound off objects beneath the ship."},
+    {id:"c", t:"Those instruments were also, incidentally, recording the depth of the ocean floor every few seconds along thousands of kilometres of shipping route."},
+    {id:"d", t:"Explaining those features required a mechanism that could move the sea floor itself — and within two decades that mechanism had a name: plate tectonics."}
+  ],
+  answer:["b","c","a","d"]
+},
+{
+  part:"Reading", kind:"Reading: Fill in the Blanks", type:"rfib", skills:["R"],
+  title:"Drag the words into the gaps",
+  instr:"In the text below some words are missing. Choose the correct word for each blank from the list. There are more words than blanks.",
+  text:"Sleep researchers distinguish between the total amount of sleep a person gets and its {{1}}. Two people may both spend eight hours in bed, but if one of them wakes repeatedly, the restorative deep stages are {{2}} and the benefit is much reduced. This helps explain why simply going to bed earlier does not always {{3}} daytime alertness.",
+  bank:["quality","quantity","fragmented","extended","improve","imply"],
+  gaps:{"1":{answer:"quality"},"2":{answer:"fragmented"},"3":{answer:"improve"}}
+},
+{
+  part:"Reading", kind:"Multiple Choice, Single Answer", type:"mcsa", skills:["R"],
+  title:"Choose the single best answer",
+  instr:"Read the text and answer the multiple-choice question by selecting the correct response. Only one response is correct.",
+  passage:[
+    "It is commonly claimed that the average attention span has collapsed in the smartphone era. The figure usually quoted — a fall to around eight seconds — traces back to a single consultancy summary with no published methodology, and psychologists who study attention have repeatedly failed to reproduce it. Attention, they point out, is not a fixed quantity but a function of task, motivation and context: the same person who abandons a news article after twenty seconds may watch a three-hour film without checking their phone. What has plausibly changed is not capacity but competition — the number of things now bidding for that attention at any moment."
+  ],
+  question:"What is the writer's main point?",
+  options:[
+    {l:"A", t:"Attention spans have measurably declined since smartphones became common."},
+    {l:"B", t:"The widely quoted decline is poorly evidenced, and competition for attention is the real change."},
+    {l:"C", t:"People are better at concentrating on films than on written text."},
+    {l:"D", t:"Psychologists have proved that attention span is a fixed quantity."}
+  ],
+  answer:"B"
+},
+
+/* ══════════ PART 3 — LISTENING ══════════ */
+{
+  part:"Listening", kind:"Summarize Spoken Text", type:"write", skills:["L","W"],
+  title:"Summarize the recording",
+  minutes:6, minWords:50, maxWords:70,
+  instr:"You will hear a short lecture. Write a summary for a fellow student who was not present. You should write <b>50–70 words</b>. You have 6 minutes.",
+  listen:"There's a persistent belief that creativity belongs to individuals — the lone genius in the workshop. When historians actually trace where significant inventions come from, that picture rarely survives contact with the evidence. Take the light bulb. Edison is credited with it, but at least twenty people had produced working incandescent lamps before him. What Edison did differently was assemble a laboratory of skilled staff, and, crucially, design not just a bulb but the whole electrical system it needed to be useful. The lesson historians draw is that invention is usually recombination — taking components that already exist and connecting them in a way nobody had bothered to try. That has a practical implication. If you want more innovation, the most effective thing is often not to search harder for brilliant individuals, but to put people with different bodies of knowledge in the same room and give them a reason to talk.",
+  key:{
+    mustCover:[
+      {label:"the myth of the lone inventor", any:["lone","individual","genius","alone","single","myth","belief"]},
+      {label:"Edison as the example", any:["edison","bulb","lamp","light"]},
+      {label:"invention as recombination / building a system", any:["recombin","combin","existing","system","connect","assembl","team","laborator"]},
+      {label:"the practical implication — mix different knowledge", any:["different","diverse","together","room","collaborat","talk","mix","knowledge"]}
+    ]
+  }
+},
+{
+  part:"Listening", kind:"Multiple Choice, Multiple Answers", type:"mcma", skills:["L"],
+  title:"Choose all the correct answers",
+  instr:"Listen to the recording and answer the question by selecting <b>all</b> the correct responses. <b>Every wrong choice loses a mark.</b>",
+  listen:"A quick note on the fieldwork next month. Three things have changed since the handbook was printed. First, the coach now leaves at seven, not eight — that was to avoid the roadworks on the bypass. Second, you no longer need to bring your own soil sampling kits; the department has bought a class set, so leave yours at home. And third, and this one is important, the written site report is now due the Friday after we return, not the Monday. The accommodation and the cost are both unchanged.",
+  question:"Which THREE changes does the speaker mention?",
+  options:[
+    {l:"A", t:"The departure time is earlier."},
+    {l:"B", t:"The accommodation has changed."},
+    {l:"C", t:"Students no longer need to bring sampling kits."},
+    {l:"D", t:"The report deadline has moved earlier."},
+    {l:"E", t:"The cost has increased."}
+  ],
+  answer:["A","C","D"]
+},
+{
+  part:"Listening", kind:"Fill in the Blanks", type:"lfib", skills:["L"],
+  title:"Type the missing words",
+  instr:"You will hear a recording. Type the missing words in each blank.",
+  listen:"The most common mistake in a first research proposal is choosing a question that is too broad. A supervisor will usually tell you to narrow it, and students often resist, because a narrow question feels less important. In practice the opposite is true: a narrow question can actually be answered within the time available, and a genuine answer to a small question is worth far more than a vague gesture at a large one.",
+  text:"The most common mistake in a first research proposal is choosing a question that is too {{1}}. A supervisor will usually tell you to {{2}} it, and students often resist, because a narrow question feels less important. In practice the opposite is true: a narrow question can actually be {{3}} within the time available, and a genuine answer to a small question is worth far more than a vague {{4}} at a large one.",
+  gaps:{"1":{answer:"broad"},"2":{answer:"narrow"},"3":{answer:"answered"},"4":{answer:"gesture"}}
+},
+{
+  part:"Listening", kind:"Highlight Correct Summary", type:"mcsa", skills:["L","R"],
+  title:"Choose the best summary",
+  instr:"You will hear a recording. Click on the paragraph that best relates to the recording.",
+  listen:"People assume that adding more lanes to a congested motorway will reduce congestion. Over a period of a few months, it usually does. Over a period of a few years, it usually does not. The reason is that the original congestion was suppressing demand: some people were avoiding that route, travelling at awkward hours, or not making the journey at all. When capacity increases, those journeys reappear, and the road fills up again. Transport economists call this induced demand, and it has been observed consistently enough that the burden of proof now sits with anyone claiming a widening scheme will deliver lasting relief.",
+  options:[
+    {l:"A", t:"Widening a motorway reduces congestion in the short term, but journeys that were previously suppressed reappear and fill the new capacity — a well-documented effect called induced demand."},
+    {l:"B", t:"Motorway widening schemes are usually too expensive to justify, and transport economists recommend investing the money in public transport instead."},
+    {l:"C", t:"Congestion on motorways is caused mainly by people travelling at awkward hours, which is why off-peak pricing is the most effective solution."},
+    {l:"D", t:"Adding lanes to a motorway permanently reduces congestion, provided the scheme is large enough and the surrounding roads are improved at the same time."}
+  ],
+  answer:"A"
+},
+{
+  part:"Listening", kind:"Multiple Choice, Single Answer", type:"mcsa", skills:["L"],
+  title:"Choose the single best answer",
+  instr:"Listen to the recording and answer the multiple-choice question by selecting the correct response.",
+  listen:"I want to flag something about your reading lists. The list is not a shopping list. You are not expected to read every item, and a student who reads all twelve texts superficially will do worse than a student who reads four of them properly and can say something about how they disagree with each other. Use the list to find the argument, not to tick off titles.",
+  question:"What is the speaker's main advice?",
+  options:[
+    {l:"A", t:"Students should read every text on the list."},
+    {l:"B", t:"Reading fewer texts carefully is better than skimming all of them."},
+    {l:"C", t:"Reading lists should be shorter than twelve items."},
+    {l:"D", t:"Students should choose texts that agree with one another."}
+  ],
+  answer:"B"
+},
+{
+  part:"Listening", kind:"Select Missing Word", type:"mcsa", skills:["L"],
+  title:"Select the missing word",
+  instr:"You will hear a recording. At the end of the recording the last word or group of words has been replaced by a beep. Select the correct option to complete the recording.",
+  listen:"One thing that surprises new lab students is how much of the work is not experiment at all. Preparing samples, calibrating instruments, cleaning glassware, recording conditions — on a typical day the actual measurement might take twenty minutes out of seven hours. The measurement is the part that gets published, but it rests entirely on the... beep.",
+  options:[
+    {l:"A", t:"preparation"},
+    {l:"B", t:"publication"},
+    {l:"C", t:"supervision"},
+    {l:"D", t:"speculation"}
+  ],
+  answer:"A"
+},
+{
+  part:"Listening", kind:"Highlight Incorrect Words", type:"hiw", skills:["L","R"],
+  title:"Click the words that differ from the recording",
+  instr:"You will hear a recording. Below is a transcription. Some words in the transcription differ from what the speaker says. Click on those words. <b>Every wrong click loses a mark.</b>",
+  listen:"Glaciers are often described as rivers of ice, and the comparison is more exact than it sounds. Ice under enough pressure behaves as a very slow fluid, deforming rather than breaking, which is why a glacier can bend around a valley wall instead of shattering against it.",
+  shown:"Glaciers are often described as rivers of ice, and the comparison is more precise than it sounds. Ice under enough pressure behaves as a very slow liquid, deforming rather than breaking, which is why a glacier can bend around a mountain wall instead of shattering against it.",
+  wrong:[10, 20, 32]
+},
+{
+  part:"Listening", kind:"Write from Dictation", type:"dictation", skills:["L","W"],
+  title:"Write the sentence you hear",
+  instr:"You will hear a sentence. Type the sentence in the box exactly as you hear it. You will hear the sentence only once.",
+  listen:"The library extension will remain closed until the end of the semester.",
+  answer:"The library extension will remain closed until the end of the semester"
+},
+{
+  part:"Listening", kind:"Write from Dictation", type:"dictation", skills:["L","W"],
+  title:"Write the sentence you hear",
+  instr:"You will hear a sentence. Type the sentence in the box exactly as you hear it. You will hear the sentence only once.",
+  listen:"Students must submit their research proposals before the deadline next Friday.",
+  answer:"Students must submit their research proposals before the deadline next Friday"
+},
+
+/* ══════════ PART 4 — OPTIONAL ══════════ */
+{
+  part:"Writing", kind:"Write Essay", type:"write", skills:["W"], optional:true,
+  title:"Write an essay",
+  minutes:20, minWords:200, maxWords:300,
+  instr:"You will have 20 minutes to plan, write and revise an essay. Write <b>200–300 words</b>.",
+  prompt:"Some people believe that students learn more from working in groups than from studying alone. Others argue that individual study produces deeper understanding. Discuss both views and give your own opinion.",
+  key:{ essay:true }
+}
+];
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let idx = -1;            // -1 = intro screen
+let student = "";
+let answers = {};        // per task index
+let recordings = {};     // per task index -> {url, blob}
+let skipped = {};        // per task index -> true if the student skipped it
+let taskTimer = null;
+let phase = "idle";      // idle | listening | prep | answering | working
+let startedAt = 0;
+let finished = false;
+let voice = null;
+
+const $ = s => document.querySelector(s);
+const app = () => $("#app");
+const scored = TASKS.filter(t => !t.unscored);
+
+/* ---------- speech synthesis (no audio files needed) ---------- */
+function pickVoice(){
+  const vs = window.speechSynthesis ? speechSynthesis.getVoices() : [];
+  if(!vs.length) return null;
+  const pref = [/en-GB/i, /en-AU/i, /en-US/i, /^en/i];
+  for(const p of pref){
+    const v = vs.find(x => p.test(x.lang) && !/google/i.test(x.name)) || vs.find(x => p.test(x.lang));
+    if(v) return v;
+  }
+  return vs[0];
+}
+if(window.speechSynthesis){
+  speechSynthesis.onvoiceschanged = () => {
+    voice = pickVoice();
+    const w = document.getElementById("voiceWarn");
+    if(w) w.classList.toggle("hidden", hasVoice());
+  };
+  voice = pickVoice();
+}
+/* Split into pieces a speech engine can actually finish. Chrome and iOS Safari
+   both cut an utterance off after roughly fifteen seconds, so long passages are
+   broken at sentence boundaries and queued one at a time. "..." marks a speaker
+   change in the group-discussion task and gets a longer pause. */
+function speechChunks(text){
+  const out = [];
+  const blocks = text.split("...");
+  blocks.forEach(block => {
+    block = block.trim();
+    if(!block) return;
+    const sentences = block.match(/[^.!?]+[.!?]*\s*/g) || [block];
+    let buf = "";
+    sentences.forEach(s => {
+      if((buf + s).length > 170 && buf){ out.push({t:buf.trim(), gap:0}); buf = s; }
+      else buf += s;
+    });
+    if(buf.trim()) out.push({t:buf.trim(), gap:0});
+    if(out.length && blocks.length > 1) out[out.length-1].gap = 550;
+  });
+  return out.length ? out : [{t:text, gap:0}];
+}
+
+let speakToken = 0;
+function speak(text, onEnd){
+  const myToken = ++speakToken;
+  if(!window.speechSynthesis){ simulateSpeech(text, onEnd, myToken); return; }
+  try{ speechSynthesis.cancel(); }catch(e){}
+
+  const chunks = speechChunks(text);
+  let i = 0;
+
+  /* Chrome stops speaking after ~15s unless it is nudged. */
+  const keepAlive = setInterval(() => {
+    if(myToken !== speakToken){ clearInterval(keepAlive); return; }
+    try{ if(speechSynthesis.speaking && !speechSynthesis.paused) speechSynthesis.resume(); }catch(e){}
+  }, 5000);
+
+  const done = () => { clearInterval(keepAlive); if(myToken === speakToken) onEnd && onEnd(); };
+
+  const next = () => {
+    if(myToken !== speakToken){ clearInterval(keepAlive); return; }
+    if(i >= chunks.length){ done(); return; }
+    const c = chunks[i++];
+    let moved = false;
+    const advance = () => {
+      if(moved || myToken !== speakToken) return;
+      moved = true;
+      clearTimeout(guard);
+      setTimeout(next, c.gap || 0);
+    };
+    /* If the engine never reports back — no installed voice, a locked-down
+       WebView — move on anyway rather than trapping the student on a screen
+       whose Next button is disabled. */
+    const budget = Math.max(4000, words(c.t).length * 460 + 3000);
+    const guard = setTimeout(advance, budget);
+    try{
+      const u = new SpeechSynthesisUtterance(c.t);
+      if(voice) u.voice = voice;
+      u.rate = 0.95; u.pitch = 1; u.volume = 1;
+      u.onend = advance;
+      u.onerror = advance;
+      speechSynthesis.speak(u);
+    }catch(e){ advance(); }
+  };
+  next();
+}
+
+/* No speech engine at all: hold the screen for a realistic length of time so
+   the timing of the task is still honest, then carry on. */
+function simulateSpeech(text, onEnd, myToken){
+  const ms = Math.max(4000, words(text).length * 430);
+  setTimeout(() => { if(myToken === speakToken) onEnd && onEnd(); }, ms);
+}
+
+function stopSpeech(){
+  speakToken++;
+  if(window.speechSynthesis){ try{ speechSynthesis.cancel(); }catch(e){} }
+}
+/* iOS Safari refuses to speak unless the very first utterance is queued inside
+   a real tap. Burn one silent utterance on the start button. */
+function primeSpeech(){
+  if(!window.speechSynthesis) return;
+  try{
+    const u = new SpeechSynthesisUtterance(" ");
+    u.volume = 0; if(voice) u.voice = voice;
+    speechSynthesis.speak(u);
+  }catch(e){}
+}
+function hasVoice(){
+  try{ return !!(window.speechSynthesis && speechSynthesis.getVoices().length); }
+  catch(e){ return false; }
+}
+
+/* ---------- microphone ---------- */
+let mediaStream = null, recorder = null, chunks = [];
+async function ensureMic(){
+  if(mediaStream) return mediaStream;
+  mediaStream = await navigator.mediaDevices.getUserMedia({audio:true});
+  return mediaStream;
+}
+async function startRec(){
+  const s = await ensureMic();
+  chunks = [];
+  const mime = ["audio/webm","audio/mp4","audio/ogg"].find(m => window.MediaRecorder && MediaRecorder.isTypeSupported(m));
+  recorder = new MediaRecorder(s, mime ? {mimeType:mime} : undefined);
+  recorder.ondataavailable = e => { if(e.data.size) chunks.push(e.data); };
+  recorder.start();
+}
+function stopRec(){
+  return new Promise(res => {
+    if(!recorder || recorder.state === "inactive"){ res(null); return; }
+    recorder.onstop = () => {
+      const blob = new Blob(chunks, {type: recorder.mimeType || "audio/webm"});
+      res(blob.size ? blob : null);
+    };
+    recorder.stop();
+  });
+}
+
+/* ---------- helpers ---------- */
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const mmss = t => `${String(Math.floor(t/60)).padStart(2,"0")}:${String(Math.max(0,t%60)).padStart(2,"0")}`;
+const norm = s => String(s??"").toLowerCase().replace(/[^a-z0-9]/g,"");
+const words = s => String(s??"").trim().split(/\s+/).filter(Boolean);
+
+function setClock(sec, show){
+  const c = $("#clock");
+  c.classList.toggle("hidden", !show);
+  if(!show) return;
+  c.textContent = mmss(sec);
+  c.classList.toggle("low", sec <= 10);
+}
+function setProgress(){
+  $("#prog").style.width = ((Math.max(0,idx) / TASKS.length) * 100).toFixed(1) + "%";
+}
+function clearTimer(){ if(taskTimer){ clearInterval(taskTimer); taskTimer = null; } }
+
+function countdown(sec, onTick, onDone){
+  clearTimer();
+  let left = sec;
+  onTick && onTick(left);
+  taskTimer = setInterval(() => {
+    left--;
+    onTick && onTick(left);
+    if(left <= 0){ clearTimer(); onDone && onDone(); }
+  }, 1000);
+}
+
+/* ============================================================
+   SCREENS
+   ============================================================ */
+function screenIntro(){
+  setClock(0,false); setProgress();
+  app().innerHTML = `
+    <div class="card">
+      <div class="kind">Pioneer Education Center</div>
+      <h2>PTE Academic — Skills Diagnostic</h2>
+      <p class="lede">A short version of the real test that samples every one of the
+        22 task types, so we can see where you actually stand before we plan your course.</p>
+
+      <div class="note info">
+        <b>About 45–50 minutes.</b> This follows the exam pattern introduced on
+        7 August 2025, including the two new speaking tasks —
+        <b>Respond to a Situation</b> and <b>Summarize Group Discussion</b> —
+        that most practice material has not caught up with yet.
+      </div>
+
+      <label for="nm" style="display:block;font-weight:700;font-size:13px;letter-spacing:.04em;
+        text-transform:uppercase;color:var(--grey);margin:18px 0 6px;">Your name</label>
+      <input id="nm" type="text" style="width:100%" placeholder="Enter your full name" autocomplete="name">
+      <div id="nmWarn" class="note bad hidden">Please enter your name first.</div>
+
+      <h3 style="font-size:15px;margin:22px 0 8px;">Before you start</h3>
+      <ul style="padding-left:20px;color:var(--ink-2);font-size:14.5px;line-height:1.85;">
+        <li>Use <b>headphones</b> in a quiet room. Recordings play once, exactly as in the real exam.</li>
+        <li>Your browser will ask for <b>microphone</b> permission — the speaking tasks need it.</li>
+        <li>Each task is timed separately and moves on automatically. You cannot go back.</li>
+        <li>Some tasks lose marks for wrong guesses; those are labelled clearly.</li>
+      </ul>
+
+      <div class="note warn">
+        <b>What this can and cannot do.</b> Reading and Listening are marked automatically
+        using the real PTE rules. Your speaking is recorded for your teacher to listen to —
+        no software here can score pronunciation and fluency the way Pearson's examiners do.
+      </div>
+
+      <div class="note bad hidden" id="voiceWarn">
+        <b>No speech voice found on this device.</b> The listening recordings will not
+        be heard. On Android install a text-to-speech voice under Settings → Accessibility;
+        on a desktop use Chrome, Edge or Safari. You can still take the reading,
+        writing and speaking tasks.
+      </div>
+
+      <div class="nav">
+        <button class="btn wide" id="go" type="button">Check microphone &amp; start →</button>
+      </div>
+    </div>`;
+
+  /* voices often arrive a moment after load, so look twice */
+  const checkVoices = () => {
+    const w = $("#voiceWarn");
+    if(w) w.classList.toggle("hidden", hasVoice());
+  };
+  checkVoices();
+  setTimeout(checkVoices, 900);
+
+  $("#go").addEventListener("click", async () => {
+    const n = $("#nm").value.trim();
+    if(!n){ $("#nmWarn").classList.remove("hidden"); $("#nm").focus(); return; }
+    student = n;
+    // one gesture unlocks both speech synthesis and the microphone on iOS
+    try{ await ensureMic(); }catch(e){
+      $("#nmWarn").className = "note bad";
+      $("#nmWarn").innerHTML = "Microphone blocked. You can still take the test — speaking tasks will not record. Press start again to continue.";
+      $("#nmWarn").classList.remove("hidden");
+      $("#go").textContent = "Start without microphone →";
+      $("#go").onclick = () => { student = $("#nm").value.trim() || "Student"; begin(); };
+      return;
+    }
+    primeSpeech();         // the same gesture unlocks speech on iOS
+    begin();
+  });
+}
+
+function begin(){ startedAt = Date.now(); idx = 0; renderTask(); }
+
+/* ---------- per-task rendering ---------- */
+function renderTask(){
+  clearTimer(); stopSpeech(); setProgress();
+  if(idx >= TASKS.length){ return finish(); }
+  const t = TASKS[idx];
+  $("#barSub").textContent = `Part: ${t.part} · Task ${idx+1} of ${TASKS.length}`;
+  phase = "idle";
+
+  const head = `
+    <div class="tasktop">
+      <div class="ttl">
+        <div class="kind">${esc(t.kind)}</div>
+        <h2>${esc(t.title)}</h2>
+      </div>
+      ${t.isNew ? '<span class="chip">New 2025</span>' : ''}
+      ${t.optional ? '<span class="chip" style="background:var(--warn-wash);color:var(--warn)">Optional</span>' : ''}
+    </div>
+    <p class="instr">${t.instr}</p>
+    ${t.coach ? `<div class="coach">${t.coach}</div>` : ''}`;
+
+  let body = "";
+  if(t.type === "speak")      body = viewSpeak(t);
+  else if(t.type === "write") body = viewWrite(t);
+  else if(t.type === "rwfib" || t.type === "rfib") body = viewSelectGaps(t);
+  else if(t.type === "lfib")  body = viewTypeGaps(t);
+  else if(t.type === "mcma" || t.type === "mcsa") body = viewChoice(t);
+  else if(t.type === "reorder") body = viewReorder(t);
+  else if(t.type === "hiw")   body = viewHiw(t);
+  else if(t.type === "dictation") body = viewDictation(t);
+
+  app().innerHTML = `<div class="card">${head}${body}</div>`;
+  wireTask(t);
+}
+
+/* ---------- views ---------- */
+function viewSpeak(t){
+  return `
+    ${t.listen ? audioBox() : ""}
+    ${t.chart ? chartSvg() : ""}
+    ${t.prompt ? `<div class="stim"><div class="lbl">${t.chart?"Prompt":"Read this"}</div>${esc(t.prompt)}</div>` : ""}
+    <div class="rec" id="recBox">
+      <div class="row">
+        <span class="dot"></span>
+        <span class="live">● Recording</span>
+        <span class="state" id="recState">Recording has not started.</span>
+        <span class="mono" id="recLeft" style="font-weight:700"></span>
+      </div>
+      <audio id="playback" controls class="hidden"></audio>
+    </div>
+    <div class="nav" id="speakNav">
+      ${t.listen
+        ? `<button class="btn wide" id="primary" type="button">Play recording</button>`
+        : (t.prep > 0
+            ? `<button class="btn" id="primary" type="button">Start preparation</button>
+               <button class="btn ghost" id="now" type="button">Start recording now</button>`
+            : `<button class="btn wide rec" id="primary" type="button">Start recording</button>`)}
+    </div>
+    ${skipRow()}`;
+}
+
+/* Every task can be skipped — useful for a teacher demonstrating the test, and
+   for a student who would rather leave a task than sit out the whole timer. */
+function skipRow(){
+  return `<div class="skiprow"><button class="btn ghost sm skip" id="skip" type="button">Skip this task →</button></div>`;
+}
+
+function viewWrite(t){
+  return `
+    ${t.listen ? audioBox() : ""}
+    ${t.passage ? `<div class="stim plain"><div class="lbl">Passage</div>${t.passage.map(p=>`<p>${esc(p)}</p>`).join("")}</div>` : ""}
+    ${t.prompt ? `<div class="stim"><div class="lbl">Essay prompt</div>${esc(t.prompt)}</div>` : ""}
+    <textarea id="wr" placeholder="Type your response here…" spellcheck="false"></textarea>
+    <div class="wordcount" id="wc">0 words · target ${t.minWords}–${t.maxWords}</div>
+    ${t.oneSentence ? '<div class="note warn">This must be <b>one single sentence</b>. A response with more than one full stop scores zero for form in the real exam.</div>' : ''}
+    <div class="nav">
+      ${t.listen ? '<button class="btn ghost" id="primary" type="button">Play recording</button>' : ''}
+      <button class="btn" id="next" type="button" ${t.listen ? 'disabled' : ''}>Next task →</button>
+    </div>
+    ${skipRow()}`;
+}
+
+function viewSelectGaps(t){
+  let html = esc(t.text);
+  Object.keys(t.gaps).forEach(n => {
+    const g = t.gaps[n];
+    const opts = (g.options || t.bank).slice();
+    html = html.replace(`{{${n}}}`,
+      `<select class="gapsel" data-gap="${n}"><option value="">— choose —</option>` +
+      opts.map(o => `<option value="${esc(o)}">${esc(o)}</option>`).join("") + `</select>`);
+  });
+  return `<div class="stim plain" style="line-height:2.4">${html}</div>
+    ${t.bank ? `<div class="note info"><b>Word list:</b> ${t.bank.map(esc).join(" · ")}</div>` : ""}
+    <div class="nav"><button class="btn wide" id="next" type="button">Next task →</button></div>
+    ${skipRow()}`;
+}
+
+function viewTypeGaps(t){
+  let html = esc(t.text);
+  Object.keys(t.gaps).forEach(n => {
+    html = html.replace(`{{${n}}}`,
+      `<input type="text" data-gap="${n}" style="width:140px" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Blank ${n}">`);
+  });
+  return `${audioBox()}
+    <div class="stim plain" style="line-height:2.6">${html}</div>
+    <div class="nav">
+      <button class="btn ghost" id="primary" type="button">Play recording</button>
+      <button class="btn" id="next" type="button" disabled>Next task →</button>
+    </div>
+    ${skipRow()}`;
+}
+
+function viewChoice(t){
+  const multi = t.type === "mcma";
+  return `
+    ${t.listen ? audioBox() : ""}
+    ${t.passage ? `<div class="stim plain"><div class="lbl">Passage</div>${t.passage.map(p=>`<p>${esc(p)}</p>`).join("")}</div>` : ""}
+    ${t.question ? `<p style="font-weight:700;margin-bottom:10px">${esc(t.question)}</p>` : ""}
+    <div class="opts">
+      ${t.options.map(o => `
+        <label data-l="${o.l}">
+          <input type="${multi?"checkbox":"radio"}" name="ch" value="${o.l}">
+          <span><b style="color:var(--brand-deep)">${o.l}</b> &nbsp;${esc(o.t)}</span>
+        </label>`).join("")}
+    </div>
+    <div class="nav">
+      ${t.listen ? '<button class="btn ghost" id="primary" type="button">Play recording</button>' : ''}
+      <button class="btn" id="next" type="button" ${t.listen ? 'disabled' : ''}>Next task →</button>
+    </div>
+    ${skipRow()}`;
+}
+
+function viewReorder(t){
+  return `<div class="reord" id="reord"></div>
+    <div class="nav"><button class="btn wide" id="next" type="button">Next task →</button></div>
+    ${skipRow()}`;
+}
+
+function viewHiw(t){
+  const ws = t.shown.split(/\s+/);
+  return `${audioBox()}
+    <div class="stim plain hiw" id="hiw">
+      ${ws.map((w,i)=>`<w data-i="${i}">${esc(w)}</w>`).join(" ")}
+    </div>
+    <div class="nav">
+      <button class="btn ghost" id="primary" type="button">Play recording</button>
+      <button class="btn" id="next" type="button" disabled>Next task →</button>
+    </div>
+    ${skipRow()}`;
+}
+
+function viewDictation(t){
+  return `${audioBox()}
+    <textarea id="wr" style="min-height:90px" placeholder="Type the sentence you hear…" spellcheck="false"></textarea>
+    <div class="nav">
+      <button class="btn ghost" id="primary" type="button">Play recording</button>
+      <button class="btn" id="next" type="button" disabled>Next task →</button>
+    </div>
+    ${skipRow()}`;
+}
+
+function audioBox(){
+  return `<div class="audio">
+    <div class="row">
+      <div class="bars" id="bars"><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="state" id="audState">Press play when you are ready. It plays once.</span>
+    </div>
+  </div>`;
+}
+
+function chartSvg(){
+  return `<div class="stim plain" style="text-align:center">
+    <div class="lbl" style="text-align:left">Image</div>
+    <svg viewBox="0 0 420 250" style="max-width:100%;height:auto" role="img"
+      aria-label="Bar chart of how students in one department spend a typical study week">
+      <text x="210" y="18" text-anchor="middle" font-size="13" font-weight="700" fill="#14201E">
+        Hours per week, by activity</text>
+      <text x="210" y="34" text-anchor="middle" font-size="10" fill="#667875">
+        Second-year students, one department, 2026 survey</text>
+      ${[0,5,10,15,20].map(v=>`
+        <line x1="46" y1="${210-v*7.5}" x2="408" y2="${210-v*7.5}" stroke="#EDF2F1" stroke-width="1"/>
+        <text x="40" y="${214-v*7.5}" text-anchor="end" font-size="9" fill="#8B9B98">${v}</text>`).join("")}
+      ${[["Lectures",12,"#0D6E63"],["Private study",18,"#0D6E63"],["Lab work",7,"#0D6E63"],
+         ["Group work",4,"#0D6E63"],["Paid job",9,"#0D6E63"]].map((d,i)=>{
+        const x=56+i*72, h=d[1]*7.5;
+        return `<rect x="${x}" y="${210-h}" width="46" height="${h}" fill="${d[2]}" rx="3"/>
+          <text x="${x+23}" y="${205-h}" text-anchor="middle" font-size="10" font-weight="700" fill="#084F47">${d[1]}</text>
+          <text x="${x+23}" y="226" text-anchor="middle" font-size="8.5" fill="#3C4E4B">${d[0].split(" ")[0]}</text>
+          ${d[0].split(" ")[1]?`<text x="${x+23}" y="236" text-anchor="middle" font-size="8.5" fill="#3C4E4B">${d[0].split(" ")[1]}</text>`:""}`;
+      }).join("")}
+      <line x1="46" y1="210" x2="408" y2="210" stroke="#3C4E4B" stroke-width="1.5"/>
+    </svg></div>`;
+}
+
+/* ---------- wiring ---------- */
+function wireTask(t){
+  const nextBtn = $("#next"), primary = $("#primary");
+  const go = () => { saveAnswer(t); idx++; renderTask(); };
+  if(nextBtn) nextBtn.addEventListener("click", go);
+
+  /* ---- skip ---- */
+  const skipBtn = $("#skip");
+  if(skipBtn) skipBtn.addEventListener("click", async () => {
+    skipBtn.disabled = true;
+    clearTimer(); stopSpeech();
+    if(phase === "answering"){ try{ await stopRec(); }catch(e){} }
+    skipped[idx] = true;
+    saveAnswer(t);
+    idx++; renderTask();
+  });
+
+  /* reorder needs live state */
+  if(t.type === "reorder"){
+    const order = t.items.map(i => i.id).sort(() => Math.random() - 0.5);
+    answers[idx] = order;
+    const draw = () => {
+      $("#reord").innerHTML = order.map((id,i) => {
+        const it = t.items.find(x => x.id === id);
+        return `<div class="ritem">
+          <span class="pos">${i+1}</span>
+          <span class="txt">${esc(it.t)}</span>
+          <span class="mv">
+            <button type="button" data-up="${i}" ${i===0?"disabled":""} aria-label="Move up">▲</button>
+            <button type="button" data-dn="${i}" ${i===order.length-1?"disabled":""} aria-label="Move down">▼</button>
+          </span></div>`;
+      }).join("");
+      $("#reord").querySelectorAll("[data-up]").forEach(b => b.onclick = () => {
+        const i = +b.dataset.up; [order[i-1],order[i]] = [order[i],order[i-1]]; draw();
+      });
+      $("#reord").querySelectorAll("[data-dn]").forEach(b => b.onclick = () => {
+        const i = +b.dataset.dn; [order[i+1],order[i]] = [order[i],order[i+1]]; draw();
+      });
+    };
+    draw();
+  }
+
+  /* highlight incorrect words */
+  if(t.type === "hiw"){
+    $("#hiw").addEventListener("click", e => {
+      const w = e.target.closest("w");
+      if(!w || phase === "listening") return;
+      w.classList.toggle("on");
+    });
+  }
+
+  /* word counter */
+  const ta = $("#wr");
+  if(ta && t.minWords){
+    const upd = () => {
+      const n = words(ta.value).length;
+      const el = $("#wc");
+      el.textContent = `${n} words · target ${t.minWords}–${t.maxWords}`;
+      el.className = "wordcount" + (n > t.maxWords ? " over" : (n >= t.minWords ? " ok" : ""));
+    };
+    ta.addEventListener("input", upd); upd();
+  }
+
+  /* ---- listening playback ---- */
+  if(t.listen && primary){
+    let played = false;
+    const play = () => {
+      if(played) return;          // it plays once, exactly as in the real exam
+      played = true;
+      primary.disabled = true;
+      phase = "listening";
+      $("#bars").classList.add("on");
+      $("#audState").textContent = "Playing… listen carefully.";
+      speak(t.listen, () => {
+        const bars = $("#bars"), st = $("#audState");
+        if(bars) bars.classList.remove("on");
+        if(st) st.textContent = "Finished. It cannot be played again.";
+        phase = "idle";
+        if(nextBtn) nextBtn.disabled = false;
+        if(t.type === "speak") afterListenSpeak(t);
+        if(t.type === "write" && t.minutes) startWriteTimer(t, go);
+      });
+    };
+    primary.addEventListener("click", play);
+    if(t.autoplay){
+      /* the real exam starts these on its own — a short lead-in, then it plays.
+         The button still works for anyone who would rather not wait. */
+      const st = $("#audState");
+      if(st) st.textContent = "Playing in 3…";
+      primary.textContent = "Play now";
+      countdown(3, s => { if(st && s > 0) st.textContent = `Playing in ${s}…`; }, play);
+    }
+  }
+
+  /* ---- timed writing tasks ---- */
+  if(t.type === "write" && t.minutes && !t.listen){
+    startWriteTimer(t, go);
+  }
+  /* for a listening + writing task the clock starts when the recording ends —
+     that is handled inside the playback callback above */
+
+  /* ---- speaking without a recording to hear first ---- */
+  if(t.type === "speak" && !t.listen && primary){
+    primary.addEventListener("click", () => { armSpeakButtons(); runSpeakCycle(t, go, false); });
+    const nowBtn = $("#now");
+    if(nowBtn) nowBtn.addEventListener("click", () => { armSpeakButtons(); runSpeakCycle(t, go, true); });
+  }
+}
+
+/* Once a speaking cycle is running, neither button should be pressable again. */
+function armSpeakButtons(){
+  ["#primary","#now"].forEach(s => { const b = $(s); if(b) b.disabled = true; });
+}
+
+function startWriteTimer(t, go){
+  countdown(t.minutes * 60,
+    s => setClock(s, true),
+    () => { setClock(0,false); go(); });
+}
+
+/* The recording has finished playing. Hand control back to the student with
+   both buttons: prepare first, or go straight into the recording. */
+function afterListenSpeak(t){
+  const go = () => { saveAnswer(t); idx++; renderTask(); };
+  const nav = $("#speakNav");
+  if(!nav) return;
+  nav.innerHTML = t.prep > 0
+    ? `<button class="btn" id="primary" type="button">Start preparation (${t.prep}s)</button>
+       <button class="btn ghost" id="now" type="button">Start recording now</button>`
+    : `<button class="btn wide rec" id="primary" type="button">Start recording</button>`;
+  $("#primary").onclick = () => { armSpeakButtons(); runSpeakCycle(t, go, false); };
+  const nowBtn = $("#now");
+  if(nowBtn) nowBtn.onclick = () => { armSpeakButtons(); runSpeakCycle(t, go, true); };
+}
+
+async function runSpeakCycle(t, done, skipPrep){
+  const state = $("#recState"), left = $("#recLeft"), box = $("#recBox");
+  const at = idx;                         // guard against a skip mid-cycle
+  const stale = () => idx !== at;
+
+  const record = async () => {
+    if(stale()) return;
+    phase = "answering";
+    box.classList.remove("prep");
+    box.classList.add("armed");           // dark red — impossible to miss
+    state.textContent = "SPEAK NOW.";
+    try{ await startRec(); }
+    catch(e){ state.textContent = "SPEAK NOW — microphone unavailable, nothing is being saved."; }
+    countdown(t.answer, s => { left.textContent = mmss(s); setClock(s,true); }, async () => {
+      setClock(0,false);
+      const blob = await stopRec();
+      if(stale()) return;
+      box.classList.remove("armed");
+      if(blob){
+        recordings[at] = {blob, url: URL.createObjectURL(blob), kind:t.kind, title:t.title};
+        state.textContent = "Saved. Your teacher will listen to this.";
+        const pb = $("#playback");
+        if(pb){ pb.src = recordings[at].url; pb.classList.remove("hidden"); }
+      }else{
+        state.textContent = "Nothing was recorded.";
+      }
+      left.textContent = "";
+      phase = "idle";
+      setTimeout(() => { if(!stale()) done(); }, 900);
+    });
+  };
+
+  if(t.prep > 0 && !skipPrep){
+    phase = "prep";
+    box.classList.add("prep");
+    state.textContent = "Preparing — think about what you will say.";
+    countdown(t.prep, s => { left.textContent = mmss(s); setClock(s,true); }, record);
+  }else{
+    record();
+  }
+}
+
+/* ---------- capture answers ---------- */
+function saveAnswer(t){
+  clearTimer(); stopSpeech(); setClock(0,false);
+  if(t.type === "write" || t.type === "dictation"){
+    answers[idx] = ($("#wr") && $("#wr").value) || "";
+  } else if(t.type === "rwfib" || t.type === "rfib"){
+    const o = {};
+    document.querySelectorAll("[data-gap]").forEach(el => o[el.dataset.gap] = el.value);
+    answers[idx] = o;
+  } else if(t.type === "lfib"){
+    const o = {};
+    document.querySelectorAll("input[data-gap]").forEach(el => o[el.dataset.gap] = el.value);
+    answers[idx] = o;
+  } else if(t.type === "mcma"){
+    answers[idx] = [...document.querySelectorAll("input[name=ch]:checked")].map(e => e.value);
+  } else if(t.type === "mcsa"){
+    const c = document.querySelector("input[name=ch]:checked");
+    answers[idx] = c ? c.value : "";
+  } else if(t.type === "hiw"){
+    answers[idx] = [...document.querySelectorAll("#hiw w.on")].map(w => +w.dataset.i);
+  }
+  // reorder + speak already stored
+}
+
+/* ============================================================
+   MARKING — PTE rules
+   ============================================================ */
+function markTask(t, i){
+  const a = answers[i];
+  const r = {i:i, kind:t.kind, part:t.part, type:t.type, skills:t.skills || [],
+             max:0, got:0, detail:"", pending:false, skipped:!!skipped[i], review:[]};
+
+  switch(t.type){
+    case "speak":
+      if(t.unscored){ r.detail = "Not scored (sent to institutions)."; return r; }
+      r.pending = true;
+      r.detail = skipped[i] ? "Skipped."
+        : (recordings[i] ? "Recorded — for teacher marking." : "No recording captured.");
+      return r;
+
+    case "write": {
+      const txt = String(a || "");
+      const n = words(txt).length;
+      if(t.key && t.key.essay){
+        r.pending = true;
+        r.detail = n ? `${n} words written — for teacher marking.` : "Not attempted.";
+        return r;
+      }
+      // form marks + content coverage, the two things a machine can judge fairly
+      const covers = t.key.mustCover;
+      r.max = covers.length + 1;
+      const low = txt.toLowerCase();
+      const hit = covers.filter(c => c.any.some(k => low.includes(k)));
+      r.got = hit.length;
+      let formOk = n >= t.minWords && n <= t.maxWords;
+      if(t.oneSentence){
+        const stops = (txt.match(/[.!?]/g) || []).length;
+        formOk = formOk && stops <= 1;
+      }
+      if(formOk) r.got += 1;
+      r.detail = `${n} words. Form ${formOk ? "correct" : "outside the limit"}. ` +
+                 `Covered ${hit.length} of ${covers.length} key points.`;
+      r.missed = covers.filter(c => !hit.includes(c)).map(c => c.label);
+      r.given = txt;
+      r.review = [{q:`Form — ${t.minWords}–${t.maxWords} words` + (t.oneSentence ? ", one sentence" : ""),
+                   given:`${n} words` + (t.oneSentence ? `, ${(txt.match(/[.!?]/g)||[]).length} full stop(s)` : ""),
+                   right:formOk ? "" : `${t.minWords}–${t.maxWords} words` + (t.oneSentence ? " in one sentence" : ""),
+                   ok:formOk}]
+        .concat(covers.map(c => ({q:"Key point", given:hit.includes(c) ? "covered" : "missing",
+                                  right:hit.includes(c) ? "" : c.label, ok:hit.includes(c)})));
+      return r;
+    }
+
+    case "rwfib": case "rfib": case "lfib": {
+      const gaps = Object.keys(t.gaps);
+      r.max = gaps.length;
+      r.got = gaps.filter(g => norm((a||{})[g]) === norm(t.gaps[g].answer)).length;
+      r.detail = `${r.got} of ${r.max} blanks correct.`;
+      r.review = gaps.map(g => {
+        const given = (a||{})[g] || "";
+        const ok = norm(given) === norm(t.gaps[g].answer);
+        return {q:`Blank ${g}`, given:given || "left empty", right:ok ? "" : t.gaps[g].answer, ok:ok};
+      });
+      return r;
+    }
+
+    case "mcma": {
+      // PTE: +1 per correct, -1 per incorrect, never below zero
+      const picked = a || [], right = t.answer;
+      r.max = right.length;
+      const good = picked.filter(p => right.includes(p)).length;
+      const bad  = picked.filter(p => !right.includes(p)).length;
+      r.got = Math.max(0, good - bad);
+      r.detail = `${good} correct, ${bad} incorrect — ${r.got} of ${r.max} after the penalty.`;
+      r.overpicked = bad;
+      r.review = t.options.map(o => {
+        const chose = picked.includes(o.l), should = right.includes(o.l);
+        return {q:`${o.l}. ${o.t}`,
+                given: chose ? "you ticked this" : "you left this",
+                right: chose === should ? "" : (should ? "should have been ticked" : "should have been left"),
+                ok: chose === should};
+      });
+      return r;
+    }
+
+    case "mcsa": {
+      r.max = 1; r.got = (a === t.answer) ? 1 : 0;
+      r.detail = a ? `You chose ${a}; correct answer ${t.answer}.` : "Not attempted.";
+      const txtOf = l => { const o = t.options.find(x => x.l === l); return o ? `${l}. ${o.t}` : l; };
+      r.review = [{q: t.question || "Best answer",
+                   given: a ? txtOf(a) : "left blank",
+                   right: r.got ? "" : txtOf(t.answer), ok: !!r.got}];
+      return r;
+    }
+
+    case "reorder": {
+      // PTE: one mark per correctly ordered ADJACENT PAIR
+      const o = a || [], k = t.answer;
+      r.max = k.length - 1;
+      let got = 0;
+      for(let j = 0; j < o.length - 1; j++){
+        const p = k.indexOf(o[j]);
+        if(p !== -1 && k[p+1] === o[j+1]) got++;
+      }
+      r.got = got;
+      r.detail = `${got} of ${r.max} adjacent pairs in the right order.`;
+      const label = id => { const it = t.items.find(x => x.id === id); return it ? it.t.slice(0,58) + "…" : id; };
+      r.review = [{q:"Your order",
+                   given: o.map((id,n) => `${n+1}. ${label(id)}`).join("  |  ") || "not attempted",
+                   right: got === r.max ? "" : k.map((id,n) => `${n+1}. ${label(id)}`).join("  |  "),
+                   ok: got === r.max}];
+      return r;
+    }
+
+    case "hiw": {
+      // +1 per correctly clicked wrong word, -1 per wrongly clicked correct word
+      const picked = a || [], right = t.wrong;
+      r.max = right.length;
+      const good = picked.filter(p => right.includes(p)).length;
+      const bad  = picked.filter(p => !right.includes(p)).length;
+      r.got = Math.max(0, good - bad);
+      r.detail = `${good} of ${right.length} found, ${bad} wrong click${bad===1?"":"s"}.`;
+      r.overpicked = bad;
+      const shown = t.shown.split(/\s+/), heard = t.listen.split(/\s+/);
+      r.review = right.map(n => ({
+        q: `Word ${n+1}`,
+        given: picked.includes(n) ? "you found it" : "you missed it",
+        right: picked.includes(n) ? "" : `“${(shown[n]||"").replace(/[^A-Za-z'’-]/g,"")}” on screen — the speaker said “${(heard[n]||"").replace(/[^A-Za-z'’-]/g,"")}”`,
+        ok: picked.includes(n)
+      })).concat(picked.filter(n => !right.includes(n)).map(n => ({
+        q: `Word ${n+1}`, given:`you clicked “${(shown[n]||"").replace(/[^A-Za-z'’-]/g,"")}”`,
+        right:"this word was correct — the click cost a mark", ok:false
+      })));
+      return r;
+    }
+
+    case "dictation": {
+      // PTE: one mark per correct word
+      const said = words(t.answer).map(norm);
+      const typed = words(a || "").map(norm);
+      r.max = said.length;
+      const pool = typed.slice();
+      let got = 0;
+      said.forEach(w => { const j = pool.indexOf(w); if(j !== -1){ got++; pool.splice(j,1); } });
+      r.got = got;
+      r.detail = `${got} of ${said.length} words correct.`;
+      const missing = [];
+      const pool2 = words(a || "").map(norm);
+      words(t.answer).forEach(w => { const j = pool2.indexOf(norm(w)); if(j !== -1) pool2.splice(j,1); else missing.push(w); });
+      r.given = String(a || "");
+      r.review = [{q:"Sentence", given:(a && String(a).trim()) || "left blank",
+                   right: got === r.max ? "" : t.answer, ok: got === r.max},
+                  ...(missing.length ? [{q:"Words missed or misspelled", given:missing.join(", "),
+                                         right:"these words carried a mark each", ok:false}] : [])];
+      return r;
+    }
+  }
+  return r;
+}
+
+/* ---------- skill profile ---------- */
+function profile(rows){
+  const S = {S:{g:0,m:0,p:0}, R:{g:0,m:0,p:0}, L:{g:0,m:0,p:0}, W:{g:0,m:0,p:0}};
+  rows.forEach(r => r.skills.forEach(k => {
+    if(!S[k]) return;
+    if(r.pending) S[k].p++;
+    else { S[k].g += r.got; S[k].m += r.max; }
+  }));
+  return S;
+}
+// map a percentage onto the PTE 10–90 scale, rounded to the nearest whole point
+const toScale = pct => Math.round(10 + (pct/100) * 80);
+
+/* ============================================================
+   SAVED ATTEMPTS — IndexedDB, so recordings survive a reload
+   ============================================================ */
+const DB_NAME = "pioneer-pte", DB_VER = 1;
+let dbFailed = false;
+
+function openDB(){
+  return new Promise((res, rej) => {
+    if(!window.indexedDB){ dbFailed = true; return rej(new Error("no indexedDB")); }
+    let rq;
+    try{ rq = indexedDB.open(DB_NAME, DB_VER); }
+    catch(e){ dbFailed = true; return rej(e); }
+    rq.onupgradeneeded = () => {
+      const db = rq.result;
+      if(!db.objectStoreNames.contains("attempts")) db.createObjectStore("attempts", {keyPath:"id"});
+      if(!db.objectStoreNames.contains("clips")){
+        const st = db.createObjectStore("clips", {keyPath:"id"});
+        st.createIndex("attempt", "attempt", {unique:false});
+      }
+    };
+    rq.onsuccess = () => res(rq.result);
+    rq.onerror   = () => { dbFailed = true; rej(rq.error); };
+  });
+}
+function tx(db, store, mode){ return db.transaction(store, mode).objectStore(store); }
+function wrap(rq){ return new Promise((res, rej) => { rq.onsuccess = () => res(rq.result); rq.onerror = () => rej(rq.error); }); }
+
+async function saveAttempt(rec, clips){
+  const db = await openDB();
+  await wrap(tx(db, "attempts", "readwrite").put(rec));
+  for(const c of clips){ await wrap(tx(db, "clips", "readwrite").put(c)); }
+  db.close();
+}
+async function listAttempts(){
+  const db = await openDB();
+  const all = await wrap(tx(db, "attempts", "readonly").getAll());
+  db.close();
+  return all.sort((a,b) => b.at - a.at);
+}
+async function loadClips(attemptId){
+  const db = await openDB();
+  const store = tx(db, "clips", "readonly");
+  const all = await wrap(store.index("attempt").getAll(attemptId));
+  db.close();
+  return all.sort((a,b) => a.i - b.i);
+}
+async function deleteAttempt(id){
+  const db = await openDB();
+  await wrap(tx(db, "attempts", "readwrite").delete(id));
+  const clips = await wrap(tx(db, "clips", "readonly").index("attempt").getAllKeys(id));
+  for(const k of clips){ await wrap(tx(db, "clips", "readwrite").delete(k)); }
+  db.close();
+}
+
+/* ============================================================
+   AI DIAGNOSIS — reads the pattern of the answers, not just the total
+   ============================================================ */
+function diagnose(rows, S, mins){
+  const find  = k => rows.filter(r => r.kind === k);
+  const byType = ty => rows.filter(r => r.type === ty);
+  const rate  = rs => { const m = rs.reduce((a,r)=>a+r.max,0); return m ? rs.reduce((a,r)=>a+r.got,0)/m : null; };
+  const obs = [], plan = [];
+  const add = (tone, tx) => obs.push({tone, tx});
+
+  const pctOf = k => S[k].m ? S[k].g/S[k].m*100 : null;
+  const named = {L:"Listening", R:"Reading", W:"Writing", S:"Speaking"};
+
+  /* ---- effort and coverage first: nothing else means much without it ---- */
+  const skippedN = rows.filter(r => r.skipped).length;
+  const recN     = rows.filter(r => r.type === "speak" && !r.skipped).length;
+  const gotRec   = Object.keys(recordings).length;
+
+  if(skippedN >= 5)
+    add("bad", `<b>${skippedN} tasks were skipped.</b> The score below is not a fair reading of your level — it mostly measures how much of the test you sat.`);
+  else if(skippedN)
+    add("warn", `<b>${skippedN} task${skippedN===1?" was":"s were"} skipped.</b> Those count as zero, so treat the affected skill with caution.`);
+
+  if(recN && !gotRec)
+    add("bad", `<b>No speaking was recorded.</b> Eleven of the twenty-two real PTE tasks are spoken, so this report is missing the largest single part of the exam. Check the microphone permission and sit the speaking tasks again.`);
+  else if(gotRec && gotRec < recN)
+    add("warn", `Only ${gotRec} of ${recN} speaking tasks recorded. The missing ones cannot be marked.`);
+
+  /* ---- the shape of the profile ---- */
+  const have = ["L","R","W"].filter(k => pctOf(k) !== null);
+  if(have.length >= 2){
+    const sorted = have.slice().sort((a,b) => pctOf(b) - pctOf(a));
+    const hi = sorted[0], lo = sorted[sorted.length-1];
+    const gap = pctOf(hi) - pctOf(lo);
+    if(gap >= 22)
+      add("warn", `Your profile is <b>uneven</b>: ${named[hi]} is well ahead of ${named[lo]} (about ${Math.round(gap)} points apart on this test). PTE reports every skill separately and most universities set a minimum in <i>each</i> one, so ${named[lo]} is what decides your result, not your average.`);
+    else if(pctOf(hi) >= 70)
+      add("good", `Your skills are <b>fairly even</b>, with ${named[hi]} strongest. An even profile is the easier one to lift — the same study hour helps everywhere.`);
+  }
+
+  /* ---- guessing behaviour: the single most fixable habit ---- */
+  const over = rows.reduce((a,r) => a + (r.overpicked || 0), 0);
+  if(over >= 3)
+    add("bad", `<b>You are over-ticking.</b> ${over} wrong selections across the negatively-marked tasks. In PTE a wrong tick cancels a right one, so ticking a fifth option "just in case" can take a 3/3 down to 1/3. Select only what you can point to in the text.`);
+  else if(over)
+    add("warn", `${over} wrong selection${over===1?"":"s"} on the negatively-marked tasks. Close, but each one cost you a mark you had already earned.`);
+  else if(rows.some(r => r.overpicked === 0 && r.max && Array.isArray(answers[r.i]) && answers[r.i].length))
+    add("good", `<b>No careless ticks.</b> On the tasks that punish guessing you selected only what you were sure of — that discipline is worth real points.`);
+
+  /* ---- writing form: students lose these marks to the rules, not the English ---- */
+  const forms = rows.filter(r => r.type === "write" && r.review.length && r.review[0].q.startsWith("Form"));
+  const formFails = forms.filter(r => !r.review[0].ok);
+  if(formFails.length)
+    add("bad", `<b>You broke the word limit or the one-sentence rule</b> on ${formFails.length} summary task${formFails.length===1?"":"s"}. In the real exam that is an automatic zero for form however good the English is. This is the cheapest mark in PTE to recover — it is a rule, not a skill.`);
+  else if(forms.length)
+    add("good", `Word limits and the one-sentence rule were <b>respected</b> — many candidates lose whole tasks here.`);
+
+  const missedPts = rows.reduce((a,r) => a + ((r.missed && r.missed.length) || 0), 0);
+  if(missedPts >= 3)
+    add("warn", `Your summaries left out <b>${missedPts} of the key points</b>. Content is marked as much as language: before you write, note the three or four things the passage actually claims, then make sure each appears.`);
+
+  /* ---- dictation: listening detail and spelling ---- */
+  const dict = byType("dictation");
+  const dr = rate(dict);
+  if(dr !== null){
+    if(dr >= 0.9)
+      add("good", `<b>Write from Dictation is strong</b> (${Math.round(dr*100)}% of words). This is the highest-value task in PTE for its length — it feeds both Listening and Writing.`);
+    else if(dr >= 0.6)
+      add("warn", `Write from Dictation at ${Math.round(dr*100)}%. The sentence is mostly there but words are dropping out. Practise writing the sentence in note form first, then expanding it — do not try to type in real time.`);
+    else
+      add("bad", `<b>Write from Dictation is weak</b> (${Math.round(dr*100)}%). Each word carries a mark, so this alone pulls both Listening and Writing down. Twenty minutes a day on dictation moves a PTE score faster than almost anything else.`);
+  }
+
+  /* ---- reading detail ---- */
+  const rw = rate(byType("rwfib")), rf = rate(byType("rfib"));
+  if(rw !== null && rw < 0.6)
+    add("warn", `Reading &amp; Writing: Fill in the Blanks at ${Math.round(rw*100)}%. That task is testing <b>which word fits</b>, not whether you know the word — the options are usually four forms of the same root. Read the whole sentence before choosing.`);
+  if(rf !== null && rf >= 0.9 && rw !== null && rw < 0.6)
+    add("warn", `You handle the word-bank gaps well but struggle when the options are near-identical — that is a <b>vocabulary precision</b> gap rather than a reading-speed one.`);
+
+  const ro = byType("reorder");
+  if(ro.length && rate(ro) !== null && rate(ro) < 0.5)
+    add("warn", `Re-order Paragraphs is costing you. Find the <b>standalone paragraph</b> first — the one that needs no earlier sentence to make sense — then follow the pronouns and linking words ("those instruments", "the result").`);
+
+  /* ---- listening vs reading of the same material ---- */
+  const hiw = byType("hiw"), hr = rate(hiw);
+  if(hr !== null && hr < 0.5)
+    add("warn", `Highlight Incorrect Words at ${Math.round(hr*100)}%. The trick is to <b>read along with your finger and listen for the mismatch</b>, not to read ahead. Falling behind the voice is what causes the misses.`);
+
+  /* ---- time ---- */
+  if(mins && mins < 18 && skippedN < 3)
+    add("warn", `You finished in ${mins} minute${mins===1?"":"s"}. That is fast for this paper — check whether you are reading the questions fully, because rushing shows up in the wrong-tick count first.`);
+
+  /* ============ the plan ============ */
+  const weakest = have.length ? have.slice().sort((a,b) => pctOf(a) - pctOf(b))[0] : null;
+
+  if(recN && !gotRec)
+    plan.push(`<b>Sit the speaking tasks again with the microphone working.</b> Until then no one can tell you where you stand, because speaking carries the most weight in PTE.`);
+
+  if(formFails.length)
+    plan.push(`<b>Fix the rules before the English.</b> Ten minutes with Narinder Sir on word limits, the one-sentence rule and what counts as "form" will recover marks you are currently giving away for free.`);
+
+  if(over >= 3)
+    plan.push(`<b>Stop guessing on the negatively-marked tasks.</b> Practise Multiple Choice Multiple Answers and Highlight Incorrect Words with one instruction only: tick nothing you cannot justify from the text.`);
+
+  if(dr !== null && dr < 0.8)
+    plan.push(`<b>Daily dictation, ten sentences.</b> Write from Dictation is the fastest lever in the whole exam — every word is a mark, and it lifts Listening and Writing at the same time.`);
+
+  if(weakest === "R" && plan.length < 3)
+    plan.push(`<b>Reading needs precision, not speed.</b> Work on the fill-in-the-blank tasks where the four options share a root — that is where your marks are going.`);
+  if(weakest === "L" && plan.length < 3)
+    plan.push(`<b>Listening needs the detail, not the gist.</b> You are following the topic but losing the exact words. Dictation and Fill in the Blanks are the two tasks that train this.`);
+  if(weakest === "W" && plan.length < 3)
+    plan.push(`<b>Writing needs structure.</b> Plan the key points in note form for thirty seconds before you write anything — the marks for content are lost in the planning, not the typing.`);
+
+  if(missedPts >= 3 && plan.length < 3)
+    plan.push(`<b>Note the key points before you summarise.</b> Three bullet points on paper, then write. Content marks are half of every summary task.`);
+
+  if(plan.length < 3)
+    plan.push(`<b>Move to full-length timed papers.</b> Your accuracy is holding up on short tasks; the next thing that will move your score is stamina across the full two hours and fifteen minutes.`);
+
+  return {obs, plan: plan.slice(0,4)};
+}
+
+/* ============================================================
+   WHERE THE MARKS ARE IN THE REAL EXAM
+   Item counts, scoring type and skill contributions taken from
+   Pearson's own PTE Academic Test Taker Score Guide (July 2025).
+   Pearson publishes how many items each task type has and which
+   skills each one feeds — it does NOT publish a point value per
+   task, so this chart shows weight by item count, not by marks.
+   ============================================================ */
+const WEIGHTS = [
+  /* part, kind, items [low, high], scoring, skills fed, double-marked, note */
+  {p:"Speaking", k:"Repeat Sentence",             n:[10,12], sc:"partial", s:["L","S"], dm:false,
+   note:"The biggest single block in the exam, and it feeds two skills at once."},
+  {p:"Speaking", k:"Read Aloud",                  n:[6,7],   sc:"partial", s:["S"],     dm:false,
+   note:"Marked on pronunciation and oral fluency — read the whole sentence, do not stop to correct."},
+  {p:"Speaking", k:"Describe Image",              n:[5,6],   sc:"partial", s:["S"],     dm:true,
+   note:"Content is reviewed by a human as well as the machine."},
+  {p:"Speaking", k:"Answer Short Question",       n:[5,6],   sc:"right/wrong", s:["L"], dm:false,
+   note:"Counts for Listening, not Speaking. One or two words is the whole answer."},
+  {p:"Speaking", k:"Re-tell Lecture",             n:[2,3],   sc:"partial", s:["L","S"], dm:true},
+  {p:"Speaking", k:"Summarize Group Discussion",  n:[2,3],   sc:"partial", s:["L","S"], dm:true, isNew:true,
+   note:"New in August 2025."},
+  {p:"Speaking", k:"Respond to a Situation",      n:[2,3],   sc:"partial", s:["S"],     dm:true, isNew:true,
+   note:"New in August 2025."},
+  {p:"Writing",  k:"Summarize Written Text",      n:[2,2],   sc:"partial", s:["R","W"], dm:true,
+   note:"Form, content, grammar and vocabulary are all marked separately."},
+  {p:"Writing",  k:"Write Essay",                 n:[1,1],   sc:"partial", s:["W"],     dm:true,
+   note:"One item, but seven separate traits — the densest task in the test."},
+
+  {p:"Reading",  k:"Reading & Writing: Fill in the Blanks", n:[5,6], sc:"partial", s:["R"], dm:false,
+   note:"One mark per blank. Counts for Reading only, despite the name."},
+  {p:"Reading",  k:"Reading: Fill in the Blanks", n:[4,5],   sc:"partial", s:["R"],     dm:false,
+   note:"One mark per blank."},
+  {p:"Reading",  k:"Multiple Choice, Multiple Answers", n:[2,3], sc:"partial", s:["R"], dm:false,
+   note:"Negative marking — a wrong tick cancels a right one."},
+  {p:"Reading",  k:"Re-order Paragraphs",         n:[2,3],   sc:"partial", s:["R"],     dm:false,
+   note:"One mark per correctly ordered adjacent pair."},
+  {p:"Reading",  k:"Multiple Choice, Single Answer", n:[2,3], sc:"right/wrong", s:["R"], dm:false},
+
+  {p:"Listening", k:"Write from Dictation",       n:[3,4],   sc:"partial", s:["L","W"], dm:false,
+   note:"One mark per word spelled correctly, and it feeds two skills. Mark for mark, the best-value task in the exam."},
+  {p:"Listening", k:"Multiple Choice, Multiple Answers", n:[2,3], sc:"partial", s:["L"], dm:false,
+   note:"Negative marking."},
+  {p:"Listening", k:"Fill in the Blanks",         n:[2,3],   sc:"partial", s:["L"],     dm:false,
+   note:"One mark per word spelled correctly."},
+  {p:"Listening", k:"Highlight Correct Summary",  n:[2,3],   sc:"right/wrong", s:["L","R"], dm:false},
+  {p:"Listening", k:"Multiple Choice, Single Answer", n:[2,3], sc:"right/wrong", s:["L"], dm:false},
+  {p:"Listening", k:"Highlight Incorrect Words",  n:[2,3],   sc:"partial", s:["L","R"], dm:false,
+   note:"Negative marking — a wrong click cancels a right one."},
+  {p:"Listening", k:"Summarize Spoken Text",      n:[1,1],   sc:"partial", s:["L","W"], dm:true},
+  {p:"Listening", k:"Select Missing Word",        n:[1,2],   sc:"right/wrong", s:["L"], dm:false},
+  {p:"Speaking",  k:"Personal Introduction",      n:[1,1],   sc:"not scored", s:[],     dm:false,
+   note:"Sent to the institutions you apply to, but it earns no marks."}
+];
+
+const SKILLNAME = {L:"Listening", R:"Reading", S:"Speaking", W:"Writing"};
+
+function viewWeights(){
+  const mid = w => (w.n[0] + w.n[1]) / 2;
+  const list = WEIGHTS.slice().sort((a,b) => mid(b) - mid(a));
+  const top = mid(list[0]);
+
+  const bar = w => {
+    const pctW = (mid(w) / top) * 100;
+    return `<div class="wq">
+      <div class="wq-h">
+        <span class="wq-n">${esc(w.k)}${w.isNew ? ' <span style="color:var(--new);font-weight:800">·new</span>' : ''}</span>
+        <span class="wq-c mono">${w.n[0] === w.n[1] ? w.n[0] : w.n[0] + "–" + w.n[1]}</span>
+      </div>
+      <div class="wq-bar"><i class="p-${w.p}" style="width:${pctW.toFixed(1)}%"></i></div>
+      <div class="wq-m">
+        <span class="tag p-${w.p}">${w.p} part</span>
+        ${w.s.length ? `<span class="tag sk">scores ${w.s.map(k => SKILLNAME[k]).join(" + ")}</span>` : ""}
+        <span class="tag ${w.sc === "partial" ? "pc" : (w.sc === "not scored" ? "ns" : "ci")}">${w.sc}</span>
+        ${w.dm ? '<span class="tag dm">human + AI</span>' : ''}
+      </div>
+      ${w.note ? `<div class="wq-note">${esc(w.note)}</div>` : ""}
+    </div>`;
+  };
+
+  return `
+    <div class="card">
+      <div class="kind">Where the marks are</div>
+      <h3 style="font-size:17px;margin-bottom:4px;">How much each question type is worth in the real exam</h3>
+      <p class="lede" style="font-size:13.5px;margin-bottom:6px">
+        The real PTE Academic has <b>65–75 questions across 22 types</b> in a maximum of
+        2 hours 15 minutes. The bars below show <b>how many questions of each type you get</b> —
+        the honest measure of how much a task type is worth, because a type with ten questions
+        moves your score far more than one with a single question.
+      </p>
+      <div class="note warn" style="margin-top:10px">
+        Pearson publishes the number of questions and which skills each type feeds, but
+        <b>not a point value per task</b>. So this is a weighting by question count, not a
+        scoring formula. Item counts, scoring type and skill contributions are taken from
+        Pearson's <i>PTE Academic Test Taker Score Guide</i>.
+      </div>
+
+      <div class="wlegend">
+        <span class="tag pc">partial</span> part marks — every correct word, blank or pair earns something
+        <br><span class="tag ci">right/wrong</span> all or nothing
+        <br><span class="tag dm">human + AI</span> content is double-marked by a human examiner as well as the machine
+      </div>
+
+      <div class="wlist">${list.map(bar).join("")}</div>
+
+      <h3 style="font-size:15px;margin:26px 0 8px;">What this means for your study time</h3>
+      <div class="plan">
+        <div class="step"><span class="tx"><b>Repeat Sentence is the highest-yield task in the exam.</b>
+          Ten to twelve questions, partial credit, and every one of them counts towards
+          <i>both</i> Listening and Speaking. Nothing else in the test repays practice this well.</span></div>
+        <div class="step"><span class="tx"><b>Write from Dictation is the best value for its length.</b>
+          Three or four questions, one mark per correctly spelled word, feeding Listening
+          and Writing together. A minute of practice here is worth ten on the essay.</span></div>
+        <div class="step"><span class="tx"><b>Read Aloud carries Speaking.</b> Six or seven questions
+          marked on pronunciation and oral fluency — the two things that are hardest to
+          fix in the last week, so start them first.</span></div>
+        <div class="step"><span class="tx"><b>The essay is one question.</b> It is worth real marks
+          and it is double-marked, but students routinely spend half their preparation on it.
+          Give it its share, not more.</span></div>
+        <div class="step"><span class="tx"><b>Three task types punish guessing.</b>
+          Multiple Choice Multiple Answers (Reading and Listening) and Highlight Incorrect Words
+          all subtract for a wrong selection. On those, leaving an option alone is a real strategy.</span></div>
+      </div>
+    </div>`;
+}
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+let LAST = null;                       // this attempt, for the teacher panel
+
+function finish(){
+  finished = true; clearTimer(); stopSpeech(); setClock(0,false);
+  $("#prog").style.width = "100%";
+  $("#barSub").textContent = "Results · PTE Academic Diagnostic";
+  if(mediaStream) mediaStream.getTracks().forEach(t => t.stop());
+
+  const rows = TASKS.map((t,i) => markTask(t,i));
+  const auto = rows.filter(r => r.max > 0);
+  const totGot = auto.reduce((s,r) => s + r.got, 0);
+  const totMax = auto.reduce((s,r) => s + r.max, 0);
+  const pct = totMax ? (totGot/totMax*100) : 0;
+  const overall = toScale(pct);
+  const S = profile(rows);
+  const mins = Math.round((Date.now() - startedAt) / 60000);
+  const dx = diagnose(rows, S, mins);
+  const when = new Date();
+
+  LAST = {
+    id: "a" + when.getTime(),
+    at: when.getTime(),
+    student, overall, totGot, totMax, mins,
+    date: when.toLocaleString(),
+    rows: rows.map(r => ({i:r.i, kind:r.kind, part:r.part, type:r.type, max:r.max, got:r.got,
+                          detail:r.detail, pending:r.pending, skipped:r.skipped,
+                          review:r.review, missed:r.missed || []})),
+    skills: S, dx
+  };
+
+  /* keep it on this device so the teacher can open it later */
+  const clips = Object.keys(recordings).map(i => ({
+    id: LAST.id + "-" + i, attempt: LAST.id, i:+i,
+    kind: recordings[i].kind, blob: recordings[i].blob
+  }));
+  saveAttempt(LAST, clips)
+    .then(() => { const n = $("#saveNote"); if(n) n.textContent = "Saved on this device — your teacher can open it later from the panel below."; })
+    .catch(() => { const n = $("#saveNote"); if(n){
+      n.textContent = "This browser would not let the attempt be saved, so the recordings will be lost when the tab closes. Play them back or save them now.";
+      n.className = "note bad"; } });
+
+  const skillRow = (code, name) => {
+    const d = S[code];
+    const has = d.m > 0;
+    const p = has ? d.g/d.m*100 : 0;
+    const val = has ? toScale(p) : "—";
+    return `<div class="skill${has?"":" est"}">
+      <span class="nm">${name}</span>
+      <span class="track"><i style="width:${has?p.toFixed(0):0}%"></i></span>
+      <span class="val">${val}</span>
+    </div>
+    ${d.p ? `<div style="font-size:12px;color:var(--warn);margin:-6px 0 2px 0;">
+       ${d.p} task${d.p===1?"":"s"} in this skill need your teacher to mark them</div>` : ""}`;
+  };
+
+  const recList = Object.keys(recordings);
+  const lost = rows.filter(r => r.max && r.got < r.max);
+
+  app().innerHTML = `
+    <div class="card">
+      <div class="scorehead">
+        <div class="kind" style="letter-spacing:.09em">Pioneer Education Center</div>
+        <div class="bigscore">${overall}<small> / 90</small></div>
+        <p class="lede" style="margin-top:6px">
+          <b>${esc(student)}</b> · PTE Academic Skills Diagnostic<br>
+          ${esc(when.toLocaleDateString())} · ${mins} minute${mins===1?"":"s"} · auto-marked sections only
+        </p>
+      </div>
+
+      <div class="note warn">
+        This is an <b>indication of the auto-marked sections only</b>, on the PTE 10–90 scale.
+        It is not a predicted PTE score: your speaking and your essay are not included,
+        and together those carry a large part of the real result.
+      </div>
+
+      <h3 style="font-size:15px;margin:20px 0 12px;">Skill profile</h3>
+      <div class="skills">
+        ${skillRow("L","Listening")}
+        ${skillRow("R","Reading")}
+        ${skillRow("W","Writing")}
+        ${skillRow("S","Speaking")}
+      </div>
+      <p style="font-size:12.5px;color:var(--grey)">
+        PTE scores each skill from several task types at once — Repeat Sentence, for example,
+        feeds both Listening and Speaking. That is why the numbers above are not simply
+        the four sections added up.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="kind">Automatic diagnosis</div>
+      <h3 style="font-size:17px;margin-bottom:4px;">What this attempt shows</h3>
+      <p class="lede" style="font-size:13.5px;margin-bottom:14px">
+        Generated from the <i>pattern</i> of your answers — which marks were lost and how —
+        not just the total. It is a machine reading your habits; your teacher has the final word.
+      </p>
+      <div class="dxlist">
+        ${dx.obs.length ? dx.obs.map(o => `
+          <div class="dxi ${o.tone}">
+            <span class="mk">${o.tone === "good" ? "✓" : (o.tone === "bad" ? "!" : "•")}</span>
+            <span class="tx">${o.tx}</span>
+          </div>`).join("") :
+          `<div class="dxi good"><span class="mk">✓</span><span class="tx">A clean attempt with no obvious habit to correct.</span></div>`}
+      </div>
+
+      <h3 style="font-size:15px;margin:24px 0 4px;">What to do next</h3>
+      <div class="plan">
+        ${dx.plan.map(p => `<div class="step"><span class="tx">${p}</span></div>`).join("")}
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 style="font-size:15px;margin-bottom:10px;">Task by task</h3>
+      <table class="brk">
+        <thead><tr><th>Task</th><th>Part</th><th style="text-align:right">Score</th></tr></thead>
+        <tbody>
+          ${rows.map((r,i) => `
+            <tr>
+              <td>${esc(r.kind)}${TASKS[i].isNew?' <span style="color:var(--new);font-weight:700">·new</span>':''}
+                ${r.skipped ? ' <span class="badge skip">skipped</span>' : ''}
+                <div style="font-size:12px;color:var(--grey)">${esc(r.detail)}</div></td>
+              <td style="font-size:12.5px;color:var(--grey)">${esc(r.part)}</td>
+              <td class="n">${r.pending ? '<span class="pend">teacher</span>'
+                 : (r.max ? `${r.got}/${r.max}` : '—')}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+      ${lost.length ? `<p style="font-size:13px;color:var(--grey);margin-top:12px">
+        You lost marks on <b>${lost.length}</b> task${lost.length===1?"":"s"}. The correct answers
+        are in the teacher panel at the bottom of this page — go through them with your teacher
+        rather than on your own, so the reason for each mistake gets explained.</p>` : ""}
+    </div>
+
+    ${recList.length ? `
+    <div class="card">
+      <h3 style="font-size:15px;margin-bottom:4px;">Speaking recordings</h3>
+      <p class="lede" style="font-size:13.5px;margin-bottom:6px">
+        ${recList.length} recording${recList.length===1?"":"s"}.
+      </p>
+      <div class="note info" id="saveNote" style="margin-top:0">Saving to this device…</div>
+      ${recList.map(i => `
+        <div style="padding:10px 0;border-top:1px solid var(--line-2)">
+          <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+            <span style="font-weight:700;font-size:13.5px">${esc(recordings[i].kind)}</span>
+            <a href="${recordings[i].url}" download="${esc(student)} - ${esc(recordings[i].kind)}.webm"
+               style="font-size:12.5px;color:var(--brand);font-weight:700">Save a copy</a>
+          </div>
+          <audio controls preload="metadata" src="${recordings[i].url}" style="width:100%;margin-top:6px"></audio>
+        </div>`).join("")}
+    </div>` : `
+    <div class="card">
+      <div class="note bad">No speaking recordings were captured, so the Speaking score
+      above is missing. Check that the browser has microphone permission and try again.</div>
+      <div class="hidden" id="saveNote"></div>
+    </div>`}
+
+    ${rows.some(r => r.missed && r.missed.length) ? `
+    <div class="card">
+      <h3 style="font-size:15px;margin-bottom:10px;">Points your summaries missed</h3>
+      ${rows.map(r => (r.missed && r.missed.length) ? `
+        <div class="revq">
+          <div class="qh">${esc(r.kind)}</div>
+          ${r.missed.map(m => `<div class="ln">• ${esc(m)}</div>`).join("")}
+        </div>` : "").join("")}
+    </div>` : ""}
+
+    <div class="card noprint">
+      <div class="nav" style="padding-bottom:0">
+        <button class="btn ghost" id="share" type="button">Share summary on WhatsApp</button>
+        <button class="btn" id="again" type="button">Take it again</button>
+      </div>
+    </div>
+
+    ${viewWeights()}
+
+    <div class="card" id="teacherCard">
+      <div class="kind">Teacher</div>
+      <h3 style="font-size:17px;margin-bottom:10px;">Answer review &amp; past attempts</h3>
+      <div class="lock noprint" id="lockBox">
+        <p>Every answer, every mistake and the correct answer beside it —
+           plus every attempt saved on this device, with the recordings.<br>
+           For the teacher, not the student.</p>
+        <div class="lockrow">
+          <input id="tcode" type="text" placeholder="Code" aria-label="Teacher code"
+                 autocomplete="off" autocapitalize="characters">
+          <button class="btn sm" id="unlock" type="button">Unlock</button>
+        </div>
+        <div class="note bad hidden" id="codeBad" style="margin-bottom:0">That code is not right.</div>
+      </div>
+      <div id="teacherBody"></div>
+    </div>`;
+
+  $("#again").onclick = () => location.reload();
+  $("#share").onclick = () => {
+    const line = k => { const d=S[k]; return d.m ? toScale(d.g/d.m*100) : "—"; };
+    const msg = `*Pioneer Education Center*\nPTE Academic — Skills Diagnostic\n\n` +
+      `Student: ${student}\nDate: ${when.toLocaleDateString()}\nAuto-marked score: ${overall}/90\n\n` +
+      `Listening ${line("L")}\nReading ${line("R")}\nWriting ${line("W")}\nSpeaking ${line("S")}\n\n` +
+      `Speaking and essay still to be marked by the teacher.\n#PTEwithNarinderSir`;
+    window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
+  };
+  const tryCode = () => {
+    const v = ($("#tcode").value || "").trim().toUpperCase();
+    if(v === TEACHER_CODE){ $("#lockBox").classList.add("hidden"); openTeacher(); }
+    else $("#codeBad").classList.remove("hidden");
+  };
+  $("#unlock").onclick = tryCode;
+  $("#tcode").addEventListener("keydown", e => { if(e.key === "Enter") tryCode(); });
+
+  window.scrollTo(0,0);
+}
+
+/* ============================================================
+   TEACHER PANEL
+   ============================================================ */
+function reviewBlock(rec){
+  const rows = rec.rows || [];
+  return rows.map(r => {
+    const score = r.pending ? '<span class="pend">teacher marks this</span>'
+                : (r.max ? `<span class="sc" style="color:${r.got===r.max?"var(--good)":(r.got?"var(--warn)":"var(--bad)")}">${r.got}/${r.max}</span>` : "—");
+    const qs = (r.review || []);
+    return `<div class="rv">
+      <div class="hd">
+        <span class="n">${esc(r.kind)}${r.skipped ? ' <span class="badge skip">skipped</span>' : ''}</span>
+        <span class="sc">${score}</span>
+      </div>
+      <div class="bd">
+        <div class="qrow"><span class="st"></span><span><span class="q">${esc(r.detail || "")}</span></span></div>
+        ${qs.map(q => `
+          <div class="qrow ${q.ok ? "ok" : ""}">
+            <span class="st ${q.ok ? "tick" : "cross"}">${q.ok ? "✓" : "✗"}</span>
+            <span>
+              <span class="q">${esc(q.q)}</span>
+              <div class="yours">Student: ${esc(q.given)}</div>
+              ${q.right ? `<div class="right">Correct: ${esc(q.right)}</div>` : ""}
+            </span>
+          </div>`).join("")}
+        ${(r.missed && r.missed.length) ? `
+          <div class="qrow"><span class="st cross">✗</span><span>
+            <span class="q">Key points not covered</span>
+            <div class="right">${r.missed.map(esc).join(" · ")}</div></span></div>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function summaryLine(rec){
+  return `${esc(rec.student)} · ${esc(rec.date)} · ${rec.overall}/90 · ${rec.totGot}/${rec.totMax} auto-marked`;
+}
+
+async function openTeacher(){
+  const body = $("#teacherBody");
+  body.innerHTML = `<p class="lede" style="font-size:13.5px">Loading saved attempts…</p>`;
+  let past = [];
+  try{ past = await listAttempts(); }catch(e){ past = LAST ? [LAST] : []; }
+
+  body.innerHTML = `
+    <div class="note info noprint" style="margin-top:0">
+      <b>${past.length} attempt${past.length===1?"":"s"} saved on this device.</b>
+      They are stored in this browser only — nothing is uploaded anywhere.
+      Clearing the browser's site data removes them.
+    </div>
+    <div class="nav noprint" style="margin:12px 0 0;padding-bottom:0">
+      <button class="btn ghost sm" id="printBtn" type="button">Print / save as PDF</button>
+    </div>
+    <h3 style="font-size:14px;margin:22px 0 8px;">Attempts</h3>
+    <div id="attList"></div>
+    <div id="attDetail"></div>`;
+
+  $("#printBtn").onclick = () => window.print();
+
+  $("#attList").innerHTML = past.length ? past.map(a => `
+    <div class="rv"><div class="hd">
+      <span class="n">${summaryLine(a)}${LAST && a.id === LAST.id ? ' <span class="badge skip">this one</span>' : ''}</span>
+      <button class="btn ghost sm noprint" type="button" data-open="${a.id}">Open</button>
+    </div></div>`).join("")
+    : `<p class="lede" style="font-size:13.5px">Nothing saved yet.</p>`;
+
+  $("#attList").querySelectorAll("[data-open]").forEach(b => {
+    b.onclick = () => showAttempt(past.find(a => a.id === b.dataset.open));
+  });
+
+  if(LAST) showAttempt(LAST);
+}
+
+async function showAttempt(rec){
+  if(!rec) return;
+  const d = $("#attDetail");
+  d.innerHTML = `
+    <h3 style="font-size:14px;margin:26px 0 4px;">${esc(rec.student)} — full answer review</h3>
+    <p class="lede" style="font-size:12.5px;margin-bottom:10px">
+      Pioneer Education Center · ${esc(rec.date)} · ${rec.mins} minutes · ${rec.overall}/90
+    </p>
+    <div id="clipBox"></div>
+    ${reviewBlock(rec)}`;
+
+  let clips = [];
+  try{ clips = await loadClips(rec.id); }catch(e){}
+  const box = $("#clipBox");
+  if(!box) return;
+  if(!clips.length){
+    box.innerHTML = `<div class="note warn" style="margin-top:0">No stored recordings for this attempt.</div>`;
+    return;
+  }
+  box.innerHTML = `<div class="note info" style="margin-top:0"><b>${clips.length} recording${clips.length===1?"":"s"}</b> — play them back here any time.</div>` +
+    clips.map(c => {
+      const url = URL.createObjectURL(c.blob);
+      return `<div style="padding:9px 0;border-top:1px solid var(--line-2)">
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+          <span style="font-weight:700;font-size:13.5px">${esc(c.kind)}</span>
+          <a href="${url}" download="${esc(rec.student)} - ${esc(c.kind)}.webm"
+             style="font-size:12.5px;color:var(--brand);font-weight:700" class="noprint">Save a copy</a>
+        </div>
+        <audio class="noprint" controls preload="metadata" src="${url}" style="width:100%;margin-top:6px"></audio>
+      </div>`;
+    }).join("");
+}
+
+/* ---------- boot ---------- */
+screenIntro();
+</script>
+</body>
+</html>

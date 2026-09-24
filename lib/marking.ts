@@ -3,7 +3,13 @@
  * it is the reason the answer key stays off the student's device.
  */
 
-export type SingleKey = { accept: string[]; display: string };
+/**
+ * `pool` is for written answers that may go in any order across several boxes
+ * ("Which THREE parts…?" with three gaps). Each box accepts any answer in the
+ * set, but the same answer only earns a mark once — in the first box of the
+ * pool where it appears — exactly as an examiner would mark it.
+ */
+export type SingleKey = { accept: string[]; display: string; pool?: string[] };
 export type MultiKey = {
   any: string[];      // the acceptable letters
   pick: number;       // how many the student must tick
@@ -22,6 +28,22 @@ const isMulti = (k: SingleKey | MultiKey): k is MultiKey => "any" in k;
  */
 export function normalise(v: unknown): string {
   return String(v ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function markSingle(key: SingleKey, id: string, all: StudentAnswers): boolean {
+  const mine = normalise(all[id]);
+  const ok = key.accept.map(normalise);
+  if (!mine || !ok.includes(mine)) return false;
+  if (!key.pool) return true;
+  // an answer repeated in an earlier box of the same pool has already scored
+  // "the entrances" and "entrances" are the same answer, so compare without an article
+  const same = (v: unknown) => normalise(String(v ?? "").trim().replace(/^the\s+/i, ""));
+  const me = same(all[id]);
+  for (const other of key.pool) {
+    if (other === id) break;
+    if (ok.includes(normalise(all[other])) && same(all[other]) === me) return false;
+  }
+  return true;
 }
 
 function markMulti(key: MultiKey, all: StudentAnswers): boolean {
@@ -84,7 +106,7 @@ export function markAttempt(
 
       const correct = isMulti(k)
         ? markMulti(k, { ...answers, __self: given })
-        : k.accept.map(normalise).includes(normalise(given));
+        : markSingle(k, id, answers);
 
       if (correct) {
         raw += 1;

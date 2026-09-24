@@ -1,1 +1,974 @@
-{"id": "gt4r1", "mode": "reading", "name": "GT4R1 — Reading Test 1", "blurb": "3 sections · 40 questions · 60 minutes", "minutes": 60, "total": 40, "theme": "blue", "bandsReading": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "bandsListening": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "rules": ["The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.", "You should spend about <b>20 minutes</b> on each section.", "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.", "Answer all 40 questions, then tap <b>Submit test</b> for your band score.", "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.", "A 60-minute timer runs in the background; the test submits itself at zero."], "sections": [{"label": "Section 1", "qs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "passage": {"title": "Online Tutors", "paras": ["ONLINE Tutors are excellent EFL/ESL teachers from around the world! They can be your private English tutor right on your computer! To send an email message to an ONLINE Tutor, just click on the name and write a short message to introduce yourself!", "<b>A. Astrid Manyana (F 46) Chile</b><br>Special offer for Spanish speakers: bilingual teaching of English grammar and explanations in Spanish. 25 years’ experience teaching all levels from age 15 to 55. Basics, oral, written, specific interests [eg: tourism] and preparation for Cambridge and IELTS exams. I can make speaking English easy for you!", "<b>B. John Bennett-Smith (M 27) Canada</b><br>I have been teaching English conversation as a volunteer in a language centre in my city for about one year. I have also been using e-mail, ICQ and NetMeeting to teach grammar, composition and conversation over the Internet to about 20 or so students for about the same length of time. I am willing to teach (free of charge), privately or to groups, and to teach those language skills which are of interest to a particular student.", "<b>C. Pamela Arrowsmith (F 56) Australia</b><br>I have taught English for over 30 years, and have developed a range of classroom materials. I offer tutoring assistance in all areas of English, with an emphasis on Business Writing for EFL adults. I can arrange trips to Australia for business and professional adults, either individuals or groups [maximum of four adults] and these can include English classes, if desired.", "<b>D. Jean-Pierre Joyal (M 22) France</b><br>I really like to create new kinds of teaching materials and I usually create my own activities instead of using the same kind of exercises and texts we all are used to. Let’s try that in our classes – it will be fun! I have a BA and a Certificate in Teaching English as a Second Language and I have been teaching all levels of ESL student for more than 3 years. I offer a complimentary assessment of your skill level.", "<b>E. Naoe Nagayo (F 36) Japan</b><br>I have taught English as a Foreign Language for 6 years. I have a TEFL certificate from the USA and a MA in Applied Linguistics from the University of Birmingham, UK. My students range from pre-schoolers to adults. With my experience and knowledge, I can help you to target your learning difficulties and improve your English ability!", "<b>No-Waste Recycling Guide</b>", "No-Waste is a goal and a process that involves individuals, communities, businesses and all levels of government. It leads to a future where trash is a thing of the past. Solid waste isn’t hidden or buried in landfills but fully utilised as the valuable resource that it is. Through redesign, reduction, reuse, repair, recycling, composting and changes in attitude, we aim to create opportunity and wealth instead of garbage.", "<b>RECYCLING</b> — Every second week. Put garbage and recyclables out before 8 AM on collection day.", "<table>\n<tr><th colspan=\"2\">Inside your blue box</th></tr>\n<tr><td>Household plastic containers</td><td>Includes milk jugs, yoghurt containers, detergent bottles. Excludes containers made of foam, plastic containers which held ammonia-based products, or metal bottle lids. Rinse to remove food or residue. Leave labels on, flatten or stack plastic containers to reduce space required.</td></tr>\n<tr><td>Glass containers</td><td>Leave labels on. Rinse. Discard caps.<br>No other types of glass such as kitchenware, drinking glasses, window glass, light bulbs, mirrors or any broken glass.</td></tr>\n<tr><td>Metals</td><td>Food and beverage containers.<br>Cans — rinse and remove labels, flatten and fold together.<br>Foil trays — rinse, flatten and fold together.<br>No metal pots, take out container lids, cigarette wrappings.</td></tr>\n<tr><th colspan=\"2\">Beside your blue box</th></tr>\n<tr><td>YELLOW BAG</td><td>Household paper — junk mail, envelopes, brochures, paper bags, egg cartons (fibre only); box packaging such as cereal, shoe boxes, paper towel cores, white and coloured office paper, telephone books.<br>Remove liners, flatten packaging and place inside bag.<br>No drinking boxes, paper towels or waxed paper.</td></tr>\n<tr><td>BLUE BAG</td><td>Newspapers, inserts, sales flyers, magazines and catalogues. Remove magazine covers, perfumed inserts. No books or soiled newspapers.</td></tr>\n<tr><td>TEXTILES, CLOTHING AND LINENS</td><td>Place clean textiles in a separate plastic shopping bag tied with string.</td></tr>\n<tr><td>CARDBOARD</td><td>Packing boxes, liquor boxes.<br>Flatten bundles and tie — no larger than 30 x 30 x 8. Place beside blue box. No waxed or coated boxes, soiled pizza boxes.</td></tr>\n</table>"], "sub": "You should spend about 20 minutes on Questions 1–14."}, "groups": [{"title": "Questions 1–7", "instr": "Look at the descriptions of Online Tutors, <b>A–E</b>. Write the appropriate letter.<br>Which tutor would you choose… Example: …if your first language was Spanish? — <b>A</b>", "questions": [{"n": 1, "stem": "…to teach young children?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 2, "stem": "…to improve English for your business?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 3, "stem": "…if you didn’t have much money?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 4, "stem": "…if you were bored with the usual language learning exercises?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 5, "stem": "…to do exam preparation?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 6, "stem": "…language teaching qualifications from the USA?", "opts": ["A", "B", "C", "D", "E"]}, {"n": 7, "stem": "…more than 26 years’ teaching experience?", "opts": ["A", "B", "C", "D", "E"]}]}, {"title": "Questions 8–10", "instr": "Choose <b>ONE</b> item only from the list to go in each recycling container.", "questions": [{"n": 8, "stem": "In the Blue Box", "opts": ["telephone book", "packing box", "old clothing", "magazines", "used pizza delivery box", "old textbook", "ceramic cup", "aluminium drink can", "heavy cardboard", "light bulb"]}, {"n": 9, "stem": "In the Yellow Bag", "opts": ["telephone book", "packing box", "old clothing", "magazines", "used pizza delivery box", "old textbook", "ceramic cup", "aluminium drink can", "heavy cardboard", "light bulb"]}, {"n": 10, "stem": "In the Blue Bag", "opts": ["telephone book", "packing box", "old clothing", "magazines", "used pizza delivery box", "old textbook", "ceramic cup", "aluminium drink can", "heavy cardboard", "light bulb"]}]}, {"title": "Questions 11–14", "instr": "Answer <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b> according to the recycling guide.", "lines": ["Do I put out items for recycling every other week? {{11}}", "Should I remove labels from food cans? {{12}}", "Can I recycle a broken window? {{13}}", "Is there a separate collection for large household items? {{14}}"]}]}, {"label": "Section 2", "qs": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "passage": {"title": "A Career in Hotel Management", "paras": ["<b>Introduction</b>", "Hotel management provides exciting career opportunities in the dynamic hospitality and tourism industry. Indeed, tourism is the world’s fastest growing industry. Recent figures show tourism enjoying a growth rate 23% higher than that of the global economy, employing some 212 million and earning in the region of $US 3.4 trillion per annum.", "In a year from now, employment figures are predicted to exceed 338 million, with revenue above $US7.2 trillion. The vast majority of new jobs will be in the Asia-Pacific region, which by the year 2010 will attract 1 in every 5 of the world’s holidaymakers. The employment prospects for the International College of Hospitality Management’s graduates are exciting.", "<b>The International College of Hospitality Management</b>", "The International College of Hospitality Management provides diploma and degree level hotel management training for the international hospitality and tourism industry. Established in 1993, the International College of Hospitality Management is the Asia-Pacific Basin campus of the renowned European Hotel Association. It also incorporates the classical French cooking training of Le Gourmet, Paris.", "<b>International Hotel Management Diploma</b>", "The International College of Hospitality Management course is industry-oriented, balancing operative, supervisory and management level training. The Diploma course is 3 years full time. Semesters 1, 3 and 5 are spent studying on campus, and Semesters 2, 4 and 6 are spent in industry on undergraduate placements, called ‘stages’. One stage may be taken up with language studies.", "<b>Bachelor of Business (Hotel Management) Degree</b>", "Students who graduate with the International Hotel Management Diploma are assured of a further year of Degree Study at the University of the Antipodes. Studies will focus on such areas as: Global Marketing, Strategic Management, Total Quality Management, Cross-Cultural Communications, Developing Organisations and Management of Change, Global Development in Hospitality and Tourism, Intercultural Relations. Under certain circumstances the final year of study can be conducted on a part-time basis and by distance education mode, enabling students to study while maintaining a full-time career in the hospitality industry, either here or in their home country.", "<b>Training Facilities</b>", "The International College of Hospitality Management has more than 120 professional lecturers and international-standard training facilities. These include three public restaurants, ten commercial training kitchens, simulated front office training facilities, four computer suites, a fully operational winery, and a food science laboratory. The Learning Resource Centre collection is extensive. The student support services provide professional counselling in the areas of health, learning support, language skills, accommodation and welfare. Childcare facilities are also available on campus.", "<b>International House</b>", "The International College of Hospitality Management has students enrolled from more than 20 countries, some of whom stay on campus in International House. Built in 1999, International House is accommodation comprising villa-style units. Each student has their own bedroom, sharing en suite facilities with another student. An adjoining kitchenette and lounge area is shared by the four students in the villa. All meals are served in the College dining room which is next to the student common room. Student privacy and security are priorities. A computer outlet in each bedroom enables students to connect into the College network, providing 24 hour-a-day access. The residence is a two-minute walk to the College’s sporting and training facilities, and is on a regular bus service to the city centre 10 km away. International House is also being used to enhance on-campus training; from Monday to Friday, Year 1 students, supervised by 2nd Years, are assigned kitchen, waiting, housekeeping and receptionist duties. Simulated check-in/check-out exercises, receptionist duties and breakfast service to a limited number of rooms are also part of the program.", "<b>International Hotel Management Diploma — Short Courses</b>", "<b>A</b> This certificate is designed for participants wishing to acquire the skills to perform duties relevant to a front office receptionist working within a range of hospitality establishments. Course includes: front office and organisational structure, role and duties of front office personnel, guests’ reservations and registrations, check-in and check-out procedures, guest accounting and management reports.", "<b>B</b> This certificate is designed for participants wishing to develop a solid understanding of, and the ability to perform duties and skills required in advanced front office operations and night auditing. Course includes: night auditing procedures, daily records and reports, early and late arrivals, security duties, bell desk/concierge, guest service and information, advanced cashiering, supervision of payments, banking operations, debtor control and financial reports.", "<b>C</b> This certificate is designed for participants wishing to acquire the skills relevant to table attendant duties within an a la carte restaurant. Course includes: table setting for a variety of menus, plate and silver service, tray and wine service, ordering and docket systems, wine styles and label identification, food and wine combinations.", "<b>D</b> This certificate is designed for participants wishing to acquire the skills to perform a bar attendant’s duties within a range of industry settings. Course includes: bar preparation, cash handling, beer service, patron care, basic cocktail mixing, product knowledge."], "sub": "You should spend about 20 minutes on Questions 15–27."}, "groups": [{"title": "Questions 15–18", "instr": "Choose ONE phrase, <b>A–J</b>, to complete each sentence. <i>There are more phrases than questions.</i>", "questions": [{"n": 15, "stem": "The hospitality industry…", "opts": [{"l": "A", "t": "A …includes work experience placements overseas."}, {"l": "B", "t": "B …can be done by distance mode."}, {"l": "C", "t": "C …requires foreign language studies."}, {"l": "D", "t": "D …has links with overseas institutions."}, {"l": "E", "t": "E …must be completed in Australia."}, {"l": "F", "t": "F …combines study with industry placements."}, {"l": "G", "t": "G …offers expanding opportunities for employment."}, {"l": "H", "t": "H …must be completed in one year."}, {"l": "I", "t": "I …takes 3 years to complete, part-time."}, {"l": "J", "t": "J …consists of several campuses."}]}, {"n": 16, "stem": "The College…", "opts": [{"l": "A", "t": "A …includes work experience placements overseas."}, {"l": "B", "t": "B …can be done by distance mode."}, {"l": "C", "t": "C …requires foreign language studies."}, {"l": "D", "t": "D …has links with overseas institutions."}, {"l": "E", "t": "E …must be completed in Australia."}, {"l": "F", "t": "F …combines study with industry placements."}, {"l": "G", "t": "G …offers expanding opportunities for employment."}, {"l": "H", "t": "H …must be completed in one year."}, {"l": "I", "t": "I …takes 3 years to complete, part-time."}, {"l": "J", "t": "J …consists of several campuses."}]}, {"n": 17, "stem": "The Diploma course…", "opts": [{"l": "A", "t": "A …includes work experience placements overseas."}, {"l": "B", "t": "B …can be done by distance mode."}, {"l": "C", "t": "C …requires foreign language studies."}, {"l": "D", "t": "D …has links with overseas institutions."}, {"l": "E", "t": "E …must be completed in Australia."}, {"l": "F", "t": "F …combines study with industry placements."}, {"l": "G", "t": "G …offers expanding opportunities for employment."}, {"l": "H", "t": "H …must be completed in one year."}, {"l": "I", "t": "I …takes 3 years to complete, part-time."}, {"l": "J", "t": "J …consists of several campuses."}]}, {"n": 18, "stem": "The Degree course…", "opts": [{"l": "A", "t": "A …includes work experience placements overseas."}, {"l": "B", "t": "B …can be done by distance mode."}, {"l": "C", "t": "C …requires foreign language studies."}, {"l": "D", "t": "D …has links with overseas institutions."}, {"l": "E", "t": "E …must be completed in Australia."}, {"l": "F", "t": "F …combines study with industry placements."}, {"l": "G", "t": "G …offers expanding opportunities for employment."}, {"l": "H", "t": "H …must be completed in one year."}, {"l": "I", "t": "I …takes 3 years to complete, part-time."}, {"l": "J", "t": "J …consists of several campuses."}]}], "bank": [["A", "…includes work experience placements overseas."], ["B", "…can be done by distance mode."], ["C", "…requires foreign language studies."], ["D", "…has links with overseas institutions."], ["E", "…must be completed in Australia."], ["F", "…combines study with industry placements."], ["G", "…offers expanding opportunities for employment."], ["H", "…must be completed in one year."], ["I", "…takes 3 years to complete, part-time."], ["J", "…consists of several campuses."]]}, {"title": "Questions 19–23", "instr": "Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.", "lines": ["The training facility has 10 kitchens. {{19}}", "All students in the program live at International House. {{20}}", "Four students share a unit in the residence. {{21}}", "The residence is used as part of the training program. {{22}}", "All meals in the residence are prepared by the students. {{23}}"]}, {"title": "Questions 24–27", "instr": "Choose the correct title, <b>i–viii</b>, for each of the four short courses (A–D).", "questions": [{"n": 24, "stem": "Course A", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 25, "stem": "Course B", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 26, "stem": "Course C", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 27, "stem": "Course D", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}], "bank": [["i", "Food and Wine Service"], ["ii", "Housekeeping Procedures"], ["iii", "Cocktails and Mixed Drinks"], ["iv", "Hotel Front Office Management"], ["v", "Bars and Service of Drinks"], ["vi", "Resort Operation and Management"], ["vii", "Catering Control"], ["viii", "Hotel Front Office Reception"]]}]}, {"label": "Section 3", "qs": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], "passage": {"title": "As More Tech Start-Ups Stay Private, So Does the Money", "paras": ["Not long ago, if you were a young, brash technologist with a world-conquering start-up idea, there was a good chance you spent much of your waking life working toward a single business milestone: taking your company public.", "Though luminaries of the tech industry have always expressed skepticism and even hostility toward the finance industry, tech’s dirty secret was that it looked to Wall Street and the ritual of a public offering for affirmation — not to mention wealth.", "But something strange has happened in the last couple of years: The initial public offering of stock has become déclassé. For start-up entrepreneurs and their employees across Silicon Valley, an initial public offering is no longer a main goal. Instead, many founders talk about going public as a necessary evil to be postponed as long as possible because it comes with more problems than benefits.", "“If you can get $200 million from private sources, then yeah, I don’t want my company under the scrutiny of the unwashed masses who don’t understand my business,” said Danielle Morrill, the chief executive of Mattermark, a start-up that organizes and sells information about the start-up market. “That’s actually terrifying to me.”", "Silicon Valley’s sudden distaste for the I.P.O. — rooted in part in Wall Street’s skepticism of new tech stocks — may be the single most important psychological shift underlying the current tech boom. Staying private affords start-up executives the luxury of not worrying what outsiders think and helps them avoid the quarterly earnings treadmill.", "It also means Wall Street is doing what it failed to do in the last tech boom: using traditional metrics like growth and profitability to price companies. Investors have been tough on Twitter, for example, because its user growth has slowed. They have been tough on Box, the cloud-storage company that went public last year, because it remains unprofitable. And the e-commerce company Zulily, which went public last year, was likewise punished when it cut its guidance for future sales.", "Scott Kupor, the managing partner at the venture capital firm Andreessen Horowitz, and his colleagues said in a recent report that despite all the attention start-ups have received in recent years, tech stocks are not seeing unusually high valuations. In fact, their share of the overall market has remained stable for 14 years, and far off the peak of the late 1990s.", "That unwillingness to cut much slack to young tech companies limits risk for regular investors. If the bubble pops, the unwashed masses, if that’s what we are, aren’t as likely to get washed out.", "Private investors, on the other hand, are making big bets on so-called unicorns — the Silicon Valley jargon for start-up companies valued at more than a billion dollars. If many of those unicorns flop, most Americans will escape unharmed, because losses will be confined to venture capitalists and hedge funds that have begun to buy into tech start-ups, as well as tech founders and their employees.", "The reluctance — and sometimes inability — to go public is spurring the unicorns. By relying on private investors for a longer period of time, start-ups get more runway to figure out sustainable business models. To delay their entrance into the public markets, firms like Airbnb, Dropbox, Palantir, Pinterest, Uber and several other large start-ups are raising hundreds of millions, and in some cases billions, that they would otherwise have gained through an initial public offering.", "“These companies are going public, just in the private market,” Dan Levitan, the managing partner of the venture capital firm Maveron, told me recently. He means that in many cases, hedge funds and other global investors that would have bought shares in these firms after an I.P.O. are deciding to go into late-stage private rounds. There is even an oxymoronic term for the act of obtaining private money in place of a public offering: It’s called a “private I.P.O.”", "The delay in I.P.O.s has altered how some venture capital firms do business. Rather than waiting for an initial offering, Maveron, for instance, says it now sells its stake in a start-up to other, larger private investors once it has made about 100 times its initial investment. It is the sort of return that once was only possible after an I.P.O.", "But there is also a downside to the new aversion to initial offerings. When the unicorns do eventually go public and begin to soar — or whatever it is that fantastical horned beasts tend to do when they’re healthy — the biggest winners will be the private investors that are now bearing most of the risk.", "It used to be that public investors who got in on the ground floor of an initial offering could earn historic gains. If you invested $1,000 in Amazon at its I.P.O. in 1997, you would now have nearly $250,000. If you had invested $1,000 in Microsoft in 1986, you would have close to half a million. Public investors today are unlikely to get anywhere near such gains from tech I.P.O.s. By the time tech companies come to the market, the biggest gains have already been extracted by private backers.", "Just 53 technology companies went public in 2014, which is around the median since 1980, but far fewer than during the boom of the late 1990s and 2000, when hundreds of tech companies went public annually, according to statistics maintained by Jay Ritter, a professor of finance at the University of Florida. Today’s companies are also waiting longer. In 2014, the typical tech company hitting the markets was 11 years old, compared with a median age of seven years for tech I.P.O.s since 1980.", "Over the last few weeks, I’ve asked several founders and investors why they’re waiting; few were willing to speak on the record about their own companies, but their answers all amounted to “What’s the point?”", "Initial public offerings were also ways to compensate employees and founders who owned lots of stock, but there are now novel mechanisms — such as selling shares on a secondary market — for insiders to cash in on some of their shares in private companies. Still, some observers cautioned that the new trend may be a bad deal for employees who aren’t given much information about the company’s performance.", "“One thing employees may be confused about is when companies tell them, ‘We’re basically doing a private I.P.O.,’ it might make them feel like there’s less risk than there really is,” said Ms. Morrill of Mattermark. But she said it was hard to persuade people that their paper gains may never materialize. “The Kool-Aid is really strong,” she said.", "If the delay in I.P.O.s becomes a normal condition for Silicon Valley, some observers say tech companies may need to consider new forms of compensation for workers. “We probably need to fundamentally rethink how do private companies compensate employees, because that’s going to be an issue,” said Mr. Kupor, of Andreessen Horowitz.", "During a recent presentation for Andreessen Horowitz’s limited partners — the institutions that give money to the venture firm — Marc Andreessen, the firm’s co-founder, told the journalist Dan Primack that he had never seen a sharper divergence in how investors treat public- and private-company chief executives. “They tell the public C.E.O., ‘Give us the money back this quarter,’ and they tell the private C.E.O., ‘No problem, go for 10 years,’ ” Mr. Andreessen said.", "At some point this tension will be resolved. “Private valuations will not forever be higher than public valuations,” said Mr. Levitan, of Maveron. “So the question is, Will private markets capitulate and go down or will public markets go up?”", "If the private investors are wrong, employees, founders and a lot of hedge funds could be in for a reckoning. But if they’re right, it will be you and me wearing the frown — the public investors who missed out on the next big thing."], "sub": "You should spend about 20 minutes on Questions 28–40."}, "groups": [{"title": "Questions 28–31", "instr": "Choose the correct letter, <b>A, B, C or D</b>.", "questions": [{"n": 28, "stem": "How much would you have by now if you had invested $1,000 in Amazon in 1997?", "opts": [{"l": "A", "t": "nearly $250,000"}, {"l": "B", "t": "close to $500,000"}, {"l": "C", "t": "It is not stated in the text"}, {"l": "D", "t": "No funds"}]}, {"n": 29, "stem": "Nowadays founders talk about going public as a:", "opts": [{"l": "A", "t": "necessity."}, {"l": "B", "t": "benefit."}, {"l": "C", "t": "troublesome thing."}, {"l": "D", "t": "profit."}]}, {"n": 30, "stem": "In which time period was the biggest number of companies going public?", "opts": [{"l": "A", "t": "early 1990s"}, {"l": "B", "t": "late 1990s and 2000"}, {"l": "C", "t": "1980s"}, {"l": "D", "t": "late 1990s"}]}, {"n": 31, "stem": "According to the text, which of the following is true?", "opts": [{"l": "A", "t": "Private valuations may be forever higher than public ones."}, {"l": "B", "t": "Public valuations eventually will become even less valuable."}, {"l": "C", "t": "The main question is whether the public market will increase or the private market decrease."}, {"l": "D", "t": "The pressure might last for a long time."}]}]}, {"title": "Questions 32–36", "instr": "Complete the sentences below. Write <b>ONE WORD ONLY</b> from the passage for each answer.", "lines": ["Skepticism was always expressed by the <input type=\"text\" class=\"ans\" id=\"q32\" data-q=\"32\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"32\"> of the tech industry. {{32}}", "The new aversion to initial offerings has its <input type=\"text\" class=\"ans\" id=\"q33\" data-q=\"33\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"33\">. {{33}}", "Selling shares on a secondary market is considered a <input type=\"text\" class=\"ans\" id=\"q34\" data-q=\"34\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"34\"> mechanism. {{34}}", "Workers' compensation might be an <input type=\"text\" class=\"ans\" id=\"q35\" data-q=\"35\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"35\">. {{35}}", "The public investors who failed to participate in the next big thing might be the ones wearing the <input type=\"text\" class=\"ans\" id=\"q36\" data-q=\"36\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"36\">. {{36}}"]}, {"title": "Questions 37–40", "instr": "Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.", "lines": ["Private investors are bearing most of the risk. {{37}}", "Not many investors were willing to speak on the record. {{38}}", "The typical tech company hitting the markets in the 1990s was 5 years old. {{39}}", "Marc Andreessen, the firm's co-founder, expressed amazement at the divergence in how investors treat public and private company chief executives. {{40}}"]}]}], "mediaUrls": {}, "catalogue": {"label": "Reading Test 1", "skillLabel": "General Training Reading"}}
+{
+ "id": "gt4r1",
+ "mode": "reading",
+ "name": "GT4R1 — Reading Test 1",
+ "blurb": "3 sections · 40 questions · 60 minutes",
+ "minutes": 60,
+ "total": 40,
+ "theme": "blue",
+ "bandsReading": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "bandsListening": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "rules": [
+  "The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.",
+  "You should spend about <b>20 minutes</b> on each section.",
+  "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.",
+  "Answer all 40 questions, then tap <b>Submit test</b> for your band score.",
+  "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.",
+  "A 60-minute timer runs in the background; the test submits itself at zero."
+ ],
+ "sections": [
+  {
+   "label": "Section 1",
+   "qs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14
+   ],
+   "passage": {
+    "title": "Online Tutors",
+    "paras": [
+     "ONLINE Tutors are excellent EFL/ESL teachers from around the world! They can be your private English tutor right on your computer! To send an email message to an ONLINE Tutor, just click on the name and write a short message to introduce yourself!",
+     "<b>A. Astrid Manyana (F 46) Chile</b><br>Special offer for Spanish speakers: bilingual teaching of English grammar and explanations in Spanish. 25 years’ experience teaching all levels from age 15 to 55. Basics, oral, written, specific interests [eg: tourism] and preparation for Cambridge and IELTS exams. I can make speaking English easy for you!",
+     "<b>B. John Bennett-Smith (M 27) Canada</b><br>I have been teaching English conversation as a volunteer in a language centre in my city for about one year. I have also been using e-mail, ICQ and NetMeeting to teach grammar, composition and conversation over the Internet to about 20 or so students for about the same length of time. I am willing to teach (free of charge), privately or to groups, and to teach those language skills which are of interest to a particular student.",
+     "<b>C. Pamela Arrowsmith (F 56) Australia</b><br>I have taught English for over 30 years, and have developed a range of classroom materials. I offer tutoring assistance in all areas of English, with an emphasis on Business Writing for EFL adults. I can arrange trips to Australia for business and professional adults, either individuals or groups [maximum of four adults] and these can include English classes, if desired.",
+     "<b>D. Jean-Pierre Joyal (M 22) France</b><br>I really like to create new kinds of teaching materials and I usually create my own activities instead of using the same kind of exercises and texts we all are used to. Let’s try that in our classes – it will be fun! I have a BA and a Certificate in Teaching English as a Second Language and I have been teaching all levels of ESL student for more than 3 years. I offer a complimentary assessment of your skill level.",
+     "<b>E. Naoe Nagayo (F 36) Japan</b><br>I have taught English as a Foreign Language for 6 years. I have a TEFL certificate from the USA and a MA in Applied Linguistics from the University of Birmingham, UK. My students range from pre-schoolers to adults. With my experience and knowledge, I can help you to target your learning difficulties and improve your English ability!",
+     "<b>No-Waste Recycling Guide</b>",
+     "No-Waste is a goal and a process that involves individuals, communities, businesses and all levels of government. It leads to a future where trash is a thing of the past. Solid waste isn’t hidden or buried in landfills but fully utilised as the valuable resource that it is. Through redesign, reduction, reuse, repair, recycling, composting and changes in attitude, we aim to create opportunity and wealth instead of garbage.",
+     "<b>RECYCLING</b> — Every second week. Put garbage and recyclables out before 8 AM on collection day.",
+     "<table>\n<tr><th colspan=\"2\">Inside your blue box</th></tr>\n<tr><td>Household plastic containers</td><td>Includes milk jugs, yoghurt containers, detergent bottles. Excludes containers made of foam, plastic containers which held ammonia-based products, or metal bottle lids. Rinse to remove food or residue. Leave labels on, flatten or stack plastic containers to reduce space required.</td></tr>\n<tr><td>Glass containers</td><td>Leave labels on. Rinse. Discard caps.<br>No other types of glass such as kitchenware, drinking glasses, window glass, light bulbs, mirrors or any broken glass.</td></tr>\n<tr><td>Metals</td><td>Food and beverage containers.<br>Cans — rinse and remove labels, flatten and fold together.<br>Foil trays — rinse, flatten and fold together.<br>No metal pots, take out container lids, cigarette wrappings.</td></tr>\n<tr><th colspan=\"2\">Beside your blue box</th></tr>\n<tr><td>YELLOW BAG</td><td>Household paper — junk mail, envelopes, brochures, paper bags, egg cartons (fibre only); box packaging such as cereal, shoe boxes, paper towel cores, white and coloured office paper, telephone books.<br>Remove liners, flatten packaging and place inside bag.<br>No drinking boxes, paper towels or waxed paper.</td></tr>\n<tr><td>BLUE BAG</td><td>Newspapers, inserts, sales flyers, magazines and catalogues. Remove magazine covers, perfumed inserts. No books or soiled newspapers.</td></tr>\n<tr><td>TEXTILES, CLOTHING AND LINENS</td><td>Place clean textiles in a separate plastic shopping bag tied with string.</td></tr>\n<tr><td>CARDBOARD</td><td>Packing boxes, liquor boxes.<br>Flatten bundles and tie — no larger than 30 x 30 x 8. Place beside blue box. No waxed or coated boxes, soiled pizza boxes.</td></tr>\n</table>"
+    ],
+    "sub": "You should spend about 20 minutes on Questions 1–14."
+   },
+   "groups": [
+    {
+     "title": "Questions 1–7",
+     "instr": "Look at the descriptions of Online Tutors, <b>A–E</b>. Write the appropriate letter.<br>Which tutor would you choose… Example: …if your first language was Spanish? — <b>A</b>",
+     "questions": [
+      {
+       "n": 1,
+       "stem": "…to teach young children?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 2,
+       "stem": "…to improve English for your business?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 3,
+       "stem": "…if you didn’t have much money?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 4,
+       "stem": "…if you were bored with the usual language learning exercises?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 5,
+       "stem": "…to do exam preparation?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 6,
+       "stem": "…language teaching qualifications from the USA?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      },
+      {
+       "n": 7,
+       "stem": "…more than 26 years’ teaching experience?",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 8–10",
+     "instr": "Choose <b>ONE</b> item only from the list to go in each recycling container.",
+     "questions": [
+      {
+       "n": 8,
+       "stem": "In the Blue Box",
+       "opts": [
+        "telephone book",
+        "packing box",
+        "old clothing",
+        "magazines",
+        "used pizza delivery box",
+        "old textbook",
+        "ceramic cup",
+        "aluminium drink can",
+        "heavy cardboard",
+        "light bulb"
+       ]
+      },
+      {
+       "n": 9,
+       "stem": "In the Yellow Bag",
+       "opts": [
+        "telephone book",
+        "packing box",
+        "old clothing",
+        "magazines",
+        "used pizza delivery box",
+        "old textbook",
+        "ceramic cup",
+        "aluminium drink can",
+        "heavy cardboard",
+        "light bulb"
+       ]
+      },
+      {
+       "n": 10,
+       "stem": "In the Blue Bag",
+       "opts": [
+        "telephone book",
+        "packing box",
+        "old clothing",
+        "magazines",
+        "used pizza delivery box",
+        "old textbook",
+        "ceramic cup",
+        "aluminium drink can",
+        "heavy cardboard",
+        "light bulb"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 11–14",
+     "instr": "Answer <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b> according to the recycling guide.",
+     "lines": [
+      "Do I put out items for recycling every other week? {{11}}",
+      "Should I remove labels from food cans? {{12}}",
+      "Can I recycle a broken window? {{13}}",
+      "Is there a separate collection for large household items? {{14}}"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 2",
+   "qs": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "passage": {
+    "title": "A Career in Hotel Management",
+    "paras": [
+     "<b>Introduction</b>",
+     "Hotel management provides exciting career opportunities in the dynamic hospitality and tourism industry. Indeed, tourism is the world’s fastest growing industry. Recent figures show tourism enjoying a growth rate 23% higher than that of the global economy, employing some 212 million and earning in the region of $US 3.4 trillion per annum.",
+     "In a year from now, employment figures are predicted to exceed 338 million, with revenue above $US7.2 trillion. The vast majority of new jobs will be in the Asia-Pacific region, which by the year 2010 will attract 1 in every 5 of the world’s holidaymakers. The employment prospects for the International College of Hospitality Management’s graduates are exciting.",
+     "<b>The International College of Hospitality Management</b>",
+     "The International College of Hospitality Management provides diploma and degree level hotel management training for the international hospitality and tourism industry. Established in 1993, the International College of Hospitality Management is the Asia-Pacific Basin campus of the renowned European Hotel Association. It also incorporates the classical French cooking training of Le Gourmet, Paris.",
+     "<b>International Hotel Management Diploma</b>",
+     "The International College of Hospitality Management course is industry-oriented, balancing operative, supervisory and management level training. The Diploma course is 3 years full time. Semesters 1, 3 and 5 are spent studying on campus, and Semesters 2, 4 and 6 are spent in industry on undergraduate placements, called ‘stages’. One stage may be taken up with language studies.",
+     "<b>Bachelor of Business (Hotel Management) Degree</b>",
+     "Students who graduate with the International Hotel Management Diploma are assured of a further year of Degree Study at the University of the Antipodes. Studies will focus on such areas as: Global Marketing, Strategic Management, Total Quality Management, Cross-Cultural Communications, Developing Organisations and Management of Change, Global Development in Hospitality and Tourism, Intercultural Relations. Under certain circumstances the final year of study can be conducted on a part-time basis and by distance education mode, enabling students to study while maintaining a full-time career in the hospitality industry, either here or in their home country.",
+     "<b>Training Facilities</b>",
+     "The International College of Hospitality Management has more than 120 professional lecturers and international-standard training facilities. These include three public restaurants, ten commercial training kitchens, simulated front office training facilities, four computer suites, a fully operational winery, and a food science laboratory. The Learning Resource Centre collection is extensive. The student support services provide professional counselling in the areas of health, learning support, language skills, accommodation and welfare. Childcare facilities are also available on campus.",
+     "<b>International House</b>",
+     "The International College of Hospitality Management has students enrolled from more than 20 countries, some of whom stay on campus in International House. Built in 1999, International House is accommodation comprising villa-style units. Each student has their own bedroom, sharing en suite facilities with another student. An adjoining kitchenette and lounge area is shared by the four students in the villa. All meals are served in the College dining room which is next to the student common room. Student privacy and security are priorities. A computer outlet in each bedroom enables students to connect into the College network, providing 24 hour-a-day access. The residence is a two-minute walk to the College’s sporting and training facilities, and is on a regular bus service to the city centre 10 km away. International House is also being used to enhance on-campus training; from Monday to Friday, Year 1 students, supervised by 2nd Years, are assigned kitchen, waiting, housekeeping and receptionist duties. Simulated check-in/check-out exercises, receptionist duties and breakfast service to a limited number of rooms are also part of the program.",
+     "<b>International Hotel Management Diploma — Short Courses</b>",
+     "<b>A</b> This certificate is designed for participants wishing to acquire the skills to perform duties relevant to a front office receptionist working within a range of hospitality establishments. Course includes: front office and organisational structure, role and duties of front office personnel, guests’ reservations and registrations, check-in and check-out procedures, guest accounting and management reports.",
+     "<b>B</b> This certificate is designed for participants wishing to develop a solid understanding of, and the ability to perform duties and skills required in advanced front office operations and night auditing. Course includes: night auditing procedures, daily records and reports, early and late arrivals, security duties, bell desk/concierge, guest service and information, advanced cashiering, supervision of payments, banking operations, debtor control and financial reports.",
+     "<b>C</b> This certificate is designed for participants wishing to acquire the skills relevant to table attendant duties within an a la carte restaurant. Course includes: table setting for a variety of menus, plate and silver service, tray and wine service, ordering and docket systems, wine styles and label identification, food and wine combinations.",
+     "<b>D</b> This certificate is designed for participants wishing to acquire the skills to perform a bar attendant’s duties within a range of industry settings. Course includes: bar preparation, cash handling, beer service, patron care, basic cocktail mixing, product knowledge."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 15–27."
+   },
+   "groups": [
+    {
+     "title": "Questions 15–18",
+     "instr": "Choose ONE phrase, <b>A–J</b>, to complete each sentence. <i>There are more phrases than questions.</i>",
+     "questions": [
+      {
+       "n": 15,
+       "stem": "The hospitality industry…",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A …includes work experience placements overseas."
+        },
+        {
+         "l": "B",
+         "t": "B …can be done by distance mode."
+        },
+        {
+         "l": "C",
+         "t": "C …requires foreign language studies."
+        },
+        {
+         "l": "D",
+         "t": "D …has links with overseas institutions."
+        },
+        {
+         "l": "E",
+         "t": "E …must be completed in Australia."
+        },
+        {
+         "l": "F",
+         "t": "F …combines study with industry placements."
+        },
+        {
+         "l": "G",
+         "t": "G …offers expanding opportunities for employment."
+        },
+        {
+         "l": "H",
+         "t": "H …must be completed in one year."
+        },
+        {
+         "l": "I",
+         "t": "I …takes 3 years to complete, part-time."
+        },
+        {
+         "l": "J",
+         "t": "J …consists of several campuses."
+        }
+       ]
+      },
+      {
+       "n": 16,
+       "stem": "The College…",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A …includes work experience placements overseas."
+        },
+        {
+         "l": "B",
+         "t": "B …can be done by distance mode."
+        },
+        {
+         "l": "C",
+         "t": "C …requires foreign language studies."
+        },
+        {
+         "l": "D",
+         "t": "D …has links with overseas institutions."
+        },
+        {
+         "l": "E",
+         "t": "E …must be completed in Australia."
+        },
+        {
+         "l": "F",
+         "t": "F …combines study with industry placements."
+        },
+        {
+         "l": "G",
+         "t": "G …offers expanding opportunities for employment."
+        },
+        {
+         "l": "H",
+         "t": "H …must be completed in one year."
+        },
+        {
+         "l": "I",
+         "t": "I …takes 3 years to complete, part-time."
+        },
+        {
+         "l": "J",
+         "t": "J …consists of several campuses."
+        }
+       ]
+      },
+      {
+       "n": 17,
+       "stem": "The Diploma course…",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A …includes work experience placements overseas."
+        },
+        {
+         "l": "B",
+         "t": "B …can be done by distance mode."
+        },
+        {
+         "l": "C",
+         "t": "C …requires foreign language studies."
+        },
+        {
+         "l": "D",
+         "t": "D …has links with overseas institutions."
+        },
+        {
+         "l": "E",
+         "t": "E …must be completed in Australia."
+        },
+        {
+         "l": "F",
+         "t": "F …combines study with industry placements."
+        },
+        {
+         "l": "G",
+         "t": "G …offers expanding opportunities for employment."
+        },
+        {
+         "l": "H",
+         "t": "H …must be completed in one year."
+        },
+        {
+         "l": "I",
+         "t": "I …takes 3 years to complete, part-time."
+        },
+        {
+         "l": "J",
+         "t": "J …consists of several campuses."
+        }
+       ]
+      },
+      {
+       "n": 18,
+       "stem": "The Degree course…",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A …includes work experience placements overseas."
+        },
+        {
+         "l": "B",
+         "t": "B …can be done by distance mode."
+        },
+        {
+         "l": "C",
+         "t": "C …requires foreign language studies."
+        },
+        {
+         "l": "D",
+         "t": "D …has links with overseas institutions."
+        },
+        {
+         "l": "E",
+         "t": "E …must be completed in Australia."
+        },
+        {
+         "l": "F",
+         "t": "F …combines study with industry placements."
+        },
+        {
+         "l": "G",
+         "t": "G …offers expanding opportunities for employment."
+        },
+        {
+         "l": "H",
+         "t": "H …must be completed in one year."
+        },
+        {
+         "l": "I",
+         "t": "I …takes 3 years to complete, part-time."
+        },
+        {
+         "l": "J",
+         "t": "J …consists of several campuses."
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "A",
+       "…includes work experience placements overseas."
+      ],
+      [
+       "B",
+       "…can be done by distance mode."
+      ],
+      [
+       "C",
+       "…requires foreign language studies."
+      ],
+      [
+       "D",
+       "…has links with overseas institutions."
+      ],
+      [
+       "E",
+       "…must be completed in Australia."
+      ],
+      [
+       "F",
+       "…combines study with industry placements."
+      ],
+      [
+       "G",
+       "…offers expanding opportunities for employment."
+      ],
+      [
+       "H",
+       "…must be completed in one year."
+      ],
+      [
+       "I",
+       "…takes 3 years to complete, part-time."
+      ],
+      [
+       "J",
+       "…consists of several campuses."
+      ]
+     ]
+    },
+    {
+     "title": "Questions 19–23",
+     "instr": "Choose <b>YES</b>, <b>NO</b> or <b>NOT GIVEN</b>.",
+     "lines": [
+      "The training facility has 10 kitchens. {{19}}",
+      "All students in the program live at International House. {{20}}",
+      "Four students share a unit in the residence. {{21}}",
+      "The residence is used as part of the training program. {{22}}",
+      "All meals in the residence are prepared by the students. {{23}}"
+     ]
+    },
+    {
+     "title": "Questions 24–27",
+     "instr": "Choose the correct title, <b>i–viii</b>, for each of the four short courses (A–D).",
+     "questions": [
+      {
+       "n": 24,
+       "stem": "Course A",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 25,
+       "stem": "Course B",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 26,
+       "stem": "Course C",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 27,
+       "stem": "Course D",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "i",
+       "Food and Wine Service"
+      ],
+      [
+       "ii",
+       "Housekeeping Procedures"
+      ],
+      [
+       "iii",
+       "Cocktails and Mixed Drinks"
+      ],
+      [
+       "iv",
+       "Hotel Front Office Management"
+      ],
+      [
+       "v",
+       "Bars and Service of Drinks"
+      ],
+      [
+       "vi",
+       "Resort Operation and Management"
+      ],
+      [
+       "vii",
+       "Catering Control"
+      ],
+      [
+       "viii",
+       "Hotel Front Office Reception"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 3",
+   "qs": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "passage": {
+    "title": "As More Tech Start-Ups Stay Private, So Does the Money",
+    "paras": [
+     "Not long ago, if you were a young, brash technologist with a world-conquering start-up idea, there was a good chance you spent much of your waking life working toward a single business milestone: taking your company public.",
+     "Though luminaries of the tech industry have always expressed skepticism and even hostility toward the finance industry, tech’s dirty secret was that it looked to Wall Street and the ritual of a public offering for affirmation — not to mention wealth.",
+     "But something strange has happened in the last couple of years: The initial public offering of stock has become déclassé. For start-up entrepreneurs and their employees across Silicon Valley, an initial public offering is no longer a main goal. Instead, many founders talk about going public as a necessary evil to be postponed as long as possible because it comes with more problems than benefits.",
+     "“If you can get $200 million from private sources, then yeah, I don’t want my company under the scrutiny of the unwashed masses who don’t understand my business,” said Danielle Morrill, the chief executive of Mattermark, a start-up that organizes and sells information about the start-up market. “That’s actually terrifying to me.”",
+     "Silicon Valley’s sudden distaste for the I.P.O. — rooted in part in Wall Street’s skepticism of new tech stocks — may be the single most important psychological shift underlying the current tech boom. Staying private affords start-up executives the luxury of not worrying what outsiders think and helps them avoid the quarterly earnings treadmill.",
+     "It also means Wall Street is doing what it failed to do in the last tech boom: using traditional metrics like growth and profitability to price companies. Investors have been tough on Twitter, for example, because its user growth has slowed. They have been tough on Box, the cloud-storage company that went public last year, because it remains unprofitable. And the e-commerce company Zulily, which went public last year, was likewise punished when it cut its guidance for future sales.",
+     "Scott Kupor, the managing partner at the venture capital firm Andreessen Horowitz, and his colleagues said in a recent report that despite all the attention start-ups have received in recent years, tech stocks are not seeing unusually high valuations. In fact, their share of the overall market has remained stable for 14 years, and far off the peak of the late 1990s.",
+     "That unwillingness to cut much slack to young tech companies limits risk for regular investors. If the bubble pops, the unwashed masses, if that’s what we are, aren’t as likely to get washed out.",
+     "Private investors, on the other hand, are making big bets on so-called unicorns — the Silicon Valley jargon for start-up companies valued at more than a billion dollars. If many of those unicorns flop, most Americans will escape unharmed, because losses will be confined to venture capitalists and hedge funds that have begun to buy into tech start-ups, as well as tech founders and their employees.",
+     "The reluctance — and sometimes inability — to go public is spurring the unicorns. By relying on private investors for a longer period of time, start-ups get more runway to figure out sustainable business models. To delay their entrance into the public markets, firms like Airbnb, Dropbox, Palantir, Pinterest, Uber and several other large start-ups are raising hundreds of millions, and in some cases billions, that they would otherwise have gained through an initial public offering.",
+     "“These companies are going public, just in the private market,” Dan Levitan, the managing partner of the venture capital firm Maveron, told me recently. He means that in many cases, hedge funds and other global investors that would have bought shares in these firms after an I.P.O. are deciding to go into late-stage private rounds. There is even an oxymoronic term for the act of obtaining private money in place of a public offering: It’s called a “private I.P.O.”",
+     "The delay in I.P.O.s has altered how some venture capital firms do business. Rather than waiting for an initial offering, Maveron, for instance, says it now sells its stake in a start-up to other, larger private investors once it has made about 100 times its initial investment. It is the sort of return that once was only possible after an I.P.O.",
+     "But there is also a downside to the new aversion to initial offerings. When the unicorns do eventually go public and begin to soar — or whatever it is that fantastical horned beasts tend to do when they’re healthy — the biggest winners will be the private investors that are now bearing most of the risk.",
+     "It used to be that public investors who got in on the ground floor of an initial offering could earn historic gains. If you invested $1,000 in Amazon at its I.P.O. in 1997, you would now have nearly $250,000. If you had invested $1,000 in Microsoft in 1986, you would have close to half a million. Public investors today are unlikely to get anywhere near such gains from tech I.P.O.s. By the time tech companies come to the market, the biggest gains have already been extracted by private backers.",
+     "Just 53 technology companies went public in 2014, which is around the median since 1980, but far fewer than during the boom of the late 1990s and 2000, when hundreds of tech companies went public annually, according to statistics maintained by Jay Ritter, a professor of finance at the University of Florida. Today’s companies are also waiting longer. In 2014, the typical tech company hitting the markets was 11 years old, compared with a median age of seven years for tech I.P.O.s since 1980.",
+     "Over the last few weeks, I’ve asked several founders and investors why they’re waiting; few were willing to speak on the record about their own companies, but their answers all amounted to “What’s the point?”",
+     "Initial public offerings were also ways to compensate employees and founders who owned lots of stock, but there are now novel mechanisms — such as selling shares on a secondary market — for insiders to cash in on some of their shares in private companies. Still, some observers cautioned that the new trend may be a bad deal for employees who aren’t given much information about the company’s performance.",
+     "“One thing employees may be confused about is when companies tell them, ‘We’re basically doing a private I.P.O.,’ it might make them feel like there’s less risk than there really is,” said Ms. Morrill of Mattermark. But she said it was hard to persuade people that their paper gains may never materialize. “The Kool-Aid is really strong,” she said.",
+     "If the delay in I.P.O.s becomes a normal condition for Silicon Valley, some observers say tech companies may need to consider new forms of compensation for workers. “We probably need to fundamentally rethink how do private companies compensate employees, because that’s going to be an issue,” said Mr. Kupor, of Andreessen Horowitz.",
+     "During a recent presentation for Andreessen Horowitz’s limited partners — the institutions that give money to the venture firm — Marc Andreessen, the firm’s co-founder, told the journalist Dan Primack that he had never seen a sharper divergence in how investors treat public- and private-company chief executives. “They tell the public C.E.O., ‘Give us the money back this quarter,’ and they tell the private C.E.O., ‘No problem, go for 10 years,’ ” Mr. Andreessen said.",
+     "At some point this tension will be resolved. “Private valuations will not forever be higher than public valuations,” said Mr. Levitan, of Maveron. “So the question is, Will private markets capitulate and go down or will public markets go up?”",
+     "If the private investors are wrong, employees, founders and a lot of hedge funds could be in for a reckoning. But if they’re right, it will be you and me wearing the frown — the public investors who missed out on the next big thing."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 28–40."
+   },
+   "groups": [
+    {
+     "title": "Questions 28–31",
+     "instr": "Choose the correct letter, <b>A, B, C or D</b>.",
+     "questions": [
+      {
+       "n": 28,
+       "stem": "How much would you have by now if you had invested $1,000 in Amazon in 1997?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "nearly $250,000"
+        },
+        {
+         "l": "B",
+         "t": "close to $500,000"
+        },
+        {
+         "l": "C",
+         "t": "It is not stated in the text"
+        },
+        {
+         "l": "D",
+         "t": "No funds"
+        }
+       ]
+      },
+      {
+       "n": 29,
+       "stem": "Nowadays founders talk about going public as a:",
+       "opts": [
+        {
+         "l": "A",
+         "t": "necessity."
+        },
+        {
+         "l": "B",
+         "t": "benefit."
+        },
+        {
+         "l": "C",
+         "t": "troublesome thing."
+        },
+        {
+         "l": "D",
+         "t": "profit."
+        }
+       ]
+      },
+      {
+       "n": 30,
+       "stem": "In which time period was the biggest number of companies going public?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "early 1990s"
+        },
+        {
+         "l": "B",
+         "t": "late 1990s and 2000"
+        },
+        {
+         "l": "C",
+         "t": "1980s"
+        },
+        {
+         "l": "D",
+         "t": "late 1990s"
+        }
+       ]
+      },
+      {
+       "n": 31,
+       "stem": "According to the text, which of the following is true?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "Private valuations may be forever higher than public ones."
+        },
+        {
+         "l": "B",
+         "t": "Public valuations eventually will become even less valuable."
+        },
+        {
+         "l": "C",
+         "t": "The main question is whether the public market will increase or the private market decrease."
+        },
+        {
+         "l": "D",
+         "t": "The pressure might last for a long time."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 32–36",
+     "instr": "Complete the sentences below. Write <b>ONE WORD ONLY</b> from the passage for each answer.",
+     "lines": [
+      "Skepticism was always expressed by the <input type=\"text\" class=\"ans\" id=\"q32\" data-q=\"32\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"32\"> of the tech industry. {{32}}",
+      "The new aversion to initial offerings has its <input type=\"text\" class=\"ans\" id=\"q33\" data-q=\"33\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"33\">. {{33}}",
+      "Selling shares on a secondary market is considered a <input type=\"text\" class=\"ans\" id=\"q34\" data-q=\"34\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"34\"> mechanism. {{34}}",
+      "Workers' compensation might be an <input type=\"text\" class=\"ans\" id=\"q35\" data-q=\"35\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"35\">. {{35}}",
+      "The public investors who failed to participate in the next big thing might be the ones wearing the <input type=\"text\" class=\"ans\" id=\"q36\" data-q=\"36\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"36\">. {{36}}"
+     ]
+    },
+    {
+     "title": "Questions 37–40",
+     "instr": "Choose <b>TRUE</b>, <b>FALSE</b> or <b>NOT GIVEN</b>.",
+     "lines": [
+      "Private investors are bearing most of the risk. {{37}}",
+      "Not many investors were willing to speak on the record. {{38}}",
+      "The typical tech company hitting the markets in the 1990s was 5 years old. {{39}}",
+      "Marc Andreessen, the firm's co-founder, expressed amazement at the divergence in how investors treat public and private company chief executives. {{40}}"
+     ]
+    }
+   ]
+  }
+ ],
+ "mediaUrls": {},
+ "catalogue": {
+  "label": "Reading Test 1",
+  "skillLabel": "General Training Reading"
+ }
+}

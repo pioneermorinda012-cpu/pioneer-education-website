@@ -79,9 +79,8 @@
  },
  "14": {
   "s": 0,
-  "t": [
-   "Flatten bundles and tie — no larger than 30 x 30 x 8."
-  ]
+  "t": [],
+  "k": "none"
  },
  "15": {
   "s": 1,
@@ -127,9 +126,8 @@
  },
  "23": {
   "s": 1,
-  "t": [
-   "All meals are served in the College dining room"
-  ]
+  "t": [],
+  "k": "none"
  },
  "22": {
   "s": 1,
@@ -199,9 +197,8 @@
  },
  "39": {
   "s": 2,
-  "t": [
-   "compared with a median age of seven years for tech I.P.O.s since 1980"
-  ]
+  "t": [],
+  "k": "none"
  },
  "38": {
   "s": 2,

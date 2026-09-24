@@ -6,12 +6,11 @@
  * The per-type chart says *which* skill is costing marks. This says exactly
  * which questions — so "I keep losing Matching Headings" becomes eleven real
  * questions the student can sit down and work through, each with the answer
- * and, on request, the reasoning.
+ * and a link back to the paper, where the line that settles it is marked.
  */
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { Explain } from "./Review";
 
 export type Miss = {
   attemptId: string;
@@ -123,7 +122,6 @@ export default function MistakeBook({ misses }: { misses: Miss[] }) {
             </div>
           </div>
 
-          <Explain testId={x.testId} n={Number(x.n)} />
         </div>
       ))}
 

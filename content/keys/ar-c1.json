@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "focal point"
+  ],
+  "display": "focal point"
+ },
+ "5": {
+  "accept": [
+   "focal length"
+  ],
+  "display": "focal length"
+ },
+ "6": {
+  "accept": [
+   "convex lenses",
+   "convex lens"
+  ],
+  "display": "convex lenses / convex lens"
+ },
+ "7": {
+  "accept": [
+   "Johannes Kepler",
+   "Kepler"
+  ],
+  "display": "Johannes Kepler / Kepler"
+ },
+ "8": {
+  "accept": [
+   "a conscious effort",
+   "conscious effort"
+  ],
+  "display": "a conscious effort / conscious effort"
+ },
+ "9": {
+  "accept": [
+   "temperature changes",
+   "temperature change"
+  ],
+  "display": "temperature changes / temperature change"
+ },
+ "10": {
+  "accept": [
+   "peripheral vision",
+   "peripheral"
+  ],
+  "display": "peripheral vision / peripheral"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "Laurasia"
+  ],
+  "display": "Laurasia"
+ },
+ "28": {
+  "accept": [
+   "Pangaea"
+  ],
+  "display": "Pangaea"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "tectonic plate",
+   "plate"
+  ],
+  "display": "tectonic plate / plate"
+ },
+ "34": {
+  "accept": [
+   "cools",
+   "cool"
+  ],
+  "display": "cools / cool"
+ },
+ "35": {
+  "accept": [
+   "rotation"
+  ],
+  "display": "rotation"
+ },
+ "36": {
+  "accept": [
+   "San Andreas"
+  ],
+  "display": "San Andreas"
+ },
+ "37": {
+  "accept": [
+   "Divergent"
+  ],
+  "display": "Divergent"
+ },
+ "38": {
+  "accept": [
+   "continental collision",
+   "collision"
+  ],
+  "display": "continental collision / collision"
+ },
+ "39": {
+  "accept": [
+   "mighty rivers"
+  ],
+  "display": "mighty rivers"
+ },
+ "40": {
+  "accept": [
+   "subduction zone",
+   "subduction"
+  ],
+  "display": "subduction zone / subduction"
+ }
+}

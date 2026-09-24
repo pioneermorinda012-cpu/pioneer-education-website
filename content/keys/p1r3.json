@@ -1,1 +1,253 @@
-{}
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "9": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "10": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "11": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "14": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "15": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "16": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "17": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "18": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "19": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "20": {
+  "accept": [
+   "agriculture"
+  ],
+  "display": "agriculture"
+ },
+ "21": {
+  "accept": [
+   "parks"
+  ],
+  "display": "parks"
+ },
+ "22": {
+  "accept": [
+   "productivity"
+  ],
+  "display": "productivity"
+ },
+ "23": {
+  "accept": [
+   "protein"
+  ],
+  "display": "protein"
+ },
+ "24": {
+  "accept": [
+   "DNA"
+  ],
+  "display": "DNA"
+ },
+ "25": {
+  "accept": [
+   "game"
+  ],
+  "display": "game"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "31": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "32": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "33": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "34": {
+  "accept": [
+   "sneezed"
+  ],
+  "display": "sneezed"
+ },
+ "35": {
+  "accept": [
+   "two",
+   "2"
+  ],
+  "display": "two / 2"
+ },
+ "36": {
+  "accept": [
+   "removed"
+  ],
+  "display": "removed"
+ },
+ "37": {
+  "accept": [
+   "analysis"
+  ],
+  "display": "analysis"
+ },
+ "38": {
+  "accept": [
+   "life"
+  ],
+  "display": "life"
+ },
+ "39": {
+  "accept": [
+   "C",
+   "D"
+  ],
+  "display": "C, D  (Q39–40, either order)",
+  "pool": [
+   "39",
+   "40"
+  ]
+ },
+ "40": {
+  "accept": [
+   "C",
+   "D"
+  ],
+  "display": "C, D  (Q39–40, either order)",
+  "pool": [
+   "39",
+   "40"
+  ]
+ }
+}

@@ -1,1 +1,1267 @@
-{"id": "gt3r4", "mode": "reading", "name": "GT3R4 — Reading Test 4", "blurb": "3 sections · 40 questions · 60 minutes", "minutes": 60, "total": 40, "theme": "blue", "bandsReading": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "bandsListening": [[40, 9], [39, 8.5], [37, 8], [36, 7.5], [34, 7], [32, 6.5], [30, 6], [27, 5.5], [23, 5], [19, 4.5], [15, 4], [12, 3.5], [9, 3], [6, 2.5], [0, 2]], "rules": ["The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.", "You should spend about <b>20 minutes</b> on each section.", "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.", "Answer all 40 questions, then tap <b>Submit test</b> for your band score.", "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.", "A 60-minute timer runs in the background; the test submits itself at zero."], "sections": [{"label": "Section 1", "qs": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13], "passage": {"title": "Discover Hidden Island", "paras": ["<b>Accommodation options</b>", "<b>A</b> Oceanrest Motel at Sea Bay — $205 per person (twin share)<br>\n<b>B</b> The Ferry Hotel in Clifton for $211 per person (twin share)<br>\n<b>C</b> Seabreeze Hotel at Seal Bay for $252 per person (including full breakfast)<br>\n<b>D</b> Island Escape Lodge at French River for $314 per person (twin share), water view, includes continental breakfast<br>\n<b>E</b> Sanctuary Beach self-contained cabins for $273.50 per person (twin share) also includes chocolate, wine, 4WD tour of nature reserve and $10 meal voucher", "<b>Youth Adventure Package — Travel Insurance</b>", "Don't let anything spoil your fun! Your vacation is all about exploring, adventure and fun. You want to see new places and try new things.", "The Youth Adventure Package is an affordable 'just in case' backup plan, so you aren't hit with unexpected medical costs while on the adventure of a lifetime. You'll be a long way from home. If you have an unexpected illness or accidental injury, we'll be there to help and ensure you get the care you need.", "Our emergency travel assistance services are available from anywhere in the world at any time of the day or night.", "<b>A</b> <i>(Example: viii)</i><br>Even for young healthy travellers, sickness or accidental injury can happen at any time. Charges for hospital stays can be thousands of dollars per day not including doctors' fees and diagnostic services. This easily adds up to a devastating financial loss. You are on the adventure of a lifetime and don't want to be burdened with a medical bill or to pay for lost or stolen luggage.", "<b>B</b><br>Travel insurance is intended to cover sudden, unexpected and unforeseeable circumstances. Your plan is comprised of 4 different coverages. For more information, please read the Benefits under each.", "<b>C</b><br>The Youth Adventure Package does not cover everything. This insurance has some exclusions. You should read and understand them before you travel. Prior-existing medical conditions may be excluded. Any medical condition you are aware of prior to the effective date of coverage, whether diagnosed or not, may not be covered. Sickness or accidental injury that occurs as a result of the use of alcohol or illegal drugs is not covered.", "<b>D</b><br>We are dedicated to protecting your privacy. Your medical history will be collected when required and will only be used or disclosed for the purpose of adjudicating the claim.", "<b>E</b><br>Yes you can. Just call your agent no sooner than 7 days prior to the expiry of your policy. You can purchase an extension if you are in good health and have not filed any claims on the policy.", "<b>F</b><br>You are covered for any country outside of the USA. However, transit for 5 days only is allowed through the USA."], "img": "fig1", "sub": "You should spend about 20 minutes on Questions 1–13."}, "groups": [{"title": "Questions 1–5", "instr": "Which accommodation, <b>A–E</b>, would you choose for each of the requirements below? (Use the map and the accommodation list.)", "questions": [{"n": 1, "stem": "You want accommodation close to the ferry boat terminal.", "opts": [{"l": "A", "t": "A – Oceanrest Motel"}, {"l": "B", "t": "B – The Ferry Hotel"}, {"l": "C", "t": "C – Seabreeze Hotel"}, {"l": "D", "t": "D – Island Escape Lodge"}, {"l": "E", "t": "E – Sanctuary Beach cabins"}]}, {"n": 2, "stem": "You are looking for the least expensive place to stay.", "opts": [{"l": "A", "t": "A – Oceanrest Motel"}, {"l": "B", "t": "B – The Ferry Hotel"}, {"l": "C", "t": "C – Seabreeze Hotel"}, {"l": "D", "t": "D – Island Escape Lodge"}, {"l": "E", "t": "E – Sanctuary Beach cabins"}]}, {"n": 3, "stem": "You have heard that the best spots are on the south coast.", "opts": [{"l": "A", "t": "A – Oceanrest Motel"}, {"l": "B", "t": "B – The Ferry Hotel"}, {"l": "C", "t": "C – Seabreeze Hotel"}, {"l": "D", "t": "D – Island Escape Lodge"}, {"l": "E", "t": "E – Sanctuary Beach cabins"}]}, {"n": 4, "stem": "You want to be sure to have a good view from your room.", "opts": [{"l": "A", "t": "A – Oceanrest Motel"}, {"l": "B", "t": "B – The Ferry Hotel"}, {"l": "C", "t": "C – Seabreeze Hotel"}, {"l": "D", "t": "D – Island Escape Lodge"}, {"l": "E", "t": "E – Sanctuary Beach cabins"}]}, {"n": 5, "stem": "You like the idea of a big breakfast.", "opts": [{"l": "A", "t": "A – Oceanrest Motel"}, {"l": "B", "t": "B – The Ferry Hotel"}, {"l": "C", "t": "C – Seabreeze Hotel"}, {"l": "D", "t": "D – Island Escape Lodge"}, {"l": "E", "t": "E – Sanctuary Beach cabins"}]}]}, {"title": "Questions 6–10", "instr": "Choose the most suitable question heading for each part (B–F) of the travel insurance notice.", "example": "Part A — <b>viii</b>", "questions": [{"n": 6, "stem": "Part B", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]}, {"n": 7, "stem": "Part C", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]}, {"n": 8, "stem": "Part D", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]}, {"n": 9, "stem": "Part E", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]}, {"n": 10, "stem": "Part F", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x"]}], "bank": [["i", "Do I have to reveal my medical history?"], ["ii", "Does the plan cover lost luggage?"], ["iii", "If I want to stay longer can I extend my policy?"], ["iv", "Can I travel anywhere in the world?"], ["v", "What is not covered?"], ["vi", "What if I have an emergency or claim?"], ["vii", "How much will it cost?"], ["viii", "Why do I need travel insurance? (EXAMPLE)"], ["ix", "Can I buy insurance after I have begun my travels?"], ["x", "In what situations am I covered when travelling?"]]}, {"title": "Questions 11–13", "instr": "Using <b>NO MORE THAN THREE WORDS</b> from the passage, answer each question.", "lines": ["What item is covered in addition to health and medical expenses? {{11}}", "Accidental injury is not covered if a person uses <input type=\"text\" class=\"ans\" id=\"q12\" data-q=\"12\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"12\">. {{12}}", "What is special about the coverage for the United States? {{13}}"]}]}, {"label": "Section 2", "qs": [14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27], "passage": {"title": "Diving: Take the Plunge", "paras": ["Have you always wanted to learn to dive? Getting a Diving Certificate will be one of the most exciting experiences of your life as you learn how to explore a new world underwater! Here's the 10-step path to becoming a certified diver:", "<b>STEP 1:</b> Decide you really want to do it.<br>\n<b>STEP 2:</b> Find a dive store and dive instructor you like.<br>\n<b>STEP 3:</b> Discuss how you will complete your open-water certification: meeting weekly for classroom and pool sessions, weekend classes, home study, class trip for your open-water dives, and more.<br>\n<b>STEP 4:</b> With your instructor, decide on a plan that best fits your schedule.<br>\n<b>STEP 5:</b> Put on a mask, a snorkel and a pair of fins. These are the basic items of personal equipment that need to be fitted to you by a dive store professional. For reasons of safety and comfort, we recommend that you buy dive equipment only at a dive store.<br>\n<b>STEP 6:</b> Be enthusiastic. An important part of your training involves going back to the classroom and learning about the dive environment, physics and safety practices.<br>\n<b>STEP 7:</b> Get wet! Your first dives will take place in a swimming pool. Be prepared for your first breath on a regulator (breathing apparatus) under water!<br>\n<b>STEP 8:</b> Go diving. Your open-water training dives provide the opportunity to practise the skills you learned in your classroom and pool work!<br>\n<b>STEP 9:</b> Use your 'C-card' now that you’re a certified diver! Only card-carrying divers can buy scuba life-support equipment. We also encourage you to begin right now selecting your personal equipment, especially a regulator, buoyancy compensator and dive computer. Having your own equipment will make you safer and more comfortable under water.<br>\n<b>STEP 10:</b> Go for more. Your certification is really just the beginning. You still need to serve a diving internship with your instructor and other experienced divers. Sign up for more training or dives under supervision as soon as you can.", "<b>Fear No More</b>", "<b>A</b> <i>(Example: ix — Diving statistics)</i><br>It’s natural to be scared at first, but statistics show scuba diving is not particularly dangerous. It is estimated that there are 2.4 million divers and 17 million dives made in the U.S. per year. Divers Alert Network, the leading safety organisation for divers, reported only 85 fatalities in the past year. Most of us find that as our ability increases, our fears decrease. The risks in scuba diving, while real, can all be reduced significantly by what you do for your own safety. Here are some of the most common fears of new scuba divers.", "<b>B</b><br>It’s understandable if you mistrust your scuba regulator. But mechanical failure of your breathing equipment is highly unlikely. A regulator is simple, strong and designed so that if it does fail, it delivers more air than you need, not less. You will also have an extra breathing system, and so will your diving buddy. Keep an eye on your air gauges and time. If you are running out of air you will find that you have to suck harder to breathe. You will still have time to ascend slowly, even if you have to hold your breath. If you stay above 60 feet and stay out of caves and wrecks — good advice for all new divers — there is no reason to be afraid of running out of air under water.", "<b>C</b><br>“The bends” is the decompression sickness most people associate with diving, but in fact it is almost preventable. Divers most often get the bends by going too deep and coming up too quickly. It is not a serious risk if you stay above 60 feet. A safety stop of three minutes at 15 feet is a wise precaution. Cases of the bends do occur rarely, but the sickness is normally treatable.", "<b>D</b><br>Most fish ignore you or swim away. They have very narrow diets and eat only what they are accustomed to; however, sometimes sharks have been known to make attacks on humans. Even here, there is evidence that the shark mistakes a human for his regular meal, a seal or sea-lion, and shark attacks are very rare. In the presence of sharks, remain calm. Don't annoy sharks by poking at them. Almost all fish will leave you alone if you do the same to them.", "<b>E</b><br>Fear can sometimes overwhelm the intellect and leaves some people paralysed. The best prevention is training. You will be taught the correct response to danger. When you practise the response, it will be there when you need it. When you know just what to do, you're much less likely to lose self-control. And experience — simply diving again and again — reduces the general anxiety level that is natural when diving is still new. When you realise you are not helpless, your fears are likely to disappear."], "sub": "You should spend about 20 minutes on Questions 14–27."}, "groups": [{"title": "Questions 14–19", "instr": "Using <b>NO MORE THAN THREE WORDS</b> from the passage, answer the following questions.", "lines": ["What THREE pieces of personal equipment do you need to buy before starting the course? {{14}}", "Why should you buy your equipment from a dive store? {{15}}", "Name ONE topic studied in the classroom. {{16}}", "What must you show before being allowed to buy scuba diving equipment? {{17}}", "What thing can make you feel more comfortable and safer by possessing it? {{18}}", "What thing do you need to do with your instructor and other experienced divers after being certified? {{19}}"]}, {"title": "Questions 20–23", "instr": "The passage ‘Fear No More’ has 5 paragraphs (A–E). Choose the most suitable headings for paragraphs B to E.", "example": "Paragraph A — (ix) Diving statistics", "questions": [{"n": 20, "stem": "Paragraph B", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 21, "stem": "Paragraph C", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 22, "stem": "Paragraph D", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}, {"n": 23, "stem": "Paragraph E", "opts": ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii"]}], "bank": [["i", "do not panic"], ["ii", "if you get lost"], ["iii", "do not be trapped"], ["iv", "I won’t be able to swim"], ["v", "if I get the bends"], ["vi", "I won’t be able to see"], ["vii", "don't get eaten"], ["viii", "if you run out of air"]]}, {"title": "Questions 24–27", "instr": "Complete the notes below using <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.", "lines": ["Dive no deeper than {{24}} until you feel comfortable.", "Don’t ascend {{25}}. Make a 3-minute safety stop at 15 feet.", "If you see a shark {{26}}. Avoid splashing, kicking or poking at fish.", "Visualise emergencies and {{27}} your responses. Experience gives you confidence."]}]}, {"label": "Section 3", "qs": [28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], "passage": {"title": "Slow Food", "paras": ["<b>A</b>", "Slow Food is an international grass roots movement dedicated to preserving the cultural heritage of good food. It started as a humorous protest against the spread of fast food around the world and has developed into a major advocate for the world's unique food products. The movement's logo is a snail. Since being founded in 1986 the Slow Food snail has crept from its home in Italy to 45 other countries around the world and now boasts over 650,000 members. The movement challenges the loss of flavour resulting from the industrialisation of food and agriculture. Its approach is 'eco-gastronomic'. Slow Food is committed to compiling and distributing information about local foods, drink and culture. Its purpose is to preserve endangered foods, encourage bio-diversity, and support small-scale producers of ethnic and local products around the world.", "<b>B</b>", "Modern agri-business has given the world cheap food with little taste, produced at a high cost to the environment. Slow Food has been instrumental in developing initiatives to revive products that take time and craftsmanship to create and which are threatened by global corporate practices. Protecting traditional local products also means safeguarding the people and ecosystems involved in their manufacture. It also provides incentives for the pursuit of production methods which are healthier for taste, the environment and the agricultural economy.", "<b>C</b>", "Statistics on the loss of biodiversity in our food chain are alarming. In less than a century over 300,000 plant species have disappeared — one plant species disappears every six hours. Today less than 30 varieties of plant feed 95% of the world's population. In Europe, half the breeds of domestic livestock became extinct during the course of the twentieth century. The crisis over mad cow disease and the ongoing debate over genetically modified food have given Slow Food, with its emphasis on organic methods, unexpected political influence.", "<b>D</b>", "In the space of a few years, Slow Food has become a major lobbying force in the European Union on agriculture and trade policy. Agri-business practices that have become dominant worldwide are geared to production in quantity. This is a carryover from agricultural policies set in the 1950s in Europe, when hunger from the war was still a vivid memory. At that time, when the goal was self sufficiency, farmers received subsidies according to the amounts they produced. There was and still is no reward for quality. Two generations ago, the average European family spent about one half of its income on food. Today it spends about 15 per cent. Surveys conducted by Slow Food show that a large majority of Italians would be willing to pay up to 20 per cent more for food in order to guarantee its quality, especially given recent food scares and scandals.", "<b>E</b>", "As national boundaries disappear in Europe and become more open around the world, food has emerged as an important source of identity. Slow Food's position on globalisation is that it has the potential to help as well as harm the small food producer. On the one hand, globalisation has allowed multinational corporations to extend their reach to virtually every corner of the world. However, rather than being afraid of the fast food giants, Slow Food is attempting to offer an alternative choice of \"virtuous globalisation\" by choosing to focus on quality and helping the small, local producer to access the global market.", "<b>F</b>", "The Slow Food organisation had to find ways to ensure its own economic viability. An initial strategy to generate income through publishing led to a number of food guides that were quickly successful. Some of the most popular of these feature restaurants serving authentic, local foods at local prices. Numerous and varied initiatives have sprung up since. The popular quarterly magazine, 'SLOW', features articles about food culture around the world. Italy's largest food show, the 'Salon de Gusto', sponsored by the Slow Food movement, provides an international market to hundreds of small producers whose goods, until recently, rarely left their village or region. Now there is even 'slow travel'. A growing number of tour operators in Italy, France, Australia and India subscribe to the movement, promoting \"cultural and educational journeys using food and the people that produce it as the learning medium.\" 'Slow cities' are entire communities dedicated to improving the quality of life for their citizens through environmentally sound, culturally-aware, eco-gastronomic policies and activities.", "<b>G</b>", "Another significant initiative of Slow Food is the Ark of Taste, a database of endangered species of edible plants and domestic animals worldwide. Commissions have been set up in many countries to seek out and catalogue new products. So far, 800 products from 26 countries have been figuratively brought onboard the Ark in an attempt to save them. The Ark of Taste has become an international project and a resource for agricultural biodiversity around the world.", "<b>H</b>", "So, a movement that began as a humorous protest against fast food has, in its own organic way, evolved into a versatile and intelligent advocate for the protection of the environment. The best response to global forces challenging the ability to enjoy our food and our lives begins, according to the Slow Food movement, 'at the table'. We are invited to slow down, appreciate the flavours of food and drink, and cultivate the art of living. Fast food isn't likely to disappear, but Slow Food seems to be here to stay as well. Its message is getting through — encouraging a pleasure-loving environmentalism as an alternative to the high-speed pace of the fast-food world. From its humble beginnings, Slow Food now includes a global network of people capable of generating ideas, and programs to defend the right to a responsible form of pleasure, respectful of cultural diversity and available to all."], "sub": "You should spend about 20 minutes on Questions 28–40."}, "groups": [{"title": "Questions 28–31", "instr": "The passage has 8 paragraphs, <b>A–H</b>. In which paragraph can the information below be found?", "questions": [{"n": 28, "stem": "a catalogue of domestic animals at risk of disappearing", "opts": ["A", "B", "C", "D", "E", "F", "G", "H"]}, {"n": 29, "stem": "statistics on the loss of variety in agricultural species", "opts": ["A", "B", "C", "D", "E", "F", "G", "H"]}, {"n": 30, "stem": "initiatives to ensure the financial survival of the organisation", "opts": ["A", "B", "C", "D", "E", "F", "G", "H"]}, {"n": 31, "stem": "information on the food budget of an average family", "opts": ["A", "B", "C", "D", "E", "F", "G", "H"]}]}, {"title": "Question 32", "instr": "Which of the following does the Slow Food Movement NOT promote? The first one (<b>D</b> – junk food culture) has been done for you. Choose the remaining <b>TWO</b>.", "questions": [{"n": 32, "stem": "Choose TWO letters", "opts": ["A", "B", "C", "E", "F", "G", "H"], "multi": true}], "bank": [["A", "old-fashioned cooking methods"], ["B", "genetically modified foods"], ["C", "endangered species of edible plants"], ["D", "junk food culture (example)"], ["E", "the enjoyment of good food and drink"], ["F", "high yield industrial farming"], ["G", "rare local domestic animals"], ["H", "organic methods of production"]]}, {"title": "Questions 33–38", "instr": "Choose ONE phrase, <b>A–H</b>, from the list that matches each expression. <i>There are more phrases than you need.</i>", "questions": [{"n": 33, "stem": "slow travel", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}, {"n": 34, "stem": "Ark of Taste", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}, {"n": 35, "stem": "virtuous globalisation", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}, {"n": 36, "stem": "Salon de Gusto", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}, {"n": 37, "stem": "agri-business", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}, {"n": 38, "stem": "SLOW", "opts": [{"l": "A", "t": "A – a resource for agricultural biodiversity"}, {"l": "B", "t": "B – a showcase for Italian food products"}, {"l": "C", "t": "C – a database of Slow Food members"}, {"l": "D", "t": "D – helping local producers compete in the international market"}, {"l": "E", "t": "E – published four times a year"}, {"l": "F", "t": "F – operates in Europe, Asia and Australia"}, {"l": "G", "t": "G – promotes protection of the environment and good eating"}, {"l": "H", "t": "H – produces food using industrial methods"}]}], "bank": [["A", "a resource for agricultural biodiversity"], ["B", "a showcase for Italian food products"], ["C", "a database of Slow Food members"], ["D", "helping local producers compete in the international market"], ["E", "published four times a year"], ["F", "operates in Europe, Asia and Australia"], ["G", "promotes protection of the environment and good eating"], ["H", "produces food using industrial methods"]]}, {"title": "Questions 39–40", "instr": "Answer the following questions using <b>NO MORE THAN THREE WORDS</b> from the passage.", "lines": ["Following which crisis did the Slow Food movement become a political force? {{39}}", "This movement was started as a reaction against what? {{40}}"]}]}], "mediaUrls": {"fig1": "/practice/media/gt3r4/gt3r4__fig1.png"}, "catalogue": {"label": "Reading Test 4", "skillLabel": "General Training Reading"}}
+{
+ "id": "gt3r4",
+ "mode": "reading",
+ "name": "GT3R4 — Reading Test 4",
+ "blurb": "3 sections · 40 questions · 60 minutes",
+ "minutes": 60,
+ "total": 40,
+ "theme": "blue",
+ "bandsReading": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "bandsListening": [
+  [
+   40,
+   9
+  ],
+  [
+   39,
+   8.5
+  ],
+  [
+   37,
+   8
+  ],
+  [
+   36,
+   7.5
+  ],
+  [
+   34,
+   7
+  ],
+  [
+   32,
+   6.5
+  ],
+  [
+   30,
+   6
+  ],
+  [
+   27,
+   5.5
+  ],
+  [
+   23,
+   5
+  ],
+  [
+   19,
+   4.5
+  ],
+  [
+   15,
+   4
+  ],
+  [
+   12,
+   3.5
+  ],
+  [
+   9,
+   3
+  ],
+  [
+   6,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "rules": [
+  "The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.",
+  "You should spend about <b>20 minutes</b> on each section.",
+  "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.",
+  "Answer all 40 questions, then tap <b>Submit test</b> for your band score.",
+  "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.",
+  "A 60-minute timer runs in the background; the test submits itself at zero."
+ ],
+ "sections": [
+  {
+   "label": "Section 1",
+   "qs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "passage": {
+    "title": "Discover Hidden Island",
+    "paras": [
+     "<b>Accommodation options</b>",
+     "<b>A</b> Oceanrest Motel at Sea Bay — $205 per person (twin share)<br>\n<b>B</b> The Ferry Hotel in Clifton for $211 per person (twin share)<br>\n<b>C</b> Seabreeze Hotel at Seal Bay for $252 per person (including full breakfast)<br>\n<b>D</b> Island Escape Lodge at French River for $314 per person (twin share), water view, includes continental breakfast<br>\n<b>E</b> Sanctuary Beach self-contained cabins for $273.50 per person (twin share) also includes chocolate, wine, 4WD tour of nature reserve and $10 meal voucher",
+     "<b>Youth Adventure Package — Travel Insurance</b>",
+     "Don't let anything spoil your fun! Your vacation is all about exploring, adventure and fun. You want to see new places and try new things.",
+     "The Youth Adventure Package is an affordable 'just in case' backup plan, so you aren't hit with unexpected medical costs while on the adventure of a lifetime. You'll be a long way from home. If you have an unexpected illness or accidental injury, we'll be there to help and ensure you get the care you need.",
+     "Our emergency travel assistance services are available from anywhere in the world at any time of the day or night.",
+     "<b>A</b> <i>(Example: viii)</i><br>Even for young healthy travellers, sickness or accidental injury can happen at any time. Charges for hospital stays can be thousands of dollars per day not including doctors' fees and diagnostic services. This easily adds up to a devastating financial loss. You are on the adventure of a lifetime and don't want to be burdened with a medical bill or to pay for lost or stolen luggage.",
+     "<b>B</b><br>Travel insurance is intended to cover sudden, unexpected and unforeseeable circumstances. Your plan is comprised of 4 different coverages. For more information, please read the Benefits under each.",
+     "<b>C</b><br>The Youth Adventure Package does not cover everything. This insurance has some exclusions. You should read and understand them before you travel. Prior-existing medical conditions may be excluded. Any medical condition you are aware of prior to the effective date of coverage, whether diagnosed or not, may not be covered. Sickness or accidental injury that occurs as a result of the use of alcohol or illegal drugs is not covered.",
+     "<b>D</b><br>We are dedicated to protecting your privacy. Your medical history will be collected when required and will only be used or disclosed for the purpose of adjudicating the claim.",
+     "<b>E</b><br>Yes you can. Just call your agent no sooner than 7 days prior to the expiry of your policy. You can purchase an extension if you are in good health and have not filed any claims on the policy.",
+     "<b>F</b><br>You are covered for any country outside of the USA. However, transit for 5 days only is allowed through the USA."
+    ],
+    "img": "fig1",
+    "sub": "You should spend about 20 minutes on Questions 1–13."
+   },
+   "groups": [
+    {
+     "title": "Questions 1–5",
+     "instr": "Which accommodation, <b>A–E</b>, would you choose for each of the requirements below? (Use the map and the accommodation list.)",
+     "questions": [
+      {
+       "n": 1,
+       "stem": "You want accommodation close to the ferry boat terminal.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Oceanrest Motel"
+        },
+        {
+         "l": "B",
+         "t": "B – The Ferry Hotel"
+        },
+        {
+         "l": "C",
+         "t": "C – Seabreeze Hotel"
+        },
+        {
+         "l": "D",
+         "t": "D – Island Escape Lodge"
+        },
+        {
+         "l": "E",
+         "t": "E – Sanctuary Beach cabins"
+        }
+       ]
+      },
+      {
+       "n": 2,
+       "stem": "You are looking for the least expensive place to stay.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Oceanrest Motel"
+        },
+        {
+         "l": "B",
+         "t": "B – The Ferry Hotel"
+        },
+        {
+         "l": "C",
+         "t": "C – Seabreeze Hotel"
+        },
+        {
+         "l": "D",
+         "t": "D – Island Escape Lodge"
+        },
+        {
+         "l": "E",
+         "t": "E – Sanctuary Beach cabins"
+        }
+       ]
+      },
+      {
+       "n": 3,
+       "stem": "You have heard that the best spots are on the south coast.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Oceanrest Motel"
+        },
+        {
+         "l": "B",
+         "t": "B – The Ferry Hotel"
+        },
+        {
+         "l": "C",
+         "t": "C – Seabreeze Hotel"
+        },
+        {
+         "l": "D",
+         "t": "D – Island Escape Lodge"
+        },
+        {
+         "l": "E",
+         "t": "E – Sanctuary Beach cabins"
+        }
+       ]
+      },
+      {
+       "n": 4,
+       "stem": "You want to be sure to have a good view from your room.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Oceanrest Motel"
+        },
+        {
+         "l": "B",
+         "t": "B – The Ferry Hotel"
+        },
+        {
+         "l": "C",
+         "t": "C – Seabreeze Hotel"
+        },
+        {
+         "l": "D",
+         "t": "D – Island Escape Lodge"
+        },
+        {
+         "l": "E",
+         "t": "E – Sanctuary Beach cabins"
+        }
+       ]
+      },
+      {
+       "n": 5,
+       "stem": "You like the idea of a big breakfast.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – Oceanrest Motel"
+        },
+        {
+         "l": "B",
+         "t": "B – The Ferry Hotel"
+        },
+        {
+         "l": "C",
+         "t": "C – Seabreeze Hotel"
+        },
+        {
+         "l": "D",
+         "t": "D – Island Escape Lodge"
+        },
+        {
+         "l": "E",
+         "t": "E – Sanctuary Beach cabins"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 6–10",
+     "instr": "Choose the most suitable question heading for each part (B–F) of the travel insurance notice.",
+     "example": "Part A — <b>viii</b>",
+     "questions": [
+      {
+       "n": 6,
+       "stem": "Part B",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        },
+        {
+         "l": "x",
+         "t": "x"
+        }
+       ]
+      },
+      {
+       "n": 7,
+       "stem": "Part C",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        },
+        {
+         "l": "x",
+         "t": "x"
+        }
+       ]
+      },
+      {
+       "n": 8,
+       "stem": "Part D",
+       "opts": [
+        "i",
+        "ii",
+        "iii",
+        "iv",
+        "v",
+        "vi",
+        "vii",
+        "viii",
+        "ix",
+        "x"
+       ]
+      },
+      {
+       "n": 9,
+       "stem": "Part E",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        },
+        {
+         "l": "x",
+         "t": "x"
+        }
+       ]
+      },
+      {
+       "n": 10,
+       "stem": "Part F",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        },
+        {
+         "l": "ix",
+         "t": "ix"
+        },
+        {
+         "l": "x",
+         "t": "x"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "i",
+       "Do I have to reveal my medical history?"
+      ],
+      [
+       "ii",
+       "Does the plan cover lost luggage?"
+      ],
+      [
+       "iii",
+       "If I want to stay longer can I extend my policy?"
+      ],
+      [
+       "iv",
+       "Can I travel anywhere in the world?"
+      ],
+      [
+       "v",
+       "What is not covered?"
+      ],
+      [
+       "vi",
+       "What if I have an emergency or claim?"
+      ],
+      [
+       "vii",
+       "How much will it cost?"
+      ],
+      [
+       "viii",
+       "Why do I need travel insurance? (EXAMPLE)"
+      ],
+      [
+       "ix",
+       "Can I buy insurance after I have begun my travels?"
+      ],
+      [
+       "x",
+       "In what situations am I covered when travelling?"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 11–13",
+     "instr": "Using <b>NO MORE THAN THREE WORDS</b> from the passage, answer each question.",
+     "lines": [
+      "What item is covered in addition to health and medical expenses? {{11}}",
+      "Accidental injury is not covered if a person uses <input type=\"text\" class=\"ans\" id=\"q12\" data-q=\"12\" autocomplete=\"off\" spellcheck=\"false\" placeholder=\"12\">. {{12}}",
+      "What is special about the coverage for the United States? {{13}}"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 2",
+   "qs": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27
+   ],
+   "passage": {
+    "title": "Diving: Take the Plunge",
+    "paras": [
+     "Have you always wanted to learn to dive? Getting a Diving Certificate will be one of the most exciting experiences of your life as you learn how to explore a new world underwater! Here's the 10-step path to becoming a certified diver:",
+     "<b>STEP 1:</b> Decide you really want to do it.<br>\n<b>STEP 2:</b> Find a dive store and dive instructor you like.<br>\n<b>STEP 3:</b> Discuss how you will complete your open-water certification: meeting weekly for classroom and pool sessions, weekend classes, home study, class trip for your open-water dives, and more.<br>\n<b>STEP 4:</b> With your instructor, decide on a plan that best fits your schedule.<br>\n<b>STEP 5:</b> Put on a mask, a snorkel and a pair of fins. These are the basic items of personal equipment that need to be fitted to you by a dive store professional. For reasons of safety and comfort, we recommend that you buy dive equipment only at a dive store.<br>\n<b>STEP 6:</b> Be enthusiastic. An important part of your training involves going back to the classroom and learning about the dive environment, physics and safety practices.<br>\n<b>STEP 7:</b> Get wet! Your first dives will take place in a swimming pool. Be prepared for your first breath on a regulator (breathing apparatus) under water!<br>\n<b>STEP 8:</b> Go diving. Your open-water training dives provide the opportunity to practise the skills you learned in your classroom and pool work!<br>\n<b>STEP 9:</b> Use your 'C-card' now that you’re a certified diver! Only card-carrying divers can buy scuba life-support equipment. We also encourage you to begin right now selecting your personal equipment, especially a regulator, buoyancy compensator and dive computer. Having your own equipment will make you safer and more comfortable under water.<br>\n<b>STEP 10:</b> Go for more. Your certification is really just the beginning. You still need to serve a diving internship with your instructor and other experienced divers. Sign up for more training or dives under supervision as soon as you can.",
+     "<b>Fear No More</b>",
+     "<b>A</b> <i>(Example: ix — Diving statistics)</i><br>It’s natural to be scared at first, but statistics show scuba diving is not particularly dangerous. It is estimated that there are 2.4 million divers and 17 million dives made in the U.S. per year. Divers Alert Network, the leading safety organisation for divers, reported only 85 fatalities in the past year. Most of us find that as our ability increases, our fears decrease. The risks in scuba diving, while real, can all be reduced significantly by what you do for your own safety. Here are some of the most common fears of new scuba divers.",
+     "<b>B</b><br>It’s understandable if you mistrust your scuba regulator. But mechanical failure of your breathing equipment is highly unlikely. A regulator is simple, strong and designed so that if it does fail, it delivers more air than you need, not less. You will also have an extra breathing system, and so will your diving buddy. Keep an eye on your air gauges and time. If you are running out of air you will find that you have to suck harder to breathe. You will still have time to ascend slowly, even if you have to hold your breath. If you stay above 60 feet and stay out of caves and wrecks — good advice for all new divers — there is no reason to be afraid of running out of air under water.",
+     "<b>C</b><br>“The bends” is the decompression sickness most people associate with diving, but in fact it is almost preventable. Divers most often get the bends by going too deep and coming up too quickly. It is not a serious risk if you stay above 60 feet. A safety stop of three minutes at 15 feet is a wise precaution. Cases of the bends do occur rarely, but the sickness is normally treatable.",
+     "<b>D</b><br>Most fish ignore you or swim away. They have very narrow diets and eat only what they are accustomed to; however, sometimes sharks have been known to make attacks on humans. Even here, there is evidence that the shark mistakes a human for his regular meal, a seal or sea-lion, and shark attacks are very rare. In the presence of sharks, remain calm. Don't annoy sharks by poking at them. Almost all fish will leave you alone if you do the same to them.",
+     "<b>E</b><br>Fear can sometimes overwhelm the intellect and leaves some people paralysed. The best prevention is training. You will be taught the correct response to danger. When you practise the response, it will be there when you need it. When you know just what to do, you're much less likely to lose self-control. And experience — simply diving again and again — reduces the general anxiety level that is natural when diving is still new. When you realise you are not helpless, your fears are likely to disappear."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 14–27."
+   },
+   "groups": [
+    {
+     "title": "Questions 14–19",
+     "instr": "Using <b>NO MORE THAN THREE WORDS</b> from the passage, answer the following questions.",
+     "lines": [
+      "What THREE pieces of personal equipment do you need to buy before starting the course? {{14}}",
+      "Why should you buy your equipment from a dive store? {{15}}",
+      "Name ONE topic studied in the classroom. {{16}}",
+      "What must you show before being allowed to buy scuba diving equipment? {{17}}",
+      "What thing can make you feel more comfortable and safer by possessing it? {{18}}",
+      "What thing do you need to do with your instructor and other experienced divers after being certified? {{19}}"
+     ]
+    },
+    {
+     "title": "Questions 20–23",
+     "instr": "The passage ‘Fear No More’ has 5 paragraphs (A–E). Choose the most suitable headings for paragraphs B to E.",
+     "example": "Paragraph A — (ix) Diving statistics",
+     "questions": [
+      {
+       "n": 20,
+       "stem": "Paragraph B",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 21,
+       "stem": "Paragraph C",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 22,
+       "stem": "Paragraph D",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      },
+      {
+       "n": 23,
+       "stem": "Paragraph E",
+       "opts": [
+        {
+         "l": "i",
+         "t": "i"
+        },
+        {
+         "l": "ii",
+         "t": "ii"
+        },
+        {
+         "l": "iii",
+         "t": "iii"
+        },
+        {
+         "l": "iv",
+         "t": "iv"
+        },
+        {
+         "l": "v",
+         "t": "v"
+        },
+        {
+         "l": "vi",
+         "t": "vi"
+        },
+        {
+         "l": "vii",
+         "t": "vii"
+        },
+        {
+         "l": "viii",
+         "t": "viii"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "i",
+       "do not panic"
+      ],
+      [
+       "ii",
+       "if you get lost"
+      ],
+      [
+       "iii",
+       "do not be trapped"
+      ],
+      [
+       "iv",
+       "I won’t be able to swim"
+      ],
+      [
+       "v",
+       "if I get the bends"
+      ],
+      [
+       "vi",
+       "I won’t be able to see"
+      ],
+      [
+       "vii",
+       "don't get eaten"
+      ],
+      [
+       "viii",
+       "if you run out of air"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 24–27",
+     "instr": "Complete the notes below using <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.",
+     "lines": [
+      "Dive no deeper than {{24}} until you feel comfortable.",
+      "Don’t ascend {{25}}. Make a 3-minute safety stop at 15 feet.",
+      "If you see a shark {{26}}. Avoid splashing, kicking or poking at fish.",
+      "Visualise emergencies and {{27}} your responses. Experience gives you confidence."
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Section 3",
+   "qs": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "passage": {
+    "title": "Slow Food",
+    "paras": [
+     "<b>A</b>",
+     "Slow Food is an international grass roots movement dedicated to preserving the cultural heritage of good food. It started as a humorous protest against the spread of fast food around the world and has developed into a major advocate for the world's unique food products. The movement's logo is a snail. Since being founded in 1986 the Slow Food snail has crept from its home in Italy to 45 other countries around the world and now boasts over 650,000 members. The movement challenges the loss of flavour resulting from the industrialisation of food and agriculture. Its approach is 'eco-gastronomic'. Slow Food is committed to compiling and distributing information about local foods, drink and culture. Its purpose is to preserve endangered foods, encourage bio-diversity, and support small-scale producers of ethnic and local products around the world.",
+     "<b>B</b>",
+     "Modern agri-business has given the world cheap food with little taste, produced at a high cost to the environment. Slow Food has been instrumental in developing initiatives to revive products that take time and craftsmanship to create and which are threatened by global corporate practices. Protecting traditional local products also means safeguarding the people and ecosystems involved in their manufacture. It also provides incentives for the pursuit of production methods which are healthier for taste, the environment and the agricultural economy.",
+     "<b>C</b>",
+     "Statistics on the loss of biodiversity in our food chain are alarming. In less than a century over 300,000 plant species have disappeared — one plant species disappears every six hours. Today less than 30 varieties of plant feed 95% of the world's population. In Europe, half the breeds of domestic livestock became extinct during the course of the twentieth century. The crisis over mad cow disease and the ongoing debate over genetically modified food have given Slow Food, with its emphasis on organic methods, unexpected political influence.",
+     "<b>D</b>",
+     "In the space of a few years, Slow Food has become a major lobbying force in the European Union on agriculture and trade policy. Agri-business practices that have become dominant worldwide are geared to production in quantity. This is a carryover from agricultural policies set in the 1950s in Europe, when hunger from the war was still a vivid memory. At that time, when the goal was self sufficiency, farmers received subsidies according to the amounts they produced. There was and still is no reward for quality. Two generations ago, the average European family spent about one half of its income on food. Today it spends about 15 per cent. Surveys conducted by Slow Food show that a large majority of Italians would be willing to pay up to 20 per cent more for food in order to guarantee its quality, especially given recent food scares and scandals.",
+     "<b>E</b>",
+     "As national boundaries disappear in Europe and become more open around the world, food has emerged as an important source of identity. Slow Food's position on globalisation is that it has the potential to help as well as harm the small food producer. On the one hand, globalisation has allowed multinational corporations to extend their reach to virtually every corner of the world. However, rather than being afraid of the fast food giants, Slow Food is attempting to offer an alternative choice of \"virtuous globalisation\" by choosing to focus on quality and helping the small, local producer to access the global market.",
+     "<b>F</b>",
+     "The Slow Food organisation had to find ways to ensure its own economic viability. An initial strategy to generate income through publishing led to a number of food guides that were quickly successful. Some of the most popular of these feature restaurants serving authentic, local foods at local prices. Numerous and varied initiatives have sprung up since. The popular quarterly magazine, 'SLOW', features articles about food culture around the world. Italy's largest food show, the 'Salon de Gusto', sponsored by the Slow Food movement, provides an international market to hundreds of small producers whose goods, until recently, rarely left their village or region. Now there is even 'slow travel'. A growing number of tour operators in Italy, France, Australia and India subscribe to the movement, promoting \"cultural and educational journeys using food and the people that produce it as the learning medium.\" 'Slow cities' are entire communities dedicated to improving the quality of life for their citizens through environmentally sound, culturally-aware, eco-gastronomic policies and activities.",
+     "<b>G</b>",
+     "Another significant initiative of Slow Food is the Ark of Taste, a database of endangered species of edible plants and domestic animals worldwide. Commissions have been set up in many countries to seek out and catalogue new products. So far, 800 products from 26 countries have been figuratively brought onboard the Ark in an attempt to save them. The Ark of Taste has become an international project and a resource for agricultural biodiversity around the world.",
+     "<b>H</b>",
+     "So, a movement that began as a humorous protest against fast food has, in its own organic way, evolved into a versatile and intelligent advocate for the protection of the environment. The best response to global forces challenging the ability to enjoy our food and our lives begins, according to the Slow Food movement, 'at the table'. We are invited to slow down, appreciate the flavours of food and drink, and cultivate the art of living. Fast food isn't likely to disappear, but Slow Food seems to be here to stay as well. Its message is getting through — encouraging a pleasure-loving environmentalism as an alternative to the high-speed pace of the fast-food world. From its humble beginnings, Slow Food now includes a global network of people capable of generating ideas, and programs to defend the right to a responsible form of pleasure, respectful of cultural diversity and available to all."
+    ],
+    "sub": "You should spend about 20 minutes on Questions 28–40."
+   },
+   "groups": [
+    {
+     "title": "Questions 28–31",
+     "instr": "The passage has 8 paragraphs, <b>A–H</b>. In which paragraph can the information below be found?",
+     "questions": [
+      {
+       "n": 28,
+       "stem": "a catalogue of domestic animals at risk of disappearing",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ]
+      },
+      {
+       "n": 29,
+       "stem": "statistics on the loss of variety in agricultural species",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ]
+      },
+      {
+       "n": 30,
+       "stem": "initiatives to ensure the financial survival of the organisation",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ]
+      },
+      {
+       "n": 31,
+       "stem": "information on the food budget of an average family",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Question 32",
+     "instr": "Which of the following does the Slow Food Movement NOT promote? The first one (<b>D</b> – junk food culture) has been done for you. Choose the remaining <b>TWO</b>.",
+     "questions": [
+      {
+       "n": 32,
+       "stem": "Choose TWO letters",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "multi": true
+      }
+     ],
+     "bank": [
+      [
+       "A",
+       "old-fashioned cooking methods"
+      ],
+      [
+       "B",
+       "genetically modified foods"
+      ],
+      [
+       "C",
+       "endangered species of edible plants"
+      ],
+      [
+       "D",
+       "junk food culture (example)"
+      ],
+      [
+       "E",
+       "the enjoyment of good food and drink"
+      ],
+      [
+       "F",
+       "high yield industrial farming"
+      ],
+      [
+       "G",
+       "rare local domestic animals"
+      ],
+      [
+       "H",
+       "organic methods of production"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 33–38",
+     "instr": "Choose ONE phrase, <b>A–H</b>, from the list that matches each expression. <i>There are more phrases than you need.</i>",
+     "questions": [
+      {
+       "n": 33,
+       "stem": "slow travel",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      },
+      {
+       "n": 34,
+       "stem": "Ark of Taste",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      },
+      {
+       "n": 35,
+       "stem": "virtuous globalisation",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      },
+      {
+       "n": 36,
+       "stem": "Salon de Gusto",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      },
+      {
+       "n": 37,
+       "stem": "agri-business",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      },
+      {
+       "n": 38,
+       "stem": "SLOW",
+       "opts": [
+        {
+         "l": "A",
+         "t": "A – a resource for agricultural biodiversity"
+        },
+        {
+         "l": "B",
+         "t": "B – a showcase for Italian food products"
+        },
+        {
+         "l": "C",
+         "t": "C – a database of Slow Food members"
+        },
+        {
+         "l": "D",
+         "t": "D – helping local producers compete in the international market"
+        },
+        {
+         "l": "E",
+         "t": "E – published four times a year"
+        },
+        {
+         "l": "F",
+         "t": "F – operates in Europe, Asia and Australia"
+        },
+        {
+         "l": "G",
+         "t": "G – promotes protection of the environment and good eating"
+        },
+        {
+         "l": "H",
+         "t": "H – produces food using industrial methods"
+        }
+       ]
+      }
+     ],
+     "bank": [
+      [
+       "A",
+       "a resource for agricultural biodiversity"
+      ],
+      [
+       "B",
+       "a showcase for Italian food products"
+      ],
+      [
+       "C",
+       "a database of Slow Food members"
+      ],
+      [
+       "D",
+       "helping local producers compete in the international market"
+      ],
+      [
+       "E",
+       "published four times a year"
+      ],
+      [
+       "F",
+       "operates in Europe, Asia and Australia"
+      ],
+      [
+       "G",
+       "promotes protection of the environment and good eating"
+      ],
+      [
+       "H",
+       "produces food using industrial methods"
+      ]
+     ]
+    },
+    {
+     "title": "Questions 39–40",
+     "instr": "Answer the following questions using <b>NO MORE THAN THREE WORDS</b> from the passage.",
+     "lines": [
+      "Following which crisis did the Slow Food movement become a political force? {{39}}",
+      "This movement was started as a reaction against what? {{40}}"
+     ]
+    }
+   ]
+  }
+ ],
+ "mediaUrls": {
+  "fig1": "/practice/media/gt3r4/gt3r4__fig1.png"
+ },
+ "catalogue": {
+  "label": "Reading Test 4",
+  "skillLabel": "General Training Reading"
+ }
+}

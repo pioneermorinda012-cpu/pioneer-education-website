@@ -58,7 +58,7 @@ function occurrences(text: string, list: string[]): string[] {
   return list.filter((l) => t.includes(" " + l + " ") || t.includes(" " + l + ","));
 }
 
-export function score(text: string, minWords: number, kind: "task1" | "task2"): Score {
+export function score(text: string, minWords: number, kind: "task1" | "gt1" | "task2"): Score {
   const ws = wordsOf(text);
   const ss = sentencesOf(text);
   const ps = parasOf(text);
@@ -85,12 +85,12 @@ export function score(text: string, minWords: number, kind: "task1" | "task2"): 
   let est = 6;
   if (words < minWords) est -= Math.min(2, ((minWords - words) / minWords) * 4);
   if (words >= minWords + 40) est += 0.25;
-  if (ps.length >= (kind === "task2" ? 4 : 3)) est += 0.5; else if (ps.length <= 1) est -= 1;
+  if (ps.length >= (kind === "task1" ? 3 : 4)) est += 0.5; else if (ps.length <= 1) est -= 1;
   if (linkers.length >= 5) est += 0.5; else if (linkers.length <= 1) est -= 0.5;
   if (complex.length >= 5) est += 0.5; else if (complex.length <= 1) est -= 0.5;
   if (varietyPct >= 62) est += 0.5; else if (varietyPct < 45) est -= 0.5;
   if (repeated.length >= 3) est -= 0.25;
-  if (informal.length >= 3) est -= 0.25;
+  if (kind !== "gt1" && informal.length >= 3) est -= 0.25;
   if (avgSentence > 0 && (avgSentence < 9 || avgSentence > 30)) est -= 0.25;
   // Under the word count the examiner applies a penalty before judging anything
   // else, so no amount of good structure can rescue it. Saying otherwise would
@@ -109,10 +109,13 @@ export function score(text: string, minWords: number, kind: "task1" | "task2"): 
 
   if (ps.length <= 1) {
     say("fix", "It is one block of text. Break it into paragraphs — introduction, one idea per body paragraph, conclusion. This is the single quickest mark to gain.");
-  } else if (ps.length >= (kind === "task2" ? 4 : 3)) {
+  } else if (ps.length >= (kind === "task1" ? 3 : 4)) {
     say("good", `${ps.length} paragraphs, which is the shape the examiner is looking for.`);
   } else {
-    say("fix", `Only ${ps.length} paragraphs. ${kind === "task2" ? "Aim for four: introduction, two body paragraphs, conclusion." : "Aim for three: overview, then the detail in two groups."}`);
+    const aim = kind === "task2" ? "Aim for four: introduction, two body paragraphs, conclusion."
+      : kind === "gt1" ? "Aim for five: greeting, opening line with your reason for writing, one paragraph per bullet point, then the sign-off."
+      : "Aim for three: overview, then the detail in two groups.";
+    say("fix", `Only ${ps.length} paragraphs. ${aim}`);
   }
 
   if (linkers.length <= 1) {
@@ -134,13 +137,28 @@ export function score(text: string, minWords: number, kind: "task1" | "task2"): 
   else if (varietyPct < 45) say("fix", `Only ${varietyPct}% of your content words are different. The same vocabulary is going round and round.`);
 
   if (longSentences) say("fix", `${longSentences} sentence${longSentences === 1 ? " runs" : "s run"} past 40 words. Long is not the same as complex — split ${longSentences === 1 ? "it" : "them"}.`);
-  if (informal.length >= 3) say("fix", `Informal for an academic essay: ${informal.slice(0, 4).join(", ")}. Keep the register formal.`);
+  // a letter to a friend is meant to be informal, so this only applies to Task 1 charts and essays
+  if (kind !== "gt1" && informal.length >= 3) say("fix", `Informal for an academic essay: ${informal.slice(0, 4).join(", ")}. Keep the register formal.`);
 
   if (kind === "task1" && /\bi (think|believe|feel)\b/i.test(text)) {
     say("fix", "Task 1 has no opinion in it. Report what the chart shows and compare — never what you think of it.");
   }
   if (kind === "task1" && !/\boverall\b|\bin summary\b/i.test(text)) {
     say("fix", "There is no overview. Task 1 must state the main trend in one sentence — leaving it out caps the mark for Task Achievement.");
+  }
+  /* A GT letter is marked on purpose, bullet points and tone, not on an
+     overview. What can be counted: it opens as a letter and closes as one. */
+  if (kind === "gt1") {
+    const first = text.trim().split(/\n/)[0] ?? "";
+    if (!/^\s*(dear|hi|hello)\b/i.test(first)) {
+      say("fix", "Start with the greeting you were given (Dear Sir or Madam, / Dear Mr Evans, / Dear Tom,) on a line of its own.");
+    }
+    if (!/(yours (faithfully|sincerely|truly)|kind regards|best regards|best wishes|all the best|take care|love|regards|cheers)\s*,?/i.test(text.slice(-160))) {
+      say("fix", "No sign-off. Close with one that matches your greeting — Yours faithfully (Dear Sir or Madam), Yours sincerely (a name), Best wishes (a friend) — then your name.");
+    }
+    if (/\b(overall|in conclusion|to conclude)\b/i.test(text)) {
+      say("fix", "A letter does not need an overview or a conclusion — finish with what you want to happen next, then sign off.");
+    }
   }
   if (kind === "task2" && !/\bconclusion\b|\bto conclude\b|\boverall\b|\bin summary\b/i.test(text)) {
     say("fix", "No conclusion. Finish by answering the question directly in one or two sentences.");

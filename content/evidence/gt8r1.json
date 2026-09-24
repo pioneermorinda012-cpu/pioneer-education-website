@@ -155,10 +155,8 @@
  },
  "26": {
   "s": 1,
-  "t": [
-   "removing snow from the walkways and parking areas in winter",
-   "Playground equipment is checked on a regular basis to make sure it is safe to use."
-  ]
+  "t": [],
+  "k": "none"
  },
  "27": {
   "s": 1,
@@ -238,9 +236,8 @@
  },
  "38": {
   "s": 2,
-  "t": [
-   "Senior staff often play the role of mentor."
-  ]
+  "t": [],
+  "k": "none"
  },
  "40": {
   "s": 2,

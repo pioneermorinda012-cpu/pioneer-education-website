@@ -26,9 +26,8 @@
  },
  "7": {
   "s": 0,
-  "t": [
-   "A motorcyclist taking part in a protest against helmet laws"
-  ]
+  "t": [],
+  "k": "none"
  },
  "6": {
   "s": 0,
@@ -177,9 +176,8 @@
  },
  "39": {
   "s": 2,
-  "t": [
-   "If there is a marked police car, lots of people will change their behaviour"
-  ]
+  "t": [],
+  "k": "none"
  },
  "32": {
   "s": 2,
@@ -189,9 +187,8 @@
  },
  "36": {
   "s": 2,
-  "t": [
-   "You could drive down that street a hundred times but on the 101st time, there could be road works or a pedestrian that steps out"
-  ]
+  "t": [],
+  "k": "none"
  },
  "31": {
   "s": 2,

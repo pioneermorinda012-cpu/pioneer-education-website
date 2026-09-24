@@ -43,21 +43,21 @@
  },
  "8": {
   "accept": [
-   "aluminium drink can"
+   "H"
   ],
-  "display": "aluminium drink can"
+  "display": "H — aluminium drink can"
  },
  "9": {
   "accept": [
-   "telephone book"
+   "A"
   ],
-  "display": "telephone book"
+  "display": "A — telephone book"
  },
  "10": {
   "accept": [
-   "magazines"
+   "D"
   ],
-  "display": "magazines"
+  "display": "D — magazines"
  },
  "11": {
   "accept": [

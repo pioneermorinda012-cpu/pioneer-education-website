@@ -30,6 +30,8 @@
 .pr-skills a:hover { border-color: var(--coral); color: var(--coral-dark); }
 .pr-skills a[aria-current="page"] { background: var(--coral); border-color: var(--coral); color: #fff; }
 .pr-skills span { opacity: 0.5; }
+/* a thin divider between IELTS papers, Writing and PTE in the menu */
+.pr-skills .pr-sep { flex: 0 0 1px; align-self: stretch; margin: 6px 2px; background: var(--grey-light); }
 
 /* ── page head ─────────────────────────────────────────── */
 .pr-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 28px 0 2px; }
@@ -344,3 +346,6 @@ mark.ev-near { background: transparent; box-shadow: none;
   border-bottom: 2px dashed var(--ev-ok-edge); border-radius: 0; }
 mark.ev-near.ev-bad { border-bottom-color: var(--ev-bad-edge); }
 mark.ev-near .ev-badge { opacity: 0.85; }
+
+/* GT letter prompts carry line breaks (the three bullet points) */
+.wr-prompt { white-space: pre-line; }

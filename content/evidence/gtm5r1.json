@@ -39,9 +39,8 @@
  },
  "7": {
   "s": 0,
-  "t": [
-   "Greggs plc is the largest bakery chain in the United Kingdom"
-  ]
+  "t": [],
+  "k": "none"
  },
  "8": {
   "s": 0,
@@ -51,15 +50,13 @@
  },
  "9": {
   "s": 0,
-  "t": [
-   "Café and Shop prices are different."
-  ]
+  "t": [],
+  "k": "none"
  },
  "10": {
   "s": 0,
-  "t": [
-   "We also have the Cheese & Onion Pasty and Cheese & Tomato Pizza, which are made solely with vegetarian ingredients and don’t contain any animal derivatives or animal rennet."
-  ]
+  "t": [],
+  "k": "none"
  },
  "11": {
   "s": 0,

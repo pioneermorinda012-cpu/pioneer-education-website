@@ -1,0 +1,286 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "It's taking place on the 2nd of July. — Is that a Saturday? — No, it's a Sunday."
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "Yes, it's Brighton Marina. That's M-A-R-I-N-A."
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "You need to register half an hour before that, at 9.30."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "Every crew member will receive a free tournament t-shirt if your team manages to raise £1000 or more."
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "It's a holiday in Hong Kong."
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "You then need to agree on who's going to be the team captain."
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "If you have a team member who's under 18, then they have to get their parents' permission to take part."
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "You can hire life jackets from us when your team arrives."
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "It's a very good idea to bring some spare clothes."
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "Well, you need to decide on one [a name] and then put it on the entrance form."
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "You'll find them on our stamps and coins."
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "It gets its name from its shrill call."
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "It has to rely on its very keen sense of smell to find food and to sense danger."
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "Although kiwis have wings, they serve little purpose, because the kiwi is a flightless bird."
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "They're being threatened by what we call introduced animals."
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "Firstly, we have the scientific research stage."
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "And then we come to the third stage, the global education stage."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "We go out to the kiwi's natural habitat and we collect kiwi eggs."
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "Then, in safe surroundings away from predators, the chicks are reared."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "Their chances of survival have increased from 5 to 85 percent."
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "By continuing to encourage this dependence on the motor car, we simply create more congestion and more urban sprawl."
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "The freeways mean people can enjoy the benefits of living away from the centre on larger blocks with gardens."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "Come back to me in five years' time… you'll soon find you'll be crawling along your CityLink."
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "Good roads increase traffic speeds… it's the stationary cars that cause the pollution and smog."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "…whereas in Toronto it's 24 percent, which is considerably better than Sydney, which can only boast 16 percent."
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "And Frankfurt comes in higher still, at 32 percent."
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "They paid musicians and artists to perform in the streets.",
+   "Every year three percent of the city parking is removed."
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "They paid musicians and artists to perform in the streets.",
+   "Every year three percent of the city parking is removed."
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "If there aren't many people using the service, then they don't schedule enough buses or trains for that route.",
+   "The whole process takes so long, because usually you have to change, you know, from bus to train."
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "If there aren't many people using the service, then they don't schedule enough buses or trains for that route.",
+   "The whole process takes so long, because usually you have to change, you know, from bus to train."
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "We also need to preserve food for export overseas, to make sure that it doesn't perish in transit."
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "We need to be able to preserve food for when there are food shortages."
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "The advantage of treating milk in this way is that it lasts much longer."
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "There were many early cases of food poisoning, because the canning process was not fully understood."
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "Refrigeration requires an electricity supply, and unfortunately if the power goes off, so does the food."
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "Chemical preservatives are effective, but they do not suit all foods, and the processes involved are time-consuming."
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "It also becomes much lighter… as this makes it cheap to store."
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "First of all, the hot soup is poured in at one end here."
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "The liquid spreads to form a thin layer on a heated belt."
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "All the water has evaporated, leaving only dry powder."
+  ],
+  "k": "exact"
+ }
+}

@@ -1,0 +1,142 @@
+[
+ {
+  "id": "wg-01",
+  "title": "Complaint about a late furniture delivery",
+  "register": "Formal",
+  "prompts": [
+   "You ordered a sofa from a furniture shop and paid for delivery on a particular day. The sofa arrived a week late and was damaged.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• give details of your order\n• explain what went wrong\n• say what you want the shop to do\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-02",
+  "title": "Applying for a part-time job at a museum",
+  "register": "Formal",
+  "prompts": [
+   "You have seen an advertisement for a part-time weekend job as a guide at a local museum.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• say which job you are applying for\n• describe your relevant experience and skills\n• explain why you would like this job\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-03",
+  "title": "Problem with your internet service",
+  "register": "Formal",
+  "prompts": [
+   "For the past two weeks your home internet connection has kept stopping, and calling the company has not solved the problem.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• describe the problem\n• explain how it has affected you\n• say what action you want the company to take\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-04",
+  "title": "Suggesting improvements to a public park",
+  "register": "Formal",
+  "prompts": [
+   "You regularly use a park near your home, but you think some improvements are needed. Write to the local council.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• say how you use the park\n• describe the problems you have noticed\n• suggest what the council could do\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-05",
+  "title": "Lost bag on a train",
+  "register": "Formal",
+  "prompts": [
+   "You travelled by train last week and left a bag on the train when you got off.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• give details of your journey\n• describe the bag and what was inside\n• explain what you would like the railway company to do\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-06",
+  "title": "Request to change a course start date",
+  "register": "Formal",
+  "prompts": [
+   "You have enrolled on an evening course at a college, but something has happened that means you cannot start on the planned date.\n\nWrite a letter to the appropriate person or organisation. In your letter\n• explain what has happened\n• say why you still want to do the course\n• suggest what the college could do\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-07",
+  "title": "Asking your manager for time off",
+  "register": "Semi-formal",
+  "prompts": [
+   "You need to take a week off work next month for an important family event.\n\nWrite a letter to the person concerned. In your letter\n• explain why you need the time off\n• say which dates you would like\n• suggest how your work could be covered\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Mr Sharma,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-08",
+  "title": "Noise from a neighbour",
+  "register": "Semi-formal",
+  "prompts": [
+   "Your neighbour has recently started playing loud music late at night, and it is disturbing you.\n\nWrite a letter to the person concerned. In your letter\n• describe the problem\n• explain how it is affecting you\n• suggest a solution\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-09",
+  "title": "Recommending a colleague for a course",
+  "register": "Semi-formal",
+  "prompts": [
+   "A colleague has asked you to write to your training department recommending them for a leadership course.\n\nWrite a letter to the person concerned. In your letter\n• say how long you have worked with this person\n• describe their strengths\n• explain why the course would help them\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Ms Collins,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-10",
+  "title": "Apologising to a landlord for damage",
+  "register": "Semi-formal",
+  "prompts": [
+   "While you were moving furniture in the flat you rent, you accidentally damaged a wall.\n\nWrite a letter to the person concerned. In your letter\n• explain what happened\n• apologise for the damage\n• say how you intend to put it right\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Mr Evans,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-11",
+  "title": "Thanking a friend who looked after your home",
+  "register": "Informal",
+  "prompts": [
+   "A friend looked after your house and pets while you were away on holiday.\n\nWrite a letter to the friend. In your letter\n• thank your friend\n• tell them about your holiday\n• invite them to do something with you\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-12",
+  "title": "Inviting a friend to a celebration",
+  "register": "Informal",
+  "prompts": [
+   "You are organising a party to celebrate a special occasion and want an old friend to come.\n\nWrite a letter to the friend. In your letter\n• say what the celebration is for\n• give details of the party\n• explain why it is important to you that your friend comes\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-13",
+  "title": "Advice for a friend moving to your city",
+  "register": "Informal",
+  "prompts": [
+   "A friend is going to move to the city where you live and has asked you for advice.\n\nWrite a letter to the friend. In your letter\n• say how you feel about your friend moving there\n• suggest where they could live\n• give advice about finding work or study\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ },
+ {
+  "id": "wg-14",
+  "title": "Missing a friend's wedding",
+  "register": "Informal",
+  "prompts": [
+   "You have been invited to a friend's wedding, but you cannot go.\n\nWrite a letter to the friend. In your letter\n• thank your friend for the invitation\n• explain why you cannot go\n• suggest another way to celebrate together\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150
+ }
+]

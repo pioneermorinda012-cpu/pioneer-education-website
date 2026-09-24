@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { getCatalogue, SKILLS, type SkillCode } from "@/lib/catalogue";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { requireStudent } from "@/lib/guard";
+import PracticeNav from "@/components/practice/PracticeNav";
 
 export const dynamic = "force-dynamic";
 
@@ -53,24 +54,7 @@ export default async function PracticeHome({
 
   return (
     <div className="wrap" data-track={track}>
-      <nav className="pr-skills" aria-label="Choose a skill">
-        {SKILLS.map((s) =>
-          s.available ? (
-            <Link
-              key={s.code}
-              href={`/practice?skill=${s.code}`}
-              aria-current={s.code === active ? "page" : undefined}
-            >
-              {s.label}
-            </Link>
-          ) : (
-            <span key={s.code}>{s.label} — soon</span>
-          )
-        )}
-        {/* Writing is not a marked paper like the others, so it sits at the end
-            of the row rather than pretending to be one. */}
-        <Link href="/practice/writing?task=2">Writing</Link>
-      </nav>
+      <PracticeNav active={active} />
 
       <div className="pr-head">
         <h1>{label}</h1>

@@ -263,7 +263,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p1r2",
@@ -277,7 +277,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p1r3",
@@ -291,7 +291,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p1r4",
@@ -305,7 +305,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p1r5",
@@ -319,7 +319,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p1r6",
@@ -333,7 +333,7 @@
   "total": 40,
   "mode": "reading",
   "sections": 3,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "nv1r1",
@@ -791,6 +791,76 @@
   "label": "Reading Test 2",
   "order": 2,
   "name": "GTM6R2 — Reading Test 2",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "ar-c1",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "Set C",
+  "label": "Reading Test 1",
+  "order": 1,
+  "name": "Set C — Reading Test 1",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "ar-c2",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "Set C",
+  "label": "Reading Test 2",
+  "order": 2,
+  "name": "Set C — Reading Test 2",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "ar-c3",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "Set C",
+  "label": "Reading Test 3",
+  "order": 3,
+  "name": "Set C — Reading Test 3",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "ar-c4",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "Set C",
+  "label": "Reading Test 4",
+  "order": 4,
+  "name": "Set C — Reading Test 4",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "ar-c5",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "Set C",
+  "label": "Reading Test 5",
+  "order": 5,
+  "name": "Set C — Reading Test 5",
   "minutes": 60,
   "total": 40,
   "mode": "reading",

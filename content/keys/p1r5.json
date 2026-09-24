@@ -1,1 +1,274 @@
-{}
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "ceiling vents"
+  ],
+  "display": "ceiling vents"
+ },
+ "7": {
+  "accept": [
+   "brick chimneys",
+   "chimneys",
+   "48 brick chimneys",
+   "forty-eight brick chimneys"
+  ],
+  "display": "(forty-eight) brick chimneys"
+ },
+ "8": {
+  "accept": [
+   "cement arches",
+   "arches"
+  ],
+  "display": "(cement) arches"
+ },
+ "9": {
+  "accept": [
+   "big fans"
+  ],
+  "display": "big fans"
+ },
+ "10": {
+  "accept": [
+   "small heaters",
+   "heaters"
+  ],
+  "display": "(small) heaters"
+ },
+ "11": {
+  "accept": [
+   "entrances",
+   "the entrances",
+   "elevators",
+   "fan covers",
+   "the fan covers"
+  ],
+  "display": "entrances / elevators / fan covers (Q11–13, any order)",
+  "pool": [
+   "11",
+   "12",
+   "13"
+  ]
+ },
+ "12": {
+  "accept": [
+   "entrances",
+   "the entrances",
+   "elevators",
+   "fan covers",
+   "the fan covers"
+  ],
+  "display": "entrances / elevators / fan covers (Q11–13, any order)",
+  "pool": [
+   "11",
+   "12",
+   "13"
+  ]
+ },
+ "13": {
+  "accept": [
+   "entrances",
+   "the entrances",
+   "elevators",
+   "fan covers",
+   "the fan covers"
+  ],
+  "display": "entrances / elevators / fan covers (Q11–13, any order)",
+  "pool": [
+   "11",
+   "12",
+   "13"
+  ]
+ },
+ "14": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "15": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "16": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "17": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "18": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "19": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "20": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "21": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "brands"
+  ],
+  "display": "brands"
+ },
+ "24": {
+  "accept": [
+   "dishonest"
+  ],
+  "display": "dishonest"
+ },
+ "25": {
+  "accept": [
+   "subconscious"
+  ],
+  "display": "subconscious"
+ },
+ "26": {
+  "accept": [
+   "children"
+  ],
+  "display": "children"
+ },
+ "27": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "28": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "29": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "30": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "31": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "32": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "33": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "36": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "37": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}
