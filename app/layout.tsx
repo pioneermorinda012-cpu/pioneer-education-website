@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Pioneer Education — IELTS, PTE, Spoken English & German | Morinda, Punjab",
   description:
-    "Pioneer Education Center, Prem Nagar, Morinda, Punjab — IELTS, PTE, Spoken English & German coaching since 2017, led by Narinder Singh. Rated 5.0 stars from 125+ students. Practice with our Lexio app and real test simulations.",
+    "Pioneer Education Center, Prem Nagar, Morinda, Punjab — IELTS, PTE, Spoken English & German coaching since 2017, led by Narinder Singh. Rated 5.0 stars from 125+ students. Practice with our Pioneer Education app and real test simulations.",
   metadataBase: new URL("https://pioneermorinda.com"),
   openGraph: {
     title: "Pioneer Education — IELTS, PTE, Spoken English & German",

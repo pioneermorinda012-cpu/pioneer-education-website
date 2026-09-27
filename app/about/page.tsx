@@ -90,7 +90,7 @@ export default function AboutPage() {
             </div>
             <div className="fact-card">
               <h4>💬 Daily app practice</h4>
-              <p>The Lexio app extends every class into daily vocabulary, grammar, and pronunciation practice.</p>
+              <p>The Pioneer Education app extends every class into daily vocabulary, grammar, and pronunciation practice.</p>
             </div>
             <div className="fact-card">
               <h4>🇩🇪 Beyond English</h4>

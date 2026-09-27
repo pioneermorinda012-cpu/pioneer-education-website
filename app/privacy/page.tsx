@@ -5,7 +5,7 @@
 // Drop this into your Next.js site at:  app/privacy/page.tsx
 //
 // Google Play REJECTS any app that collects user data without a public
-// privacy policy at a working URL. The Lexio app already links here, so
+// privacy policy at a working URL. The Pioneer Education app already links here, so
 // this must be live before you submit.
 //
 // Styles are inline on purpose — that way the page renders correctly
@@ -22,9 +22,9 @@ const CONTACT_EMAIL = 'pioneermorinda012@gmail.com';
 const LAST_UPDATED = '7 August 2026';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Lexio | Pioneer Education Center',
+  title: 'Privacy Policy — Pioneer Education | Pioneer Education Center',
   description:
-    'How the Lexio app collects, uses and protects student data. Pioneer Education Center, Prem Nagar, Morinda, Punjab.',
+    'How the Pioneer Education app collects, uses and protects student data. Pioneer Education Center, Prem Nagar, Morinda, Punjab.',
 };
 
 const s = {
@@ -45,10 +45,10 @@ export default function PrivacyPolicy() {
   return (
     <main style={s.page}>
       <h1 style={s.h1}>Privacy Policy</h1>
-      <p style={s.meta}>Lexio app · Last updated {LAST_UPDATED}</p>
+      <p style={s.meta}>Pioneer Education app · Last updated {LAST_UPDATED}</p>
 
       <p style={s.p}>
-        Lexio is an English and German learning app operated by{' '}
+        Pioneer Education is an English and German learning app operated by{' '}
         <strong style={s.strong}>Pioneer Education Center</strong>, Prem Nagar,
         Morinda, Punjab, India.
       </p>
@@ -143,15 +143,15 @@ export default function PrivacyPolicy() {
 
       <h2 style={s.h2}>Children</h2>
       <p style={s.p}>
-        Lexio is intended for students aged 13 and over. If you are under 18,
-        please ask a parent or guardian before creating an account. If you
-        believe a child under 13 has created an account, contact us and we will
-        delete it.
+        Pioneer Education is intended for adults aged 18 and over. The app is not
+        directed to children, and we do not knowingly collect personal information
+        from anyone under 18. If you believe someone under 18 has created an
+        account, contact us and we will delete it.
       </p>
 
       <h2 style={s.h2}>Payments</h2>
       <p style={s.p}>
-        Lexio does not take payment inside the app. Course fees are paid directly
+        Pioneer Education does not take payment inside the app. Course fees are paid directly
         to Pioneer Education Center. We do not collect or store card details, UPI
         IDs, or any other payment information.
       </p>

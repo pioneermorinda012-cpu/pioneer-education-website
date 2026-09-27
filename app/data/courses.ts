@@ -92,7 +92,7 @@ export const COURSES: Course[] = [
     icon: "🇩🇪",
     tagline: "Structured German for study and work visas — A1 through B1.",
     description:
-      "A complete German language curriculum taking you from zero to B1 level, the benchmark most study and work visa applications require. Covers grammar, vocabulary, and speaking practice with the same structured, Punjabi-explained teaching style as our English courses — and the same daily practice model through the Lexio app.",
+      "A complete German language curriculum taking you from zero to B1 level, the benchmark most study and work visa applications require. Covers grammar, vocabulary, and speaking practice with the same structured, Punjabi-explained teaching style as our English courses — and the same daily practice model through the Pioneer Education app.",
     modules: [
       { title: "A1 — Foundations", desc: "Greetings, numbers, basic grammar (articles, cases), and everyday vocabulary." },
       { title: "A2 — Building Blocks", desc: "Past tense, more complex sentences, and expanded vocabulary for daily situations." },

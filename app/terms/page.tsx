@@ -30,9 +30,9 @@ const LAST_UPDATED = '13 August 2026';
 const DEVICE_LIMIT = 3;
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — Lexio | Pioneer Education Center',
+  title: 'Terms of Use — Pioneer Education | Pioneer Education Center',
   description:
-    'Terms for using the Lexio app: plans, access codes, refunds, device limits and account rules. Pioneer Education Center, Morinda, Punjab.',
+    'Terms for using the Pioneer Education app: plans, access codes, refunds, device limits and account rules. Pioneer Education Center, Morinda, Punjab.',
 };
 
 const s = {
@@ -52,11 +52,11 @@ export default function TermsPage() {
   return (
     <main style={s.page}>
       <h1 style={s.h1}>Terms of Use</h1>
-      <p style={s.meta}>Lexio · Pioneer Education Center, Prem Nagar, Morinda, Punjab · Last updated {LAST_UPDATED}</p>
+      <p style={s.meta}>Pioneer Education · Pioneer Education Center, Prem Nagar, Morinda, Punjab · Last updated {LAST_UPDATED}</p>
 
       <div style={s.callout}>
         <p style={{ ...s.p, margin: 0 }}>
-          <strong style={s.strong}>In short.</strong> Lexio is the learning app of Pioneer Education Center.
+          <strong style={s.strong}>In short.</strong> Pioneer Education is the learning app of Pioneer Education Center.
           Some lessons are free. Paid plans are unlocked with a code you receive from the centre after paying
           your fee. Your account is for you alone and works on up to {DEVICE_LIMIT} devices. Using the app
           means you accept the terms below.
@@ -65,19 +65,29 @@ export default function TermsPage() {
 
       <h2 style={s.h2}>1. Who we are</h2>
       <p style={s.p}>
-        Lexio is operated by Pioneer Education Center, Prem Nagar, Morinda, Punjab 140101, India.
+        Pioneer Education is operated by Pioneer Education Center, Prem Nagar, Morinda, Punjab 140101, India.
         You can reach us at {CONTACT_EMAIL} or {CONTACT_PHONE}.
       </p>
 
       <h2 style={s.h2}>2. Your account</h2>
       <ul style={s.ul}>
-        <li style={s.li}>You need an account to use Lexio. Give accurate details so we can help you if something goes wrong.</li>
+        <li style={s.li}>You need an account to use Pioneer Education. Give accurate details so we can help you if something goes wrong.</li>
         <li style={s.li}>Keep your password private. You are responsible for what happens on your account.</li>
         <li style={s.li}>
           <strong style={s.strong}>Your account is personal.</strong> Do not share your login with anyone else,
           including classmates. Paid access is sold to one student, not to a group.
         </li>
-        <li style={s.li}>If you are under 18, please use Lexio with a parent or guardian&apos;s knowledge.</li>
+        {/* ⚠️  THIS SAID "if you are under 18, use it with a parent's
+            knowledge" — which told a Play reviewer the app expects
+            under-18 users, while the Play listing declares a target
+            audience of 18 and over. A policy page that contradicts the
+            store declaration is read as the declaration being wrong.
+
+            It is also the safer position under India's DPDP Act, where
+            the threshold for a child is 18 — not 13 as under COPPA —
+            and processing a minor's data requires verifiable parental
+            consent that this app has no way to obtain. */}
+        <li style={s.li}>You must be 18 or over to create an account. Pioneer Education is not intended for children.</li>
       </ul>
 
       <h2 style={s.h2}>3. Device limit</h2>
@@ -142,7 +152,7 @@ export default function TermsPage() {
         kept, and renewing restores access exactly where you left off. Free lessons remain free.
       </p>
 
-      <h2 style={s.h2}>8. Using Lexio properly</h2>
+      <h2 style={s.h2}>8. Using Pioneer Education properly</h2>
       <p style={s.p}>Please do not:</p>
       <ul style={s.ul}>
         <li style={s.li}>Share, sell or publish our lessons, videos or exercises. This material is the centre&apos;s work and is provided for your personal study.</li>
@@ -157,14 +167,14 @@ export default function TermsPage() {
 
       <h2 style={s.h2}>9. Speaking practice and automatic feedback</h2>
       <p style={s.p}>
-        Speaking scores and quiz feedback in Lexio are practice guidance produced automatically. They are
+        Speaking scores and quiz feedback in Pioneer Education are practice guidance produced automatically. They are
         <strong style={s.strong}> not</strong> an IELTS, PTE or Goethe band score, and they do not predict your
         result in a real examination. Only the official examining body can give you that.
       </p>
 
       <h2 style={s.h2}>10. Availability</h2>
       <p style={s.p}>
-        We aim to keep Lexio running, but we cannot promise it will never be unavailable. Lessons, content and
+        We aim to keep Pioneer Education running, but we cannot promise it will never be unavailable. Lessons, content and
         features may change or be withdrawn as courses are updated.
       </p>
 
@@ -178,7 +188,7 @@ export default function TermsPage() {
 
       <h2 style={s.h2}>12. Changes to these terms</h2>
       <p style={s.p}>
-        We may update these terms. The date at the top shows when they last changed. Continuing to use Lexio
+        We may update these terms. The date at the top shows when they last changed. Continuing to use Pioneer Education
         after a change means you accept the updated terms.
       </p>
 

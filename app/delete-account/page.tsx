@@ -25,9 +25,9 @@ const CONTACT_EMAIL = 'pioneermorinda012@gmail.com';
 const WHATSAPP = '917380261308';
 
 export const metadata: Metadata = {
-  title: 'Delete your Lexio account | Pioneer Education Center',
+  title: 'Delete your Pioneer Education account | Pioneer Education Center',
   description:
-    'How to delete your Lexio account and all associated data — in the app, or by contacting Pioneer Education Center.',
+    'How to delete your Pioneer Education account and all associated data — in the app, or by contacting Pioneer Education Center.',
 };
 
 const s = {
@@ -51,9 +51,9 @@ const s = {
 export default function DeleteAccount() {
   const mailto =
     `mailto:${CONTACT_EMAIL}` +
-    `?subject=${encodeURIComponent('Delete my Lexio account')}` +
+    `?subject=${encodeURIComponent('Delete my Pioneer Education account')}` +
     `&body=${encodeURIComponent(
-      'Please delete my Lexio account and all my data.\n\n' +
+      'Please delete my Pioneer Education account and all my data.\n\n' +
       'My registered email address: \n' +
       'My name: \n\n' +
       'I understand this cannot be undone.'
@@ -61,7 +61,7 @@ export default function DeleteAccount() {
 
   return (
     <main style={s.page}>
-      <h1 style={s.h1}>Delete your Lexio account</h1>
+      <h1 style={s.h1}>Delete your Pioneer Education account</h1>
       <p style={s.lead}>
         You can delete your account and all your data at any time. Here are two
         ways to do it.
@@ -80,7 +80,7 @@ export default function DeleteAccount() {
         <p style={s.step}>Option 1 — fastest</p>
         <h2 style={{ ...s.h2, margin: '0 0 12px' }}>Delete it in the app</h2>
         <ol style={s.ol}>
-          <li style={s.li}>Open the Lexio app</li>
+          <li style={s.li}>Open the Pioneer Education app</li>
           <li style={s.li}>Go to the <strong style={s.strong}>Profile</strong> tab</li>
           <li style={s.li}>Scroll to the bottom and tap <strong style={s.strong}>Delete my account</strong></li>
           <li style={s.li}>Confirm twice</li>
@@ -100,7 +100,7 @@ export default function DeleteAccount() {
           <a style={s.btn} href={mailto}>Email us</a>
           <a
             style={s.btnAlt}
-            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hi, please delete my Lexio account.')}`}
+            href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent('Hi, please delete my Pioneer Education account.')}`}
             target="_blank"
             rel="noopener noreferrer"
           >

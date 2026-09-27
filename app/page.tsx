@@ -82,7 +82,7 @@ export default function Home() {
       <p className="lede">IELTS, PTE, Spoken English &amp; German coaching built on nine years of watching exactly where Punjabi students lose marks — and fixing it before test day.</p>
       <div className="hero-ctas">
         <a href="#demo" className="btn btn-coral">Book a Free Demo Class</a>
-        <a href="#app" className="btn btn-outline">Try the Lexio App</a>
+        <a href="#app" className="btn btn-outline">Try the Pioneer Education App</a>
       </div>
       <div className="trust-row">
         <div className="trust-item"><div className="num">9+</div><div className="lbl">Years Coaching</div></div>
@@ -135,7 +135,7 @@ export default function Home() {
     <div className="section-head">
       <div className="section-eyebrow">What We Teach</div>
       <h2>Four courses. One goal — get you where you're going.</h2>
-      <p>Every course pairs in-person coaching with practice on the Lexio app, so what you learn in class gets reinforced every single day, not just once a week.</p>
+      <p>Every course pairs in-person coaching with practice on the Pioneer Education app, so what you learn in class gets reinforced every single day, not just once a week.</p>
     </div>
     <div className="courses-grid">
       <Link href="/courses/ielts" className="course-card">
@@ -290,7 +290,7 @@ export default function Home() {
       </div>
       <div className="fact-card">
         <h4>💬 Daily app practice</h4>
-        <p>The Lexio app keeps you practising between classes — vocabulary, quizzes, pronunciation.</p>
+        <p>The Pioneer Education app keeps you practising between classes — vocabulary, quizzes, pronunciation.</p>
       </div>
       <div className="fact-card">
         <h4>🎨 Visual learning Saturdays</h4>
@@ -369,7 +369,7 @@ export default function Home() {
         </div>
         <div className="why-item">
           <div className="n mono">02</div>
-          <div><h4>Practice that doesn't stop at the classroom door</h4><p>The Lexio app extends every lesson into daily quizzes, vocabulary, and pronunciation practice — with streaks that keep you consistent.</p></div>
+          <div><h4>Practice that doesn't stop at the classroom door</h4><p>The Pioneer Education app extends every lesson into daily quizzes, vocabulary, and pronunciation practice — with streaks that keep you consistent.</p></div>
         </div>
         <div className="why-item">
           <div className="n mono">03</div>
@@ -393,7 +393,7 @@ export default function Home() {
     <div className="app-cta">
       <div>
         <div className="eyebrow" style={{background: 'rgba(255,255,255,0.2)', color: '#fff'}}>Free To Start</div>
-        <h2>Meet Lexio — practice that follows you home.</h2>
+        <h2>Meet Pioneer Education — practice that follows you home.</h2>
         <p>Our own learning app, built specifically for Pioneer Education students. Vocabulary, grammar, and full IELTS practice — with real progress tracking and a coach who can see how you're doing.</p>
         <div className="app-feats">
           <div>🔥 &nbsp;Daily streaks that actually build a habit</div>
@@ -402,7 +402,7 @@ export default function Home() {
           <div>🎯 &nbsp;1,434+ practice questions with Punjabi explanations</div>
         </div>
         <div style={{marginTop: '28px', display: 'flex', gap: '14px'}}>
-          <a href="https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I'd%20like%20to%20know%20more%20about%20the%20Lexio%20app." target="_blank" rel="noopener noreferrer" className="btn" style={{background: '#fff', color: 'var(--coral-dark)'}}>Ask About the App</a>
+          <a href="https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I'd%20like%20to%20know%20more%20about%20the%20Pioneer%20Education%20app." target="_blank" rel="noopener noreferrer" className="btn" style={{background: '#fff', color: 'var(--coral-dark)'}}>Ask About the App</a>
           <a href="#contact" className="btn btn-ghost-light">Book a Demo</a>
         </div>
       </div>
@@ -580,10 +580,10 @@ export default function Home() {
 
     <div className="final-cta">
       <h2>Your test date is closer than you think.</h2>
-      <p>Book a free demo class in Morinda, or start practicing on Lexio today — either way, let's get you moving.</p>
+      <p>Book a free demo class in Morinda, or start practicing on Pioneer Education today — either way, let's get you moving.</p>
       <div className="btns">
         <a href="https://wa.me/917380261308" className="btn btn-coral">Message Us on WhatsApp</a>
-        <a href="#app" className="btn" style={{background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1.5px solid rgba(255,255,255,0.3)'}}>Get the Lexio App</a>
+        <a href="#app" className="btn" style={{background: 'rgba(255,255,255,0.1)', color: '#fff', border: '1.5px solid rgba(255,255,255,0.3)'}}>Get the Pioneer Education App</a>
       </div>
     </div>
   </div>
@@ -608,7 +608,7 @@ export default function Home() {
         <a href="#why">Why Pioneer</a>
         <a href="#instructor">Instructor</a>
         <a href="#reviews">Reviews</a>
-        <a href="#app">Lexio App</a>
+        <a href="#app">Pioneer Education App</a>
       </div>
       <div>
         <h5>Contact</h5>
