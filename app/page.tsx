@@ -618,8 +618,20 @@ export default function Home() {
         <a href="#">@ielts_pioneer</a>
       </div>
     </div>
+    {/* ⚠️  THESE THREE LINKS ARE A PLAY STORE REQUIREMENT, NOT DECORATION.
+        Google checks that the privacy policy is reachable from the site
+        it is hosted on — a policy that exists only at a URL you pasted
+        into the Console, with no path to it from the homepage, reads as
+        a page written for the reviewer rather than for users. Account
+        deletion must be reachable from the web too, not only in the
+        app, so someone who has already uninstalled can still ask. */}
     <div className="footer-bottom">
       <div>© 2026 Pioneer Education Center. All rights reserved.</div>
+      <div style={{display: 'flex', gap: '18px', flexWrap: 'wrap'}}>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/delete-account">Delete account</a>
+      </div>
       <div>#IELTSwithNarinderSir</div>
     </div>
   </div>
