@@ -11,15 +11,17 @@ import { usePathname } from "next/navigation";
  * with four links while the home page had ten, and why a change to one of them
  * silently left the others behind. */
 
+/* Eight short links on one line. Nine wrapped onto two rows on an ordinary
+ * laptop and looked cluttered; Reviews sits right under Results on the home
+ * page, so it no longer needs its own link. */
 const LINKS: [string, string][] = [
   ["#courses", "Courses"],
-  ["#results", "Results"],
-  ["#pricing", "Pricing"],
-  ["#app", "Lexio App"],
-  ["/about", "About"],
   ["/practice", "Practice Tests"],
   ["/writing-analyzer", "Writing Analyzer"],
-  ["#reviews", "Reviews"],
+  ["#results", "Results"],
+  ["#pricing", "Pricing"],
+  ["#app", "App"],
+  ["/about", "About"],
   ["#contact", "Contact"],
 ];
 

@@ -33,8 +33,16 @@
      flex gaps take another 321px. At a 32px gap the row wanted 1401px in a
      1180px bar, so it spilled off the right on every laptop. The gap now
      scales, and below 1220px the menu button takes over entirely. */
-  .nav-links{display:flex;gap:clamp(14px,1.35vw,18px);font-weight:600;font-size:0.9rem;color:var(--navy);}
+  .nav-links{display:flex;align-items:center;gap:clamp(18px,1.8vw,28px);font-weight:600;font-size:0.92rem;color:var(--navy);}
+  .nav-links a{white-space:nowrap;position:relative;padding:6px 0;}
   .nav-links a:hover{color:var(--coral);}
+  /* a thin underline on hover, desktop only */
+  .nav-links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:2px;
+    background:var(--coral);transform:scaleX(0);transition:transform .18s ease;}
+  .nav-links a:not(.btn):hover::after{transform:scaleX(1);}
+  .nav-links .m-cta{display:none;}
+  .logo .word{white-space:nowrap;}
+  .nav-cta .btn{white-space:nowrap;padding:11px 22px;}
   .nav-cta{display:flex;gap:12px;align-items:center;}
   /* Menu button: hidden on desktop, the only way in on a phone. */
   .nav-burger{display:none;align-items:center;justify-content:center;gap:5px;flex-direction:column;
@@ -46,7 +54,7 @@
   .nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0;}
   .nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
-  @media (max-width:1220px){
+  @media (max-width:1180px){
     /* The links used to be simply hidden here with nothing to replace them,
        so a phone had no navigation at all. They now live behind the button. */
     .nav-inner{gap:12px;padding:12px 16px;}
@@ -56,7 +64,7 @@
 
     .nav-links{
       position:fixed;left:0;right:0;top:var(--nav-h,64px);
-      display:flex;flex-direction:column;gap:0;
+      display:flex;flex-direction:column;align-items:stretch;gap:0;
       background:var(--paper);border-bottom:1px solid var(--grey-light);
       box-shadow:0 14px 30px rgba(17,17,17,0.10);
       padding:6px 16px calc(14px + env(safe-area-inset-bottom));
@@ -68,7 +76,8 @@
     .nav-links a{padding:14px 4px;border-bottom:1px solid var(--gold-light);
       font-size:1rem;min-height:48px;display:flex;align-items:center;}
     .nav-links a:last-of-type{border-bottom:none;}
-    .nav-links .m-cta{margin-top:12px;justify-content:center;width:100%;}
+    .nav-links .m-cta{display:flex;margin-top:12px;justify-content:center;width:100%;}
+    .nav-links a:not(.btn)::after{display:none;}
   }
   @media (prefers-reduced-motion:reduce){ .nav-links{transition:none;} .nav-burger span{transition:none;} }
 
