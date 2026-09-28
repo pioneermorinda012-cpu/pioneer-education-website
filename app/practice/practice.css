@@ -354,7 +354,7 @@ mark.ev-near .ev-badge { opacity: 0.85; }
    The question column stays in view while the student types; on a phone the
    two stack, chart first. */
 .wr-report { margin-bottom: 8px; }
-@media (min-width: 720px) {
+@media (min-width: 560px) {
   .wr-work.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
     gap: 22px; align-items: start; margin-top: 18px; }
   .wr-work.split > .pr-set { margin-top: 0; }
