@@ -75,12 +75,11 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
   };
 
   const prompt = task.prompts?.[chosen];
+  const split = task.kind === "task1" && !!task.images?.length;
 
   return (
     <div className="wr-desk">
-      {/* ---------------------------------------------------------- question */}
-      <section className="pr-set">
-        <div className="wr-head">
+      <div className="wr-head">
           <div>
             <span className="wr-kind">{task.kind === "task1" ? "Writing Task 1 · Academic" : task.kind === "gt1" ? `Writing Task 1 · GT letter${task.register ? ` · ${task.register}` : ""}` : "Writing Task 2"}</span>
             <h1>{task.title}</h1>
@@ -89,7 +88,17 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
             {left < 0 ? "+" : ""}{fmt(left)}
             <small>{running ? "writing" : done ? "finished" : "starts when you type"}</small>
           </span>
-        </div>
+      </div>
+
+      {/* ---------------------------------------------------------- feedback */}
+      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} />}
+
+      {/* Task 1 Academic: the chart sits beside the answer box, as it does on
+          the computer-delivered test, so a student never scrolls away from the
+          figures they are describing. Letters and essays keep one column. */}
+      <div className={"wr-work" + (split ? " split" : "")}>
+      {/* ---------------------------------------------------------- question */}
+      <section className="pr-set wr-q">
 
         {task.images?.length ? (
           <div className="wr-figs">
@@ -147,42 +156,8 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
         ) : null}
       </section>
 
-      {/* ---------------------------------------------------------- feedback */}
-      {done && (
-        <section className="pr-set wr-report">
-          <h2>Your writing, checked</h2>
-          <div className="wr-tiles">
-            <div className="wr-tile"><span className="v">{done.words}</span><span className="k">words</span></div>
-            <div className="wr-tile"><span className="v">{done.paragraphs}</span><span className="k">paragraphs</span></div>
-            <div className="wr-tile"><span className="v">{done.avgSentence}</span><span className="k">words per sentence</span></div>
-            <div className="wr-tile"><span className="v">{fmt(elapsedAtFinish)}</span><span className="k">time taken</span></div>
-          </div>
-
-          <div className="wr-est">
-            <b>Rough guide: band {done.estimate.toFixed(1)}</b>
-            <span>
-              This counts length, structure, linking and vocabulary range. It cannot read
-              your argument, so it is a starting point for your teacher, never a result.
-            </span>
-          </div>
-
-          <ul className="wr-notes">
-            {done.notes.map((n, i) => (
-              <li key={i} className={n.kind}>
-                <span className="mk">{n.kind === "good" ? "✓" : "→"}</span>{n.text}
-              </li>
-            ))}
-          </ul>
-
-          <div className="wr-acts">
-            <button type="button" className="btn btn-coral" onClick={restart}>Write it again</button>
-            <Link className="btn btn-outline" href="/practice/writing">Back to the list</Link>
-          </div>
-        </section>
-      )}
-
       {/* ------------------------------------------------------------- write */}
-      <section className="pr-set">
+      <section className="pr-set wr-w">
         <div className="wr-bar">
           <span className={"wr-count" + (short ? " short" : " ok")}>
             {live} / {task.minWords} words
@@ -210,6 +185,42 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
           Spell-check is off, exactly as in the real test.
         </p>
       </section>
+      </div>
     </div>
+  );
+}
+
+function Report({ done, elapsed, restart }: { done: Score; elapsed: number; restart: () => void }) {
+  return (
+    <section className="pr-set wr-report">
+          <h2>Your writing, checked</h2>
+          <div className="wr-tiles">
+            <div className="wr-tile"><span className="v">{done.words}</span><span className="k">words</span></div>
+            <div className="wr-tile"><span className="v">{done.paragraphs}</span><span className="k">paragraphs</span></div>
+            <div className="wr-tile"><span className="v">{done.avgSentence}</span><span className="k">words per sentence</span></div>
+            <div className="wr-tile"><span className="v">{fmt(elapsed)}</span><span className="k">time taken</span></div>
+          </div>
+
+          <div className="wr-est">
+            <b>Rough guide: band {done.estimate.toFixed(1)}</b>
+            <span>
+              This counts length, structure, linking and vocabulary range. It cannot read
+              your argument, so it is a starting point for your teacher, never a result.
+            </span>
+          </div>
+
+          <ul className="wr-notes">
+            {done.notes.map((n, i) => (
+              <li key={i} className={n.kind}>
+                <span className="mk">{n.kind === "good" ? "✓" : "→"}</span>{n.text}
+              </li>
+            ))}
+          </ul>
+
+          <div className="wr-acts">
+            <button type="button" className="btn btn-coral" onClick={restart}>Write it again</button>
+            <Link className="btn btn-outline" href="/practice/writing">Back to the list</Link>
+          </div>
+        </section>
   );
 }
