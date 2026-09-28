@@ -82,7 +82,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
       <div className="wr-head">
           <div>
             <span className="wr-kind">{task.kind === "task1" ? "Writing Task 1 · Academic" : task.kind === "gt1" ? `Writing Task 1 · GT letter${task.register ? ` · ${task.register}` : ""}` : "Writing Task 2"}</span>
-            <h1>{task.title}</h1>
+            {!split && <h1>{task.title}</h1>}
           </div>
           <span className={"wr-clock" + (left < 0 ? " over" : left < 300 ? " low" : "")}>
             {left < 0 ? "+" : ""}{fmt(left)}
@@ -99,6 +99,8 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
       <div className={"wr-work" + (split ? " split" : "")}>
       {/* ---------------------------------------------------------- question */}
       <section className="pr-set wr-q">
+        {split && <div className="wr-panel-h">Question</div>}
+        {split && <h1 className="wr-qtitle">{task.title}</h1>}
 
         {task.images?.length ? (
           <div className="wr-figs">
@@ -158,6 +160,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
 
       {/* ------------------------------------------------------------- write */}
       <section className="pr-set wr-w">
+        {split && <div className="wr-panel-h">Answer sheet</div>}
         <div className="wr-bar">
           <span className={"wr-count" + (short ? " short" : " ok")}>
             {live} / {task.minWords} words
