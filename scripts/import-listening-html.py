@@ -46,6 +46,17 @@ def attach_question_images(q_html: str, media: dict, tid: str, out_dir: pathlib.
     out = re.sub(r"<li[^>]*>", "<p>", out).replace("</li>", "</p>")
     out = re.sub(r"<h4[^>]*>(.*?)</h4>", r"<p><b>\1</b></p>", out, flags=re.S)
 
+    # Wording with no gap of its own ("Meal C:", "cost: $50/head", a form
+    # title) is what tells the student which gap is which. The reading
+    # converter keeps only lines that hold a gap, so tag these with a {{0}}
+    # sentinel it will keep, and strip the sentinel again afterwards.
+    def keep(m):
+        inner = m.group(2)
+        if "<input" in inner or "<select" in inner or not conv.plain(inner):
+            return m.group(0)
+        return f"<p{m.group(1)}>{inner} {{{{0}}}}</p>"
+    out = re.sub(r"<p([^>]*)>(.*?)</p>", keep, out, flags=re.S)
+
     # questions first (walk from the end so indices stay valid)
     for m in list(re.finditer(r'<div class="q" id="qw(\d+)">', out))[::-1]:
         inner, after = conv.balanced(out, m.start(), "div")
@@ -67,6 +78,17 @@ def attach_question_images(q_html: str, media: dict, tid: str, out_dir: pathlib.
         body = IMG.sub("", body)
         rebuilt.append(f"<{tag}{attrs}>{body}</{tag}>")
     return "\n".join(rebuilt), per_q
+
+
+def tidy_line(line: str) -> str:
+    """One gap, drawn once, with its words spaced and no sentinel left behind."""
+    line = re.sub(r'<input[^>]*data-q="(\d+)"[^>]*>', r"{{\1}}", line)
+    for n in set(re.findall(r"\{\{(\d+)\}\}", line)):
+        first = line.index("{{%s}}" % n) + len("{{%s}}" % n)
+        line = line[:first] + line[first:].replace("{{%s}}" % n, "")
+    line = re.sub(r"\s*\{\{0\}\}", "", line)
+    line = re.sub(r"(\}\})(?=[A-Za-z0-9(])", r"\1 ", line)
+    return re.sub(r"\s+", " ", line).strip()
 
 
 def merge_anyof(groups: list, answer_key: dict) -> None:
@@ -185,8 +207,7 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
                     if isinstance(o, dict):
                         o["t"] = re.sub(rf"^{re.escape(o['l'])}\s*[–-]\s*", "", o["t"])
             # a gap written inside the question wording keeps its own <input>
-            g["lines"] = [re.sub(r'<input[^>]*data-q="(\d+)"[^>]*>\s*(\{\{\1\}\})?', r"{{\1}}", l)
-                          if isinstance(l, str) else l for l in g.get("lines", [])]
+            g["lines"] = [tidy_line(l) if isinstance(l, str) else l for l in g.get("lines", [])]
             if not g["lines"]:
                 g.pop("lines")
         merge_anyof(s["groups"], answer_key)

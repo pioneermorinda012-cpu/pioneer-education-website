@@ -1,0 +1,259 @@
+{
+ "1": {
+  "accept": [
+   "3000",
+   "3,000",
+   "$3000",
+   "$3,000",
+   "3 000",
+   "three thousand"
+  ],
+  "display": "3,000"
+ },
+ "2": {
+  "accept": [
+   "crabs",
+   "crab"
+  ],
+  "display": "crabs"
+ },
+ "3": {
+  "accept": [
+   "45",
+   "$45"
+  ],
+  "display": "45"
+ },
+ "4": {
+  "accept": [
+   "lamb"
+  ],
+  "display": "lamb"
+ },
+ "5": {
+  "accept": [
+   "chicken"
+  ],
+  "display": "chicken"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "9": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "10": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "polished stone"
+  ],
+  "display": "polished stone"
+ },
+ "17": {
+  "accept": [
+   "shops",
+   "the shops",
+   "many shops"
+  ],
+  "display": "shops"
+ },
+ "18": {
+  "accept": [
+   "garden"
+  ],
+  "display": "garden"
+ },
+ "19": {
+  "accept": [
+   "seating",
+   "the seating"
+  ],
+  "display": "seating"
+ },
+ "20": {
+  "accept": [
+   "plants",
+   "the plants"
+  ],
+  "display": "plants"
+ },
+ "21": {
+  "accept": [
+   "Two Systems",
+   "The Two Systems"
+  ],
+  "display": "Two Systems"
+ },
+ "22": {
+  "accept": [
+   "challenged"
+  ],
+  "display": "challenged"
+ },
+ "23": {
+  "accept": [
+   "Newton",
+   "Isaac Newton"
+  ],
+  "display": "Newton"
+ },
+ "24": {
+  "accept": [
+   "created order"
+  ],
+  "display": "created order"
+ },
+ "25": {
+  "accept": [
+   "relativity",
+   "theory of relativity",
+   "relativity theory"
+  ],
+  "display": "relativity"
+ },
+ "26": {
+  "accept": [
+   "explained gravity"
+  ],
+  "display": "explained gravity"
+ },
+ "27": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "28": {
+  "accept": [
+   "N"
+  ],
+  "display": "N"
+ },
+ "29": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "30": {
+  "accept": [
+   "N"
+  ],
+  "display": "N"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "35": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "36": {
+  "accept": [
+   "car racing",
+   "motor racing"
+  ],
+  "display": "car racing"
+ },
+ "37": {
+  "accept": [
+   "jogging shoes",
+   "shoes"
+  ],
+  "display": "jogging shoes"
+ },
+ "38": {
+  "accept": [
+   "freedom"
+  ],
+  "display": "freedom"
+ },
+ "39": {
+  "accept": [
+   "crown"
+  ],
+  "display": "crown"
+ },
+ "40": {
+  "accept": [
+   "controversial"
+  ],
+  "display": "controversial"
+ }
+}
