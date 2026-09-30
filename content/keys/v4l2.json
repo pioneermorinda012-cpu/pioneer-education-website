@@ -1,0 +1,269 @@
+{
+ "1": {
+  "accept": [
+   "quiet"
+  ],
+  "display": "quiet"
+ },
+ "2": {
+  "accept": [
+   "impolite"
+  ],
+  "display": "impolite"
+ },
+ "3": {
+  "accept": [
+   "rarely"
+  ],
+  "display": "rarely"
+ },
+ "4": {
+  "accept": [
+   "smoke"
+  ],
+  "display": "smoke"
+ },
+ "5": {
+  "accept": [
+   "promptly"
+  ],
+  "display": "promptly"
+ },
+ "6": {
+  "accept": [
+   "cooperate",
+   "co-operate"
+  ],
+  "display": "cooperate"
+ },
+ "7": {
+  "accept": [
+   "attend meeting",
+   "attend meetings"
+  ],
+  "display": "attend meeting(s)"
+ },
+ "8": {
+  "accept": [
+   "follow rules",
+   "follow the rules"
+  ],
+  "display": "follow rules"
+ },
+ "9": {
+  "accept": [
+   "strictly forbidden"
+  ],
+  "display": "strictly forbidden"
+ },
+ "10": {
+  "accept": [
+   "be done"
+  ],
+  "display": "be done"
+ },
+ "11": {
+  "accept": [
+   "steps"
+  ],
+  "display": "steps"
+ },
+ "12": {
+  "accept": [
+   "danger",
+   "dangers"
+  ],
+  "display": "danger"
+ },
+ "13": {
+  "accept": [
+   "respond"
+  ],
+  "display": "respond"
+ },
+ "14": {
+  "accept": [
+   "unconscious"
+  ],
+  "display": "unconscious"
+ },
+ "15": {
+  "accept": [
+   "blockages",
+   "blockage"
+  ],
+  "display": "blockages"
+ },
+ "16": {
+  "accept": [
+   "irregular"
+  ],
+  "display": "irregular"
+ },
+ "17": {
+  "accept": [
+   "medics"
+  ],
+  "display": "medics"
+ },
+ "18": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 18,
+  "idx": 0,
+  "display": "C, D, F  (Q18–20, any order)"
+ },
+ "19": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 18,
+  "idx": 1,
+  "display": "C, D, F  (Q18–20, any order)"
+ },
+ "20": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 18,
+  "idx": 2,
+  "display": "C, D, F  (Q18–20, any order)"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "ensure",
+   "Ensure"
+  ],
+  "display": "Ensure"
+ },
+ "27": {
+  "accept": [
+   "deposited"
+  ],
+  "display": "deposited"
+ },
+ "28": {
+  "accept": [
+   "display"
+  ],
+  "display": "display"
+ },
+ "29": {
+  "accept": [
+   "distribute"
+  ],
+  "display": "distribute"
+ },
+ "30": {
+  "accept": [
+   "reward"
+  ],
+  "display": "reward"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "34": {
+  "accept": [
+   "effectiveness",
+   "its effectiveness"
+  ],
+  "display": "effectiveness"
+ },
+ "35": {
+  "accept": [
+   "liquid",
+   "a liquid"
+  ],
+  "display": "liquid"
+ },
+ "36": {
+  "accept": [
+   "suffocation"
+  ],
+  "display": "suffocation"
+ },
+ "37": {
+  "accept": [
+   "pipe work",
+   "pipework",
+   "pipe-work"
+  ],
+  "display": "pipe work"
+ },
+ "38": {
+  "accept": [
+   "almost double",
+   "double"
+  ],
+  "display": "(almost) double"
+ },
+ "39": {
+  "accept": [
+   "one quarter",
+   "a quarter"
+  ],
+  "display": "one quarter"
+ },
+ "40": {
+  "accept": [
+   "heavy metals"
+  ],
+  "display": "heavy metals"
+ }
+}

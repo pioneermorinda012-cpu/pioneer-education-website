@@ -1,0 +1,282 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "at least he's quiet"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "this new guy is very impolite"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "I rarely see them, maybe once or twice a month."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "all the cigarette smoke in the house"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "this guy pays promptly"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "you need to cooperate with the others"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "attend meeting."
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "Follow rules."
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "Cigarettes. Strictly forbidden."
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "be done."
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "the steps which must be followed"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "D stands for danger."
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "The R stands for Respond."
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "unconscious this may not happen"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "ensuring that there are no blockages in the mouth"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "Breathing is not happening or is irregular."
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "hopefully until medics."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "it is more important to have an appointed person"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "instilling this mindset is part of the job of the safety officer"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "but nothing beats a regular meeting"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "It was the cleaners, surprisingly, who revealed the most relevant facts."
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "It was paper copying that filled up my bins."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "The other fraction, 45%, were more troubled."
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "It's an equal split between those who do something or those who don't."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "if they knew what to do"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "We've got to ensure that people including the staff"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "These need to be deposited into a tray"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "you need to display these papers right in front of everyone"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "You distribute numbers or codes to every person."
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "some other sort of reward"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "it is virtually impossible for society to prevent or even limit such activity"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "Even when enhancing this process through high temperature and pressure"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "the delicate life and the intricate food chains in the seawater"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "the unproven effectiveness"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "would turn the gas into a liquid state"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "Such leaks could result in the suffocation of thousands."
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "primarily the pipe work through which the gas would travel"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "Bills would almost double as a consequence."
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "The plant would have to burn one quarter more of its coal"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "such as sulphur, ash and heavy metals"
+  ],
+  "k": "exact"
+ }
+}

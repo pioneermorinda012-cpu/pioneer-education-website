@@ -1,0 +1,271 @@
+{
+ "1": {
+  "accept": [
+   "equipment",
+   "the equipment"
+  ],
+  "display": "equipment"
+ },
+ "2": {
+  "accept": [
+   "Fred"
+  ],
+  "display": "Fred"
+ },
+ "3": {
+  "accept": [
+   "6 days",
+   "six days"
+  ],
+  "display": "6 days"
+ },
+ "4": {
+  "accept": [
+   "Mike"
+  ],
+  "display": "Mike"
+ },
+ "5": {
+  "accept": [
+   "Leo"
+  ],
+  "display": "Leo"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "14": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "yellow"
+  ],
+  "display": "yellow"
+ },
+ "17": {
+  "accept": [
+   "garden shed",
+   "the garden shed"
+  ],
+  "display": "garden shed"
+ },
+ "18": {
+  "accept": [
+   "wildlife reserve",
+   "the wildlife reserve"
+  ],
+  "display": "wildlife reserve"
+ },
+ "19": {
+  "accept": [
+   "firewood",
+   "fire wood"
+  ],
+  "display": "firewood"
+ },
+ "20": {
+  "accept": [
+   "garden bin"
+  ],
+  "display": "garden bin"
+ },
+ "21": {
+  "accept": [
+   "Welfare State",
+   "The Welfare State"
+  ],
+  "display": "Welfare State"
+ },
+ "22": {
+  "accept": [
+   "too long"
+  ],
+  "display": "too long"
+ },
+ "23": {
+  "accept": [
+   "In Perspective"
+  ],
+  "display": "In Perspective"
+ },
+ "24": {
+  "accept": [
+   "oversimplifies",
+   "over-simplifies",
+   "over simplifies"
+  ],
+  "display": "oversimplifies"
+ },
+ "25": {
+  "accept": [
+   "Political Theory"
+  ],
+  "display": "Political Theory"
+ },
+ "26": {
+  "accept": [
+   "not relevant",
+   "irrelevant"
+  ],
+  "display": "not relevant / irrelevant"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "S"
+  ],
+  "display": "S"
+ },
+ "29": {
+  "accept": [
+   "P"
+  ],
+  "display": "P"
+ },
+ "30": {
+  "accept": [
+   "P"
+  ],
+  "display": "P"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "33": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 33,
+  "idx": 0,
+  "display": "B, C, E  (Q33–35, any order)"
+ },
+ "34": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 33,
+  "idx": 1,
+  "display": "B, C, E  (Q33–35, any order)"
+ },
+ "35": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 33,
+  "idx": 2,
+  "display": "B, C, E  (Q33–35, any order)"
+ },
+ "36": {
+  "accept": [
+   "participate",
+   "take part"
+  ],
+  "display": "participate"
+ },
+ "37": {
+  "accept": [
+   "natural springs",
+   "springs"
+  ],
+  "display": "natural springs"
+ },
+ "38": {
+  "accept": [
+   "local product",
+   "local products"
+  ],
+  "display": "local product"
+ },
+ "39": {
+  "accept": [
+   "characterized",
+   "characterised"
+  ],
+  "display": "characterised"
+ },
+ "40": {
+  "accept": [
+   "mature cheeses",
+   "cheeses"
+  ],
+  "display": "mature cheeses"
+ }
+}
