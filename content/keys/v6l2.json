@@ -1,0 +1,320 @@
+{
+ "1": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "B"
+  ],
+  "display": "B — I block"
+ },
+ "4": {
+  "accept": [
+   "E"
+  ],
+  "display": "E — C block"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D — Student canteen"
+ },
+ "6": {
+  "accept": [
+   "interview",
+   "an interview"
+  ],
+  "display": "interview"
+ },
+ "7": {
+  "accept": [
+   "2 pm",
+   "2pm",
+   "2",
+   "2 o'clock",
+   "two o'clock",
+   "2.00",
+   "2:00",
+   "2.00 pm",
+   "2:00 pm",
+   "2 p.m."
+  ],
+  "display": "2 p.m."
+ },
+ "8": {
+  "accept": [
+   "Pastel",
+   "PASTEL"
+  ],
+  "display": "PASTEL"
+ },
+ "9": {
+  "accept": [
+   "041298735",
+   "0412 987 35",
+   "0412 98735",
+   "0412-987-35"
+  ],
+  "display": "0412 987 35"
+ },
+ "10": {
+  "accept": [
+   "BI690011",
+   "BI 690011",
+   "B I690011",
+   "BI 69 00 11",
+   "BI-690011"
+  ],
+  "display": "BI 690011"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "9 Sept",
+   "9 September",
+   "9th Sept",
+   "9th September",
+   "September 9",
+   "Sept 9",
+   "9/9"
+  ],
+  "display": "9 Sept"
+ },
+ "15": {
+  "accept": [
+   "Music"
+  ],
+  "display": "Music"
+ },
+ "16": {
+  "accept": [
+   "Festival Club",
+   "The Festival Club"
+  ],
+  "display": "Festival Club"
+ },
+ "17": {
+  "accept": [
+   "14 Sept",
+   "14 September",
+   "14th Sept",
+   "14th September",
+   "September 14",
+   "Sept 14"
+  ],
+  "display": "14 Sept"
+ },
+ "18": {
+  "accept": [
+   "Performing Arts Centre",
+   "Performing Arts Center",
+   "the Performing Arts Centre"
+  ],
+  "display": "Performing Arts Centre"
+ },
+ "19": {
+  "accept": [
+   "City Football Club",
+   "the City Football Club"
+  ],
+  "display": "City Football Club"
+ },
+ "20": {
+  "accept": [
+   "Under the Stars",
+   "under the stars"
+  ],
+  "display": "Under the Stars"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "329,758",
+   "329758",
+   "329 758"
+  ],
+  "display": "329,758"
+ },
+ "23": {
+  "accept": [
+   "just over 3 million",
+   "over 3 million",
+   "3 million",
+   "three million",
+   "just over three million"
+  ],
+  "display": "just over 3 million"
+ },
+ "24": {
+  "accept": [
+   "75%",
+   "three-quarters",
+   "three quarters",
+   "3/4",
+   "75 %",
+   "75 percent"
+  ],
+  "display": "75% (three-quarters)"
+ },
+ "25": {
+  "accept": [
+   "friendly and warm",
+   "warm and friendly",
+   "stable",
+   "fairly stable",
+   "friendly"
+  ],
+  "display": "friendly and warm"
+ },
+ "26": {
+  "accept": [
+   "continuing to grow",
+   "growing"
+  ],
+  "display": "continuing to grow"
+ },
+ "27": {
+  "accept": [
+   "Japan"
+  ],
+  "display": "Japan"
+ },
+ "28": {
+  "accept": [
+   "tourists",
+   "tourist numbers",
+   "number of tourists"
+  ],
+  "display": "tourists"
+ },
+ "29": {
+  "accept": [
+   "education and technology",
+   "technology and education"
+  ],
+  "display": "education and technology"
+ },
+ "30": {
+  "accept": [
+   "Eastern and Western",
+   "Western and Eastern"
+  ],
+  "display": "Eastern and Western"
+ },
+ "31": {
+  "accept": [
+   "thousands of years"
+  ],
+  "display": "thousands of years"
+ },
+ "32": {
+  "accept": [
+   "has been grown",
+   "is grown",
+   "have been grown",
+   "been grown"
+  ],
+  "display": "has been grown"
+ },
+ "33": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 33,
+  "idx": 0,
+  "display": "C, E  (Q33–34, any order)"
+ },
+ "34": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 33,
+  "idx": 1,
+  "display": "C, E  (Q33–34, any order)"
+ },
+ "35": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 35,
+  "idx": 0,
+  "display": "C, E  (Q35–36, any order)"
+ },
+ "36": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 35,
+  "idx": 1,
+  "display": "C, E  (Q35–36, any order)"
+ },
+ "37": {
+  "accept": [
+   "dried fruit",
+   "dried fruits"
+  ],
+  "display": "dried fruit"
+ },
+ "38": {
+  "accept": [
+   "seaweed"
+  ],
+  "display": "seaweed"
+ },
+ "39": {
+  "accept": [
+   "breakfast cereals",
+   "breakfast cereal",
+   "cereals"
+  ],
+  "display": "breakfast cereals"
+ },
+ "40": {
+  "accept": [
+   "www.vegsoc.org",
+   "vegsoc.org",
+   "www.vegsoc.org.uk"
+  ],
+  "display": "www.vegsoc.org"
+ }
+}

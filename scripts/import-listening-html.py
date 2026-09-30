@@ -100,7 +100,10 @@ def table_choices(g: dict) -> None:
     rows = g.get("table") or []
     if not any("[[sel:" in json.dumps(r) for r in rows):
         return
-    head = [c["t"] if isinstance(c, dict) else c for c in rows[0]] if rows else []
+    # the first row names the columns only when it is a header row
+    first = rows[0] if rows else []
+    is_head = bool(first) and all(isinstance(c, dict) and c.get("h") for c in first)
+    head = [c["t"] for c in first] if is_head else []
     qs = []
     for r in rows:
         for ci, cell in enumerate(r):
@@ -121,6 +124,30 @@ def table_choices(g: dict) -> None:
             qs.append({"n": n, "stem": stem, "opts": opts})
     g["questions"] = sorted(qs, key=lambda q: q["n"]) + g.get("questions", [])
     g.pop("bank", None)
+
+
+def letter_options(test: dict, key: dict) -> None:
+    """A dropdown of names ("Book shop", "I block") keeps the name as its value,
+    but the site's player submits a letter for a plain list of options — so the
+    key could never be matched. Give each name a letter and key the letter."""
+    L = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for s in test["sections"]:
+        for g in s["groups"]:
+            for q in g.get("questions", []):
+                opts = q.get("opts") or []
+                k = key.get(str(q["n"]))
+                if not opts or not k or "accept" not in k:
+                    continue
+                if not all(isinstance(o, str) for o in opts) or all(len(o) <= 3 for o in opts):
+                    continue
+                named = {o.lower(): L[i] for i, o in enumerate(opts)}
+                hits = [named.get(a.lower()) for a in k["accept"]]
+                if not any(hits):
+                    continue
+                q["opts"] = [{"l": L[i], "t": o} for i, o in enumerate(opts)]
+                letters = sorted({h for h in hits if h})
+                k["accept"] = letters
+                k["display"] = " / ".join(f"{l} — {opts[L.index(l)]}" for l in letters)
 
 
 def merge_anyof(groups: list, answer_key: dict) -> None:
@@ -297,8 +324,11 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
         "audioFile": up.name,
     }
     (root / "content" / "tests" / f"{tid}.json").write_text(json.dumps(test, ensure_ascii=False), encoding="utf8")
+    key = build_key(answer_key)
+    letter_options(test, key)
+    (root / "content" / "tests" / f"{tid}.json").write_text(json.dumps(test, ensure_ascii=False), encoding="utf8")
     (root / "content" / "keys" / f"{tid}.json").write_text(
-        json.dumps(build_key(answer_key), ensure_ascii=False, indent=1), encoding="utf8")
+        json.dumps(key, ensure_ascii=False, indent=1), encoding="utf8")
     (root / "content" / "evidence" / f"{tid}.json").write_text(
         json.dumps({k: evidence[k] for k in sorted(evidence, key=int)}, ensure_ascii=False, indent=1),
         encoding="utf8")

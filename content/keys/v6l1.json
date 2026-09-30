@@ -1,0 +1,316 @@
+{
+ "1": {
+  "accept": [
+   "0278804",
+   "027 8804",
+   "027-8804"
+  ],
+  "display": "0278804"
+ },
+ "2": {
+  "accept": [
+   "02/05",
+   "2/05",
+   "02/5",
+   "2/5"
+  ],
+  "display": "02/05"
+ },
+ "3": {
+  "accept": [
+   "17 Rockstead",
+   "17 Rockstead Avenue"
+  ],
+  "display": "17 Rockstead"
+ },
+ "4": {
+  "accept": [
+   "5 p.m.",
+   "5 pm",
+   "5pm",
+   "5.00 pm",
+   "5:00 pm",
+   "5",
+   "5.00",
+   "5:00",
+   "five pm"
+  ],
+  "display": "5 p.m."
+ },
+ "5": {
+  "accept": [
+   "doorbell",
+   "door bell",
+   "the doorbell"
+  ],
+  "display": "doorbell"
+ },
+ "6": {
+  "accept": [
+   "French teacher",
+   "teacher"
+  ],
+  "display": "French teacher"
+ },
+ "7": {
+  "accept": [
+   "no"
+  ],
+  "display": "no"
+ },
+ "8": {
+  "accept": [
+   "long summer holiday",
+   "long summer holidays",
+   "a long summer holiday",
+   "summer holiday",
+   "summer holidays"
+  ],
+  "display": "long summer holiday"
+ },
+ "9": {
+  "accept": [
+   "pay"
+  ],
+  "display": "pay"
+ },
+ "10": {
+  "accept": [
+   "by himself",
+   "by myself"
+  ],
+  "display": "by himself"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "any": [
+   "B",
+   "C",
+   "D"
+  ],
+  "pick": 3,
+  "lead": 14,
+  "idx": 0,
+  "display": "B, C, D  (Q14–15, any order)"
+ },
+ "15": {
+  "any": [
+   "B",
+   "C",
+   "D"
+  ],
+  "pick": 3,
+  "lead": 14,
+  "idx": 1,
+  "display": "B, C, D  (Q14–15, any order)"
+ },
+ "16": {
+  "accept": [
+   "nearest police station",
+   "police station"
+  ],
+  "display": "nearest police station"
+ },
+ "17": {
+  "accept": [
+   "cross street",
+   "cross-street",
+   "laneway"
+  ],
+  "display": "cross street / laneway"
+ },
+ "18": {
+  "accept": [
+   "shop",
+   "nearest shop",
+   "the shop"
+  ],
+  "display": "shop"
+ },
+ "19": {
+  "accept": [
+   "description",
+   "full description",
+   "a full description",
+   "a description"
+  ],
+  "display": "(full) description"
+ },
+ "20": {
+  "accept": [
+   "cancelling them",
+   "cancelling",
+   "canceling",
+   "cancelling cards",
+   "cancelling credit cards",
+   "reporting them",
+   "reporting",
+   "reporting them stolen"
+  ],
+  "display": "cancelling them / reporting them"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "31": {
+  "accept": [
+   "beginning",
+   "beginning and completion",
+   "completion date"
+  ],
+  "display": "beginning (and completion)"
+ },
+ "32": {
+  "accept": [
+   "schedule",
+   "a schedule"
+  ],
+  "display": "schedule"
+ },
+ "33": {
+  "accept": [
+   "four stages",
+   "4 stages",
+   "stages",
+   "four-stage cycle",
+   "a four-stage cycle"
+  ],
+  "display": "four stages"
+ },
+ "34": {
+  "accept": [
+   "developing a plan",
+   "planning the project",
+   "project planning",
+   "planning",
+   "developing the plan"
+  ],
+  "display": "developing a plan / planning the project"
+ },
+ "35": {
+  "accept": [
+   "realistically",
+   "realistic"
+  ],
+  "display": "realistically"
+ },
+ "36": {
+  "accept": [
+   "expertise",
+   "advice",
+   "expert advice",
+   "advice and opinions"
+  ],
+  "display": "expertise / advice"
+ },
+ "37": {
+  "accept": [
+   "Gantt chart",
+   "Gantt charts",
+   "the Gantt chart",
+   "Gantt"
+  ],
+  "display": "Gantt chart"
+ },
+ "38": {
+  "accept": [
+   "standard of delivery",
+   "standards of delivery",
+   "delivery standards",
+   "delivery standard"
+  ],
+  "display": "standard of delivery"
+ },
+ "39": {
+  "accept": [
+   "Quality Assurance",
+   "a Quality Assurance",
+   "the Quality Assurance"
+  ],
+  "display": "Quality Assurance"
+ },
+ "40": {
+  "accept": [
+   "tutorials",
+   "your tutorials",
+   "tutorial",
+   "the tutorials",
+   "this week's tutorials"
+  ],
+  "display": "(your) tutorials"
+ }
+}
