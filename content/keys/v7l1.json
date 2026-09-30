@@ -1,0 +1,271 @@
+{
+ "1": {
+  "accept": [
+   "9301274",
+   "930 1274",
+   "M9301274"
+  ],
+  "display": "9301274"
+ },
+ "2": {
+  "accept": [
+   "8635923",
+   "863 5923",
+   "863-5923"
+  ],
+  "display": "863 5923"
+ },
+ "3": {
+  "accept": [
+   "5791857",
+   "579 1857",
+   "02 579 1857",
+   "025791857",
+   "02 5791857"
+  ],
+  "display": "(02) 579 1857"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "7": {
+  "accept": [
+   "R"
+  ],
+  "display": "R"
+ },
+ "8": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "OL"
+  ],
+  "display": "OL"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "life cycle",
+   "lifecycle",
+   "life-cycle"
+  ],
+  "display": "life cycle"
+ },
+ "18": {
+  "accept": [
+   "greater flexibility",
+   "flexibility",
+   "much greater flexibility"
+  ],
+  "display": "(greater) flexibility"
+ },
+ "19": {
+  "accept": [
+   "tenured",
+   "permanent",
+   "tenured or permanent",
+   "permanent or tenured"
+  ],
+  "display": "tenured / permanent"
+ },
+ "20": {
+  "accept": [
+   "work from home"
+  ],
+  "display": "work from home"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "behaviour",
+   "behavior",
+   "behaviours",
+   "behaviors"
+  ],
+  "display": "behaviour"
+ },
+ "32": {
+  "accept": [
+   "job satisfaction",
+   "satisfaction"
+  ],
+  "display": "job satisfaction"
+ },
+ "33": {
+  "accept": [
+   "19th",
+   "nineteenth",
+   "19th century"
+  ],
+  "display": "19th"
+ },
+ "34": {
+  "accept": [
+   "money",
+   "making money"
+  ],
+  "display": "(making) money"
+ },
+ "35": {
+  "accept": [
+   "in teams",
+   "teams"
+  ],
+  "display": "in teams"
+ },
+ "36": {
+  "accept": [
+   "basic"
+  ],
+  "display": "basic"
+ },
+ "37": {
+  "accept": [
+   "status"
+  ],
+  "display": "status"
+ },
+ "38": {
+  "accept": [
+   "55%",
+   "55",
+   "55 %",
+   "55 percent"
+  ],
+  "display": "55%"
+ },
+ "39": {
+  "accept": [
+   "40%",
+   "40",
+   "40 %",
+   "40 percent"
+  ],
+  "display": "40%"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

@@ -76,6 +76,17 @@ def attach_question_images(q_html: str, media: dict, tid: str, out_dir: pathlib.
         for src in imgs:
             rebuilt.append(f'<img class="mapimg" src="{src}">')
         body = IMG.sub("", body)
+        # A table inside a notes box is drawn by the site only when it stands
+        # on its own; left nested it came through as raw markup. Lift each
+        # table out, keeping the wording before and after it in order.
+        if tag != "table" and "<table" in body:
+            parts = re.split(r"(<table\b.*?</table>)", body, flags=re.S)
+            for part in parts:
+                if part.startswith("<table"):
+                    rebuilt.append(part)
+                elif conv.plain(part) or "<input" in part or "<select" in part:
+                    rebuilt.append(f"<{tag}{attrs}>{part}</{tag}>")
+            continue
         rebuilt.append(f"<{tag}{attrs}>{body}</{tag}>")
     return "\n".join(rebuilt), per_q
 
@@ -124,6 +135,22 @@ def table_choices(g: dict) -> None:
             qs.append({"n": n, "stem": stem, "opts": opts})
     g["questions"] = sorted(qs, key=lambda q: q["n"]) + g.get("questions", [])
     g.pop("bank", None)
+
+
+def in_order(groups: list) -> list:
+    """The player draws a group's lines above its table. When the table holds
+    the earlier numbers (a timetable, then notes under it), split the group so
+    the questions appear in the order they are asked."""
+    out = []
+    for g in groups:
+        nums = lambda x: [int(n) for n in re.findall(r"\{\{(\d+)\}\}", json.dumps(x))]
+        tl, ll = nums(g.get("table", [])), nums(g.get("lines", []))
+        if tl and ll and min(tl) < min(ll):
+            first = {k: v for k, v in g.items() if k != "lines"}
+            out += [first, {"lines": g["lines"]}]
+        else:
+            out.append(g)
+    return out
 
 
 def letter_options(test: dict, key: dict) -> None:
@@ -285,6 +312,7 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
                     if isinstance(o, dict):
                         o["t"] = re.sub(rf"^{re.escape(o['l'])}\s*[–-]\s*", "", o["t"])
         merge_anyof(s["groups"], answer_key)
+        s["groups"] = in_order(s["groups"])
 
     for v in evidence.values():
         v["t"] = [x for x in v["t"] if x]

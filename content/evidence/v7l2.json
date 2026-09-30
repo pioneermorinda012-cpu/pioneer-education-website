@@ -1,0 +1,282 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "for refreshments"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "a longer walk along the castle wall"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "You'll need to book ahead for this one."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "we take people to the castle and to the cathedral"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "or at least older children"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "it follows the life and times of Robert Jones"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "the city sites one starts at 1pm and finishes at 6pm"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "The castle tour starts at 9am and finishes at midday."
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "but there are no tours that day"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "www.walknewtown.com"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "You can use your bank account to pay your regular bills."
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "If you have a financial sponsor"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "to draw money from your home account"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "falling behind with your rent"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "by meeting with the student counselor"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "there are many different insurance policies available"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "listed in your local telephone directory"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "New for old policies will pay you the full cost"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "will not cover you for pre-existing medical conditions"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "if you play a dangerous sport"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "I'd like you to imagine that you are managers."
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "But you need to know if they have the right character"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "can change the whole group dynamic"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "But company training tends to show new people how you do something at a particular company."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "particularly in a team situation"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "Is there any value in asking candidates questions about their hobbies?"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "makes me think that there must be something in them"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "But these tests have been created by experts."
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "How about the idea of setting problems for applicants"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "I like that idea."
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "or SPI, in 1988"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "the half inch minimum size symbol"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "combs"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "is often recycled into toys"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "commonly used in plastic pipes"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "like number four"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "grocery and sandwich bags"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "Another useful plastic to recycle is number six."
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "Disposable cutlery"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "rigid foam insulation"
+  ],
+  "k": "exact"
+ }
+}

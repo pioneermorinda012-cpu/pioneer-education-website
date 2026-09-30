@@ -1,0 +1,340 @@
+{
+ "1": {
+  "accept": [
+   "refreshments",
+   "refreshment",
+   "some refreshments"
+  ],
+  "display": "refreshments"
+ },
+ "2": {
+  "accept": [
+   "castle wall",
+   "the castle wall"
+  ],
+  "display": "castle wall"
+ },
+ "3": {
+  "accept": [
+   "book ahead"
+  ],
+  "display": "book ahead"
+ },
+ "4": {
+  "accept": [
+   "cathedral",
+   "the cathedral"
+  ],
+  "display": "cathedral"
+ },
+ "5": {
+  "accept": [
+   "older children"
+  ],
+  "display": "older children"
+ },
+ "6": {
+  "accept": [
+   "life and times",
+   "the life and times"
+  ],
+  "display": "life and times"
+ },
+ "7": {
+  "accept": [
+   "1 p.m. - 6 p.m.",
+   "1pm-6pm",
+   "1 pm - 6 pm",
+   "1pm - 6pm",
+   "1 p.m.-6 p.m.",
+   "1-6",
+   "1 - 6",
+   "1pm to 6pm",
+   "1 p.m. to 6 p.m.",
+   "13:00-18:00",
+   "1 pm-6 pm"
+  ],
+  "display": "1 p.m. – 6 p.m."
+ },
+ "8": {
+  "accept": [
+   "9 a.m. - 12",
+   "9am-12pm",
+   "9 am - 12 pm",
+   "9am - midday",
+   "9 a.m. - midday",
+   "9am-midday",
+   "9-12",
+   "9 - 12",
+   "9am - 12pm",
+   "9 a.m.-12 p.m.",
+   "9am to midday",
+   "9 a.m. to 12 p.m.",
+   "9am-12",
+   "9 am - 12 noon",
+   "9am-12 noon",
+   "09:00-12:00",
+   "9 a.m. - 12 p.m.",
+   "9 am-12 pm"
+  ],
+  "display": "9 a.m. – 12 (midday)"
+ },
+ "9": {
+  "accept": [
+   "mondays",
+   "monday",
+   "on mondays"
+  ],
+  "display": "Mondays"
+ },
+ "10": {
+  "accept": [
+   "www.walknewtown.com",
+   "walknewtown.com"
+  ],
+  "display": "www.walknewtown.com"
+ },
+ "11": {
+  "accept": [
+   "regular bills",
+   "bills",
+   "your regular bills"
+  ],
+  "display": "regular bills"
+ },
+ "12": {
+  "accept": [
+   "financial sponsor",
+   "sponsor"
+  ],
+  "display": "(financial) sponsor"
+ },
+ "13": {
+  "accept": [
+   "home account"
+  ],
+  "display": "home account"
+ },
+ "14": {
+  "accept": [
+   "rent",
+   "your rent"
+  ],
+  "display": "rent"
+ },
+ "15": {
+  "accept": [
+   "student counsellor",
+   "student counselor",
+   "counsellor",
+   "counselor"
+  ],
+  "display": "student counsellor"
+ },
+ "16": {
+  "accept": [
+   "insurance",
+   "insurance policies",
+   "insurance policy"
+  ],
+  "display": "insurance (policies)"
+ },
+ "17": {
+  "accept": [
+   "local telephone directory",
+   "telephone directory",
+   "the local telephone directory",
+   "local phone directory",
+   "phone directory"
+  ],
+  "display": "(local) telephone directory"
+ },
+ "18": {
+  "accept": [
+   "new for old",
+   "new-for-old",
+   "new for old policies"
+  ],
+  "display": "new for old"
+ },
+ "19": {
+  "accept": [
+   "pre-existing",
+   "pre-existing conditions",
+   "pre-existing medical conditions",
+   "preexisting",
+   "pre existing",
+   "preexisting conditions",
+   "pre existing conditions"
+  ],
+  "display": "pre-existing (conditions)"
+ },
+ "20": {
+  "accept": [
+   "dangerous sport",
+   "a dangerous sport",
+   "playing a dangerous sport",
+   "dangerous sports"
+  ],
+  "display": "(a) dangerous sport"
+ },
+ "21": {
+  "accept": [
+   "managers",
+   "manager"
+  ],
+  "display": "managers"
+ },
+ "22": {
+  "accept": [
+   "character"
+  ],
+  "display": "character"
+ },
+ "23": {
+  "accept": [
+   "group dynamic",
+   "whole group dynamic",
+   "the whole group dynamic",
+   "group dynamics"
+  ],
+  "display": "(whole) group dynamic"
+ },
+ "24": {
+  "accept": [
+   "company training",
+   "training"
+  ],
+  "display": "company training"
+ },
+ "25": {
+  "accept": [
+   "team",
+   "team situation",
+   "a team situation"
+  ],
+  "display": "team (situation)"
+ },
+ "26": {
+  "accept": [
+   "hobbies",
+   "hobby"
+  ],
+  "display": "hobbies"
+ },
+ "27": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 27,
+  "idx": 0,
+  "display": "A, C  (Q27–28, any order)"
+ },
+ "28": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 27,
+  "idx": 1,
+  "display": "A, C  (Q27–28, any order)"
+ },
+ "29": {
+  "any": [
+   "B",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 0,
+  "display": "B, C  (Q29–30, any order)"
+ },
+ "30": {
+  "any": [
+   "B",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 1,
+  "display": "B, C  (Q29–30, any order)"
+ },
+ "31": {
+  "accept": [
+   "1988"
+  ],
+  "display": "1988"
+ },
+ "32": {
+  "accept": [
+   "half inch",
+   "half an inch",
+   "1/2 inch",
+   "0.5 inch",
+   "half-inch",
+   "1/2 an inch",
+   "a half inch"
+  ],
+  "display": "half an inch"
+ },
+ "33": {
+  "accept": [
+   "combs",
+   "comb"
+  ],
+  "display": "combs"
+ },
+ "34": {
+  "accept": [
+   "toys",
+   "toy"
+  ],
+  "display": "toys"
+ },
+ "35": {
+  "accept": [
+   "plastic pipes",
+   "pipes",
+   "plastic pipe"
+  ],
+  "display": "plastic pipes"
+ },
+ "36": {
+  "accept": [
+   "no"
+  ],
+  "display": "no"
+ },
+ "37": {
+  "accept": [
+   "grocery bags",
+   "grocery",
+   "grocery bag"
+  ],
+  "display": "grocery (bags)"
+ },
+ "38": {
+  "accept": [
+   "yes"
+  ],
+  "display": "yes"
+ },
+ "39": {
+  "accept": [
+   "disposable cutlery",
+   "cutlery"
+  ],
+  "display": "disposable cutlery"
+ },
+ "40": {
+  "accept": [
+   "insulation",
+   "rigid foam insulation",
+   "foam insulation"
+  ],
+  "display": "(rigid foam) insulation"
+ }
+}
