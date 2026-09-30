@@ -1,0 +1,316 @@
+{
+ "1": {
+  "accept": [
+   "10 o'clock",
+   "10:00",
+   "10",
+   "10 am",
+   "10 a.m.",
+   "ten o'clock",
+   "10.00",
+   "10am",
+   "10 oclock"
+  ],
+  "display": "10 o'clock"
+ },
+ "2": {
+  "accept": [
+   "further",
+   "further away"
+  ],
+  "display": "further (away)"
+ },
+ "3": {
+  "accept": [
+   "heavy smoker",
+   "a heavy smoker"
+  ],
+  "display": "heavy smoker"
+ },
+ "4": {
+  "accept": [
+   "bus connection",
+   "the bus connection"
+  ],
+  "display": "bus connection"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "37.50",
+   "37.5",
+   "37.50 per week",
+   "37.50 a week",
+   "£37.50"
+  ],
+  "display": "37.50 (per week)"
+ },
+ "9": {
+  "accept": [
+   "british and indian",
+   "indian and british",
+   "british, indian",
+   "british indian",
+   "british/indian"
+  ],
+  "display": "British and Indian"
+ },
+ "10": {
+  "accept": [
+   "deposit",
+   "her deposit",
+   "the deposit"
+  ],
+  "display": "(her) deposit"
+ },
+ "11": {
+  "accept": [
+   "countdown to departure"
+  ],
+  "display": "Countdown to Departure"
+ },
+ "12": {
+  "accept": [
+   "guide",
+   "a guide",
+   "useful guide",
+   "a useful guide"
+  ],
+  "display": "(useful) guide"
+ },
+ "13": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 13,
+  "idx": 0,
+  "display": "A, D  (Q13–14, any order)"
+ },
+ "14": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 13,
+  "idx": 1,
+  "display": "A, D  (Q13–14, any order)"
+ },
+ "15": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 15,
+  "idx": 0,
+  "display": "C, D, F  (Q15–16, any order)"
+ },
+ "16": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 15,
+  "idx": 1,
+  "display": "C, D, F  (Q15–16, any order)"
+ },
+ "17": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 17,
+  "idx": 0,
+  "display": "A, C  (Q17–18, any order)"
+ },
+ "18": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 17,
+  "idx": 1,
+  "display": "A, C  (Q17–18, any order)"
+ },
+ "19": {
+  "accept": [
+   "free health treatment",
+   "health treatment"
+  ],
+  "display": "free health treatment"
+ },
+ "20": {
+  "accept": [
+   "write a letter",
+   "write letter"
+  ],
+  "display": "write a letter"
+ },
+ "21": {
+  "accept": [
+   "free time"
+  ],
+  "display": "free time"
+ },
+ "22": {
+  "accept": [
+   "time management"
+  ],
+  "display": "time management"
+ },
+ "23": {
+  "accept": [
+   "weekly or monthly",
+   "weekly",
+   "monthly",
+   "weekly/monthly"
+  ],
+  "display": "weekly or monthly"
+ },
+ "24": {
+  "accept": [
+   "revise"
+  ],
+  "display": "revise"
+ },
+ "25": {
+  "accept": [
+   "progress"
+  ],
+  "display": "progress"
+ },
+ "26": {
+  "accept": [
+   "realistic"
+  ],
+  "display": "realistic"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "teacher focused",
+   "teacher-focused",
+   "very teacher focused",
+   "very teacher-focused"
+  ],
+  "display": "(very) teacher focused"
+ },
+ "32": {
+  "accept": [
+   "personal mentor",
+   "mentor",
+   "a personal mentor"
+  ],
+  "display": "(personal) mentor"
+ },
+ "33": {
+  "accept": [
+   "campus",
+   "the campus"
+  ],
+  "display": "campus"
+ },
+ "34": {
+  "accept": [
+   "voluntary"
+  ],
+  "display": "voluntary"
+ },
+ "35": {
+  "accept": [
+   "identify suitable",
+   "identify"
+  ],
+  "display": "identify (suitable)"
+ },
+ "36": {
+  "accept": [
+   "compare notes"
+  ],
+  "display": "compare notes"
+ },
+ "37": {
+  "accept": [
+   "initial aim",
+   "their initial aim",
+   "initial aims"
+  ],
+  "display": "(their) initial aim"
+ },
+ "38": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "display": "B, E"
+ },
+ "39": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 39,
+  "idx": 0,
+  "display": "A, C  (Q39–40, any order)"
+ },
+ "40": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 39,
+  "idx": 1,
+  "display": "A, C  (Q39–40, any order)"
+ }
+}

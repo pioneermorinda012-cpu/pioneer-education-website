@@ -1,0 +1,286 @@
+{
+ "1": {
+  "accept": [
+   "medium",
+   "medium-sized",
+   "medium sized"
+  ],
+  "display": "medium"
+ },
+ "2": {
+  "accept": [
+   "17",
+   "seventeen"
+  ],
+  "display": "17"
+ },
+ "3": {
+  "accept": [
+   "31.05",
+   "31.05 per day"
+  ],
+  "display": "31.05"
+ },
+ "4": {
+  "accept": [
+   "insurance"
+  ],
+  "display": "insurance"
+ },
+ "5": {
+  "accept": [
+   "browne"
+  ],
+  "display": "Browne"
+ },
+ "6": {
+  "accept": [
+   "hectrix electronics",
+   "hectrix"
+  ],
+  "display": "Hectrix Electronics"
+ },
+ "7": {
+  "accept": [
+   "unit 2",
+   "unit two"
+  ],
+  "display": "Unit 2"
+ },
+ "8": {
+  "accept": [
+   "first aid kit",
+   "first-aid kit"
+  ],
+  "display": "first aid kit"
+ },
+ "9": {
+  "accept": [
+   "k758smd",
+   "k758 smd",
+   "k 758 smd",
+   "k-758-smd",
+   "k758-smd"
+  ],
+  "display": "K758 SMD"
+ },
+ "10": {
+  "accept": [
+   "central",
+   "central locking"
+  ],
+  "display": "central"
+ },
+ "11": {
+  "accept": [
+   "from some friends",
+   "from friends",
+   "friends",
+   "some friends"
+  ],
+  "display": "from (some) friends"
+ },
+ "12": {
+  "accept": [
+   "by plane",
+   "plane"
+  ],
+  "display": "by plane"
+ },
+ "13": {
+  "accept": [
+   "number of foreigners",
+   "the number of foreigners",
+   "foreigners"
+  ],
+  "display": "(the) number of foreigners"
+ },
+ "14": {
+  "accept": [
+   "changed planes",
+   "they changed planes"
+  ],
+  "display": "(they) changed planes"
+ },
+ "15": {
+  "accept": [
+   "buildings",
+   "buildings and monuments",
+   "monuments and buildings"
+  ],
+  "display": "buildings (and monuments)"
+ },
+ "16": {
+  "accept": [
+   "crowds",
+   "crowds on streets",
+   "crowds and weather"
+  ],
+  "display": "crowds (and weather)"
+ },
+ "17": {
+  "accept": [
+   "ocean",
+   "the ocean"
+  ],
+  "display": "ocean"
+ },
+ "18": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "display": "A, D"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "finger"
+  ],
+  "display": "finger"
+ },
+ "22": {
+  "accept": [
+   "air"
+  ],
+  "display": "air"
+ },
+ "23": {
+  "accept": [
+   "poster",
+   "posters"
+  ],
+  "display": "(a) poster"
+ },
+ "24": {
+  "accept": [
+   "act"
+  ],
+  "display": "act"
+ },
+ "25": {
+  "accept": [
+   "part of speech",
+   "parts of speech"
+  ],
+  "display": "part of speech"
+ },
+ "26": {
+  "accept": [
+   "highlighting",
+   "highlight"
+  ],
+  "display": "highlighting"
+ },
+ "27": {
+  "accept": [
+   "spider diagrams",
+   "spider diagram",
+   "diagrams"
+  ],
+  "display": "spider diagrams"
+ },
+ "28": {
+  "accept": [
+   "dictation",
+   "a dictation"
+  ],
+  "display": "dictation"
+ },
+ "29": {
+  "accept": [
+   "word or phrase",
+   "word",
+   "phrase",
+   "word/phrase"
+  ],
+  "display": "word or phrase"
+ },
+ "30": {
+  "accept": [
+   "rhyming"
+  ],
+  "display": "rhyming"
+ },
+ "31": {
+  "accept": [
+   "concentrate"
+  ],
+  "display": "concentrate"
+ },
+ "32": {
+  "accept": [
+   "summary"
+  ],
+  "display": "summary"
+ },
+ "33": {
+  "accept": [
+   "reproduce the ideas",
+   "reproduce ideas",
+   "reproduce"
+  ],
+  "display": "reproduce the ideas"
+ },
+ "34": {
+  "accept": [
+   "in full"
+  ],
+  "display": "in full"
+ },
+ "35": {
+  "accept": [
+   "make sure"
+  ],
+  "display": "make sure"
+ },
+ "36": {
+  "accept": [
+   "go back"
+  ],
+  "display": "go back"
+ },
+ "37": {
+  "accept": [
+   "doesn't suggest",
+   "does not suggest",
+   "doesnt suggest"
+  ],
+  "display": "doesn't suggest"
+ },
+ "38": {
+  "accept": [
+   "omit"
+  ],
+  "display": "omit"
+ },
+ "39": {
+  "accept": [
+   "study listening"
+  ],
+  "display": "Study Listening"
+ },
+ "40": {
+  "accept": [
+   "5 and 10",
+   "units 5 and 10",
+   "5, 10",
+   "5 & 10",
+   "5,10",
+   "five and ten"
+  ],
+  "display": "5 and 10"
+ }
+}
