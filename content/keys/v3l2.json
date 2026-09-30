@@ -1,0 +1,332 @@
+{
+ "1": {
+  "accept": [
+   "15th September",
+   "15 September",
+   "September 15th",
+   "September 15",
+   "15th of September",
+   "15 Sept",
+   "15th Sept",
+   "15/9"
+  ],
+  "display": "15th September"
+ },
+ "2": {
+  "accept": [
+   "Pacific Hotel",
+   "the Pacific Hotel"
+  ],
+  "display": "Pacific Hotel"
+ },
+ "3": {
+  "accept": [
+   "07 9444 1233",
+   "0794441233",
+   "07 94441233",
+   "(07) 9444 1233",
+   "07-9444-1233",
+   "07 944 41233"
+  ],
+  "display": "07 9444 1233"
+ },
+ "4": {
+  "accept": [
+   "$50 a day",
+   "50 dollars a day",
+   "$50 per day",
+   "$50/day",
+   "50 a day",
+   "$50 daily",
+   "$50 for one day",
+   "$50 for 1 day"
+  ],
+  "display": "$50 a day"
+ },
+ "5": {
+  "accept": [
+   "Professor Dorfman",
+   "Prof Dorfman",
+   "Prof. Dorfman",
+   "Dorfman"
+  ],
+  "display": "Professor Dorfman"
+ },
+ "6": {
+  "accept": [
+   "London"
+  ],
+  "display": "London"
+ },
+ "7": {
+  "accept": [
+   "last Friday"
+  ],
+  "display": "last Friday"
+ },
+ "8": {
+  "accept": [
+   "interesting title",
+   "an interesting title",
+   "title",
+   "a title"
+  ],
+  "display": "(an) interesting title"
+ },
+ "9": {
+  "accept": [
+   "short CV",
+   "a short CV",
+   "CV",
+   "a CV"
+  ],
+  "display": "(a) short CV"
+ },
+ "10": {
+  "accept": [
+   "admin"
+  ],
+  "display": "admin"
+ },
+ "11": {
+  "accept": [
+   "medicine"
+  ],
+  "display": "medicine"
+ },
+ "12": {
+  "accept": [
+   "China",
+   "southern China",
+   "China and India"
+  ],
+  "display": "(southern) China"
+ },
+ "13": {
+  "accept": [
+   "a very good price",
+   "very good price"
+  ],
+  "display": "(a) very good price"
+ },
+ "14": {
+  "accept": [
+   "early 20th",
+   "20th",
+   "early twentieth",
+   "twentieth"
+  ],
+  "display": "early 20th"
+ },
+ "15": {
+  "accept": [
+   "perfect conditions",
+   "well established",
+   "became well established"
+  ],
+  "display": "perfect conditions / well established"
+ },
+ "16": {
+  "accept": [
+   "production costs",
+   "cost of production",
+   "production cost",
+   "costs of production"
+  ],
+  "display": "cost of production"
+ },
+ "17": {
+  "accept": [
+   "Second World War",
+   "the Second World War",
+   "World War II",
+   "World War Two",
+   "WWII",
+   "WW2"
+  ],
+  "display": "the Second World War"
+ },
+ "18": {
+  "accept": [
+   "25",
+   "twenty-five"
+  ],
+  "display": "25"
+ },
+ "19": {
+  "accept": [
+   "14 tons",
+   "fourteen tons",
+   "14 tonnes",
+   "14 ton"
+  ],
+  "display": "14 tons"
+ },
+ "20": {
+  "accept": [
+   "Australia"
+  ],
+  "display": "Australia"
+ },
+ "21": {
+  "accept": [
+   "human activities",
+   "human activity"
+  ],
+  "display": "human activities"
+ },
+ "22": {
+  "accept": [
+   "get warmer"
+  ],
+  "display": "get warmer"
+ },
+ "23": {
+  "accept": [
+   "influences"
+  ],
+  "display": "influences"
+ },
+ "24": {
+  "accept": [
+   "Earth's temperature",
+   "earth temperature",
+   "temperature",
+   "the earth's temperature"
+  ],
+  "display": "Earth's temperature"
+ },
+ "25": {
+  "accept": [
+   "the oceans",
+   "oceans",
+   "the ocean",
+   "ocean"
+  ],
+  "display": "the oceans"
+ },
+ "26": {
+  "accept": [
+   "engines",
+   "engine"
+  ],
+  "display": "engines"
+ },
+ "27": {
+  "accept": [
+   "above us",
+   "orbiting the Earth",
+   "orbits the Earth"
+  ],
+  "display": "above us / orbiting the Earth"
+ },
+ "28": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 0,
+  "display": "B, C, E  (Q28–30, any order)"
+ },
+ "29": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 1,
+  "display": "B, C, E  (Q28–30, any order)"
+ },
+ "30": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 2,
+  "display": "B, C, E  (Q28–30, any order)"
+ },
+ "31": {
+  "accept": [
+   "patients",
+   "the patients",
+   "patient"
+  ],
+  "display": "(the) patients"
+ },
+ "32": {
+  "accept": [
+   "smoking"
+  ],
+  "display": "smoking"
+ },
+ "33": {
+  "accept": [
+   "working class men",
+   "working-class men",
+   "young men"
+  ],
+  "display": "(young) working class men"
+ },
+ "34": {
+  "accept": [
+   "saturated fats",
+   "saturated fat"
+  ],
+  "display": "saturated fats"
+ },
+ "35": {
+  "accept": [
+   "the sun",
+   "sun"
+  ],
+  "display": "the sun"
+ },
+ "36": {
+  "accept": [
+   "public health standards",
+   "health standards",
+   "public health"
+  ],
+  "display": "public health standards"
+ },
+ "37": {
+  "accept": [
+   "healthy lifestyle choices",
+   "lifestyle choices"
+  ],
+  "display": "healthy lifestyle choices"
+ },
+ "38": {
+  "accept": [
+   "fun"
+  ],
+  "display": "fun"
+ },
+ "39": {
+  "accept": [
+   "warm-up",
+   "warm up",
+   "warm-ups",
+   "warm ups",
+   "warming up",
+   "warmup"
+  ],
+  "display": "warm-up"
+ },
+ "40": {
+  "accept": [
+   "cross-training",
+   "cross training",
+   "crosstraining"
+  ],
+  "display": "cross-training"
+ }
+}

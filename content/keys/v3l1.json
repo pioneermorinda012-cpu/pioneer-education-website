@@ -1,0 +1,281 @@
+{
+ "1": {
+  "accept": [
+   "engineering"
+  ],
+  "display": "engineering"
+ },
+ "2": {
+  "accept": [
+   "car salesman",
+   "a car salesman",
+   "salesman"
+  ],
+  "display": "car salesman"
+ },
+ "3": {
+  "accept": [
+   "chess",
+   "playing chess"
+  ],
+  "display": "chess"
+ },
+ "4": {
+  "accept": [
+   "electronics"
+  ],
+  "display": "electronics"
+ },
+ "5": {
+  "accept": [
+   "1,200",
+   "1200",
+   "$1,200",
+   "$1200"
+  ],
+  "display": "1,200"
+ },
+ "6": {
+  "accept": [
+   "immediately"
+  ],
+  "display": "immediately"
+ },
+ "7": {
+  "accept": [
+   "Spanish"
+  ],
+  "display": "Spanish"
+ },
+ "8": {
+  "any": [
+   "A",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 0,
+  "display": "A, E, F  (Q8–10, any order)"
+ },
+ "9": {
+  "any": [
+   "A",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 1,
+  "display": "A, E, F  (Q8–10, any order)"
+ },
+ "10": {
+  "any": [
+   "A",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 2,
+  "display": "A, E, F  (Q8–10, any order)"
+ },
+ "11": {
+  "accept": [
+   "consultation",
+   "a consultation"
+  ],
+  "display": "consultation"
+ },
+ "12": {
+  "accept": [
+   "diet",
+   "your diet"
+  ],
+  "display": "diet"
+ },
+ "13": {
+  "accept": [
+   "test",
+   "a test"
+  ],
+  "display": "(a) test"
+ },
+ "14": {
+  "accept": [
+   "monthly"
+  ],
+  "display": "monthly"
+ },
+ "15": {
+  "accept": [
+   "three",
+   "3"
+  ],
+  "display": "three"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "18": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "19": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "20": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "7",
+   "seven"
+  ],
+  "display": "7"
+ },
+ "27": {
+  "accept": [
+   "MBP",
+   "Master of Business Practice"
+  ],
+  "display": "MBP"
+ },
+ "28": {
+  "accept": [
+   "not stable",
+   "unstable"
+  ],
+  "display": "not stable"
+ },
+ "29": {
+  "accept": [
+   "attitude",
+   "bad attitude",
+   "his attitude"
+  ],
+  "display": "(bad) attitude"
+ },
+ "30": {
+  "accept": [
+   "health problems",
+   "health",
+   "age",
+   "his age"
+  ],
+  "display": "health problems / age"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "limestone"
+  ],
+  "display": "limestone"
+ },
+ "35": {
+  "accept": [
+   "solidifies",
+   "solidify"
+  ],
+  "display": "solidifies"
+ },
+ "36": {
+  "accept": [
+   "fault lines",
+   "faultlines",
+   "fault line"
+  ],
+  "display": "fault lines"
+ },
+ "37": {
+  "accept": [
+   "calcium"
+  ],
+  "display": "calcium"
+ },
+ "38": {
+  "accept": [
+   "flowstone",
+   "flowstones",
+   "flow stone"
+  ],
+  "display": "flowstone"
+ },
+ "39": {
+  "accept": [
+   "1986"
+  ],
+  "display": "1986"
+ },
+ "40": {
+  "accept": [
+   "bottom up",
+   "bottom-up"
+  ],
+  "display": "bottom up"
+ }
+}
