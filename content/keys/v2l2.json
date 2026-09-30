@@ -1,0 +1,269 @@
+{
+ "1": {
+  "accept": [
+   "practical"
+  ],
+  "display": "practical"
+ },
+ "2": {
+  "accept": [
+   "pizza",
+   "pizzas"
+  ],
+  "display": "pizza(s)"
+ },
+ "3": {
+  "accept": [
+   "walking",
+   "light walking"
+  ],
+  "display": "(light) walking"
+ },
+ "4": {
+  "accept": [
+   "Pine Park"
+  ],
+  "display": "Pine Park"
+ },
+ "5": {
+  "accept": [
+   "fruit juice",
+   "juice"
+  ],
+  "display": "fruit juice"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "11": {
+  "accept": [
+   "padded"
+  ],
+  "display": "padded"
+ },
+ "12": {
+  "accept": [
+   "special skill",
+   "skill"
+  ],
+  "display": "special skill"
+ },
+ "13": {
+  "accept": [
+   "disinfect",
+   "disinfect all"
+  ],
+  "display": "disinfect"
+ },
+ "14": {
+  "accept": [
+   "corners",
+   "all corners",
+   "the corners"
+  ],
+  "display": "corners"
+ },
+ "15": {
+  "accept": [
+   "learning toys",
+   "toys"
+  ],
+  "display": "learning toys"
+ },
+ "16": {
+  "accept": [
+   "germs",
+   "colds"
+  ],
+  "display": "germs"
+ },
+ "17": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "21": {
+  "accept": [
+   "topic",
+   "a topic"
+  ],
+  "display": "topic"
+ },
+ "22": {
+  "accept": [
+   "one"
+  ],
+  "display": "one"
+ },
+ "23": {
+  "accept": [
+   "thesis",
+   "a thesis"
+  ],
+  "display": "thesis"
+ },
+ "24": {
+  "accept": [
+   "outline",
+   "an outline"
+  ],
+  "display": "outline"
+ },
+ "25": {
+  "accept": [
+   "progresses",
+   "progress"
+  ],
+  "display": "progresses"
+ },
+ "26": {
+  "accept": [
+   "aspects"
+  ],
+  "display": "aspects"
+ },
+ "27": {
+  "accept": [
+   "real life",
+   "real-life"
+  ],
+  "display": "real life"
+ },
+ "28": {
+  "accept": [
+   "academic necessity",
+   "necessity"
+  ],
+  "display": "(academic) necessity"
+ },
+ "29": {
+  "accept": [
+   "style guide",
+   "University Style Guide",
+   "the style guide"
+  ],
+  "display": "style guide"
+ },
+ "30": {
+  "accept": [
+   "10%",
+   "10 %",
+   "10 percent",
+   "10 per cent",
+   "ten percent"
+  ],
+  "display": "10%"
+ },
+ "31": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "Revolution"
+  ],
+  "display": "Revolution"
+ },
+ "35": {
+  "accept": [
+   "dying",
+   "sick"
+  ],
+  "display": "dying / sick"
+ },
+ "36": {
+  "accept": [
+   "attention"
+  ],
+  "display": "attention"
+ },
+ "37": {
+  "accept": [
+   "Bruno",
+   "Giordano Bruno"
+  ],
+  "display": "Bruno"
+ },
+ "38": {
+  "accept": [
+   "motion"
+  ],
+  "display": "motion"
+ },
+ "39": {
+  "accept": [
+   "Bible"
+  ],
+  "display": "Bible"
+ },
+ "40": {
+  "accept": [
+   "20%",
+   "20 %",
+   "20 percent",
+   "20 per cent",
+   "twenty percent"
+  ],
+  "display": "20%"
+ }
+}

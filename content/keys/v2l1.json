@@ -1,0 +1,270 @@
+{
+ "1": {
+  "accept": [
+   "animal park",
+   "the animal park",
+   "an animal park"
+  ],
+  "display": "(the) animal park"
+ },
+ "2": {
+  "accept": [
+   "cold and cloudy",
+   "cloudy and cold"
+  ],
+  "display": "cold and cloudy"
+ },
+ "3": {
+  "accept": [
+   "10.15am",
+   "10.15 am",
+   "10:15",
+   "10.15",
+   "10:15am",
+   "10:15 am",
+   "10.15 a.m.",
+   "10:15 a.m."
+  ],
+  "display": "10.15 am"
+ },
+ "4": {
+  "accept": [
+   "birds of prey"
+  ],
+  "display": "Birds of Prey"
+ },
+ "5": {
+  "accept": [
+   "reptile display",
+   "the reptile display"
+  ],
+  "display": "reptile display"
+ },
+ "6": {
+  "accept": [
+   "6.30",
+   "6:30",
+   "6.30pm",
+   "6.30 pm",
+   "6:30pm",
+   "6:30 pm",
+   "6.30 p.m.",
+   "6:30 p.m."
+  ],
+  "display": "6.30 pm"
+ },
+ "7": {
+  "accept": [
+   "Chinese"
+  ],
+  "display": "Chinese"
+ },
+ "8": {
+  "accept": [
+   "Japanese"
+  ],
+  "display": "Japanese"
+ },
+ "9": {
+  "accept": [
+   "Korean",
+   "Koreans"
+  ],
+  "display": "Korean"
+ },
+ "10": {
+  "accept": [
+   "Thai"
+  ],
+  "display": "Thai"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "17": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "22": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "header"
+  ],
+  "display": "header"
+ },
+ "26": {
+  "accept": [
+   "16",
+   "sixteen"
+  ],
+  "display": "16"
+ },
+ "27": {
+  "accept": [
+   "12",
+   "twelve"
+  ],
+  "display": "12"
+ },
+ "28": {
+  "accept": [
+   "single"
+  ],
+  "display": "single"
+ },
+ "29": {
+  "accept": [
+   "work"
+  ],
+  "display": "work"
+ },
+ "30": {
+  "accept": [
+   "teacher"
+  ],
+  "display": "teacher"
+ },
+ "31": {
+  "accept": [
+   "regulations"
+  ],
+  "display": "regulations"
+ },
+ "32": {
+  "accept": [
+   "short grass",
+   "grass short"
+  ],
+  "display": "short grass"
+ },
+ "33": {
+  "accept": [
+   "development",
+   "developments"
+  ],
+  "display": "development"
+ },
+ "34": {
+  "accept": [
+   "passive recreation"
+  ],
+  "display": "passive recreation"
+ },
+ "35": {
+  "accept": [
+   "get lost"
+  ],
+  "display": "get lost"
+ },
+ "36": {
+  "accept": [
+   "Industrial Revolution",
+   "the Industrial Revolution"
+  ],
+  "display": "(the) Industrial Revolution"
+ },
+ "37": {
+  "accept": [
+   "50,000",
+   "50000",
+   "50 000",
+   "fifty thousand"
+  ],
+  "display": "50,000"
+ },
+ "38": {
+  "accept": [
+   "lake",
+   "central lake"
+  ],
+  "display": "(central) lake"
+ },
+ "39": {
+  "accept": [
+   "refuge"
+  ],
+  "display": "refuge"
+ },
+ "40": {
+  "accept": [
+   "Melbourne"
+  ],
+  "display": "Melbourne"
+ }
+}

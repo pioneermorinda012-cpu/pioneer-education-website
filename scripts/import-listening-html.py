@@ -91,6 +91,38 @@ def tidy_line(line: str) -> str:
     return re.sub(r"\s+", " ", line).strip()
 
 
+def table_choices(g: dict) -> None:
+    """A dropdown inside a table cell becomes an ordinary choice question.
+
+    The site's tables draw typed gaps only, so the cell keeps the question's
+    number where the student can see it, and the question itself is asked
+    underneath, named by its row and column ("Monday – Afternoon")."""
+    rows = g.get("table") or []
+    if not any("[[sel:" in json.dumps(r) for r in rows):
+        return
+    head = [c["t"] if isinstance(c, dict) else c for c in rows[0]] if rows else []
+    qs = []
+    for r in rows:
+        for ci, cell in enumerate(r):
+            t = cell["t"] if isinstance(cell, dict) else cell
+            m = re.search(r"\[\[sel:(\d+)\]\]", t)
+            if not m:
+                continue
+            n = int(m.group(1))
+            new = t.replace(m.group(0), f"<b>({n})</b>")
+            if isinstance(cell, dict):
+                cell["t"] = new
+            else:
+                r[ci] = new
+            row_name = conv.plain(r[0]["t"] if isinstance(r[0], dict) else r[0])
+            col_name = conv.plain(head[ci]) if ci < len(head) else ""
+            stem = " – ".join(x for x in (row_name, col_name) if x)
+            opts = [dict(o) if isinstance(o, dict) else o for o in conv.SEL_OPTS.get(n, [])]
+            qs.append({"n": n, "stem": stem, "opts": opts})
+    g["questions"] = sorted(qs, key=lambda q: q["n"]) + g.get("questions", [])
+    g.pop("bank", None)
+
+
 def merge_anyof(groups: list, answer_key: dict) -> None:
     """Three dropdowns that share one "choose THREE" answer become one tick-box task."""
     for key in answer_key.values():
@@ -210,6 +242,11 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
             g["lines"] = [tidy_line(l) if isinstance(l, str) else l for l in g.get("lines", [])]
             if not g["lines"]:
                 g.pop("lines")
+            table_choices(g)
+            for q in g.get("questions", []):
+                for o in q.get("opts", []):
+                    if isinstance(o, dict):
+                        o["t"] = re.sub(rf"^{re.escape(o['l'])}\s*[–-]\s*", "", o["t"])
         merge_anyof(s["groups"], answer_key)
 
     for v in evidence.values():
