@@ -1,0 +1,275 @@
+{
+ "1": {
+  "accept": [
+   "copier",
+   "a copier"
+  ],
+  "display": "copier"
+ },
+ "2": {
+  "accept": [
+   "ongoing"
+  ],
+  "display": "ongoing"
+ },
+ "3": {
+  "accept": [
+   "immediately"
+  ],
+  "display": "immediately"
+ },
+ "4": {
+  "accept": [
+   "original broken",
+   "original is broken",
+   "broken"
+  ],
+  "display": "original broken"
+ },
+ "5": {
+  "accept": [
+   "more functions"
+  ],
+  "display": "more functions"
+ },
+ "6": {
+  "accept": [
+   "Mike Greene",
+   "Greene"
+  ],
+  "display": "Mike Greene"
+ },
+ "7": {
+  "accept": [
+   "fax machines",
+   "fax machine"
+  ],
+  "display": "fax machines"
+ },
+ "8": {
+  "accept": [
+   "headphones"
+  ],
+  "display": "headphones"
+ },
+ "9": {
+  "accept": [
+   "mobile phones",
+   "mobile phone"
+  ],
+  "display": "mobile phones"
+ },
+ "10": {
+  "accept": [
+   "mouses",
+   "mice",
+   "mouse"
+  ],
+  "display": "mice / mouse"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "22": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "23": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "coloured paper",
+   "colored paper",
+   "colour paper",
+   "color paper"
+  ],
+  "display": "coloured paper"
+ },
+ "26": {
+  "accept": [
+   "easy money",
+   "Easy Money!"
+  ],
+  "display": "Easy Money"
+ },
+ "27": {
+  "accept": [
+   "limit"
+  ],
+  "display": "limit"
+ },
+ "28": {
+  "pool": [
+   "28",
+   "29"
+  ],
+  "accept": [
+   "signature",
+   "a signature",
+   "stamp",
+   "a stamp"
+  ],
+  "display": "signature / stamp  (Q28–29, any order)"
+ },
+ "29": {
+  "pool": [
+   "28",
+   "29"
+  ],
+  "accept": [
+   "signature",
+   "a signature",
+   "stamp",
+   "a stamp"
+  ],
+  "display": "signature / stamp  (Q28–29, any order)"
+ },
+ "30": {
+  "accept": [
+   "contact details",
+   "contact detail",
+   "contact information"
+  ],
+  "display": "contact details"
+ },
+ "31": {
+  "accept": [
+   "popularity"
+  ],
+  "display": "popularity"
+ },
+ "32": {
+  "accept": [
+   "bad outcomes",
+   "bad outcome"
+  ],
+  "display": "bad outcomes"
+ },
+ "33": {
+  "accept": [
+   "trade association",
+   "the trade association"
+  ],
+  "display": "trade association"
+ },
+ "34": {
+  "accept": [
+   "realistic"
+  ],
+  "display": "realistic"
+ },
+ "35": {
+  "accept": [
+   "community"
+  ],
+  "display": "community"
+ },
+ "36": {
+  "accept": [
+   "scary scenes",
+   "scary scene"
+  ],
+  "display": "scary scenes"
+ },
+ "37": {
+  "accept": [
+   "society"
+  ],
+  "display": "society"
+ },
+ "38": {
+  "accept": [
+   "viewership"
+  ],
+  "display": "viewership"
+ },
+ "39": {
+  "accept": [
+   "graphic"
+  ],
+  "display": "graphic"
+ },
+ "40": {
+  "accept": [
+   "adult",
+   "mature",
+   "grown up"
+  ],
+  "display": "adult / mature"
+ }
+}

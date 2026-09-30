@@ -93,7 +93,9 @@ for (const entry of catalogue) {
     } else if (k.pool) {
       const tag = k.pool.join(",");
       used[tag] = used[tag] || [];
-      const pick = k.accept.find((a) => !used[tag].some((u) => normalise(u).replace(/^the/, "") === normalise(a).replace(/^the/, "")));
+      // the same article rule as lib/marking: "a signature" is "signature"
+      const bare = (v) => normalise(String(v).trim().replace(/^(the|an?)\s+/i, ""));
+      const pick = k.accept.find((a) => !used[tag].some((u) => bare(u) === bare(a)));
       used[tag].push(pick);
       sheet[n] = pick;
     } else sheet[n] = k.accept[0];

@@ -1,0 +1,296 @@
+{
+ "1": {
+  "accept": [
+   "£203",
+   "203",
+   "203 pounds",
+   "£ 203"
+  ],
+  "display": "£203"
+ },
+ "2": {
+  "accept": [
+   "17",
+   "seventeen"
+  ],
+  "display": "17"
+ },
+ "3": {
+  "accept": [
+   "No",
+   "no it didn't",
+   "it didn't"
+  ],
+  "display": "No"
+ },
+ "4": {
+  "accept": [
+   "under 26",
+   "under 26 years"
+  ],
+  "display": "under 26"
+ },
+ "5": {
+  "accept": [
+   "local people",
+   "the local people"
+  ],
+  "display": "local people"
+ },
+ "6": {
+  "accept": [
+   "satisfied"
+  ],
+  "display": "satisfied"
+ },
+ "7": {
+  "accept": [
+   "British students",
+   "students"
+  ],
+  "display": "British students"
+ },
+ "8": {
+  "accept": [
+   "big"
+  ],
+  "display": "big"
+ },
+ "9": {
+  "accept": [
+   "careful"
+  ],
+  "display": "careful"
+ },
+ "10": {
+  "accept": [
+   "food and culture",
+   "the culture",
+   "culture"
+  ],
+  "display": "food and culture"
+ },
+ "11": {
+  "accept": [
+   "International Student Advisor",
+   "International Student Adviser",
+   "student advisor"
+  ],
+  "display": "International Student Advisor"
+ },
+ "12": {
+  "accept": [
+   "study groups",
+   "learning groups"
+  ],
+  "display": "study groups / learning groups"
+ },
+ "13": {
+  "accept": [
+   "Student IT Department",
+   "Student IT",
+   "IT Department"
+  ],
+  "display": "Student IT Department"
+ },
+ "14": {
+  "accept": [
+   "Housing Officer",
+   "the Housing Officer"
+  ],
+  "display": "Housing Officer"
+ },
+ "15": {
+  "accept": [
+   "International Department",
+   "the International Department"
+  ],
+  "display": "International Department"
+ },
+ "16": {
+  "accept": [
+   "personal or financial",
+   "personal and financial",
+   "personal",
+   "financial",
+   "personal/financial"
+  ],
+  "display": "personal or financial"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "19": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "23": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 23,
+  "idx": 0,
+  "display": "A, E  (Q23–24, any order)"
+ },
+ "24": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 23,
+  "idx": 1,
+  "display": "A, E  (Q23–24, any order)"
+ },
+ "25": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 25,
+  "idx": 0,
+  "display": "C, D  (Q25–26, any order)"
+ },
+ "26": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 25,
+  "idx": 1,
+  "display": "C, D  (Q25–26, any order)"
+ },
+ "27": {
+  "accept": [
+   "Early Childhood",
+   "Early Childhood Department"
+  ],
+  "display": "Early Childhood"
+ },
+ "28": {
+  "accept": [
+   "how they differ",
+   "how the sexes differ",
+   "how they are different"
+  ],
+  "display": "how they differ"
+ },
+ "29": {
+  "accept": [
+   "innate",
+   "innate not learned",
+   "innate, not learned",
+   "innate not learnt"
+  ],
+  "display": "innate (not learned)"
+ },
+ "30": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "31": {
+  "accept": [
+   "higher",
+   "much higher"
+  ],
+  "display": "higher"
+ },
+ "32": {
+  "accept": [
+   "exam performance",
+   "performance",
+   "their performance"
+  ],
+  "display": "exam performance"
+ },
+ "33": {
+  "accept": [
+   "sleep",
+   "sleeplessness"
+  ],
+  "display": "sleep / sleeplessness"
+ },
+ "34": {
+  "accept": [
+   "controlled",
+   "control"
+  ],
+  "display": "controlled"
+ },
+ "35": {
+  "accept": [
+   "thinking",
+   "thoughts",
+   "thought"
+  ],
+  "display": "thinking"
+ },
+ "36": {
+  "accept": [
+   "organised",
+   "organized"
+  ],
+  "display": "organised"
+ },
+ "37": {
+  "accept": [
+   "be different"
+  ],
+  "display": "be different"
+ },
+ "38": {
+  "accept": [
+   "marks",
+   "marks and weighting"
+  ],
+  "display": "marks (and weighting)"
+ },
+ "39": {
+  "accept": [
+   "relaxed"
+  ],
+  "display": "relaxed"
+ },
+ "40": {
+  "accept": [
+   "study skills",
+   "studying skills"
+  ],
+  "display": "study skills"
+ }
+}

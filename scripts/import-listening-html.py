@@ -153,8 +153,18 @@ def merge_anyof(groups: list, answer_key: dict) -> None:
 
 def build_key(answer_key: dict) -> dict:
     out = {}
-    plain = {n: a for n, a in answer_key.items() if a.get("type") != "anyof"}
+    plain = {n: a for n, a in answer_key.items() if a.get("type") not in ("anyof", "anytext")}
     out.update(conv.build_key(plain))
+    # Two or three written answers that may go in either box ("signature" and
+    # "stamp"): each box accepts any of them, and the site's pool rule stops
+    # the same answer scoring twice.
+    for n, a in answer_key.items():
+        if a.get("type") != "anytext":
+            continue
+        accept = [str(x) for grp in a["correct"] for x in grp]
+        out[n] = {"accept": accept, "pool": [str(g) for g in a["group"]],
+                  "display": f"{a.get('show') or ' / '.join(g[0] for g in a['correct'])}"
+                             f"  (Q{a['group'][0]}–{a['group'][-1]}, any order)"}
     for n, a in answer_key.items():
         if a.get("type") != "anyof":
             continue

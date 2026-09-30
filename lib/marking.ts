@@ -36,8 +36,9 @@ function markSingle(key: SingleKey, id: string, all: StudentAnswers): boolean {
   if (!mine || !ok.includes(mine)) return false;
   if (!key.pool) return true;
   // an answer repeated in an earlier box of the same pool has already scored
-  // "the entrances" and "entrances" are the same answer, so compare without an article
-  const same = (v: unknown) => normalise(String(v ?? "").trim().replace(/^the\s+/i, ""));
+  // "the entrances" and "entrances" — or "a signature" and "signature" — are the
+  // same answer, so compare without an article
+  const same = (v: unknown) => normalise(String(v ?? "").trim().replace(/^(the|an?)\s+/i, ""));
   const me = same(all[id]);
   for (const other of key.pool) {
     if (other === id) break;
