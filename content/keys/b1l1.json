@@ -1,0 +1,298 @@
+{
+ "1": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "2": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "5": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "6": {
+  "accept": [
+   "prescott"
+  ],
+  "display": "Prescott"
+ },
+ "7": {
+  "accept": [
+   "41",
+   "forty-one",
+   "forty one"
+  ],
+  "display": "41"
+ },
+ "8": {
+  "accept": [
+   "fountain"
+  ],
+  "display": "Fountain"
+ },
+ "9": {
+  "accept": [
+   "752239",
+   "752 239",
+   "75 22 39"
+  ],
+  "display": "752239"
+ },
+ "10": {
+  "accept": [
+   "65",
+   "£65",
+   "sixty-five",
+   "sixty five"
+  ],
+  "display": "65"
+ },
+ "11": {
+  "any": [
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 0,
+  "display": "E, F, H  (Q11–13, any order)"
+ },
+ "12": {
+  "any": [
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 1,
+  "display": "E, F, H  (Q11–13, any order)"
+ },
+ "13": {
+  "any": [
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 2,
+  "display": "E, F, H  (Q11–13, any order)"
+ },
+ "14": {
+  "accept": [
+   "250 million",
+   "$250 million",
+   "250,000,000",
+   "250000000"
+  ],
+  "display": "250 million"
+ },
+ "15": {
+  "accept": [
+   "road system",
+   "road systems"
+  ],
+  "display": "road system"
+ },
+ "16": {
+  "accept": [
+   "too late"
+  ],
+  "display": "too late"
+ },
+ "17": {
+  "accept": [
+   "school children",
+   "schoolchildren",
+   "school-children"
+  ],
+  "display": "school children"
+ },
+ "18": {
+  "accept": [
+   "3",
+   "three"
+  ],
+  "display": "3"
+ },
+ "19": {
+  "accept": [
+   "boats",
+   "pleasure craft"
+  ],
+  "display": "boats / pleasure craft"
+ },
+ "20": {
+  "accept": [
+   "pilot",
+   "the pilot"
+  ],
+  "display": "pilot"
+ },
+ "21": {
+  "accept": [
+   "instruments",
+   "musical instruments"
+  ],
+  "display": "(musical) instruments"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "give a talk",
+   "give talk",
+   "talk"
+  ],
+  "display": "give a talk"
+ },
+ "27": {
+  "accept": [
+   "write up",
+   "write up work"
+  ],
+  "display": "write up (work)"
+ },
+ "28": {
+  "accept": [
+   "can choose",
+   "you can choose",
+   "own choice",
+   "students choose",
+   "student's choice"
+  ],
+  "display": "can choose"
+ },
+ "29": {
+  "accept": [
+   "open book",
+   "open-book",
+   "open book exam",
+   "an open book exam"
+  ],
+  "display": "open book"
+ },
+ "30": {
+  "accept": [
+   "closed reserve",
+   "the closed reserve"
+  ],
+  "display": "closed reserve"
+ },
+ "31": {
+  "accept": [
+   "employment",
+   "vocational",
+   "work"
+  ],
+  "display": "employment / vocational"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "history and economics",
+   "economics and history"
+  ],
+  "display": "history and economics"
+ },
+ "35": {
+  "accept": [
+   "meeting deadlines",
+   "deadlines",
+   "deadline",
+   "meeting a deadline",
+   "meeting deadline"
+  ],
+  "display": "meeting deadlines"
+ },
+ "36": {
+  "accept": [
+   "attendance"
+  ],
+  "display": "attendance"
+ },
+ "37": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "38": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "41": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ }
+}

@@ -1,0 +1,326 @@
+{
+ "1": {
+  "accept": [
+   "student hostel",
+   "hostel",
+   "a student hostel",
+   "student hostels"
+  ],
+  "display": "(student) hostel"
+ },
+ "2": {
+  "accept": [
+   "awful food",
+   "food awful",
+   "food was awful",
+   "awful"
+  ],
+  "display": "awful food"
+ },
+ "3": {
+  "accept": [
+   "not friendly",
+   "unfriendly",
+   "not very friendly",
+   "not really friendly",
+   "keep to themselves",
+   "kept to themselves"
+  ],
+  "display": "not friendly / keep to themselves"
+ },
+ "4": {
+  "accept": [
+   "lecturers busy",
+   "lecturers too busy",
+   "lecturers were busy",
+   "busy lecturers",
+   "not enough contact"
+  ],
+  "display": "lecturers busy / not enough contact"
+ },
+ "5": {
+  "accept": [
+   "regular meetings",
+   "fortnightly meetings",
+   "meetings with lecturers",
+   "regular meeting"
+  ],
+  "display": "regular / fortnightly meetings"
+ },
+ "6": {
+  "accept": [
+   "family",
+   "homestay",
+   "with a family",
+   "a family",
+   "home stay"
+  ],
+  "display": "family / homestay"
+ },
+ "7": {
+  "accept": [
+   "young children",
+   "children",
+   "three young children",
+   "difficult to study"
+  ],
+  "display": "(young) children / difficult to study"
+ },
+ "8": {
+  "accept": [
+   "student house",
+   "a student house"
+  ],
+  "display": "student house"
+ },
+ "9": {
+  "accept": [
+   "computing",
+   "bachelor of computing"
+  ],
+  "display": "(Bachelor of) Computing"
+ },
+ "10": {
+  "accept": [
+   "reserve computer time",
+   "reserve time",
+   "reserving computer time",
+   "reserve computers"
+  ],
+  "display": "reserve computer time"
+ },
+ "11": {
+  "accept": [
+   "mountain",
+   "mountain bikes",
+   "mountain bike"
+  ],
+  "display": "mountain"
+ },
+ "12": {
+  "accept": [
+   "quality"
+  ],
+  "display": "quality"
+ },
+ "13": {
+  "accept": [
+   "$2,000",
+   "2,000",
+   "2000",
+   "$2000",
+   "2000 dollars",
+   "$2,000.00"
+  ],
+  "display": "$2,000"
+ },
+ "14": {
+  "accept": [
+   "short rides",
+   "casual rides",
+   "short casual rides",
+   "short, casual rides"
+  ],
+  "display": "short / casual rides"
+ },
+ "15": {
+  "accept": [
+   "town riding",
+   "most town riding"
+  ],
+  "display": "(most) town riding"
+ },
+ "16": {
+  "accept": [
+   "serious touring",
+   "touring"
+  ],
+  "display": "serious touring"
+ },
+ "17": {
+  "accept": [
+   "similar"
+  ],
+  "display": "similar"
+ },
+ "18": {
+  "accept": [
+   "better quality",
+   "better quality components",
+   "better components"
+  ],
+  "display": "better quality (components)"
+ },
+ "19": {
+  "accept": [
+   "buying clothes"
+  ],
+  "display": "buying clothes"
+ },
+ "20": {
+  "accept": [
+   "frame"
+  ],
+  "display": "frame"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "one bunch",
+   "1 bunch",
+   "a bunch",
+   "only one bunch"
+  ],
+  "display": "one bunch"
+ },
+ "26": {
+  "accept": [
+   "15 months",
+   "fifteen months",
+   "around 15 months"
+  ],
+  "display": "15 months"
+ },
+ "27": {
+  "accept": [
+   "uphill",
+   "on hillsides",
+   "hillsides",
+   "up hill"
+  ],
+  "display": "uphill / on hillsides"
+ },
+ "28": {
+  "accept": [
+   "plenty of water",
+   "lots of water",
+   "water",
+   "a lot of water"
+  ],
+  "display": "plenty of water"
+ },
+ "29": {
+  "accept": [
+   "plastic bags",
+   "plastic bag"
+  ],
+  "display": "plastic bags"
+ },
+ "30": {
+  "accept": [
+   "bananas ripen",
+   "bananas to ripen",
+   "bananas"
+  ],
+  "display": "bananas (to) ripen"
+ },
+ "31": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 0,
+  "display": "C, D  (Q31–32, any order)"
+ },
+ "32": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 1,
+  "display": "C, D  (Q31–32, any order)"
+ },
+ "33": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "34": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "cooking"
+  ],
+  "display": "cooking"
+ },
+ "37": {
+  "accept": [
+   "regular daily intake",
+   "daily intake",
+   "regular intake"
+  ],
+  "display": "(regular) daily intake"
+ },
+ "38": {
+  "accept": [
+   "a variety",
+   "variety"
+  ],
+  "display": "a variety"
+ },
+ "39": {
+  "accept": [
+   "the fridge",
+   "fridge",
+   "a fridge",
+   "a cool place",
+   "cool dark place",
+   "a cool dark place"
+  ],
+  "display": "the fridge / a cool dark place"
+ },
+ "40": {
+  "accept": [
+   "eat in moderation",
+   "in moderation",
+   "moderation"
+  ],
+  "display": "(eat) in moderation"
+ },
+ "41": {
+  "accept": [
+   "eat lots",
+   "eat lots of",
+   "lots"
+  ],
+  "display": "eat lots (of)"
+ }
+}
