@@ -406,13 +406,13 @@ function ReviewRow({
       <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center",
         margin: "9px 0 0 4px", fontSize: "0.86rem" }}>
         <span>
-          You wrote: <b style={{ color: q.correct ? "#0F7A4D" : "#A3251A" }}>{q.given}</b>
+          You wrote: <b style={{ color: q.correct ? "#0F7A4D" : "#A3251A" }}>{withWording(q.given, entry?.choices)}</b>
         </span>
         {/* The right answer sits next to the wrong one, not in a panel further
             down. A student comparing the two side by side is the whole review. */}
         <span style={{ color: "var(--grey)" }}>
           {q.correct ? "✔ " : "✔ Correct answer: "}
-          <b style={{ color: "#0B5D3B" }}>{q.expected}</b>
+          <b style={{ color: "#0B5D3B" }}>{withWording(q.expected, entry?.choices)}</b>
         </span>
         <span style={{ flex: 1 }} />
         {onLocate && (
@@ -476,7 +476,26 @@ function ReviewRow({
  */
 function letters(s: string): string[] {
   if (!s || s === "(blank)" || s === "—") return [];
-  return s.split("(")[0].split(/[,/]/).map((x) => x.trim()).filter(Boolean);
+  // "E — lunch", "C – Kim Peek": the letter is what comes before the dash. Reading
+  // the whole string as the letter matched nothing, and on a long list that
+  // left the review with no options at all.
+  return s.split("(")[0].split(/[,/]/)
+    .map((x) => x.split(/\s+[—–-]\s+/)[0].trim()).filter(Boolean);
+}
+
+/* "E" on its own teaches nothing; "E — lunch" does. Put the option's wording
+ * beside each letter in an answer, when the paper has wording to give. */
+function withWording(s: string, choices?: Choice[]): string {
+  if (!choices?.length || !s || /\s[—–]\s/.test(s)) return s;
+  const ls = letters(s);
+  if (!ls.length || ls.some((l) => l.length > 4)) return s;
+  const text = ls.map((l) => {
+    const c = choices.find((x) => x.l.toLowerCase() === l.toLowerCase());
+    return c && c.t && c.t !== c.l ? `${c.l} — ${c.t}` : null;
+  });
+  if (text.some((t) => t === null)) return s;
+  const tail = s.includes("(") ? " " + s.slice(s.indexOf("(")) : "";
+  return text.join(" · ") + tail;
 }
 
 function Options({ entry, q }: { entry?: ReviewEntry; q: MarkedQuestion }) {
@@ -489,12 +508,13 @@ function Options({ entry, q }: { entry?: ReviewEntry; q: MarkedQuestion }) {
 
   const isRight = (c: Choice) => want.includes(c.l.toLowerCase());
   const isMine = (c: Choice) => got.includes(c.l.toLowerCase());
-  const shown = all.length <= 6 ? all : all.filter((c) => isRight(c) || isMine(c));
+  // Up to eight options (A–H) are shown whole: the distractors are half the lesson.
+  const shown = all.length <= 8 ? all : all.filter((c) => isRight(c) || isMine(c));
   if (!shown.length) return null;
 
   return (
     <div style={{ display: "grid", gap: 4, margin: "10px 0 0 4px" }}>
-      {all.length > 6 && (
+      {all.length > 8 && (
         <p style={{ margin: "0 0 2px", fontSize: "0.76rem", color: "var(--grey)" }}>
           From the list of {all.length}:
         </p>
