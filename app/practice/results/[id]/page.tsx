@@ -3,6 +3,7 @@ import { redirect, notFound } from "next/navigation";
 import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 import { attemptById, attemptsReady } from "@/lib/attempts";
 import { getTest } from "@/lib/catalogue";
+import { getTranscript } from "@/lib/transcript";
 import AttemptReview from "@/components/practice/AttemptReview";
 import type { Test } from "@/components/practice/Player";
 
@@ -46,6 +47,7 @@ export default async function AttemptPage({ params }: { params: Promise<{ id: st
       who={mine ? (session?.name ?? "") : attempt.student_id}
       when={attempt.submitted_at}
       back={teacher && !mine ? "/practice/teacher" : "/practice/results"}
+      transcript={test.mode === "listening" ? await getTranscript(attempt.test_id) : null}
     />
   );
 }

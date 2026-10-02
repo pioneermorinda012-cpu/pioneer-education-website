@@ -152,7 +152,7 @@ for (const f of [...walk(path.join(root, "app")), ...walk(path.join(root, "compo
   if (!/\.(t|j)sx?$/.test(f)) continue;
   const src = fs.readFileSync(f, "utf8");
   if (!/^\s*["']use client["']/.test(src)) continue;
-  if (/from\s+["'][^"']*(lib\/marking|lib\/evidence|content\/keys|content\/evidence)/.test(src) ||
+  if (/from\s+["'][^"']*(lib\/marking|lib\/evidence|lib\/transcript|content\/keys|content\/evidence|content\/transcripts)/.test(src) ||
       /getKey\s*\(/.test(src)) fail(path.relative(root, f), "client component imports answer data");
 }
 

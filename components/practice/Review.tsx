@@ -8,7 +8,7 @@
  * a week later rather than only in the minute after the timer stops.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { coverageIn, rangeLabel } from "@/lib/coverage";
 import { locateEvidence, flashTo, cssq, JUMP_EVENT, type EvMark, type Test } from "./Player";
 
@@ -19,6 +19,14 @@ export type MarkedQuestion = {
 };
 
 type Group = Test["sections"][number]["groups"][number];
+
+/** Listening: what was said, line by line, with the answers marked. Sent by the
+ * server with a marked result only — it contains every answer. */
+export type Transcript = {
+  sections: { lines: { at: number; p: (string | { q: string; t: string })[] }[] }[];
+};
+const clock = (t: number) =>
+  `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
 type Choice = { l: string; t: string };
 type ReviewEntry = {
   si: number; title?: string; instr?: string; stem: string; covers: number[];
@@ -127,10 +135,12 @@ const flat = (p: NonNullable<Test["sections"][number]["passage"]>) =>
     .replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").toLowerCase();
 
 export default function ReviewPanel({
-  test, questions, Passage,
+  test, questions, Passage, transcript,
 }: {
   test: Test;
   questions: MarkedQuestion[];
+  /** listening only: the timed transcript, answers marked */
+  transcript?: Transcript | null;
   /** the player's passage renderer, passed in so there is only one of them */
   Passage: (p: {
     passage: NonNullable<Test["sections"][number]["passage"]>;
@@ -154,6 +164,27 @@ export default function ReviewPanel({
   };
 
   const idx = useMemo(() => reviewIndex(test), [test]);
+
+  /* Listening review: the recording is unlocked once the paper is marked, so
+   * any line can be heard again — the whole point of going back over it. */
+  const replay = useRef<HTMLAudioElement>(null);
+  const playAt = (t: number) => {
+    const a = replay.current;
+    if (!a) return;
+    a.currentTime = Math.max(0, t - 1);
+    void a.play().catch(() => {});
+    a.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  const rightOf = useMemo(() => Object.fromEntries(questions.map((q) => [q.n, q.correct])), [questions]);
+  // the moment in the recording each answer is given
+  const answerAt = useMemo(() => {
+    const at: Record<string, number> = {};
+    transcript?.sections.forEach((sec) => sec.lines.forEach((l) => l.p.forEach((seg) => {
+      if (typeof seg === "object" && at[seg.q] == null) at[seg.q] = l.at;
+    })));
+    return at;
+  }, [transcript]);
+  const audioSrc = test.audioId ? test.mediaUrls[test.audioId] : undefined;
 
   // One entry per task, not per mark: a question worth three marks is reviewed
   // once, under the range it covers, exactly as it was answered.
@@ -286,6 +317,17 @@ export default function ReviewPanel({
         </div>
       </div>
 
+      {transcript && audioSrc && (
+        <div style={{ background: "var(--coral-light)", border: "1px solid #F3D9C2", borderRadius: 12,
+          padding: 12, marginBottom: 16 }}>
+          <p style={{ fontWeight: 700, color: "var(--coral-dark)", fontSize: "0.84rem", margin: "0 0 8px" }}>
+            🎧 The recording is unlocked now — pause, rewind, replay. Press ▶ beside any question or
+            transcript line to hear exactly where the answer is given.
+          </p>
+          <audio ref={replay} controls preload="metadata" src={audioSrc} style={{ width: "100%", display: "block" }} />
+        </div>
+      )}
+
       {!wrongCount && only === "wrong" && (
         <p style={{ color: "#0F7A4D", fontWeight: 700 }}>
           Nothing to correct — every answer was right.
@@ -348,11 +390,18 @@ export default function ReviewPanel({
               </>
             )}
 
+            {transcript?.sections[si]?.lines.length ? (
+              <TranscriptBlock lines={transcript.sections[si].lines} rightOf={rightOf}
+                playAt={audioSrc ? playAt : undefined} />
+            ) : null}
+
             {items.map((q) => {
               const e = idx[q.n];
               const label = e ? rangeLabel(e.covers) : q.n;
+              const at = (e?.covers ?? [Number(q.n)]).map((c) => answerAt[String(c)]).find((x) => x != null);
               return (
                 <ReviewRow key={q.n} q={q} entry={e} testId={test.id}
+                  onPlay={at != null && audioSrc ? () => playAt(at) : undefined}
                   onLocate={q.ev?.t?.length && passage ? () => goToEvidence(si, label) : undefined}
                   heard={!passage && q.ev?.t?.length ? q.ev.t : undefined}
                   near={q.ev?.k === "near"}
@@ -369,8 +418,10 @@ export default function ReviewPanel({
 
 /* ---------- one question in the review ---------- */
 function ReviewRow({
-  q, entry, testId, onQuote, onLocate, near, noLine, heard,
+  q, entry, testId, onQuote, onLocate, near, noLine, heard, onPlay,
 }: {
+  /** listening: play the recording from where this answer is given */
+  onPlay?: () => void;
   q: MarkedQuestion; entry?: ReviewEntry; testId: string;
   onQuote?: (quote: string | null) => void;
   /** present when the paper says where this answer is; scrolls to it */
@@ -437,6 +488,14 @@ function ReviewRow({
           borderLeft: "4px solid var(--coral)" }}>
           <b style={{ display: "block", fontSize: "0.74rem", marginBottom: 3 }}>🎧 In the recording:</b>
           {heard.map((line, i) => <span key={i} style={{ display: "block" }}>“{line}”</span>)}
+          {onPlay && (
+            <button type="button" onClick={onPlay}
+              style={{ marginTop: 7, border: "1.5px solid var(--coral)", background: "var(--paper)",
+                color: "var(--coral-dark)", borderRadius: 8, padding: "5px 11px", cursor: "pointer",
+                fontFamily: "inherit", fontWeight: 700, fontSize: "0.76rem", minHeight: 32 }}>
+              ▶ Hear this part
+            </button>
+          )}
         </blockquote>
       )}
 
@@ -747,5 +806,57 @@ export function Leaderboard({ testId, band }: { testId: string; band?: number })
         </table>
       </div>
     </div>
+  );
+}
+
+
+/* ---------- the transcript of one section, answers marked ----------
+ *
+ * Green where the student got the answer, red where they did not, with the
+ * question number on each mark — the listening equivalent of the marked-up
+ * reading passage. Closed at first so the page stays short; one tap opens it.
+ */
+function TranscriptBlock({ lines, rightOf, playAt }: {
+  lines: Transcript["sections"][number]["lines"];
+  rightOf: Record<string, boolean>;
+  playAt?: (t: number) => void;
+}) {
+  return (
+    <details style={{ margin: "0 0 14px", border: "1px solid var(--grey-light)", borderRadius: 11,
+      background: "var(--paper)" }}>
+      <summary style={{ cursor: "pointer", padding: "10px 13px", fontWeight: 700, fontSize: "0.84rem",
+        color: "var(--navy)" }}>
+        📜 Transcript — every answer highlighted{playAt ? " (tap ▶ to hear a line)" : ""}
+      </summary>
+      <div style={{ maxHeight: 460, overflowY: "auto", padding: "4px 13px 12px", fontSize: "0.88rem", lineHeight: 1.7 }}>
+        {lines.map((l, i) => (
+          <p key={i} style={{ margin: "0 0 8px", display: "flex", gap: 8, alignItems: "flex-start" }}>
+            {playAt ? (
+              <button type="button" onClick={() => playAt(l.at)} title="Play from here"
+                style={{ flexShrink: 0, border: "none", background: "var(--coral-light)", color: "var(--coral-dark)",
+                  borderRadius: 6, padding: "1px 7px", cursor: "pointer", fontFamily: "inherit",
+                  fontWeight: 700, fontSize: "0.72rem", fontVariantNumeric: "tabular-nums", marginTop: 3 }}>
+                ▶ {clock(l.at)}
+              </button>
+            ) : (
+              <span style={{ flexShrink: 0, color: "var(--grey)", fontSize: "0.72rem", marginTop: 3 }}>{clock(l.at)}</span>
+            )}
+            <span>
+              {l.p.map((seg, j) => typeof seg === "string" ? <span key={j}>{seg}</span> : (
+                <mark key={j} style={{
+                  background: rightOf[seg.q] === false ? "#FDE2E2" : "#DCF5E6",
+                  boxShadow: `inset 0 -2px 0 ${rightOf[seg.q] === false ? "#C2452F" : "#0F7A4D"}`,
+                  borderRadius: 3, padding: "1px 3px", color: "inherit" }}>
+                  <sup style={{ fontSize: "0.62rem", fontWeight: 800, color: "#fff",
+                    background: rightOf[seg.q] === false ? "#C2452F" : "#0F7A4D",
+                    borderRadius: 5, padding: "0 4px", marginRight: 3 }}>Q{seg.q}</sup>
+                  {seg.t}
+                </mark>
+              ))}
+            </span>
+          </p>
+        ))}
+      </div>
+    </details>
   );
 }

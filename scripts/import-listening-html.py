@@ -340,8 +340,8 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
         "bandsListening": BANDS,
         "bandsReading": BANDS,
         "rules": [
-            f"Tap <b>Load the recording</b>, then press play. The recording runs about {mins} minutes and covers all four sections.",
-            "Use the <b>Sec 1–4</b> buttons to jump straight to a section if you are practising one part only.",
+            f"Press <b>Start the recording</b> when you are ready. It runs about {mins} minutes and plays straight through once, as in the exam — it cannot be paused, skipped or sped up.",
+            "The page turns to each new section as the recording reaches it. You can still tap a section tab to look back at its questions.",
             "Read the instructions above each group of questions carefully — the word limit changes.",
             f"Answer all {total_q} questions, then tap <b>Submit Test</b> for your band score.",
             "A 40-minute timer runs in the background; the test submits itself at zero.",

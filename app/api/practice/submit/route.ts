@@ -6,6 +6,7 @@ import { saveAttempt, attemptsReady } from "@/lib/attempts";
 import { readSession, COOKIE } from "@/lib/session";
 import { typeMap } from "@/lib/qtypes";
 import { getEvidence } from "@/lib/evidence";
+import { getTranscript } from "@/lib/transcript";
 
 /**
  * The student's answers come in, the band score goes out.
@@ -100,5 +101,8 @@ export async function POST(req: NextRequest) {
     console.error("could not save attempt:", (e as Error).message);
   }
 
-  return NextResponse.json({ ...result, saved });
+  // Listening: the full transcript, answers marked, for the review. Sent now
+  // and not stored with the attempt — it is the same for every student.
+  const transcript = test.mode === "listening" ? await getTranscript(testId) : null;
+  return NextResponse.json({ ...result, saved, ...(transcript ? { transcript } : {}) });
 }

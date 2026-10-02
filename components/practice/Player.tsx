@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { coverageIn, rangeLabel } from "@/lib/coverage";
-import ReviewPanel, { Leaderboard } from "./Review";
+import ReviewPanel, { Leaderboard, type Transcript } from "./Review";
 
 
 /* ---------- the shape of an exported test ---------- */
@@ -34,6 +34,8 @@ type Marked = {
   raw: number; total: number; band: number;
   sections: { label: string; got: number; outOf: number }[];
   questions: { n: string; correct: boolean; given: string; expected: string; type?: string }[];
+  /** listening: sent by the server with the marked result only */
+  transcript?: Transcript | null;
 };
 
 const LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -240,8 +242,9 @@ export default function Player(
           src={test.mediaUrls[test.audioId]}
           starts={test.sectionStarts ?? []}
           labels={test.sections.map((s) => s.label)}
-          onJump={(i) => setCurrent(i)}
+          onSection={(i) => { setCurrent(i); window.scrollTo(0, 0); }}
           audioRef={audioRef}
+          resumeKey={`pec_audio_${test.id}`}
         />
       )}
 
@@ -332,40 +335,155 @@ export default function Player(
 }
 
 /* ================= audio ================= */
+/* The recording runs the way it does in the exam room: once, straight through.
+ *
+ * There are no browser controls, because those carry a pause button, a scrub
+ * bar and a speed menu, and a student who can pause, rewind or slow the tape
+ * is practising a different test. Instead there is one Start button (a
+ * browser will not play sound until someone presses something), a progress
+ * bar to look at but not drag, and the volume. Anything that tries to pause,
+ * seek or change speed anyway — a headphone button, the keyboard's media keys,
+ * the right-click menu — is put straight back.
+ *
+ * The page turns to each new section as the recording reaches it, as the
+ * computer-delivered test does; the section tabs still let a student look back
+ * at earlier questions. If the page is reloaded the recording carries on from
+ * where it had got to rather than starting again, so a reload is not a rewind.
+ */
 function AudioBar({
-  src, starts, labels, onJump, audioRef,
+  src, starts, labels, onSection, audioRef, resumeKey,
 }: {
   src: string; starts: number[]; labels: string[];
-  onJump: (i: number) => void; audioRef: React.RefObject<HTMLAudioElement | null>;
+  onSection: (i: number) => void; audioRef: React.RefObject<HTMLAudioElement | null>;
+  resumeKey: string;
 }) {
+  const [phase, setPhase] = useState<"ready" | "playing" | "ended" | "error">("ready");
+  const [pos, setPos] = useState(0);
+  const [len, setLen] = useState(0);
+  const [vol, setVol] = useState(1);
+  const last = useRef(0);          // the furthest point legitimately reached
+  const shownSection = useRef(-1);
+
+  const sectionAt = useCallback((t: number) => {
+    let i = 0;
+    starts.forEach((st, k) => { if (t >= st) i = k; });
+    return i;
+  }, [starts]);
+
+  // where an interrupted attempt had got to
+  const saved = (() => {
+    try { return Number(window.localStorage.getItem(resumeKey)) || 0; } catch { return 0; }
+  })();
+
+  useEffect(() => {
+    const a = audioRef.current;
+    if (!a) return;
+    const onTime = () => {
+      if (a.seeking) return;
+      last.current = a.currentTime;
+      setPos(a.currentTime);
+      const i = sectionAt(a.currentTime);
+      if (i !== shownSection.current) { shownSection.current = i; onSection(i); }
+      try { window.localStorage.setItem(resumeKey, String(Math.floor(a.currentTime))); } catch { /* fine */ }
+    };
+    // Any jump the student makes is undone. Only seeks are watched, not gaps
+    // between progress updates, so a slow phone or a background tab never
+    // gets wrongly pulled back.
+    let undoing = false;
+    const onSeeking = () => {
+      if (undoing) { undoing = false; return; }
+      if (Math.abs(a.currentTime - last.current) > 0.75) { undoing = true; a.currentTime = last.current; }
+    };
+    const onPause = () => {
+      if (!a.ended && phase === "playing") void a.play().catch(() => {});
+    };
+    const onRate = () => { if (a.playbackRate !== 1) a.playbackRate = 1; };
+    const onEnded = () => {
+      setPhase("ended");
+      try { window.localStorage.removeItem(resumeKey); } catch { /* fine */ }
+    };
+    const onMeta = () => setLen(a.duration || 0);
+    const onError = () => setPhase("error");
+    a.addEventListener("timeupdate", onTime);
+    a.addEventListener("seeking", onSeeking);
+    a.addEventListener("pause", onPause);
+    a.addEventListener("ratechange", onRate);
+    a.addEventListener("ended", onEnded);
+    a.addEventListener("loadedmetadata", onMeta);
+    a.addEventListener("error", onError);
+    // the lock screen and headphone buttons talk to the media session
+    const ms = typeof navigator !== "undefined" ? navigator.mediaSession : undefined;
+    const blocked = ["pause", "seekbackward", "seekforward", "seekto", "previoustrack", "nexttrack"] as const;
+    if (ms) for (const act of blocked) { try { ms.setActionHandler(act, () => {}); } catch { /* unsupported */ } }
+    return () => {
+      a.removeEventListener("timeupdate", onTime);
+      a.removeEventListener("seeking", onSeeking);
+      a.removeEventListener("pause", onPause);
+      a.removeEventListener("ratechange", onRate);
+      a.removeEventListener("ended", onEnded);
+      a.removeEventListener("loadedmetadata", onMeta);
+      a.removeEventListener("error", onError);
+      if (ms) for (const act of blocked) { try { ms.setActionHandler(act, null); } catch { /* unsupported */ } }
+    };
+  }, [audioRef, phase, sectionAt, onSection, resumeKey]);
+
+  const start = () => {
+    const a = audioRef.current;
+    if (!a) return;
+    a.playbackRate = 1;
+    if (saved > 0 && saved < (a.duration || Infinity)) { a.currentTime = saved; last.current = saved; }
+    a.play().then(() => setPhase("playing")).catch(() => setPhase("error"));
+  };
+
+  const clock = (t: number) => mmss(Math.max(0, Math.floor(t)));
+  const now = sectionAt(pos);
+
   return (
     <div style={{ background: "var(--coral-light)", border: "1px solid #F3D9C2", borderRadius: 14,
       padding: 14, marginTop: 16 }}>
-      <p style={{ fontWeight: 700, color: "var(--coral-dark)", fontSize: "0.85rem", marginBottom: 9 }}>
-        🎧 Test recording — all {labels.length} parts
-      </p>
-      {/* a normal streamed file: starts instantly and can be scrubbed */}
-      <audio ref={audioRef} controls preload="metadata" src={src} style={{ width: "100%", display: "block" }} />
-      {starts.length > 0 && (
-        <div style={{ display: "flex", gap: 6, marginTop: 10, flexWrap: "wrap" }}>
-          {starts.map((t, i) => (
-            <button
-              key={i} type="button"
-              onClick={() => {
-                const a = audioRef.current;
-                if (a) { a.currentTime = t; void a.play(); }
-                onJump(i);
-              }}
-              style={{ flex: "1 1 70px", padding: "8px 4px", borderRadius: 8, minHeight: 40,
-                border: "1.5px solid var(--coral)", background: "var(--paper)",
-                color: "var(--coral-dark)", fontWeight: 700, fontSize: "0.76rem",
-                cursor: "pointer", fontFamily: "inherit" }}
-            >
-              {labels[i]}
-            </button>
-          ))}
-        </div>
-      )}
+      <audio ref={audioRef} preload="auto" src={src}
+        controlsList="nodownload noplaybackrate"
+        onContextMenu={(e) => e.preventDefault()} />
+
+      <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+        <p style={{ fontWeight: 700, color: "var(--coral-dark)", fontSize: "0.85rem", margin: 0, flex: 1, minWidth: 200 }}>
+          🎧 {phase === "playing" ? <>Now playing — {labels[now]}</>
+            : phase === "ended" ? "The recording has finished. Check your answers, then submit."
+            : phase === "error" ? "The recording could not be loaded. Tell your teacher."
+            : saved > 0 ? `Recording paused by a page reload at ${clock(saved)} — it carries on from there.`
+            : `Test recording — all ${labels.length} parts, played once`}
+        </p>
+        {(phase === "ready") && (
+          <button type="button" className="btn btn-coral" onClick={start}
+            style={{ padding: "9px 18px", fontSize: "0.85rem", minHeight: 40 }}>
+            ▶ {saved > 0 ? "Continue the recording" : "Start the recording"}
+          </button>
+        )}
+        <label style={{ display: "flex", alignItems: "center", gap: 6, fontSize: "0.78rem",
+          color: "var(--coral-dark)", fontWeight: 700 }}>
+          🔊
+          <input type="range" min={0} max={1} step={0.05} value={vol} aria-label="Volume"
+            onChange={(e) => { const v = Number(e.target.value); setVol(v); if (audioRef.current) audioRef.current.volume = v; }}
+            style={{ width: 90, accentColor: "var(--coral)" }} />
+        </label>
+      </div>
+
+      {/* progress: to look at, not to drag */}
+      <div aria-hidden style={{ position: "relative", height: 8, borderRadius: 8, background: "#F3D9C2",
+        marginTop: 10, overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, width: len ? `${(pos / len) * 100}%` : "0%",
+          background: "var(--coral)", transition: "width .25s linear" }} />
+        {len > 0 && starts.slice(1).map((t, i) => (
+          <span key={i} style={{ position: "absolute", top: 0, bottom: 0, width: 2,
+            left: `${(t / len) * 100}%`, background: "var(--paper)" }} />
+        ))}
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 5, fontSize: "0.72rem",
+        color: "var(--coral-dark)", fontVariantNumeric: "tabular-nums" }}>
+        <span>{clock(pos)}</span>
+        <span>No pausing, skipping or speed changes — just like the exam.</span>
+        <span>{len ? clock(len) : "--:--"}</span>
+      </div>
     </div>
   );
 }
@@ -984,7 +1102,7 @@ function Results({ test, result, name }: { test: Test; result: Marked; name: str
       <Leaderboard testId={test.id} band={result.band} />
 
       {showReview && (
-        <ReviewPanel test={test} questions={result.questions} Passage={Passage} />
+        <ReviewPanel test={test} questions={result.questions} Passage={Passage} transcript={result.transcript} />
       )}
     </div>
   );

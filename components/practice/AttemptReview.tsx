@@ -4,12 +4,13 @@
  * finished, available in class a week afterwards. */
 
 import Link from "next/link";
-import ReviewPanel, { Leaderboard, type MarkedQuestion } from "./Review";
+import ReviewPanel, { Leaderboard, type MarkedQuestion, type Transcript } from "./Review";
 import { Passage, type Test } from "./Player";
 
 export default function AttemptReview({
-  test, questions, raw, total, band, who, when, back,
+  test, questions, raw, total, band, who, when, back, transcript,
 }: {
+  transcript?: Transcript | null;
   test: Test;
   questions: MarkedQuestion[];
   raw: number; total: number; band: number;
@@ -30,7 +31,7 @@ export default function AttemptReview({
       </div>
 
       <Leaderboard testId={test.id} band={band} />
-      <ReviewPanel test={test} questions={questions} Passage={Passage} />
+      <ReviewPanel test={test} questions={questions} Passage={Passage} transcript={transcript} />
     </div>
   );
 }
