@@ -1,0 +1,264 @@
+{
+ "1": {
+  "accept": [
+   "10,000",
+   "10000",
+   "ten thousand"
+  ],
+  "display": "10,000"
+ },
+ "2": {
+  "accept": [
+   "south-east asia",
+   "southeast asia",
+   "south east asia"
+  ],
+  "display": "South-East Asia"
+ },
+ "3": {
+  "accept": [
+   "hard seeds",
+   "seeds"
+  ],
+  "display": "hard seeds"
+ },
+ "4": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "7": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "8": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "12": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "13": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "20": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "21": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "22": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 0,
+  "display": "B, D, F  (Q24–26, any order)"
+ },
+ "25": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 1,
+  "display": "B, D, F  (Q24–26, any order)"
+ },
+ "26": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 2,
+  "display": "B, D, F  (Q24–26, any order)"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "persian wars",
+   "the persian wars"
+  ],
+  "display": "Persian wars"
+ },
+ "30": {
+  "accept": [
+   "allies"
+  ],
+  "display": "allies"
+ },
+ "31": {
+  "accept": [
+   "geographical knowledge"
+  ],
+  "display": "geographical knowledge"
+ },
+ "32": {
+  "accept": [
+   "pilgrimage"
+  ],
+  "display": "pilgrimage"
+ },
+ "33": {
+  "accept": [
+   "india"
+  ],
+  "display": "India"
+ },
+ "34": {
+  "accept": [
+   "colonies"
+  ],
+  "display": "colonies"
+ },
+ "35": {
+  "accept": [
+   "organisation",
+   "organization"
+  ],
+  "display": "organisation"
+ },
+ "36": {
+  "accept": [
+   "wealthy"
+  ],
+  "display": "wealthy"
+ },
+ "37": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

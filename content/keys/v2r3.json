@@ -1,0 +1,242 @@
+{
+ "1": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "8": {
+  "accept": [
+   "spring"
+  ],
+  "display": "spring"
+ },
+ "9": {
+  "accept": [
+   "sediment"
+  ],
+  "display": "sediment"
+ },
+ "10": {
+  "accept": [
+   "razorback sucker"
+  ],
+  "display": "razorback sucker"
+ },
+ "11": {
+  "accept": [
+   "common carp"
+  ],
+  "display": "common carp"
+ },
+ "12": {
+  "accept": [
+   "visibility"
+  ],
+  "display": "visibility"
+ },
+ "13": {
+  "accept": [
+   "sand"
+  ],
+  "display": "sand"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "19": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "20": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "sound laws"
+  ],
+  "display": "sound laws"
+ },
+ "28": {
+  "accept": [
+   "fashion"
+  ],
+  "display": "fashion"
+ },
+ "29": {
+  "accept": [
+   "imperfect"
+  ],
+  "display": "imperfect"
+ },
+ "30": {
+  "accept": [
+   "principle of ease"
+  ],
+  "display": "principle of ease"
+ },
+ "31": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "32": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "33": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "34": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ }
+}

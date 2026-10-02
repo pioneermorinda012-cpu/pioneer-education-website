@@ -1,0 +1,247 @@
+{
+ "1": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "2": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "3": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "4": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "5": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "6": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "7": {
+  "accept": [
+   "new zealand carrageens"
+  ],
+  "display": "New Zealand carrageen(s)"
+ },
+ "8": {
+  "accept": [
+   "agar"
+  ],
+  "display": "agar"
+ },
+ "9": {
+  "accept": [
+   "seameal",
+   "sea meal"
+  ],
+  "display": "seameal"
+ },
+ "10": {
+  "accept": [
+   "cough mixture"
+  ],
+  "display": "cough mixture"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "7",
+   "seven"
+  ],
+  "display": "7"
+ },
+ "15": {
+  "accept": [
+   "lung function"
+  ],
+  "display": "lung function"
+ },
+ "16": {
+  "accept": [
+   "immune system",
+   "the immune system"
+  ],
+  "display": "immune system"
+ },
+ "17": {
+  "accept": [
+   "heart patients"
+  ],
+  "display": "heart patients"
+ },
+ "18": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "19": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "20": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "21": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "22": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "23": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "24": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "25": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "26": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "33": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "34": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "35": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "missionaries and traders",
+   "traders and missionaries"
+  ],
+  "display": "missionaries and traders"
+ },
+ "40": {
+  "accept": [
+   "demographic triumph",
+   "the demographic triumph"
+  ],
+  "display": "(the) demographic triumph"
+ }
+}

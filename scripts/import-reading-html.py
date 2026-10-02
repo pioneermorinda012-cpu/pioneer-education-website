@@ -9,6 +9,7 @@ tidying the listening papers taught us applied on top:
     worth three marks (any order, the same letter never paying twice);
   * option text no longer repeats its letter ("i – i – Early years…");
   * a gap written inside a sentence keeps one box, not two;
+  * a "complete the table" task written as a real <table> becomes a table;
   * TRUE/FALSE/NOT GIVEN rows are buttons, drawn as one compact row;
   * a NOT GIVEN answer keeps no highlighted line — the absence is the lesson;
   * every highlighted line is checked against its own paragraph, word for word;
@@ -23,6 +24,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 conv = importlib.import_module("import-html-test")
 lis = importlib.import_module("import-listening-html")
+tables = importlib.import_module("fix-html-tables")
 
 TF = {"TRUE", "FALSE", "NOT GIVEN", "YES", "NO"}
 
@@ -54,7 +56,8 @@ def main():
                     if isinstance(o, dict) and o["t"] != o["l"]:
                         o["t"] = re.sub(rf"^{re.escape(o['l'])}\s*[–-]\s*", "", o["t"])
             g["lines"] = [lis.tidy_line(l) if isinstance(l, str) else l for l in g.get("lines", [])]
-            if not g["lines"]:
+            tables.fix_group(g)  # a raw <table> in a line becomes the group's table
+            if "lines" in g and not g["lines"]:
                 g.pop("lines")
             qs = g.get("questions", [])
             if qs and all({(o["l"] if isinstance(o, dict) else o) for o in q.get("opts", [])} <= TF for q in qs):
