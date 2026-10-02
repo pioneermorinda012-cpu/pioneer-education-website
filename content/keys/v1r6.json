@@ -55,9 +55,9 @@
  },
  "10": {
   "accept": [
-   "D"
+   "B"
   ],
-  "display": "D"
+  "display": "B"
  },
  "11": {
   "accept": [
@@ -124,7 +124,7 @@
    "powder",
    "pungent powder"
   ],
-  "display": "powder / pungent powder"
+  "display": "(pungent) powder"
  },
  "22": {
   "accept": [

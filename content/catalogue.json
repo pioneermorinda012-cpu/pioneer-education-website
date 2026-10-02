@@ -1188,5 +1188,33 @@
   "mode": "reading",
   "sections": 3,
   "keyed": true
+ },
+ {
+  "id": "v1l3",
+  "skill": "AL",
+  "skillLabel": "Academic Listening",
+  "set": "V1",
+  "label": "Listening Test 3",
+  "order": 3,
+  "name": "V1L3 — Listening Test 3",
+  "minutes": 40,
+  "total": 40,
+  "mode": "listening",
+  "sections": 4,
+  "keyed": true
+ },
+ {
+  "id": "v1l6",
+  "skill": "AL",
+  "skillLabel": "Academic Listening",
+  "set": "V1",
+  "label": "Listening Test 6",
+  "order": 6,
+  "name": "V1L6 — Listening Test 6",
+  "minutes": 40,
+  "total": 40,
+  "mode": "listening",
+  "sections": 4,
+  "keyed": true
  }
 ]

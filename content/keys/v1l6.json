@@ -1,0 +1,257 @@
+{
+ "1": {
+  "accept": [
+   "southwest",
+   "south west",
+   "south-west"
+  ],
+  "display": "South West"
+ },
+ "2": {
+  "accept": [
+   "double",
+   "doubles"
+  ],
+  "display": "double"
+ },
+ "3": {
+  "accept": [
+   "office"
+  ],
+  "display": "office"
+ },
+ "4": {
+  "accept": [
+   "lounge"
+  ],
+  "display": "lounge"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "Amyes"
+  ],
+  "display": "Amyes"
+ },
+ "9": {
+  "accept": [
+   "Thursday"
+  ],
+  "display": "Thursday"
+ },
+ "10": {
+  "accept": [
+   "3",
+   "three"
+  ],
+  "display": "3"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "paper"
+  ],
+  "display": "paper"
+ },
+ "19": {
+  "accept": [
+   "package labels",
+   "labels"
+  ],
+  "display": "package labels"
+ },
+ "20": {
+  "accept": [
+   "2 to 10",
+   "two to ten",
+   "2-10",
+   "2–10",
+   "between 2 and 10",
+   "2 and 10"
+  ],
+  "display": "2 to 10"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "26": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "27": {
+  "accept": [
+   "pink and yellow",
+   "yellow and pink"
+  ],
+  "display": "pink and yellow"
+ },
+ "28": {
+  "accept": [
+   "subject"
+  ],
+  "display": "subject"
+ },
+ "29": {
+  "accept": [
+   "universities"
+  ],
+  "display": "universities"
+ },
+ "30": {
+  "accept": [
+   "labelled blue folder",
+   "labeled blue folder",
+   "blue folder"
+  ],
+  "display": "(labelled) blue folder"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "8",
+   "eight"
+  ],
+  "display": "8"
+ },
+ "37": {
+  "accept": [
+   "depth"
+  ],
+  "display": "depth"
+ },
+ "38": {
+  "accept": [
+   "afraid of"
+  ],
+  "display": "afraid of"
+ },
+ "39": {
+  "accept": [
+   "attack"
+  ],
+  "display": "attack"
+ },
+ "40": {
+  "accept": [
+   "migration patterns",
+   "migration"
+  ],
+  "display": "migration patterns"
+ }
+}

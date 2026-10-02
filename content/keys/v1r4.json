@@ -33,7 +33,8 @@
   "accept": [
    "short",
    "10-minute",
-   "ten-minute"
+   "ten-minute",
+   "10 minute"
   ],
   "display": "short / 10-minute"
  },
@@ -231,9 +232,9 @@
  },
  "39": {
   "accept": [
-   "C"
+   "B"
   ],
-  "display": "C"
+  "display": "B"
  },
  "40": {
   "accept": [

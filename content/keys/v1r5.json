@@ -67,7 +67,8 @@
  },
  "12": {
   "accept": [
-   "soil erosion"
+   "soil erosion",
+   "erosion"
   ],
   "display": "soil erosion"
  },
@@ -80,13 +81,16 @@
  "14": {
   "accept": [
    "rhymes, stories",
-   "stories, rhymes"
+   "stories, rhymes",
+   "rhymes stories",
+   "stories rhymes",
+   "rhymes/stories"
   ],
-  "display": "rhymes, stories / stories, rhymes"
+  "display": "rhymes, stories"
  },
  "15": {
   "accept": [
-   "America"
+   "america"
   ],
   "display": "America"
  },
@@ -98,10 +102,13 @@
  },
  "17": {
   "accept": [
+   "fairy-tales",
+   "fairy tales",
    "fairy-stories",
-   "fairy-tales"
+   "fairy stories",
+   "fairytales"
   ],
-  "display": "fairy-stories / fairy-tales"
+  "display": "fairy-tales / fairy-stories"
  },
  "18": {
   "accept": [
@@ -202,8 +209,8 @@
  },
  "34": {
   "accept": [
-   "extra foam",
-   "foam"
+   "foam",
+   "extra foam"
   ],
   "display": "(extra) foam"
  },
@@ -235,16 +242,13 @@
  "39": {
   "accept": [
    "lamination and packing",
-   "lamination, packing",
-   "lamination & packing",
-   "lamination packing"
+   "lamination, packing"
   ],
   "display": "lamination and packing"
  },
  "40": {
   "accept": [
-   "grape growers",
-   "grape-growers"
+   "grape growers"
   ],
   "display": "grape growers"
  }

@@ -144,7 +144,7 @@
    "the 2000 floods",
    "floods"
   ],
-  "display": "(the) 2000 floods"
+  "display": "2000 floods"
  },
  "22": {
   "accept": [
@@ -164,9 +164,10 @@
  },
  "24": {
   "accept": [
+   "1781",
    "1856"
   ],
-  "display": "1856"
+  "display": "1781"
  },
  "25": {
   "accept": [
@@ -254,9 +255,9 @@
  },
  "38": {
   "accept": [
-   "D"
+   "A"
   ],
-  "display": "D"
+  "display": "A"
  },
  "39": {
   "accept": [

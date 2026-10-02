@@ -1,0 +1,299 @@
+{
+ "1": {
+  "accept": [
+   "R242",
+   "R 242",
+   "R-242"
+  ],
+  "display": "R242"
+ },
+ "2": {
+  "accept": [
+   "89.99",
+   "£89.99"
+  ],
+  "display": "89.99"
+ },
+ "3": {
+  "accept": [
+   "city centre",
+   "city center",
+   "the city centre",
+   "city centre branch"
+  ],
+  "display": "city centre"
+ },
+ "4": {
+  "accept": [
+   "steam escaping",
+   "escaping steam",
+   "steam escapes"
+  ],
+  "display": "steam escaping"
+ },
+ "5": {
+  "accept": [
+   "84 Park Road",
+   "84 Park Rd"
+  ],
+  "display": "84 Park Road"
+ },
+ "6": {
+  "accept": [
+   "B024 1DJ",
+   "B0241DJ",
+   "B02 41DJ"
+  ],
+  "display": "B024 1DJ"
+ },
+ "7": {
+  "accept": [
+   "credit card",
+   "by credit card",
+   "a credit card"
+  ],
+  "display": "credit card"
+ },
+ "8": {
+  "accept": [
+   "April 2008",
+   "04/2008",
+   "4/2008",
+   "04/08"
+  ],
+  "display": "April 2008"
+ },
+ "9": {
+  "accept": [
+   "refund",
+   "a refund",
+   "full refund",
+   "a full refund"
+  ],
+  "display": "(full) refund"
+ },
+ "10": {
+  "accept": [
+   "once a month",
+   "monthly",
+   "once per month"
+  ],
+  "display": "once a month"
+ },
+ "11": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "bathroom",
+   "a bathroom"
+  ],
+  "display": "bathroom"
+ },
+ "17": {
+  "accept": [
+   "food containers",
+   "containers"
+  ],
+  "display": "food containers"
+ },
+ "18": {
+  "accept": [
+   "code",
+   "a code"
+  ],
+  "display": "code"
+ },
+ "19": {
+  "accept": [
+   "basement",
+   "the basement"
+  ],
+  "display": "basement"
+ },
+ "20": {
+  "accept": [
+   "11.30",
+   "11:30",
+   "11.30pm",
+   "11:30pm",
+   "11.30 pm",
+   "11:30 pm"
+  ],
+  "display": "11.30 pm"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 23,
+  "idx": 0,
+  "display": "B, E  (Q23–24, any order)"
+ },
+ "24": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 23,
+  "idx": 1,
+  "display": "B, E  (Q23–24, any order)"
+ },
+ "25": {
+  "accept": [
+   "colour",
+   "color"
+  ],
+  "display": "colour"
+ },
+ "26": {
+  "accept": [
+   "cleaning products"
+  ],
+  "display": "cleaning products"
+ },
+ "27": {
+  "accept": [
+   "different containers",
+   "containers"
+  ],
+  "display": "(different) containers"
+ },
+ "28": {
+  "accept": [
+   "materials"
+  ],
+  "display": "materials"
+ },
+ "29": {
+  "accept": [
+   "image"
+  ],
+  "display": "image"
+ },
+ "30": {
+  "accept": [
+   "advertisement"
+  ],
+  "display": "advertisement"
+ },
+ "31": {
+  "accept": [
+   "less effort"
+  ],
+  "display": "less effort"
+ },
+ "32": {
+  "accept": [
+   "uncomfortable"
+  ],
+  "display": "uncomfortable"
+ },
+ "33": {
+  "accept": [
+   "1860s",
+   "the 1860s"
+  ],
+  "display": "1860s"
+ },
+ "34": {
+  "accept": [
+   "connected"
+  ],
+  "display": "connected"
+ },
+ "35": {
+  "accept": [
+   "more smoothly",
+   "smoothly"
+  ],
+  "display": "more smoothly"
+ },
+ "36": {
+  "accept": [
+   "rubber wheels"
+  ],
+  "display": "rubber wheels"
+ },
+ "37": {
+  "accept": [
+   "safer"
+  ],
+  "display": "safer"
+ },
+ "38": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 0,
+  "display": "C, D, F  (Q38–40, any order)"
+ },
+ "39": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 1,
+  "display": "C, D, F  (Q38–40, any order)"
+ },
+ "40": {
+  "any": [
+   "C",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 2,
+  "display": "C, D, F  (Q38–40, any order)"
+ }
+}

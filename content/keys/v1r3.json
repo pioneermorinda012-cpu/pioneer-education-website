@@ -145,8 +145,8 @@
  },
  "25": {
   "accept": [
-   "Great Ocean Conveyor",
-   "the Great Ocean Conveyor"
+   "great ocean conveyor",
+   "the great ocean conveyor"
   ],
   "display": "Great Ocean Conveyor"
  },
@@ -200,24 +200,24 @@
    "fibre",
    "fiber"
   ],
-  "display": "(forest) fruit / fibre  (Q33–34, any order)",
   "pool": [
    "33",
    "34"
-  ]
+  ],
+  "display": "(forest) fruit / fibre (any order)  (Q33–34, any order)"
  },
  "34": {
   "accept": [
-   "fibre",
-   "fiber",
    "fruit",
-   "forest fruit"
+   "forest fruit",
+   "fibre",
+   "fiber"
   ],
-  "display": "(forest) fruit / fibre  (Q33–34, any order)",
   "pool": [
    "33",
    "34"
-  ]
+  ],
+  "display": "(forest) fruit / fibre (any order)  (Q33–34, any order)"
  },
  "35": {
   "accept": [
@@ -253,9 +253,9 @@
  "40": {
   "accept": [
    "non-timber forest products",
-   "NTFPs",
-   "NTFP",
-   "non timber forest products"
+   "ntfps",
+   "non timber forest products",
+   "ntfp"
   ],
   "display": "non-timber forest products / NTFPs"
  }
