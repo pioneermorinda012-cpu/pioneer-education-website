@@ -1,0 +1,321 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 2,
+  "idx": 0,
+  "display": "C, E  (Q2–3, any order)"
+ },
+ "3": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 2,
+  "idx": 1,
+  "display": "C, E  (Q2–3, any order)"
+ },
+ "4": {
+  "accept": [
+   "non-smoking",
+   "nonsmoking",
+   "non smoking"
+  ],
+  "display": "non-smoking"
+ },
+ "5": {
+  "accept": [
+   "laundry"
+  ],
+  "display": "laundry"
+ },
+ "6": {
+  "accept": [
+   "quiet"
+  ],
+  "display": "quiet"
+ },
+ "7": {
+  "accept": [
+   "parking"
+  ],
+  "display": "parking"
+ },
+ "8": {
+  "accept": [
+   "party",
+   "a party"
+  ],
+  "display": "party / parties"
+ },
+ "9": {
+  "accept": [
+   "6 am",
+   "6am",
+   "6 a.m.",
+   "6a.m.",
+   "6:00 am",
+   "6:00am",
+   "6:00",
+   "6 o'clock",
+   "six am",
+   "6 in the morning",
+   "06:00"
+  ],
+  "display": "6 a.m."
+ },
+ "10": {
+  "accept": [
+   "front door key",
+   "key",
+   "door key",
+   "front-door key"
+  ],
+  "display": "(front door) key"
+ },
+ "11": {
+  "accept": [
+   "6",
+   "six"
+  ],
+  "display": "6"
+ },
+ "12": {
+  "accept": [
+   "20",
+   "twenty",
+   "20 years old",
+   "20 years"
+  ],
+  "display": "20"
+ },
+ "13": {
+  "accept": [
+   "venue",
+   "the venue"
+  ],
+  "display": "venue"
+ },
+ "14": {
+  "accept": [
+   "court 4",
+   "court four",
+   "4"
+  ],
+  "display": "court 4"
+ },
+ "15": {
+  "accept": [
+   "sunday afternoons",
+   "sunday afternoon",
+   "sunday"
+  ],
+  "display": "Sunday afternoon(s)"
+ },
+ "16": {
+  "accept": [
+   "saturday"
+  ],
+  "display": "Saturday"
+ },
+ "17": {
+  "accept": [
+   "coach",
+   "the coach"
+  ],
+  "display": "coach"
+ },
+ "18": {
+  "accept": [
+   "barbecue dinner",
+   "barbecue",
+   "barbeque",
+   "barbeque dinner"
+  ],
+  "display": "barbecue (dinner)"
+ },
+ "19": {
+  "accept": [
+   "mvp",
+   "the mvp"
+  ],
+  "display": "MVP"
+ },
+ "20": {
+  "accept": [
+   "confirmed letter",
+   "letter"
+  ],
+  "display": "confirmed letter"
+ },
+ "21": {
+  "accept": [
+   "614",
+   "room 614"
+  ],
+  "display": "614"
+ },
+ "22": {
+  "accept": [
+   "2 o'clock",
+   "2 pm",
+   "2pm",
+   "2:00",
+   "2.00",
+   "two o'clock",
+   "2 p.m.",
+   "2:00 pm",
+   "14:00",
+   "2 oclock",
+   "2"
+  ],
+  "display": "2 o'clock"
+ },
+ "23": {
+  "accept": [
+   "extend thesis deadline",
+   "extend the deadline",
+   "extend his deadline",
+   "extend deadline"
+  ],
+  "display": "extend (thesis) deadline"
+ },
+ "24": {
+  "accept": [
+   "reading materials"
+  ],
+  "display": "reading materials"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 0,
+  "display": "A, D  (Q29–30, any order)"
+ },
+ "30": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 1,
+  "display": "A, D  (Q29–30, any order)"
+ },
+ "31": {
+  "accept": [
+   "shooting star",
+   "shooting-star"
+  ],
+  "display": "shooting stars"
+ },
+ "32": {
+  "accept": [
+   "solar"
+  ],
+  "display": "solar"
+ },
+ "33": {
+  "accept": [
+   "meteor showers",
+   "meteor shower",
+   "showers"
+  ],
+  "display": "meteor showers"
+ },
+ "34": {
+  "accept": [
+   "1833"
+  ],
+  "display": "1833"
+ },
+ "35": {
+  "accept": [
+   "comets",
+   "comet"
+  ],
+  "display": "comets"
+ },
+ "36": {
+  "accept": [
+   "fireball",
+   "fire ball",
+   "fire-ball"
+  ],
+  "display": "fireball"
+ },
+ "37": {
+  "accept": [
+   "white"
+  ],
+  "display": "white"
+ },
+ "38": {
+  "accept": [
+   "thunderstones",
+   "thunderstone",
+   "thunder stones",
+   "thunder stone",
+   "thunderstorms"
+  ],
+  "display": "thunderstones"
+ },
+ "39": {
+  "accept": [
+   "june 30",
+   "30 june",
+   "june 30th",
+   "30th june",
+   "30th of june",
+   "june the 30th"
+  ],
+  "display": "June 30"
+ },
+ "40": {
+  "accept": [
+   "65 million",
+   "65,000,000",
+   "65000000",
+   "sixty-five million"
+  ],
+  "display": "65 million"
+ }
+}

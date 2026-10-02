@@ -1,0 +1,291 @@
+{
+ "1": {
+  "accept": [
+   "reception assistant"
+  ],
+  "display": "reception assistant"
+ },
+ "2": {
+  "accept": [
+   "driving licence",
+   "driving license"
+  ],
+  "display": "driving licence"
+ },
+ "3": {
+  "accept": [
+   "heavy lifting",
+   "lifting"
+  ],
+  "display": "heavy lifting"
+ },
+ "4": {
+  "accept": [
+   "meals",
+   "food",
+   "meal"
+  ],
+  "display": "meals"
+ },
+ "5": {
+  "accept": [
+   "certificate"
+  ],
+  "display": "certificate"
+ },
+ "6": {
+  "accept": [
+   "uniform",
+   "staff uniform",
+   "a uniform",
+   "the uniform"
+  ],
+  "display": "(staff) uniform"
+ },
+ "7": {
+  "accept": [
+   "personal information form",
+   "information form",
+   "form"
+  ],
+  "display": "(personal) information form"
+ },
+ "8": {
+  "accept": [
+   "questionnaire"
+  ],
+  "display": "questionnaire"
+ },
+ "9": {
+  "accept": [
+   "role play",
+   "role play activities",
+   "role-play",
+   "role-play activities",
+   "roleplay"
+  ],
+  "display": "role play (activities)"
+ },
+ "10": {
+  "accept": [
+   "video"
+  ],
+  "display": "video"
+ },
+ "11": {
+  "accept": [
+   "temporary visitor"
+  ],
+  "display": "temporary visitor"
+ },
+ "12": {
+  "accept": [
+   "allergies"
+  ],
+  "display": "allergies"
+ },
+ "13": {
+  "accept": [
+   "medication",
+   "current medication",
+   "medicine"
+  ],
+  "display": "(current) medication"
+ },
+ "14": {
+  "accept": [
+   "registration card"
+  ],
+  "display": "registration card"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "beeswax",
+   "bees wax",
+   "wax"
+  ],
+  "display": "beeswax"
+ },
+ "22": {
+  "accept": [
+   "avocado",
+   "avocado pear"
+  ],
+  "display": "avocado (pear)"
+ },
+ "23": {
+  "accept": [
+   "200 billion",
+   "$200 billion",
+   "us$200 billion",
+   "200,000,000,000",
+   "200 billion us"
+  ],
+  "display": "200 billion"
+ },
+ "24": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 24,
+  "idx": 0,
+  "display": "A, D  (Q24–25, any order)"
+ },
+ "25": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 24,
+  "idx": 1,
+  "display": "A, D  (Q24–25, any order)"
+ },
+ "26": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "millennium",
+   "the millennium"
+  ],
+  "display": "Millennium"
+ },
+ "32": {
+  "accept": [
+   "thames",
+   "river thames",
+   "the thames"
+  ],
+  "display": "(River) Thames"
+ },
+ "33": {
+  "accept": [
+   "3.5 million",
+   "3,500,000",
+   "3500000",
+   "over 3.5 million"
+  ],
+  "display": "3.5 million"
+ },
+ "34": {
+  "accept": [
+   "british airways"
+  ],
+  "display": "British Airways"
+ },
+ "35": {
+  "accept": [
+   "135 metres",
+   "135 meters",
+   "135m",
+   "135 m",
+   "135"
+  ],
+  "display": "135 metres"
+ },
+ "36": {
+  "accept": [
+   "tension piles",
+   "tension pile",
+   "piles"
+  ],
+  "display": "tension piles"
+ },
+ "37": {
+  "accept": [
+   "a-frame",
+   "a frame",
+   "aframe"
+  ],
+  "display": "A-frame (legs)"
+ },
+ "38": {
+  "accept": [
+   "rim",
+   "the rim"
+  ],
+  "display": "rim"
+ },
+ "39": {
+  "accept": [
+   "capsules",
+   "capsule",
+   "passenger capsules",
+   "passenger capsule"
+  ],
+  "display": "(passenger) capsule"
+ },
+ "40": {
+  "accept": [
+   "boarding platform",
+   "platform"
+  ],
+  "display": "boarding platform"
+ }
+}

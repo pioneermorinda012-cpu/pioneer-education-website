@@ -1,0 +1,302 @@
+{
+ "1": {
+  "accept": [
+   "anthony"
+  ],
+  "display": "Anthony"
+ },
+ "2": {
+  "accept": [
+   "1st june",
+   "1 june",
+   "june 1",
+   "june 1st",
+   "first of june",
+   "1st of june",
+   "01 june",
+   "1st jun",
+   "1 jun"
+  ],
+  "display": "1st June"
+ },
+ "3": {
+  "accept": [
+   "university hall"
+  ],
+  "display": "University Hall"
+ },
+ "4": {
+  "accept": [
+   "health4life",
+   "health for life",
+   "health 4 life"
+  ],
+  "display": "Health4Life / Health for Life"
+ },
+ "5": {
+  "accept": [
+   "september 2006",
+   "sept 2006",
+   "sep 2006",
+   "september, 2006",
+   "09/2006",
+   "9/2006",
+   "2006 september"
+  ],
+  "display": "September 2006"
+ },
+ "6": {
+  "accept": [
+   "distance",
+   "in the distance",
+   "distance vision",
+   "far away"
+  ],
+  "display": "(things in the) distance"
+ },
+ "7": {
+  "accept": [
+   "driving",
+   "for driving",
+   "definitely for driving"
+  ],
+  "display": "(for) driving"
+ },
+ "8": {
+  "accept": [
+   "full frame",
+   "full-frame",
+   "the full frame"
+  ],
+  "display": "full frame (glasses)"
+ },
+ "9": {
+  "accept": [
+   "strong",
+   "they are strong",
+   "they're strong"
+  ],
+  "display": "(they are) strong"
+ },
+ "10": {
+  "accept": [
+   "cash",
+   "by cash",
+   "pay by cash"
+  ],
+  "display": "(by) cash"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "main gateway",
+   "the main gateway",
+   "gateway",
+   "main gate",
+   "the gateway"
+  ],
+  "display": "(main) gateway"
+ },
+ "14": {
+  "accept": [
+   "flower beds",
+   "flowerbeds",
+   "flower bed",
+   "flowerbed",
+   "16 flower beds",
+   "sixteen flower beds",
+   "flower-beds"
+  ],
+  "display": "flower beds"
+ },
+ "15": {
+  "accept": [
+   "raised pond",
+   "pond",
+   "the raised pond",
+   "a raised pond"
+  ],
+  "display": "(raised) pond"
+ },
+ "16": {
+  "accept": [
+   "mosque",
+   "the mosque",
+   "a mosque"
+  ],
+  "display": "mosque"
+ },
+ "17": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "18": {
+  "accept": [
+   "river",
+   "the river"
+  ],
+  "display": "river"
+ },
+ "19": {
+  "accept": [
+   "supply tanks",
+   "supply tank",
+   "tanks",
+   "tank"
+  ],
+  "display": "supply tanks"
+ },
+ "20": {
+  "accept": [
+   "fountains",
+   "fountain",
+   "the fountains",
+   "each fountain"
+  ],
+  "display": "fountains"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "rules"
+  ],
+  "display": "rules"
+ },
+ "32": {
+  "accept": [
+   "speed"
+  ],
+  "display": "speed"
+ },
+ "33": {
+  "accept": [
+   "conversation"
+  ],
+  "display": "conversation"
+ },
+ "34": {
+  "accept": [
+   "grandmother"
+  ],
+  "display": "grandmother"
+ },
+ "35": {
+  "accept": [
+   "us and we",
+   "we and us",
+   "us, we",
+   "we, us",
+   "'us' and 'we'",
+   "us/we",
+   "we/us"
+  ],
+  "display": "us and we"
+ },
+ "36": {
+  "accept": [
+   "repeat"
+  ],
+  "display": "repeat"
+ },
+ "37": {
+  "accept": [
+   "space out",
+   "space them out",
+   "space"
+  ],
+  "display": "space out"
+ },
+ "38": {
+  "accept": [
+   "football pitch",
+   "a football pitch"
+  ],
+  "display": "football pitch"
+ },
+ "39": {
+  "accept": [
+   "first sentence",
+   "the first sentence"
+  ],
+  "display": "first sentence"
+ },
+ "40": {
+  "accept": [
+   "reading aloud",
+   "reading it aloud"
+  ],
+  "display": "reading (it) aloud"
+ }
+}

@@ -1,0 +1,304 @@
+{
+ "1": {
+  "accept": [
+   "50",
+   "fifty"
+  ],
+  "display": "50"
+ },
+ "2": {
+  "accept": [
+   "26th august",
+   "26 august",
+   "august 26th",
+   "august 26",
+   "the 26th",
+   "26th",
+   "26th of august",
+   "sunday 26th august"
+  ],
+  "display": "26th August"
+ },
+ "3": {
+  "accept": [
+   "15 pounds",
+   "£15",
+   "15",
+   "fifteen pounds",
+   "£15 per person",
+   "15 pounds per person",
+   "£15 a head"
+  ],
+  "display": "£15"
+ },
+ "4": {
+  "accept": [
+   "ice cream",
+   "ice-cream"
+  ],
+  "display": "ice cream"
+ },
+ "5": {
+  "accept": [
+   "wine"
+  ],
+  "display": "wine"
+ },
+ "6": {
+  "accept": [
+   "10%",
+   "10 percent",
+   "10 per cent",
+   "ten percent",
+   "10"
+  ],
+  "display": "10%"
+ },
+ "7": {
+  "accept": [
+   "cold meals"
+  ],
+  "display": "cold meals"
+ },
+ "8": {
+  "accept": [
+   "vegetarian"
+  ],
+  "display": "vegetarian"
+ },
+ "9": {
+  "accept": [
+   "thursday"
+  ],
+  "display": "Thursday"
+ },
+ "10": {
+  "accept": [
+   "28653479",
+   "2865 3479",
+   "28 65 34 79",
+   "286 53479"
+  ],
+  "display": "28653479"
+ },
+ "11": {
+  "accept": [
+   "recommend"
+  ],
+  "display": "recommend"
+ },
+ "12": {
+  "accept": [
+   "legal aid"
+  ],
+  "display": "legal aid"
+ },
+ "13": {
+  "accept": [
+   "identification",
+   "form of identification"
+  ],
+  "display": "(some form of) identification"
+ },
+ "14": {
+  "accept": [
+   "advice"
+  ],
+  "display": "advice"
+ },
+ "15": {
+  "accept": [
+   "offensive weapons",
+   "weapons"
+  ],
+  "display": "offensive weapons"
+ },
+ "16": {
+  "accept": [
+   "supply"
+  ],
+  "display": "supply"
+ },
+ "17": {
+  "any": [
+   "B",
+   "C",
+   "F",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 17,
+  "idx": 0,
+  "display": "B, C, F, G  (Q17–20, any order)"
+ },
+ "18": {
+  "any": [
+   "B",
+   "C",
+   "F",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 17,
+  "idx": 1,
+  "display": "B, C, F, G  (Q17–20, any order)"
+ },
+ "19": {
+  "any": [
+   "B",
+   "C",
+   "F",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 17,
+  "idx": 2,
+  "display": "B, C, F, G  (Q17–20, any order)"
+ },
+ "20": {
+  "any": [
+   "B",
+   "C",
+   "F",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 17,
+  "idx": 3,
+  "display": "B, C, F, G  (Q17–20, any order)"
+ },
+ "21": {
+  "accept": [
+   "show up"
+  ],
+  "display": "show up"
+ },
+ "22": {
+  "accept": [
+   "apologise",
+   "apologize"
+  ],
+  "display": "apologise"
+ },
+ "23": {
+  "accept": [
+   "general",
+   "the general"
+  ],
+  "display": "general"
+ },
+ "24": {
+  "accept": [
+   "draw attention"
+  ],
+  "display": "draw attention"
+ },
+ "25": {
+  "accept": [
+   "audience",
+   "your audience"
+  ],
+  "display": "audience"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "iron"
+  ],
+  "display": "iron"
+ },
+ "32": {
+  "accept": [
+   "1876"
+  ],
+  "display": "1876"
+ },
+ "33": {
+  "accept": [
+   "1858"
+  ],
+  "display": "1858"
+ },
+ "34": {
+  "accept": [
+   "4",
+   "four"
+  ],
+  "display": "4"
+ },
+ "35": {
+  "accept": [
+   "copper and tin",
+   "tin and copper",
+   "copper, tin"
+  ],
+  "display": "copper and tin"
+ },
+ "36": {
+  "accept": [
+   "hilltops",
+   "on hilltops",
+   "hilltop",
+   "hill tops"
+  ],
+  "display": "(on) hilltops / north of the Alps"
+ },
+ "37": {
+  "accept": [
+   "luxury trade"
+  ],
+  "display": "(expansion of) luxury trade"
+ },
+ "38": {
+  "accept": [
+   "expansion and migration",
+   "expansion",
+   "migration",
+   "migration and expansion"
+  ],
+  "display": "expansion and migration"
+ },
+ "39": {
+  "accept": [
+   "spread rapidly",
+   "spread"
+  ],
+  "display": "spread rapidly"
+ },
+ "40": {
+  "accept": [
+   "graves",
+   "grave"
+  ],
+  "display": "graves"
+ }
+}
