@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getWriting } from "@/lib/writing";
+import { getWriting, CHART_TYPES } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import PracticeNav from "@/components/practice/PracticeNav";
 
@@ -32,15 +32,23 @@ const PAGES = {
 export default async function WritingLibrary({
   searchParams,
 }: {
-  searchParams: Promise<{ task?: string }>;
+  searchParams: Promise<{ task?: string; type?: string }>;
 }) {
   await requireStudent("/practice/writing");
-  const { task } = await searchParams;
+  const { task, type } = await searchParams;
   const kind = task === "1" ? "task1" : task === "gt1" ? "gt1" : "task2";
   const page = PAGES[kind];
 
   const all = await getWriting();
-  const mine = all.filter((t) => t.kind === kind);
+  const ofKind = all.filter((t) => t.kind === kind);
+
+  /* Task 1 Academic is practised by chart type — a student weak on maps
+   * wants every map, not to scroll past twenty tables to find them. */
+  const types = kind === "task1"
+    ? CHART_TYPES.map((c) => ({ c, n: ofKind.filter((t) => t.chartType === c).length })).filter((x) => x.n)
+    : [];
+  const picked = types.some((x) => x.c === type) ? type : undefined;
+  const mine = picked ? ofKind.filter((t) => t.chartType === picked) : ofKind;
 
   return (
     <div className="wrap">
@@ -55,12 +63,27 @@ export default async function WritingLibrary({
 
       <div className="pr-note">{page.note}</div>
 
+      {types.length > 0 && (
+        <nav className="wr-types" aria-label="Chart type">
+          <Link href="/practice/writing?task=1" aria-current={!picked ? "page" : undefined}>
+            All <span>{ofKind.length}</span>
+          </Link>
+          {types.map(({ c, n }) => (
+            <Link key={c} href={`/practice/writing?task=1&type=${encodeURIComponent(c)}`}
+              aria-current={picked === c ? "page" : undefined}>
+              {c} <span>{n}</span>
+            </Link>
+          ))}
+        </nav>
+      )}
+
       <div className="pr-rows" style={{ marginTop: 18 }}>
         {mine.map((t) => (
           <div className="pr-row" key={t.id}>
             <div>
               <div className="nm">{t.title}</div>
               <div className="fx">
+                {t.chartType && <span>{t.chartType}</span>}
                 {t.register && <span>{t.register}</span>}
                 <span>{t.minutes} minutes</span>
                 <span>at least {t.minWords} words</span>

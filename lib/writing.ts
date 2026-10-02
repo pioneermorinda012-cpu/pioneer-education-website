@@ -27,6 +27,8 @@ export type WritingTask = {
   title: string;
   minutes: number;
   minWords: number;
+  /** Task 1 Academic only — what kind of visual it is, for sorting the list. */
+  chartType?: string;
   /** Task 1 only — the page images that carry the chart. */
   images?: string[];
   /** Task 2 only — every question printed under this topic. */
@@ -75,3 +77,8 @@ export function forStudent(t: WritingTask): WritingTask {
 
 /** Where the Task 1 page images are served from. */
 export const writingImage = (name: string) => `/practice/writing/${name}`;
+
+/** The order the chart types are offered in, most common in the exam first. */
+export const CHART_TYPES = [
+  "Bar chart", "Line graph", "Pie chart", "Table", "Two charts (mixed)", "Map / plan", "Process diagram",
+];

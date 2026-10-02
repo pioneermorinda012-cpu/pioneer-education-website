@@ -371,3 +371,11 @@ mark.ev-near .ev-badge { opacity: 0.85; }
   .wr-work.split .wr-box { min-height: calc(100vh - 240px); }
 }
 
+
+/* Writing Task 1: filter the list by chart type */
+.wr-types { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 4px; }
+.wr-types a { padding: 7px 13px; border-radius: 100px; border: 1.5px solid var(--grey-light);
+  background: var(--paper); font-weight: 700; font-size: 0.8rem; color: var(--navy); text-decoration: none; }
+.wr-types a span { font-weight: 600; color: var(--grey); margin-left: 3px; }
+.wr-types a[aria-current="page"] { background: var(--coral); border-color: var(--coral); color: #fff; }
+.wr-types a[aria-current="page"] span { color: #fff; opacity: 0.85; }
