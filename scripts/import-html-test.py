@@ -214,7 +214,10 @@ def option_list(attrs: str, body: str, kind: str):
             opts.append(v if t == v else {"l": v, "t": t})
         return opts, False
     if kind == "btn":
-        return [m.group(1) for m in re.finditer(r'class="opt-btn" data-v="([^"]*)"', body)], False
+        # TRUE / FALSE / NOT GIVEN: the word is the answer, so it is the label
+        # too. A plain list would make the player submit "a", "b", "c".
+        return [{"l": m.group(1), "t": m.group(1)}
+                for m in re.finditer(r'class="opt-btn" data-v="([^"]*)"', body)], False
     if kind == "chip":
         return [m.group(1) for m in re.finditer(r'class="chip" data-v="([^"]*)"', body)], True
     if kind == "radio":
@@ -244,7 +247,9 @@ def read_question(attrs: str, body: str):
     if m:
         opts, _ = option_list(m.group(1), m.group(2), "select")
         return {"n": n, "stem": stem, "kind": "choice", "opts": opts}
-    m = re.search(r'<div class="ansgrp ([a-z]+)"([^>]*)>', rest)
+    # "ansgrp btn-group" — the hyphen matters: matching letters only missed
+    # every TRUE/FALSE row, which then came through as a box to type "TRUE" in.
+    m = re.search(r'<div class="ansgrp ([a-z-]+)"([^>]*)>', rest)
     if m:
         which = m.group(1)
         inner, _ = balanced(rest, m.start(), "div")

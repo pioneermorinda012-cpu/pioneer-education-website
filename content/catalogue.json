@@ -1104,5 +1104,19 @@
   "mode": "reading",
   "sections": 3,
   "keyed": true
+ },
+ {
+  "id": "v1r1",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "V1",
+  "label": "Reading Test 1",
+  "order": 1,
+  "name": "V1R1 — Reading Test 1",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
  }
 ]

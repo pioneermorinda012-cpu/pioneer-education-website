@@ -1,0 +1,273 @@
+{
+ "1": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "2": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "3": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "4": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "5": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "6": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "7": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "8": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "9": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "10": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "11": {
+  "any": [
+   "C",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 0,
+  "display": "C, D, E  (Q11–13, any order)"
+ },
+ "12": {
+  "any": [
+   "C",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 1,
+  "display": "C, D, E  (Q11–13, any order)"
+ },
+ "13": {
+  "any": [
+   "C",
+   "D",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 11,
+  "idx": 2,
+  "display": "C, D, E  (Q11–13, any order)"
+ },
+ "14": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "15": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "16": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "17": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "18": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "accept": [
+   "1976 and 1995",
+   "1976, 1995",
+   "1976 & 1995",
+   "1995 and 1976",
+   "1976 1995"
+  ],
+  "display": "1976 and 1995"
+ },
+ "21": {
+  "accept": [
+   "2000 floods",
+   "the 2000 floods",
+   "floods"
+  ],
+  "display": "(the) 2000 floods"
+ },
+ "22": {
+  "accept": [
+   "1998 and 2002",
+   "1998, 2002",
+   "1998 & 2002",
+   "2002 and 1998",
+   "1998 2002"
+  ],
+  "display": "1998 and 2002"
+ },
+ "23": {
+  "accept": [
+   "1990"
+  ],
+  "display": "1990"
+ },
+ "24": {
+  "accept": [
+   "1856"
+  ],
+  "display": "1856"
+ },
+ "25": {
+  "accept": [
+   "france"
+  ],
+  "display": "France"
+ },
+ "26": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "30": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "31": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "bee-keeping",
+   "beekeeping",
+   "bee keeping",
+   "bee-keeping notes",
+   "beekeeping notes"
+  ],
+  "display": "bee-keeping"
+ },
+ "35": {
+  "accept": [
+   "life cycles",
+   "life-cycles",
+   "lifecycles"
+  ],
+  "display": "life cycles"
+ },
+ "36": {
+  "accept": [
+   "droughts"
+  ],
+  "display": "droughts"
+ },
+ "37": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "38": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "39": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}
