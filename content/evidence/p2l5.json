@@ -1,0 +1,282 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "The account number is 692411."
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "the company is Rainbow Communications"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "we'll have the plain white please"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "make that two boxes"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "Make sure it's the light blue though."
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "So can you give us 10 packs please?"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "we need floppy disks"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "one of those big wall calendars"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "And do you have a copy of our new catalogue?"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "Can you make sure that it's not after 11.30am?"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "It's being held at the Royal Museum"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "Number 1 Queens Park Road"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "continue until the 10th of December"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "furniture, ceramics, metalwork and sculpture"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "made to resemble garden vegetables"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "have beautiful colored stones in them"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "25 pairs of white paper shoes"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "face to face."
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "pencil drawing"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "the provision of all materials"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "evolving for some 40 million years"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "Dogs and bears were of the same family."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "the cave bear only ate plants"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "the newest species of bear, the polar bear"
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "the much more robust brown bear"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "the sun bear is the smallest of the eight species"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "the giant panda is almost entirely herbivorous"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "the sloth bear, which eats insects"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "by raising people's awareness generally"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "Profits from the sale of my book"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "more likely to be viewed as a tourist attraction"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "the dark spot itself is easy to explain"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "the Chinese were so disturbed by these events"
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "they offer a unique opportunity for research"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "If the moon were any larger"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "They didn't have the mathematics to predict"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "he became the first person to make an accurate eclipse prediction"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "led to the discovery of a new element"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "thought he'd spotted this so-called lost planet"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "astronomers were actually wrong about gravity"
+  ],
+  "k": "exact"
+ }
+}
