@@ -1,0 +1,243 @@
+{
+ "1": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "2": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "5": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "9": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "10": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "21": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "24": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "25": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "26": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "27": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "28": {
+  "accept": [
+   "xi"
+  ],
+  "display": "xi"
+ },
+ "29": {
+  "accept": [
+   "xiii"
+  ],
+  "display": "xiii"
+ },
+ "30": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "31": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "32": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "33": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "34": {
+  "accept": [
+   "skeletal anatomy"
+  ],
+  "display": "skeletal anatomy"
+ },
+ "35": {
+  "accept": [
+   "eosuchians"
+  ],
+  "display": "eosuchians"
+ },
+ "36": {
+  "accept": [
+   "two long bones",
+   "2 long bones"
+  ],
+  "display": "two long bones"
+ },
+ "37": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "38": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "39": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

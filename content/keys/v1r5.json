@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "3": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "6": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "11": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "12": {
+  "accept": [
+   "soil erosion"
+  ],
+  "display": "soil erosion"
+ },
+ "13": {
+  "accept": [
+   "paper"
+  ],
+  "display": "paper"
+ },
+ "14": {
+  "accept": [
+   "rhymes, stories",
+   "stories, rhymes"
+  ],
+  "display": "rhymes, stories / stories, rhymes"
+ },
+ "15": {
+  "accept": [
+   "America"
+  ],
+  "display": "America"
+ },
+ "16": {
+  "accept": [
+   "folklore"
+  ],
+  "display": "folklore"
+ },
+ "17": {
+  "accept": [
+   "fairy-stories",
+   "fairy-tales"
+  ],
+  "display": "fairy-stories / fairy-tales"
+ },
+ "18": {
+  "accept": [
+   "adventures"
+  ],
+  "display": "adventures"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "22": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "25": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "26": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "20",
+   "twenty"
+  ],
+  "display": "20"
+ },
+ "34": {
+  "accept": [
+   "extra foam",
+   "foam"
+  ],
+  "display": "(extra) foam"
+ },
+ "35": {
+  "accept": [
+   "waste water",
+   "wastewater"
+  ],
+  "display": "waste water"
+ },
+ "36": {
+  "accept": [
+   "harmful"
+  ],
+  "display": "harmful"
+ },
+ "37": {
+  "accept": [
+   "biodegrade"
+  ],
+  "display": "biodegrade"
+ },
+ "38": {
+  "accept": [
+   "droplets"
+  ],
+  "display": "droplets"
+ },
+ "39": {
+  "accept": [
+   "lamination and packing",
+   "lamination, packing",
+   "lamination & packing",
+   "lamination packing"
+  ],
+  "display": "lamination and packing"
+ },
+ "40": {
+  "accept": [
+   "grape growers",
+   "grape-growers"
+  ],
+  "display": "grape growers"
+ }
+}

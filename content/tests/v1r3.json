@@ -1,0 +1,734 @@
+{
+ "id": "v1r3",
+ "mode": "reading",
+ "name": "V1R3 — Reading Test 3",
+ "blurb": "3 passages · 40 questions · 60 minutes",
+ "minutes": 60,
+ "total": 40,
+ "theme": "coral",
+ "bandsReading": [
+  [
+   39,
+   9
+  ],
+  [
+   37,
+   8.5
+  ],
+  [
+   35,
+   8
+  ],
+  [
+   33,
+   7.5
+  ],
+  [
+   30,
+   7
+  ],
+  [
+   27,
+   6.5
+  ],
+  [
+   23,
+   6
+  ],
+  [
+   19,
+   5.5
+  ],
+  [
+   15,
+   5
+  ],
+  [
+   13,
+   4.5
+  ],
+  [
+   10,
+   4
+  ],
+  [
+   8,
+   3.5
+  ],
+  [
+   6,
+   3
+  ],
+  [
+   4,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "bandsListening": [
+  [
+   39,
+   9
+  ],
+  [
+   37,
+   8.5
+  ],
+  [
+   35,
+   8
+  ],
+  [
+   33,
+   7.5
+  ],
+  [
+   30,
+   7
+  ],
+  [
+   27,
+   6.5
+  ],
+  [
+   23,
+   6
+  ],
+  [
+   19,
+   5.5
+  ],
+  [
+   15,
+   5
+  ],
+  [
+   13,
+   4.5
+  ],
+  [
+   10,
+   4
+  ],
+  [
+   8,
+   3.5
+  ],
+  [
+   6,
+   3
+  ],
+  [
+   4,
+   2.5
+  ],
+  [
+   0,
+   2
+  ]
+ ],
+ "rules": [
+  "The passage and the questions sit side by side. Use <b>📖 Passage</b> or <b>✎ Questions</b> on a small screen to show one half full-size.",
+  "You should spend about <b>20 minutes</b> on each section.",
+  "Spelling must be correct — a misspelt answer is marked wrong, exactly as in the real exam.",
+  "Answer all 40 questions, then tap <b>Submit test</b> for your band score.",
+  "After marking, <b>every answer is highlighted in the passage</b>. Press <b>📍</b> beside any question to jump to the line it came from.",
+  "A 60-minute timer runs in the background; the test submits itself at zero."
+ ],
+ "mediaUrls": {},
+ "catalogue": {
+  "id": "v1r3",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "V1",
+  "label": "Reading Test 3",
+  "order": 3
+ },
+ "sections": [
+  {
+   "label": "Passage 1",
+   "qs": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+   ],
+   "passage": {
+    "title": "Learning by Examples",
+    "sub": "You should spend about 20 minutes on Questions 1–13.",
+    "paras": [
+     "<b>A</b> Learning Theory is rooted in the work of Ivan Pavlov, the famous scientist who discovered and documented the principles governing how animals (humans included) learn in the 1900s. Two basic kinds of learning or conditioning occur, one of which is famously known as the classical conditioning. Classical conditioning happens when an animal learns to associate a neutral stimulus (signal) with a stimulus that has intrinsic meaning based on how closely in time the two stimuli are presented. The classic example of classical conditioning is a dog's ability to associate the sound of a bell (something that originally has no meaning to the dog) with the presentation of food (something that has a lot of meaning to the dog) a few moments later. Dogs are able to learn the association between bell and food, and will salivate immediately after hearing the bell once this connection has been made. Years of learning research have led to the creation of a highly precise learning theory that can be used to understand and predict how and under what circumstances most any animal will learn, including human beings, and eventually help people figure out how to change their behaviours.",
+     "<b>B</b> Role models are a popular notion for guiding child development, but in recent years very interesting research has been done on learning by examples in other animals. If the subject of animal learning is taught very much in terms of classical or operant conditioning, it places too much emphasis on how we allow animals to learn and not enough on how they are equipped to learn. To teach a course of mine, I have been dipping profitably into a very interesting and accessible compilation of papers on social learning in mammals, including chimps and human children, edited by Heyes and Galef (1996).",
+     "<b>C</b> The research reported in one paper started with a school field trip to Israel to a pine forest where many pine cones were discovered, stripped to the central core. So the investigation started with no weighty theoretical intent, but was directed at finding out what was eating the nutritious pine seeds and how they managed to get them out of the cones. The culprit proved to be the versatile and athletic black rat (Rattus rattus), and the technique was to bite each cone scale off at its base, in sequence from base to tip following the spiral growth pattern of the cone.",
+     "<b>D</b> Urban black rats were found to lack the skill and were unable to learn it even if housed with experienced cone strippers. However, infants of urban mothers cross-fostered by stripper mothers acquired the skill, whereas infants of stripper mothers fostered by an urban mother could not. Clearly the skill had to be learned from the mother. Further elegant experiments showed that naive adults could develop the skill if they were provided with cones from which the first complete spiral of scales had been removed; rather like our new photocopier which you can work out how to use once someone has shown you how to switch it on. In the case of rats, the youngsters take cones away from the mother when she is still feeding on them, allowing them to acquire the complete stripping skill.",
+     "<b>E</b> A good example of adaptive bearing we might conclude, but let's see the economies. This was determined by measuring oxygen uptake of a rat stripping a cone in a metabolic chamber to calculate energetic cost and comparing it with the benefit of the pine seeds measured by calorimeter. The cost proved to be less than 10% of the energetic value of the cone. An acceptable profit margin.",
+     "<b>F</b> A paper in 1996, Animal Behaviour by Bednekoff and Baida, provides a different view of the adaptiveness of social learning. It concerns the seed caching behaviour of Clark's Nutcracker (Nucifraga columbiana) and the Mexican Jay (Aphelocoma ultramarina). The former is a specialist, caching 30,000 or so seeds in scattered locations that it will recover over the months of winter; the Mexican Jay will also cache food but is much less dependent upon this than the Nutcracker. The two species also differ in their social structure: the Nutcracker being rather solitary while the Jay forages in social groups.",
+     "<b>G</b> The experiment is to discover not just whether a bird can remember where it hid a seed but also if it can remember where it saw another bird hide a seed. The design is slightly comical with a cacher bird wandering about a room with lots of holes in the floor hiding food in some of the holes, while watched by an observer bird perched in a cage. Two days later, cachers and observers are tested for their discovery rate against an estimated random performance. In the role of cacher, not only the Nutcracker but also the less specialised Jay performed above chance; more surprisingly, however, jay observers were as successful as jay cachers whereas nutcracker observers did no better than chance. It seems that, whereas the Nutcracker is highly adapted at remembering where it hid its own seeds, the social living Mexican Jay is more adept at remembering, and so exploiting, the caches of others."
+    ]
+   },
+   "groups": [
+    {
+     "title": "Questions 1–4",
+     "instr": "Which paragraph contains the following information? Choose the correct letter, <b>A–G</b>.",
+     "questions": [
+      {
+       "n": 1,
+       "stem": "A comparison between rats' learning and human learning",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+       ]
+      },
+      {
+       "n": 2,
+       "stem": "A reference to the earliest study in animal learning",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+       ]
+      },
+      {
+       "n": 3,
+       "stem": "The discovery of who stripped the pine cone",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+       ]
+      },
+      {
+       "n": 4,
+       "stem": "A description of a cost-effectiveness experiment",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 5–8",
+     "instr": "Do the following statements agree with the information given in Reading Passage 1?<br><b>TRUE</b> if the statement is true<br><b>FALSE</b> if the statement is false<br><b>NOT GIVEN</b> if the information is not given in the passage",
+     "compact": true,
+     "questions": [
+      {
+       "n": 5,
+       "stem": "The field trip to Israel was to investigate how black rats learn to strip pine cones.",
+       "opts": [
+        {
+         "l": "TRUE",
+         "t": "TRUE"
+        },
+        {
+         "l": "FALSE",
+         "t": "FALSE"
+        },
+        {
+         "l": "NOT GIVEN",
+         "t": "NOT GIVEN"
+        }
+       ]
+      },
+      {
+       "n": 6,
+       "stem": "The pine cones were stripped from bottom to top by black rats.",
+       "opts": [
+        {
+         "l": "TRUE",
+         "t": "TRUE"
+        },
+        {
+         "l": "FALSE",
+         "t": "FALSE"
+        },
+        {
+         "l": "NOT GIVEN",
+         "t": "NOT GIVEN"
+        }
+       ]
+      },
+      {
+       "n": 7,
+       "stem": "It can be learned from other relevant experiences to use a photocopier.",
+       "opts": [
+        {
+         "l": "TRUE",
+         "t": "TRUE"
+        },
+        {
+         "l": "FALSE",
+         "t": "FALSE"
+        },
+        {
+         "l": "NOT GIVEN",
+         "t": "NOT GIVEN"
+        }
+       ]
+      },
+      {
+       "n": 8,
+       "stem": "Stripping the pine cones is an instinct of the black rats.",
+       "opts": [
+        {
+         "l": "TRUE",
+         "t": "TRUE"
+        },
+        {
+         "l": "FALSE",
+         "t": "FALSE"
+        },
+        {
+         "l": "NOT GIVEN",
+         "t": "NOT GIVEN"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 9–13",
+     "instr": "Complete the summary below using words from the box.<br><b>Word box:</b> less · more · observer · social · cacher · Jay · remembered · watched · nutcracker · solitary",
+     "lines": [
+      "While the Nutcracker is more able to cache seeds, the Jay relies {{9}} on caching food and is thus less specialised in this ability, but more {{10}}. To study their behaviour of caching and finding their caches, an experiment was designed and carried out to test these two birds for their ability to remember where they hid the seeds.",
+      "In the experiment, the cacher bird hid seeds in the ground while the other {{11}}. As a result, the Nutcracker and the Mexican Jay showed different performance in the role of {{12}} at finding the seeds – the observing {{13}} didn't do as well as its counterpart."
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Passage 2",
+   "qs": [
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+   ],
+   "passage": {
+    "title": "A New Ice Age",
+    "sub": "You should spend about 20 minutes on Questions 14–26.",
+    "paras": [
+     "William Curry is a serious, sober climate scientist, not an art critic. But he has spent a lot of time perusing Emanuel Gottlieb Leutze's famous painting \"George Washington Crossing the Delaware\", which depicts a boatload of colonial American soldiers making their way to attack English and Hessian troops the day after Christmas in 1776. \"Most people think these other guys in the boat are rowing, but they are actually pushing the ice away,\" says Curry, tapping his finger on a reproduction of the painting. Sure enough, the lead oarsman is bashing the frozen river with his boot. \"I grew up in Philadelphia. The place in this painting is 30 minutes away by car. I can tell you, this kind of thing just doesn't happen anymore.\"",
+     "But it may again soon. And ice-choked scenes, similar to those immortalised by the 16th-century Flemish painter Pieter Brueghel the Elder, may also return to Europe. His works, including the 1565 masterpiece \"Hunters in the Snow\", make the now-temperate European landscapes look more like Lapland. Such frigid settings were commonplace during a period dating roughly from 1300 to 1850 because much of North America and Europe was in the throes of a little ice age. And now there is mounting evidence that the chill could return. A growing number of scientists believe conditions are ripe for another prolonged cooldown, or small ice age. While no one is predicting a brutal ice sheet like the one that covered the Northern Hemisphere with glaciers about 12,000 years ago, the next cooling trend could drop average temperatures 5 degrees Fahrenheit over much of the United States and 10 degrees in the Northeast, northern Europe, and northern Asia.",
+     "\"It could happen in 10 years,\" says Terrence Joyce, who chairs the Woods Hole Physical Oceanography Department. \"Once it does, it can take hundreds of years to reverse.\" And he is alarmed that Americans have yet to take the threat seriously.",
+     "A drop of 5 to 10 degrees entails much more than simply bumping up the thermostat and carrying on. Both economically and ecologically, such quick, persistent chilling could have devastating consequences. A 2002 report titled \"Abrupt Climate Change: Inevitable Surprises\", produced by the National Academy of Sciences, pegged the cost from agricultural losses alone at $100 billion to $250 billion while also predicting that damage to ecologies could be vast and incalculable. A grim sampler: disappearing forests, increased housing expenses, dwindling fresh water, lower crop yields, and accelerated species extinctions.",
+     "The reason for such huge effects is simple. A quick climate change wreaks far more disruption than a slow one. People, animals, plants, and the economies that depend on them are like rivers; says the report: \"For example, high water in a river will pose few problems until the water runs over the bank, after which levees can be breached and massive flooding can occur. Many biological processes undergo shifts at particular thresholds of temperature and precipitation.\"",
+     "Political changes since the last ice age could make survival far more difficult for the world's poor. During previous cooling periods, whole tribes simply picked up and moved south, but that option doesn't work in the modern, tense world of closed borders. \"To the extent that abrupt climate change may cause rapid and extensive changes of fortune for those who live off the land, the inability to migrate may remove one of the major safety nets for distressed people,\" says the report.",
+     "But first things first. Isn't the earth actually warming? Indeed it is, says Joyce. In his cluttered office, full of soft light from the foggy Cape Cod morning, he explains how such warming could actually be the surprising culprit of the next mini-ice age. The paradox is a result of the appearance over the past 30 years in the North Atlantic of huge rivers of fresh water - the equivalent of a 10-foot-thick layer - mixed into the salty sea. No one is certain where the fresh torrents are coming from, but a prime suspect is melting Arctic ice, caused by a build-up of carbon dioxide in the atmosphere that traps solar energy.",
+     "The freshwater trend is major news in ocean-science circles. Bob Dickson, a British oceanographer who sounded an alarm at a February conference in Honolulu, has termed the drop in salinity and temperature in the Labrador Sea - a body of water between northeastern Canada and Greenland that adjoins the Atlantic - \"arguably the largest full-depth changes observed in the modern instrumental oceanographic record\".",
+     "The trend could cause a little ice age by subverting the northern penetration of Gulf Stream waters. Normally, the Gulf Stream, laden with heat soaked up in the tropics, meanders up the east coasts of the United States and Canada. As it flows northward, the stream surrenders heat to the air. Because the prevailing North Atlantic winds blow eastward, a lot of the heat wafts to Europe. That's why many scientists believe winter temperatures on the Continent are as much as 36 degrees Fahrenheit warmer than those in North America at the same latitude. Frigid Boston, for example, lies at almost precisely the same latitude as balmy Rome. And some scientists say the heat also warms Americans and Canadians. \"It's a real mistake to think of this solely as a European phenomenon,\" says Joyce.",
+     "Having given up its heat to the air, the now-cooler water becomes denser and sinks into the North Atlantic by a mile or more in a process oceanographers call thermohaline circulation. This massive column of cascading cold is the main engine powering a deep-water current called the Great Ocean Conveyor that snakes through all the world's oceans. But as the North Atlantic fills with fresh water, it grows less dense, making the waters carried northward by the Gulf Stream less able to sink. The new mass of relatively fresh water sits on top of the ocean like a big thermal blanket, threatening the thermohaline circulation. That in turn could make the Gulf Stream slow or veer southward. At some point, the whole system could simply shut down, and do so quickly. \"There is increasing evidence that we are getting closer to a transition point, from which we can jump to a new state.\""
+    ]
+   },
+   "groups": [
+    {
+     "title": "Questions 14–17",
+     "instr": "Choose the correct letter, <b>A, B, C</b> or <b>D</b>.",
+     "questions": [
+      {
+       "n": 14,
+       "stem": "The writer uses paintings in the first paragraph to illustrate",
+       "opts": [
+        {
+         "l": "A",
+         "t": "possible future climate change."
+        },
+        {
+         "l": "B",
+         "t": "climate change of the last two centuries."
+        },
+        {
+         "l": "C",
+         "t": "the river doesn't freeze in winter anymore."
+        },
+        {
+         "l": "D",
+         "t": "how George Washington led his troops across the river."
+        }
+       ]
+      },
+      {
+       "n": 15,
+       "stem": "Which of the following do scientists believe to be possible?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "The temperature may drop over much of the Northern Hemisphere."
+        },
+        {
+         "l": "B",
+         "t": "It will be colder than 12,000 years ago."
+        },
+        {
+         "l": "C",
+         "t": "The entire Northern Hemisphere will be covered in ice."
+        },
+        {
+         "l": "D",
+         "t": "Europe will look more like Lapland."
+        }
+       ]
+      },
+      {
+       "n": 16,
+       "stem": "Why is it difficult for the poor to survive the next ice age?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "People don't live in tribes anymore."
+        },
+        {
+         "l": "B",
+         "t": "Politics are changing too fast today."
+        },
+        {
+         "l": "C",
+         "t": "Abrupt climate change causes people to live off their land."
+        },
+        {
+         "l": "D",
+         "t": "Migration has become impossible because of closed borders."
+        }
+       ]
+      },
+      {
+       "n": 17,
+       "stem": "Why is continental Europe much warmer than North America in winter?",
+       "opts": [
+        {
+         "l": "A",
+         "t": "Wind blows most of the heat of tropical currents to Europe."
+        },
+        {
+         "l": "B",
+         "t": "Europe and North America are at different latitudes."
+        },
+        {
+         "l": "C",
+         "t": "The Gulf Stream has stopped yielding heat to the air."
+        },
+        {
+         "l": "D",
+         "t": "The Gulf Stream moves north along the east coast of North America."
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 18–22",
+     "instr": "Look at the following statements (Questions 18–22) and the list of people below. Match each statement with the correct person, <b>A–D</b>.<br><b>NB</b> You may use any letter <b>more than once</b>.",
+     "questions": [
+      {
+       "n": 18,
+       "stem": "Most Americans are not prepared for the next ice age.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "William Curry"
+        },
+        {
+         "l": "B",
+         "t": "Terrence Joyce"
+        },
+        {
+         "l": "C",
+         "t": "Bob Dickson"
+        },
+        {
+         "l": "D",
+         "t": "National Academy of Sciences"
+        }
+       ]
+      },
+      {
+       "n": 19,
+       "stem": "The result of abrupt climate change is catastrophic.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "William Curry"
+        },
+        {
+         "l": "B",
+         "t": "Terrence Joyce"
+        },
+        {
+         "l": "C",
+         "t": "Bob Dickson"
+        },
+        {
+         "l": "D",
+         "t": "National Academy of Sciences"
+        }
+       ]
+      },
+      {
+       "n": 20,
+       "stem": "The world is not as cold as it used to be.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "William Curry"
+        },
+        {
+         "l": "B",
+         "t": "Terrence Joyce"
+        },
+        {
+         "l": "C",
+         "t": "Bob Dickson"
+        },
+        {
+         "l": "D",
+         "t": "National Academy of Sciences"
+        }
+       ]
+      },
+      {
+       "n": 21,
+       "stem": "Global warming is closely connected to the ice age.",
+       "opts": [
+        {
+         "l": "A",
+         "t": "William Curry"
+        },
+        {
+         "l": "B",
+         "t": "Terrence Joyce"
+        },
+        {
+         "l": "C",
+         "t": "Bob Dickson"
+        },
+        {
+         "l": "D",
+         "t": "National Academy of Sciences"
+        }
+       ]
+      },
+      {
+       "n": 22,
+       "stem": "Alerted people to the change of ocean water in a conference",
+       "opts": [
+        {
+         "l": "A",
+         "t": "William Curry"
+        },
+        {
+         "l": "B",
+         "t": "Terrence Joyce"
+        },
+        {
+         "l": "C",
+         "t": "Bob Dickson"
+        },
+        {
+         "l": "D",
+         "t": "National Academy of Sciences"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 23–26",
+     "instr": "Complete the flow chart below. Choose <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.",
+     "lines": [
+      "Tropical warm water → less {{23}}",
+      "→ Water becomes {{24}} and sinks → Thermohaline circulation",
+      "→ Deep ocean current called {{25}}",
+      "Increase in {{26}} → less dense, hard to sink → stays on top",
+      "→ Gulf Stream slows or shuts down"
+     ]
+    }
+   ]
+  },
+  {
+   "label": "Passage 3",
+   "qs": [
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40
+   ],
+   "passage": {
+    "title": "The Fruit Book",
+    "sub": "You should spend about 20 minutes on Questions 27–40.",
+    "paras": [
+     "<i>It's not every scientist who writes books for people who can't read. And how many scientists want their books to look as dog-eared as possible? But Patricia Shanley, an ethnobotanist, wanted to give something back. After the poorest people of the Amazon allowed her to study their land and its ecology, she turned her research findings into a picture book that tells the local people how to get a good return on their trees without succumbing to the lure of a quick buck from a logging company. It has proved a big success.</i>",
+     "<b>A</b> The book is called Fruit Trees and Useful Plants in the Lives of Amazonians, but is better known simply as the \"fruit book\". The second edition was produced at the request of politicians in western Amazonia. Its blend of hard science and local knowledge on the use and trade of 35 native forest species has been so well received (and well used) that no less a dignitary than Brazil's environment minister, Marina Silva, has written the foreword. \"There is nothing else like the Shanley book,\" says Adalberto Verrisimo, director of the Institute of People and the Environment of the Amazon. \"It gives science back to the poor, to the people who really need it.\"",
+     "<b>B</b> Shanley's work on the book began a decade ago, with a plea for help from the Rural Workers' Union of Paragominas, a Brazilian town whose prosperity is based on exploitation of timber. The union realised that logging companies would soon be knocking on the doors of the caboclos, peasant farmers living on the Rio Capim, an Amazon tributary in the Brazilian state of Para. Isolated and illiterate, the caboclos would have little concept of the true value of their trees; communities downstream had already sold off large blocks of forest for a pittance. \"What they wanted to know was how valuable the forests were,\" recalls Shanley, then a researcher in the area for the Massachusetts-based Woods Hole Research Centre.",
+     "<b>C</b> The Rural Workers' Union wanted to know whether harvesting wild fruits would make economic sense in the Rio Capim. \"There was a lot of interest in trading non-timber forest products (NTFPs),\" Shanley says. At the time, environmental groups and green-minded businesses were promoting the idea. This was the view presented in a seminal paper, Valuation of an Amazonian Rainforest, published in Nature in 1989. The researchers had calculated that revenues from the sale of fruits could far exceed those from a one-off sale of trees to loggers. \"The union was keen to discover whether it made more sense conserving the forest for subsistence use and the possible sale of fruit, game and medicinal plants, than selling trees for timber,\" says Shanley. Whether it would work for the caboclos was far from clear.",
+     "<b>D</b> Although Shanley had been invited to work in the Rio Capim, some caboclos were suspicious. \"When Patricia asked if she could study my forest,\" says Joao Fernando Moreira Brito, \"my neighbours said she was a foreigner who'd come to rob me of my trees.\" In the end, Moreira Brito, or Mangueira as he is known, welcomed Shanley and worked on her study. His land, an hour's walk from the Rio Capim, is almost entirely covered with primary forest. A study of this and other tracts of forest selected by the communities enabled Shanley to identify three trees, found throughout the Amazon, whose fruit was much favoured by the caboclos: bacuri (Platonia insignis), uxi (Endopleura uchi) and piquia (Cayocas villosum). The caboclos used their fruits, extracted oils, and knew what sort of wildlife they attracted. But, in the face of aggressive tactics from the logging companies, they had no measure of the trees' financial worth. The only way to find out, Shanley decided, was to start from scratch with a scientific study. \"From a scientific point of view, hardly anything was known about these trees,\" she says. But six years of field research yielded a mass of data on their flowering and fruiting behaviour. During 1993 and 1994, 30 families weighed everything they used from the forest - game, fruit, fibre, medicinal plants - and documented its source.",
+     "<b>E</b> After three logging sales and a major fire in 1997, the researchers were also able to study the ecosystem's reaction to logging and disturbance. They carried out a similar, though less exhaustive, study in 1999, this time with 15 families. The changes were striking. Average annual household consumption of forest fruit had fallen from 89 to 28 kilogrammes between 1993 and 1999. \"What we found,\" says Shanley, \"was that fruit collection could coexist with a certain amount of logging, but after the forest fire, it dropped dramatically.\" Over the same period, fibre use also dropped from around 20 to 4 kilogrammes. The fire and logging also changed the nature of the caboclo diet. In 1993 most households ate game two or three times a month. By 1999 some were fortunate if they ate game more than two or three times a year.",
+     "<b>F</b> The loss of certain species of tree was especially significant. Shanley's team persuaded local hunters to weigh their catch, noting the trees under which the animals were caught. Over the year, they trapped five species of game averaging 232 kilogrammes under piquia trees. Under copaiba, they caught just two species averaging 63 kilogrammes; and under uxi, four species weighing 38 kilogrammes. At last, the team was getting a handle on which trees were worth keeping, and which could reasonably be sold. \"This showed that selling piquia trees to loggers for a few dollars made little sense,\" explains Shanley. \"Their local value lies in providing a prized fruit, as well as flowers which attract more game than any other species.\"",
+     "<b>G</b> As a result of these studies, Shanley had to tell the Rural Workers' Union of Paragominas that the Nature thesis could not be applied wholesale to their community - harvesting NTFPs would not always yield more than timber sales. Fruiting patterns of trees such as uxi were unpredictable, for example. In 1994, one household collected 3,654 uxi fruits; the following year, none at all.",
+     "<b>H</b> This is not to say that wild fruit trees were unimportant. On the contrary, argues Shanley, they are critical for subsistence, something that is often ignored in much of the current research on NTFPs, which tends to focus on their commercial potential. Geography was another factor preventing the Rio Capim caboclos from establishing a serious trade in wild fruit: villagers in remote areas could not compete with communities collecting NTFPs close to urban markets, although they could sell them to passing river boats.",
+     "<b>I</b> But Shanley and her colleagues decided to do more than just report their results to the union. Together with two of her research colleagues, Shanley wrote the fruit book. This, the Bible and a publication on medicinal plants co-authored by Shanley and designed for people with minimal literacy skills are about the only books you will see along this stretch of the Rio Capim. The first print ran to only 3,000 copies, but the fruit book has been remarkably influential, and is used by colleges, peasant unions, industries and the caboclos themselves. Its success is largely due to the fact that people with poor literacy skills can understand much of the information it contains about the non-timber forest products, thanks to its illustrations, anecdotes, stories and songs. \"The book doesn't tell people what to do,\" says Shanley, \"but it does provide them with choices.\" The caboclos who have used the book now have a much better understanding of which trees to sell to the loggers, and which to protect."
+    ]
+   },
+   "groups": [
+    {
+     "title": "Questions 27–32",
+     "instr": "Reading Passage 3 has nine paragraphs, <b>A–I</b>. Which paragraph contains the following information? Choose the correct letter, <b>A–I</b>.",
+     "questions": [
+      {
+       "n": 27,
+       "stem": "A description of Shanley's initial data collection",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      },
+      {
+       "n": 28,
+       "stem": "Why a government official also contributes to the book",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      },
+      {
+       "n": 29,
+       "stem": "Reasons why the community asked Shanley to conduct the research",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      },
+      {
+       "n": 30,
+       "stem": "Reference to the starting point of her research",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      },
+      {
+       "n": 31,
+       "stem": "Two factors that alter food consumption patterns",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      },
+      {
+       "n": 32,
+       "stem": "Why the book is successful",
+       "opts": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Questions 33–40",
+     "instr": "Complete the summary below. Choose <b>NO MORE THAN THREE WORDS</b> from the passage for each answer.",
+     "lines": [
+      "<b>Forest fire has caused local villagers to consume less:</b>",
+      "• {{33}}",
+      "• {{34}}",
+      "• game",
+      "There is the least amount of game hunted under {{35}}, whose yield is also {{36}}. Thus, it is more reasonable to keep {{37}}.",
+      "All the trees can also be used for {{38}} besides selling them to loggers. But this is often ignored, because most researches usually focus on the {{39}} of the trees.",
+      "<b>The purpose of the book:</b>",
+      "To give information about {{40}}."
+     ]
+    }
+   ]
+  }
+ ]
+}

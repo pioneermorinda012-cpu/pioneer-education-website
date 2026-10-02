@@ -1,0 +1,262 @@
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "5": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "9": {
+  "accept": [
+   "less"
+  ],
+  "display": "less"
+ },
+ "10": {
+  "accept": [
+   "social"
+  ],
+  "display": "social"
+ },
+ "11": {
+  "accept": [
+   "watched"
+  ],
+  "display": "watched"
+ },
+ "12": {
+  "accept": [
+   "observer"
+  ],
+  "display": "observer"
+ },
+ "13": {
+  "accept": [
+   "nutcracker"
+  ],
+  "display": "nutcracker"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "heat"
+  ],
+  "display": "heat"
+ },
+ "24": {
+  "accept": [
+   "denser"
+  ],
+  "display": "denser"
+ },
+ "25": {
+  "accept": [
+   "Great Ocean Conveyor",
+   "the Great Ocean Conveyor"
+  ],
+  "display": "Great Ocean Conveyor"
+ },
+ "26": {
+  "accept": [
+   "fresh water",
+   "freshwater"
+  ],
+  "display": "fresh water"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "32": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "33": {
+  "accept": [
+   "fruit",
+   "forest fruit",
+   "fibre",
+   "fiber"
+  ],
+  "display": "(forest) fruit / fibre  (Q33–34, any order)",
+  "pool": [
+   "33",
+   "34"
+  ]
+ },
+ "34": {
+  "accept": [
+   "fibre",
+   "fiber",
+   "fruit",
+   "forest fruit"
+  ],
+  "display": "(forest) fruit / fibre  (Q33–34, any order)",
+  "pool": [
+   "33",
+   "34"
+  ]
+ },
+ "35": {
+  "accept": [
+   "uxi"
+  ],
+  "display": "uxi"
+ },
+ "36": {
+  "accept": [
+   "unpredictable"
+  ],
+  "display": "unpredictable"
+ },
+ "37": {
+  "accept": [
+   "piquia",
+   "piquia trees"
+  ],
+  "display": "piquia (trees)"
+ },
+ "38": {
+  "accept": [
+   "subsistence"
+  ],
+  "display": "subsistence"
+ },
+ "39": {
+  "accept": [
+   "commercial potential"
+  ],
+  "display": "commercial potential"
+ },
+ "40": {
+  "accept": [
+   "non-timber forest products",
+   "NTFPs",
+   "NTFP",
+   "non timber forest products"
+  ],
+  "display": "non-timber forest products / NTFPs"
+ }
+}
