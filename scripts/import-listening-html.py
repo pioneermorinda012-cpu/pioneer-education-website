@@ -350,6 +350,11 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
         "sections": sections,
         "mediaUrls": media,
         "audioFile": up.name,
+        # The test page reads its heading from here; without it the page
+        # crashed with "reading 'skillLabel'" for every converted paper.
+        "catalogue": {"id": tid, "skill": "AL", "skillLabel": "Academic Listening",
+                      "set": re.match(r"[a-z]+\d*", tid).group(0).upper(),
+                      "label": label, "order": int(re.search(r"(\d+)$", tid).group(1))},
     }
     (root / "content" / "tests" / f"{tid}.json").write_text(json.dumps(test, ensure_ascii=False), encoding="utf8")
     key = build_key(answer_key)

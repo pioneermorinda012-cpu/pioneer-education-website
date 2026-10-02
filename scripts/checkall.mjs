@@ -54,6 +54,8 @@ for (const entry of catalogue) {
   if (!exists(`content/tests/${id}.json`)) { fail(id, "paper file missing"); continue; }
   if (!exists(`content/keys/${id}.json`)) { fail(id, "key file missing"); continue; }
   const test = read(`content/tests/${id}.json`);
+  // the test page reads its heading from here; without it the page crashes
+  if (!test.catalogue?.skillLabel) fail(id, "no catalogue block (the test page would crash)");
   const key = read(`content/keys/${id}.json`);
   const keyed = entry.keyed !== false;
   const nKey = Object.keys(key).length;
