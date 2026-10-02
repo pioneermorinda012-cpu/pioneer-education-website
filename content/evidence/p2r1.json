@@ -2,110 +2,278 @@
  "1": {
   "s": 0,
   "t": [
-   "scientists"
+   "Only in the past century or two has it become possible to make a living from investigating the workings of nature."
   ],
   "k": "exact"
  },
  "2": {
   "s": 0,
   "t": [
-   "science"
+   "Today, science is an increasingly specialized and compartmentalized subject, the domain of experts"
   ],
   "k": "exact"
  },
  "3": {
   "s": 0,
   "t": [
-   "fields"
+   "amateurs are actively involved in such fields as acoustics, horticulture, ornithology, meteorology, hydrology and palaeontology"
   ],
   "k": "exact"
  },
  "4": {
   "s": 0,
   "t": [
-   "collaboration"
+   "some of whom rely heavily on their co-operation"
   ],
   "k": "exact"
  },
  "5": {
   "s": 0,
   "t": [
-   "observations"
+   "This makes special kinds of observations possible"
   ],
   "k": "exact"
  },
  "6": {
   "s": 0,
   "t": [
-   "dinosaurs"
+   "because of the near universal interest in anything to do with dinosaurs"
   ],
   "k": "exact"
  },
  "7": {
   "s": 0,
   "t": [
-   "conservation programme"
+   "prompting a habitat conservation programme"
   ],
   "k": "exact"
  },
  "8": {
   "s": 0,
   "t": [
-   "acknowledge"
+   "how professionals can best acknowledge the contributions made by amateurs"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "volunteers learn about science, a process he calls ‘recreational education’"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "most amateur chemists, jokes Dr Fienberg, are either locked up or have blown themselves to bits"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "professionals who believe science should remain their exclusive preserve"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "the best sensors for finding fossils are human eyes – lots of them"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "Mr Bonney has coined the term ‘citizen scientist’ because he felt that other words, such as ‘volunteer’ sounded disparaging"
   ],
   "k": "exact"
  },
  "14": {
   "s": 1,
   "t": [
-   "The debate surrounding literacy is one of the most charged in education."
+   "These studies argue that literacy can only be understood in its social and technical context."
   ],
-  "k": "near"
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "On the other hand, it is also the case that ever-increasing numbers of people make their living out of writing"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "unless they are properly integrated into the educational culture, they will stand unused"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "But the new media joined to the old, through the public service tradition of British broadcasting, now makes our literary tradition available to all."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "doesn’t readily demonstrate the simple distinction between literate and illiterate"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "it is doubtful whether a fully extended grasp of either is as necessary as it was 30 or 40 years ago"
+  ],
+  "k": "exact"
  },
  "20": {
   "s": 1,
   "t": [],
   "k": "none"
  },
+ "21": {
+  "s": 1,
+  "t": [
+   "which is better rewarded than ever before"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "you certainly need to be able to read and write in order to make programmes"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "The computer has re-established a central place for the written word on the screen"
+  ],
+  "k": "exact"
+ },
  "24": {
   "s": 1,
   "t": [
-   "manuscript"
+   "those who could manage the more difficult task of reading manuscript"
   ],
   "k": "exact"
  },
  "25": {
   "s": 1,
   "t": [
-   "the tabloid newspapers"
+   "you only need to compare the tabloid newspapers of today with those of 50 years ago"
   ],
   "k": "exact"
  },
  "26": {
   "s": 1,
   "t": [
-   "shopping lists"
+   "the only use for writing, outside formal education, is the compilation of shopping lists"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "The invention of the automobile created an irresistible demand"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "He rejected the complex mathematical analysis of loads and stresses"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "His crucial innovation was incorporating the bridge’s arch and roadway into a form called the hollow-box arch"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "But the Tavanasa Bridge gained little favourable publicity in Switzerland"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "the leading authorities of Swiss engineering would argue against his methods for the next quarter of a century"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "His best-known structure is the Salginatobel Bridge"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "Maillart’s hollow-box arch became the dominant design form"
   ],
   "k": "exact"
  },
  "34": {
   "s": 2,
   "t": [
-   "columns"
+   "In a conventional arch bridge the weight of the roadway is transferred by columns to the arch"
   ],
   "k": "exact"
  },
  "35": {
   "s": 2,
   "t": [
-   "vertical walls"
+   "connected by three vertical walls"
   ],
   "k": "exact"
  },
  "36": {
   "s": 2,
   "t": [
-   "hollow boxes"
+   "forming two hollow boxes running under the roadway"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "which would substantially reduce the bridge’s expense by minimising the amount of concrete needed"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "was unable to win any more bridge projects"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "For aesthetic reasons, Maillart wanted a thinner arch"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "it had the most dramatic setting of all his structures"
   ],
   "k": "exact"
  }

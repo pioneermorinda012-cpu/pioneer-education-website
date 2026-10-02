@@ -1,22 +1,225 @@
 {
+ "1": {
+  "s": 0,
+  "t": [
+   "They have parties – where books are a good present."
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "‘Harry made it OK to be seen on a bus reading a book,’"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "‘Some feted adult writers would kill for the sales,’"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "‘If they don’t get it in two pages, they’ll drop it.’"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "children are loyal and even fanatical consumers"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "Children don’t read nowadays"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "‘Children’s books are going through an incredibly fertile period,’"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "The main growth area has been the market for eight to fourteen-year-olds"
+  ],
+  "k": "exact"
+ },
  "9": {
   "s": 0,
   "t": [
-   "Orion"
+   "UK publishing outfit Orion recently negotiated a six-figure sum"
   ],
   "k": "exact"
  },
  "10": {
   "s": 0,
   "t": [
-   "If they like something, they have to pass it on.’ After Rowling, Wilson is currently the best-selling children’s writer, and her sales have boomed over the past three years."
+   "After Rowling, Wilson is currently the best-selling children’s writer"
   ],
-  "k": "near"
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "they ask me very sophisticated questions about use of language, story structure, chapters and dialogue"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "is concerned that the British literati still ignore children’s culture"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "the boom has been fuelled by the bespectacled apprentice, Harry Potter"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 0,
+  "t": [
+   "doom merchants were predicting that the growth in video games and the rise of the Internet would sound the death knell for children’s literature"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "Are you better off than you used to be?"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "looks at the living-standards debate from an unusual direction"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "The share of a family’s budget that was spent on having fun rose sharply with its income"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "the share of the family budget spent on leisure now rises much less sharply with income than it used to"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "Public investment in sports complexes, parks and golf courses has made leisure cheaper and more accessible."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "Ms Costa’s research gives it a much more egalitarian face"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "These findings are not water-tight."
+  ],
+  "k": "exact"
  },
  "22": {
   "s": 1,
   "t": [
-   "income levels"
+   "Measuring how much people earn is relatively easy, at least compared with measuring how well they live."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "By 1991, the average household needed to devote only 38% of its income to the basic necessities"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "Much of the rest may be due to the fact that poorer Americans have more time off than they used to."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "many economists are pointing accusing fingers at technology"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "Ms Costa’s results depend heavily upon what exactly is classed as a recreational expenditure."
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 1,
+  "t": [
+   "Nonetheless, her broad conclusion seems fair."
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "The organisational context of health and healing was structured to a degree that had no precedence"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "They were remunerated in accordance with the number of cures they had effected during the past year."
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "The Tang legal code was the first in China to include laws concerned with harmful and heterodox medical practices."
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "to train students in one or all of the four departments"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "prescriptions from the emperor’s formulary were publicised on notice boards at crossroads to enhance the welfare of the population"
   ],
   "k": "exact"
  },
@@ -24,6 +227,20 @@
   "s": 2,
   "t": [],
   "k": "none"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "had to be tried in accordance with the legal statutes on theft"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "their contents ranging from purely pragmatic advice to highly sophisticated theoretical considerations"
+  ],
+  "k": "exact"
  },
  "36": {
   "s": 2,
@@ -33,28 +250,28 @@
  "37": {
   "s": 2,
   "t": [
-   "Sun Simiao was the first Chinese author known to compose an elaborate medical ethical code."
+   "They reflect the Indian origin of much Chinese knowledge on ailments of the eye"
   ],
-  "k": "near"
+  "k": "exact"
  },
  "38": {
   "s": 2,
   "t": [
-   "2nd century BC"
+   "continuing a literary tradition documented since the 2nd century BC"
   ],
   "k": "exact"
  },
  "39": {
   "s": 2,
   "t": [
-   "prescriptions"
+   "physicians relied on prescriptions and single substances"
   ],
   "k": "exact"
  },
  "40": {
   "s": 2,
   "t": [
-   "Sun Simiao"
+   "Sun Simiao was the first Chinese author known to compose an elaborate medical ethical code."
   ],
   "k": "exact"
  }

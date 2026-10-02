@@ -1,106 +1,274 @@
 {
+ "1": {
+  "s": 0,
+  "t": [
+   "To protect their livelihood, the farmers built a wire fence"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "say that such a barrier would never be allowed today on ecological grounds"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "To appreciate this unusual outback monument and to meet the people whose livelihoods depend on it"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "For most of its prodigious length, this epic fence winds like a river"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "It’s known by different names in different states"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "inflicting several millions of dollars of damage a year despite the presence of the world’s most obsessive fence"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "is an introduced species of wild dog"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "since sheep arrived in Australia, dingo numbers have increased a hundredfold"
+  ],
+  "k": "exact"
+ },
  "9": {
   "s": 0,
   "t": [],
   "k": "none"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "without a native predator the kangaroo population has exploded inside the Fence"
+  ],
+  "k": "exact"
  },
  "11": {
   "s": 0,
   "t": [],
   "k": "none"
  },
+ "12": {
+  "s": 0,
+  "t": [
+   "Dingoes officially became outlaws in 1830"
+  ],
+  "k": "exact"
+ },
  "13": {
   "s": 0,
   "t": [
-   "Park officials, who recognise that the fence is to blame, respond to the excess of kangaroos by saying ‘The fence is there, and we have to live with it.’"
+   "‘The fence is there, and we have to live with it.’"
   ],
-  "k": "near"
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "It rapidly became the hottest marketing tag a holiday could carry."
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "the original motives behind the movement were honourable"
+  ],
+  "k": "exact"
  },
  "16": {
   "s": 1,
   "t": [],
   "k": "none"
  },
+ "17": {
+  "s": 1,
+  "t": [
+   "It is easier to understand why the ecotourism market has become so overcrowded"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "many travellers usually take an operator’s claims at face value"
+  ],
+  "k": "exact"
+ },
  "19": {
   "s": 1,
   "t": [],
   "k": "none"
  },
+ "20": {
+  "s": 1,
+  "t": [
+   "a non-profit organisation of travel industry, conservation and ecological professionals"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "TES organises an annual initiative"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "has established a register of approved ecotourism operators around the world"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "The scheme is now an independent concern"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "The scheme also allows destination communities to become Green Globe 21 approved."
+  ],
+  "k": "exact"
+ },
  "25": {
   "s": 1,
   "t": [
-   "World Tourism Organisation"
+   "According to World Tourism Organisation figures"
   ],
   "k": "exact"
  },
  "26": {
   "s": 1,
   "t": [
-   "city entrepreneurs"
+   "It is common for city entrepreneurs to own tour companies in country areas"
   ],
   "k": "exact"
  },
  "27": {
   "s": 1,
   "t": [
-   "1992 Earth Summit"
+   "contained in Agenda 21 from the 1992 Earth Summit"
   ],
   "k": "exact"
  },
  "28": {
   "s": 2,
   "t": [
-   "ability"
+   "is a prized musical talent"
   ],
   "k": "exact"
  },
  "29": {
   "s": 2,
   "t": [
-   "note"
+   "ability to name a solitary note out of the blue"
   ],
   "k": "exact"
  },
  "30": {
   "s": 2,
   "t": [
-   "relative"
+   "This is relative pitch."
   ],
   "k": "exact"
  },
  "31": {
   "s": 2,
   "t": [
-   "music lessons"
+   "whether absolute pitch depends on melodious genes – or early music lessons"
   ],
   "k": "exact"
  },
  "32": {
   "s": 2,
   "t": [
-   "tone"
+   "speakers of tone languages use it every day"
   ],
   "k": "exact"
  },
  "33": {
   "s": 2,
   "t": [
-   "words"
+   "to read out lists of words on different days"
   ],
   "k": "exact"
  },
  "34": {
   "s": 2,
   "t": [
-   "pitch"
+   "compared the pitches used by each person to say each word"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "‘There’s a distinct cultural difference,’"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "‘Absolute pitch is not an all or nothing feature,’ says Marvin"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "Deutsch reported a study that suggests we all have the potential to acquire absolute pitch"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "the real mystery is why we don’t all have absolute pitch"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "the right genes help create this brand of musical genius"
   ],
   "k": "exact"
  },
  "40": {
   "s": 2,
   "t": [
-   "For one thing, those with absolute pitch started lessons, on average, when they were five years old, while those without absolute pitch started around the age of eight."
+   "Gregersen says that the type and timing of music lessons probably explains much of the difference"
   ],
-  "k": "near"
+  "k": "exact"
  }
 }

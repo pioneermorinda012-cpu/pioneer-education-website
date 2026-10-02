@@ -1,49 +1,280 @@
 {
+ "1": {
+  "s": 0,
+  "t": [
+   "rather than take responsibility for their weight"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "overweight people actually burn off more energy"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "researchers were able to show her that her metabolism was not the culprit"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "we are on the threshold of a complete change in the way we view"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "the only effective way for the vast majority of overweight and obese people to lose weight is a change of diet and an increase in exercise"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "many caused severe side effects and even death in some patients"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "sent science in a new direction by studying an obese mouse"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "leptin deficiency turned out to be an extremely rare condition"
+  ],
+  "k": "exact"
+ },
  "9": {
   "s": 0,
   "t": [
-   "metabolism"
+   "the excuse that they have a slow metabolism"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "they gain weight because their bodies break down food and turn it into energy more slowly"
   ],
   "k": "exact"
  },
  "11": {
   "s": 0,
   "t": [
-   "genetic"
+   "obesity can be caused by our genes"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "responsible for things such as how much we eat"
   ],
   "k": "exact"
  },
  "13": {
   "s": 0,
   "t": [
-   "behaviour"
+   "research and treatment for obesity had concentrated on behaviour modification"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "New technologies always contain within them both threats and opportunities."
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "Eventually it will change every aspect of it"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "each has been accompanied by a period of fear mixed with exhilaration"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "They saw what happened to those of their predecessors who were stuck with one form of distribution."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "but not at a price that people were prepared to pay"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "What nobody is sure of is how it will affect the economics of the business."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "But they also faced a tighter regulatory environment than the present one."
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "It remains to be seen whether the latest technology will weaken those great companies"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "you find publishers complaining that ‘circulating libraries’ would cannibalise their sales"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "It happened to the oil and automotive businesses earlier this century"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "MGM, once the roaring lion of Hollywood, has been reduced to a whisper"
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "In 1992, John Malone, chief executive of TCI"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "Hollywood was hostile to television, television terrified by the VCR."
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 1,
+  "t": [
+   "prompted the smarter companies in the entertainment business to re-invent themselves"
   ],
   "k": "exact"
  },
  "28": {
   "s": 2,
   "t": [
-   "intelligence"
+   "eclipsed by the advent of IQ tests"
   ],
   "k": "exact"
  },
  "29": {
   "s": 2,
   "t": [
-   "multifaceted approach"
+   "using a multifaceted approach"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "friendly sibling rivalry was not seen as a particular problem"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "where following a calling appears to be important"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "so are in less of a hurry to achieve for themselves"
   ],
   "k": "exact"
  },
  "33": {
   "s": 2,
   "t": [
-   "Different strains of rats show great differences in intelligence or ‘rat reasoning’."
+   "But if the environment is made dull and boring the number of errors becomes equal."
   ],
-  "k": "near"
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "there always needs to be someone who sets the family career in motion, as in the case of the Sheen acting dynasty"
+  ],
+  "k": "exact"
  },
  "35": {
   "s": 2,
   "t": [],
   "k": "none"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "Their creative talents may be undervalued and so never come to fruition."
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "This last point – luck – is often not mentioned where talent is concerned"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "did not necessarily view himself as a genius"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "without the new computer age dawning at the same time he may never have achieved"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "Two themes seem to run through famously creative families"
+  ],
+  "k": "exact"
  }
 }

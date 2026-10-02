@@ -1,15 +1,162 @@
 {
+ "1": {
+  "s": 0,
+  "t": [
+   "the short-sighted, selfish policies"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "an oil tanker accidentally discharging its cargo straight into Sydney Harbour"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "Try not to inhale traffic fumes; keep away from chemical plants and building-sites; wear a mask when cycling."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "Dr Corsi wondered whether they stay there when water is used, or whether they end up in the air that people breathe."
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "when there is as much or more cause for concern indoors"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "welcome international debate about this"
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "encourage a minority of the world’s population to squander the majority of its natural resources"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "left the angry residents wondering how such a disaster could have been allowed to happen"
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "it is to bring a sense of perspective to the debate about pollution"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "the high-temperature spray, splashing against the crockery and cutlery, results in a nasty plume of toxic chemicals"
+  ],
+  "k": "exact"
+ },
  "11": {
   "s": 0,
   "t": [
-   "This is significant because many people are so concerned about water-borne pollutants that they drink only bottled water, worldwide sales of which are forecast to reach $72 billion by next year."
+   "many people are so concerned about water-borne pollutants that they drink only bottled water"
   ],
-  "k": "near"
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "frequently contain levels of carbon dioxide"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "‘New car smell’ is the result of high levels of toxic chemicals, not cleanliness."
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "whose creeping ubiquity has removed much human drudgery"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "far greater precision than highly skilled physicians can achieve"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "researchers lately have extended their forecasts by decades if not centuries"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "The most advanced computer systems on Earth can’t approach that kind of ability"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "One method renounces the linear, logical structure of conventional electronic circuits"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "The researchers’ goal is to create robots that people feel comfortable around."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "Such is the scope of uses envisioned by Karel Capek"
+  ],
+  "k": "exact"
  },
  "21": {
   "s": 1,
   "t": [],
   "k": "none"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "They have built robots that can recognise the misalignment of a machine panel by a fraction of a millimeter"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "neuroscientists still don’t know quite how we do it"
+  ],
+  "k": "exact"
  },
  "24": {
   "s": 1,
@@ -19,21 +166,42 @@
  "25": {
   "s": 1,
   "t": [
-   "video camera"
+   "with a video camera imbedded in the left eye"
   ],
   "k": "exact"
  },
  "26": {
   "s": 1,
   "t": [
-   "database"
+   "It compares those configurations with a database of standard facial expressions"
   ],
   "k": "exact"
  },
  "27": {
   "s": 1,
   "t": [
-   "tiny pressure pads"
+   "uses an ensemble of tiny pressure pads"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "But what is happening today is extraordinary, judged by the standards of the past."
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "In the course of the past two or three decades, linguists all over the world have been gathering comparative data."
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "if a language has less than 100 speakers. It is not likely to last very long."
   ],
   "k": "exact"
  },
@@ -41,5 +209,68 @@
   "s": 2,
   "t": [],
   "k": "none"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "where the community is too busy just trying to survive to care about their language"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [
+   "The community itself must want to save its language."
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "getting linguists into the field, training local analysts"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "writing materials for use in schools"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "after the islanders received a measure of autonomy from Denmark"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "new government policies brought fresh attitudes and a positive interest in survival"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "a domestic setting in which they are intensively exposed to the language"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "the creation in the 1980s of a unified written language for all these dialects"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "but had been quite well documented"
+  ],
+  "k": "exact"
  }
 }
