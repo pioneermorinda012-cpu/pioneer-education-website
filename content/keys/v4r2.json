@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "2": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "3": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "stonemason",
+   "skilled stonemason",
+   "a skilled stonemason",
+   "stone mason"
+  ],
+  "display": "(skilled) stonemason"
+ },
+ "9": {
+  "accept": [
+   "gian giorgio trissino",
+   "trissino"
+  ],
+  "display": "Gian Giorgio Trissino"
+ },
+ "10": {
+  "accept": [
+   "inigo jones"
+  ],
+  "display": "Inigo Jones"
+ },
+ "11": {
+  "accept": [
+   "temple",
+   "temple architecture"
+  ],
+  "display": "temple (architecture)"
+ },
+ "12": {
+  "accept": [
+   "quattro libri dell' architettura",
+   "quattro libri dell'architettura",
+   "quattro libri dell architettura",
+   "quattro libri",
+   "a text"
+  ],
+  "display": "Quattro Libri dell' Architettura"
+ },
+ "13": {
+  "accept": [
+   "benevolent calm"
+  ],
+  "display": "benevolent calm"
+ },
+ "14": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "15": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "16": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "17": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "18": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "19": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "20": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "21": {
+  "accept": [
+   "equal opportunity"
+  ],
+  "display": "equal opportunity"
+ },
+ "22": {
+  "accept": [
+   "internal costs"
+  ],
+  "display": "internal costs"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "31": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "37": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ }
+}

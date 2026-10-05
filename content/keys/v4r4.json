@@ -7,21 +7,21 @@
  },
  "2": {
   "accept": [
-   "NOT GIVEN"
+   "FALSE"
   ],
-  "display": "NOT GIVEN"
+  "display": "FALSE"
  },
  "3": {
   "accept": [
-   "FALSE"
+   "TRUE"
   ],
-  "display": "FALSE"
+  "display": "TRUE"
  },
  "4": {
   "accept": [
-   "FALSE"
+   "NOT GIVEN"
   ],
-  "display": "FALSE"
+  "display": "NOT GIVEN"
  },
  "5": {
   "accept": [
@@ -31,9 +31,9 @@
  },
  "6": {
   "accept": [
-   "TRUE"
+   "FALSE"
   ],
-  "display": "TRUE"
+  "display": "FALSE"
  },
  "7": {
   "accept": [
@@ -43,70 +43,66 @@
  },
  "8": {
   "accept": [
-   "tools"
+   "shin bone",
+   "shinbone",
+   "shin"
   ],
-  "display": "tools"
+  "display": "shin bone"
  },
  "9": {
   "accept": [
-   "nomadic"
+   "slow walker"
   ],
-  "display": "nomadic"
+  "display": "slow walker"
  },
  "10": {
   "accept": [
-   "grouped together",
-   "grouped"
+   "cheetah"
   ],
-  "display": "grouped (together)"
+  "display": "cheetah"
  },
  "11": {
   "accept": [
-   "foodstuffs"
+   "run fast",
+   "run"
   ],
-  "display": "foodstuffs"
+  "display": "run fast"
  },
  "12": {
   "accept": [
-   "20,000 persons",
-   "20,000",
-   "20000",
-   "20000 persons"
+   "blunt"
   ],
-  "display": "20,000 (persons)"
+  "display": "blunt"
  },
  "13": {
   "accept": [
-   "craft specialists"
+   "crush"
   ],
-  "display": "craft specialists"
+  "display": "crush"
  },
  "14": {
   "accept": [
-   "black stripes",
-   "stripes"
+   "A"
   ],
-  "display": "black stripes"
+  "display": "A"
  },
  "15": {
   "accept": [
-   "12 million",
-   "12,000,000",
-   "twelve million"
+   "B"
   ],
-  "display": "12 million"
+  "display": "B"
  },
  "16": {
   "accept": [
-   "australia"
+   "B"
   ],
-  "display": "Australia"
+  "display": "B"
  },
  "17": {
   "accept": [
-   "european"
+   "A"
   ],
-  "display": "European"
+  "display": "A"
  },
  "18": {
   "accept": [
@@ -116,99 +112,99 @@
  },
  "19": {
   "accept": [
-   "D"
+   "C"
   ],
-  "display": "D"
+  "display": "C"
  },
  "20": {
   "accept": [
-   "C"
+   "F"
   ],
-  "display": "C"
+  "display": "F"
  },
  "21": {
   "accept": [
-   "B"
+   "D"
   ],
-  "display": "B"
+  "display": "D"
  },
  "22": {
-  "accept": [
-   "A"
-  ],
-  "display": "A"
- },
- "23": {
-  "accept": [
-   "D"
-  ],
-  "display": "D"
- },
- "24": {
-  "accept": [
-   "B"
-  ],
-  "display": "B"
- },
- "25": {
-  "accept": [
-   "D"
-  ],
-  "display": "D"
- },
- "26": {
-  "accept": [
-   "A"
-  ],
-  "display": "A"
- },
- "27": {
-  "accept": [
-   "v"
-  ],
-  "display": "v"
- },
- "28": {
-  "accept": [
-   "ix"
-  ],
-  "display": "ix"
- },
- "29": {
-  "accept": [
-   "i"
-  ],
-  "display": "i"
- },
- "30": {
-  "accept": [
-   "vi"
-  ],
-  "display": "vi"
- },
- "31": {
-  "accept": [
-   "x"
-  ],
-  "display": "x"
- },
- "32": {
-  "accept": [
-   "viii"
-  ],
-  "display": "viii"
- },
- "33": {
   "accept": [
    "C"
   ],
   "display": "C"
  },
- "34": {
+ "23": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "24": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
   "accept": [
    "B"
   ],
   "display": "B"
+ },
+ "31": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "32": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "33": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "34": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
  },
  "35": {
   "accept": [
@@ -218,36 +214,36 @@
  },
  "36": {
   "accept": [
-   "D"
-  ],
-  "display": "D"
- },
- "37": {
-  "accept": [
    "A"
   ],
   "display": "A"
  },
+ "37": {
+  "accept": [
+   "chickens"
+  ],
+  "display": "chickens"
+ },
  "38": {
   "accept": [
-   "horace walpole",
-   "walpole"
+   "ad-36",
+   "ad36",
+   "adenovirus",
+   "adenovirus-36"
   ],
-  "display": "Horace Walpole"
+  "display": "AD-36 / adenovirus"
  },
  "39": {
   "accept": [
-   "fairy tale",
-   "fairy-tale",
-   "fairytale"
+   "gene",
+   "genes"
   ],
-  "display": "fairy tale"
+  "display": "gene"
  },
  "40": {
   "accept": [
-   "sri lanka",
-   "srilanka"
+   "vaccine"
   ],
-  "display": "Sri Lanka"
+  "display": "vaccine"
  }
 }

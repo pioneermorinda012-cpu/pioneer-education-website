@@ -1,0 +1,311 @@
+{
+ "1": {
+  "accept": [
+   "jacobs"
+  ],
+  "display": "Jacobs"
+ },
+ "2": {
+  "accept": [
+   "rod"
+  ],
+  "display": "Rod"
+ },
+ "3": {
+  "accept": [
+   "highfield"
+  ],
+  "display": "Highfield"
+ },
+ "4": {
+  "accept": [
+   "nh871812c"
+  ],
+  "display": "NH871812C"
+ },
+ "5": {
+  "accept": [
+   "kevin"
+  ],
+  "display": "Kevin"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "11": {
+  "accept": [
+   "£5",
+   "5 pounds",
+   "five pounds",
+   "a fee of £5",
+   "£5 fee",
+   "fee of £5",
+   "£5 fee per year",
+   "£5 per year"
+  ],
+  "display": "(a fee of) £5"
+ },
+ "12": {
+  "accept": [
+   "university card",
+   "your university card",
+   "a university card"
+  ],
+  "display": "university card"
+ },
+ "13": {
+  "accept": [
+   "daily"
+  ],
+  "display": "daily"
+ },
+ "14": {
+  "accept": [
+   "fridays",
+   "on fridays"
+  ],
+  "display": "Fridays"
+ },
+ "15": {
+  "accept": [
+   "6 books",
+   "six books",
+   "6"
+  ],
+  "display": "6 books"
+ },
+ "16": {
+  "accept": [
+   "1 week",
+   "one week",
+   "a week"
+  ],
+  "display": "1 week"
+ },
+ "17": {
+  "accept": [
+   "computers",
+   "computer"
+  ],
+  "display": "computers"
+ },
+ "18": {
+  "accept": [
+   "non-lending section",
+   "non-lending",
+   "non lending"
+  ],
+  "display": "non-lending section"
+ },
+ "19": {
+  "accept": [
+   "arts",
+   "art",
+   "the arts"
+  ],
+  "display": "Arts"
+ },
+ "20": {
+  "accept": [
+   "basement",
+   "the basement"
+  ],
+  "display": "Basement"
+ },
+ "21": {
+  "accept": [
+   "tomorrow"
+  ],
+  "display": "tomorrow"
+ },
+ "22": {
+  "accept": [
+   "reliability",
+   "with reliability"
+  ],
+  "display": "reliability"
+ },
+ "23": {
+  "accept": [
+   "4000 words",
+   "4,000 words",
+   "4000",
+   "4,000",
+   "four thousand words"
+  ],
+  "display": "4,000 words"
+ },
+ "24": {
+  "accept": [
+   "email",
+   "by email",
+   "emailed",
+   "e-mail",
+   "by e-mail",
+   "as an attachment",
+   "email attachment"
+  ],
+  "display": "(by) email (as an attachment)"
+ },
+ "25": {
+  "accept": [
+   "market surveys",
+   "surveys"
+  ],
+  "display": "market surveys"
+ },
+ "26": {
+  "accept": [
+   "stack system",
+   "the stack system"
+  ],
+  "display": "(in the) stack system"
+ },
+ "27": {
+  "accept": [
+   "plagiarism"
+  ],
+  "display": "plagiarism"
+ },
+ "28": {
+  "accept": [
+   "extension",
+   "an extension"
+  ],
+  "display": "extension"
+ },
+ "29": {
+  "accept": [
+   "certificate",
+   "doctor's certificate",
+   "doctors certificate",
+   "note"
+  ],
+  "display": "(doctor's) certificate"
+ },
+ "30": {
+  "accept": [
+   "mortgage interest rates",
+   "interest rates"
+  ],
+  "display": "mortgage interest rates"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "seismic detection system",
+   "seismic detection",
+   "buoys",
+   "buoys at sea"
+  ],
+  "pool": [
+   "34",
+   "35"
+  ],
+  "display": "seismic detection system / buoys  (Q34–35, any order)"
+ },
+ "35": {
+  "accept": [
+   "seismic detection system",
+   "seismic detection",
+   "buoys",
+   "buoys at sea"
+  ],
+  "pool": [
+   "34",
+   "35"
+  ],
+  "display": "seismic detection system / buoys  (Q34–35, any order)"
+ },
+ "36": {
+  "accept": [
+   "offshore landslide",
+   "landslide",
+   "an offshore landslide",
+   "off-shore landslide"
+  ],
+  "display": "offshore landslide"
+ },
+ "37": {
+  "accept": [
+   "none",
+   "0",
+   "zero",
+   "nil"
+  ],
+  "display": "none (no wave)"
+ },
+ "38": {
+  "accept": [
+   "submarine earthquake",
+   "underwater earthquake",
+   "earthquake"
+  ],
+  "display": "(submarine) earthquake"
+ },
+ "39": {
+  "accept": [
+   "26,000",
+   "26000",
+   "some 26,000",
+   "26 000",
+   "26 thousand"
+  ],
+  "display": "26,000"
+ },
+ "40": {
+  "accept": [
+   "none",
+   "0",
+   "zero",
+   "nil",
+   "nobody",
+   "no deaths"
+  ],
+  "display": "none"
+ }
+}

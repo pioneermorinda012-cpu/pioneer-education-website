@@ -423,8 +423,8 @@ def read_questions(inner: str, media: dict, test_id: str, out_dir: pathlib.Path)
         if g.get("lines") and g.get("questions") and not g.get("table"):
             first = {k: v for k, v in g.items() if k != "questions"}
             second = {"questions": g["questions"]}
-            if min(q["n"] for q in g["questions"]) < min(
-                    int(re.search(r"\{\{(\d+)\}\}", l).group(1)) for l in g["lines"]):
+            gap_ns = [int(m) for l in g["lines"] for m in re.findall(r"\{\{(\d+)\}\}", str(l))]
+            if gap_ns and min(q["n"] for q in g["questions"]) < min(gap_ns):
                 first, second = second, {k: v for k, v in g.items() if k != "questions"}
             tidy.append(first)
             tidy.append(second)

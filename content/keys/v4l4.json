@@ -1,0 +1,275 @@
+{
+ "1": {
+  "accept": [
+   "04196570156",
+   "0419 65 70156",
+   "0419-65-70156",
+   "04196 570156"
+  ],
+  "display": "04196570156"
+ },
+ "2": {
+  "accept": [
+   "post"
+  ],
+  "display": "post"
+ },
+ "3": {
+  "accept": [
+   "39",
+   "$39",
+   "39 dollars"
+  ],
+  "display": "$39"
+ },
+ "4": {
+  "accept": [
+   "bed",
+   "beds"
+  ],
+  "display": "bed"
+ },
+ "5": {
+  "accept": [
+   "kitchen"
+  ],
+  "display": "kitchen"
+ },
+ "6": {
+  "accept": [
+   "heater"
+  ],
+  "display": "heater"
+ },
+ "7": {
+  "accept": [
+   "microwave"
+  ],
+  "display": "microwave"
+ },
+ "8": {
+  "accept": [
+   "airport"
+  ],
+  "display": "airport"
+ },
+ "9": {
+  "accept": [
+   "49",
+   "forty-nine"
+  ],
+  "display": "49"
+ },
+ "10": {
+  "accept": [
+   "australia"
+  ],
+  "display": "Australia"
+ },
+ "11": {
+  "accept": [
+   "harvested"
+  ],
+  "display": "harvested"
+ },
+ "12": {
+  "accept": [
+   "opened"
+  ],
+  "display": "opened"
+ },
+ "13": {
+  "accept": [
+   "cleaned"
+  ],
+  "display": "cleaned"
+ },
+ "14": {
+  "accept": [
+   "expanded"
+  ],
+  "display": "expanded"
+ },
+ "15": {
+  "accept": [
+   "cooled"
+  ],
+  "display": "cooled"
+ },
+ "16": {
+  "accept": [
+   "sealed"
+  ],
+  "display": "sealed"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "30": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "31": {
+  "accept": [
+   "sun",
+   "sun's position",
+   "the sun"
+  ],
+  "display": "sun('s position)"
+ },
+ "32": {
+  "accept": [
+   "migration",
+   "animals"
+  ],
+  "display": "migration"
+ },
+ "33": {
+  "accept": [
+   "religion",
+   "religious festivals",
+   "priests",
+   "government",
+   "the government"
+  ],
+  "pool": [
+   "33",
+   "34"
+  ],
+  "display": "religion / government  (Q33–34, any order)"
+ },
+ "34": {
+  "accept": [
+   "religion",
+   "religious festivals",
+   "priests",
+   "government",
+   "the government"
+  ],
+  "pool": [
+   "33",
+   "34"
+  ],
+  "display": "religion / government  (Q33–34, any order)"
+ },
+ "35": {
+  "accept": [
+   "north africa",
+   "egypt",
+   "ancient egypt"
+  ],
+  "display": "North Africa"
+ },
+ "36": {
+  "accept": [
+   "varied"
+  ],
+  "display": "varied"
+ },
+ "37": {
+  "accept": [
+   "temperature"
+  ],
+  "display": "temperature"
+ },
+ "38": {
+  "accept": [
+   "sand glass",
+   "sandglass",
+   "sand glasses",
+   "sandglasses",
+   "hourglass",
+   "hour glass"
+  ],
+  "display": "sandglass"
+ },
+ "39": {
+  "accept": [
+   "limited"
+  ],
+  "display": "limited"
+ },
+ "40": {
+  "accept": [
+   "time"
+  ],
+  "display": "time"
+ }
+}

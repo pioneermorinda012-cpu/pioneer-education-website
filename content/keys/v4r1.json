@@ -1,0 +1,271 @@
+{
+ "1": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "elm"
+  ],
+  "display": "elm"
+ },
+ "6": {
+  "accept": [
+   "oil"
+  ],
+  "display": "oil"
+ },
+ "7": {
+  "accept": [
+   "thirty-two",
+   "32"
+  ],
+  "display": "thirty-two"
+ },
+ "8": {
+  "accept": [
+   "dish"
+  ],
+  "display": "dish"
+ },
+ "9": {
+  "accept": [
+   "struts"
+  ],
+  "display": "struts"
+ },
+ "10": {
+  "accept": [
+   "bronze"
+  ],
+  "display": "bronze"
+ },
+ "11": {
+  "accept": [
+   "neck",
+   "the neck",
+   "his neck"
+  ],
+  "display": "(the) neck"
+ },
+ "12": {
+  "accept": [
+   "sand",
+   "the sand"
+  ],
+  "display": "(the) sand"
+ },
+ "13": {
+  "accept": [
+   "tomb complex",
+   "opulent tomb complex",
+   "the tomb complex"
+  ],
+  "display": "(opulent) tomb complex"
+ },
+ "14": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "15": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "16": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "17": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "18": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "19": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "20": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "21": {
+  "accept": [
+   "1950s",
+   "in the 1950s",
+   "the 1950s"
+  ],
+  "display": "(in the) 1950s"
+ },
+ "22": {
+  "accept": [
+   "shy",
+   "shy nature",
+   "a shy nature"
+  ],
+  "display": "shy / shyness"
+ },
+ "23": {
+  "accept": [
+   "starvation"
+  ],
+  "display": "starvation"
+ },
+ "24": {
+  "accept": [
+   "fish",
+   "native fish",
+   "fish prey"
+  ],
+  "display": "(native) fish"
+ },
+ "25": {
+  "accept": [
+   "partnership project",
+   "network",
+   "network of 19 sites"
+  ],
+  "display": "partnership project / network (of sites)"
+ },
+ "26": {
+  "accept": [
+   "otter and brown-hare"
+  ],
+  "display": "otter and brown hare"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "29": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "30": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "31": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "32": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "33": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "34": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "35": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "36": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "37": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "38": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 0,
+  "display": "B, C, E  (Q38–40, any order)"
+ },
+ "39": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 1,
+  "display": "B, C, E  (Q38–40, any order)"
+ },
+ "40": {
+  "any": [
+   "B",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 38,
+  "idx": 2,
+  "display": "B, C, E  (Q38–40, any order)"
+ }
+}

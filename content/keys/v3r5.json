@@ -1,0 +1,256 @@
+{
+ "1": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "2": {
+  "accept": [
+   "xi"
+  ],
+  "display": "xi"
+ },
+ "3": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "4": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "5": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "6": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "7": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "8": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "14": {
+  "accept": [
+   "rules",
+   "guiding principles",
+   "principles",
+   "principles and rules"
+  ],
+  "display": "(guiding) principles and rules"
+ },
+ "15": {
+  "accept": [
+   "mentor",
+   "a mentor"
+  ],
+  "display": "mentor"
+ },
+ "16": {
+  "accept": [
+   "patterns of behavior",
+   "patterns"
+  ],
+  "display": "patterns (of behaviour)"
+ },
+ "17": {
+  "accept": [
+   "complex",
+   "increasingly complex",
+   "more complex"
+  ],
+  "display": "(increasingly) complex"
+ },
+ "18": {
+  "accept": [
+   "knowledge"
+  ],
+  "display": "knowledge"
+ },
+ "19": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "20": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "21": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "22": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "23": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "24": {
+  "accept": [
+   "accurate"
+  ],
+  "display": "accurate"
+ },
+ "25": {
+  "accept": [
+   "human biases",
+   "human bias",
+   "biases"
+  ],
+  "display": "human biases"
+ },
+ "26": {
+  "accept": [
+   "consensus"
+  ],
+  "display": "consensus"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "lapse",
+   "time interval",
+   "time lapse",
+   "time-lapse",
+   "interval"
+  ],
+  "display": "lapse / time interval"
+ },
+ "32": {
+  "accept": [
+   "continuous action"
+  ],
+  "display": "continuous action"
+ },
+ "33": {
+  "accept": [
+   "time"
+  ],
+  "display": "time"
+ },
+ "34": {
+  "accept": [
+   "greater length"
+  ],
+  "display": "greater length"
+ },
+ "35": {
+  "accept": [
+   "slowed down proportionately",
+   "slowed down"
+  ],
+  "display": "slowed down (proportionately)"
+ },
+ "36": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "37": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "38": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "39": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "40": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ }
+}

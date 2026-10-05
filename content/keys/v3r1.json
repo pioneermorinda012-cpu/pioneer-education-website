@@ -1,0 +1,268 @@
+{
+ "1": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "2": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "3": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "4": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "5": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "6": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "7": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "8": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "9": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "10": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "11": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "14": {
+  "any": [
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 4,
+  "lead": 14,
+  "idx": 0,
+  "display": "B, D, E, H  (Q14–17, any order)"
+ },
+ "15": {
+  "any": [
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 4,
+  "lead": 14,
+  "idx": 1,
+  "display": "B, D, E, H  (Q14–17, any order)"
+ },
+ "16": {
+  "any": [
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 4,
+  "lead": 14,
+  "idx": 2,
+  "display": "B, D, E, H  (Q14–17, any order)"
+ },
+ "17": {
+  "any": [
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 4,
+  "lead": 14,
+  "idx": 3,
+  "display": "B, D, E, H  (Q14–17, any order)"
+ },
+ "18": {
+  "accept": [
+   "wind",
+   "winds"
+  ],
+  "display": "wind(s)"
+ },
+ "19": {
+  "accept": [
+   "swaying"
+  ],
+  "display": "swaying"
+ },
+ "20": {
+  "accept": [
+   "further apart"
+  ],
+  "display": "further apart"
+ },
+ "21": {
+  "accept": [
+   "footsteps"
+  ],
+  "display": "footsteps"
+ },
+ "22": {
+  "accept": [
+   "horizontal forces"
+  ],
+  "display": "horizontal forces"
+ },
+ "23": {
+  "accept": [
+   "upright"
+  ],
+  "display": "upright"
+ },
+ "24": {
+  "accept": [
+   "arup",
+   "engineering designer arup"
+  ],
+  "display": "(engineering designer) Arup"
+ },
+ "25": {
+  "accept": [
+   "imperial college"
+  ],
+  "display": "Imperial College"
+ },
+ "26": {
+  "accept": [
+   "university of southampton"
+  ],
+  "display": "University of Southampton"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "34": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "35": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "36": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ }
+}

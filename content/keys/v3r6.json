@@ -7,9 +7,9 @@
  },
  "2": {
   "accept": [
-   "NOT GIVEN"
+   "FALSE"
   ],
-  "display": "NOT GIVEN"
+  "display": "FALSE"
  },
  "3": {
   "accept": [
@@ -43,70 +43,70 @@
  },
  "8": {
   "accept": [
-   "tools"
+   "46",
+   "forty-six",
+   "forty six"
   ],
-  "display": "tools"
+  "display": "46"
  },
  "9": {
   "accept": [
-   "nomadic"
+   "accommodation",
+   "process of accommodation"
   ],
-  "display": "nomadic"
+  "display": "accommodation"
  },
  "10": {
   "accept": [
-   "grouped together",
-   "grouped"
+   "indo-european",
+   "indo european"
   ],
-  "display": "grouped (together)"
+  "display": "Indo-European"
  },
  "11": {
   "accept": [
-   "foodstuffs"
+   "richard brocklesby",
+   "brocklesby",
+   "his mother's uncle"
   ],
-  "display": "foodstuffs"
+  "display": "Richard Brocklesby"
  },
  "12": {
   "accept": [
-   "20,000 persons",
-   "20,000",
-   "20000",
-   "20000 persons"
+   "royal institution",
+   "the royal institution"
   ],
-  "display": "20,000 (persons)"
+  "display": "Royal Institution"
  },
  "13": {
   "accept": [
-   "craft specialists"
+   "gas lighting"
   ],
-  "display": "craft specialists"
+  "display": "gas lighting"
  },
  "14": {
   "accept": [
-   "black stripes",
-   "stripes"
+   "D"
   ],
-  "display": "black stripes"
+  "display": "D"
  },
  "15": {
   "accept": [
-   "12 million",
-   "12,000,000",
-   "twelve million"
+   "F"
   ],
-  "display": "12 million"
+  "display": "F"
  },
  "16": {
   "accept": [
-   "australia"
+   "E"
   ],
-  "display": "Australia"
+  "display": "E"
  },
  "17": {
   "accept": [
-   "european"
+   "C"
   ],
-  "display": "European"
+  "display": "C"
  },
  "18": {
   "accept": [
@@ -122,39 +122,39 @@
  },
  "20": {
   "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
    "C"
   ],
   "display": "C"
  },
- "21": {
-  "accept": [
-   "B"
-  ],
-  "display": "B"
- },
  "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
   "accept": [
    "A"
   ],
   "display": "A"
  },
- "23": {
-  "accept": [
-   "D"
-  ],
-  "display": "D"
- },
  "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
   "accept": [
    "B"
   ],
   "display": "B"
- },
- "25": {
-  "accept": [
-   "D"
-  ],
-  "display": "D"
  },
  "26": {
   "accept": [
@@ -164,45 +164,45 @@
  },
  "27": {
   "accept": [
-   "v"
+   "E"
   ],
-  "display": "v"
+  "display": "E"
  },
  "28": {
   "accept": [
-   "ix"
+   "F"
   ],
-  "display": "ix"
+  "display": "F"
  },
  "29": {
   "accept": [
-   "i"
+   "H"
   ],
-  "display": "i"
+  "display": "H"
  },
  "30": {
   "accept": [
-   "vi"
+   "H"
   ],
-  "display": "vi"
+  "display": "H"
  },
  "31": {
   "accept": [
-   "x"
+   "I"
   ],
-  "display": "x"
+  "display": "I"
  },
  "32": {
   "accept": [
-   "viii"
+   "G"
   ],
-  "display": "viii"
+  "display": "G"
  },
  "33": {
   "accept": [
-   "C"
+   "D"
   ],
-  "display": "C"
+  "display": "D"
  },
  "34": {
   "accept": [
@@ -212,42 +212,42 @@
  },
  "35": {
   "accept": [
-   "D"
+   "bad cough",
+   "cough"
   ],
-  "display": "D"
+  "display": "bad cough"
  },
  "36": {
   "accept": [
-   "D"
+   "blood pressure"
   ],
-  "display": "D"
+  "display": "blood pressure"
  },
  "37": {
   "accept": [
-   "A"
+   "friends and family"
   ],
-  "display": "A"
+  "display": "friends and family"
  },
  "38": {
   "accept": [
-   "horace walpole",
-   "walpole"
+   "practitioner",
+   "practitioners"
   ],
-  "display": "Horace Walpole"
+  "display": "practitioner"
  },
  "39": {
   "accept": [
-   "fairy tale",
-   "fairy-tale",
-   "fairytale"
+   "diagnosis"
   ],
-  "display": "fairy tale"
+  "display": "diagnosis"
  },
  "40": {
   "accept": [
-   "sri lanka",
-   "srilanka"
+   "background",
+   "experience",
+   "new experience"
   ],
-  "display": "Sri Lanka"
+  "display": "background / experience"
  }
 }

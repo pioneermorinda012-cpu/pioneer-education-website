@@ -25,6 +25,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 conv = importlib.import_module("import-html-test")
 lis = importlib.import_module("import-listening-html")
 tables = importlib.import_module("fix-html-tables")
+import fix_examples  # noqa: E402
 
 TF = {"TRUE", "FALSE", "NOT GIVEN", "YES", "NO"}
 
@@ -50,6 +51,7 @@ def main():
     test, _, evidence = conv.convert(src, tid, label, root)
 
     for s in test["sections"]:
+        s["groups"] = fix_examples.fix_groups(s["groups"])
         for g in s["groups"]:
             for q in g.get("questions", []):
                 for o in q.get("opts", []):
@@ -57,6 +59,16 @@ def main():
                         o["t"] = re.sub(rf"^{re.escape(o['l'])}\s*[–-]\s*", "", o["t"])
             g["lines"] = [lis.tidy_line(l) if isinstance(l, str) else l for l in g.get("lines", [])]
             tables.fix_group(g)  # a raw <table> in a line becomes the group's table
+            # The player submits a plain-string option as its POSITION letter (A, B, C...),
+            # so a list of headings "i, ii, iii..." could never match a key of "iv".
+            # Give each option its own label; the bank above already shows the wording.
+            L = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            for q in g.get("questions", []):
+                o = q.get("opts") or []
+                if o and all(isinstance(x, str) for x in o) and o != list(L[:len(o)]):
+                    words = {b[0]: b[1] for b in g.get("bank", [])}
+                    q["opts"] = [{"l": x, "t": words.get(x, x)} for x in o]
+                    g["compact"] = True
             if "lines" in g and not g["lines"]:
                 g.pop("lines")
             qs = g.get("questions", [])

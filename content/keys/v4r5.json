@@ -1,0 +1,274 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "any": [
+   "A",
+   "B",
+   "E",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 6,
+  "idx": 0,
+  "display": "A, B, E, G  (Q6–9, any order)"
+ },
+ "7": {
+  "any": [
+   "A",
+   "B",
+   "E",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 6,
+  "idx": 1,
+  "display": "A, B, E, G  (Q6–9, any order)"
+ },
+ "8": {
+  "any": [
+   "A",
+   "B",
+   "E",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 6,
+  "idx": 2,
+  "display": "A, B, E, G  (Q6–9, any order)"
+ },
+ "9": {
+  "any": [
+   "A",
+   "B",
+   "E",
+   "G"
+  ],
+  "pick": 4,
+  "lead": 6,
+  "idx": 3,
+  "display": "A, B, E, G  (Q6–9, any order)"
+ },
+ "10": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "11": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "14": {
+  "accept": [
+   "photographic film",
+   "film"
+  ],
+  "display": "photographic film"
+ },
+ "15": {
+  "accept": [
+   "bakelite"
+  ],
+  "display": "Bakelite"
+ },
+ "16": {
+  "accept": [
+   "switches"
+  ],
+  "display": "switches"
+ },
+ "17": {
+  "accept": [
+   "britain",
+   "british"
+  ],
+  "display": "Britain / UK"
+ },
+ "18": {
+  "accept": [
+   "fireproof",
+   "hard, fireproof",
+   "fire-proof"
+  ],
+  "display": "fireproof"
+ },
+ "19": {
+  "accept": [
+   "clear and glass-like",
+   "clear, glass-like",
+   "glass-like",
+   "clear glass-like"
+  ],
+  "display": "clear and glass-like"
+ },
+ "20": {
+  "accept": [
+   "rigid"
+  ],
+  "display": "rigid"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "23": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "24": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "25": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "26": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "32": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "33": {
+  "accept": [
+   "high tides"
+  ],
+  "display": "high tides"
+ },
+ "34": {
+  "accept": [
+   "agricultural production",
+   "agriculture production"
+  ],
+  "display": "agricultural production"
+ },
+ "35": {
+  "accept": [
+   "coastal boundaries"
+  ],
+  "display": "coastal boundaries"
+ },
+ "36": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "39": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "40": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ }
+}

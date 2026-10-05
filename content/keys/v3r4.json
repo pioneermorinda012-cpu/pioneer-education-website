@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "4": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "5": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "6": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "7": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "8": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "sea water",
+   "salt water",
+   "salt",
+   "seawater",
+   "saltwater"
+  ],
+  "display": "sea water / salt water"
+ },
+ "11": {
+  "accept": [
+   "swimming speed",
+   "speed"
+  ],
+  "display": "swimming speed"
+ },
+ "12": {
+  "accept": [
+   "coastal otters",
+   "coastal"
+  ],
+  "display": "coastal otters"
+ },
+ "13": {
+  "accept": [
+   "small mammals",
+   "mammals"
+  ],
+  "display": "small mammals"
+ },
+ "14": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "15": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "16": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "17": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "18": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "19": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "20": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "21": {
+  "accept": [
+   "yellow fever"
+  ],
+  "display": "yellow fever"
+ },
+ "22": {
+  "accept": [
+   "finland"
+  ],
+  "display": "Finland"
+ },
+ "23": {
+  "accept": [
+   "institutions",
+   "governments"
+  ],
+  "display": "institutions / governments"
+ },
+ "24": {
+  "accept": [
+   "europe",
+   "eurasia"
+  ],
+  "display": "Europe / Eurasia"
+ },
+ "25": {
+  "accept": [
+   "einkorn wheat",
+   "einkorn",
+   "wheat"
+  ],
+  "display": "einkorn wheat"
+ },
+ "26": {
+  "accept": [
+   "singapore"
+  ],
+  "display": "Singapore"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "32": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "33": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "34": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "35": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "36": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "37": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

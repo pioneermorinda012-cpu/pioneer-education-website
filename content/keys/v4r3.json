@@ -1,0 +1,255 @@
+{
+ "1": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "2": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "3": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "YES"
+  ],
+  "display": "YES"
+ },
+ "6": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "7": {
+  "accept": [
+   "NO"
+  ],
+  "display": "NO"
+ },
+ "8": {
+  "accept": [
+   "rock",
+   "the rock",
+   "obsidian",
+   "obsidian flakes"
+  ],
+  "display": "rock"
+ },
+ "9": {
+  "accept": [
+   "teeth"
+  ],
+  "display": "teeth"
+ },
+ "10": {
+  "accept": [
+   "descendants",
+   "closest descendants"
+  ],
+  "display": "descendants"
+ },
+ "11": {
+  "accept": [
+   "canoes"
+  ],
+  "display": "canoes"
+ },
+ "12": {
+  "accept": [
+   "trade winds",
+   "the trade winds"
+  ],
+  "display": "(the) trade winds"
+ },
+ "13": {
+  "accept": [
+   "seabirds and turtles"
+  ],
+  "display": "seabirds and turtles"
+ },
+ "14": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "15": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "16": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "20": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "23": {
+  "accept": [
+   "scalp electrodes",
+   "electrodes"
+  ],
+  "display": "scalp electrodes"
+ },
+ "24": {
+  "accept": [
+   "inspiration and elaboration"
+  ],
+  "display": "inspiration and elaboration"
+ },
+ "25": {
+  "accept": [
+   "alpha wave activity",
+   "alpha waves",
+   "alpha wave",
+   "alpha-wave activity"
+  ],
+  "display": "alpha wave activity"
+ },
+ "26": {
+  "accept": [
+   "difference"
+  ],
+  "display": "difference"
+ },
+ "27": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "32": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "35": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "36": {
+  "accept": [
+   "fruit"
+  ],
+  "display": "fruit"
+ },
+ "37": {
+  "accept": [
+   "plant toxins",
+   "toxins",
+   "plant toxin",
+   "chemical defenses"
+  ],
+  "display": "plant toxins"
+ },
+ "38": {
+  "accept": [
+   "reproductive",
+   "birth"
+  ],
+  "display": "reproductive / birth"
+ },
+ "39": {
+  "accept": [
+   "water"
+  ],
+  "display": "water"
+ },
+ "40": {
+  "accept": [
+   "drought"
+  ],
+  "display": "drought"
+ }
+}

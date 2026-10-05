@@ -10,7 +10,7 @@
    "tortoises",
    "gopher tortoises"
   ],
-  "display": "tortoises / gopher tortoises"
+  "display": "tortoises"
  },
  "3": {
   "accept": [
@@ -20,7 +20,7 @@
  },
  "4": {
   "accept": [
-   "Native Americans"
+   "native americans"
   ],
   "display": "Native Americans"
  },
@@ -50,7 +50,8 @@
  },
  "9": {
   "accept": [
-   "eggs"
+   "eggs",
+   "egg"
   ],
   "display": "eggs"
  },
@@ -134,7 +135,7 @@
  },
  "23": {
   "accept": [
-   "Poetics"
+   "poetics"
   ],
   "display": "Poetics"
  },
@@ -148,7 +149,7 @@
   "accept": [
    "landmarks"
   ],
-  "display": "landmarks (owner's key also: landmarks-stories)"
+  "display": "landmarks"
  },
  "26": {
   "accept": [
