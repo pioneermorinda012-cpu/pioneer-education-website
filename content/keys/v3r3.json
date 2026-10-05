@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "2": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "3": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "8": {
+  "accept": [
+   "tools"
+  ],
+  "display": "tools"
+ },
+ "9": {
+  "accept": [
+   "nomadic"
+  ],
+  "display": "nomadic"
+ },
+ "10": {
+  "accept": [
+   "grouped together",
+   "grouped"
+  ],
+  "display": "grouped (together)"
+ },
+ "11": {
+  "accept": [
+   "foodstuffs"
+  ],
+  "display": "foodstuffs"
+ },
+ "12": {
+  "accept": [
+   "20,000 persons",
+   "20,000",
+   "20000 persons",
+   "20000"
+  ],
+  "display": "20,000 (persons)"
+ },
+ "13": {
+  "accept": [
+   "craft specialists"
+  ],
+  "display": "craft specialists"
+ },
+ "14": {
+  "accept": [
+   "black stripes",
+   "stripes"
+  ],
+  "display": "(black) stripes"
+ },
+ "15": {
+  "accept": [
+   "12 million",
+   "12,000,000",
+   "twelve million"
+  ],
+  "display": "12 million"
+ },
+ "16": {
+  "accept": [
+   "Australia"
+  ],
+  "display": "Australia"
+ },
+ "17": {
+  "accept": [
+   "European"
+  ],
+  "display": "European"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "28": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "29": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "30": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "31": {
+  "accept": [
+   "x"
+  ],
+  "display": "x"
+ },
+ "32": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "35": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "36": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "37": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "38": {
+  "accept": [
+   "Horace Walpole",
+   "Walpole"
+  ],
+  "display": "(Horace) Walpole"
+ },
+ "39": {
+  "accept": [
+   "fairy tale",
+   "fairytale"
+  ],
+  "display": "fairy tale"
+ },
+ "40": {
+  "accept": [
+   "Sri Lanka"
+  ],
+  "display": "Sri Lanka"
+ }
+}
