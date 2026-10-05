@@ -1,0 +1,282 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "The exhibition will take place during July."
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "The exhibition will last three days."
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "However, there will certainly be an opportunity to test driving some of the more modern cars on a purpose-built track."
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "I'm afraid to say that cameras are actually strictly not allowed to bring into the exhibition."
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "If you buy the ticket in advance, the price is £110."
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [
+   "I'll transfer you to the box office manager. Mark Edgeworth."
+  ],
+  "k": "exact"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "So this year, all exhibitions will be held in the Summer Palace."
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [
+   "Well it's not too far from city centre."
+  ],
+  "k": "exact"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "directions.com."
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "I think the most convenient way to contact us is enquiring online."
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 1,
+  "t": [
+   "Our consultations can number anything up to 11,000 patients a year."
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 1,
+  "t": [
+   "with female doctors available between 8am and 11am."
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 1,
+  "t": [
+   "while Mr Green specialises in reversing hearing loss."
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "However, we recommend that patients use the pharmacy housed within our healthcare facility."
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "Therefore, we would like to encourage our patients to give their consent for a medical student to attend their consultations. �"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "Reception can be found through the main door at the end of the corridor."
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "and his office is at the end of the corridor on your left-hand side."
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "which you will find next to the therapy room."
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "Please first check in with reception before taking the first door on the right after you enter the clinic."
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "which can be found near the office for medical records and between two closets."
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 2,
+  "t": [
+   "Governments should endeavour to turn off lights in cities at night."
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 2,
+  "t": [
+   "For this issue, Dave Kepler suggests they could just replace the existing lights with more environmentally friendly bulbs."
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 2,
+  "t": [
+   "Insect-eating animals tend to be smaller in size."
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 2,
+  "t": [
+   "Therefore it affects the amount of sunlight that aquatic insects can absorb."
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 2,
+  "t": [
+   "The only other theory I've studied is Barbara Swallow's study on how a declined insect population adversely affects the frog population."
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 2,
+  "t": [
+   "Honestly, I'm not sure it makes much difference which one you use."
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "The theories discussed in our lectures, like Simpsons and Grays, are so vague and lack proof, so I don't understand why we even study them."
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "For example, I'd be much more interested in studying the animals in safari parks than researching migratory birds, particularly the effect of tourists on the quality of life of animals."
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "especially those animals living in more tropical countries like Borneo"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "Following on from that, I want to study how bringing animals over from foreign countries to put in our zoos affects their life expectancy."
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 3,
+  "t": [
+   "that appeared a new-found emphasis on moral values in football."
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 3,
+  "t": [
+   "There grew a greater concern for players' health and general wellbeing."
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 3,
+  "t": [
+   "and the government by concerned parents."
+  ],
+  "k": "exact"
+ },
+ "34": {
+  "s": 3,
+  "t": [
+   "with footballers previously playing according to their own versions of the rules."
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 3,
+  "t": [
+   "thereby uniting the rules from across the country."
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 3,
+  "t": [
+   "improvements in infrastructure and public transport"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 3,
+  "t": [
+   "football quickly became a social event where spectators would meet friends."
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 3,
+  "t": [
+   "Onus fell upon Britain's local and regional football clubs for the funding and development"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 3,
+  "t": [
+   "organised competitions against other local and regional teams."
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 3,
+  "t": [
+   "before finally accepting professional talent."
+  ],
+  "k": "exact"
+ }
+}

@@ -1,0 +1,268 @@
+{
+ "1": {
+  "accept": [
+   "July"
+  ],
+  "display": "July"
+ },
+ "2": {
+  "accept": [
+   "3 days",
+   "three days"
+  ],
+  "display": "3 / three days"
+ },
+ "3": {
+  "accept": [
+   "test driving"
+  ],
+  "display": "test driving"
+ },
+ "4": {
+  "accept": [
+   "camera"
+  ],
+  "display": "camera"
+ },
+ "5": {
+  "accept": [
+   "110"
+  ],
+  "display": "110"
+ },
+ "6": {
+  "accept": [
+   "Edgeworth"
+  ],
+  "display": "Edgeworth"
+ },
+ "7": {
+  "accept": [
+   "Summer"
+  ],
+  "display": "Summer"
+ },
+ "8": {
+  "accept": [
+   "city centre",
+   "city center"
+  ],
+  "display": "city centre / center"
+ },
+ "9": {
+  "accept": [
+   "directions"
+  ],
+  "display": "directions"
+ },
+ "10": {
+  "accept": [
+   "online",
+   "enquiring online"
+  ],
+  "display": "(enquiring) online"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "17": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "23": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "24": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "25": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "any": [
+   "B",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 0,
+  "display": "B, E, F  (Q28–30, any order)"
+ },
+ "29": {
+  "any": [
+   "B",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 1,
+  "display": "B, E, F  (Q28–30, any order)"
+ },
+ "30": {
+  "any": [
+   "B",
+   "E",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 2,
+  "display": "B, E, F  (Q28–30, any order)"
+ },
+ "31": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 0,
+  "display": "C, D  (Q31–32, any order)"
+ },
+ "32": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 1,
+  "display": "C, D  (Q31–32, any order)"
+ },
+ "33": {
+  "accept": [
+   "parents"
+  ],
+  "display": "parents"
+ },
+ "34": {
+  "accept": [
+   "versions"
+  ],
+  "display": "versions"
+ },
+ "35": {
+  "accept": [
+   "country"
+  ],
+  "display": "country"
+ },
+ "36": {
+  "accept": [
+   "transport"
+  ],
+  "display": "transport"
+ },
+ "37": {
+  "accept": [
+   "social"
+  ],
+  "display": "social"
+ },
+ "38": {
+  "accept": [
+   "funding"
+  ],
+  "display": "funding"
+ },
+ "39": {
+  "accept": [
+   "competitions"
+  ],
+  "display": "competitions"
+ },
+ "40": {
+  "accept": [
+   "professional"
+  ],
+  "display": "professional"
+ }
+}

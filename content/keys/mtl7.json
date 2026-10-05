@@ -1,0 +1,251 @@
+{
+ "1": {
+  "accept": [
+   "67 King's",
+   "67 Kings"
+  ],
+  "display": "67 King's"
+ },
+ "2": {
+  "accept": [
+   "north"
+  ],
+  "display": "north"
+ },
+ "3": {
+  "accept": [
+   "Sutcliffe"
+  ],
+  "display": "Sutcliffe"
+ },
+ "4": {
+  "accept": [
+   "automatic"
+  ],
+  "display": "automatic"
+ },
+ "5": {
+  "accept": [
+   "day"
+  ],
+  "display": "day"
+ },
+ "6": {
+  "accept": [
+   "weather"
+  ],
+  "display": "weather"
+ },
+ "7": {
+  "accept": [
+   "licence",
+   "license"
+  ],
+  "display": "licence / license"
+ },
+ "8": {
+  "accept": [
+   "50"
+  ],
+  "display": "50"
+ },
+ "9": {
+  "accept": [
+   "30"
+  ],
+  "display": "30"
+ },
+ "10": {
+  "accept": [
+   "notebook",
+   "diary"
+  ],
+  "display": "notebook / diary"
+ },
+ "11": {
+  "accept": [
+   "1 million",
+   "one million",
+   "1,000,000"
+  ],
+  "display": "1 million"
+ },
+ "12": {
+  "accept": [
+   "tourism"
+  ],
+  "display": "tourism"
+ },
+ "13": {
+  "accept": [
+   "southeast",
+   "south-east",
+   "south east"
+  ],
+  "display": "southeast / south-east"
+ },
+ "14": {
+  "accept": [
+   "lawyer"
+  ],
+  "display": "lawyer"
+ },
+ "15": {
+  "accept": [
+   "7",
+   "seven"
+  ],
+  "display": "7"
+ },
+ "16": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "17": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "18": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "19": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "20": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "democratic"
+  ],
+  "display": "democratic"
+ },
+ "32": {
+  "accept": [
+   "internal website"
+  ],
+  "display": "internal website"
+ },
+ "33": {
+  "accept": [
+   "transparency"
+  ],
+  "display": "transparency"
+ },
+ "34": {
+  "accept": [
+   "income",
+   "company's income"
+  ],
+  "display": "(company's) income"
+ },
+ "35": {
+  "accept": [
+   "employee first"
+  ],
+  "display": "employee first"
+ },
+ "36": {
+  "accept": [
+   "solution"
+  ],
+  "display": "solution"
+ },
+ "37": {
+  "accept": [
+   "promotion"
+  ],
+  "display": "promotion"
+ },
+ "38": {
+  "accept": [
+   "ticket"
+  ],
+  "display": "ticket"
+ },
+ "39": {
+  "accept": [
+   "vacation"
+  ],
+  "display": "vacation"
+ },
+ "40": {
+  "accept": [
+   "ban"
+  ],
+  "display": "ban"
+ }
+}

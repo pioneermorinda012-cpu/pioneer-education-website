@@ -53,7 +53,7 @@
   "total": 40,
   "mode": "listening",
   "sections": 4,
-  "keyed": false
+  "keyed": true
  },
  {
   "id": "p2l1",
@@ -1337,6 +1337,34 @@
   "label": "Mock Test 5",
   "order": 5,
   "name": "Mock Test 5 — Listening",
+  "minutes": 40,
+  "total": 40,
+  "mode": "listening",
+  "sections": 4,
+  "keyed": true
+ },
+ {
+  "id": "mtl6",
+  "skill": "AL",
+  "skillLabel": "Academic Listening",
+  "set": "Mock Tests",
+  "label": "Mock Test 6",
+  "order": 6,
+  "name": "Mock Test 6 — Listening",
+  "minutes": 40,
+  "total": 40,
+  "mode": "listening",
+  "sections": 4,
+  "keyed": true
+ },
+ {
+  "id": "mtl7",
+  "skill": "AL",
+  "skillLabel": "Academic Listening",
+  "set": "Mock Tests",
+  "label": "Mock Test 7",
+  "order": 7,
+  "name": "Mock Test 7 — Listening",
   "minutes": 40,
   "total": 40,
   "mode": "listening",
