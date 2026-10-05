@@ -1,1 +1,249 @@
-{}
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "bus station"
+  ],
+  "display": "bus station"
+ },
+ "5": {
+  "accept": [
+   "450"
+  ],
+  "display": "450"
+ },
+ "6": {
+  "accept": [
+   "noisy"
+  ],
+  "display": "noisy"
+ },
+ "7": {
+  "accept": [
+   "Hills Avenue"
+  ],
+  "display": "Hills Avenue"
+ },
+ "8": {
+  "accept": [
+   "dining room"
+  ],
+  "display": "dining room"
+ },
+ "9": {
+  "accept": [
+   "modern",
+   "very modern"
+  ],
+  "display": "modern / very modern"
+ },
+ "10": {
+  "accept": [
+   "quiet"
+  ],
+  "display": "quiet"
+ },
+ "11": {
+  "accept": [
+   "Sundays"
+  ],
+  "display": "Sundays"
+ },
+ "12": {
+  "accept": [
+   "1998"
+  ],
+  "display": "1998"
+ },
+ "13": {
+  "accept": [
+   "100,000",
+   "100000",
+   "one hundred thousand",
+   "a hundred thousand"
+  ],
+  "display": "100,000 / 100000"
+ },
+ "14": {
+  "accept": [
+   "government"
+  ],
+  "display": "government"
+ },
+ "15": {
+  "accept": [
+   "research"
+  ],
+  "display": "research"
+ },
+ "16": {
+  "accept": [
+   "Conference Centre",
+   "Conference Center"
+  ],
+  "display": "Conference Centre / Conference Center"
+ },
+ "17": {
+  "accept": [
+   "information desk"
+  ],
+  "display": "information desk"
+ },
+ "18": {
+  "accept": [
+   "bookshop"
+  ],
+  "display": "bookshop"
+ },
+ "19": {
+  "accept": [
+   "King's Library",
+   "Kings Library"
+  ],
+  "display": "King's Library / Kings Library"
+ },
+ "20": {
+  "accept": [
+   "stamp display"
+  ],
+  "display": "stamp display"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "organisation",
+   "organization"
+  ],
+  "display": "organisation / organization"
+ },
+ "27": {
+  "accept": [
+   "definition"
+  ],
+  "display": "definition"
+ },
+ "28": {
+  "accept": [
+   "aims"
+  ],
+  "display": "aims"
+ },
+ "29": {
+  "accept": [
+   "Key Skills"
+  ],
+  "display": "Key Skills"
+ },
+ "30": {
+  "accept": [
+   "evidence"
+  ],
+  "display": "evidence"
+ },
+ "31": {
+  "accept": [
+   "proficiency"
+  ],
+  "display": "proficiency"
+ },
+ "32": {
+  "accept": [
+   "learning"
+  ],
+  "display": "learning"
+ },
+ "33": {
+  "accept": [
+   "social and economic"
+  ],
+  "display": "social and economic"
+ },
+ "34": {
+  "accept": [
+   "positive"
+  ],
+  "display": "positive"
+ },
+ "35": {
+  "accept": [
+   "adults"
+  ],
+  "display": "adults"
+ },
+ "36": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "37": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "40": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ }
+}

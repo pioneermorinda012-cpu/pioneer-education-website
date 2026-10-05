@@ -1,1 +1,282 @@
-{}
+{
+ "1": {
+  "accept": [
+   "230 South Road"
+  ],
+  "display": "230 South Road"
+ },
+ "2": {
+  "accept": [
+   "18"
+  ],
+  "display": "18"
+ },
+ "3": {
+  "accept": [
+   "activities and workshops",
+   "activities & workshops",
+   "activities, workshops"
+  ],
+  "display": "activities and workshops / activities & workshops"
+ },
+ "4": {
+  "accept": [
+   "250"
+  ],
+  "display": "250"
+ },
+ "5": {
+  "accept": [
+   "interactive"
+  ],
+  "display": "interactive"
+ },
+ "6": {
+  "accept": [
+   "materials"
+  ],
+  "display": "materials"
+ },
+ "7": {
+  "accept": [
+   "insurance"
+  ],
+  "display": "insurance"
+ },
+ "8": {
+  "accept": [
+   "publicity"
+  ],
+  "display": "publicity"
+ },
+ "9": {
+  "accept": [
+   "programme",
+   "program"
+  ],
+  "display": "programme / program"
+ },
+ "10": {
+  "accept": [
+   "not available",
+   "unavailable"
+  ],
+  "display": "not available / unavailable"
+ },
+ "11": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "18": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "19": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "investigate"
+  ],
+  "display": "investigate"
+ },
+ "22": {
+  "accept": [
+   "sunny, warm",
+   "sunny and warm",
+   "warm and sunny",
+   "warm, sunny"
+  ],
+  "display": "sunny, warm / sunny and warm"
+ },
+ "23": {
+  "accept": [
+   "change"
+  ],
+  "display": "change"
+ },
+ "24": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "25": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "26": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "any": [
+   "B",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 0,
+  "display": "B, F, H  (Q28–30, any order)"
+ },
+ "29": {
+  "any": [
+   "B",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 1,
+  "display": "B, F, H  (Q28–30, any order)"
+ },
+ "30": {
+  "any": [
+   "B",
+   "F",
+   "H"
+  ],
+  "pick": 3,
+  "lead": 28,
+  "idx": 2,
+  "display": "B, F, H  (Q28–30, any order)"
+ },
+ "31": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 0,
+  "display": "A, D  (Q31–32, any order)"
+ },
+ "32": {
+  "any": [
+   "A",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 31,
+  "idx": 1,
+  "display": "A, D  (Q31–32, any order)"
+ },
+ "33": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 33,
+  "idx": 0,
+  "display": "B, E  (Q33–34, any order)"
+ },
+ "34": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 33,
+  "idx": 1,
+  "display": "B, E  (Q33–34, any order)"
+ },
+ "35": {
+  "accept": [
+   "12000",
+   "12,000"
+  ],
+  "display": "12000 / 12,000"
+ },
+ "36": {
+  "accept": [
+   "minority"
+  ],
+  "display": "minority"
+ },
+ "37": {
+  "accept": [
+   "all"
+  ],
+  "display": "all"
+ },
+ "38": {
+  "accept": [
+   "teachers"
+  ],
+  "display": "teachers"
+ },
+ "39": {
+  "accept": [
+   "evaluation",
+   "the evaluation"
+  ],
+  "display": "evaluation / the evaluation"
+ },
+ "40": {
+  "accept": [
+   "poor"
+  ],
+  "display": "poor"
+ }
+}

@@ -1,1 +1,252 @@
-{}
+{
+ "1": {
+  "accept": [
+   "75"
+  ],
+  "display": "75"
+ },
+ "2": {
+  "accept": [
+   "wood"
+  ],
+  "display": "wood"
+ },
+ "3": {
+  "accept": [
+   "15"
+  ],
+  "display": "15"
+ },
+ "4": {
+  "accept": [
+   "cream"
+  ],
+  "display": "cream"
+ },
+ "5": {
+  "accept": [
+   "adjustable"
+  ],
+  "display": "adjustable"
+ },
+ "6": {
+  "accept": [
+   "cupboard"
+  ],
+  "display": "cupboard"
+ },
+ "7": {
+  "accept": [
+   "doors"
+  ],
+  "display": "doors"
+ },
+ "8": {
+  "accept": [
+   "95"
+  ],
+  "display": "95"
+ },
+ "9": {
+  "accept": [
+   "Blake"
+  ],
+  "display": "Blake"
+ },
+ "10": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "11": {
+  "accept": [
+   "cafe",
+   "café"
+  ],
+  "display": "cafe / café"
+ },
+ "12": {
+  "accept": [
+   "7:30",
+   "7.30"
+  ],
+  "display": "7:30 / 7.30"
+ },
+ "13": {
+  "accept": [
+   "disabled",
+   "the disabled"
+  ],
+  "display": "disabled / the disabled"
+ },
+ "14": {
+  "accept": [
+   "birds"
+  ],
+  "display": "birds"
+ },
+ "15": {
+  "accept": [
+   "exhibitions",
+   "art exhibitions"
+  ],
+  "display": "exhibitions / art exhibitions"
+ },
+ "16": {
+  "accept": [
+   "abstract"
+  ],
+  "display": "abstract"
+ },
+ "17": {
+  "accept": [
+   "designer"
+  ],
+  "display": "designer"
+ },
+ "18": {
+  "accept": [
+   "portraits"
+  ],
+  "display": "portraits"
+ },
+ "19": {
+  "accept": [
+   "two years",
+   "2 years",
+   "2 yrs",
+   "two yrs"
+  ],
+  "display": "two years / 2 years"
+ },
+ "20": {
+  "accept": [
+   "photographs",
+   "photos"
+  ],
+  "display": "photographs / photos"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "interests and style",
+   "style and interests"
+  ],
+  "display": "interests and style / style and interests"
+ },
+ "27": {
+  "accept": [
+   "visuals"
+  ],
+  "display": "visuals"
+ },
+ "28": {
+  "accept": [
+   "range"
+  ],
+  "display": "range"
+ },
+ "29": {
+  "accept": [
+   "source",
+   "sources"
+  ],
+  "display": "source / sources"
+ },
+ "30": {
+  "accept": [
+   "content"
+  ],
+  "display": "content"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "microclimate"
+  ],
+  "display": "microclimate"
+ },
+ "35": {
+  "accept": [
+   "concentration"
+  ],
+  "display": "concentration"
+ },
+ "36": {
+  "accept": [
+   "frost"
+  ],
+  "display": "frost"
+ },
+ "37": {
+  "accept": [
+   "liquid"
+  ],
+  "display": "liquid"
+ },
+ "38": {
+  "accept": [
+   "supercooling"
+  ],
+  "display": "supercooling"
+ },
+ "39": {
+  "accept": [
+   "Mars"
+  ],
+  "display": "Mars"
+ },
+ "40": {
+  "accept": [
+   "locations"
+  ],
+  "display": "locations"
+ }
+}

@@ -1,1 +1,287 @@
-{}
+{
+ "1": {
+  "accept": [
+   "19.75"
+  ],
+  "display": "19.75"
+ },
+ "2": {
+  "accept": [
+   "theme"
+  ],
+  "display": "theme"
+ },
+ "3": {
+  "accept": [
+   "quiet"
+  ],
+  "display": "quiet"
+ },
+ "4": {
+  "accept": [
+   "children"
+  ],
+  "display": "children"
+ },
+ "5": {
+  "accept": [
+   "breakfast"
+  ],
+  "display": "breakfast"
+ },
+ "6": {
+  "accept": [
+   "sky-dive",
+   "skydive",
+   "sky dive",
+   "free sky-dive",
+   "free skydive",
+   "free sky dive"
+  ],
+  "display": "sky-dive / skydive"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "schools",
+   "local councils",
+   "councils",
+   "companies"
+  ],
+  "display": "schools  (any order)",
+  "pool": [
+   "15",
+   "16",
+   "17"
+  ]
+ },
+ "16": {
+  "accept": [
+   "schools",
+   "local councils",
+   "councils",
+   "companies"
+  ],
+  "display": "schools  (any order)",
+  "pool": [
+   "15",
+   "16",
+   "17"
+  ]
+ },
+ "17": {
+  "accept": [
+   "schools",
+   "local councils",
+   "councils",
+   "companies"
+  ],
+  "display": "schools  (any order)",
+  "pool": [
+   "15",
+   "16",
+   "17"
+  ]
+ },
+ "18": {
+  "accept": [
+   "020 7562 4028",
+   "02075624028"
+  ],
+  "display": "020 7562 4028 / 02075624028"
+ },
+ "19": {
+  "accept": [
+   "27.50",
+   "27.5"
+  ],
+  "display": "27.50 / 27.5"
+ },
+ "20": {
+  "accept": [
+   "3 hours",
+   "3 hrs",
+   "three hours"
+  ],
+  "display": "3 hours / 3 hrs"
+ },
+ "21": {
+  "accept": [
+   "technique",
+   "the technique",
+   "their technique"
+  ],
+  "display": "technique / the technique"
+ },
+ "22": {
+  "accept": [
+   "questions",
+   "the questions",
+   "answering questions",
+   "answering the questions",
+   "students' questions",
+   "answering students' questions"
+  ],
+  "display": "questions / the questions"
+ },
+ "23": {
+  "accept": [
+   "solutions",
+   "the solutions",
+   "their solutions"
+  ],
+  "display": "solutions / the solutions"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "ending"
+  ],
+  "display": "ending"
+ },
+ "29": {
+  "accept": [
+   "limitations"
+  ],
+  "display": "limitations"
+ },
+ "30": {
+  "accept": [
+   "literature"
+  ],
+  "display": "literature"
+ },
+ "31": {
+  "accept": [
+   "safe"
+  ],
+  "display": "safe"
+ },
+ "32": {
+  "accept": [
+   "basic needs"
+  ],
+  "display": "basic needs"
+ },
+ "33": {
+  "accept": [
+   "local government"
+  ],
+  "display": "local government"
+ },
+ "34": {
+  "accept": [
+   "residents"
+  ],
+  "display": "residents"
+ },
+ "35": {
+  "accept": [
+   "economic"
+  ],
+  "display": "economic"
+ },
+ "36": {
+  "accept": [
+   "secondary school"
+  ],
+  "display": "secondary school"
+ },
+ "37": {
+  "accept": [
+   "films"
+  ],
+  "display": "films"
+ },
+ "38": {
+  "accept": [
+   "Women's Centre",
+   "Women's Center",
+   "Womens Centre",
+   "Womens Center"
+  ],
+  "display": "Women's Centre / Women's Center"
+ },
+ "39": {
+  "accept": [
+   "skills"
+  ],
+  "display": "skills"
+ },
+ "40": {
+  "accept": [
+   "status"
+  ],
+  "display": "status"
+ }
+}

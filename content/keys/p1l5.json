@@ -1,1 +1,267 @@
-{}
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "any": [
+   "B",
+   "D",
+   "G"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 0,
+  "display": "B, D, G  (Q8–10, any order)"
+ },
+ "9": {
+  "any": [
+   "B",
+   "D",
+   "G"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 1,
+  "display": "B, D, G  (Q8–10, any order)"
+ },
+ "10": {
+  "any": [
+   "B",
+   "D",
+   "G"
+  ],
+  "pick": 3,
+  "lead": 8,
+  "idx": 2,
+  "display": "B, D, G  (Q8–10, any order)"
+ },
+ "11": {
+  "accept": [
+   "June 6th",
+   "June 6",
+   "6th June",
+   "6 June"
+  ],
+  "display": "June 6th / June 6"
+ },
+ "12": {
+  "accept": [
+   "5000",
+   "5,000"
+  ],
+  "display": "5000 / 5,000"
+ },
+ "13": {
+  "accept": [
+   "transportation"
+  ],
+  "display": "transportation"
+ },
+ "14": {
+  "accept": [
+   "low levels"
+  ],
+  "display": "low levels"
+ },
+ "15": {
+  "accept": [
+   "commuter"
+  ],
+  "display": "commuter"
+ },
+ "16": {
+  "accept": [
+   "plant trees"
+  ],
+  "display": "plant trees"
+ },
+ "17": {
+  "accept": [
+   "upgrade"
+  ],
+  "display": "upgrade"
+ },
+ "18": {
+  "accept": [
+   "border"
+  ],
+  "display": "border"
+ },
+ "19": {
+  "accept": [
+   "clean fuels",
+   "cleaner fuels"
+  ],
+  "display": "clean fuels / cleaner fuels"
+ },
+ "20": {
+  "accept": [
+   "factories"
+  ],
+  "display": "factories"
+ },
+ "21": {
+  "accept": [
+   "northwest",
+   "north-west",
+   "north west"
+  ],
+  "display": "northwest / north-west"
+ },
+ "22": {
+  "accept": [
+   "spray"
+  ],
+  "display": "spray"
+ },
+ "23": {
+  "accept": [
+   "library",
+   "a library",
+   "small library",
+   "a small library"
+  ],
+  "display": "library / a library"
+ },
+ "24": {
+  "accept": [
+   "mountains"
+  ],
+  "display": "mountains"
+ },
+ "25": {
+  "accept": [
+   "field observation"
+  ],
+  "display": "field observation"
+ },
+ "26": {
+  "accept": [
+   "development"
+  ],
+  "display": "development"
+ },
+ "27": {
+  "accept": [
+   "water"
+  ],
+  "display": "water"
+ },
+ "28": {
+  "accept": [
+   "market town"
+  ],
+  "display": "market town"
+ },
+ "29": {
+  "accept": [
+   "national park"
+  ],
+  "display": "national park"
+ },
+ "30": {
+  "accept": [
+   "dissertation"
+  ],
+  "display": "dissertation"
+ },
+ "31": {
+  "accept": [
+   "requirements"
+  ],
+  "display": "requirements"
+ },
+ "32": {
+  "accept": [
+   "private"
+  ],
+  "display": "private"
+ },
+ "33": {
+  "accept": [
+   "attitudes"
+  ],
+  "display": "attitudes"
+ },
+ "34": {
+  "accept": [
+   "interviews"
+  ],
+  "display": "interviews"
+ },
+ "35": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "36": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "37": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}
