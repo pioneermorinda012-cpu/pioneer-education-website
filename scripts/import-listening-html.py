@@ -16,7 +16,7 @@ Out:  content/tests/<id>.json      the paper, no answers, no evidence
       content/keys/<id>.json       the answer key               (server only)
       content/evidence/<id>.json   what is said for each answer (server only)
       public/practice/media/<id>/  pictures + audio_main.mp3 (the mp3 is not committed)
-      supabase-upload/<id>-<md5>.mp3  the same recording, named for the bucket
+      public/practice/audio/<id>-<md5>.mp3  the recording, committed and served with the site
 """
 import base64
 import hashlib
@@ -322,10 +322,13 @@ def convert(root: pathlib.Path, src: pathlib.Path, tid: str, label: str):
     mp3 = media_dir / "audio_main.mp3"
     starts, secs = join_audio(audio, mp3)
     md5 = hashlib.md5(mp3.read_bytes()).hexdigest()[:8]
-    up = root / "supabase-upload" / f"{tid}-{md5}.mp3"
-    up.parent.mkdir(exist_ok=True)
+    # The recording ships with the site in public/practice/audio (committed), so a
+    # new test goes live with one push and no separate upload to storage. Paths
+    # under /practice/audio/ are left alone by lib/catalogue's media re-pointing.
+    up = root / "public" / "practice" / "audio" / f"{tid}-{md5}.mp3"
+    up.parent.mkdir(parents=True, exist_ok=True)
     up.write_bytes(mp3.read_bytes())
-    media["audio_main"] = f"/practice/media/{tid}/audio_main.mp3"
+    media["audio_main"] = f"/practice/audio/{up.name}"
 
     mins = round(secs / 60)
     test = {

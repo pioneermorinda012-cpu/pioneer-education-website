@@ -89,3 +89,13 @@ library because they cannot be marked yet:
 (`al-c1`–`al-c5`) and Reading Set B (`ar-b1`–`ar-b6`).
 
 They turn on automatically as soon as their key JSON files are filled in.
+
+## Recordings that ship with the site (from October 2026)
+
+New listening tests keep their recording in `public/practice/audio/<id>-<md5>.mp3`,
+committed with the paper, and the paper's `mediaUrls.audio_main` points at
+`/practice/audio/...`. Those paths are not re-pointed at `NEXT_PUBLIC_MEDIA_BASE`,
+so a new test goes live with a single `git push` and nothing to upload to
+Supabase. Keep each recording small: mono, 32 kHz, 40 kbps (about 8–9 MB for a
+full test), as `scripts/import-listening-html.py` writes them. Older tests still
+play from Supabase as before.
