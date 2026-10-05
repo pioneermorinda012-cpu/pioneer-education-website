@@ -1,0 +1,260 @@
+{
+ "1": {
+  "accept": [
+   "19"
+  ],
+  "display": "19"
+ },
+ "2": {
+  "accept": [
+   "40 minutes",
+   "forty minutes"
+  ],
+  "display": "40 minutes"
+ },
+ "3": {
+  "accept": [
+   "balcony"
+  ],
+  "display": "balcony"
+ },
+ "4": {
+  "accept": [
+   "tennis courts"
+  ],
+  "display": "tennis courts"
+ },
+ "5": {
+  "accept": [
+   "fish dishes"
+  ],
+  "display": "fish dishes"
+ },
+ "6": {
+  "accept": [
+   "piano"
+  ],
+  "display": "piano"
+ },
+ "7": {
+  "accept": [
+   "helicopter"
+  ],
+  "display": "helicopter"
+ },
+ "8": {
+  "accept": [
+   "cretan garden",
+   "garden"
+  ],
+  "display": "(Cretan) garden"
+ },
+ "9": {
+  "accept": [
+   "fireworks"
+  ],
+  "display": "fireworks"
+ },
+ "10": {
+  "accept": [
+   "cable car"
+  ],
+  "display": "cable car"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 15,
+  "idx": 0,
+  "display": "A, C  (Q15–16, any order)"
+ },
+ "16": {
+  "any": [
+   "A",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 15,
+  "idx": 1,
+  "display": "A, C  (Q15–16, any order)"
+ },
+ "17": {
+  "accept": [
+   "popular"
+  ],
+  "display": "popular"
+ },
+ "18": {
+  "accept": [
+   "tastes"
+  ],
+  "display": "tastes"
+ },
+ "19": {
+  "accept": [
+   "feedback"
+  ],
+  "display": "feedback"
+ },
+ "20": {
+  "accept": [
+   "speed"
+  ],
+  "display": "speed"
+ },
+ "21": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "31": {
+  "accept": [
+   "genetic"
+  ],
+  "display": "genetic"
+ },
+ "32": {
+  "accept": [
+   "observation"
+  ],
+  "display": "observation"
+ },
+ "33": {
+  "accept": [
+   "tools"
+  ],
+  "display": "tools"
+ },
+ "34": {
+  "accept": [
+   "open"
+  ],
+  "display": "open"
+ },
+ "35": {
+  "accept": [
+   "stone"
+  ],
+  "display": "stone"
+ },
+ "36": {
+  "accept": [
+   "symbols"
+  ],
+  "display": "symbols"
+ },
+ "37": {
+  "accept": [
+   "river"
+  ],
+  "display": "river"
+ },
+ "38": {
+  "accept": [
+   "density"
+  ],
+  "display": "density"
+ },
+ "39": {
+  "any": [
+   "B",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 39,
+  "idx": 0,
+  "display": "B, C  (Q39–40, any order)"
+ },
+ "40": {
+  "any": [
+   "B",
+   "C"
+  ],
+  "pick": 2,
+  "lead": 39,
+  "idx": 1,
+  "display": "B, C  (Q39–40, any order)"
+ }
+}
