@@ -268,16 +268,22 @@ export default function Player(
         </div>
       )}
 
-      <div style={
+      {/* Split view: on a wide screen the passage and the questions sit side by
+          side and each scrolls on its own, like the computer-delivered exam, so
+          a student can read down the passage without losing the question they
+          are on. `key` remounts both panes on a new passage, back at the top. */}
+      <div key={current} style={
         isReading && section.passage && view === "s"
           ? { display: "grid", gap: 16, gridTemplateColumns: "1fr", alignItems: "start" }
           : {}
       } className={isReading && section.passage && view === "s" ? "pr-split" : undefined}>
         {isReading && section.passage && view !== "q" && (
-          <Passage passage={section.passage} media={test.mediaUrls} />
+          <div className="pr-pane" aria-label="Reading passage" tabIndex={-1}>
+            <Passage passage={section.passage} media={test.mediaUrls} />
+          </div>
         )}
         {(!isReading || !section.passage || view !== "p") && (
-          <div>
+          <div className="pr-pane" aria-label="Questions" tabIndex={-1}>
             {section.groups.map((g, i) => (
               <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
                 cover={covers[current]} />

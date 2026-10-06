@@ -80,8 +80,16 @@
 
 /* ── reading split view ────────────────────────────────── */
 @media (min-width: 900px) {
-  .pr-split { grid-template-columns: 1fr 1fr !important; gap: 18px !important; }
+  .pr-split { grid-template-columns: 1fr 1fr !important; gap: 18px !important;
+    /* fits under the section tabs and above the fixed progress bar */
+    height: max(420px, calc(100dvh - 290px)); align-items: stretch !important; }
   .pr-split > * { min-width: 0; }
+  /* Each half scrolls on its own. At the end of the questions the page carries
+     on down to the Next button. */
+  .pr-split > .pr-pane { overflow-y: auto; padding-right: 6px;
+    scrollbar-gutter: stable; }
+  .pr-split > .pr-pane > article { margin-top: 0 !important; }
+  .pr-split > .pr-pane:focus { outline: none; }
 }
 
 /* ── sign-in / teacher forms ───────────────────────────── */
