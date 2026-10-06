@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "receptionist",
+   "a receptionist"
+  ],
+  "display": "receptionist"
+ },
+ "2": {
+  "accept": [
+   "customer",
+   "quality customer",
+   "quality"
+  ],
+  "display": "(quality) customer"
+ },
+ "3": {
+  "accept": [
+   "early mornings",
+   "mornings"
+  ],
+  "display": "early mornings"
+ },
+ "4": {
+  "accept": [
+   "training"
+  ],
+  "display": "training"
+ },
+ "5": {
+  "accept": [
+   "driver",
+   "a driver"
+  ],
+  "display": "driver"
+ },
+ "6": {
+  "accept": [
+   "flexible"
+  ],
+  "display": "flexible"
+ },
+ "7": {
+  "accept": [
+   "grocery shopping",
+   "shopping",
+   "grocery"
+  ],
+  "display": "grocery shopping"
+ },
+ "8": {
+  "accept": [
+   "weekends",
+   "weekend"
+  ],
+  "display": "weekends"
+ },
+ "9": {
+  "accept": [
+   "cinema"
+  ],
+  "display": "cinema"
+ },
+ "10": {
+  "accept": [
+   "bookings"
+  ],
+  "display": "bookings"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "registration office"
+  ],
+  "display": "registration office"
+ },
+ "16": {
+  "accept": [
+   "records",
+   "own records"
+  ],
+  "display": "(own) records"
+ },
+ "17": {
+  "accept": [
+   "identity"
+  ],
+  "display": "identity"
+ },
+ "18": {
+  "accept": [
+   "acknowledgement",
+   "an acknowledgement"
+  ],
+  "display": "acknowledgement"
+ },
+ "19": {
+  "accept": [
+   "interview"
+  ],
+  "display": "interview"
+ },
+ "20": {
+  "accept": [
+   "decision"
+  ],
+  "display": "decision"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "commercial"
+  ],
+  "display": "commercial"
+ },
+ "32": {
+  "accept": [
+   "knowledge"
+  ],
+  "display": "knowledge"
+ },
+ "33": {
+  "accept": [
+   "lines"
+  ],
+  "display": "lines"
+ },
+ "34": {
+  "accept": [
+   "photography"
+  ],
+  "display": "Photography"
+ },
+ "35": {
+  "accept": [
+   "advertise",
+   "advertise"
+  ],
+  "display": "advertise"
+ },
+ "36": {
+  "accept": [
+   "foot"
+  ],
+  "display": "foot"
+ },
+ "37": {
+  "accept": [
+   "objects"
+  ],
+  "display": "objects"
+ },
+ "38": {
+  "accept": [
+   "newspapers"
+  ],
+  "display": "newspapers"
+ },
+ "39": {
+  "accept": [
+   "packaging"
+  ],
+  "display": "packaging"
+ },
+ "40": {
+  "accept": [
+   "mathematics"
+  ],
+  "display": "mathematics"
+ }
+}

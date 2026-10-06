@@ -1,8 +1,10 @@
 {
  "1": {
   "accept": [
-   "67 King's",
-   "67 Kings"
+   "67 king's",
+   "67 kings",
+   "king's",
+   "kings"
   ],
   "display": "67 King's"
  },
@@ -14,7 +16,7 @@
  },
  "3": {
   "accept": [
-   "Sutcliffe"
+   "sutcliffe"
   ],
   "display": "Sutcliffe"
  },
@@ -26,7 +28,8 @@
  },
  "5": {
   "accept": [
-   "day"
+   "day",
+   "daylight"
   ],
   "display": "day"
  },
@@ -45,28 +48,34 @@
  },
  "8": {
   "accept": [
-   "50"
+   "50",
+   "$50",
+   "fifty"
   ],
   "display": "50"
  },
  "9": {
   "accept": [
-   "30"
+   "30",
+   "thirty"
   ],
   "display": "30"
  },
  "10": {
   "accept": [
    "notebook",
-   "diary"
+   "diary",
+   "note-book"
   ],
   "display": "notebook / diary"
  },
  "11": {
   "accept": [
    "1 million",
-   "one million",
-   "1,000,000"
+   "1,000,000",
+   "1000000",
+   "1m",
+   "one million"
   ],
   "display": "1 million"
  },
@@ -79,10 +88,9 @@
  "13": {
   "accept": [
    "southeast",
-   "south-east",
-   "south east"
+   "south-east"
   ],
-  "display": "southeast / south-east"
+  "display": "southeast"
  },
  "14": {
   "accept": [
@@ -195,7 +203,8 @@
  },
  "32": {
   "accept": [
-   "internal website"
+   "internal website",
+   "website"
   ],
   "display": "internal website"
  },
@@ -214,7 +223,8 @@
  },
  "35": {
   "accept": [
-   "employee first"
+   "employee first",
+   "\"employee first\""
   ],
   "display": "employee first"
  },

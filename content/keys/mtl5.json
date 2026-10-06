@@ -1,20 +1,27 @@
 {
  "1": {
   "accept": [
-   "19"
+   "19",
+   "19°c",
+   "19 degrees",
+   "nineteen"
   ],
   "display": "19"
  },
  "2": {
   "accept": [
    "40 minutes",
-   "forty minutes"
+   "40 mins",
+   "forty minutes",
+   "40 min",
+   "40"
   ],
   "display": "40 minutes"
  },
  "3": {
   "accept": [
-   "balcony"
+   "balcony",
+   "a balcony"
   ],
   "display": "balcony"
  },
@@ -26,28 +33,32 @@
  },
  "5": {
   "accept": [
-   "fish dishes"
+   "fish dishes",
+   "fish"
   ],
   "display": "fish dishes"
  },
  "6": {
   "accept": [
-   "piano"
+   "piano",
+   "piano performance"
   ],
   "display": "piano"
  },
  "7": {
   "accept": [
-   "helicopter"
+   "garden",
+   "cretan garden"
   ],
-  "display": "helicopter"
+  "display": "garden"
  },
  "8": {
   "accept": [
-   "cretan garden",
-   "garden"
+   "helicopter",
+   "by helicopter",
+   "a helicopter"
   ],
-  "display": "(Cretan) garden"
+  "display": "helicopter"
  },
  "9": {
   "accept": [
@@ -57,7 +68,8 @@
  },
  "10": {
   "accept": [
-   "cable car"
+   "cable car",
+   "cable-car"
   ],
   "display": "cable car"
  },

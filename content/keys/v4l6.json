@@ -1,0 +1,374 @@
+{
+ "1": {
+  "accept": [
+   "camden"
+  ],
+  "display": "Camden"
+ },
+ "2": {
+  "accept": [
+   "green"
+  ],
+  "display": "Green"
+ },
+ "3": {
+  "accept": [
+   "7434"
+  ],
+  "display": "7434"
+ },
+ "4": {
+  "accept": [
+   "1976"
+  ],
+  "display": "1976"
+ },
+ "5": {
+  "accept": [
+   "06634982746",
+   "06634 982746",
+   "06634 982 746",
+   "06634-982746",
+   "066349 82746"
+  ],
+  "display": "06634 982746"
+ },
+ "6": {
+  "any": [
+   "A",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 6,
+  "idx": 0,
+  "display": "A, D, F  (Q6–8, any order)"
+ },
+ "7": {
+  "any": [
+   "A",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 6,
+  "idx": 1,
+  "display": "A, D, F  (Q6–8, any order)"
+ },
+ "8": {
+  "any": [
+   "A",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 6,
+  "idx": 2,
+  "display": "A, D, F  (Q6–8, any order)"
+ },
+ "9": {
+  "accept": [
+   "free",
+   "$0",
+   "0",
+   "nothing"
+  ],
+  "display": "free / nothing"
+ },
+ "10": {
+  "accept": [
+   "$6",
+   "6 dollars",
+   "six dollars",
+   "6",
+   "$6 each",
+   "$6 per dvd"
+  ],
+  "display": "$6"
+ },
+ "11": {
+  "accept": [
+   "accidents",
+   "accident",
+   "accident victims",
+   "burns",
+   "surgery",
+   "organ transplants",
+   "transplants",
+   "leukemia",
+   "cancer",
+   "treatment for leukemia",
+   "other diseases",
+   "diseases"
+  ],
+  "pool": [
+   "11",
+   "12",
+   "13",
+   "14"
+  ],
+  "display": "accidents / burns / surgery / organ transplants / leukemia  (Q11–14, any order)"
+ },
+ "12": {
+  "accept": [
+   "accidents",
+   "accident",
+   "accident victims",
+   "burns",
+   "surgery",
+   "organ transplants",
+   "transplants",
+   "leukemia",
+   "cancer",
+   "treatment for leukemia",
+   "other diseases",
+   "diseases"
+  ],
+  "pool": [
+   "11",
+   "12",
+   "13",
+   "14"
+  ],
+  "display": "accidents / burns / surgery / organ transplants / leukemia  (Q11–14, any order)"
+ },
+ "13": {
+  "accept": [
+   "accidents",
+   "accident",
+   "accident victims",
+   "burns",
+   "surgery",
+   "organ transplants",
+   "transplants",
+   "leukemia",
+   "cancer",
+   "treatment for leukemia",
+   "other diseases",
+   "diseases"
+  ],
+  "pool": [
+   "11",
+   "12",
+   "13",
+   "14"
+  ],
+  "display": "accidents / burns / surgery / organ transplants / leukemia  (Q11–14, any order)"
+ },
+ "14": {
+  "accept": [
+   "accidents",
+   "accident",
+   "accident victims",
+   "burns",
+   "surgery",
+   "organ transplants",
+   "transplants",
+   "leukemia",
+   "cancer",
+   "treatment for leukemia",
+   "other diseases",
+   "diseases"
+  ],
+  "pool": [
+   "11",
+   "12",
+   "13",
+   "14"
+  ],
+  "display": "accidents / burns / surgery / organ transplants / leukemia  (Q11–14, any order)"
+ },
+ "15": {
+  "accept": [
+   "carry oxygen",
+   "oxygen"
+  ],
+  "display": "carry oxygen"
+ },
+ "16": {
+  "accept": [
+   "immune system",
+   "defense systems"
+  ],
+  "display": "immune system"
+ },
+ "17": {
+  "accept": [
+   "carries",
+   "carry",
+   "to carry"
+  ],
+  "display": "carries"
+ },
+ "18": {
+  "accept": [
+   "outpatients",
+   "out-patients",
+   "outpatients'"
+  ],
+  "display": "Outpatients"
+ },
+ "19": {
+  "accept": [
+   "4.30pm",
+   "4.30 pm",
+   "4:30pm",
+   "4:30 pm",
+   "4.30",
+   "4:30",
+   "16.30",
+   "16:30",
+   "half past four"
+  ],
+  "display": "4.30 pm"
+ },
+ "20": {
+  "accept": [
+   "17",
+   "17 years",
+   "17 years old",
+   "17 years of age"
+  ],
+  "display": "17"
+ },
+ "21": {
+  "accept": [
+   "staff",
+   "the staff"
+  ],
+  "display": "staff"
+ },
+ "22": {
+  "accept": [
+   "library",
+   "the library",
+   "in the library"
+  ],
+  "display": "(the) library"
+ },
+ "23": {
+  "accept": [
+   "2 hours",
+   "two hours",
+   "2 hrs"
+  ],
+  "display": "2 hours"
+ },
+ "24": {
+  "accept": [
+   "in pen",
+   "pen"
+  ],
+  "display": "in pen"
+ },
+ "25": {
+  "accept": [
+   "biology"
+  ],
+  "display": "biology"
+ },
+ "26": {
+  "accept": [
+   "tray",
+   "a tray",
+   "the tray"
+  ],
+  "display": "(a) tray"
+ },
+ "27": {
+  "accept": [
+   "free",
+   "0",
+   "nothing",
+   "none",
+   "nil"
+  ],
+  "display": "free / nothing"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "1964"
+  ],
+  "display": "1964"
+ },
+ "32": {
+  "accept": [
+   "fastest average speed",
+   "average speed"
+  ],
+  "display": "fastest average speed"
+ },
+ "33": {
+  "accept": [
+   "12 seconds",
+   "twelve seconds",
+   "12 secs"
+  ],
+  "display": "12 seconds"
+ },
+ "34": {
+  "accept": [
+   "most important stations",
+   "important stations"
+  ],
+  "display": "most important stations"
+ },
+ "35": {
+  "accept": [
+   "all stations"
+  ],
+  "display": "all stations"
+ },
+ "36": {
+  "accept": [
+   "centralized power system",
+   "centralized power"
+  ],
+  "display": "centralised power system"
+ },
+ "37": {
+  "accept": [
+   "flimsy"
+  ],
+  "display": "flimsy"
+ },
+ "38": {
+  "accept": [
+   "brake",
+   "a brake"
+  ],
+  "display": "brake"
+ },
+ "39": {
+  "accept": [
+   "magnetic induction",
+   "induction"
+  ],
+  "display": "magnetic induction"
+ },
+ "40": {
+  "accept": [
+   "semiconductor technologies",
+   "semiconductor"
+  ],
+  "display": "semiconductor technologies"
+ }
+}

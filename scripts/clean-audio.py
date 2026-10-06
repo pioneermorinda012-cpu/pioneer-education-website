@@ -16,12 +16,13 @@ import shutil
 import subprocess
 import sys
 
-NOISY = ["v1l3", "v1l6", "v2l1", "v2l2", "v3l1", "v3l2", "v4l1", "v4l2", "v5l1", "v7l1", "v7l2", "v8l1", "v8l2",
+NOISY = ["v3l4", "v4l5", "v4l6", "v1l3", "v1l6", "v2l1", "v2l2", "v3l1", "v3l2", "v4l1", "v4l2", "v5l1", "v7l1", "v7l2", "v8l1", "v8l2",
          "p2l1", "p2l3", "p2l4", "p2l5", "mtl1", "mtl5", "mtl6", "mtl7"]
 FILTER = "highpass=f=80,afftdn=nf=-30:nr=15:tn=1"
 # best source for these: the owner's original high-bitrate files
-ORIGINAL = {"mtl5": "supabase-upload/mtl5-eaed7137.mp3", "mtl6": "supabase-upload/mtl6-fafd2b63.mp3",
-            "mtl7": "supabase-upload/mtl7-6038b460.mp3"}
+# (Mock Tests 5-7 were first cleaned from the owner's 128 kbps mp3s; since 5 Oct 2026
+# they come from his HTML papers, whose transcript timings match their own audio.)
+ORIGINAL = {}
 
 root = pathlib.Path(__file__).resolve().parent.parent
 out_dir = root / "public" / "practice" / "audio"

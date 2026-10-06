@@ -1,0 +1,292 @@
+{
+ "1": {
+  "accept": [
+   "swimming pool",
+   "pool"
+  ],
+  "display": "swimming pool"
+ },
+ "2": {
+  "accept": [
+   "dining room",
+   "dining-room"
+  ],
+  "display": "dining room"
+ },
+ "3": {
+  "accept": [
+   "garage"
+  ],
+  "display": "garage"
+ },
+ "4": {
+  "accept": [
+   "local supermarket",
+   "supermarket"
+  ],
+  "display": "local supermarket"
+ },
+ "5": {
+  "accept": [
+   "park",
+   "a park",
+   "the park"
+  ],
+  "display": "park"
+ },
+ "6": {
+  "accept": [
+   "primary school"
+  ],
+  "display": "primary school"
+ },
+ "7": {
+  "accept": [
+   "garden",
+   "the garden"
+  ],
+  "display": "garden"
+ },
+ "8": {
+  "accept": [
+   "23rd april",
+   "23 april",
+   "april 23",
+   "april 23rd",
+   "23/4",
+   "23.4"
+  ],
+  "display": "23(rd) April"
+ },
+ "9": {
+  "accept": [
+   "10.15 am",
+   "10.15 a.m.",
+   "10:15 am",
+   "10:15 a.m.",
+   "10.15",
+   "10:15",
+   "10.15am",
+   "10:15am",
+   "quarter past ten"
+  ],
+  "display": "10.15 a.m."
+ },
+ "10": {
+  "accept": [
+   "spring street"
+  ],
+  "display": "Spring Street"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "any": [
+   "B",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 25,
+  "idx": 0,
+  "display": "B, D  (Q25–26, any order)"
+ },
+ "26": {
+  "any": [
+   "B",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 25,
+  "idx": 1,
+  "display": "B, D  (Q25–26, any order)"
+ },
+ "27": {
+  "any": [
+   "A",
+   "B"
+  ],
+  "pick": 2,
+  "lead": 27,
+  "idx": 0,
+  "display": "A, B  (Q27–28, any order)"
+ },
+ "28": {
+  "any": [
+   "A",
+   "B"
+  ],
+  "pick": 2,
+  "lead": 27,
+  "idx": 1,
+  "display": "A, B  (Q27–28, any order)"
+ },
+ "29": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 0,
+  "display": "C, D  (Q29–30, any order)"
+ },
+ "30": {
+  "any": [
+   "C",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 29,
+  "idx": 1,
+  "display": "C, D  (Q29–30, any order)"
+ },
+ "31": {
+  "accept": [
+   "present",
+   "the present"
+  ],
+  "display": "present"
+ },
+ "32": {
+  "accept": [
+   "new facts"
+  ],
+  "display": "new facts"
+ },
+ "33": {
+  "accept": [
+   "other planets",
+   "planets"
+  ],
+  "display": "other planets"
+ },
+ "34": {
+  "accept": [
+   "future medicine",
+   "medicine"
+  ],
+  "display": "future medicine"
+ },
+ "35": {
+  "accept": [
+   "traffic"
+  ],
+  "display": "traffic"
+ },
+ "36": {
+  "accept": [
+   "toys",
+   "toy"
+  ],
+  "display": "toys"
+ },
+ "37": {
+  "accept": [
+   "animals",
+   "animal"
+  ],
+  "display": "animals"
+ },
+ "38": {
+  "accept": [
+   "camera",
+   "mini camera",
+   "cameras"
+  ],
+  "display": "camera"
+ },
+ "39": {
+  "accept": [
+   "efficient"
+  ],
+  "display": "efficient"
+ },
+ "40": {
+  "accept": [
+   "competitions"
+  ],
+  "display": "competitions"
+ }
+}

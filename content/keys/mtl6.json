@@ -1,53 +1,61 @@
 {
  "1": {
   "accept": [
-   "July"
+   "july"
   ],
   "display": "July"
  },
  "2": {
   "accept": [
    "3 days",
-   "three days"
+   "three days",
+   "3days"
   ],
-  "display": "3 / three days"
+  "display": "3 days"
  },
  "3": {
   "accept": [
-   "test driving"
+   "test driving",
+   "test drive"
   ],
   "display": "test driving"
  },
  "4": {
   "accept": [
-   "camera"
+   "camera",
+   "cameras",
+   "a camera"
   ],
   "display": "camera"
  },
  "5": {
   "accept": [
-   "110"
+   "110",
+   "£110",
+   "110 pounds"
   ],
   "display": "110"
  },
  "6": {
   "accept": [
-   "Edgeworth"
+   "edgeworth"
   ],
   "display": "Edgeworth"
  },
  "7": {
   "accept": [
-   "Summer"
+   "summer"
   ],
   "display": "Summer"
  },
  "8": {
   "accept": [
    "city centre",
+   "centre",
+   "center",
    "city center"
   ],
-  "display": "city centre / center"
+  "display": "city centre"
  },
  "9": {
   "accept": [

@@ -1,0 +1,257 @@
+{
+ "1": {
+  "accept": [
+   "august"
+  ],
+  "display": "August"
+ },
+ "2": {
+  "accept": [
+   "77.50",
+   "77.5",
+   "77,50",
+   "€77.50",
+   "77 euros 50"
+  ],
+  "display": "77.50"
+ },
+ "3": {
+  "accept": [
+   "1 month",
+   "one month",
+   "month"
+  ],
+  "display": "one month"
+ },
+ "4": {
+  "accept": [
+   "breakfast"
+  ],
+  "display": "breakfast"
+ },
+ "5": {
+  "accept": [
+   "towels"
+  ],
+  "display": "towels"
+ },
+ "6": {
+  "accept": [
+   "books",
+   "book"
+  ],
+  "display": "books"
+ },
+ "7": {
+  "accept": [
+   "games"
+  ],
+  "display": "games"
+ },
+ "8": {
+  "accept": [
+   "internet"
+  ],
+  "display": "internet"
+ },
+ "9": {
+  "accept": [
+   "shells"
+  ],
+  "display": "shells"
+ },
+ "10": {
+  "accept": [
+   "bicycles"
+  ],
+  "display": "bicycles"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "18": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "19": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "20": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "21": {
+  "accept": [
+   "weather"
+  ],
+  "display": "weather"
+ },
+ "22": {
+  "accept": [
+   "electricity"
+  ],
+  "display": "electricity"
+ },
+ "23": {
+  "accept": [
+   "explode"
+  ],
+  "display": "explode"
+ },
+ "24": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 24,
+  "idx": 0,
+  "display": "C, E  (Q24–25, any order)"
+ },
+ "25": {
+  "any": [
+   "C",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 24,
+  "idx": 1,
+  "display": "C, E  (Q24–25, any order)"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "escape"
+  ],
+  "display": "escape"
+ },
+ "32": {
+  "accept": [
+   "tuna"
+  ],
+  "display": "tuna"
+ },
+ "33": {
+  "accept": [
+   "escaping"
+  ],
+  "display": "escaping"
+ },
+ "34": {
+  "accept": [
+   "strong"
+  ],
+  "display": "strong"
+ },
+ "35": {
+  "accept": [
+   "coast"
+  ],
+  "display": "coast"
+ },
+ "36": {
+  "accept": [
+   "young"
+  ],
+  "display": "young"
+ },
+ "37": {
+  "accept": [
+   "support"
+  ],
+  "display": "support"
+ },
+ "38": {
+  "accept": [
+   "cosmetics"
+  ],
+  "display": "cosmetics"
+ },
+ "39": {
+  "accept": [
+   "hospitality"
+  ],
+  "display": "hospitality"
+ },
+ "40": {
+  "accept": [
+   "shipping"
+  ],
+  "display": "shipping"
+ }
+}

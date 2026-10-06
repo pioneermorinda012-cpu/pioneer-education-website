@@ -1,0 +1,245 @@
+{
+ "1": {
+  "accept": [
+   "central"
+  ],
+  "display": "Central"
+ },
+ "2": {
+  "accept": [
+   "address"
+  ],
+  "display": "address"
+ },
+ "3": {
+  "accept": [
+   "pool"
+  ],
+  "display": "pool"
+ },
+ "4": {
+  "accept": [
+   "reception"
+  ],
+  "display": "reception"
+ },
+ "5": {
+  "accept": [
+   "view"
+  ],
+  "display": "view"
+ },
+ "6": {
+  "accept": [
+   "prices"
+  ],
+  "display": "prices"
+ },
+ "7": {
+  "accept": [
+   "spanish"
+  ],
+  "display": "Spanish"
+ },
+ "8": {
+  "accept": [
+   "july"
+  ],
+  "display": "July"
+ },
+ "9": {
+  "accept": [
+   "clifton"
+  ],
+  "display": "Clifton"
+ },
+ "10": {
+  "accept": [
+   "903036602",
+   "9030 36602",
+   "903 036 602",
+   "9030-36602"
+  ],
+  "display": "903036602"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "17": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "18": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "19": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "22": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "26": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "31": {
+  "accept": [
+   "temperature"
+  ],
+  "display": "temperature"
+ },
+ "32": {
+  "accept": [
+   "movements"
+  ],
+  "display": "movements"
+ },
+ "33": {
+  "accept": [
+   "bones"
+  ],
+  "display": "bones"
+ },
+ "34": {
+  "accept": [
+   "bushes"
+  ],
+  "display": "bushes"
+ },
+ "35": {
+  "accept": [
+   "roots"
+  ],
+  "display": "roots"
+ },
+ "36": {
+  "accept": [
+   "sharks"
+  ],
+  "display": "sharks"
+ },
+ "37": {
+  "accept": [
+   "chicks"
+  ],
+  "display": "chicks"
+ },
+ "38": {
+  "accept": [
+   "feathers"
+  ],
+  "display": "feathers"
+ },
+ "39": {
+  "accept": [
+   "space"
+  ],
+  "display": "space"
+ },
+ "40": {
+  "accept": [
+   "diversity"
+  ],
+  "display": "diversity"
+ }
+}
