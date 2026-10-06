@@ -1,0 +1,280 @@
+{
+ "1": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "2": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "5": {
+  "accept": [
+   "competitive"
+  ],
+  "display": "competitive"
+ },
+ "6": {
+  "accept": [
+   "healthy drink"
+  ],
+  "display": "healthy drink"
+ },
+ "7": {
+  "accept": [
+   "distribution rights"
+  ],
+  "display": "distribution right(s)"
+ },
+ "8": {
+  "accept": [
+   "drinking yoghurts"
+  ],
+  "display": "drinking yoghurts"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "14": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "15": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "16": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "any": [
+   "A",
+   "C",
+   "E",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 0,
+  "display": "A, C, E, F, G  (Q18–22, any order)"
+ },
+ "19": {
+  "any": [
+   "A",
+   "C",
+   "E",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 1,
+  "display": "A, C, E, F, G  (Q18–22, any order)"
+ },
+ "20": {
+  "any": [
+   "A",
+   "C",
+   "E",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 2,
+  "display": "A, C, E, F, G  (Q18–22, any order)"
+ },
+ "21": {
+  "any": [
+   "A",
+   "C",
+   "E",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 3,
+  "display": "A, C, E, F, G  (Q18–22, any order)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "C",
+   "E",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 4,
+  "display": "A, C, E, F, G  (Q18–22, any order)"
+ },
+ "23": {
+  "accept": [
+   "B,C",
+   "C,B"
+  ],
+  "display": "B, C  (either order)"
+ },
+ "24": {
+  "accept": [
+   "B,C",
+   "C,B"
+  ],
+  "display": "B, C  (either order)"
+ },
+ "25": {
+  "accept": [
+   "A,C",
+   "C,A"
+  ],
+  "display": "A, C  (either order)"
+ },
+ "26": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "creating and selling"
+  ],
+  "display": "creating and selling"
+ },
+ "32": {
+  "accept": [
+   "Cinderella theme"
+  ],
+  "display": "Cinderella theme"
+ },
+ "33": {
+  "accept": [
+   "relationship journalism"
+  ],
+  "display": "relationship journalism"
+ },
+ "34": {
+  "accept": [
+   "Ordinary folk"
+  ],
+  "display": "Ordinary folk"
+ },
+ "35": {
+  "accept": [
+   "retain some control"
+  ],
+  "display": "retain some control"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "40": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ }
+}

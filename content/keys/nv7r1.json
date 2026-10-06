@@ -1,0 +1,281 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "newly planted crops",
+   "planted crops"
+  ],
+  "display": "newly planted crops"
+ },
+ "6": {
+  "accept": [
+   "too much water"
+  ],
+  "display": "too much water"
+ },
+ "7": {
+  "accept": [
+   "fuel shortages"
+  ],
+  "display": "fuel shortages"
+ },
+ "8": {
+  "accept": [
+   "Sprinklers"
+  ],
+  "display": "Sprinklers"
+ },
+ "9": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "13": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 0,
+  "display": "A, C, D, F, G  (Q18–22, any order)"
+ },
+ "19": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 1,
+  "display": "A, C, D, F, G  (Q18–22, any order)"
+ },
+ "20": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 2,
+  "display": "A, C, D, F, G  (Q18–22, any order)"
+ },
+ "21": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 3,
+  "display": "A, C, D, F, G  (Q18–22, any order)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "G"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 4,
+  "display": "A, C, D, F, G  (Q18–22, any order)"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "A,B",
+   "B,A"
+  ],
+  "display": "A, B  (either order)"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "twins"
+  ],
+  "display": "twins"
+ },
+ "32": {
+  "accept": [
+   "nutrition"
+  ],
+  "display": "nutrition"
+ },
+ "33": {
+  "accept": [
+   "liver and kidneys"
+  ],
+  "display": "liver and kidneys"
+ },
+ "34": {
+  "accept": [
+   "low-fat",
+   "low fat"
+  ],
+  "display": "low-fat"
+ },
+ "35": {
+  "accept": [
+   "moisturiser",
+   "moisturizer"
+  ],
+  "display": "moisturiser"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "40": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ }
+}
