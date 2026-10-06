@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "2": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "3": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "5": {
+  "accept": [
+   "ancient Rome",
+   "Rome"
+  ],
+  "display": "ancient Rome"
+ },
+ "6": {
+  "accept": [
+   "Persia"
+  ],
+  "display": "Persia"
+ },
+ "7": {
+  "accept": [
+   "Mallorca"
+  ],
+  "display": "Mallorca"
+ },
+ "8": {
+  "accept": [
+   "Japan"
+  ],
+  "display": "Japan"
+ },
+ "9": {
+  "accept": [
+   "Australia"
+  ],
+  "display": "Australia"
+ },
+ "10": {
+  "accept": [
+   "Bahrain"
+  ],
+  "display": "Bahrain"
+ },
+ "11": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "14": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "15": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "18": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "19": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "20": {
+  "accept": [
+   "petrol-fueled internal combustion",
+   "internal combustion engine",
+   "internal combustion"
+  ],
+  "display": "petrol-fueled internal combustion"
+ },
+ "21": {
+  "accept": [
+   "identity and status"
+  ],
+  "display": "identity and status"
+ },
+ "22": {
+  "accept": [
+   "15 minutes"
+  ],
+  "display": "15 minutes"
+ },
+ "23": {
+  "accept": [
+   "the 1973 oil crisis",
+   "1973 oil crisis",
+   "oil crisis",
+   "the oil crisis"
+  ],
+  "display": "the 1973 oil crisis"
+ },
+ "24": {
+  "accept": [
+   "gas-guzzler",
+   "a gas-guzzler",
+   "gas guzzler",
+   "a gas guzzler"
+  ],
+  "display": "(a) gas-guzzler"
+ },
+ "25": {
+  "accept": [
+   "fuel power"
+  ],
+  "display": "fuel power"
+ },
+ "26": {
+  "accept": [
+   "toxic gas"
+  ],
+  "display": "toxic gas"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "hammer"
+  ],
+  "display": "hammer"
+ },
+ "29": {
+  "accept": [
+   "massive"
+  ],
+  "display": "massive"
+ },
+ "30": {
+  "accept": [
+   "pad"
+  ],
+  "display": "pad"
+ },
+ "31": {
+  "accept": [
+   "sinus cavities"
+  ],
+  "display": "sinus cavities"
+ },
+ "32": {
+  "accept": [
+   "trunks and feet"
+  ],
+  "display": "trunks and feet"
+ },
+ "33": {
+  "accept": [
+   "infrasonic",
+   "low"
+  ],
+  "display": "infrasonic / low"
+ },
+ "34": {
+  "accept": [
+   "ecology"
+  ],
+  "display": "ecology"
+ },
+ "35": {
+  "accept": [
+   "seismic signals"
+  ],
+  "display": "seismic signals"
+ },
+ "36": {
+  "accept": [
+   "auditory communication"
+  ],
+  "display": "auditory communication"
+ },
+ "37": {
+  "accept": [
+   "mate"
+  ],
+  "display": "mate"
+ },
+ "38": {
+  "accept": [
+   "ground",
+   "the ground"
+  ],
+  "display": "ground"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

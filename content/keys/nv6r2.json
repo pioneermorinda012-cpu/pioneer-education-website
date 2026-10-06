@@ -1,0 +1,286 @@
+{
+ "1": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "2": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "muddled"
+  ],
+  "display": "muddled"
+ },
+ "6": {
+  "accept": [
+   "arthritis"
+  ],
+  "display": "arthritis"
+ },
+ "7": {
+  "accept": [
+   "vitamin C"
+  ],
+  "display": "vitamin C"
+ },
+ "8": {
+  "accept": [
+   "pleasure"
+  ],
+  "display": "pleasure"
+ },
+ "9": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "10": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "11": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "12": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "13": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "14": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "15": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "16": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "17": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "18": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 0,
+  "display": "any five of A, C, D, E, F, H  (Q18–22)"
+ },
+ "19": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 1,
+  "display": "any five of A, C, D, E, F, H  (Q18–22)"
+ },
+ "20": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 2,
+  "display": "any five of A, C, D, E, F, H  (Q18–22)"
+ },
+ "21": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 3,
+  "display": "any five of A, C, D, E, F, H  (Q18–22)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "E",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 4,
+  "display": "any five of A, C, D, E, F, H  (Q18–22)"
+ },
+ "23": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "24": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "25": {
+  "accept": [
+   "A,B",
+   "B,A"
+  ],
+  "display": "A, B  (either order)"
+ },
+ "26": {
+  "accept": [
+   "A,C",
+   "C,A"
+  ],
+  "display": "A, C  (either order)"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "maths"
+  ],
+  "display": "maths"
+ },
+ "32": {
+  "accept": [
+   "shake hands"
+  ],
+  "display": "shake hands"
+ },
+ "33": {
+  "accept": [
+   "basic manners"
+  ],
+  "display": "basic manners"
+ },
+ "34": {
+  "accept": [
+   "state sector",
+   "state",
+   "comprehensive"
+  ],
+  "display": "state (sector) / comprehensive"
+ },
+ "35": {
+  "accept": [
+   "confidence and authority"
+  ],
+  "display": "confidence and authority"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "39": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "40": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ }
+}

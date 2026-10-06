@@ -1,0 +1,248 @@
+{
+ "1": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "2": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "3": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "4": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "10": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "16": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "17": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "18": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "19": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "22": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "23": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "24": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "25": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "26": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "27": {
+  "accept": [
+   "severe weather conditions",
+   "weather conditions"
+  ],
+  "display": "severe weather conditions"
+ },
+ "28": {
+  "accept": [
+   "aesthetic and practical"
+  ],
+  "display": "aesthetic and practical"
+ },
+ "29": {
+  "accept": [
+   "souvenir",
+   "treasurable souvenir"
+  ],
+  "display": "(treasurable) souvenir"
+ },
+ "30": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "31": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "34": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "fuel tank",
+   "a fuel tank",
+   "tiny fuel tank"
+  ],
+  "display": "(a/tiny) fuel tank"
+ },
+ "37": {
+  "accept": [
+   "openings",
+   "little openings"
+  ],
+  "display": "openings"
+ },
+ "38": {
+  "accept": [
+   "handle",
+   "modified handle"
+  ],
+  "display": "handle"
+ },
+ "39": {
+  "accept": [
+   "propane and butane"
+  ],
+  "display": "propane and butane"
+ },
+ "40": {
+  "accept": [
+   "double flame"
+  ],
+  "display": "double flame"
+ }
+}

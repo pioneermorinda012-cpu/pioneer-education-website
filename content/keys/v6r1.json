@@ -1,0 +1,246 @@
+{
+ "1": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "2": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "3": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "6": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "history of childhood"
+  ],
+  "display": "history of childhood"
+ },
+ "9": {
+  "accept": [
+   "miniature adults"
+  ],
+  "display": "miniature adults"
+ },
+ "10": {
+  "accept": [
+   "industrialisation"
+  ],
+  "display": "industrialisation"
+ },
+ "11": {
+  "accept": [
+   "the Factory Act",
+   "Factory Act"
+  ],
+  "display": "the Factory Act"
+ },
+ "12": {
+  "accept": [
+   "play and education"
+  ],
+  "display": "play and education"
+ },
+ "13": {
+  "accept": [
+   "classroom",
+   "a classroom",
+   "the classroom"
+  ],
+  "display": "(a) classroom"
+ },
+ "14": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "15": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "16": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "accept": [
+   "clues"
+  ],
+  "display": "clues"
+ },
+ "21": {
+  "accept": [
+   "relationship"
+  ],
+  "display": "relationship"
+ },
+ "22": {
+  "accept": [
+   "message"
+  ],
+  "display": "message"
+ },
+ "23": {
+  "accept": [
+   "reschedule"
+  ],
+  "display": "reschedule"
+ },
+ "24": {
+  "accept": [
+   "voicemail"
+  ],
+  "display": "voicemail"
+ },
+ "25": {
+  "accept": [
+   "cellphone"
+  ],
+  "display": "cellphone"
+ },
+ "26": {
+  "accept": [
+   "meeting"
+  ],
+  "display": "meeting"
+ },
+ "27": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "28": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "29": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "30": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "31": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "32": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "33": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "34": {
+  "accept": [
+   "thunderstorms",
+   "thunderstorm"
+  ],
+  "display": "thunderstorms"
+ },
+ "35": {
+  "accept": [
+   "Condensation"
+  ],
+  "display": "Condensation"
+ },
+ "36": {
+  "accept": [
+   "heat"
+  ],
+  "display": "heat"
+ },
+ "37": {
+  "accept": [
+   "eye"
+  ],
+  "display": "eye"
+ },
+ "38": {
+  "accept": [
+   "land"
+  ],
+  "display": "land"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

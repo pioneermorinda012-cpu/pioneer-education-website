@@ -1,0 +1,265 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "5": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "6": {
+  "accept": [
+   "clerk",
+   "a clerk"
+  ],
+  "display": "(a) clerk"
+ },
+ "7": {
+  "accept": [
+   "front lobby"
+  ],
+  "display": "front lobby"
+ },
+ "8": {
+  "accept": [
+   "gallery",
+   "the gallery"
+  ],
+  "display": "gallery"
+ },
+ "9": {
+  "accept": [
+   "stockroom",
+   "Stockroom"
+  ],
+  "display": "stockroom"
+ },
+ "10": {
+  "accept": [
+   "customers",
+   "the customers",
+   "consumers"
+  ],
+  "display": "customers"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "13": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "14": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "15": {
+  "accept": [
+   "J"
+  ],
+  "display": "J"
+ },
+ "16": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "17": {
+  "accept": [
+   "K"
+  ],
+  "display": "K"
+ },
+ "18": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "19": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "20": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "21": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "22": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "23": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "24": {
+  "accept": [
+   "in the 1960s",
+   "the 1960s",
+   "1960s",
+   "in 1960s"
+  ],
+  "display": "in the 1960s"
+ },
+ "25": {
+  "accept": [
+   "Tanzania"
+  ],
+  "display": "Tanzania"
+ },
+ "26": {
+  "accept": [
+   "close observation"
+  ],
+  "display": "close observation"
+ },
+ "27": {
+  "accept": [
+   "cultural origin"
+  ],
+  "display": "cultural origin"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "31": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "32": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "33": {
+  "accept": [
+   "liquid"
+  ],
+  "display": "liquid"
+ },
+ "34": {
+  "accept": [
+   "Disneyland"
+  ],
+  "display": "Disneyland"
+ },
+ "35": {
+  "accept": [
+   "rigorous experimentation"
+  ],
+  "display": "rigorous experimentation"
+ },
+ "36": {
+  "accept": [
+   "grammar school"
+  ],
+  "display": "grammar school"
+ },
+ "37": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 37,
+  "idx": 0,
+  "display": "B, D, F  (Q37–39, any order)"
+ },
+ "38": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 37,
+  "idx": 1,
+  "display": "B, D, F  (Q37–39, any order)"
+ },
+ "39": {
+  "any": [
+   "B",
+   "D",
+   "F"
+  ],
+  "pick": 3,
+  "lead": 37,
+  "idx": 2,
+  "display": "B, D, F  (Q37–39, any order)"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

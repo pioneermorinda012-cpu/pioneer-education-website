@@ -1,0 +1,247 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "4": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "8": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "9": {
+  "accept": [
+   "local time"
+  ],
+  "display": "local time"
+ },
+ "10": {
+  "accept": [
+   "2.8 seconds"
+  ],
+  "display": "2.8 seconds"
+ },
+ "11": {
+  "accept": [
+   "lubrication"
+  ],
+  "display": "lubrication"
+ },
+ "12": {
+  "accept": [
+   "sextant",
+   "a sextant",
+   "the sextant"
+  ],
+  "display": "(a/the) sextant"
+ },
+ "13": {
+  "accept": [
+   "angles"
+  ],
+  "display": "angles"
+ },
+ "14": {
+  "accept": [
+   "marine chronometer",
+   "chronometer"
+  ],
+  "display": "marine chronometer"
+ },
+ "15": {
+  "accept": [
+   "ix"
+  ],
+  "display": "ix"
+ },
+ "16": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "17": {
+  "accept": [
+   "iii"
+  ],
+  "display": "iii"
+ },
+ "18": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "19": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "20": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "21": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "22": {
+  "accept": [
+   "hot season",
+   "dry season"
+  ],
+  "display": "hot season / dry season"
+ },
+ "23": {
+  "accept": [
+   "four months",
+   "4 months"
+  ],
+  "display": "four months"
+ },
+ "24": {
+  "accept": [
+   "water resources"
+  ],
+  "display": "water resources"
+ },
+ "25": {
+  "accept": [
+   "body weight"
+  ],
+  "display": "body weight"
+ },
+ "26": {
+  "accept": [
+   "dehydration"
+  ],
+  "display": "dehydration"
+ },
+ "27": {
+  "accept": [
+   "growth"
+  ],
+  "display": "growth"
+ },
+ "28": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "31": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "32": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "33": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "34": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

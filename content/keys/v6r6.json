@@ -1,0 +1,252 @@
+{
+ "1": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "2": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "3": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "4": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "5": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "6": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "7": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "8": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "9": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "12": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "13": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "16": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "17": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "18": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "19": {
+  "accept": [
+   "a detailed map",
+   "detailed map",
+   "a map",
+   "map"
+  ],
+  "display": "a detailed map"
+ },
+ "20": {
+  "accept": [
+   "teeth",
+   "the teeth",
+   "teeth of skeletons"
+  ],
+  "display": "(the) teeth (of skeletons)"
+ },
+ "21": {
+  "accept": [
+   "9,000 years old",
+   "9000 years old",
+   "9,000 years",
+   "9000 years",
+   "approximately 9,000 years"
+  ],
+  "display": "9,000 years old"
+ },
+ "22": {
+  "accept": [
+   "injuries"
+  ],
+  "display": "injuries"
+ },
+ "23": {
+  "accept": [
+   "strenuous"
+  ],
+  "display": "strenuous"
+ },
+ "24": {
+  "accept": [
+   "protein"
+  ],
+  "display": "protein"
+ },
+ "25": {
+  "accept": [
+   "hunting"
+  ],
+  "display": "hunting"
+ },
+ "26": {
+  "accept": [
+   "cows",
+   "cow"
+  ],
+  "display": "cows"
+ },
+ "27": {
+  "accept": [
+   "transitional"
+  ],
+  "display": "transitional"
+ },
+ "28": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "29": {
+  "accept": [
+   "vii"
+  ],
+  "display": "vii"
+ },
+ "30": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "31": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "32": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "33": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "34": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "37": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "38": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "39": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "40": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ }
+}
