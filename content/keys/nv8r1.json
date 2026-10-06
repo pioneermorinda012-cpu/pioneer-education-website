@@ -1,0 +1,282 @@
+{
+ "1": {
+  "accept": [
+   "Guilt-free materialism"
+  ],
+  "display": "Guilt-free materialism"
+ },
+ "2": {
+  "accept": [
+   "Careerism"
+  ],
+  "display": "Careerism"
+ },
+ "3": {
+  "accept": [
+   "Parental ties"
+  ],
+  "display": "Parental ties"
+ },
+ "4": {
+  "accept": [
+   "Marital freedom"
+  ],
+  "display": "Marital freedom"
+ },
+ "5": {
+  "accept": [
+   "Sex and divorce"
+  ],
+  "display": "Sex and divorce"
+ },
+ "6": {
+  "accept": [
+   "consumer group",
+   "key consumer group"
+  ],
+  "display": "consumer group"
+ },
+ "7": {
+  "accept": [
+   "dating"
+  ],
+  "display": "dating"
+ },
+ "8": {
+  "accept": [
+   "a noble cause",
+   "noble cause"
+  ],
+  "display": "a noble cause"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "16": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "18": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 0,
+  "display": "A, C, D, F, H  (Q18–22, any order)"
+ },
+ "19": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 1,
+  "display": "A, C, D, F, H  (Q18–22, any order)"
+ },
+ "20": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 2,
+  "display": "A, C, D, F, H  (Q18–22, any order)"
+ },
+ "21": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 3,
+  "display": "A, C, D, F, H  (Q18–22, any order)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "C",
+   "D",
+   "F",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 4,
+  "display": "A, C, D, F, H  (Q18–22, any order)"
+ },
+ "23": {
+  "accept": [
+   "A,B",
+   "B,A"
+  ],
+  "display": "A, B  (either order)"
+ },
+ "24": {
+  "accept": [
+   "A,B",
+   "B,A"
+  ],
+  "display": "A, B  (either order)"
+ },
+ "25": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "fuelling a conflict"
+  ],
+  "display": "fuelling a conflict"
+ },
+ "32": {
+  "accept": [
+   "see themselves"
+  ],
+  "display": "see themselves"
+ },
+ "33": {
+  "accept": [
+   "classrooms"
+  ],
+  "display": "classrooms"
+ },
+ "34": {
+  "accept": [
+   "a single narrative",
+   "single narrative"
+  ],
+  "display": "a single narrative"
+ },
+ "35": {
+  "accept": [
+   "rigid ideology"
+  ],
+  "display": "rigid ideology"
+ },
+ "36": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "37": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "38": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ }
+}

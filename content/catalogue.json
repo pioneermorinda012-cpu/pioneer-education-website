@@ -602,6 +602,34 @@
   "keyed": true
  },
  {
+  "id": "nv8r1",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "NV8",
+  "label": "Reading Test 1",
+  "order": 1,
+  "name": "NV8R1 — Reading Test 1",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
+  "id": "nv8r2",
+  "skill": "AR",
+  "skillLabel": "Academic Reading",
+  "set": "NV8",
+  "label": "Reading Test 2",
+  "order": 2,
+  "name": "NV8R2 — Reading Test 2",
+  "minutes": 60,
+  "total": 40,
+  "mode": "reading",
+  "sections": 3,
+  "keyed": true
+ },
+ {
   "id": "b7r1",
   "skill": "AR",
   "skillLabel": "Academic Reading",

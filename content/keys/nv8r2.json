@@ -1,0 +1,284 @@
+{
+ "1": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "5": {
+  "accept": [
+   "cattle feed"
+  ],
+  "display": "cattle feed"
+ },
+ "6": {
+  "accept": [
+   "epoch",
+   "current epoch"
+  ],
+  "display": "epoch"
+ },
+ "7": {
+  "accept": [
+   "corporate lawyers",
+   "lawyers"
+  ],
+  "display": "(corporate) lawyers"
+ },
+ "8": {
+  "accept": [
+   "weakly regulated markets"
+  ],
+  "display": "weakly regulated markets"
+ },
+ "9": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "10": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "11": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "12": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "13": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "14": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "15": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "16": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "any": [
+   "A",
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 0,
+  "display": "A, B, D, E, H  (Q18–22, any order)"
+ },
+ "19": {
+  "any": [
+   "A",
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 1,
+  "display": "A, B, D, E, H  (Q18–22, any order)"
+ },
+ "20": {
+  "any": [
+   "A",
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 2,
+  "display": "A, B, D, E, H  (Q18–22, any order)"
+ },
+ "21": {
+  "any": [
+   "A",
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 3,
+  "display": "A, B, D, E, H  (Q18–22, any order)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "B",
+   "D",
+   "E",
+   "H"
+  ],
+  "pick": 5,
+  "lead": 18,
+  "idx": 4,
+  "display": "A, B, D, E, H  (Q18–22, any order)"
+ },
+ "23": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "24": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "25": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "26": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "27": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "28": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "31": {
+  "accept": [
+   "shortfall",
+   "deficit",
+   "cocoa shortfall",
+   "shortage"
+  ],
+  "display": "shortfall / deficit / shortage"
+ },
+ "32": {
+  "accept": [
+   "wine and coffee"
+  ],
+  "display": "wine and coffee"
+ },
+ "33": {
+  "accept": [
+   "blood clots"
+  ],
+  "display": "blood clots"
+ },
+ "34": {
+  "accept": [
+   "outright denial"
+  ],
+  "display": "outright denial"
+ },
+ "35": {
+  "accept": [
+   "gritty tasting",
+   "gritty",
+   "bitter"
+  ],
+  "display": "bitter / gritty (tasting)"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "38": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "39": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "40": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ }
+}
