@@ -1,0 +1,243 @@
+{
+ "1": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "2": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "5": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "6": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "9": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "10": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "11": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "12": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "17": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "18": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "19": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "20": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "21": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "22": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "23": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "24": {
+  "accept": [
+   "London"
+  ],
+  "display": "London"
+ },
+ "25": {
+  "accept": [
+   "soft engineers"
+  ],
+  "display": "soft engineers"
+ },
+ "26": {
+  "accept": [
+   "Los Angeles",
+   "LA"
+  ],
+  "display": "Los Angeles"
+ },
+ "27": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "28": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "29": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "30": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "31": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "32": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "33": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "34": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "35": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "36": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "37": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ }
+}

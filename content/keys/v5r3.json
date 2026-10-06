@@ -1,0 +1,253 @@
+{
+ "1": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "2": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "3": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "6": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "7": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "8": {
+  "accept": [
+   "university",
+   "college"
+  ],
+  "display": "university / college"
+ },
+ "9": {
+  "accept": [
+   "rat"
+  ],
+  "display": "rat"
+ },
+ "10": {
+  "accept": [
+   "diet"
+  ],
+  "display": "diet"
+ },
+ "11": {
+  "accept": [
+   "archaeologist"
+  ],
+  "display": "archaeologist"
+ },
+ "12": {
+  "accept": [
+   "funding"
+  ],
+  "display": "funding"
+ },
+ "13": {
+  "accept": [
+   "database"
+  ],
+  "display": "database"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "16": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "workplace injury",
+   "lost time"
+  ],
+  "display": "workplace injury / lost time"
+ },
+ "23": {
+  "accept": [
+   "16.6 weeks"
+  ],
+  "display": "16.6 weeks"
+ },
+ "24": {
+  "accept": [
+   "7%",
+   "7 %",
+   "7 percent",
+   "7 per cent"
+  ],
+  "display": "7%"
+ },
+ "25": {
+  "accept": [
+   "golf"
+  ],
+  "display": "golf"
+ },
+ "26": {
+  "accept": [
+   "massage",
+   "a massage"
+  ],
+  "display": "massage"
+ },
+ "27": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "33": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "34": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "35": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "36": {
+  "accept": [
+   "F",
+   "technical control"
+  ],
+  "display": "F — technical control"
+ },
+ "37": {
+  "accept": [
+   "A",
+   "natural ability"
+  ],
+  "display": "A — natural ability"
+ },
+ "38": {
+  "accept": [
+   "H",
+   "depth"
+  ],
+  "display": "H — depth"
+ },
+ "39": {
+  "accept": [
+   "G",
+   "storytelling"
+  ],
+  "display": "G — storytelling"
+ },
+ "40": {
+  "accept": [
+   "I",
+   "human nature"
+  ],
+  "display": "I — human nature"
+ }
+}

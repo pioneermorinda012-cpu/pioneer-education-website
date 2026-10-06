@@ -1,0 +1,278 @@
+{
+ "1": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "2": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "3": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "4": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "5": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "6": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "7": {
+  "accept": [
+   "diaries",
+   "his diaries"
+  ],
+  "display": "(his) diaries"
+ },
+ "8": {
+  "accept": [
+   "3 years",
+   "three years",
+   "3",
+   "three"
+  ],
+  "display": "3 years"
+ },
+ "9": {
+  "accept": [
+   "chains",
+   "convicts' chains",
+   "convict's chains",
+   "convicts chains",
+   "the chains"
+  ],
+  "display": "(convicts') chains"
+ },
+ "10": {
+  "accept": [
+   "Governor Philip",
+   "Philip"
+  ],
+  "display": "Governor Philip"
+ },
+ "11": {
+  "accept": [
+   "June 1789",
+   "in June 1789"
+  ],
+  "display": "June 1789"
+ },
+ "12": {
+  "accept": [
+   "China"
+  ],
+  "display": "China"
+ },
+ "13": {
+  "accept": [
+   "Sydney Cove",
+   "Port Jackson"
+  ],
+  "display": "Sydney Cove / Port Jackson"
+ },
+ "14": {
+  "accept": [
+   "vi"
+  ],
+  "display": "vi"
+ },
+ "15": {
+  "accept": [
+   "ii"
+  ],
+  "display": "ii"
+ },
+ "16": {
+  "accept": [
+   "iv"
+  ],
+  "display": "iv"
+ },
+ "17": {
+  "accept": [
+   "viii"
+  ],
+  "display": "viii"
+ },
+ "18": {
+  "accept": [
+   "i"
+  ],
+  "display": "i"
+ },
+ "19": {
+  "accept": [
+   "v"
+  ],
+  "display": "v"
+ },
+ "20": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 20,
+  "idx": 0,
+  "display": "B, E  (Q20–21, any order)"
+ },
+ "21": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 20,
+  "idx": 1,
+  "display": "B, E  (Q20–21, any order)"
+ },
+ "22": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 22,
+  "idx": 0,
+  "display": "A, E  (Q22–23, any order)"
+ },
+ "23": {
+  "any": [
+   "A",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 22,
+  "idx": 1,
+  "display": "A, E  (Q22–23, any order)"
+ },
+ "24": {
+  "accept": [
+   "national newspaper",
+   "newspaper"
+  ],
+  "display": "(national) newspaper"
+ },
+ "25": {
+  "accept": [
+   "arms dealers"
+  ],
+  "display": "arms dealers"
+ },
+ "26": {
+  "accept": [
+   "victory"
+  ],
+  "display": "victory"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "29": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "30": {
+  "any": [
+   "B",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 30,
+  "idx": 0,
+  "display": "B, D  (Q30–31, any order)"
+ },
+ "31": {
+  "any": [
+   "B",
+   "D"
+  ],
+  "pick": 2,
+  "lead": 30,
+  "idx": 1,
+  "display": "B, D  (Q30–31, any order)"
+ },
+ "32": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "33": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "34": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "37": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "38": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "39": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "40": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ }
+}

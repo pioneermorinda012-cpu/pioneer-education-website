@@ -1,0 +1,266 @@
+{
+ "1": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "2": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "3": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "6": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "7": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "8": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "9": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "10": {
+  "accept": [
+   "living environment"
+  ],
+  "display": "living environment"
+ },
+ "11": {
+  "accept": [
+   "conclusion",
+   "the conclusion"
+  ],
+  "display": "conclusion"
+ },
+ "12": {
+  "accept": [
+   "qualitative"
+  ],
+  "display": "qualitative"
+ },
+ "13": {
+  "accept": [
+   "clear definition",
+   "definition"
+  ],
+  "display": "clear definition"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "17": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "18": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "19": {
+  "accept": [
+   "ferry",
+   "ferry service"
+  ],
+  "display": "ferry"
+ },
+ "20": {
+  "accept": [
+   "bicycle"
+  ],
+  "display": "bicycle"
+ },
+ "21": {
+  "accept": [
+   "ceiling fan"
+  ],
+  "display": "ceiling fan"
+ },
+ "22": {
+  "accept": [
+   "air conditioner"
+  ],
+  "display": "air conditioner"
+ },
+ "23": {
+  "accept": [
+   "mosquitoes",
+   "the mosquitoes"
+  ],
+  "display": "mosquitoes"
+ },
+ "24": {
+  "any": [
+   "A",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 0,
+  "display": "A, C, E  (Q24–26, any order)"
+ },
+ "25": {
+  "any": [
+   "A",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 1,
+  "display": "A, C, E  (Q24–26, any order)"
+ },
+ "26": {
+  "any": [
+   "A",
+   "C",
+   "E"
+  ],
+  "pick": 3,
+  "lead": 24,
+  "idx": 2,
+  "display": "A, C, E  (Q24–26, any order)"
+ },
+ "27": {
+  "accept": [
+   "D",
+   "minority"
+  ],
+  "display": "D — minority"
+ },
+ "28": {
+  "accept": [
+   "J",
+   "disappearance"
+  ],
+  "display": "J — disappearance"
+ },
+ "29": {
+  "accept": [
+   "C",
+   "funding"
+  ],
+  "display": "C — funding"
+ },
+ "30": {
+  "accept": [
+   "B",
+   "significance"
+  ],
+  "display": "B — significance"
+ },
+ "31": {
+  "accept": [
+   "F",
+   "difference"
+  ],
+  "display": "F — difference"
+ },
+ "32": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "33": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "34": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "35": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "36": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "37": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "38": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ }
+}

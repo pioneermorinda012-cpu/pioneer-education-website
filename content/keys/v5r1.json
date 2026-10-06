@@ -1,0 +1,257 @@
+{
+ "1": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "2": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "3": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "4": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "5": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "6": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "7": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 7,
+  "idx": 0,
+  "display": "B, E  (Q7–8, any order)"
+ },
+ "8": {
+  "any": [
+   "B",
+   "E"
+  ],
+  "pick": 2,
+  "lead": 7,
+  "idx": 1,
+  "display": "B, E  (Q7–8, any order)"
+ },
+ "9": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "10": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "11": {
+  "accept": [
+   "NOT GIVEN"
+  ],
+  "display": "NOT GIVEN"
+ },
+ "12": {
+  "accept": [
+   "FALSE"
+  ],
+  "display": "FALSE"
+ },
+ "13": {
+  "accept": [
+   "TRUE"
+  ],
+  "display": "TRUE"
+ },
+ "14": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "15": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "16": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "17": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "18": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "21": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "22": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "23": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "24": {
+  "accept": [
+   "email voice"
+  ],
+  "display": "email voice"
+ },
+ "25": {
+  "accept": [
+   "prefrontal cortex",
+   "prefrontal"
+  ],
+  "display": "prefrontal cortex"
+ },
+ "26": {
+  "accept": [
+   "group meetings",
+   "meetings"
+  ],
+  "display": "group meetings"
+ },
+ "27": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "28": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "29": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "33": {
+  "accept": [
+   "B",
+   "marketing teams"
+  ],
+  "display": "B — marketing teams"
+ },
+ "34": {
+  "accept": [
+   "D",
+   "external designers"
+  ],
+  "display": "D — external designers"
+ },
+ "35": {
+  "accept": [
+   "A",
+   "consumers"
+  ],
+  "display": "A — consumers"
+ },
+ "36": {
+  "accept": [
+   "E",
+   "in-house designers"
+  ],
+  "display": "E — in-house designers"
+ },
+ "37": {
+  "accept": [
+   "F",
+   "design engineers"
+  ],
+  "display": "F — design engineers"
+ },
+ "38": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "39": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "40": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ }
+}

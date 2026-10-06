@@ -1,0 +1,276 @@
+{
+ "1": {
+  "s": 0,
+  "t": [
+   "Then we had several thousand people rate themselves from 1 to 7"
+  ],
+  "k": "exact"
+ },
+ "2": {
+  "s": 0,
+  "t": [
+   "When satisficers find an item that meets their standards, they stop looking"
+  ],
+  "k": "exact"
+ },
+ "3": {
+  "s": 0,
+  "t": [
+   "They are more prone to experiencing regret after a purchase"
+  ],
+  "k": "exact"
+ },
+ "4": {
+  "s": 0,
+  "t": [
+   "exert enormous effort reading labels, checking out consumer magazines"
+  ],
+  "k": "exact"
+ },
+ "5": {
+  "s": 0,
+  "t": [
+   "with 5% lower percentage announcing they are happy"
+  ],
+  "k": "exact"
+ },
+ "6": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "7": {
+  "s": 0,
+  "t": [
+   "people respond much more strongly to losses than gains"
+  ],
+  "k": "exact"
+ },
+ "8": {
+  "s": 0,
+  "t": [],
+  "k": "none"
+ },
+ "9": {
+  "s": 0,
+  "t": [
+   "We also evaluated their sense of satisfaction with their decisions"
+  ],
+  "k": "exact"
+ },
+ "10": {
+  "s": 0,
+  "t": [
+   "the more options you have and the more opportunity costs you incur, the more likely you are to experience regret"
+  ],
+  "k": "exact"
+ },
+ "11": {
+  "s": 0,
+  "t": [
+   "the full-price payers would experience more regret if they did not use the tickets"
+  ],
+  "k": "exact"
+ },
+ "12": {
+  "s": 0,
+  "t": [
+   "To increase sense of happiness, we can decide to restrict our options when the decision is not crucial"
+  ],
+  "k": "exact"
+ },
+ "13": {
+  "s": 0,
+  "t": [
+   "Although some choices are undoubtedly better than none, more is not always better than less"
+  ],
+  "k": "exact"
+ },
+ "14": {
+  "s": 1,
+  "t": [
+   "rather than children being able to appreciate the beliefs of other people"
+  ],
+  "k": "exact"
+ },
+ "15": {
+  "s": 1,
+  "t": [
+   "Thus the social abilities of children indicate that they are aware of the difference between mental states and external reality at ages younger than four"
+  ],
+  "k": "exact"
+ },
+ "16": {
+  "s": 1,
+  "t": [
+   "The incorrect answers indicated that the younger children did not understand"
+  ],
+  "k": "exact"
+ },
+ "17": {
+  "s": 1,
+  "t": [
+   "tend to pass TOM tasks at a slightly earlier age than other children"
+  ],
+  "k": "exact"
+ },
+ "18": {
+  "s": 1,
+  "t": [
+   "A simpler version of the Maxi task was devised by Baron-Cohen"
+  ],
+  "k": "exact"
+ },
+ "19": {
+  "s": 1,
+  "t": [
+   "what they term mind mindedness in maternal speech to six-month old infants is related to both security of attachment and to TOM abilities"
+  ],
+  "k": "exact"
+ },
+ "20": {
+  "s": 1,
+  "t": [
+   "A similar point has been made by Dunn"
+  ],
+  "k": "exact"
+ },
+ "21": {
+  "s": 1,
+  "t": [
+   "Maxi left some chocolate in a blue cupboard"
+  ],
+  "k": "exact"
+ },
+ "22": {
+  "s": 1,
+  "t": [
+   "the complexity and too much information of the story"
+  ],
+  "k": "exact"
+ },
+ "23": {
+  "s": 1,
+  "t": [
+   "most normally-developing children are unable to pass the tasks until around age four"
+  ],
+  "k": "exact"
+ },
+ "24": {
+  "s": 1,
+  "t": [
+   "Lewis investigated older children living in extended families"
+  ],
+  "k": "exact"
+ },
+ "25": {
+  "s": 1,
+  "t": [
+   "children who socially interact with more adults"
+  ],
+  "k": "exact"
+ },
+ "26": {
+  "s": 1,
+  "t": [
+   "it is likely to be more challenging"
+  ],
+  "k": "exact"
+ },
+ "27": {
+  "s": 2,
+  "t": [
+   "you would see here only meaningless black marks on paper"
+  ],
+  "k": "exact"
+ },
+ "28": {
+  "s": 2,
+  "t": [
+   "our semantic habits are reasonably similar to those of most people around us, we are regarded as"
+  ],
+  "k": "exact"
+ },
+ "29": {
+  "s": 2,
+  "t": [
+   "Defining words with more words, in short, gets us at once into what mathematicians call"
+  ],
+  "k": "exact"
+ },
+ "30": {
+  "s": 2,
+  "t": [
+   "proving himself to be an intuitive semanticist"
+  ],
+  "k": "exact"
+ },
+ "31": {
+  "s": 2,
+  "t": [
+   "but it is not a meaning that can be found in dictionaries"
+  ],
+  "k": "exact"
+ },
+ "32": {
+  "s": 2,
+  "t": [
+   "what operations could you perform to demonstrate its accuracy or inaccuracy"
+  ],
+  "k": "exact"
+ },
+ "33": {
+  "s": 2,
+  "t": [],
+  "k": "none"
+ },
+ "34": {
+  "s": 2,
+  "t": [
+   "When we react to a flag, we are not reacting simply to a piece of cloth"
+  ],
+  "k": "exact"
+ },
+ "35": {
+  "s": 2,
+  "t": [
+   "it would not even be a story"
+  ],
+  "k": "exact"
+ },
+ "36": {
+  "s": 2,
+  "t": [
+   "from all the books and newspapers and comic strips we have read"
+  ],
+  "k": "exact"
+ },
+ "37": {
+  "s": 2,
+  "t": [
+   "to define a word, as a dictionary does, is simply to explain the word with more words"
+  ],
+  "k": "exact"
+ },
+ "38": {
+  "s": 2,
+  "t": [
+   "The true meaning of a term is to be found by observing what a man does with it"
+  ],
+  "k": "exact"
+ },
+ "39": {
+  "s": 2,
+  "t": [
+   "no one would blush or be angry"
+  ],
+  "k": "exact"
+ },
+ "40": {
+  "s": 2,
+  "t": [
+   "We understand it by understanding the social mechanisms and the loyalties that keep it meaningful"
+  ],
+  "k": "exact"
+ }
+}
