@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pioneer Assessment Form</title>
+<style>
+:root{--navy:#1e3a5f;--navy2:#142a44;--gold:#a97a2e;--gold-soft:#f5ead2;--ink:#1c2430;--soft:#5a6272;--line:#dad4c4;--bg:#f4f1ea;--card:#fff;--ok:#2e7d4f;--ok-soft:#e1f1e7;--bad:#b3392f;--bad-soft:#f8e1de;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Segoe UI",system-ui,-apple-system,sans-serif}
+header{background:var(--navy);color:#fff;padding:18px 16px}
+header .in{max-width:860px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:center}
+header h1{margin:0;font-size:21px;letter-spacing:.2px}
+header p{margin:2px 0 0;font-size:13px;opacity:.85}
+.wrap{max-width:860px;margin:0 auto;padding:18px 16px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px;margin-bottom:18px}
+.card h2{margin:0 0 4px;font-size:18px;color:var(--navy)}
+.card h2 .tag{font-size:11px;font-weight:600;background:var(--gold-soft);color:var(--gold);padding:2px 8px;border-radius:20px;margin-left:6px;vertical-align:middle}
+.note{color:var(--soft);font-size:13.5px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+label.f{display:block;font-size:13px;font-weight:600;color:var(--soft);margin-bottom:3px}
+input[type=text],input[type=tel],input[type=date],input[type=number],select,textarea{width:100%;padding:9px 10px;border:1px solid #c9c2b0;border-radius:8px;font:inherit;background:#fff;color:var(--ink)}
+textarea{resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{border:1px solid #c9c2b0;border-radius:20px;padding:5px 12px;cursor:pointer;font-size:14px;background:#fff}
+.chips input{margin-right:5px}
+.q{border-top:1px solid #eee7d8;padding:12px 0 8px}
+.q:first-of-type{border-top:none}
+.qt{font-weight:600;margin-bottom:6px}
+.qn{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:12.5px;margin-right:8px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;padding-left:34px}
+@media(max-width:560px){.opts{grid-template-columns:1fr;padding-left:0}}
+.opts label{display:flex;gap:7px;align-items:flex-start;padding:6px 8px;border-radius:8px;border:1px solid transparent;cursor:pointer}
+.opts label:hover{background:#faf7f0}
+.level{font-size:12px;color:var(--gold);font-weight:600;margin-left:6px}
+table.rub{width:100%;border-collapse:collapse;font-size:14px}
+table.rub th,table.rub td{border:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:middle}
+table.rub th{background:var(--gold-soft);color:var(--navy2)}
+table.rub select{width:80px}
+ol.sq{margin:6px 0 10px;padding-left:22px}
+ol.sq li{margin-bottom:3px}
+.cue{border:1px dashed var(--gold);border-radius:8px;padding:10px 12px;background:#fffdf8;margin:8px 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+button{font:inherit;font-weight:600;border:none;border-radius:8px;padding:11px 18px;cursor:pointer}
+.primary{background:var(--navy);color:#fff}
+.secondary{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.wa{background:#1f9e55;color:#fff}
+a.wa{display:inline-block;text-decoration:none;font-weight:600;border-radius:8px;padding:12px 18px;text-align:center}
+.formmsg{margin-top:10px;padding:10px 12px;border-radius:8px;background:var(--bad-soft);border-left:4px solid var(--bad);font-size:14px}
+.waphone{font-variant-numeric:tabular-nums;user-select:all;font-weight:700}
+.scorebox{display:grid;grid-template-columns:minmax(0,240px);gap:10px;margin:8px 0 14px}
+@media(max-width:560px){.scorebox{grid-template-columns:1fr}}
+.sb{background:#faf7f0;border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.sb .k{font-size:12px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.sb .v{font-size:22px;font-weight:700;color:var(--navy)}
+.reco{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:6px;padding:12px 14px}
+.disclaim{font-size:12.5px;color:var(--soft);margin-top:10px}
+.setbar{display:flex;align-items:center;gap:10px;margin:8px 0 10px;font-size:14px;font-weight:600;color:var(--navy)}
+.wanote{margin-top:10px;background:#e8f6ee;border-left:4px solid #25a35a;border-radius:6px;padding:10px 12px;font-size:14px}
+.nojs{margin-bottom:14px;padding:12px 14px;border-radius:8px;background:#fff4d6;border-left:4px solid var(--gold);font-size:14px}
+.miss{outline:2px solid var(--bad);outline-offset:2px;border-radius:8px}
+
+
+.ctl{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.wrap{counter-reset:ca cb}
+#setA:checked ~ .card .sb-only,#setB:checked ~ .card .sa-only,#setA:checked ~ #result .sb-only,#setB:checked ~ #result .sa-only{display:none}
+.setbar label{border:1px solid #c9c2b0;border-radius:20px;padding:6px 16px;cursor:pointer;background:#fff;font-weight:600}
+#setA:checked ~ .card label[for=setA],#setB:checked ~ .card label[for=setB]{background:var(--navy);color:#fff;border-color:var(--navy)}
+label.btn{display:inline-block;font-weight:600;border-radius:8px;padding:12px 22px;cursor:pointer;user-select:none;-webkit-user-select:none}
+#result{display:none}
+#sub:checked ~ #result{display:block}
+#sub:checked ~ #submitRow{display:none}
+#sub:checked ~ .card .opts,#sub:checked ~ .card .setbar{pointer-events:none}
+#sub:checked ~ .card .setbar{opacity:.6}
+#sub:checked ~ .card .opts label.c{background:var(--ok-soft);border-color:var(--ok)}
+#sub:checked ~ .card .opts label:not(.c) input:checked + span{color:var(--bad);text-decoration:line-through}
+#sub:checked ~ .card .opts label:not(.c):has(input:checked){background:var(--bad-soft);border-color:var(--bad)}
+.sa-only .opts label.c input:checked{counter-increment:ca}
+.sb-only .opts label.c input:checked{counter-increment:cb}
+#scoreA::before{content:counter(ca)}
+#scoreB::before{content:counter(cb)}
+table.lv{width:100%;border-collapse:collapse;font-size:13.5px;margin-top:10px}
+table.lv th,table.lv td{border:1px solid var(--line);padding:6px 8px;text-align:left}
+table.lv th{background:var(--gold-soft);color:var(--navy2)}
+.tw{overflow-x:auto}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <div><h1>Pioneer Education — Basic Assessment Form</h1>
+  <p>Spoken English · IELTS · Prem Nagar, Morinda (opp. Khalsa Girls College)</p></div>
+  <div style="font-size:13px;opacity:.9">Time: about 15 minutes</div>
+</div></header>
+<div class="wrap">
+<input class="ctl" type="radio" name="tset" id="setA" value="A" checked>
+<input class="ctl" type="radio" name="tset" id="setB" value="B">
+<input class="ctl" type="checkbox" id="sub">
+
+<div class="card">
+  <h2>A. Student details</h2>
+  <div class="grid">
+    <div><label class="f" for="name">Full name *</label><input type="text" id="name" autocomplete="name"></div>
+    <div><label class="f" for="phone">Phone / WhatsApp *</label><input type="tel" id="phone" autocomplete="tel"></div>
+  </div>
+  <div style="margin-top:12px"><span class="f" style="display:block;font-size:13px;font-weight:600;color:var(--soft);margin-bottom:3px">Course interested in *</span>
+    <div class="chips" id="course">
+      <label><input type="radio" name="course" value="Spoken English">Spoken English</label>
+      <label><input type="radio" name="course" value="IELTS">IELTS</label>
+      <label><input type="radio" name="course" value="Not sure yet">Not sure yet</label>
+    </div></div>
+</div>
+
+<div class="card">
+  <h2>B. Grammar &amp; vocabulary <span class="tag">20 marks</span></h2>
+  <div class="setbar"><span>Test set:</span><label for="setA">Set A</label><label for="setB">Set B</label></div>
+  <p class="note">Choose the best answer. Questions start easy and get harder — do your best and don't worry if the last ones are difficult.</p>
+  <div class="sa-only"><div class="q"><div class="qt"><span class="qn">1</span>She ___ to school every day.<span class="level">A1</span></div><div class="opts"><label class="" id="a1o0"><input type="radio" name="a1" value="0"><span><b>A.</b> go</span></label><label class="c" id="a1o1"><input type="radio" name="a1" value="1"><span><b>B.</b> goes</span></label><label class="" id="a1o2"><input type="radio" name="a1" value="2"><span><b>C.</b> going</span></label><label class="" id="a1o3"><input type="radio" name="a1" value="3"><span><b>D.</b> gone</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">2</span>I have ___ apple in my bag.<span class="level">A1</span></div><div class="opts"><label class="" id="a2o0"><input type="radio" name="a2" value="0"><span><b>A.</b> a</span></label><label class="c" id="a2o1"><input type="radio" name="a2" value="1"><span><b>B.</b> an</span></label><label class="" id="a2o2"><input type="radio" name="a2" value="2"><span><b>C.</b> the</span></label><label class="" id="a2o3"><input type="radio" name="a2" value="3"><span><b>D.</b> some</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">3</span>They ___ watching TV when I called them.<span class="level">A2</span></div><div class="opts"><label class="" id="a3o0"><input type="radio" name="a3" value="0"><span><b>A.</b> was</span></label><label class="c" id="a3o1"><input type="radio" name="a3" value="1"><span><b>B.</b> were</span></label><label class="" id="a3o2"><input type="radio" name="a3" value="2"><span><b>C.</b> are</span></label><label class="" id="a3o3"><input type="radio" name="a3" value="3"><span><b>D.</b> is</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">4</span>___ you ever been to Delhi?<span class="level">A2</span></div><div class="opts"><label class="" id="a4o0"><input type="radio" name="a4" value="0"><span><b>A.</b> Did</span></label><label class="" id="a4o1"><input type="radio" name="a4" value="1"><span><b>B.</b> Has</span></label><label class="c" id="a4o2"><input type="radio" name="a4" value="2"><span><b>C.</b> Have</span></label><label class="" id="a4o3"><input type="radio" name="a4" value="3"><span><b>D.</b> Are</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">5</span>Raj is ___ than his brother.<span class="level">A2</span></div><div class="opts"><label class="" id="a5o0"><input type="radio" name="a5" value="0"><span><b>A.</b> tall</span></label><label class="c" id="a5o1"><input type="radio" name="a5" value="1"><span><b>B.</b> taller</span></label><label class="" id="a5o2"><input type="radio" name="a5" value="2"><span><b>C.</b> tallest</span></label><label class="" id="a5o3"><input type="radio" name="a5" value="3"><span><b>D.</b> more tall</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">6</span>I don&#x27;t have ___ money left.<span class="level">A2</span></div><div class="opts"><label class="" id="a6o0"><input type="radio" name="a6" value="0"><span><b>A.</b> some</span></label><label class="" id="a6o1"><input type="radio" name="a6" value="1"><span><b>B.</b> many</span></label><label class="c" id="a6o2"><input type="radio" name="a6" value="2"><span><b>C.</b> any</span></label><label class="" id="a6o3"><input type="radio" name="a6" value="3"><span><b>D.</b> a</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">7</span>If it rains tomorrow, we ___ at home.<span class="level">B1</span></div><div class="opts"><label class="" id="a7o0"><input type="radio" name="a7" value="0"><span><b>A.</b> stay</span></label><label class="c" id="a7o1"><input type="radio" name="a7" value="1"><span><b>B.</b> will stay</span></label><label class="" id="a7o2"><input type="radio" name="a7" value="2"><span><b>C.</b> would stay</span></label><label class="" id="a7o3"><input type="radio" name="a7" value="3"><span><b>D.</b> stayed</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">8</span>My father has worked here ___ 2015.<span class="level">B1</span></div><div class="opts"><label class="" id="a8o0"><input type="radio" name="a8" value="0"><span><b>A.</b> for</span></label><label class="c" id="a8o1"><input type="radio" name="a8" value="1"><span><b>B.</b> since</span></label><label class="" id="a8o2"><input type="radio" name="a8" value="2"><span><b>C.</b> from</span></label><label class="" id="a8o3"><input type="radio" name="a8" value="3"><span><b>D.</b> at</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">9</span>The opposite of &quot;ancient&quot; is:<span class="level">B1</span></div><div class="opts"><label class="" id="a9o0"><input type="radio" name="a9" value="0"><span><b>A.</b> old</span></label><label class="c" id="a9o1"><input type="radio" name="a9" value="1"><span><b>B.</b> modern</span></label><label class="" id="a9o2"><input type="radio" name="a9" value="2"><span><b>C.</b> huge</span></label><label class="" id="a9o3"><input type="radio" name="a9" value="3"><span><b>D.</b> quiet</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">10</span>She asked me where I ___.<span class="level">B1</span></div><div class="opts"><label class="" id="a10o0"><input type="radio" name="a10" value="0"><span><b>A.</b> live</span></label><label class="c" id="a10o1"><input type="radio" name="a10" value="1"><span><b>B.</b> lived</span></label><label class="" id="a10o2"><input type="radio" name="a10" value="2"><span><b>C.</b> am living</span></label><label class="" id="a10o3"><input type="radio" name="a10" value="3"><span><b>D.</b> do live</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">11</span>The letter ___ yesterday.<span class="level">B1</span></div><div class="opts"><label class="c" id="a11o0"><input type="radio" name="a11" value="0"><span><b>A.</b> was sent</span></label><label class="" id="a11o1"><input type="radio" name="a11" value="1"><span><b>B.</b> sent</span></label><label class="" id="a11o2"><input type="radio" name="a11" value="2"><span><b>C.</b> has sent</span></label><label class="" id="a11o3"><input type="radio" name="a11" value="3"><span><b>D.</b> is sending</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">12</span>I&#x27;m looking forward to ___ you.<span class="level">B1</span></div><div class="opts"><label class="" id="a12o0"><input type="radio" name="a12" value="0"><span><b>A.</b> see</span></label><label class="c" id="a12o1"><input type="radio" name="a12" value="1"><span><b>B.</b> seeing</span></label><label class="" id="a12o2"><input type="radio" name="a12" value="2"><span><b>C.</b> saw</span></label><label class="" id="a12o3"><input type="radio" name="a12" value="3"><span><b>D.</b> be seen</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">13</span>&quot;Frequently&quot; means:<span class="level">B1</span></div><div class="opts"><label class="" id="a13o0"><input type="radio" name="a13" value="0"><span><b>A.</b> rarely</span></label><label class="c" id="a13o1"><input type="radio" name="a13" value="1"><span><b>B.</b> often</span></label><label class="" id="a13o2"><input type="radio" name="a13" value="2"><span><b>C.</b> never</span></label><label class="" id="a13o3"><input type="radio" name="a13" value="3"><span><b>D.</b> quickly</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">14</span>If I ___ rich, I would travel the world.<span class="level">B2</span></div><div class="opts"><label class="" id="a14o0"><input type="radio" name="a14" value="0"><span><b>A.</b> am</span></label><label class="" id="a14o1"><input type="radio" name="a14" value="1"><span><b>B.</b> will be</span></label><label class="c" id="a14o2"><input type="radio" name="a14" value="2"><span><b>C.</b> were</span></label><label class="" id="a14o3"><input type="radio" name="a14" value="3"><span><b>D.</b> have been</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">15</span>By the time we arrived, the film ___.<span class="level">B2</span></div><div class="opts"><label class="" id="a15o0"><input type="radio" name="a15" value="0"><span><b>A.</b> started</span></label><label class="" id="a15o1"><input type="radio" name="a15" value="1"><span><b>B.</b> has started</span></label><label class="c" id="a15o2"><input type="radio" name="a15" value="2"><span><b>C.</b> had started</span></label><label class="" id="a15o3"><input type="radio" name="a15" value="3"><span><b>D.</b> starts</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">16</span>The city is crowded; ___, it offers many jobs.<span class="level">B2</span></div><div class="opts"><label class="" id="a16o0"><input type="radio" name="a16" value="0"><span><b>A.</b> because</span></label><label class="c" id="a16o1"><input type="radio" name="a16" value="1"><span><b>B.</b> however</span></label><label class="" id="a16o2"><input type="radio" name="a16" value="2"><span><b>C.</b> therefore</span></label><label class="" id="a16o3"><input type="radio" name="a16" value="3"><span><b>D.</b> so that</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">17</span>The government should ___ stricter laws on pollution.<span class="level">B2</span></div><div class="opts"><label class="c" id="a17o0"><input type="radio" name="a17" value="0"><span><b>A.</b> implement</span></label><label class="" id="a17o1"><input type="radio" name="a17" value="1"><span><b>B.</b> imply</span></label><label class="" id="a17o2"><input type="radio" name="a17" value="2"><span><b>C.</b> infer</span></label><label class="" id="a17o3"><input type="radio" name="a17" value="3"><span><b>D.</b> inspect</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">18</span>Which sentence is correct?<span class="level">B2</span></div><div class="opts"><label class="" id="a18o0"><input type="radio" name="a18" value="0"><span><b>A.</b> Despite of the rain, we went out.</span></label><label class="" id="a18o1"><input type="radio" name="a18" value="1"><span><b>B.</b> Although the rain, we went out.</span></label><label class="c" id="a18o2"><input type="radio" name="a18" value="2"><span><b>C.</b> Despite the rain, we went out.</span></label><label class="" id="a18o3"><input type="radio" name="a18" value="3"><span><b>D.</b> Despite it rained, we went out.</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">19</span>&quot;Detrimental&quot; most nearly means:<span class="level">C1</span></div><div class="opts"><label class="c" id="a19o0"><input type="radio" name="a19" value="0"><span><b>A.</b> harmful</span></label><label class="" id="a19o1"><input type="radio" name="a19" value="1"><span><b>B.</b> helpful</span></label><label class="" id="a19o2"><input type="radio" name="a19" value="2"><span><b>C.</b> necessary</span></label><label class="" id="a19o3"><input type="radio" name="a19" value="3"><span><b>D.</b> expensive</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">20</span>Hardly ___ the station when the train left.<span class="level">C1</span></div><div class="opts"><label class="" id="a20o0"><input type="radio" name="a20" value="0"><span><b>A.</b> I had reached</span></label><label class="c" id="a20o1"><input type="radio" name="a20" value="1"><span><b>B.</b> had I reached</span></label><label class="" id="a20o2"><input type="radio" name="a20" value="2"><span><b>C.</b> I reached</span></label><label class="" id="a20o3"><input type="radio" name="a20" value="3"><span><b>D.</b> did I reached</span></label></div></div></div>
+  <div class="sb-only"><div class="q"><div class="qt"><span class="qn">1</span>My brother ___ a doctor.<span class="level">A1</span></div><div class="opts"><label class="" id="b1o0"><input type="radio" name="b1" value="0"><span><b>A.</b> am</span></label><label class="c" id="b1o1"><input type="radio" name="b1" value="1"><span><b>B.</b> is</span></label><label class="" id="b1o2"><input type="radio" name="b1" value="2"><span><b>C.</b> are</span></label><label class="" id="b1o3"><input type="radio" name="b1" value="3"><span><b>D.</b> be</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">2</span>There ___ two books on the table.<span class="level">A1</span></div><div class="opts"><label class="" id="b2o0"><input type="radio" name="b2" value="0"><span><b>A.</b> is</span></label><label class="" id="b2o1"><input type="radio" name="b2" value="1"><span><b>B.</b> am</span></label><label class="c" id="b2o2"><input type="radio" name="b2" value="2"><span><b>C.</b> are</span></label><label class="" id="b2o3"><input type="radio" name="b2" value="3"><span><b>D.</b> be</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">3</span>We ___ to Shimla last summer.<span class="level">A2</span></div><div class="opts"><label class="" id="b3o0"><input type="radio" name="b3" value="0"><span><b>A.</b> go</span></label><label class="" id="b3o1"><input type="radio" name="b3" value="1"><span><b>B.</b> goes</span></label><label class="c" id="b3o2"><input type="radio" name="b3" value="2"><span><b>C.</b> went</span></label><label class="" id="b3o3"><input type="radio" name="b3" value="3"><span><b>D.</b> gone</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">4</span>She can&#x27;t come now because she ___ her homework.<span class="level">A2</span></div><div class="opts"><label class="" id="b4o0"><input type="radio" name="b4" value="0"><span><b>A.</b> does</span></label><label class="c" id="b4o1"><input type="radio" name="b4" value="1"><span><b>B.</b> is doing</span></label><label class="" id="b4o2"><input type="radio" name="b4" value="2"><span><b>C.</b> did</span></label><label class="" id="b4o3"><input type="radio" name="b4" value="3"><span><b>D.</b> do</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">5</span>This is the ___ day of my life!<span class="level">A2</span></div><div class="opts"><label class="" id="b5o0"><input type="radio" name="b5" value="0"><span><b>A.</b> happy</span></label><label class="" id="b5o1"><input type="radio" name="b5" value="1"><span><b>B.</b> happier</span></label><label class="c" id="b5o2"><input type="radio" name="b5" value="2"><span><b>C.</b> happiest</span></label><label class="" id="b5o3"><input type="radio" name="b5" value="3"><span><b>D.</b> most happy</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">6</span>How ___ people came to the party?<span class="level">A2</span></div><div class="opts"><label class="" id="b6o0"><input type="radio" name="b6" value="0"><span><b>A.</b> much</span></label><label class="c" id="b6o1"><input type="radio" name="b6" value="1"><span><b>B.</b> many</span></label><label class="" id="b6o2"><input type="radio" name="b6" value="2"><span><b>C.</b> any</span></label><label class="" id="b6o3"><input type="radio" name="b6" value="3"><span><b>D.</b> lot</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">7</span>You ___ wear a helmet on a motorbike. It&#x27;s the law.<span class="level">B1</span></div><div class="opts"><label class="c" id="b7o0"><input type="radio" name="b7" value="0"><span><b>A.</b> must</span></label><label class="" id="b7o1"><input type="radio" name="b7" value="1"><span><b>B.</b> might</span></label><label class="" id="b7o2"><input type="radio" name="b7" value="2"><span><b>C.</b> could</span></label><label class="" id="b7o3"><input type="radio" name="b7" value="3"><span><b>D.</b> would</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">8</span>I ___ English for three years, and I&#x27;m still learning.<span class="level">B1</span></div><div class="opts"><label class="" id="b8o0"><input type="radio" name="b8" value="0"><span><b>A.</b> study</span></label><label class="" id="b8o1"><input type="radio" name="b8" value="1"><span><b>B.</b> am studying</span></label><label class="c" id="b8o2"><input type="radio" name="b8" value="2"><span><b>C.</b> have been studying</span></label><label class="" id="b8o3"><input type="radio" name="b8" value="3"><span><b>D.</b> was study</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">9</span>The opposite of &quot;generous&quot; is:<span class="level">B1</span></div><div class="opts"><label class="" id="b9o0"><input type="radio" name="b9" value="0"><span><b>A.</b> kind</span></label><label class="c" id="b9o1"><input type="radio" name="b9" value="1"><span><b>B.</b> selfish</span></label><label class="" id="b9o2"><input type="radio" name="b9" value="2"><span><b>C.</b> rich</span></label><label class="" id="b9o3"><input type="radio" name="b9" value="3"><span><b>D.</b> honest</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">10</span>He told me that he ___ tired.<span class="level">B1</span></div><div class="opts"><label class="" id="b10o0"><input type="radio" name="b10" value="0"><span><b>A.</b> is</span></label><label class="c" id="b10o1"><input type="radio" name="b10" value="1"><span><b>B.</b> was</span></label><label class="" id="b10o2"><input type="radio" name="b10" value="2"><span><b>C.</b> has</span></label><label class="" id="b10o3"><input type="radio" name="b10" value="3"><span><b>D.</b> will</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">11</span>This bridge ___ in 1990.<span class="level">B1</span></div><div class="opts"><label class="" id="b11o0"><input type="radio" name="b11" value="0"><span><b>A.</b> built</span></label><label class="c" id="b11o1"><input type="radio" name="b11" value="1"><span><b>B.</b> was built</span></label><label class="" id="b11o2"><input type="radio" name="b11" value="2"><span><b>C.</b> has built</span></label><label class="" id="b11o3"><input type="radio" name="b11" value="3"><span><b>D.</b> is building</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">12</span>She is interested ___ learning German.<span class="level">B1</span></div><div class="opts"><label class="" id="b12o0"><input type="radio" name="b12" value="0"><span><b>A.</b> on</span></label><label class="" id="b12o1"><input type="radio" name="b12" value="1"><span><b>B.</b> at</span></label><label class="c" id="b12o2"><input type="radio" name="b12" value="2"><span><b>C.</b> in</span></label><label class="" id="b12o3"><input type="radio" name="b12" value="3"><span><b>D.</b> for</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">13</span>&quot;Purchase&quot; means:<span class="level">B1</span></div><div class="opts"><label class="" id="b13o0"><input type="radio" name="b13" value="0"><span><b>A.</b> sell</span></label><label class="c" id="b13o1"><input type="radio" name="b13" value="1"><span><b>B.</b> buy</span></label><label class="" id="b13o2"><input type="radio" name="b13" value="2"><span><b>C.</b> borrow</span></label><label class="" id="b13o3"><input type="radio" name="b13" value="3"><span><b>D.</b> return</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">14</span>If I had studied harder, I ___ the exam.<span class="level">B2</span></div><div class="opts"><label class="" id="b14o0"><input type="radio" name="b14" value="0"><span><b>A.</b> would pass</span></label><label class="" id="b14o1"><input type="radio" name="b14" value="1"><span><b>B.</b> will pass</span></label><label class="c" id="b14o2"><input type="radio" name="b14" value="2"><span><b>C.</b> would have passed</span></label><label class="" id="b14o3"><input type="radio" name="b14" value="3"><span><b>D.</b> passed</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">15</span>The report ___ by Friday, so please don&#x27;t be late.<span class="level">B2</span></div><div class="opts"><label class="" id="b15o0"><input type="radio" name="b15" value="0"><span><b>A.</b> must finish</span></label><label class="c" id="b15o1"><input type="radio" name="b15" value="1"><span><b>B.</b> must be finished</span></label><label class="" id="b15o2"><input type="radio" name="b15" value="2"><span><b>C.</b> must finishing</span></label><label class="" id="b15o3"><input type="radio" name="b15" value="3"><span><b>D.</b> must to finish</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">16</span>___ he was tired, he finished all his work.<span class="level">B2</span></div><div class="opts"><label class="c" id="b16o0"><input type="radio" name="b16" value="0"><span><b>A.</b> Although</span></label><label class="" id="b16o1"><input type="radio" name="b16" value="1"><span><b>B.</b> Despite</span></label><label class="" id="b16o2"><input type="radio" name="b16" value="2"><span><b>C.</b> Because of</span></label><label class="" id="b16o3"><input type="radio" name="b16" value="3"><span><b>D.</b> However</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">17</span>The new rule will have a big ___ on small shops.<span class="level">B2</span></div><div class="opts"><label class="" id="b17o0"><input type="radio" name="b17" value="0"><span><b>A.</b> affect</span></label><label class="c" id="b17o1"><input type="radio" name="b17" value="1"><span><b>B.</b> impact</span></label><label class="" id="b17o2"><input type="radio" name="b17" value="2"><span><b>C.</b> effort</span></label><label class="" id="b17o3"><input type="radio" name="b17" value="3"><span><b>D.</b> affection</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">18</span>Which sentence is correct?<span class="level">B2</span></div><div class="opts"><label class="" id="b18o0"><input type="radio" name="b18" value="0"><span><b>A.</b> He suggested to go home.</span></label><label class="c" id="b18o1"><input type="radio" name="b18" value="1"><span><b>B.</b> He suggested going home.</span></label><label class="" id="b18o2"><input type="radio" name="b18" value="2"><span><b>C.</b> He suggested go home.</span></label><label class="" id="b18o3"><input type="radio" name="b18" value="3"><span><b>D.</b> He suggested us to go home.</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">19</span>&quot;Meticulous&quot; most nearly means:<span class="level">C1</span></div><div class="opts"><label class="" id="b19o0"><input type="radio" name="b19" value="0"><span><b>A.</b> careless</span></label><label class="c" id="b19o1"><input type="radio" name="b19" value="1"><span><b>B.</b> very careful</span></label><label class="" id="b19o2"><input type="radio" name="b19" value="2"><span><b>C.</b> very fast</span></label><label class="" id="b19o3"><input type="radio" name="b19" value="3"><span><b>D.</b> nervous</span></label></div></div>
+<div class="q"><div class="qt"><span class="qn">20</span>Not only ___ late, but he also forgot his books.<span class="level">C1</span></div><div class="opts"><label class="" id="b20o0"><input type="radio" name="b20" value="0"><span><b>A.</b> he was</span></label><label class="c" id="b20o1"><input type="radio" name="b20" value="1"><span><b>B.</b> was he</span></label><label class="" id="b20o2"><input type="radio" name="b20" value="2"><span><b>C.</b> he is</span></label><label class="" id="b20o3"><input type="radio" name="b20" value="3"><span><b>D.</b> did he was</span></label></div></div></div>
+</div>
+
+<div class="btns" id="submitRow">
+  <label for="sub" class="btn primary" id="submitBtn" role="button" tabindex="0">Submit test</label>
+  <div class="formmsg" id="formMsg" hidden></div>
+</div>
+
+<div id="result" class="card">
+  <h2>Result</h2>
+  <div class="scorebox"><div class="sb"><div class="k">Score · Set <span class="sa-only">A</span><span class="sb-only">B</span></div><div class="v"><span class="sa-only"><span id="scoreA"></span> / 20</span><span class="sb-only"><span id="scoreB"></span> / 20</span></div></div></div>
+  <div class="reco" id="reco" hidden></div>
+  <div class="tw"><table class="lv"><tr><th>Score</th><th>Level</th><th>IELTS start (approx.)</th><th>Suggested course</th></tr><tr><td>0–6</td><td>Beginner (A1–A2)</td><td>below 4.0</td><td>Spoken English — Basic</td></tr><tr><td>7–11</td><td>Elementary (A2–B1)</td><td>4.0–4.5</td><td>Grammar foundation + Spoken English, then IELTS</td></tr><tr><td>12–15</td><td>Intermediate (B1)</td><td>5.0–5.5</td><td>IELTS — Regular batch (or Spoken English — Advanced)</td></tr><tr><td>16–18</td><td>Upper-intermediate (B2)</td><td>6.0–6.5</td><td>IELTS — Regular batch with weekly mock tests</td></tr><tr><td>19–20</td><td>Advanced (C1)</td><td>7.0 or above</td><td>IELTS — Fast-track / mock-test batch</td></tr></table></div>
+  <p class="disclaim">This is a short placement test, not an official IELTS score. The band is a rough starting estimate; the teacher confirms the level after the speaking check.</p>
+  <div class="wanote"><b>Last step: tap the green button and press Send in WhatsApp.</b>
+    <div style="margin-top:8px"><a class="wa" id="waLink" href="https://wa.me/919855991214?text=Pioneer%20Education%20assessment%20completed.%0AName%3A%20%0ASet%20%28A/B%29%3A%20%0AScore%3A%20/20" target="_blank" rel="noopener">Send result on WhatsApp</a></div>
+    <div style="margin-top:6px;font-size:13px">Pioneer Education WhatsApp: <span class="waphone">98559 91214</span></div></div>
+</div>
+
+<div class="card">
+  <h2>C. Speaking check <span class="tag">teacher only · 5 minutes</span></h2>
+  <p class="note">Ask the questions aloud. Part 2 is for IELTS students (or strong Spoken English students).</p>
+  <p style="margin:0"><b>Part 1 — Introduction</b></p>
+  <ol class="sq sa-only"><li>What is your full name, and where are you from?</li>
+    <li>Do you work or are you a student? Tell me about it.</li>
+    <li>What do you usually do in your free time?</li>
+    <li>Why do you want to improve your English?</li></ol><ol class="sq sb-only"><li>Tell me a little about your family.</li>
+    <li>Where do you live? What do you like about that place?</li>
+    <li>What kind of food do you enjoy most?</li>
+    <li>What would you like to be doing five years from now?</li></ol>
+  <p style="margin:0"><b>Part 2 — Short talk (1 minute)</b></p>
+  <div class="cue sa-only">Describe a person who has helped you in your life. You should say: who this person is · how you know them · how they helped you — and explain why you are thankful to them.</div><div class="cue sb-only">Describe a place you would like to visit. You should say: where it is · how you know about it · what you would do there — and explain why you want to go there.</div>
+  <div class="tw"><table class="rub">
+    <tr><th>Criterion</th><th>What to listen for</th><th>Band (1–9)</th></tr>
+    <tr><td>Fluency &amp; coherence</td><td>Speaks without long pauses; ideas connect</td><td><select class="sp" id="sp1"></select></td></tr>
+    <tr><td>Vocabulary</td><td>Range of words; finds ways around gaps</td><td><select class="sp" id="sp2"></select></td></tr>
+    <tr><td>Grammar</td><td>Tenses, sentence variety, accuracy</td><td><select class="sp" id="sp3"></select></td></tr>
+    <tr><td>Pronunciation</td><td>Easy to understand; word stress</td><td><select class="sp" id="sp4"></select></td></tr>
+    <tr><td><b>Speaking average</b></td><td></td><td><b id="spAvg">–</b></td></tr>
+  </table></div>
+  <div class="grid" style="margin-top:12px">
+    <div><label class="f" for="finalCourse">Final recommended course</label>
+      <select id="finalCourse"><option value="">— select —</option><option>Spoken English — Basic</option><option>Spoken English — Advanced</option><option>Grammar foundation, then IELTS</option><option>IELTS — Regular batch</option><option>IELTS — Fast-track / mock tests</option></select></div>
+  </div>
+  <div style="margin-top:12px"><label class="f" for="tnotes">Teacher notes (strengths / weak areas)</label><textarea id="tnotes" rows="3"></textarea></div>
+  <div class="btns" style="margin-top:14px"><a class="wa" id="waLink2" href="https://wa.me/919855991214?text=Pioneer%20Education%20assessment%20completed.%0AName%3A%20%0ASet%20%28A/B%29%3A%20%0AScore%3A%20/20" target="_blank" rel="noopener">Send final result on WhatsApp</a></div>
+</div>
+</div>
+<script>
+(function(){
+var WA="919855991214";
+var $=function(id){return document.getElementById(id)};
+var LV=[[6,"Beginner (A1–A2)","below 4.0","Spoken English — Basic (build grammar and confidence first)"],[11,"Elementary / Pre-intermediate (A2–B1)","about 4.0–4.5","Grammar foundation + Spoken English, then IELTS"],[15,"Intermediate (B1)","about 5.0–5.5","IELTS — Regular batch (or Spoken English — Advanced)"],[18,"Upper-intermediate (B2)","about 6.0–6.5","IELTS — Regular batch with weekly mock tests"],[20,"Advanced (C1)","about 7.0 or above","IELTS — Fast-track / mock-test batch"]];
+var R=null;
+function val(id){return ($(id).value||"").trim()}
+function radio(name){var r=document.querySelector('input[name="'+name+'"]:checked');return r?r.value:""}
+function setKey(){return $("setB").checked?"B":"A"}
+var sels=document.querySelectorAll("select.sp");
+for(var i=0;i<sels.length;i++){var h='<option value="">–</option>';for(var b=1;b<=9;b++)h+="<option>"+b+"</option>";sels[i].innerHTML=h;sels[i].addEventListener("change",calcSp)}
+function calcSp(){var v=[];for(var i=0;i<sels.length;i++){var x=+sels[i].value;if(x>0)v.push(x)}$("spAvg").textContent=v.length===4?(Math.round((v[0]+v[1]+v[2]+v[3])/4*2)/2).toFixed(1):"–"}
+function waUrl(){
+  if(!R) return $("waLink").getAttribute("data-static");
+  var lines=["*Pioneer Education — Assessment Result*","Name: "+val("name"),"Phone: "+val("phone"),"Course: "+radio("course"),"Date: "+new Date().toLocaleDateString("en-IN"),"Test set: "+R.set,"Score: "+R.total+"/20"+(R.blank?" ("+R.blank+" not answered)":""),"Level: "+R.level,"Estimated IELTS starting band: "+R.band];
+  var sp=$("spAvg").textContent;if(sp!=="–")lines.push("Speaking (teacher): "+sp);
+  lines.push("Recommended course: "+(val("finalCourse")||R.course));
+  if(val("tnotes"))lines.push("Notes: "+val("tnotes"));
+  return "https://wa.me/"+WA+"?text="+encodeURIComponent(lines.join("\n"));
+}
+["waLink","waLink2"].forEach(function(id){var a=$(id);a.setAttribute("data-static",a.href);a.addEventListener("click",function(){a.href=waUrl()})});
+function submit(e){
+  if(e)e.preventDefault();
+  var msg=$("formMsg");var miss=document.querySelectorAll(".miss");for(var i=0;i<miss.length;i++)miss[i].classList.remove("miss");
+  var need=[];if(!val("name"))need.push($("name"));if(!val("phone"))need.push($("phone"));if(!radio("course"))need.push($("course"));
+  if(need.length){need.forEach(function(x){x.classList.add("miss")});msg.textContent="Please fill in your name, phone and course at the top, then press Submit again.";msg.hidden=false;need[0].scrollIntoView({block:"center"});return}
+  msg.hidden=true;
+  var k=setKey(),p=k.toLowerCase(),total=0,blank=0;
+  for(var n=1;n<=20;n++){var c=document.querySelector('input[name="'+p+n+'"]:checked');if(!c)blank++;else if(c.parentNode.className.indexOf("c")===0)total++}
+  var l=LV[0];for(var j=0;j<LV.length;j++){if(total<=LV[j][0]){l=LV[j];break}}
+  R={set:k,total:total,blank:blank,level:l[1],band:l[2],course:l[3]};
+  var rc=$("reco");rc.innerHTML="<b>Level:</b> "+l[1]+"<br><b>Estimated IELTS starting band:</b> "+l[2]+"<br><b>Suggested course:</b> "+l[3]+(blank?"<br><b>Not answered:</b> "+blank:"");rc.hidden=false;
+  $("sub").checked=true;
+  $("result").scrollIntoView({block:"start"});
+}
+$("submitBtn").addEventListener("click",submit);
+$("submitBtn").addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" ")submit(e)});
+})();
+</script>
+</body>
+</html>
