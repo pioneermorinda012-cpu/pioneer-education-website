@@ -92,6 +92,22 @@
   .pr-split > .pr-pane:focus { outline: none; }
 }
 
+/* ── map / plan / diagram beside its questions ─────────────
+   Listening maps and plans (and reading diagrams in Questions view): the
+   picture on the left stays in view while the questions on the right scroll,
+   so a student can match a label to its answer box without scrolling back.
+   Phones keep the picture above the questions. */
+@media (min-width: 900px) {
+  .pr-figsplit { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 22px; align-items: start; }
+  .pr-figsplit > figure { position: sticky; top: 86px; margin: 0 !important; }
+  .pr-figsplit > figure img { max-height: calc(100dvh - 150px); object-fit: contain; }
+  .pr-figsplit > .pr-figbody > :first-child { margin-top: 0; }
+  .pr-figq { margin-top: 12px; gap: 18px; }
+  .pr-figq > figure { position: static; }
+  .pr-figq > div > div { margin-left: 0 !important; }
+}
+
 /* ── sign-in / teacher forms ───────────────────────────── */
 .pr-signin { max-width: 420px; margin: 56px auto; background: var(--paper);
   border: 1px solid var(--grey-light); border-radius: 16px; padding: 30px 26px; }

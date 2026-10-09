@@ -286,6 +286,7 @@ export default function Player(
           <div className="pr-pane" aria-label="Questions" tabIndex={-1}>
             {section.groups.map((g, i) => (
               <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
+                wide={!isReading || !section.passage || view === "q"}
                 cover={covers[current]} />
             ))}
           </div>
@@ -809,12 +810,23 @@ export function Passage({
 
 /* ================= a group of questions ================= */
 function GroupBlock({
-  group, answers, set, media, cover,
+  group, answers, set, media, cover, wide = false,
 }: {
   group: Group; answers: Answers; cover?: Record<number, number[]>;
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
+  /** The questions have the width of the page (listening, or reading in
+   *  Questions view), so a map or plan can sit beside them. */
+  wide?: boolean;
 }) {
+  const figure = group.img && media[group.img] ? (
+    <figure style={{ textAlign: "center", margin: "0 0 14px" }}>
+      <img src={media[group.img]} alt={group.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
+      {group.imgCap && (
+        <figcaption style={{ fontSize: "0.78rem", color: "var(--grey)", marginTop: 6 }}>{group.imgCap}</figcaption>
+      )}
+    </figure>
+  ) : null;
   return (
     <section style={{ background: "var(--paper)", border: "1px solid var(--grey-light)",
       borderRadius: 16, padding: "18px 18px", marginTop: 14 }}>
@@ -853,15 +865,26 @@ function GroupBlock({
           ))}
         </div>
       )}
-      {group.img && media[group.img] && (
-        <figure style={{ textAlign: "center", margin: "0 0 14px" }}>
-          <img src={media[group.img]} alt={group.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
-          {group.imgCap && (
-            <figcaption style={{ fontSize: "0.78rem", color: "var(--grey)", marginTop: 6 }}>{group.imgCap}</figcaption>
-          )}
-        </figure>
+      {/* A map, plan or diagram: on a wide screen it sits on the left and stays
+          in view while the student works down the questions on the right, so
+          the labels and the answer boxes can be read together. */}
+      {figure && wide ? (
+        <div className="pr-figsplit">
+          {figure}
+          <div className="pr-figbody">{groupBody()}</div>
+        </div>
+      ) : (
+        <>
+          {figure}
+          {groupBody()}
+        </>
       )}
+    </section>
+  );
 
+  function groupBody() {
+    return (
+      <>
       {group.lines?.map((ln, i) => {
         const text = typeof ln === "object" ? ln.t : ln;
         const bullet = typeof ln === "object" && ln.bullet;
@@ -907,10 +930,11 @@ function GroupBlock({
 
       {group.questions?.map((q) => (
         <QuestionBlock key={q.n} q={q} group={group} answers={answers} set={set} media={media}
-          covers={cover?.[q.n] ?? [q.n]} />
+          covers={cover?.[q.n] ?? [q.n]} wide={wide} />
       ))}
-    </section>
-  );
+      </>
+    );
+  }
 }
 
 /* ---- a line of text with {{n}} answer boxes in it ---- */
@@ -952,9 +976,9 @@ function Gapped({
 
 /* ---- a question with options ---- */
 function QuestionBlock({
-  q, group, answers, set, media, covers = [q.n],
+  q, group, answers, set, media, covers = [q.n], wide = false,
 }: {
-  q: Question; group: Group; answers: Answers; covers?: number[];
+  q: Question; group: Group; answers: Answers; covers?: number[]; wide?: boolean;
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
 }) {
@@ -983,6 +1007,55 @@ function QuestionBlock({
     }
   };
 
+  const qFigure = q.img && media[q.img] ? (
+    <figure style={{ textAlign: "center", margin: "12px 0" }}>
+      <img src={media[q.img]} alt={q.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
+      {q.imgCap && (
+        <figcaption style={{ fontSize: "0.78rem", color: "var(--grey)", marginTop: 6 }}>{q.imgCap}</figcaption>
+      )}
+    </figure>
+  ) : null;
+
+  const choices = (
+    <div style={{ display: "flex", flexWrap: compact ? "wrap" : "nowrap",
+      flexDirection: compact ? "row" : "column", gap: compact ? 6 : 2, margin: "6px 0 0 36px" }}>
+      {opts.map((o, i) => {
+        const letter = typeof o === "object" ? o.l : LETTERS[i];
+        const text = typeof o === "object" ? o.t : o;
+        const on = q.multi
+          ? Array.isArray(current) && current.includes(letter.toLowerCase())
+          : current === letter.toLowerCase();
+        return (
+          <label key={letter}
+            style={{
+              display: "flex", alignItems: compact ? "center" : "flex-start", gap: 9, cursor: "pointer",
+              padding: compact ? "9px 12px" : "9px 8px", borderRadius: 9, minHeight: 44,
+              fontSize: "0.96rem", lineHeight: 1.5,
+              justifyContent: compact ? "center" : undefined,
+              minWidth: compact ? 52 : undefined,
+              border: compact ? `1.5px solid ${on ? "var(--coral)" : "var(--grey-light)"}` : "none",
+              background: compact && on ? "var(--coral)" : undefined,
+              color: compact && on ? "#fff" : undefined,
+              fontWeight: compact ? 700 : 400,
+            }}>
+            <input
+              type={q.multi ? "checkbox" : "radio"}
+              name={`q${q.n}`} checked={on} onChange={() => toggle(letter.toLowerCase())}
+              style={{ width: 20, height: 20, accentColor: "var(--coral)", flexShrink: 0,
+                display: compact ? "none" : "block", marginTop: 2 }}
+            />
+            {compact ? letter : (
+              <>
+                <b style={{ color: "var(--coral-dark)", flexShrink: 0 }}>{letter}</b>
+                {text !== letter && <span>{text}</span>}
+              </>
+            )}
+          </label>
+        );
+      })}
+    </div>
+  );
+
   return (
     <div style={{ margin: "16px 0" }}>
       <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -999,52 +1072,19 @@ function QuestionBlock({
           dangerouslySetInnerHTML={{ __html: q.stem }} />
       </div>
 
-      {q.img && media[q.img] && (
-        <figure style={{ textAlign: "center", margin: "12px 0" }}>
-          <img src={media[q.img]} alt={q.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
-          {q.imgCap && (
-            <figcaption style={{ fontSize: "0.78rem", color: "var(--grey)", marginTop: 6 }}>{q.imgCap}</figcaption>
-          )}
-        </figure>
+      {/* A question asked about a picture (which chart, which plan): on a wide
+          screen the picture and the choices sit side by side. */}
+      {qFigure && wide ? (
+        <div className="pr-figsplit pr-figq">
+          {qFigure}
+          <div>{choices}</div>
+        </div>
+      ) : (
+        <>
+          {qFigure}
+          {choices}
+        </>
       )}
-
-      <div style={{ display: "flex", flexWrap: compact ? "wrap" : "nowrap",
-        flexDirection: compact ? "row" : "column", gap: compact ? 6 : 2, margin: "6px 0 0 36px" }}>
-        {opts.map((o, i) => {
-          const letter = typeof o === "object" ? o.l : LETTERS[i];
-          const text = typeof o === "object" ? o.t : o;
-          const on = q.multi
-            ? Array.isArray(current) && current.includes(letter.toLowerCase())
-            : current === letter.toLowerCase();
-          return (
-            <label key={letter}
-              style={{
-                display: "flex", alignItems: compact ? "center" : "flex-start", gap: 9, cursor: "pointer",
-                padding: compact ? "9px 12px" : "9px 8px", borderRadius: 9, minHeight: 44,
-                fontSize: "0.96rem", lineHeight: 1.5,
-                justifyContent: compact ? "center" : undefined,
-                minWidth: compact ? 52 : undefined,
-                border: compact ? `1.5px solid ${on ? "var(--coral)" : "var(--grey-light)"}` : "none",
-                background: compact && on ? "var(--coral)" : undefined,
-                color: compact && on ? "#fff" : undefined,
-                fontWeight: compact ? 700 : 400,
-              }}>
-              <input
-                type={q.multi ? "checkbox" : "radio"}
-                name={`q${q.n}`} checked={on} onChange={() => toggle(letter.toLowerCase())}
-                style={{ width: 20, height: 20, accentColor: "var(--coral)", flexShrink: 0,
-                  display: compact ? "none" : "block", marginTop: 2 }}
-              />
-              {compact ? letter : (
-                <>
-                  <b style={{ color: "var(--coral-dark)", flexShrink: 0 }}>{letter}</b>
-                  {text !== letter && <span>{text}</span>}
-                </>
-              )}
-            </label>
-          );
-        })}
-      </div>
 
       {span && (
         <p style={{ margin: "7px 0 0 36px", fontSize: "0.78rem", fontWeight: 700,
