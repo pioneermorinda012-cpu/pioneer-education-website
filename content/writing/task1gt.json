@@ -138,5 +138,38 @@
   ],
   "minutes": 20,
   "minWords": 150
+ },
+ {
+  "id": "wg-15",
+  "title": "Problems with the local bus service",
+  "register": "Formal",
+  "prompts": [
+   "There have been some problems with the bus service, especially its reliability, in your area over the last two weeks.\n\nWrite a letter to the manager of the bus company. In your letter\n• describe what the problems are\n• explain how these problems are affecting you\n• suggest what you would like the company to do\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "sampleText": "Dear Sir or Madam,\n\nI am writing to express my concern about the unreliable service on Route 14, which I use every day to travel from Prem Nagar to the city centre.\n\nOver the past two weeks, buses have frequently been late or not arrived at all. On at least four occasions the 8:00 a.m. bus did not turn up, and when it finally came, it was so overcrowded that several passengers could not board. In addition, the timetable at my stop has not been updated, so it is impossible to know when the next bus will arrive.\n\nThese problems have had a serious effect on me. I have been late for work three times, and my manager has now warned me that this cannot continue. As a result, I have had to take taxis, which has cost me a considerable amount of money. Many elderly residents in my area, who have no other way to travel, have been left waiting for long periods in the heat.\n\nI would therefore be grateful if you could look into this matter urgently. In particular, I would like you to add an extra bus during the morning rush hour and display an accurate timetable at each stop. It would also help if passengers were informed by text message when a service is cancelled.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 245 words. Dear Sir or Madam → Yours faithfully, because the manager's name is not known. One paragraph per bullet point, no short forms.)"
+ },
+ {
+  "id": "wg-16",
+  "title": "Volunteering as social events organiser on a training course",
+  "register": "Formal",
+  "prompts": [
+   "You are going on a one-month training programme in the UK, and you know that the head of the course would like one of the participants to be the social events organiser.\n\nWrite a letter to the Training Organiser. In your letter\n• express your interest in the role\n• request more information about it\n• explain what experience you have\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "sampleText": "Dear Sir or Madam,\n\nI am writing with regard to the one-month training programme in Manchester, which I will be attending from 3 March. I understand that you are looking for one of the participants to act as social events organiser, and I would very much like to be considered for the role.\n\nI believe the position would be an excellent opportunity to help the group get to know one another and to make the most of our time in the UK. However, before committing, I would be grateful if you could give me some further details. In particular, I would like to know how many events I would be expected to arrange each week, whether there is a budget for activities, and whether I would receive any support from your staff.\n\nAs for my experience, I have organised several events in the past. At my current workplace, I am responsible for planning our annual staff trip for around sixty employees, which involves booking transport, arranging meals and keeping to a strict budget. I also coordinated cultural evenings at my college, so I am confident working with people from different backgrounds.\n\nI look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. Dear Sir or Madam → Yours faithfully. Specific questions for bullet 2 and real examples for bullet 3.)"
+ },
+ {
+  "id": "wg-17",
+  "title": "Parking problems — letter to all neighbours",
+  "register": "Semi-formal",
+  "prompts": [
+   "You share a parking area with several neighbours and have recently started having problems.\n\nWrite a letter to be copied to all the neighbours who share the parking area. In your letter\n• explain the problems\n• suggest ways to help the situation\n• propose a possible meeting\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Neighbours,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "sampleText": "Dear Neighbours,\n\nI am writing to you all about some problems that have arisen in our shared parking area over the past few weeks, as I am sure many of you have also noticed them.\n\nThe main issue is that some cars are being parked across two spaces, which means there is often nowhere for residents to park when they return home in the evening. In addition, visitors' vehicles are frequently left in the area overnight, and on several occasions the entrance has been blocked, making it difficult for anyone to get in or out. Last Tuesday, an ambulance had trouble reaching the building because of this.\n\nI would like to suggest a few simple solutions. Firstly, we could paint numbered lines so that each household has its own clearly marked space. Secondly, visitors could be asked to use the street outside after 8 p.m. Finally, a notice at the entrance would remind everyone to keep the gate clear at all times.\n\nTo discuss these ideas, I propose that we meet in the community hall next Sunday at 11 a.m. If this time is not convenient, please let me know and we can arrange another day.\n\nThank you for your understanding and cooperation.\n\nKind regards,\nNarinder Singh (Flat 4)\n\n(About 210 words. Polite and friendly without blaming anyone by name; a clear day, time and place for the meeting.)"
  }
 ]
