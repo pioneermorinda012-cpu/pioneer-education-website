@@ -492,5 +492,339 @@
   "minutes": 20,
   "minWords": 150,
   "chartType": "Bar chart"
+ },
+ {
+  "id": "w1-67",
+  "title": "The pie chart below shows the main reasons why agricultural land becomes less productive. The table shows how these causes affected three regions of the world during the 1990s.",
+  "images": [
+   "t1-landdegradation.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Worldwide: the three main causes (over-grazing, deforestation, over-cultivation)",
+     "kw": [
+      "over-grazing",
+      "overgrazing",
+      "(?<![\\d.])35%",
+      "(?<![\\d.])30%",
+      "(?<![\\d.])28%",
+      "worldwide",
+      "globally"
+     ]
+    },
+    {
+     "label": "Europe had the most degraded land",
+     "kw": [
+      "europe",
+      "(?<![\\d.])23%",
+      "(?<![\\d.])9\\.8(?!\\d)",
+      "(?<![\\d.])7\\.7(?!\\d)"
+     ]
+    },
+    {
+     "label": "Oceania: over-grazing was the main problem",
+     "kw": [
+      "oceania",
+      "(?<![\\d.])13%",
+      "(?<![\\d.])11\\.3(?!\\d)"
+     ]
+    },
+    {
+     "label": "North America had the least degraded land",
+     "kw": [
+      "north america",
+      "(?<![\\d.])5%",
+      "(?<![\\d.])3\\.3(?!\\d)",
+      "(?<![\\d.])0\\.2(?!\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie chart below shows the main reasons why agricultural land becomes less productive. The table shows how these causes affected three regions of the world during the 1990s. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "over",
+    "grazing",
+    "cultivation",
+    "deforestation",
+    "land",
+    "degraded",
+    "degradation"
+   ]
+  },
+  "phrases": [
+   "The pie chart shows…, while the table compares…",
+   "Overall, … were responsible for the vast majority of…",
+   "…was the leading cause, accounting for…",
+   "…closely followed by…",
+   "…had the second-highest figure, at…",
+   "In contrast, only…% of land in… was degraded."
+  ],
+  "sampleText": "The pie chart shows the main causes of agricultural land degradation worldwide, while the table compares how three of these causes affected North America, Europe and Oceania in the 1990s.\n\nOverall, over-grazing, deforestation and over-cultivation were responsible for the vast majority of land degradation, and Europe had by far the highest proportion of degraded land of the three regions.\n\nGlobally, over-grazing was the leading cause, accounting for 35% of degradation, closely followed by deforestation (30%) and over-cultivation (28%). Other factors made up the remaining 7%.\n\nIn Europe, 23% of land was degraded, mainly because of deforestation (9.8%) and over-cultivation (7.7%), with over-grazing contributing a further 5.5%. Oceania had the second-highest figure, at 13%, and here over-grazing was the main problem (11.3%), while over-cultivation had no effect at all. In contrast, only 5% of land in North America was degraded, with over-cultivation the most significant cause (3.3%) and deforestation having almost no impact (0.2%).\n\n(About 180 words. It links the pie chart and the table, gives the global picture first, then compares the three regions from highest to lowest.)"
+ },
+ {
+  "id": "w1-68",
+  "title": "The pie charts below show units of electricity production by fuel source in Australia and France in 1980 and 2000.",
+  "images": [
+   "t1-electricityaustraliafrance.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Total production rose in both countries",
+     "kw": [
+      "total",
+      "(?<![\\d.])100(?!\\d)",
+      "(?<![\\d.])90(?!\\d)",
+      "(?<![\\d.])170(?!\\d)",
+      "rose",
+      "increase",
+      "grew",
+      "doubled"
+     ]
+    },
+    {
+     "label": "Australia came to depend on coal",
+     "kw": [
+      "australia",
+      "coal",
+      "(?<![\\d.])130(?!\\d)",
+      "(?<![\\d.])50 units"
+     ]
+    },
+    {
+     "label": "France came to depend on nuclear power",
+     "kw": [
+      "france",
+      "nuclear",
+      "(?<![\\d.])126(?!\\d)",
+      "(?<![\\d.])15 units"
+     ]
+    },
+    {
+     "label": "Other sources (gas, oil, hydro) fell or stayed small",
+     "kw": [
+      "natural gas",
+      "gas",
+      "oil",
+      "hydro",
+      "(?<![\\d.])2 units",
+      "fell",
+      "dropped",
+      "declined",
+      "decreased"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie charts below show units of electricity production by fuel source in Australia and France in 1980 and 2000. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "units",
+    "power",
+    "coal",
+    "nuclear",
+    "hydro",
+    "electricity",
+    "each",
+    "australia",
+    "france",
+    "natural",
+    "gas",
+    "oil"
+   ]
+  },
+  "phrases": [
+   "The pie charts illustrate the number of units of… generated from…",
+   "Overall, … rose considerably…, and by 2000 each country relied mainly on…",
+   "…half of which came from…",
+   "…had more than doubled to…",
+   "…from a much more balanced mix:…",
+   "…had increased dramatically to…, making up the vast majority of…"
+  ],
+  "sampleText": "The pie charts illustrate the number of units of electricity generated from five fuel sources in Australia and France in 1980 and 2000.\n\nOverall, electricity production rose considerably in both countries over the period, and by 2000 each country relied mainly on a single source: coal in Australia and nuclear power in France.\n\nIn 1980, Australia produced 100 units of electricity, half of which (50 units) came from coal. Natural gas and hydro power each provided 20 units, while oil accounted for 10. By 2000, total output had risen to 170 units, and coal-fired generation had more than doubled to 130 units. Hydro power also grew, to 36 units, but natural gas and oil fell sharply to just 2 units each. Nuclear power was not used in either year.\n\nFrance generated 90 units in 1980 from a much more balanced mix: coal and natural gas produced 25 units each, oil 20, nuclear power 15 and hydro power 5. Twenty years later, however, nuclear power had increased dramatically to 126 units, making up the vast majority of production. Coal remained at 25 units and oil rose slightly to 25, whereas natural gas and hydro power dropped to only 2 units each.\n\n(About 215 words. Note: the five figures in France's 2000 chart (126 + 25 + 25 + 2 + 2) add up to 180 units, not 170 as the chart title says, so the model avoids stating France's 2000 total.)"
+ },
+ {
+  "id": "w1-69",
+  "title": "The three pie charts below show the changes in annual spending by a particular UK school in 1981, 1991 and 2001.",
+  "images": [
+   "t1-ukschoolspending.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Teachers' salaries were always the largest expense",
+     "kw": [
+      "teachers",
+      "(?<![\\d.])40%",
+      "(?<![\\d.])50%",
+      "(?<![\\d.])45%",
+      "largest",
+      "biggest",
+      "half"
+     ]
+    },
+    {
+     "label": "Other workers' salaries fell steadily",
+     "kw": [
+      "other workers",
+      "(?<![\\d.])28%",
+      "(?<![\\d.])22%",
+      "(?<![\\d.])15%",
+      "fell",
+      "declined",
+      "decreased"
+     ]
+    },
+    {
+     "label": "Furniture & equipment and resources changed sharply",
+     "kw": [
+      "furniture",
+      "equipment",
+      "resources",
+      "books",
+      "(?<![\\d.])23%",
+      "(?<![\\d.])5%",
+      "(?<![\\d.])20%",
+      "(?<![\\d.])9%"
+     ]
+    },
+    {
+     "label": "Insurance was smallest but grew",
+     "kw": [
+      "insurance",
+      "(?<![\\d.])2%",
+      "(?<![\\d.])8%",
+      "fourfold",
+      "four times",
+      "smallest"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The three pie charts below show the changes in annual spending by a particular UK school in 1981, 1991 and 2001. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "salaries",
+    "teachers",
+    "workers",
+    "spending",
+    "resources",
+    "teachers'",
+    "salaries",
+    "spending"
+   ]
+  },
+  "phrases": [
+   "The pie charts illustrate how… was divided between…",
+   "Overall, … were by far the largest…, while…",
+   "…accounted for…% of spending, followed by…",
+   "Ten years later, the proportion spent on… had risen to…",
+   "By contrast, … dropped sharply to only…",
+   "…rose dramatically to…, becoming the second-largest category."
+  ],
+  "sampleText": "The pie charts illustrate how a UK school's yearly expenditure was divided between five categories in 1981, 1991 and 2001.\n\nOverall, teachers' salaries were by far the largest expense in all three years, while insurance was always the smallest, although its share grew steadily.\n\nIn 1981, teachers' salaries accounted for 40% of spending, followed by other workers' salaries at 28%. Resources such as books and furniture and equipment each made up 15%, and insurance just 2%. Ten years later, the proportion spent on teachers' salaries had risen to half of the total, and resources had increased to 20%. By contrast, other workers' salaries fell to 22%, and spending on furniture and equipment dropped sharply to only 5%.\n\nBy 2001, teachers' salaries had decreased slightly to 45%, and other workers' salaries continued to fall, to 15%. Spending on resources also declined, to 9%. However, furniture and equipment rose dramatically to 23%, becoming the second-largest category, and insurance reached 8%, four times its 1981 level.\n\n(About 185 words. It groups the changes by time period, highlights the biggest and smallest categories in the overview, and uses a range of verbs for rises and falls.)"
+ },
+ {
+  "id": "w1-70",
+  "title": "The charts below give information on the ages of the populations of Yemen and Italy in 2000 and projections for 2050.",
+  "images": [
+   "t1-yemenitalyages.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Yemen's young population and how it changes",
+     "kw": [
+      "yemen",
+      "(?<![\\d.])50\\.1(?!\\d)",
+      "half",
+      "(?<![\\d.])0-14(?!\\d)",
+      "(?<![\\d.])0–14(?!\\d)",
+      "children",
+      "young",
+      "(?<![\\d.])37(?!\\d)"
+     ]
+    },
+    {
+     "label": "Italy's older population and how it changes",
+     "kw": [
+      "italy",
+      "(?<![\\d.])61\\.6(?!\\d)",
+      "(?<![\\d.])24\\.1(?!\\d)",
+      "(?<![\\d.])42\\.3(?!\\d)",
+      "older",
+      "elderly",
+      "(?<![\\d.])60\\+",
+      "over 60(?!\\d)",
+      "(?<![\\d.])60 and over",
+      "aged 60(?!\\d)"
+     ]
+    },
+    {
+     "label": "Comparison between the two countries / the future trend",
+     "kw": [
+      "whereas",
+      "while",
+      "in contrast",
+      "by contrast",
+      "however",
+      "compared",
+      "(?<![\\d.])2050(?!\\d)",
+      "projected",
+      "predicted",
+      "expected"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below give information on the ages of the populations of Yemen and Italy in 2000 and projections for 2050. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "population",
+    "aged",
+    "years",
+    "italy",
+    "yemen"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare… together with projections for…",
+   "Overall, … whereas …",
+   "…is predicted to fall to…",
+   "…is expected to grow to…",
+   "…presents a very different picture.",
+   "…are projected to make up…% of the population."
+  ],
+  "sampleText": "The pie charts compare the age structure of the populations of Yemen and Italy in 2000, together with projections for 2050.\n\nOverall, Yemen had a very young population in 2000, whereas Italy's population was considerably older. In both countries, the proportion of people aged 60 and over is expected to rise by 2050.\n\nIn 2000, half of Yemen's population (50.1%) was aged 0–14, while 46.3% were between 15 and 59, and only 3.6% were 60 or older. By 2050, the share of children is predicted to fall to 37%, and the working-age group is expected to grow to 57.3%. The proportion of elderly people will increase only slightly, to 5.7%.\n\nItaly presents a very different picture. In 2000, the majority of Italians (61.6%) were aged 15–59, with 24.1% aged 60 or over and just 14.3% under 15. However, by 2050 the over-60s are projected to make up 42.3% of the population, not far below the 15–59 group (46.2%), while the proportion of children will drop further to 11.5%.\n\n(About 190 words. Introduction (paraphrased), an overview with no numbers, then one paragraph per country with key figures and comparisons. No conclusion or opinion is needed.)"
  }
 ]

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { score, type Score } from "@/lib/writing-score";
+import { countWords, score, type Score } from "@/lib/writing-score";
 import type { WritingTask } from "@/lib/writing";
 
 /**
@@ -58,7 +58,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
     return () => clearInterval(t);
   }, [running]);
 
-  const live = useMemo(() => (text.trim().match(/[A-Za-z']+/g) ?? []).length, [text]);
+  const live = useMemo(() => countWords(text), [text]);
   const short = live < task.minWords;
 
   const finish = useCallback(() => {
@@ -91,7 +91,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
       </div>
 
       {/* ---------------------------------------------------------- feedback */}
-      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check} />}
+      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} />}
 
       {/* Task 1 Academic: the chart sits beside the answer box, as it does on
           the computer-delivered test, so a student never scrolls away from the
@@ -193,8 +193,8 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
   );
 }
 
-function Report({ done, elapsed, restart, phrases, letter }: {
-  done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean;
+function Report({ done, elapsed, restart, phrases, letter, report }: {
+  done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean; report?: boolean;
 }) {
   return (
     <section className="pr-set wr-report">
@@ -209,7 +209,9 @@ function Report({ done, elapsed, restart, phrases, letter }: {
           <div className="wr-est">
             <b>Rough guide: band {done.estimate.toFixed(1)}</b>
             <span>
-              {letter
+              {report
+                ? "This checks length, paragraphs, the overview, the chart's key features and figures, an introduction copied from the question, spelling and common grammar slips. It cannot judge how well you describe the data, so your teacher gives the real band."
+                : letter
                 ? "This checks length, paragraphs, the three bullet points, the greeting and sign-off, tone, spelling and common grammar slips. It cannot judge how well you say things, so your teacher gives the real band."
                 : "This counts length, structure, linking and vocabulary range. It cannot read your argument, so it is a starting point for your teacher, never a result."}
             </span>
@@ -225,7 +227,7 @@ function Report({ done, elapsed, restart, phrases, letter }: {
 
           {phrases?.length ? (
             <div className="wr-phr">
-              <h3>Useful phrases for this letter</h3>
+              <h3>Useful phrases for this {report ? "report" : "letter"}</h3>
               <ul>{phrases.map((x, i) => <li key={i}>{x}</li>)}</ul>
             </div>
           ) : null}

@@ -49,6 +49,12 @@ export type LetterCheck = {
   greetRe: string; greetShow: string;
   closeRe: string; closeShow: string;
   tone: "formal" | "informal";
+  /** Academic Task 1: the bullets are the chart's key features, and the
+      question text is kept so an introduction copied from it can be spotted. */
+  academic?: boolean;
+  prompt?: string;
+  /** Academic Task 1: the chart's own labels, which a report cannot avoid repeating. */
+  topic?: string[];
 };
 
 /** Misspellings students actually make, with the spelling they meant. */
@@ -132,6 +138,10 @@ export type Score = {
 };
 
 const wordsOf = (t: string) => t.trim().match(/[A-Za-z']+/g) ?? [];
+/** The word count the examiner uses: a number written in digits ("1980",
+    "9.8%") is one word, and so is a hyphenated word ("over-grazing"). */
+export const countWords = (t: string) =>
+  (t.trim().match(/[A-Za-z0-9][A-Za-z0-9'’.,%\u2013-]*/g) ?? []).length;
 const sentencesOf = (t: string) =>
   (t.trim().match(/[^.!?]+[.!?]+/g) ?? (t.trim() ? [t.trim()] : [])).map((s) => s.trim());
 const parasOf = (t: string) => t.split(/\n\s*\n/).map((p) => p.trim()).filter(Boolean);
@@ -150,7 +160,7 @@ export function score(
   const ws = wordsOf(text);
   const ss = sentencesOf(text);
   const ps = parasOf(text);
-  const words = ws.length;
+  const words = countWords(text);
 
   const content = ws.map((w) => w.toLowerCase()).filter((w) => !STOP.has(w) && w.length > 2);
   const varietyPct = content.length ? Math.round((new Set(content).size / content.length) * 100) : 0;
@@ -158,6 +168,7 @@ export function score(
   const counts: Record<string, number> = {};
   for (const w of content) counts[w] = (counts[w] ?? 0) + 1;
   const repeated = Object.entries(counts)
+    .filter(([w]) => !(kind === "task1" && check?.topic?.includes(w)))
     .filter(([, c]) => c >= 4 && c / Math.max(1, content.length) > 0.022)
     .sort((a, b) => b[1] - a[1]).slice(0, 4) as [string, number][];
 
@@ -239,6 +250,43 @@ export function score(
     } else if (/yours faithfully|dear sir|to whom it may concern/i.test(lower)) {
       est -= 0.25;
       late.push({ kind: "fix", text: "Formal phrases in a letter to a friend. Keep it warm and personal — “Dear Ravi,” … “Best wishes,”." });
+    }
+  }
+
+  if (kind === "task1" && check) {
+    check.bullets.forEach((b, i) => {
+      const hits = b.kw.filter((k) => new RegExp(k, "i").test(lower)).length;
+      if (hits === 0) {
+        est -= 1;
+        late.push({ kind: "fix", text: `Key feature ${i + 1} is missing: ${b.label}. Describe it, with the figures from the chart that show it.` });
+      } else if (hits === 1) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: `Key feature ${i + 1} (${b.label}) is only touched on. Give it more detail and the key figures.` });
+      } else {
+        late.push({ kind: "good", text: `Key feature ${i + 1} is covered: ${b.label}.` });
+      }
+    });
+    const figures = (text.match(/\d+(?:\.\d+)?/g) ?? []).length;
+    if (figures < 4) {
+      est -= 0.5;
+      late.push({ kind: "fix", text: `Only ${figures} figure${figures === 1 ? "" : "s"} from the chart. Support each main feature with the numbers or percentages that prove it.` });
+    } else if (figures > 35) {
+      est -= 0.25;
+      late.push({ kind: "fix", text: `${figures} figures — that is listing, not selecting. Report the main features and the numbers that matter.` });
+    }
+    if (check.prompt) {
+      // Names (Yemen, Italy, Australia) cannot be paraphrased, so they are left out.
+      const plain = (z: string) => (z.match(/[A-Za-z]+/g) ?? [])
+        .filter((w, i) => i === 0 || !/^[A-Z]/.test(w)).map((w) => w.toLowerCase());
+      const q = " " + plain(check.prompt).join(" ") + " ";
+      const first = plain(ps[0] ?? "");
+      for (let x = 0; x + 7 <= first.length; x++) {
+        if (q.includes(" " + first.slice(x, x + 7).join(" ") + " ")) {
+          est -= 0.25;
+          late.push({ kind: "fix", text: "Your introduction copies the question word for word. Paraphrase it — “show” → “illustrate”, “information on” → “data about”." });
+          break;
+        }
+      }
     }
   }
 
