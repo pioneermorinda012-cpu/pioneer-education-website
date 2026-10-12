@@ -24,6 +24,11 @@ const LINKERS = ["however", "moreover", "furthermore", "in addition", "additiona
   "overall", "in summary", "firstly", "secondly", "finally", "in contrast", "despite", "although", "while",
   "whereas", "nevertheless", "nonetheless", "besides", "similarly", "likewise", "thus", "hence"];
 
+/** Letters link ideas less formally than essays; these count for a GT letter too. */
+const LETTER_LINKERS = ["also", "as well as", "apart from", "as for", "in particular", "best of all",
+  "what's more", "on top of that", "first of all", "to begin with", "after that", "then", "anyway",
+  "by the way", "in fact", "unfortunately", "fortunately", "so", "because", "as soon as", "otherwise"];
+
 const COMPLEX = ["because", "although", "though", "while", "whereas", "if", "unless", "since", "which",
   "who", "whom", "that", "whenever", "wherever", "despite", "in spite of", "even though", "provided that"];
 
@@ -32,6 +37,87 @@ const INFORMAL = ["a lot of", "lots of", "kids", "stuff", "things", "nowadays a 
   "very very", "etc", "and so on", "i think that", "in my opinion i"];
 
 export type Note = { kind: "good" | "fix"; text: string };
+
+/**
+ * What one GT letter asks for, written by the teacher with the task: the
+ * bullet points and words that show each one was answered, the greeting and
+ * sign-off that letter needs, and whether it is formal or informal. Patterns
+ * are regular-expression source strings, matched without regard to case.
+ */
+export type LetterCheck = {
+  bullets: { label: string; kw: string[] }[];
+  greetRe: string; greetShow: string;
+  closeRe: string; closeShow: string;
+  tone: "formal" | "informal";
+};
+
+/** Misspellings students actually make, with the spelling they meant. */
+const SPELL: Record<string, string> = {
+  recieve: "receive", recieved: "received", definately: "definitely", definetly: "definitely",
+  untill: "until", wich: "which", beleive: "believe", adress: "address", accomodation: "accommodation",
+  neccessary: "necessary", necesary: "necessary", tommorow: "tomorrow", tomorow: "tomorrow",
+  sincerly: "sincerely", faithfuly: "faithfully", faithfull: "faithfully", oppurtunity: "opportunity",
+  oportunity: "opportunity", enviroment: "environment", goverment: "government", freind: "friend",
+  frend: "friend", wierd: "weird", occured: "occurred", begining: "beginning", writting: "writing",
+  alot: "a lot", becuase: "because", beacuse: "because", bcoz: "because", bcz: "because",
+  thier: "their", truely: "truly", realy: "really", comming: "coming", arguement: "argument",
+  buisness: "business", calender: "calendar", collegue: "colleague", completly: "completely",
+  dissapointed: "disappointed", embarass: "embarrass", existance: "existence", familar: "familiar",
+  finaly: "finally", foward: "forward", grammer: "grammar", happend: "happened",
+  immediatly: "immediately", independant: "independent", knowlege: "knowledge", libary: "library",
+  noticable: "noticeable", occassion: "occasion", prefered: "preferred", problom: "problem",
+  probelm: "problem", recomend: "recommend", refered: "referred", responsable: "responsible",
+  sucessful: "successful", succesful: "successful", suprise: "surprise", transfered: "transferred",
+  unfortunatly: "unfortunately", unfortunetly: "unfortunately", wether: "whether", whould: "would",
+  didnt: "didn't", doesnt: "doesn't", isnt: "isn't", wasnt: "wasn't", havent: "haven't",
+  couldnt: "couldn't", dont: "don't", cant: "can't", ur: "your", u: "you", pls: "please",
+  plz: "please", statment: "statement", purchse: "purchase", purchace: "purchase",
+  transection: "transaction", transcation: "transaction", managment: "management",
+  schedual: "schedule", shedule: "schedule", programe: "programme", experiance: "experience",
+  experince: "experience", intrested: "interested", intersted: "interested", nieghbour: "neighbour",
+  beautifull: "beautiful", beatiful: "beautiful", spacous: "spacious", kitchan: "kitchen",
+  garaje: "garage", reliabilty: "reliability", relaible: "reliable", availabe: "available",
+  inconvinience: "inconvenience", convinient: "convenient", apreciate: "appreciate",
+  greatful: "grateful", regrads: "regards", reguards: "regards",
+};
+
+/** Grammar slips common enough to catch by pattern: [pattern, what it is, the fix]. */
+const SLIPS: [RegExp, string, string][] = [
+  [/\bi am agree\b/i, "I am agree", "I agree"],
+  [/\bmore better\b/i, "more better", "better"],
+  [/\bdiscuss about\b/i, "discuss about", "discuss"],
+  [/\breturn back\b/i, "return back", "return"],
+  [/\binformations\b/i, "informations", "information"],
+  [/\badvices\b/i, "advices", "advice"],
+  [/\bfurnitures\b/i, "furnitures", "furniture"],
+  [/\bequipments\b/i, "equipments", "equipment"],
+  [/\ban university\b/i, "an university", "a university"],
+  [/\ba (apple|hour|honest|email|area|office|appointment|issue|amount|event|extra|unauthori[sz]ed|account|employee|idea)\b/i,
+    "a + vowel sound", "an (an hour, an email, an area…)"],
+  [/\b(he|she|it) (don't|have)\b/i, "he/she/it don't / have", "he/she/it doesn't / has"],
+  [/\b(didn'?t|did not|does not|doesn'?t|do not|don'?t) (went|bought|made|came|saw|gave|took)\b/i,
+    "did not + past form", "did not + base verb (did not buy, did not make)"],
+  [/\bsince (\d+|two|three|four|five|six|a few|several) (days|weeks|months|years)\b/i,
+    "since + a period", "for + a period (for two weeks); since + a point in time (since Monday)"],
+  [/\bi (is|are)\b/, "I is / I are", "I am"],
+  [/\b(they|we|you) (is|was)\b/i, "they/we/you is/was", "they/we/you are/were"],
+  [/\bpeople (is|has)\b/i, "people is/has", "people are/have"],
+  [/\b(could|would|should|can|will|must|might) (to )?(went|bought|did|made|came|was)\b/i,
+    "modal + past form", "modal + base verb (could go, would buy)"],
+  [/\blook forward to (hear|see|meet|receive)\b/i, "look forward to hear", "look forward to hearing"],
+  [/\bmany (money|information|time|traffic|furniture)\b/i, "many + uncountable noun", "much / a lot of"],
+  [/\bmore (bigger|cheaper|easier|larger|smaller|nicer)\b/i, "more + -er", "just the -er form (bigger, cheaper)"],
+  [/\bmost (biggest|best|cheapest|largest)\b/i, "most + -est", "just the -est form"],
+  [/\bexplain me\b/i, "explain me", "explain to me"],
+  [/\bsuggest (me|you) to\b/i, "suggest me to", "suggest that I … / suggest + -ing"],
+  [/\bwould like (meet|visit|know|ask|request|be|come|see)\b/i, "would like + verb", "would like to + verb"],
+  [/\bon (morning|evening|afternoon)\b/i, "on morning", "in the morning"],
+  [/\bin (monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b/i, "in + day", "on + day (on Sunday)"],
+  [/\bmy self\b/i, "my self", "myself"],
+  [/\bfrom (the )?(last|past) (\w+ )?(days?|weeks?|months?|years?)\b/i,
+    "from last two weeks", "for the last two weeks / over the past two weeks"],
+  [/\bevery days\b/i, "every days", "every day"],
+];
 export type Score = {
   words: number;
   sentences: number;
@@ -58,7 +144,9 @@ function occurrences(text: string, list: string[]): string[] {
   return list.filter((l) => t.includes(" " + l + " ") || t.includes(" " + l + ","));
 }
 
-export function score(text: string, minWords: number, kind: "task1" | "gt1" | "task2"): Score {
+export function score(
+  text: string, minWords: number, kind: "task1" | "gt1" | "task2", check?: LetterCheck,
+): Score {
   const ws = wordsOf(text);
   const ss = sentencesOf(text);
   const ps = parasOf(text);
@@ -73,7 +161,7 @@ export function score(text: string, minWords: number, kind: "task1" | "gt1" | "t
     .filter(([, c]) => c >= 4 && c / Math.max(1, content.length) > 0.022)
     .sort((a, b) => b[1] - a[1]).slice(0, 4) as [string, number][];
 
-  const linkers = occurrences(text, LINKERS);
+  const linkers = occurrences(text, kind === "gt1" ? [...LINKERS, ...LETTER_LINKERS] : LINKERS);
   const complex = occurrences(text, COMPLEX);
   const informal = occurrences(text, INFORMAL);
   const avgSentence = ss.length ? Math.round((words / ss.length) * 10) / 10 : 0;
@@ -95,6 +183,65 @@ export function score(text: string, minWords: number, kind: "task1" | "gt1" | "t
   // Under the word count the examiner applies a penalty before judging anything
   // else, so no amount of good structure can rescue it. Saying otherwise would
   // send a student into the exam believing a short essay is survivable.
+  /* Spelling and grammar slips, and for a GT letter with its own check, the
+     bullet points, greeting, sign-off and tone that letter asks for. */
+  const late: Note[] = [];
+  const lower = text.toLowerCase();
+  const misspelt = [...new Set(ws.map((w) => w.toLowerCase()).filter((w) => SPELL[w]))];
+  const slips = SLIPS.map(([re, what, fix]) => ({ m: text.match(re), what, fix })).filter((x) => x.m);
+  if (/(^|[.!?]\s+|\n)i\b/.test(text) || /\si\s/.test(text)) {
+    slips.push({ m: ["i"] as unknown as RegExpMatchArray, what: "small “i” for yourself", fix: "always a capital I" });
+  }
+  est -= Math.min(1, (misspelt.length + slips.length) * 0.25);
+  if (misspelt.length) {
+    late.push({ kind: "fix", text: `Spelling: ${misspelt.slice(0, 6).map((w) => `${w} → ${SPELL[w]}`).join(", ")}.` });
+  }
+  for (const s of slips.slice(0, 5)) {
+    late.push({ kind: "fix", text: `Grammar: “${s.m![0]}” (${s.what}) — correct: ${s.fix}.` });
+  }
+  if (kind === "gt1" && check) {
+    const first = text.trim().split(/\n/)[0] ?? "";
+    if (new RegExp("^\\s*" + check.greetRe, "i").test(first)) {
+      late.push({ kind: "good", text: "The greeting is right for this letter." });
+    } else {
+      est -= 0.25;
+      late.push({ kind: "fix", text: `Start with “${check.greetShow}” on a line of its own.` });
+    }
+    if (new RegExp(check.closeRe, "i").test(lower)) {
+      late.push({ kind: "good", text: "The sign-off matches the greeting." });
+    } else {
+      est -= 0.25;
+      late.push({ kind: "fix", text: `End with “${check.closeShow}” and then your name.` });
+    }
+    check.bullets.forEach((b, i) => {
+      const hits = b.kw.filter((k) => new RegExp(k, "i").test(lower)).length;
+      if (hits === 0) {
+        est -= 1;
+        late.push({ kind: "fix", text: `Bullet point ${i + 1} is missing: ${b.label.toLowerCase()}. Give it a paragraph of its own — a missing bullet point costs the most marks in a letter.` });
+      } else if (hits === 1) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: `Bullet point ${i + 1} (${b.label.toLowerCase()}) is only touched on. Develop it with two or three sentences and a specific detail.` });
+      } else {
+        late.push({ kind: "good", text: `Bullet point ${i + 1} is covered: ${b.label.toLowerCase()}.` });
+      }
+    });
+    if (check.tone === "formal") {
+      const short = text.match(/\b(I'm|I've|I'd|I'll|don't|didn't|can't|won't|isn't|wasn't|it's|that's|couldn't|wouldn't|haven't)\b/gi);
+      if (short) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: `Short forms in a formal letter: ${[...new Set(short)].slice(0, 5).join(", ")}. Write them in full — I am, do not, cannot.` });
+      }
+      const casual = lower.match(/\b(gonna|wanna|guys|hey|hi|cheers|thanks a lot|ok|okay|yeah|stuff|lots of|kinda|asap|thanx|bye|dude|bro)\b/g);
+      if (casual) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: `Too casual for this letter: ${[...new Set(casual)].join(", ")}. Use formal words — “many” for “lots of”, “as soon as possible” for “asap”.` });
+      }
+    } else if (/yours faithfully|dear sir|to whom it may concern/i.test(lower)) {
+      est -= 0.25;
+      late.push({ kind: "fix", text: "Formal phrases in a letter to a friend. Keep it warm and personal — “Dear Ravi,” … “Best wishes,”." });
+    }
+  }
+
   const ceiling = words < minWords ? 5.5 : 7.5;
   const estimate = Math.max(3.5, Math.min(ceiling, Math.round(est * 2) / 2));
 
@@ -148,7 +295,7 @@ export function score(text: string, minWords: number, kind: "task1" | "gt1" | "t
   }
   /* A GT letter is marked on purpose, bullet points and tone, not on an
      overview. What can be counted: it opens as a letter and closes as one. */
-  if (kind === "gt1") {
+  if (kind === "gt1" && !check) {
     const first = text.trim().split(/\n/)[0] ?? "";
     if (!/^\s*(dear|hi|hello)\b/i.test(first)) {
       say("fix", "Start with the greeting you were given (Dear Sir or Madam, / Dear Mr Evans, / Dear Tom,) on a line of its own.");
@@ -163,6 +310,8 @@ export function score(text: string, minWords: number, kind: "task1" | "gt1" | "t
   if (kind === "task2" && !/\bconclusion\b|\bto conclude\b|\boverall\b|\bin summary\b/i.test(text)) {
     say("fix", "No conclusion. Finish by answering the question directly in one or two sentences.");
   }
+
+  notes.push(...late);
 
   return { words, sentences: ss.length, paragraphs: ps.length, avgSentence, varietyPct,
            linkers, repeated, longSentences, estimate, notes };

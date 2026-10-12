@@ -148,7 +148,74 @@
   ],
   "minutes": 20,
   "minWords": 150,
-  "sampleText": "Dear Sir or Madam,\n\nI am writing to express my concern about the unreliable service on Route 14, which I use every day to travel from Prem Nagar to the city centre.\n\nOver the past two weeks, buses have frequently been late or not arrived at all. On at least four occasions the 8:00 a.m. bus did not turn up, and when it finally came, it was so overcrowded that several passengers could not board. In addition, the timetable at my stop has not been updated, so it is impossible to know when the next bus will arrive.\n\nThese problems have had a serious effect on me. I have been late for work three times, and my manager has now warned me that this cannot continue. As a result, I have had to take taxis, which has cost me a considerable amount of money. Many elderly residents in my area, who have no other way to travel, have been left waiting for long periods in the heat.\n\nI would therefore be grateful if you could look into this matter urgently. In particular, I would like you to add an extra bus during the morning rush hour and display an accurate timetable at each stop. It would also help if passengers were informed by text message when a service is cancelled.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 245 words. Dear Sir or Madam → Yours faithfully, because the manager's name is not known. One paragraph per bullet point, no short forms.)"
+  "check": {
+   "bullets": [
+    {
+     "label": "Describe what the problems are",
+     "kw": [
+      "late",
+      "delay",
+      "cancel",
+      "crowd",
+      "timetable",
+      "did not (arrive|come|turn up)",
+      "didn't (arrive|come)",
+      "not on time",
+      "wait",
+      "unreliable",
+      "breakdown",
+      "broke down"
+     ]
+    },
+    {
+     "label": "Explain how the problems affect you",
+     "kw": [
+      "late for (work|college|school|class)",
+      "affect",
+      "missed",
+      "cost",
+      "taxi",
+      "appointment",
+      "stress",
+      "boss",
+      "manager",
+      "lost",
+      "effect"
+     ]
+    },
+    {
+     "label": "Suggest what the company should do",
+     "kw": [
+      "would like",
+      "suggest",
+      "could you",
+      "should",
+      "grateful",
+      "add(ing)? (an )?extra",
+      "more buses",
+      "improve",
+      "update",
+      "compensat",
+      "please",
+      "request"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+sir\\s+or\\s+madam",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to express my concern about…",
+   "On several occasions…",
+   "This has had a serious effect on…",
+   "As a result, I have had to…",
+   "I would be grateful if you could look into this matter urgently.",
+   "I look forward to your prompt reply."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing to express my concern about the unreliable service on Route 14, which I use every day to travel from Prem Nagar to the city centre.\n\nOver the past two weeks, buses have frequently been late or not arrived at all. On at least four occasions the 8:00 a.m. bus did not turn up, and when it finally came, it was so overcrowded that several passengers could not board. In addition, the timetable at my stop has not been updated, so it is impossible to know when the next bus will arrive.\n\nThese problems have had a serious effect on me. I have been late for work three times, and my manager has now warned me that this cannot continue. As a result, I have had to take taxis, which has cost me a considerable amount of money. Many elderly residents in my area, who have no other way to travel, have been left waiting for long periods in the heat.\n\nI would therefore be grateful if you could look into this matter urgently. In particular, I would like you to add an extra bus during the morning rush hour and display an accurate timetable at each stop. It would also help if passengers were informed by text message when a service is cancelled.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 245 words. One paragraph for each bullet point, specific details, formal language and clear linking words.)"
  },
  {
   "id": "wg-16",
@@ -159,7 +226,67 @@
   ],
   "minutes": 20,
   "minWords": 150,
-  "sampleText": "Dear Sir or Madam,\n\nI am writing with regard to the one-month training programme in Manchester, which I will be attending from 3 March. I understand that you are looking for one of the participants to act as social events organiser, and I would very much like to be considered for the role.\n\nI believe the position would be an excellent opportunity to help the group get to know one another and to make the most of our time in the UK. However, before committing, I would be grateful if you could give me some further details. In particular, I would like to know how many events I would be expected to arrange each week, whether there is a budget for activities, and whether I would receive any support from your staff.\n\nAs for my experience, I have organised several events in the past. At my current workplace, I am responsible for planning our annual staff trip for around sixty employees, which involves booking transport, arranging meals and keeping to a strict budget. I also coordinated cultural evenings at my college, so I am confident working with people from different backgrounds.\n\nI look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. Dear Sir or Madam → Yours faithfully. Specific questions for bullet 2 and real examples for bullet 3.)"
+  "check": {
+   "bullets": [
+    {
+     "label": "Express your interest in the role",
+     "kw": [
+      "interest",
+      "would (like|love) to (be|take|volunteer|act)",
+      "keen",
+      "volunteer",
+      "consider(ed)? for",
+      "apply",
+      "the role",
+      "the position",
+      "enthusiastic"
+     ]
+    },
+    {
+     "label": "Request more information about the role",
+     "kw": [
+      "could you",
+      "would like to know",
+      "information",
+      "details",
+      "how many",
+      "whether",
+      "budget",
+      "\\?",
+      "let me know"
+     ]
+    },
+    {
+     "label": "Explain what experience you have",
+     "kw": [
+      "experience",
+      "organi[sz]ed",
+      "arranged",
+      "planned",
+      "previous",
+      "in the past",
+      "responsible for",
+      "coordinat",
+      "managed",
+      "event"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+sir\\s+or\\s+madam",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing with regard to…",
+   "I would very much like to be considered for the role of…",
+   "I would be grateful if you could give me some further details.",
+   "In particular, I would like to know whether…",
+   "As for my experience, I have…",
+   "I look forward to hearing from you."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing with regard to the one-month training programme in Manchester, which I will be attending from 3 March. I understand that you are looking for one of the participants to act as social events organiser, and I would very much like to be considered for the role.\n\nI believe the position would be an excellent opportunity to help the group get to know one another and to make the most of our time in the UK. However, before committing, I would be grateful if you could give me some further details. In particular, I would like to know how many events I would be expected to arrange each week, whether there is a budget for activities, and whether I would receive any support from your staff.\n\nAs for my experience, I have organised several events in the past. At my current workplace, I am responsible for planning our annual staff trip for around sixty employees, which involves booking transport, arranging meals and keeping to a strict budget. I also coordinated cultural evenings at my college, so I am confident working with people from different backgrounds.\n\nI look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. One paragraph for each bullet point, specific questions and examples, formal and polite language.)"
  },
  {
   "id": "wg-17",
@@ -170,6 +297,219 @@
   ],
   "minutes": 20,
   "minWords": 150,
-  "sampleText": "Dear Neighbours,\n\nI am writing to you all about some problems that have arisen in our shared parking area over the past few weeks, as I am sure many of you have also noticed them.\n\nThe main issue is that some cars are being parked across two spaces, which means there is often nowhere for residents to park when they return home in the evening. In addition, visitors' vehicles are frequently left in the area overnight, and on several occasions the entrance has been blocked, making it difficult for anyone to get in or out. Last Tuesday, an ambulance had trouble reaching the building because of this.\n\nI would like to suggest a few simple solutions. Firstly, we could paint numbered lines so that each household has its own clearly marked space. Secondly, visitors could be asked to use the street outside after 8 p.m. Finally, a notice at the entrance would remind everyone to keep the gate clear at all times.\n\nTo discuss these ideas, I propose that we meet in the community hall next Sunday at 11 a.m. If this time is not convenient, please let me know and we can arrange another day.\n\nThank you for your understanding and cooperation.\n\nKind regards,\nNarinder Singh (Flat 4)\n\n(About 210 words. Polite and friendly without blaming anyone by name; a clear day, time and place for the meeting.)"
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain the problems",
+     "kw": [
+      "park",
+      "space",
+      "block",
+      "visitor",
+      "entrance",
+      "gate",
+      "double",
+      "overnight",
+      "problem",
+      "issue"
+     ]
+    },
+    {
+     "label": "Suggest ways to help the situation",
+     "kw": [
+      "suggest",
+      "could (we|paint|mark|put|ask)",
+      "should",
+      "solution",
+      "idea",
+      "perhaps",
+      "mark(ed)? (spaces|lines)",
+      "notice",
+      "rule",
+      "allocate"
+     ]
+    },
+    {
+     "label": "Propose a possible meeting",
+     "kw": [
+      "meet",
+      "meeting",
+      "discuss",
+      "get together",
+      "gather",
+      "community hall",
+      "(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+      "\\d\\s?(a\\.?m|p\\.?m)"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+neighbou?rs",
+   "greetShow": "Dear Neighbours,",
+   "closeRe": "(kind|best|warm)\\s+regards|best\\s+wishes|yours\\s+sincerely|many\\s+thanks",
+   "closeShow": "Kind regards,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to you all about…",
+   "As I am sure many of you have noticed,…",
+   "The main issue is that…",
+   "I would like to suggest a few simple solutions.",
+   "To discuss these ideas, I propose that we meet…",
+   "If this time is not convenient, please let me know.",
+   "Thank you for your understanding and cooperation."
+  ],
+  "sampleText": "Dear Neighbours,\n\nI am writing to you all about some problems that have arisen in our shared parking area over the past few weeks, as I am sure many of you have also noticed them.\n\nThe main issue is that some cars are being parked across two spaces, which means there is often nowhere for residents to park when they return home in the evening. In addition, visitors' vehicles are frequently left in the area overnight, and on several occasions the entrance has been blocked, making it difficult for anyone to get in or out. Last Tuesday, an ambulance had trouble reaching the building because of this.\n\nI would like to suggest a few simple solutions. Firstly, we could paint numbered lines so that each household has its own clearly marked space. Secondly, visitors could be asked to use the street outside after 8 p.m. Finally, a notice at the entrance would remind everyone to keep the gate clear at all times.\n\nTo discuss these ideas, I propose that we meet in the community hall next Sunday at 11 a.m. If this time is not convenient, please let me know and we can arrange another day.\n\nThank you for your understanding and cooperation.\n\nKind regards,\nNarinder Singh (Flat 4)\n\n(About 210 words. One paragraph for each bullet point, specific details, polite tone without blaming anyone, and a clear day, time and place for the meeting.)"
+ },
+ {
+  "id": "wg-18",
+  "title": "Telling a friend about your new house",
+  "register": "Informal",
+  "prompts": [
+   "You have recently moved into a new house. You want to tell your friend about your good news.\n\nWrite a letter to your friend. In your letter\n• describe the house\n• describe the neighbourhood\n• invite your friend to come and see the house\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Describe the house",
+     "kw": [
+      "bedroom",
+      "kitchen",
+      "garden",
+      "room",
+      "spacious",
+      "balcony",
+      "living room",
+      "floor",
+      "storey",
+      "roof",
+      "bathroom",
+      "lawn",
+      "terrace"
+     ]
+    },
+    {
+     "label": "Describe the neighbourhood",
+     "kw": [
+      "neighbourhood",
+      "neighborhood",
+      "neighbours?",
+      "area",
+      "park",
+      "market",
+      "shops?",
+      "quiet",
+      "street",
+      "locality",
+      "nearby",
+      "colony"
+     ]
+    },
+    {
+     "label": "Invite your friend to visit",
+     "kw": [
+      "come",
+      "visit",
+      "invite",
+      "stay",
+      "weekend",
+      "would you like",
+      "why don't you",
+      "can't wait",
+      "see you",
+      "drop by",
+      "pop round"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(?!sir|madam|neighbour)[A-Za-z]+",
+   "greetShow": "Dear + your friend's first name,",
+   "closeRe": "love|best\\s+wishes|take\\s+care|see\\s+you|cheers|warm\\s+wishes|all\\s+the\\s+best|regards",
+   "closeShow": "Lots of love, / Best wishes,",
+   "tone": "informal"
+  },
+  "phrases": [
+   "I hope you and your family are well.",
+   "I have some exciting news –",
+   "My favourite part is…",
+   "Best of all,…",
+   "Why don't you come and stay with us for a weekend?",
+   "Let me know which dates suit you.",
+   "Can't wait to see you!"
+  ],
+  "sampleText": "Dear Simran,\n\nI hope you and your family are well. I have some exciting news – we have finally moved into our new house!\n\nIt's a lovely two-storey home with three bedrooms, so at last I have a room of my own where I can study in peace. The kitchen is much bigger than our old one, and my favourite part is the small garden at the back, where Mum has already planted roses and some vegetables. The whole house gets plenty of sunlight, so it feels bright and cheerful all day.\n\nThe neighbourhood is quiet and friendly. Our neighbours came round with sweets on the very first day, and there's a park just across the road where people go for walks in the evening. Best of all, the market and my college are only ten minutes away on foot, so I don't need to take the bus any more.\n\nWhy don't you come and stay with us for a weekend next month? We could have a barbecue in the garden and I'll show you around the area. Let me know which dates suit you and I'll pick you up from the station.\n\nCan't wait to see you!\n\nLots of love,\nNarinder\n\n(About 210 words. A warm, friendly tone with short forms (it's, don't, I'll), vivid details for each bullet point and a clear invitation.)"
+ },
+ {
+  "id": "wg-19",
+  "title": "Purchases on your credit card that you did not make",
+  "register": "Formal",
+  "prompts": [
+   "You have just received a credit card statement from your bank. The statement lists a number of expensive purchases that you are sure you did not make.\n\nWrite a letter to the bank manager. In your letter\n• introduce yourself\n• explain that you did not buy the items listed\n• say what you would like the bank to do to fix the problem\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Introduce yourself",
+     "kw": [
+      "my name is",
+      "i am a (customer|client|account)",
+      "account (holder|number)",
+      "customer",
+      "card ?holder",
+      "held an? (account|card)",
+      "have (had|held|been)",
+      "branch"
+     ]
+    },
+    {
+     "label": "Explain that you did not buy the items",
+     "kw": [
+      "did not (make|buy|purchase|authori)",
+      "didn't (make|buy|purchase)",
+      "never (made|bought|purchased)",
+      "not (made|bought) by me",
+      "unauthori[sz]ed",
+      "fraud",
+      "stolen",
+      "transactions?",
+      "purchases?"
+     ]
+    },
+    {
+     "label": "Say what you want the bank to do",
+     "kw": [
+      "refund",
+      "cancel",
+      "block",
+      "investigate",
+      "new card",
+      "reimburse",
+      "would like",
+      "grateful",
+      "credit",
+      "return the money",
+      "please",
+      "stop"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+sir\\s+or\\s+madam",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "My name is … and I have held an account with your branch for…",
+   "I am writing to report several transactions that I did not make.",
+   "I can assure you that I did not buy any of these items.",
+   "I believe my card details may have been stolen.",
+   "I would be grateful if you could block my card immediately.",
+   "I would also like the bank to investigate and refund the full amount."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nMy name is Narinder Singh and I have held a current account and a Gold credit card with your Morinda branch for the past six years. I am writing to report several transactions on my latest statement that I did not make.\n\nThe statement, which I received yesterday, lists four purchases made between 2 and 5 October, including a laptop from an online electronics store for ₹78,000 and two airline tickets worth ₹45,000. I can assure you that I did not buy any of these items. My card has been with me the whole time, and on those dates I was at home in Morinda, so I believe my card details may have been stolen and used fraudulently.\n\nI would therefore be grateful if you could block my card immediately and issue a new one with a different number. I would also like the bank to investigate these transactions and refund the full amount to my account as soon as possible. Please let me know if you need any further information or a written statement from me.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. One paragraph for each bullet point, specific dates and amounts, a calm formal tone and clear requests.)"
  }
 ]

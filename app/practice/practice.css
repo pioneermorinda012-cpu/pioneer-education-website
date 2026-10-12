@@ -294,6 +294,11 @@
 .wr-est b { display: block; color: var(--navy); font-size: 1rem; margin-bottom: 4px; }
 .wr-est span { font-size: 0.82rem; color: var(--grey); line-height: 1.55; }
 .wr-notes { list-style: none; padding: 0; margin: 0; }
+.wr-phr { margin: 18px 0 0; padding: 14px 16px; background: var(--paper); border: 1px dashed var(--gold);
+  border-radius: 12px; }
+.wr-phr h3 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 1rem; margin: 0 0 6px; }
+.wr-phr ul { margin: 0; padding-left: 20px; }
+.wr-phr li { font-style: italic; color: var(--ink, #1c2430); line-height: 1.7; }
 .wr-notes li { display: flex; gap: 10px; padding: 11px 0; border-top: 1px solid var(--gold-light);
   font-size: 0.92rem; line-height: 1.6; color: var(--navy); }
 .wr-notes li:first-child { border-top: none; }

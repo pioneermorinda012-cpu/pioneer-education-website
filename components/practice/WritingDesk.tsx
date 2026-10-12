@@ -64,7 +64,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
   const finish = useCallback(() => {
     setRunning(false);
     setElapsedAtFinish(task.minutes * 60 - left);
-    setDone(score(text, task.minWords, task.kind));
+    setDone(score(text, task.minWords, task.kind, task.check));
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [text, task, left]);
 
@@ -91,7 +91,7 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
       </div>
 
       {/* ---------------------------------------------------------- feedback */}
-      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} />}
+      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check} />}
 
       {/* Task 1 Academic: the chart sits beside the answer box, as it does on
           the computer-delivered test, so a student never scrolls away from the
@@ -193,7 +193,9 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
   );
 }
 
-function Report({ done, elapsed, restart }: { done: Score; elapsed: number; restart: () => void }) {
+function Report({ done, elapsed, restart, phrases, letter }: {
+  done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean;
+}) {
   return (
     <section className="pr-set wr-report">
           <h2>Your writing, checked</h2>
@@ -207,8 +209,9 @@ function Report({ done, elapsed, restart }: { done: Score; elapsed: number; rest
           <div className="wr-est">
             <b>Rough guide: band {done.estimate.toFixed(1)}</b>
             <span>
-              This counts length, structure, linking and vocabulary range. It cannot read
-              your argument, so it is a starting point for your teacher, never a result.
+              {letter
+                ? "This checks length, paragraphs, the three bullet points, the greeting and sign-off, tone, spelling and common grammar slips. It cannot judge how well you say things, so your teacher gives the real band."
+                : "This counts length, structure, linking and vocabulary range. It cannot read your argument, so it is a starting point for your teacher, never a result."}
             </span>
           </div>
 
@@ -219,6 +222,13 @@ function Report({ done, elapsed, restart }: { done: Score; elapsed: number; rest
               </li>
             ))}
           </ul>
+
+          {phrases?.length ? (
+            <div className="wr-phr">
+              <h3>Useful phrases for this letter</h3>
+              <ul>{phrases.map((x, i) => <li key={i}>{x}</li>)}</ul>
+            </div>
+          ) : null}
 
           <div className="wr-acts">
             <button type="button" className="btn btn-coral" onClick={restart}>Write it again</button>

@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import type { LetterCheck } from "./writing-score";
 
 /**
  * The writing library.
@@ -36,6 +37,10 @@ export type WritingTask = {
   /** Task 2 only — the notes printed beside the topic, offered as a hint. */
   ideas?: string[];
   links?: string[];
+  /** GT letters: what this letter must contain, for the instant check. */
+  check?: LetterCheck;
+  /** GT letters: phrases worth borrowing, shown once the student has finished. */
+  phrases?: string[];
   /** TEACHER ONLY. Never present in what a student is served. */
   sampleText?: string;
   sampleImages?: string[];
