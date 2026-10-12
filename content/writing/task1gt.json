@@ -511,5 +511,527 @@
    "I would also like the bank to investigate and refund the full amount."
   ],
   "sampleText": "Dear Sir or Madam,\n\nMy name is Narinder Singh and I have held a current account and a Gold credit card with your Morinda branch for the past six years. I am writing to report several transactions on my latest statement that I did not make.\n\nThe statement, which I received yesterday, lists four purchases made between 2 and 5 October, including a laptop from an online electronics store for ₹78,000 and two airline tickets worth ₹45,000. I can assure you that I did not buy any of these items. My card has been with me the whole time, and on those dates I was at home in Morinda, so I believe my card details may have been stolen and used fraudulently.\n\nI would therefore be grateful if you could block my card immediately and issue a new one with a different number. I would also like the bank to investigate these transactions and refund the full amount to my account as soon as possible. Please let me know if you need any further information or a written statement from me.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. One paragraph for each bullet point, specific dates and amounts, a calm formal tone and clear requests.)"
+ },
+ {
+  "id": "wg-20",
+  "title": "Asking your manager for six months at head office",
+  "register": "Semi-formal",
+  "prompts": [
+   "You work for an international company, and would like to spend six months working in its head office in another country.\n\nWrite a letter to your manager. In your letter\n• explain why you want to work in the company's head office for six months\n• say how your work could be done while you are away\n• ask for his/her help in arranging it\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain why you want to work at head office",
+     "kw": [
+      "experience",
+      "learn",
+      "benefit",
+      "career",
+      "skills",
+      "opportunit",
+      "develop",
+      "knowledge",
+      "because",
+      "head office",
+      "understand"
+     ]
+    },
+    {
+     "label": "Say how your work could be done while you are away",
+     "kw": [
+      "colleague",
+      "cover",
+      "take over",
+      "handover",
+      "hand over",
+      "while i am away",
+      "in my absence",
+      "temporar",
+      "available (by|on|via)",
+      "email",
+      "video call",
+      "responsib"
+     ]
+    },
+    {
+     "label": "Ask your manager for help in arranging it",
+     "kw": [
+      "help",
+      "support",
+      "assist",
+      "arrang",
+      "recommend",
+      "grateful",
+      "could you",
+      "appreciate",
+      "advise",
+      "visa",
+      "permission",
+      "approv"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(mr|mrs|ms|miss|dr|sir|madam)\\b",
+   "greetShow": "Dear Mr/Ms + surname, (e.g. Dear Mr Sharma,)",
+   "closeRe": "yours\\s+sincerely|yours\\s+faithfully|(kind|best)\\s+regards",
+   "closeShow": "Yours sincerely,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to ask whether it would be possible for me to…",
+   "I feel that this would greatly benefit both me and the company.",
+   "I have thought carefully about how my work would be covered while I am away.",
+   "…has said she would be happy to take over my accounts.",
+   "I would be very grateful for your support in arranging this.",
+   "Thank you for considering my request."
+  ],
+  "sampleText": "Dear Mr Sharma,\n\nI am writing to ask whether it would be possible for me to spend six months working at our head office in Toronto, starting next April.\n\nAs you know, I have been in the sales team here for four years, and I feel that a period at head office would greatly benefit both me and the company. It would give me first-hand experience of how our international strategy is planned, and I would be able to build relationships with colleagues in the marketing and product departments. When I return, I could share this knowledge with our team and help improve communication between the two offices.\n\nI have thought carefully about how my work would be covered while I am away. Priya Verma, who joined the team last year, already knows most of my clients and has said she would be happy to take over my accounts. In addition, I would be available by email and video call for any urgent issues, and I would prepare detailed handover notes before I leave.\n\nI would be very grateful for your support in arranging this. In particular, I would appreciate it if you could recommend me to the head office HR department and advise me on how to apply for a work visa.\n\nThank you for considering my request.\n\nYours sincerely,\nNarinder Singh\n\n(About 230 words. You know your manager, so the letter opens with “Dear Mr Sharma,” and closes with “Yours sincerely,”. Each bullet point has its own paragraph with clear reasons, a practical plan and polite requests.)"
+ },
+ {
+  "id": "wg-21",
+  "title": "Complaint: a cheque book that has not arrived",
+  "register": "Formal",
+  "prompts": [
+   "You ordered a new cheque book from your bank two weeks ago but you have received nothing.\n\nWrite a letter to the manager complaining about the bad service. Say when and how you ordered the cheque book. Ask how much longer you will have to wait and ask the manager what action he will take over this matter.\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Say when and how you ordered the cheque book",
+     "kw": [
+      "ordered",
+      "requested",
+      "applied",
+      "on \\d",
+      "(january|february|march|april|may|june|july|august|september|october|november|december)",
+      "internet banking",
+      "online",
+      "at the branch",
+      "form",
+      "phone",
+      "two weeks ago"
+     ]
+    },
+    {
+     "label": "Ask how much longer you will have to wait",
+     "kw": [
+      "how (much )?long",
+      "how much longer",
+      "when (will|can|should)",
+      "wait",
+      "still not",
+      "delay"
+     ]
+    },
+    {
+     "label": "Ask what action the manager will take",
+     "kw": [
+      "action",
+      "what (will|do) you",
+      "investigate",
+      "replace",
+      "cancel",
+      "compensat",
+      "apolog",
+      "resolve",
+      "grateful",
+      "would like you"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(sir|madam|manager|mr|mrs|ms)\\b",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to complain about the delay in receiving…",
+   "On 28 September, I requested… through your internet banking service.",
+   "However, two weeks have now passed and I have received nothing.",
+   "This delay is causing me serious inconvenience, as…",
+   "I would like to know exactly how much longer I will have to wait.",
+   "I would be grateful if you could tell me what action you will take over this matter."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing to complain about the delay in receiving a new cheque book that I ordered from your bank.\n\nI am a current account holder at your Morinda branch. On 28 September, I requested a new cheque book through your internet banking service, and I received an automatic confirmation by email stating that it would be delivered to my home address within five working days. However, two weeks have now passed and I have received nothing. When I phoned your customer helpline last Friday, I was simply told to wait, and no one could tell me where the cheque book was.\n\nThis delay is causing me serious inconvenience, as I need to pay my rent and my children's school fees by cheque before the end of the month. I would therefore like to know exactly how much longer I will have to wait.\n\nI would also be grateful if you could tell me what action you will take over this matter. In particular, I would like you to confirm whether the cheque book has been lost in the post and, if so, to cancel it immediately and issue a replacement free of charge.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 235 words. It gives an exact date and method for the order, explains the effect of the delay, and asks both questions the task requires.)"
+ },
+ {
+  "id": "wg-22",
+  "title": "Enquiring about electrical goods at a shop",
+  "register": "Formal",
+  "prompts": [
+   "You would like to buy some electrical goods at a shop in a nearby town.\n\nWrite a letter to the shop and ask if they have the things you want or whether they will be able to order them. Ask what the prices are and how long they will be able to hold the goods for you.\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Ask if they have the goods or can order them",
+     "kw": [
+      "in stock",
+      "available",
+      "have",
+      "order",
+      "stock",
+      "deliver"
+     ]
+    },
+    {
+     "label": "Ask what the prices are",
+     "kw": [
+      "price",
+      "cost",
+      "how much",
+      "discount",
+      "₹",
+      "rupees",
+      "\\brs\\b"
+     ]
+    },
+    {
+     "label": "Ask how long they can hold the goods",
+     "kw": [
+      "hold",
+      "keep",
+      "reserve",
+      "set aside",
+      "put aside",
+      "deposit",
+      "how long"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+sir\\s+or\\s+madam",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to enquire about…",
+   "Could you please let me know whether you have… in stock?",
+   "I would be grateful if you could tell me whether you would be able to order…",
+   "I would also like to know the price of…",
+   "…how long you would be able to hold the goods for me.",
+   "I would be happy to pay a deposit if necessary."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing to enquire about some electrical goods that I would like to buy from your shop on Station Road in Kharar.\n\nI am planning to furnish my new flat and need a 43-inch smart LED television, a front-loading washing machine with a capacity of at least seven kilograms, and a 1.5-tonne split air conditioner. Could you please let me know whether you have these items in stock at the moment? If not, I would be grateful if you could tell me whether you would be able to order them for me and how long delivery would take.\n\nI would also like to know the price of each item, including installation, and whether you offer any discount if I buy all three together.\n\nFinally, as I will not be able to come to your shop until the end of the month, I would like to ask how long you would be able to hold the goods for me once I have confirmed my order. I would be happy to pay a deposit if necessary.\n\nI look forward to your reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 200 words. The task has no bullet points, so the letter covers its three questions in order (availability, prices, holding the goods), each with polite indirect questions.)"
+ },
+ {
+  "id": "wg-23",
+  "title": "Applying for a waiter/waitress job at a restaurant",
+  "register": "Formal",
+  "prompts": [
+   "A restaurant has placed an advertisement for waiters and waitresses in your local newspaper.\n\nWrite a letter to the restaurant, applying for the job. In your letter\n• explain what you are currently doing\n• describe your suitability for this area of work\n• say when you can attend an interview\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir or Madam,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain what you are currently doing",
+     "kw": [
+      "at present",
+      "currently",
+      "i am (a|an|in|studying|working)",
+      "student",
+      "studying",
+      "degree",
+      "college",
+      "university",
+      "working as",
+      "at the moment"
+     ]
+    },
+    {
+     "label": "Describe your suitability for the job",
+     "kw": [
+      "experience",
+      "worked",
+      "suit",
+      "customer",
+      "friendly",
+      "polite",
+      "hard-working",
+      "hardworking",
+      "skills",
+      "serv",
+      "team"
+     ]
+    },
+    {
+     "label": "Say when you can attend an interview",
+     "kw": [
+      "interview",
+      "available",
+      "free",
+      "attend",
+      "(monday|tuesday|wednesday|thursday|friday|saturday|sunday|weekday|weekend)",
+      "contact me",
+      "p\\.?m",
+      "a\\.?m"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(sir|madam|hiring|manager|mr|mrs|ms)\\b",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully|yours\\s+sincerely",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to apply for the position of… that was advertised in…",
+   "At present, I am…",
+   "I believe I would be well suited to this job.",
+   "This taught me to…",
+   "I would be available for an interview on…",
+   "Please feel free to contact me if you require any further information."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing to apply for the position of waiter that was advertised in the Morinda Times on Saturday.\n\nAt present, I am in the second year of a Bachelor of Commerce degree at Khalsa College. My classes finish at 1 p.m. every day, so I am free to work in the afternoons and evenings, as well as at weekends.\n\nI believe I would be well suited to this job. Last summer I worked for three months at a busy café in Chandigarh, where I took orders, served customers and handled payments. This taught me to stay calm and polite even during the rush hour. I am friendly and hard-working, and I enjoy meeting new people. I also speak English, Hindi and Punjabi fluently, which would help me communicate with all your customers.\n\nI would be available for an interview on any weekday after 2 p.m., or at any time on Saturday. Please feel free to contact me on 98765 43210 if you require any further information.\n\nI look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 210 words. It says where the advert appeared, gives real experience with examples, and offers clear days and times for the interview.)"
+ },
+ {
+  "id": "wg-24",
+  "title": "Suitcase lost by an airline",
+  "register": "Formal",
+  "prompts": [
+   "You travelled by plane last week and your suitcase was lost.\n\nYou have still heard nothing from the airline company.\n\nWrite to the airline and explain what happened. Describe your suitcase and tell them what was in it. Find out what they are going to do about it.\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain what happened",
+     "kw": [
+      "flight",
+      "flew",
+      "travelled",
+      "traveled",
+      "lost",
+      "did not arrive",
+      "didn't arrive",
+      "baggage",
+      "luggage",
+      "carousel",
+      "reported",
+      "airport",
+      "heard nothing",
+      "no reply"
+     ]
+    },
+    {
+     "label": "Describe your suitcase",
+     "kw": [
+      "colour",
+      "color",
+      "black",
+      "blue",
+      "\\bred\\b",
+      "grey",
+      "gray",
+      "brown",
+      "green",
+      "large",
+      "medium",
+      "small",
+      "wheels",
+      "handle",
+      "\\btags?\\b",
+      "label",
+      "brand",
+      "\\bhard\\b",
+      "leather",
+      "size"
+     ]
+    },
+    {
+     "label": "Say what was in it",
+     "kw": [
+      "contain",
+      "inside",
+      "clothes",
+      "laptop",
+      "camera",
+      "gift",
+      "present",
+      "documents",
+      "medicine",
+      "jewel",
+      "shoes",
+      "books",
+      "shirts",
+      "sari",
+      "suits"
+     ]
+    },
+    {
+     "label": "Find out what they will do",
+     "kw": [
+      "what (are you|will you|action|steps)",
+      "find",
+      "compensat",
+      "return",
+      "deliver",
+      "let me know",
+      "inform",
+      "search",
+      "trace",
+      "refund",
+      "grateful",
+      "replace"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(sir|madam|mr|mrs|ms|customer)\\b",
+   "greetShow": "Dear Sir or Madam,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing about my suitcase, which was lost on your flight… on…",
+   "I reported the loss at your baggage desk and was given the reference number…",
+   "The suitcase is a large, dark blue hard-shell case with…",
+   "It contained… as well as…",
+   "I would be grateful if you could tell me what steps you are taking to find my suitcase.",
+   "I would also like to know whether I will receive compensation."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am writing about my suitcase, which was lost on your flight AI 112 from London Heathrow to Delhi on 4 October. When I arrived in Delhi, I waited at the baggage carousel for over an hour, but my suitcase never appeared. I reported the loss at your baggage desk straight away and was given the reference number DEL-45821, but I have still heard nothing from your company, even though I was promised a call within three days.\n\nThe suitcase is a large, dark blue hard-shell case with four wheels and a silver handle. It has a red ribbon tied around the handle and a name tag with my address and phone number on it.\n\nIt contained most of my clothes, including two new suits that I need for work, as well as a camera, a pair of leather shoes and several gifts for my family. Most importantly, it also contained my blood pressure medicine, which I have had to buy again at considerable cost.\n\nI would be grateful if you could tell me what steps you are taking to find my suitcase and when I can expect it to be delivered to my home. I would also like to know whether I will receive compensation for the items I have had to replace.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 250 words. It gives the flight number, date and reference number, describes the suitcase so it could be recognised, lists the contents, and asks two clear questions.)"
+ },
+ {
+  "id": "wg-25",
+  "title": "Bank letter wrongly says your account is overdrawn",
+  "register": "Formal",
+  "prompts": [
+   "You have had a bank account for a few years. Recently you received a letter from the bank stating that your account is $240 overdrawn and that you will be charged $70 which will be taken directly from your account. You know that this information is incorrect.\n\nWrite a letter to the bank. Explain what has happened and say what you would like them to do about it.\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear Sir,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain what has happened",
+     "kw": [
+      "overdrawn",
+      "\\$\\s?240",
+      "240",
+      "letter",
+      "incorrect",
+      "balance",
+      "deposit",
+      "mistake",
+      "error",
+      "salary",
+      "statement",
+      "account holder",
+      "have had"
+     ]
+    },
+    {
+     "label": "Say what you would like the bank to do",
+     "kw": [
+      "cancel",
+      "\\$\\s?70",
+      "70",
+      "refund",
+      "correct",
+      "remove",
+      "apolog",
+      "check",
+      "investigate",
+      "would like",
+      "grateful",
+      "confirm",
+      "reverse"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(sir|madam)\\b",
+   "greetShow": "Dear Sir,",
+   "closeRe": "yours\\s+faithfully",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing about a letter I received from your bank on…",
+   "I am certain that this information is incorrect.",
+   "According to my own records,…",
+   "I believe the problem may have been caused by…",
+   "I would be grateful if you could check my account carefully and correct this error.",
+   "I would also like you to cancel the charge, or refund it in full."
+  ],
+  "sampleText": "Dear Sir,\n\nI am writing about a letter I received from your bank on 5 October, which states that my current account is $240 overdrawn and that a charge of $70 will be taken directly from my account. I have banked with your Morinda branch for over four years, and I am certain that this information is incorrect.\n\nAccording to my own records, my account has never been overdrawn. My monthly salary of $1,800 was paid in on 30 September, and my online statement shows a balance of more than $600 on the date mentioned in your letter. I believe the problem may have been caused by a cheque for $850 that I deposited on 28 September, which appears to have been recorded twice as a withdrawal instead of once as a deposit.\n\nI would therefore be grateful if you could check my account carefully and correct this error as soon as possible. I would also like you to cancel the $70 charge, or refund it in full if it has already been taken, and to send me written confirmation that my balance is in credit. As this mistake was not my fault, I would appreciate an apology as well.\n\nI look forward to your prompt reply.\n\nYours faithfully,\nNarinder Singh\n\n(About 235 words. The task begins “Dear Sir,” so the letter ends with “Yours faithfully,”. It gives exact dates and amounts to prove the bank is wrong, then makes clear, polite requests.)"
+ },
+ {
+  "id": "wg-26",
+  "title": "Cannot return library books on time",
+  "register": "Formal",
+  "prompts": [
+   "You borrowed some books from your school or college library. Unfortunately you have to go away to visit a sick relative and cannot return the books in time.\n\nWrite a letter to the library. Explain what has happened and tell them what you want to do about it.\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain what has happened",
+     "kw": [
+      "borrow",
+      "sick",
+      "\\bill\\b",
+      "hospital",
+      "relative",
+      "grandmother",
+      "grandfather",
+      "aunt",
+      "uncle",
+      "go away",
+      "visit",
+      "unable to return",
+      "cannot return",
+      "due (on|date|back)"
+     ]
+    },
+    {
+     "label": "Tell them what you want to do about it",
+     "kw": [
+      "extend",
+      "renew",
+      "extension",
+      "return (them|the books)",
+      "post",
+      "friend",
+      "brother",
+      "sister",
+      "fine",
+      "pay",
+      "when i (come back|return|get back)",
+      "would like",
+      "grateful",
+      "drop"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(sir|madam|librarian|mr|mrs|ms)\\b",
+   "greetShow": "Dear Sir or Madam, (or Dear Librarian,)",
+   "closeRe": "yours\\s+faithfully|yours\\s+sincerely",
+   "closeShow": "Yours faithfully,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing about three books that I borrowed from the library on…",
+   "Unfortunately, I will not be able to return them in time.",
+   "As she lives alone, my parents have asked me to…",
+   "I would be grateful if you could extend the loan period until…",
+   "If this is not possible, I could ask… to return the books on my behalf.",
+   "I am also willing to pay any late fine that may be charged."
+  ],
+  "sampleText": "Dear Sir or Madam,\n\nI am a second-year student in the Commerce department, and I am writing about three books that I borrowed from the college library on 1 October. They are due back on 15 October, but unfortunately I will not be able to return them in time.\n\nYesterday I received a phone call from my family telling me that my grandmother has been admitted to hospital in Amritsar after a serious fall. As she lives alone, my parents have asked me to travel there immediately to help look after her, and I expect to be away for about three weeks. I am leaving tomorrow morning, before the library opens, so I cannot bring the books back in person.\n\nI would therefore be grateful if you could extend the loan period until 8 November. I need two of the books for an assignment, so I would prefer to keep them with me while I am away. However, if this is not possible, I could ask my roommate to return all three books to the library on my behalf. Of course, I am also willing to pay any late fine that may be charged.\n\nThank you for your understanding. I look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 240 words. It names the books' dates, explains the emergency honestly, and offers a main request plus a back-up plan, which shows good task response.)"
  }
 ]
