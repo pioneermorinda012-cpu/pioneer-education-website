@@ -29,13 +29,18 @@ const PAGES = {
   },
 } as const;
 
+const TONE_HEAD = {
+  formal: "Formal letters — to a company, an official, a manager or someone you don't know well",
+  informal: "Informal letters — to a friend or family member",
+} as const;
+
 export default async function WritingLibrary({
   searchParams,
 }: {
-  searchParams: Promise<{ task?: string; type?: string }>;
+  searchParams: Promise<{ task?: string; type?: string; reg?: string }>;
 }) {
   await requireStudent("/practice/writing");
-  const { task, type } = await searchParams;
+  const { task, type, reg } = await searchParams;
   const kind = task === "1" ? "task1" : task === "gt1" ? "gt1" : "task2";
   const page = PAGES[kind];
 
@@ -48,7 +53,30 @@ export default async function WritingLibrary({
     ? CHART_TYPES.map((c) => ({ c, n: ofKind.filter((t) => t.chartType === c).length })).filter((x) => x.n)
     : [];
   const picked = types.some((x) => x.c === type) ? type : undefined;
-  const mine = picked ? ofKind.filter((t) => t.chartType === picked) : ofKind;
+
+  /* GT letters are practised by tone: formal (a company, a manager, a
+   * neighbour — "Dear Sir or Madam" / "Dear Mr Smith") or informal (a friend —
+   * "Dear Anna"). Semi-formal letters sit with the formal ones and keep their
+   * own label, since they use the same polite, full forms. */
+  const tone = (t: { register?: string }) => (t.register === "Informal" ? "informal" : "formal");
+  const tones = kind === "gt1"
+    ? (["formal", "informal"] as const).map((g) => ({ g, n: ofKind.filter((t) => tone(t) === g).length }))
+        .filter((x) => x.n)
+    : [];
+  const pickedTone = tones.some((x) => x.g === reg) ? (reg as "formal" | "informal") : undefined;
+
+  const mine = picked
+    ? ofKind.filter((t) => t.chartType === picked)
+    : pickedTone
+      ? ofKind.filter((t) => tone(t) === pickedTone)
+      : ofKind;
+
+  /* In the "All" view of letters, show them under a Formal and an Informal
+   * heading; everywhere else it is one list. */
+  const sections: { head?: string; items: typeof mine }[] =
+    kind === "gt1" && !pickedTone
+      ? tones.map(({ g }) => ({ head: TONE_HEAD[g], items: mine.filter((t) => tone(t) === g) }))
+      : [{ items: mine }];
 
   return (
     <div className="wrap">
@@ -77,8 +105,30 @@ export default async function WritingLibrary({
         </nav>
       )}
 
-      <div className="pr-rows" style={{ marginTop: 18 }}>
-        {mine.map((t) => (
+      {tones.length > 0 && (
+        <nav className="wr-types" aria-label="Letter type">
+          <Link href="/practice/writing?task=gt1" aria-current={!pickedTone ? "page" : undefined}>
+            All <span>{ofKind.length}</span>
+          </Link>
+          {tones.map(({ g, n }) => (
+            <Link key={g} href={`/practice/writing?task=gt1&reg=${g}`}
+              aria-current={pickedTone === g ? "page" : undefined}>
+              {g === "formal" ? "Formal" : "Informal"} <span>{n}</span>
+            </Link>
+          ))}
+        </nav>
+      )}
+
+      {sections.map((sec, si) => (
+      <div key={si}>
+      {sec.head && (
+        <h2 style={{ fontFamily: "'Fraunces',serif", color: "var(--navy)", fontSize: "1.2rem",
+          margin: "26px 0 0" }}>
+          {sec.head}
+        </h2>
+      )}
+      <div className="pr-rows" style={{ marginTop: sec.head ? 10 : 18 }}>
+        {sec.items.map((t) => (
           <div className="pr-row" key={t.id}>
             <div>
               <div className="nm">{t.title}</div>
@@ -101,6 +151,8 @@ export default async function WritingLibrary({
           </div>
         ))}
       </div>
+      </div>
+      ))}
 
       {!mine.length && (
         <div className="pr-note">Nothing here yet.</div>
