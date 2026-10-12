@@ -1033,5 +1033,260 @@
    "I am also willing to pay any late fine that may be charged."
   ],
   "sampleText": "Dear Sir or Madam,\n\nI am a second-year student in the Commerce department, and I am writing about three books that I borrowed from the college library on 1 October. They are due back on 15 October, but unfortunately I will not be able to return them in time.\n\nYesterday I received a phone call from my family telling me that my grandmother has been admitted to hospital in Amritsar after a serious fall. As she lives alone, my parents have asked me to travel there immediately to help look after her, and I expect to be away for about three weeks. I am leaving tomorrow morning, before the library opens, so I cannot bring the books back in person.\n\nI would therefore be grateful if you could extend the loan period until 8 November. I need two of the books for an assignment, so I would prefer to keep them with me while I am away. However, if this is not possible, I could ask my roommate to return all three books to the library on my behalf. Of course, I am also willing to pay any late fine that may be charged.\n\nThank you for your understanding. I look forward to hearing from you.\n\nYours faithfully,\nNarinder Singh\n\n(About 240 words. It names the books' dates, explains the emergency honestly, and offers a main request plus a back-up plan, which shows good task response.)"
+ },
+ {
+  "id": "wg-27",
+  "title": "Telling your course tutor you cannot continue an evening course",
+  "register": "Semi-formal",
+  "prompts": [
+   "You have a full-time job and are also doing a part-time evening course. You now find that you cannot continue the course.\n\nWrite a letter to the course tutor. In your letter\n• describe the situation\n• explain why you cannot continue at this time\n• say what action you would like to take\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Describe the situation",
+     "kw": [
+      "full-time",
+      "full time",
+      "evening course",
+      "part-time",
+      "part time",
+      "enrolled",
+      "joined",
+      "attending",
+      "classes",
+      "course",
+      "diploma",
+      "certificate",
+      "student"
+     ]
+    },
+    {
+     "label": "Explain why you cannot continue now",
+     "kw": [
+      "because",
+      "promot",
+      "transfer",
+      "shift",
+      "overtime",
+      "workload",
+      "responsibilit",
+      "travel",
+      "night",
+      "no longer",
+      "unable",
+      "cannot attend",
+      "can't attend",
+      "family",
+      "health"
+     ]
+    },
+    {
+     "label": "Say what action you would like to take",
+     "kw": [
+      "defer",
+      "postpone",
+      "next (term|year|semester|intake|batch)",
+      "rejoin",
+      "re-join",
+      "suspend",
+      "pause",
+      "refund",
+      "transfer",
+      "online",
+      "would like to",
+      "grateful",
+      "credit",
+      "resume"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(mr|mrs|ms|miss|dr|prof|professor|sir|madam)\\b",
+   "greetShow": "Dear Mr/Ms/Dr + surname,",
+   "closeRe": "yours\\s+sincerely|yours\\s+faithfully|(kind|best)\\s+regards",
+   "closeShow": "Yours sincerely,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "I am writing to inform you that, unfortunately, I am no longer able to continue…",
+   "I have really enjoyed the course so far.",
+   "However, last week I was promoted to…",
+   "It means that I will miss every class for the rest of this term.",
+   "I would like to ask whether it would be possible to defer my place until…",
+   "I would also be grateful if… could be carried over."
+  ],
+  "sampleText": "Dear Ms Gill,\n\nI am writing to inform you that, unfortunately, I am no longer able to continue the evening Diploma in Business Accounting, which I started in July.\n\nAs you know, I have a full-time job at a logistics company, and until recently I was able to leave the office at 5 p.m. and attend your classes on Tuesday and Thursday evenings. I have really enjoyed the course so far and have completed all the assignments for the first two modules.\n\nHowever, last week I was promoted to shift supervisor, and I am now required to work until 9 p.m. on three evenings a week, including both Tuesdays and Thursdays. As this new role is an important step in my career, I cannot turn it down, but it means that I will miss every class for the rest of this term.\n\nI would therefore like to ask whether it would be possible to defer my place until the next intake in January, when my working hours should become more settled. I would also be grateful if the modules I have already completed could be carried over, so that I do not need to repeat them.\n\nI look forward to hearing from you.\n\nYours sincerely,\nNarinder Singh\n\n(About 235 words. It addresses the tutor by name with “Yours sincerely,”, describes the course and the job, gives one clear reason, and asks for a specific, reasonable action.)"
+ },
+ {
+  "id": "wg-28",
+  "title": "Telling a friend about your new job",
+  "register": "Informal",
+  "prompts": [
+   "You have recently started work in a new company.\n\nWrite a letter to an English-speaking friend. In your letter\n• explain why you changed jobs\n• describe your new job\n• tell him/her your other news\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain why you changed jobs",
+     "kw": [
+      "because",
+      "bored",
+      "salary",
+      "\\bpay\\b",
+      "boss",
+      "old job",
+      "previous job",
+      "last job",
+      "commute",
+      "hours",
+      "opportunit",
+      "promotion",
+      "career",
+      "left",
+      "quit",
+      "resigned"
+     ]
+    },
+    {
+     "label": "Describe your new job",
+     "kw": [
+      "new job",
+      "new company",
+      "my role",
+      "i work as",
+      "i'm (a|an|working)",
+      "colleagues",
+      "team",
+      "office",
+      "responsible",
+      "duties",
+      "my job",
+      "manager",
+      "designer",
+      "engineer",
+      "accountant"
+     ]
+    },
+    {
+     "label": "Tell your friend your other news",
+     "kw": [
+      "other news",
+      "by the way",
+      "also",
+      "anyway",
+      "family",
+      "brother",
+      "sister",
+      "married",
+      "wedding",
+      "moved",
+      "bought",
+      "\\bcars?\\b",
+      "holiday",
+      "\\bexams?\\b",
+      "ielts",
+      "course",
+      "baby"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(?!sir|madam|neighbour)[A-Za-z]+",
+   "greetShow": "Dear + your friend's first name,",
+   "closeRe": "love|best\\s+wishes|take\\s+care|see\\s+you|cheers|warm\\s+wishes|all\\s+the\\s+best|regards",
+   "closeShow": "Best wishes, / Lots of love,",
+   "tone": "informal"
+  },
+  "phrases": [
+   "Sorry I haven't written for so long, but…",
+   "To be honest, I was getting quite bored.",
+   "On top of that,…",
+   "I'm now working as… My job is to…",
+   "Best of all,…",
+   "In other news,…",
+   "Write back soon and tell me all your news."
+  ],
+  "sampleText": "Dear Emma,\n\nI hope you're keeping well! Sorry I haven't written for so long, but life has been really busy, because I've just started a new job!\n\nAs you know, I'd been working at the bank for nearly five years, and to be honest, I was getting quite bored. I was doing the same tasks every day, and there was no chance of promotion. On top of that, the journey took over an hour each way, so when a friend told me about a vacancy at a software company near my home, I applied straight away.\n\nI'm now working as a junior project coordinator. My job is to organise meetings, keep track of deadlines and make sure our designers and developers have everything they need. It's challenging, but I'm learning something new every day, and my colleagues are really friendly. Best of all, I can walk to the office in ten minutes!\n\nIn other news, my sister got engaged last month, and the wedding is planned for February. I'd love it if you could come – it would be the perfect excuse for you to visit India at last.\n\nWrite back soon and tell me all your news.\n\nLots of love,\nNarinder\n\n(About 230 words. A friendly tone with short forms (I'm, I'd, it's), real reasons for changing jobs, a clear description of the new role, and a separate paragraph of other news.)"
+ },
+ {
+  "id": "wg-29",
+  "title": "Apologising to your neighbours for noise",
+  "register": "Semi-formal",
+  "prompts": [
+   "Your neighbours have recently written to you to complain about the noise from your house/flat.\n\nWrite a letter to your neighbours. In your letter\n• explain the reasons for the noise\n• apologise\n• describe what action you will take\n\nWrite at least 150 words. You do NOT need to write any addresses.\n\nBegin your letter as follows:\nDear …,"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "check": {
+   "bullets": [
+    {
+     "label": "Explain the reasons for the noise",
+     "kw": [
+      "because",
+      "reason",
+      "party",
+      "celebrat",
+      "wedding",
+      "birthday",
+      "renovat",
+      "building work",
+      "repair",
+      "drill",
+      "music",
+      "guests",
+      "relatives",
+      "practis",
+      "baby",
+      "dog"
+     ]
+    },
+    {
+     "label": "Apologise",
+     "kw": [
+      "sorry",
+      "apolog",
+      "regret",
+      "inconvenience",
+      "disturb",
+      "did not realise",
+      "didn't realise",
+      "forgive"
+     ]
+    },
+    {
+     "label": "Describe what action you will take",
+     "kw": [
+      "will (make sure|ensure|keep|stop|finish|move|turn|close|use|ask|not)",
+      "promise",
+      "from now on",
+      "in future",
+      "in the future",
+      "headphones",
+      "before (9|10|11)",
+      "carpet",
+      "soundproof",
+      "let you know",
+      "in advance"
+     ]
+    }
+   ],
+   "greetRe": "dear\\s+(mr|mrs|ms|miss|neighbou?rs?|[A-Z][a-z]+)\\b",
+   "greetShow": "Dear Mr and Mrs + surname, (or Dear Neighbours,)",
+   "closeRe": "yours\\s+sincerely|(kind|best|warm)\\s+regards|best\\s+wishes|yours\\s+faithfully",
+   "closeShow": "Yours sincerely, / Kind regards,",
+   "tone": "formal"
+  },
+  "phrases": [
+   "Thank you for your letter about…",
+   "I completely understand why you were upset.",
+   "I would like to apologise sincerely for the disturbance this has caused you.",
+   "We did not realise how far the sound was travelling.",
+   "However, I can assure you that things will now be much quieter.",
+   "I will let you know in advance and make sure that…"
+  ],
+  "sampleText": "Dear Mr and Mrs Sharma,\n\nThank you for your letter about the noise from our flat over the past two weeks. I completely understand why you were upset, and I am writing to explain what has been happening.\n\nFirstly, my daughter got married last Sunday, and for several days before the wedding we had many relatives staying with us. On most evenings they were singing and practising dances for the ceremony, sometimes until late at night. In addition, we have been having our kitchen renovated, so there was also a lot of drilling during the day.\n\nI would like to apologise sincerely for the disturbance this has caused you. We were so busy with the preparations that we did not realise how far the sound was travelling, and I am very sorry that your children's sleep was affected.\n\nHowever, I can assure you that things will now be much quieter. All our guests left yesterday, and the builders have promised to finish the kitchen by Friday. They will not start work before 10 a.m. If we ever plan another celebration, I will let you know in advance and make sure that the music stops by 10 p.m.\n\nThank you for your patience and understanding.\n\nYours sincerely,\nRajinder Kaur\n\n(About 230 words. You know your neighbours, so it uses their name and a polite, warm tone. It gives two clear reasons, a sincere apology, and specific promises with times.)"
  }
 ]
