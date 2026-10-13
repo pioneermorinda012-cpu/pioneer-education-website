@@ -31,6 +31,10 @@ const LETTER_LINKERS = ["also", "as well as", "apart from", "as for", "in partic
 
 const COMPLEX = ["because", "although", "though", "while", "whereas", "if", "unless", "since", "which",
   "who", "whom", "that", "whenever", "wherever", "despite", "in spite of", "even though", "provided that"];
+/** A chart report builds its complex sentences differently: "followed by…",
+    "accounting for…", "…, rising to…" (the owner's list for Academic Task 1). */
+const REPORT_COMPLEX = ["whose", "where", "when", "before", "after", "until", "followed by", "accounting for",
+  "compared with", "making", "becoming"];
 
 /** Words a student leans on when they are not sure what else to say. */
 const INFORMAL = ["a lot of", "lots of", "kids", "stuff", "things", "nowadays a lot", "big", "good", "bad",
@@ -173,7 +177,8 @@ export function score(
     .sort((a, b) => b[1] - a[1]).slice(0, 4) as [string, number][];
 
   const linkers = occurrences(text, kind === "gt1" ? [...LINKERS, ...LETTER_LINKERS] : LINKERS);
-  const complex = occurrences(text, COMPLEX);
+  const complex = occurrences(text, kind === "task1" ? [...COMPLEX, ...REPORT_COMPLEX] : COMPLEX);
+  if (kind === "task1" && /,\s+[a-z]+ing\b/.test(text)) complex.push(", …ing");
   const informal = occurrences(text, INFORMAL);
   const avgSentence = ss.length ? Math.round((words / ss.length) * 10) / 10 : 0;
   const longSentences = ss.filter((s) => wordsOf(s).length > 40).length;
@@ -266,7 +271,7 @@ export function score(
         late.push({ kind: "good", text: `Key feature ${i + 1} is covered: ${b.label}.` });
       }
     });
-    const figures = (text.match(/\d+(?:\.\d+)?/g) ?? []).length;
+    const figures = (text.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).length; // "120,000" is one figure
     if (figures < 4) {
       est -= 0.5;
       late.push({ kind: "fix", text: `Only ${figures} figure${figures === 1 ? "" : "s"} from the chart. Support each main feature with the numbers or percentages that prove it.` });

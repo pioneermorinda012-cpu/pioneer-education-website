@@ -826,5 +826,391 @@
    "…are projected to make up…% of the population."
   ],
   "sampleText": "The pie charts compare the age structure of the populations of Yemen and Italy in 2000, together with projections for 2050.\n\nOverall, Yemen had a very young population in 2000, whereas Italy's population was considerably older. In both countries, the proportion of people aged 60 and over is expected to rise by 2050.\n\nIn 2000, half of Yemen's population (50.1%) was aged 0–14, while 46.3% were between 15 and 59, and only 3.6% were 60 or older. By 2050, the share of children is predicted to fall to 37%, and the working-age group is expected to grow to 57.3%. The proportion of elderly people will increase only slightly, to 5.7%.\n\nItaly presents a very different picture. In 2000, the majority of Italians (61.6%) were aged 15–59, with 24.1% aged 60 or over and just 14.3% under 15. However, by 2050 the over-60s are projected to make up 42.3% of the population, not far below the 15–59 group (46.2%), while the proportion of children will drop further to 11.5%.\n\n(About 190 words. Introduction (paraphrased), an overview with no numbers, then one paragraph per country with key figures and comparisons. No conclusion or opinion is needed.)"
+ },
+ {
+  "id": "w1-71",
+  "title": "The charts below show the levels of participation in education and science in developing and industrialised countries in 1980 and 1990.",
+  "images": [
+   "t1-educationscience.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Average years of schooling",
+     "kw": [
+      "schooling",
+      "years of",
+      "education",
+      "school"
+     ]
+    },
+    {
+     "label": "Scientists and technicians per 1,000 people",
+     "kw": [
+      "scientist",
+      "technician",
+      "per 1000(?!\\d)",
+      "per 1,000(?!\\d)",
+      "per thousand"
+     ]
+    },
+    {
+     "label": "Spending on research and development",
+     "kw": [
+      "research",
+      "r&d",
+      "spending",
+      "billion",
+      "\\$"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the levels of participation in education and science in developing and industrialised countries in 1980 and 1990. Write a report for a university lecturer describing the information shown below.",
+   "topic": [
+    "countries",
+    "developing",
+    "industrialised",
+    "industrialized",
+    "schooling",
+    "scientists",
+    "technicians",
+    "spending",
+    "research",
+    "development",
+    "years",
+    "billion",
+    "people"
+   ]
+  },
+  "phrases": [
+   "The three bar charts compare… in terms of…",
+   "Overall, … were well ahead of… in all three areas.",
+   "…compared with only around…",
+   "By 1990, these figures had risen to… respectively.",
+   "A similar pattern can be seen for…",
+   "The most striking difference relates to…"
+  ],
+  "sampleText": "The three bar charts compare developing and industrialised countries in terms of average years of schooling, the number of scientists and technicians per 1,000 people, and spending on research and development (R&D) in 1980 and 1990.\n\nOverall, industrialised countries were well ahead of developing countries in all three areas, and the gap between them widened over the decade.\n\nIn 1980, people in industrialised countries received an average of about 8.5 years of schooling, compared with only around 2.5 years in developing countries. By 1990, these figures had risen to roughly 10.5 and just over 3 years respectively. A similar pattern can be seen for scientists and technicians: industrialised nations had approximately 40 per 1,000 people in 1980, rising to about 70 in 1990, whereas developing countries increased only slightly, from around 10 to 15.\n\nThe most striking difference relates to spending on R&D. Industrialised countries spent approximately US$160 billion in 1980, and this more than doubled to around US$350 billion by 1990. In contrast, spending in developing countries actually fell, from about US$50 billion to roughly US$25 billion.\n\n(About 200 words. It groups the three charts logically, gives an overview of the widening gap, and highlights the most striking change (R&D spending falling in developing countries while it doubled in industrialised ones).)"
+ },
+ {
+  "id": "w1-72",
+  "title": "The table below shows the figures for imprisonment in five countries between 1930 and 1980.",
+  "images": [
+   "t1-imprisonment.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "The United States and Canada had the highest figures",
+     "kw": [
+      "united states",
+      "\\bthe us\\b",
+      "\\busa\\b",
+      "canada",
+      "highest",
+      "most",
+      "peak",
+      "(?<![\\d.])138(?!\\d)",
+      "(?<![\\d.])137(?!\\d)",
+      "(?<![\\d.])130(?!\\d)"
+     ]
+    },
+    {
+     "label": "Great Britain's steady rise",
+     "kw": [
+      "britain",
+      "great britain",
+      "\\buk\\b",
+      "steadily",
+      "steady",
+      "rose",
+      "increase",
+      "(?<![\\d.])30(?!\\d)",
+      "(?<![\\d.])84(?!\\d)"
+     ]
+    },
+    {
+     "label": "Australia and New Zealand's changes",
+     "kw": [
+      "australia",
+      "new zealand",
+      "fell",
+      "dropped",
+      "declined",
+      "fluctuat",
+      "(?<![\\d.])70(?!\\d)",
+      "(?<![\\d.])100(?!\\d)",
+      "(?<![\\d.])50(?!\\d)",
+      "(?<![\\d.])86(?!\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The table below shows the figures for imprisonment in five countries between 1930 and 1980. Write a report for a university lecturer describing the information shown below.",
+   "topic": [
+    "prisoners",
+    "prison",
+    "imprisonment",
+    "thousand",
+    "united",
+    "states",
+    "canada",
+    "britain",
+    "australia",
+    "zealand"
+   ]
+  },
+  "phrases": [
+   "The bar chart compares the number of… at ten-year intervals from… to…",
+   "Overall, … had the largest…, whereas…",
+   "…followed by…, both at roughly…",
+   "…fluctuated, peaking at around… in…",
+   "…rose steadily to approximately… by…",
+   "…followed a similar pattern but at a slightly lower level."
+  ],
+  "sampleText": "The bar chart compares the number of people in prison in Great Britain, Australia, New Zealand, the United States and Canada at ten-year intervals from 1930 to 1980.\n\nOverall, the United States and Canada had the largest prison populations for most of the period, whereas Great Britain had the smallest figures at the start but saw a steady increase. By 1980, the US figure was by far the highest.\n\nIn 1930, Canada had the most prisoners, at about 120,000, followed by New Zealand and the United States, both at roughly 100,000. The US figure then fluctuated, peaking at around 130,000 in 1940 and falling to about 94,000 in 1970, before rising sharply to almost 140,000 in 1980. Canada's prison numbers followed a similar pattern but at a slightly lower level, ending at around 90,000.\n\nIn contrast, Great Britain had only about 30,000 prisoners in 1930 and 1940, but this number rose steadily to approximately 84,000 by 1980. New Zealand's figure dropped from 100,000 to just over 50,000 by 1950 and then climbed back to about 86,000. Australia's prison population fell from 70,000 to around 50,000, rose to 77,000 in 1970, and then fell again to 50,000 in 1980.\n\n(About 230 words. The figures are read from the bars, so they are given as approximate (about, roughly, around). Note: the task says “table”, but the visual is a bar chart, so the model calls it a bar chart.)"
+ },
+ {
+  "id": "w1-73",
+  "title": "The charts below show the main reasons for study among students of different age groups and the amount of support they receive from employers.",
+  "images": [
+   "t1-studyreasons.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Career is the main reason for younger students",
+     "kw": [
+      "career",
+      "younger",
+      "under 26(?!\\d)",
+      "(?<![\\d.])80(?!\\d)",
+      "work",
+      "job"
+     ]
+    },
+    {
+     "label": "Interest becomes the main reason for older students",
+     "kw": [
+      "interest",
+      "older",
+      "over 49(?!\\d)",
+      "(?<![\\d.])70(?!\\d)",
+      "personal"
+     ]
+    },
+    {
+     "label": "Employer support by age group",
+     "kw": [
+      "support",
+      "employer",
+      "time off",
+      "fees",
+      "(?<![\\d.])65(?!\\d)",
+      "(?<![\\d.])34(?!\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the main reasons for study among students of different age groups and the amount of support they receive from employers. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "career",
+    "interest",
+    "students",
+    "support",
+    "employer",
+    "employers",
+    "study",
+    "group",
+    "groups",
+    "aged"
+   ]
+  },
+  "phrases": [
+   "The bar charts illustrate why… and how much…",
+   "Overall, the younger a student is, the more likely…",
+   "As age increases, the proportion… falls steadily, whereas…",
+   "The two reasons are equal at about… among…",
+   "Turning to employer support,…",
+   "…falls to a low of about… for…, after which it increases slightly."
+  ],
+  "sampleText": "The bar charts illustrate why students of different ages choose to study and how much support they get from their employers, in the form of time off and help with fees.\n\nOverall, the younger a student is, the more likely they are to study for career reasons, while older students are mainly motivated by interest. Employer support is highest for the youngest group and lowest for students in their thirties.\n\nAround 80% of students under 26 study for their career, compared with only 10% who study for interest. As age increases, the proportion studying for career purposes falls steadily, to 70% for those aged 26–29 and 58% for those in their thirties, whereas the figure for interest rises. The two reasons are equal at about 41% among 40–49-year-olds, and among students over 49, interest (70%) is far more important than career (just under 20%).\n\nTurning to employer support, approximately 65% of students under 26 receive help, but this falls to around 51% for the 26–29 group and to a low of about 34% for those aged 30–39. After that, support increases slightly, reaching roughly 38% for students in their forties and 45% for the oldest group.\n\n(About 220 words. It links age to the reason for study, uses “the younger…, the more…” for the overview, and points out the U-shaped pattern in employer support.)"
+ },
+ {
+  "id": "w1-74",
+  "title": "The charts below give information about USA marriage and divorce rates between 1970 and 2000, and the marital status of adult Americans in two of the years.",
+  "images": [
+   "t1-usamarriagedivorce.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Number of marriages fell",
+     "kw": [
+      "marriages",
+      "(?<![\\d.])2\\.5(?!\\d)",
+      "(?<![\\d.])2 million",
+      "fell",
+      "declined",
+      "decreased"
+     ]
+    },
+    {
+     "label": "Divorces rose then fell",
+     "kw": [
+      "divorces",
+      "(?<![\\d.])1\\.4(?!\\d)",
+      "peak",
+      "peaked",
+      "(?<![\\d.])1980(?!\\d)"
+     ]
+    },
+    {
+     "label": "Changes in marital status (1970 vs 2000)",
+     "kw": [
+      "never married",
+      "widowed",
+      "divorced",
+      "(?<![\\d.])70%",
+      "(?<![\\d.])60%",
+      "marital status",
+      "status"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below give information about USA marriage and divorce rates between 1970 and 2000, and the marital status of adult Americans in two of the years. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "marriages",
+    "divorces",
+    "married",
+    "divorced",
+    "widowed",
+    "millions",
+    "million",
+    "adults",
+    "americans",
+    "usa"
+   ]
+  },
+  "phrases": [
+   "The first bar chart shows…, while the second compares…",
+   "Overall, the number of… fell over the period, while…",
+   "…rose to a peak of about… in…, before falling back to…",
+   "As for marital status,…",
+   "…were by far the largest group in both years, although…",
+   "…tripled, from about… to…"
+  ],
+  "sampleText": "The first bar chart shows the number of marriages and divorces in the USA every ten years from 1970 to 2000, while the second compares the marital status of American adults in 1970 and 2000.\n\nOverall, the number of marriages fell over the period, while divorces peaked in 1980 before returning to their original level. In addition, a smaller proportion of adults were married in 2000, and more were divorced or had never married.\n\nIn 1970 and 1980, there were about 2.5 million marriages a year, but this figure fell slightly to 2.4 million in 1990 and then to 2 million in 2000. The number of divorces rose from 1 million in 1970 to a peak of about 1.4 million in 1980, before falling back to 1.1 million in 1990 and 1 million in 2000.\n\nAs for marital status, married people were by far the largest group in both years, although their share dropped from 70% to 60%. By contrast, the proportion of adults who had never married rose from around 15% to 20%, and the percentage of divorced people tripled, from about 3% to 9%. The figure for widowed adults remained fairly stable at around 7–8%.\n\n(About 215 words. It describes both charts, uses millions for the first chart and percentages for the second, and highlights the biggest relative change (divorced adults tripling).)"
+ },
+ {
+  "id": "w1-75",
+  "title": "The chart below shows the total number of minutes (in billions) of telephone calls in the UK, divided into three categories, from 1995–2002.",
+  "images": [
+   "t1-uktelephonecalls.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Local fixed-line calls rose then fell",
+     "kw": [
+      "local",
+      "(?<![\\d.])72(?!\\d)",
+      "(?<![\\d.])90(?!\\d)",
+      "peak",
+      "peaked",
+      "(?<![\\d.])1999(?!\\d)"
+     ]
+    },
+    {
+     "label": "National and international calls rose steadily",
+     "kw": [
+      "national",
+      "international",
+      "(?<![\\d.])37(?!\\d)",
+      "(?<![\\d.])61(?!\\d)",
+      "steadily",
+      "steady"
+     ]
+    },
+    {
+     "label": "Mobile calls grew dramatically",
+     "kw": [
+      "mobile",
+      "mobiles",
+      "(?<![\\d.])3 billion",
+      "(?<![\\d.])46(?!\\d)",
+      "dramatic",
+      "sharply",
+      "rapidly"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The chart below shows the total number of minutes (in billions) of telephone calls in the UK, divided into three categories, from 1995-2002. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "calls",
+    "minutes",
+    "billion",
+    "billions",
+    "mobile",
+    "mobiles",
+    "local",
+    "fixed",
+    "national",
+    "international",
+    "line"
+   ]
+  },
+  "phrases": [
+   "The bar chart illustrates…, broken down into…",
+   "Overall, … were the most common type throughout the period, although…",
+   "…rose steadily to a peak of approximately… in…",
+   "…then fell back to around…, the same level as at the start.",
+   "…began from a very low base of just…",
+   "…more than fifteen times the… figure."
+  ],
+  "sampleText": "The bar chart illustrates how many minutes of telephone calls were made in the UK each year between 1995 and 2002, broken down into local fixed-line calls, national and international fixed-line calls, and mobile calls.\n\nOverall, local fixed-line calls were the most common type throughout the period, although they declined after 1999. In contrast, the other two categories grew continuously, with mobile calls showing the most dramatic increase.\n\nIn 1995, local calls accounted for about 72 billion minutes. This figure rose steadily to a peak of approximately 90 billion in 1999, but then fell back to around 72 billion in 2002, the same level as at the start of the period.\n\nNational and international calls increased every year, from roughly 37 billion minutes in 1995 to about 61 billion in 2002, which meant that by the end of the period they were only slightly below local calls. Mobile calls began from a very low base of just 3 billion minutes, but they grew slowly until 1999 and then rose sharply, reaching about 46 billion by 2002, more than fifteen times the 1995 figure.\n\n(About 215 words. It groups the three categories by trend (rise-then-fall, steady rise, rapid rise) and supports each with figures from the start, the peak and the end.)"
  }
 ]

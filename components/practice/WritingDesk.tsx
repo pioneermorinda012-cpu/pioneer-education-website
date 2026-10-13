@@ -33,6 +33,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   const [running, setRunning] = useState(false);
   const [done, setDone] = useState<Score | null>(null);
   const [showIdeas, setShowIdeas] = useState(false);
+  const [showChart, setShowChart] = useState(false);
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
 
@@ -97,6 +98,23 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
       </div>
 
       {/* ---------------------------------------------------------- feedback */}
+      {/* On a phone the chart sits above the answer box and scrolls out of
+          sight while the student writes, so a button brings it back. */}
+      {split && (
+        <button type="button" className="wr-chartbtn" onClick={() => setShowChart(true)}>View chart</button>
+      )}
+      {split && showChart && (
+        <div className="wr-chartov" role="dialog" aria-label="The chart for this task" onClick={() => setShowChart(false)}>
+          <div className="wr-chartin" onClick={(e) => e.stopPropagation()}>
+            <button type="button" className="btn btn-outline" onClick={() => setShowChart(false)}>Close</button>
+            {task.images!.map((src) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img key={src} src={`/practice/writing/${src}`} alt="The chart for this task" />
+            ))}
+          </div>
+        </div>
+      )}
+
       {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} />}
 
       {/* Task 1 Academic: the chart sits beside the answer box, as it does on
