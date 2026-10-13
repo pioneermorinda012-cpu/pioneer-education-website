@@ -7,8 +7,11 @@ import { readSession, TEACHER_COOKIE } from "@/lib/session";
 
 export const dynamic = "force-dynamic";
 
-export default async function WritingTaskPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function WritingTaskPage({ params, searchParams }: {
+  params: Promise<{ id: string }>; searchParams: Promise<{ q?: string }>;
+}) {
   const { id } = await params;
+  const { q } = await searchParams;
   await requireStudent(`/practice/writing/${id}`);
 
   const task = await getWritingTask(id);
@@ -24,7 +27,8 @@ export default async function WritingTaskPage({ params }: { params: Promise<{ id
 
   return (
     <div className="wrap">
-      <WritingDesk task={isTeacher ? task : forStudent(task)} />
+      <WritingDesk task={isTeacher ? task : forStudent(task)}
+        start={q !== undefined && Number(q) >= 0 && Number(q) < (task.prompts?.length ?? 0) ? Math.floor(Number(q)) : undefined} />
 
       {isTeacher && (task.sampleText || task.sampleImages?.length) && (
         <section className="pr-set wr-model">

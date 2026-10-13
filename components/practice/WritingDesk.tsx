@@ -23,9 +23,11 @@ import type { WritingTask } from "@/lib/writing";
 const fmt = (s: number) =>
   `${Math.floor(Math.abs(s) / 60)}:${String(Math.abs(s) % 60).padStart(2, "0")}`;
 
-export default function WritingDesk({ task }: { task: WritingTask }) {
+export default function WritingDesk({ task, start }: { task: WritingTask; start?: number }) {
   const store = `pec_writing_${task.id}`;
-  const [chosen, setChosen] = useState(0);
+  /* Opened from an essay-type list on one question: that question is the one
+     on screen, even if an older draft of this topic was on another. */
+  const [chosen, setChosen] = useState(start ?? 0);
   const [text, setText] = useState("");
   const [left, setLeft] = useState(task.minutes * 60);
   const [running, setRunning] = useState(false);
@@ -34,20 +36,24 @@ export default function WritingDesk({ task }: { task: WritingTask }) {
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
 
-  /* bring back an unfinished draft */
+  /* bring back an unfinished draft. A draft on a different question of this
+     topic is left in storage, untouched, until the student starts writing. */
+  const keep = useRef(true);
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(store);
       if (raw) {
         const d = JSON.parse(raw);
+        if (start !== undefined && typeof d.chosen === "number" && d.chosen !== start) { keep.current = false; return; }
         if (typeof d.text === "string") setText(d.text);
         if (typeof d.left === "number") setLeft(d.left);
         if (typeof d.chosen === "number") setChosen(d.chosen);
       }
     } catch { /* a blocked store is not a reason to fail */ }
-  }, [store]);
+  }, [store, start]);
 
   useEffect(() => {
+    if (!keep.current) { if (!text) return; keep.current = true; }
     try { window.localStorage.setItem(store, JSON.stringify({ text, left, chosen })); }
     catch { /* nothing to do */ }
   }, [store, text, left, chosen]);

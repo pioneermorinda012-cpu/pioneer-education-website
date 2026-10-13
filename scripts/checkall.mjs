@@ -168,6 +168,10 @@ for (const file of ["task1", "task2"]) {
     }
     if (file === "task1" && !(t.images || []).length) fail(t.id, "Task 1 with no chart");
     if (file === "task2" && !(t.prompts || []).length) fail(t.id, "Task 2 with no question");
+    // every Task 2 question has an essay type, or it is missing from the type tabs
+    if (file === "task2" && ((t.types || []).length !== (t.prompts || []).length
+        || (t.types || []).some((k) => !["agree", "discuss", "adv", "problem", "two"].includes(k))))
+      fail(t.id, "Task 2 essay types missing or unknown - run scripts/t2types.py");
   }
 }
 

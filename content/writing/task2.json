@@ -16,6 +16,11 @@
    "https://www.healthline.com/nutrition/gmo-pros-and-cons",
    "https://www.medicalnewstoday.com/articles/324576",
    "https://youtu.be/7TmcXYp8xu4"
+  ],
+  "types": [
+   "discuss",
+   "agree",
+   "agree"
   ]
  },
  {
@@ -30,6 +35,10 @@
   "links": [
    "https://www.techtarget.com/searchenterpriseai/definition/AI-Artificial-Intelligence",
    "https://www.youtube.com/watch?v=WSKi8HfcxEk"
+  ],
+  "types": [
+   "discuss",
+   "discuss"
   ]
  },
  {
@@ -42,7 +51,13 @@
    "Some people claim that it is acceptable to use animals in medical research for the benefit of human beings, while others argue that it is wrong. Discuss both views and give your opinion."
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "discuss",
+   "discuss",
+   "discuss",
+   "discuss"
+  ]
  },
  {
   "id": "w2-36",
@@ -54,7 +69,13 @@
    "Unemployment is one of the biggest problems of contemporary society. What do you think are the main causes of unemployment? What solutions can you suggest?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "problem",
+   "agree",
+   "adv",
+   "problem"
+  ]
  },
  {
   "id": "w2-04",
@@ -65,7 +86,12 @@
    "Everybody today should pay a small amount from their income in order to help people who are homeless and / or suffering great poverty. To what extent do you agree or disagree with this?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "problem",
+   "problem",
+   "agree"
+  ]
  },
  {
   "id": "w2-37",
@@ -77,7 +103,13 @@
    "The world's air pollution levels are rising year on year. What should humanity do to counter this problem?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "discuss",
+   "problem",
+   "agree",
+   "problem"
+  ]
  },
  {
   "id": "w2-05",
@@ -94,6 +126,11 @@
    "Direct disposal of industries and human waste Because of expensive purification system, the wastes are being discharged into water directly Degradation of water creatures and human life SOLLUTION :",
    "Establishing stringent laws Purify waste before dumping Helps to minimise water contamination",
    "Awareness by mass media and government Public should be made aware regarding importance of water Reduction in domestic waste into water"
+  ],
+  "types": [
+   "problem",
+   "problem",
+   "discuss"
   ]
  },
  {
@@ -109,6 +146,11 @@
   "ideas": [
    "Reaching across cultural and national boundaries Live Aid concerts= broadcast to a global audience music truly is the planet’s global language, help to together people EXAMPLE: Two live events were held simultaneously in the UK and the US, and the objective was to raise funds for famine relief in Ethiopia. The concerts were a huge success, both in terms of the number of people around the world who watched them and their impact on international public awareness of the famine. 2nd POINT ( AGREE )",
    "Model introduction: Music, nowadays, plays a vital role in our daily life. Many people state that music only has advantages, while, others argue that music can negatively affect individuals and societies. However, I firmly believe that music has its both advantages and disadvantages, but the drawbacks are outweighed by the benefits."
+  ],
+  "types": [
+   "two",
+   "agree",
+   "discuss"
   ]
  },
  {
@@ -125,6 +167,11 @@
    "encourage the driving school. conduct driving lessons give them a clear picture = how accidents happen + teach them about the safety",
    "drunk driving. ban from driving for at least two years. given driving lessons For aged",
    "lowered the age limit + check the capability of the aged drivers eyesight, hearing and other related health conditions to ensure safe driving hey are capable on the road before a certain age and there are no health issues there shouldn’t be a problem."
+  ],
+  "types": [
+   "agree",
+   "problem",
+   "adv"
   ]
  },
  {
@@ -144,6 +191,11 @@
    "Memory-increasing stress affects to concentration powers, people start to forget significant things",
    "Improved nutrition-enough balanced diet provide cognitive/ mental health-medical association says that healthy diet helps to improve mental situation",
    "Sound sleep and exercise-6-8 hours better sleep is a useful way to deal with pressure of brain - in order to cope with mental stress, people should start physical ac tivities (meditation, running)"
+  ],
+  "types": [
+   "problem",
+   "problem",
+   "agree"
   ]
  },
  {
@@ -165,6 +217,14 @@
   ],
   "links": [
    "https://ieltsonlinepractice.com/money"
+  ],
+  "types": [
+   "agree",
+   "agree",
+   "agree",
+   "agree",
+   "agree",
+   "agree"
   ]
  },
  {
@@ -187,6 +247,10 @@
   ],
   "links": [
    "https://ieltsonlinepractice.com/jobs"
+  ],
+  "types": [
+   "problem",
+   "problem"
   ]
  },
  {
@@ -203,6 +267,11 @@
    "more flexibility + spend less expensive • study their desired courses and subjects at their own pace • opportunity to learn new skills and expand their experience distance learning= cost - effective +time-efficient. For example, a Nepali student seeking an Australian degree in business administration does not need to travel to Australia; he can train and complete the course while remaining at home. DISADVANTAGES:",
    "less instructor +student contact ignores realistic learning elements +encourages passive learning be less successful than classroom instruction According to a new survey, a larger percentage of students considered classroom instruction to be much more successful than digital education. Conclusion: In conclusion, the ever-increasing availability of digital education has gained traction among young adults for many years and is viewed as helpful by many and less successful by others. The focus should be placed on its efficacy in order to identify it as the most cost-effective learning method other than classroom instruction.",
    "Online teaching and learning have grown in popularity among students in recent times, and this is viewed differently by different learners. Many students see this as a helpful learning tool, although others believe it is not as successful as classroom instruction. This article would explore the benefits and drawbacks of digital education."
+  ],
+  "types": [
+   "adv",
+   "adv",
+   "adv"
   ]
  },
  {
@@ -224,6 +293,12 @@
    "language and culture, - necessity of learning English - minority languages are dying out",
    "the environment - levels are rising - competition edge",
    "Even though globalization affects the world’s economies in a very positive way, its negative side should not be forgotten. What is your opinion. Discuss."
+  ],
+  "types": [
+   "adv",
+   "agree",
+   "agree",
+   "agree"
   ]
  },
  {
@@ -240,7 +315,10 @@
    "totally reliant on sunlight not always constant + does not work at night some regions where it may not be practicable",
    "does not work at night Power= must be stored in large batteries"
   ],
-  "sampleText": "SAMPLE ANSWER \nINTRODUCTION \nSolar power as a source of domestic household energy is becoming more desirable because \nmany individuals and governments are concerned that burning fossil fuels adds carbon to \nthe atmosphere and thus accelerates global warming and climate change. Others fe el that \nnuclear power is potentially unsafe, and do not like its associated pollution from radioactive \nwaste. Therefore, many rese archers and consumers have looked at alternative sources of \nenergy and have found that solar power has many benefits and fewer drawbacks. \nBODY PARAGRAPH 1 \nThe main advantage of solar energy is that after the initial installation, it is entirely free and \nrenewable and there are no extra costs involved in producing the energy. It is silent and \nenvironmentally friendly as well - it does not destroy and poison the ecosystem. This is \nbecause the raw material ; sunshine , does not need to be extracted or refin ed, so there are \nno pollutions or toxic residue produced. \nAnother major advantage is that it is produced where it is needed so there is no energy \nwasted on and m aintenance of the new technology for solar panels, which are consequently \nbecoming less expensive, more available and much more efficient. \nBODY PARAGRAP H 2 \nThe greatest d rawback of solar power is that it is totally reliant on sunlight, which is not \nalways constant. In fact, there are some regions where it may not be practicable , as i t does \nnot work at nigh t. Power from daytime sunshine must be stored in large batteries. In \naddition, the panels tend to be big and cumbersome. A major drawback for some is that the \ninitial purchase , and installation of the equipment is expensive . \nCONCLUSION \nTo conclude, the benefits of a clean, renewable, quiet, and eco -friendly source of energy far \noutweigh the drawbacks, provided that there is sufficient sunlight available to make this \nsource of po wer feasible."
+  "sampleText": "SAMPLE ANSWER \nINTRODUCTION \nSolar power as a source of domestic household energy is becoming more desirable because \nmany individuals and governments are concerned that burning fossil fuels adds carbon to \nthe atmosphere and thus accelerates global warming and climate change. Others fe el that \nnuclear power is potentially unsafe, and do not like its associated pollution from radioactive \nwaste. Therefore, many rese archers and consumers have looked at alternative sources of \nenergy and have found that solar power has many benefits and fewer drawbacks. \nBODY PARAGRAPH 1 \nThe main advantage of solar energy is that after the initial installation, it is entirely free and \nrenewable and there are no extra costs involved in producing the energy. It is silent and \nenvironmentally friendly as well - it does not destroy and poison the ecosystem. This is \nbecause the raw material ; sunshine , does not need to be extracted or refin ed, so there are \nno pollutions or toxic residue produced. \nAnother major advantage is that it is produced where it is needed so there is no energy \nwasted on and m aintenance of the new technology for solar panels, which are consequently \nbecoming less expensive, more available and much more efficient. \nBODY PARAGRAP H 2 \nThe greatest d rawback of solar power is that it is totally reliant on sunlight, which is not \nalways constant. In fact, there are some regions where it may not be practicable , as i t does \nnot work at nigh t. Power from daytime sunshine must be stored in large batteries. In \naddition, the panels tend to be big and cumbersome. A major drawback for some is that the \ninitial purchase , and installation of the equipment is expensive . \nCONCLUSION \nTo conclude, the benefits of a clean, renewable, quiet, and eco -friendly source of energy far \noutweigh the drawbacks, provided that there is sufficient sunlight available to make this \nsource of po wer feasible.",
+  "types": [
+   "adv"
+  ]
  },
  {
   "id": "w2-42",
@@ -272,6 +350,9 @@
    "Pollutant – a substance that contaminates the air or water. Pollutants can cause problems in ecosystems as well as health problems in humans.",
    "Allergen – a substance that causes allergies. Examples include dust, mold, and pollen.",
    "Infectious Disease – an illness caused by bacteria, viruses, parasites, or other organisms that enter and grow in the human body. Not all bacteria, viruses, and parasites that enter or live in the body cause disease. Some infectious diseases can be spread from person to person."
+  ],
+  "types": [
+   "problem"
   ]
  },
  {
@@ -287,7 +368,10 @@
    "Skype and video messaging have opened up a whole new world of communication video conferencing would not be the powerful tool of communication SECOND VIEW:",
    "Does not promote sociability to hinder the development + maintenance of social and communication skills Affect Communication skills"
   ],
-  "sampleText": "SAMPLE ANSWER\n\nThese days, teachers and parents alike often express their concern over the addiction of the younger generation, to the internet. Such absorption with a virtual, rather than a physical, world has been blamed for an increase in unsociability and lack of communication in young people. Such criticism has also been leveled at adults who similarly, spend hours on the internet. However, is such criticism just? Or is it unfounded? Obviously, using the internet purely as an information –finding tool or to play on-line computer games, does not promote sociability and, hence, communication. In such instance the internet could rightly be argued to hinder the development and maintenance of social and communication skills. However, critics of the internet are overloo king its value as a powerful tool of communication, when used appropriately. On closer inspection, the internet could be argued to promote, rather than hinder, communication skills. Opponents of the internet and social networking sites argue though, that written communications such as Twitter are inadequate substitutes for face-to-face contact. Whilst that may be true, Skype and video messaging have opened up a whole new world of communication. Admittedly, speaking to someone on screen is not a good substitute for the real thing; however, it is a very workable alternative. If it were not, then video conferencing would not be the powerful tool of communication in the business world that it is today. So, used appropriately, the internet in my opinion is a highly effective tool of communication. Never before have we had the potential to communicate with so many people instantaneously on a global scale. It is not the internet itself that is destroying communication but its misuse"
+  "sampleText": "SAMPLE ANSWER\n\nThese days, teachers and parents alike often express their concern over the addiction of the younger generation, to the internet. Such absorption with a virtual, rather than a physical, world has been blamed for an increase in unsociability and lack of communication in young people. Such criticism has also been leveled at adults who similarly, spend hours on the internet. However, is such criticism just? Or is it unfounded? Obviously, using the internet purely as an information –finding tool or to play on-line computer games, does not promote sociability and, hence, communication. In such instance the internet could rightly be argued to hinder the development and maintenance of social and communication skills. However, critics of the internet are overloo king its value as a powerful tool of communication, when used appropriately. On closer inspection, the internet could be argued to promote, rather than hinder, communication skills. Opponents of the internet and social networking sites argue though, that written communications such as Twitter are inadequate substitutes for face-to-face contact. Whilst that may be true, Skype and video messaging have opened up a whole new world of communication. Admittedly, speaking to someone on screen is not a good substitute for the real thing; however, it is a very workable alternative. If it were not, then video conferencing would not be the powerful tool of communication in the business world that it is today. So, used appropriately, the internet in my opinion is a highly effective tool of communication. Never before have we had the potential to communicate with so many people instantaneously on a global scale. It is not the internet itself that is destroying communication but its misuse",
+  "types": [
+   "discuss"
+  ]
  },
  {
   "id": "w2-18",
@@ -303,6 +387,10 @@
    "easy to be healthy today. the amount of nutrition available. everywhere there are articles + on television laying out hard evidence related to nutrition + the importance of eating vegetables + limiting meats+ fatty foods the general trend is greater awareness about healthy food leas to healthy lifestyle WORDS revolve around: are related to advent: beginning of precipitated: led to passive lifestyles globally : people being less active today prevents: stops healthy exercise patterns : good habits for going to the gym heart disease heart attacks documented recorded/noted laying out: making clear hard evidence: scientific proof limiting: containing/stopping/slowing down",
    "Having busy schedule Both husband and wife work",
    "Getting variety of food item get a wide range of items, from which they can choose one Not need to prepare at home Vocabulary – Health • Ache – a continuous or prolonged dull pain in a part of one’s body. • appetite – a natural desire to satisfy a bodily need, especially for food. • bacteria – microscopic, single-celled organisms that thrive in diverse environments • cardiac – of relating to the heart • collapse – (of a person) fall down and become unconscious as a result of illness or injury. • dehydration – a harmful reduction in the amount of water in the body. • epidemic – a widespread outbreak of an infectious disease • fit – in good health, especially because of regular physical exercise. • gland – A gland is a group of cells in an animal’s body that synthesizes substances • hormone – chemical substances that act like messenger molecules in the body. • immunity – a condition of being able to resist a particular disease • lifestyle – the way in which a person lives. • medication – a drug or other form of medici ne that is used to treat or prevent disease • nausea – a feeling of sickness with an inclination to vomit. • obesity – condition of being excessively overweight"
+  ],
+  "types": [
+   "discuss",
+   "two"
   ]
  },
  {
@@ -320,6 +408,9 @@
    "increasing reliance on foreign brands for example imported chocolate cookies have more consumption rates than the ones produced by local companies morale of its producers",
    "flood the local market break the back of the local economy = retailers can easily import cheap goods from abroad, retailers can easily import cheap goods from abroad. this makes goods more affordable for the end user hurt the interests of local businesses+ lead to unemployment.",
    "not good for the environment goods have to be transported thousands of miles, fossil fuels have to be burnt leads to the emission of more greenhouse gases."
+  ],
+  "types": [
+   "agree"
   ]
  },
  {
@@ -335,6 +426,11 @@
   "ideas": [
    "security and enhanced expertise in a specific domain. During work time at workplace, workers have a lifetime surety of work. while working in a same profession, they become expert in specific skill. They can lead a team as well as get promotions with great facilities (bonus, great annual packages). For example, a civil engineer who is designing the architecture of bridge for years knows all the nitty-gritty details of the factors for building a robust bridge. Because of his vast experience, his company will also be interested to retain him as the same le vel of competency cannot be expected from a newcomer. SECOND OPINION",
    "Adding more skills. this improves employability. in future if a person try to be self employed, it will be easier to run a business due to having grab on more abilities. This can create more successful personalities. For instance, when a wildlife photographer changes his job and joins an advertising agency, not only his skills get enhanced, he is also considered as more dynamic and versatile."
+  ],
+  "types": [
+   "discuss",
+   "discuss",
+   "discuss"
   ]
  },
  {
@@ -354,6 +450,12 @@
    "Requiring more investment have to spend more money on researching and ensuring the safety of the passengers merely scientists and rich population can afford this trip",
    "Having a detrimental effect on human's health Visiting unknown areas (temperature issues weather it is low or high, unsuitable air and water) the temperature in the Solar pole is extremely low, which can inevitably cause severe health issues. Also, In the Amazon rainforest, individuals have to face the risk of being attacked by wild animals",
    "Getting peace of mind Having hectic schedule does not have any space for calmness + peace for soul"
+  ],
+  "types": [
+   "adv",
+   "agree",
+   "agree",
+   "problem"
   ]
  },
  {
@@ -367,6 +469,9 @@
   "ideas": [
    "Being aware. To change future. if people want to have more comfortable environment, they have to explore history of their home Preserve them to repeat mistakes again done by their ancestors Research about",
    "Access of multiple tools Old-fashioned libraries= few books and articles are not available on internet can provide to researchers Old pictures, news, images published on old magazines, newspapers= illustrate clear picture of past events"
+  ],
+  "types": [
+   "two"
   ]
  },
  {
@@ -382,6 +487,9 @@
    "the access to privacy do not have to share the building with any other tenant full use of the kitchen, fridge, bathroom and dinning. Benefits of Apartments",
    "Access of facilities. living style prefers younger people. commodity of urban area within all necessary stuff what surrounding them= shops and offices",
    "Limited privacy they will have to share facilities with one another within the building Conclusion House= having large space + more privacy Apartment= having more amenities+ lack of freedom All in all, pros of living in house outweigh the apartments"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -391,7 +499,10 @@
    "Some cities have few controls over the design and construction of housing and office buildings. People think that they should be free to choose the design they like. Do you think the advantages outweigh the disadvantages?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "adv"
+  ]
  },
  {
   "id": "w2-30",
@@ -401,7 +512,10 @@
   ],
   "minutes": 40,
   "minWords": 250,
-  "sampleText": "Examiner’s view: \n \nFirst question: \n Topic sentence Explanation Result \n1. Having lower \nincome low-income families are often \nout of money, or often go \nhungry. They have to rely upon a very \nsmall amount of food. \n2. overgrowing \npopulation the world population is \nincreasing rapidly, the number \nof crops are not being \ncultivated to feed all of them \n3. wastage of food In many well -developed \ncountries, people often waste \nfood in restaurants or any \npublic or social events A large quantity of food is \nbeing wasted and thrown in \nthe garbage cans. Which is a \nbig cause of food scarcity. \nSecond question: \n Topic sentence Explanation Result \n1. avoid food \nhoarding People have a habit of buying \nmore than required. If \nindividuals purchase things \naccording to their needs and \npreserve them for later use. this can lead to less wastage \nof food. \n2. Build skills and \nprovide job and \nbusiness \nopportunities and This can help not only to \nenhance economy but also \nreduce poverty By minimising poverty, the \nstarvation can controled on \nlarge extent"
+  "sampleText": "Examiner’s view: \n \nFirst question: \n Topic sentence Explanation Result \n1. Having lower \nincome low-income families are often \nout of money, or often go \nhungry. They have to rely upon a very \nsmall amount of food. \n2. overgrowing \npopulation the world population is \nincreasing rapidly, the number \nof crops are not being \ncultivated to feed all of them \n3. wastage of food In many well -developed \ncountries, people often waste \nfood in restaurants or any \npublic or social events A large quantity of food is \nbeing wasted and thrown in \nthe garbage cans. Which is a \nbig cause of food scarcity. \nSecond question: \n Topic sentence Explanation Result \n1. avoid food \nhoarding People have a habit of buying \nmore than required. If \nindividuals purchase things \naccording to their needs and \npreserve them for later use. this can lead to less wastage \nof food. \n2. Build skills and \nprovide job and \nbusiness \nopportunities and This can help not only to \nenhance economy but also \nreduce poverty By minimising poverty, the \nstarvation can controled on \nlarge extent",
+  "types": [
+   "problem"
+  ]
  },
  {
   "id": "w2-35",
@@ -410,7 +524,10 @@
    "People's lives are now surrounded by advertisements. This affects what people consider important and has a negative impact on people's lives. Do you agree or disagree?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "agree"
+  ]
  },
  {
   "id": "w2-45",
@@ -423,6 +540,9 @@
   "sampleText": "Model and sample answers for Writing tasks\n\nTEST 1, WRITING TASK 2\n\nMODEL ANSWER\n\nThis model has been prepared by an examiner as an example of a very good answer. However, please\nnote that this is just one example out of many possible approaches,\n\n163\nwww.TopSage.com",
   "sampleImages": [
    "t1-17.jpg"
+  ],
+  "types": [
+   "discuss"
   ]
  },
  {
@@ -436,6 +556,9 @@
   "sampleText": "TEST 4, WRITING TASK 2\n\nThis is an answer written by a candidate who achieved a Band 4.0 score.\n‘The Advanteg of Driveles Vehicles\n\nFirst of all number of vehicles is incarese day after day which means ever day the world gets more.\ndrivers then before. If we admite that alots of people prefer to use public transport we do not have\nany doubts that many people use the vehicles because of advantags of driving,\n\nThe history shows us that the human like to move from place to another for many reasns and the\nalways fell pleased when the rid. This days people have all kind of vehicles bicks, cars, motor...ete\nbecause they all have a different advantage.\n\npeople needs also can not meet at be found in one pleace for that reason people need to move\nfrom a plece to another place to meet thier needs which means the advantage of moving from point\nto anther point will be exist for ever.\n\nWorld has bee changed a lot and many people have got great jobs with big salaries. The can easly\nfund thier vehicl and because people get feeling boring if the used to some thing they always\nperefer to chang thier vehicle from time to time.\n\nFinally | think it is very hard to believe that the driverless vehicles with outweigh the disadvantages\nbecause people always find drive more and more give thier life meaning and add more advantage\no it all kind of vehicles give happeness to a lot of people that they can not think about lossing it\n\nHere is the examiner's comment:\n\nMost of the ideas in this response are not relevant to the question. It mainly talks\nabout the need people have to go from place to place and how people like different\ntypes of transport. However, there is a position expressed in the final paragraph.\nAtitle is not required in Task 2.\n\nThere is some attempt to organise the ideas and there are some basic cohesive\ndevices [First of all | Finally], but there is inaccuracy and a general lack of\ncoherence. There is no clear progression.\n\nThere is a high density of error in the use of vocabulary in terms of spelling and\nword choice [easly fund thier vehicl | perefer to chang thier]. Sentence structures\nare very limited, although there are some attempts at subordinate clauses [because\nthey all have a different advantage].",
   "sampleImages": [
    "t1-41.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -449,6 +572,9 @@
   "sampleText": "TEST 4, WRITING TASK 2\nSAMPLE ANSWER\n\nThis is an answer written by a candidate who achieved a Band 5.5 score. Here is the\nexaminer's comment:\n\nThis script is too short at only 219 words, so fails to meet the minimum word\n\ncount required by the task. However it does address all parts of the prompt, and\npresents a relevant position. The main ideas are clear and developed but could be\nmore fully extended and supported. Information is arranged coherently and there\nis a clear overall progression, with adequate use of linking words (However, also,\nUsually, since, but, So) and paragraphing. The vocabulary is generally adequate\nand appropriate for the task (funds, maintain) and meaning is generally clear.\nHowever, misuse of the word admission and other slight inappropriacies (doing a\ncharity) show a lack of precision in word choice. Many different complex structures\nare used but there are still fairly frequent errors. However, these rarely impede\ncommunication; in general grammar and punctuation are fairly well controlled.\n\nMuseums are unique places where you get to experience the history trom past to the\nlatest technology. However admission is required when entering.\n\nMuseums are popular places to go to on a weekends with family or friends.\nAdmissions are one of the funds which keeps the museum running and also to\nmaintain its exibits. Without admission museums would be dirty, pourly maintained, and\nlikely impossible to operate, unless funded from goverment or charity.\n\nHowever admissions are one thing which may keep the customer from entering. Usually\nwe have to pay around $30 for admissions. Children or family which doesn't earn much\nsimply ean not afford such amourt. They will o to museum which is free or even not\nge and experience the greatness of the museum, which I think is horrible because it\nshould be open for everyone.\n\nT think having an admission is a disadvartage since museums should be open for\nevetyone, but admissions are essential for running the museums, So I think é is very\nimportart to come up with a plan so that museums could be opercted but also be\nadmission free, such as govermert funding or doing a charity. Aucklane Museum is one\ngreat example. It is one of the biggest museums in New Leabnd but it is also free\nof admission since it’s goverment funded.",
   "sampleImages": [
    "t1-44.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -461,6 +587,9 @@
   "minWords": 250,
   "sampleImages": [
    "t1-42.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -473,6 +602,9 @@
   "minWords": 250,
   "sampleImages": [
    "t1-04.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -485,6 +617,9 @@
   "minWords": 250,
   "sampleImages": [
    "t1-07.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -499,6 +634,9 @@
   "sampleImages": [
    "t1-09.jpg",
    "t1-10.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -508,7 +646,10 @@
    "Nowadays, child labour has become a major concern. Why is it so? What can be done to solve this problem?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "problem"
+  ]
  },
  {
   "id": "w2-54",
@@ -520,6 +661,9 @@
   "minWords": 250,
   "sampleImages": [
    "t1-13.jpg"
+  ],
+  "types": [
+   "adv"
   ]
  },
  {
@@ -533,6 +677,9 @@
   "sampleText": "ESSAY SAMPLE WRITING TASK 2\nSample Band: 8.0\n\nIn recent years, there have been a number of problems that people in big cities have to cope with every day. My\nessay will discuss two major problems which are pollution and information overload, and personally | think those\npeople should be encouraged to move to regional areas.\n\nIncreased levels of pollution have been a great reason for concern among residents of big cities. Owing to a high\nvolume of everyday traffic, massive quantities of pollutants such as CO2 are constantly released into the\natmosphere, causing the degradation of air quality. This is closely associated with various types of respiratory\ndiseases or even lung cancer. Also, people in big cities are being bombarded with too much information from the\nmedia, including TV, social networking sites and advertisements while the large proportion of information is fake\nnews or exaggerated commercials. This can cause confusion or, in some cases, social anarchy.\n\nIn my opinion, the Government should do what they can to encourage city dwellers to move to regional areas.\nFirst, it will reduce the number of vehicles in cities, which will definitely improve the situation where air pollution\ncaused by traffic disturbs the lives of city residents. Furthermore, fewer people living in big cities will relieve the\npressure on these cities’ housing supply systems when many people are living reluctantly in small, suffocating\n\nspaces. | think this is extremely important point to consider because living spaces are linked to people’s mental\nhealth and how they perform at work.\n\nIn conclusion, severe air pollution and information bombardment are among the most serious problems facing\ncity dwellers nowadays, and | feel that relevant authorities should encourage people to relocate to other areas to\nlive.",
   "sampleImages": [
    "t1-19.jpg"
+  ],
+  "types": [
+   "two"
   ]
  },
  {
@@ -542,7 +689,10 @@
    "Some people think that it is good for a country’s culture to import foreign movies and TV programmes. Others think that it is better to produce these locally. Discuss both views and give your opinion."
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "discuss"
+  ]
  },
  {
   "id": "w2-57",
@@ -551,7 +701,10 @@
    "Companies should provide sports and social facilities to local communities. Do you agree or disagree?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "agree"
+  ]
  },
  {
   "id": "w2-58",
@@ -563,6 +716,9 @@
   "minWords": 250,
   "sampleImages": [
    "t1-29.jpg"
+  ],
+  "types": [
+   "agree"
   ]
  },
  {
@@ -572,7 +728,10 @@
    "The ease of international travel and the spread of various kinds of mass media all over the world have made it more possible than ever for people to know how other people live in other countries. Do the advantages of this development outweigh the disadvantages?"
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "adv"
+  ]
  },
  {
   "id": "w2-60",
@@ -581,6 +740,9 @@
    "Some people believe that printed books are no longer necessary in this digital era as all writings can be stored electronically. Others think that printed books still play an important role. Discuss both views and give your opinion."
   ],
   "minutes": 40,
-  "minWords": 250
+  "minWords": 250,
+  "types": [
+   "discuss"
+  ]
  }
 ]

@@ -34,6 +34,9 @@ export type WritingTask = {
   images?: string[];
   /** Task 2 only — every question printed under this topic. */
   prompts?: string[];
+  /** Task 2 only — the essay type of each question, in the same order as
+      `prompts` (see ESSAY_TYPES). Written by scripts/t2types.py. */
+  types?: string[];
   /** Task 2 only — the notes printed beside the topic, offered as a hint. */
   ideas?: string[];
   links?: string[];
@@ -82,6 +85,16 @@ export function forStudent(t: WritingTask): WritingTask {
 
 /** Where the Task 1 page images are served from. */
 export const writingImage = (name: string) => `/practice/writing/${name}`;
+
+/** Task 2 essay types, in the order the tabs show them. A topic can hold
+    questions of several types, so a type tab lists questions, not topics. */
+export const ESSAY_TYPES = [
+  { key: "agree", tab: "Agree / disagree", head: "Agree or disagree — “To what extent do you agree or disagree?”" },
+  { key: "discuss", tab: "Opinion — both views", head: "Opinion — “Discuss both views and give your own opinion.”" },
+  { key: "adv", tab: "Advantages & disadvantages", head: "Advantages and disadvantages — including “Do the advantages outweigh the disadvantages?”" },
+  { key: "problem", tab: "Problem & solution", head: "Problem and solution — causes, effects and what can be done" },
+  { key: "two", tab: "Two-part question", head: "Two-part questions — answer both questions" },
+] as const;
 
 /** The order the chart types are offered in, most common in the exam first. */
 export const CHART_TYPES = [
