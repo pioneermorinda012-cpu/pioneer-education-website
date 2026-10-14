@@ -128,6 +128,11 @@
   .wa-note{
     text-align:center; font-size:12.5px; color:var(--ink-soft); margin:10px 0 0;
   }
+  .success-badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:var(--wa); color:#fff; font-weight:600; font-size:12.5px;
+    padding:6px 13px; border-radius:20px; margin-bottom:16px;
+  }
   .restart-link{
     display:block; text-align:center; margin-top:18px; font-size:13.5px;
     color:var(--ink-soft); text-decoration:none; cursor:pointer; background:none; border:none;
@@ -153,14 +158,16 @@
 
     <div id="nameArea" hidden>
       <p class="step-label">Last thing</p>
-      <p class="question">What's your name?</p>
+      <p class="question">What's your name and WhatsApp number?</p>
       <input class="name-field" id="nameInput" type="text" placeholder="Type your name" autocomplete="name">
+      <input class="name-field" id="phoneInput" type="tel" placeholder="Your WhatsApp number" autocomplete="tel" inputmode="numeric">
       <button class="primary-btn" id="nameSubmit" disabled>Show my recommendation</button>
       <button class="back-link" id="nameBack">&larr; Back</button>
     </div>
 
     <div id="resultArea" hidden>
       <p class="result-eyebrow">Your recommendation</p>
+      <div class="success-badge" id="savedBadge">&#10003; Saved — we'll reach out shortly</div>
       <h2 class="result-title" id="resultGreeting">Here's what we'd suggest</h2>
       <div class="reco-box">
         <p class="reco-course" id="recoCourse"></p>
@@ -169,9 +176,9 @@
       </div>
       <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.52 0-10 4.48-10 10 0 1.77.46 3.45 1.26 4.9L2 22l5.25-1.38a9.96 9.96 0 0 0 4.79 1.22h.01c5.52 0 10-4.48 10-10s-4.48-10-10.01-10Zm0 18.17h-.01a8.2 8.2 0 0 1-4.17-1.14l-.3-.18-3.1.81.83-3.03-.2-.31a8.18 8.18 0 0 1-1.25-4.33c0-4.52 3.68-8.2 8.21-8.2 2.19 0 4.25.86 5.8 2.41a8.14 8.14 0 0 1 2.4 5.8c0 4.52-3.68 8.17-8.21 8.17Zm4.5-6.14c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.04-.38-1.99-1.22-.73-.66-1.23-1.46-1.37-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.76-1.85-.2-.48-.41-.42-.56-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.23.89 2.42 1.02 2.58.12.17 1.76 2.69 4.27 3.77.6.26 1.06.41 1.43.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.28Z"/></svg>
-        Send this to WhatsApp
+        Open WhatsApp again
       </a>
-      <p class="wa-note">This opens WhatsApp with your answers already filled in — just hit send.</p>
+      <p class="wa-note" id="waNote">WhatsApp should have opened automatically with your message ready — just hit send there. Didn't open? Tap the button above to try again.</p>
       <button class="restart-link" id="restartBtn">Start over</button>
     </div>
   </div>
@@ -182,6 +189,7 @@
 <script>
 (function(){
   var WHATSAPP_NUMBER = "917380261308";
+  var SHEET_URL = "https://script.google.com/macros/s/AKfycbwExqnIZvubS7LLWU6ZgNdK73GJDI3jY0fwhLyMlDtNorIfGwotRdRl17wEJX5U9dVYJQ/exec";
 
   var steps = [
     { key:'course', q:'Which one are you here for?', opts:['IELTS','PTE Academic','Spoken English','German A1–B1'] },
@@ -212,6 +220,7 @@
   var resultArea = document.getElementById('resultArea');
   var progressFill = document.getElementById('progressFill');
   var nameInput = document.getElementById('nameInput');
+  var phoneInput = document.getElementById('phoneInput');
   var nameSubmit = document.getElementById('nameSubmit');
 
   function setProgress(stepIndex){
@@ -265,16 +274,56 @@
     nameArea.hidden = false;
     setProgress(steps.length);
     nameInput.value = answers.name || '';
-    nameSubmit.disabled = nameInput.value.trim().length === 0;
+    phoneInput.value = answers.phone || '';
+    nameSubmit.disabled = nameInput.value.trim().length === 0 || phoneInput.value.trim().length === 0;
     nameInput.focus();
   }
 
-  nameInput.addEventListener('input', function(){
-    nameSubmit.disabled = nameInput.value.trim().length === 0;
-  });
+  function checkNameValid(){
+    nameSubmit.disabled = nameInput.value.trim().length === 0 || phoneInput.value.trim().length === 0;
+  }
+  nameInput.addEventListener('input', checkNameValid);
+  phoneInput.addEventListener('input', checkNameValid);
+
   nameSubmit.addEventListener('click', function(){
     answers.name = nameInput.value.trim();
+    answers.phone = phoneInput.value.trim();
+
+    // Save the lead to the shared Google Sheet first (same endpoint the
+    // homepage form uses) so contact info is captured even if the student
+    // never actually taps "send" inside WhatsApp.
+    try {
+      fetch(SHEET_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: answers.name,
+          phone: answers.phone,
+          course: answers.course + " — " + answers.goal,
+          budget: answers.format,
+          timing: answers.start,
+          level: answers.level,
+          motherTongue: "",
+          source: "Course Finder"
+        })
+      }).catch(function(e){ console.log("Sheet save error:", e); });
+    } catch(e) {
+      console.log("Sheet save error:", e);
+    }
+
     renderResult();
+
+    // Auto-open WhatsApp with the message pre-filled, as a direct
+    // consequence of this same tap (keeps the user-gesture chain so the
+    // browser doesn't block it as a popup). WhatsApp's own "send" button
+    // still needs one final tap inside the app itself — no website can
+    // skip that step — but the student no longer has to find and press a
+    // second button on this page to get there.
+    var waHref = document.getElementById('waBtn').getAttribute('href');
+    if (waHref && waHref !== '#') {
+      window.open(waHref, '_blank');
+    }
   });
   document.getElementById('nameBack').addEventListener('click', function(){
     current = steps.length - 1;
