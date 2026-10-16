@@ -24,6 +24,7 @@ export default function PracticeNav({ active }: { active: string }) {
       <Link href="/practice/writing?task=2" aria-current={here("W2")}>Writing Task 2</Link>
       <i className="pr-sep" aria-hidden />
       <Link href="/practice/pte" aria-current={here("PTE")}>PTE</Link>
+      <Link href="/practice/english" aria-current={here("ENGLISH")}>English</Link>
     </nav>
   );
 }

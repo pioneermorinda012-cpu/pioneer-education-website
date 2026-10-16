@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAGFBMVEX4wbL+Thb/PwL/PwD/PgL/PgD+PgD/OADR/gd9AAADUklEQVR42u2Vz2/bZBjHP6+dNu1Gk9cibSoBq9mUA0JFHlW5cKATlXZgiB9SDqhToUXsSgfS+B/gQC5cduKGILAfQtoJZS0SMKSlSzQxiiqCtzGJVs3ypqu0tKltDrEd18mAP4D3Er/yx8/z/X7t94nIWbg2/tJM4isB5ci2btroVhQQuclc7JluwU4F73y86nFbcwGsyjFJAhG/L6anOxd2fh1ELjUL4Gqutvd5j8RZElAMdhP9LIhcRPNRevUmIluvGAd0KwqUganaQaLmA+Upp0IeqPWTAeWp8mie80DGTQsaABgRIF/M732cbqYVGe+Bw7QJ9v6NDiJyFvVVBcBSYez0Dy8O8FWjKRl9g+98wJn4FBAvrczcmv9+849u+8Vqp4X+50e7BbxlXjh+0fEikctQw6UNgKfXbz53pBDeTx4KRTqTvwEn7+vWjVK3QHtxGUAD9JtA8nAddGUYATB6kQDgqRlx7nBlCmeSRiMA5oxuDind++QcF6zt/Z4g0R8fB62y+Ov10kJp5/cWgPjgJ6OVrbV2hwKA8ZW3SpTfvTWoALJ33TO/iCdfyd0OAUZT13B+fPuZtaEWJAdPX3j43s9Xau6QLxK0KgDfnnkHkjPGN7r3pe1tvkYIiHsSBu9MFqtAFeOxkyo4S/7vswswUhXSAgmwKgwGLwc2/Srzd11xGeZWgNTz5mam1BWJJ69lb497ynH2/hoGqK/urA5FWuhXmLOAlPFhJ0Fh1CWRCmw44hCe8kauD/vPDPuHNxUcoq8lmomjH4xaC6+KstOLRwEGfVfXpqf6Ml1gIG+v10dszdUdIlMmFKkc2xh73TZdrT0A+3d6gO22UqZ94mpmK7vbTCdTVlyki5K2vCq32FCecnpdaGTBQoAA5q1em4C5bJJhTAojOgaDJBNP3DNNmyNaewBKZhxoSB68eqnjt+0PlwM55Jc59dmpo2iw+8UMZmjUr7Cz0Xy/IAzlirSSSiqpsr7RjkjPVV7hrKe7SdlcQqolZajw4CQB0a4jK62Hwml5a9Baaw23J2TUpivFgjK8sTRSCXFCnSVlHnQxi22Cq/XMfB/Y3uoZ6S/3SfIfPpjUm371sEmsBcHc0DvvUXPjSRqP+lP7Vw3/A/8R+BsFPx82AyTlVQAAAABJRU5ErkJggg==">
+<meta name="theme-color" content="#FF6A2B">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English A2 Trainer | Pioneer Education</title>
+<meta name="description" content="Complete English A2 course with Hindi and Punjabi translations. Works offline.">
+<style>
+/* ============================================================
+   GLEIS A1  —  design tokens
+   Visual language: German rail & post signage.
+   Enamel white boards, signal yellow, signage blue, ink black.
+============================================================ */
+:root{
+  --ink:#101820;
+  --ink-soft:#2C3844;
+  --enamel:#E9EBE7;
+  --enamel-dim:#DADDD6;
+  --board:#151B22;
+  --signal:#FF6A2B;
+  --signal-dim:#C43000;
+  --rail:#0E5C4A;
+  --rail-light:#3A7CC4;
+  --rot:#B8202E;
+  --gruen:#1F7A5A;
+  --paper:#FBFBF9;
+
+  --sans:"Arial Narrow","Helvetica Neue Condensed","Liberation Sans Narrow",
+         "Helvetica Neue",Arial,sans-serif;
+  --sans-w:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+
+  --rad:3px;
+  --shadow:0 1px 0 rgba(16,24,32,.10), 0 2px 10px rgba(16,24,32,.06);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--enamel); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+}
+img{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* ---------- signage type ---------- */
+.sig{
+  font-family:var(--sans-w); font-weight:800;
+  text-transform:uppercase; letter-spacing:.09em;
+}
+.mono{font-family:var(--mono)}
+
+/* ============================================================
+   BOARD HEADER  (signature element: departure board)
+============================================================ */
+header.board{
+  background:var(--board); color:var(--enamel);
+  border-bottom:5px solid var(--signal);
+  padding:14px 20px 12px;
+  position:sticky; top:0; z-index:60;
+}
+.board-top{
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  max-width:1180px; margin:0 auto;
+}
+.brand{
+  font-family:var(--sans-w); font-weight:800; letter-spacing:.16em;
+  text-transform:uppercase; font-size:19px; color:var(--signal);
+}
+.brand span{color:var(--enamel)}
+.board-sub{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:#8A96A3;
+}
+.board-strip{
+  max-width:1180px; margin:10px auto 0;
+  display:grid; grid-template-columns:64px 1fr auto;
+  gap:14px; align-items:center;
+  background:#0A0E13; border:1px solid #232C36; border-radius:var(--rad);
+  padding:9px 13px;
+}
+.gleis-no{
+  font-family:var(--mono); font-weight:700; font-size:24px;
+  color:var(--board); background:var(--signal);
+  text-align:center; border-radius:2px; padding:3px 0; line-height:1.2;
+}
+.strip-title{
+  font-family:var(--sans-w); font-weight:700; font-size:16px;
+  letter-spacing:.03em; color:var(--enamel);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.strip-title small{
+  display:block; font-weight:500; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:#7C8896; margin-top:1px;
+}
+.flip{animation:flip .34s ease}
+@keyframes flip{
+  0%{opacity:0; transform:translateY(-7px) scaleY(.7)}
+  100%{opacity:1; transform:none}
+}
+.xp-pod{
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em;
+  color:var(--signal); text-align:right; white-space:nowrap;
+}
+.xp-pod b{font-size:17px; display:block; color:#fff}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.wrap{
+  max-width:1180px; margin:0 auto; padding:0 20px 90px;
+  display:grid; grid-template-columns:262px 1fr; gap:30px;
+  align-items:start;
+}
+
+/* ---------- Fahrplan sidebar ---------- */
+nav.fahrplan{
+  position:sticky; top:132px; max-height:calc(100vh - 156px);
+  overflow-y:auto; padding:22px 0 30px;
+}
+.fp-head{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--ink-soft);
+  border-bottom:2px solid var(--ink); padding-bottom:6px; margin-bottom:4px;
+  display:flex; justify-content:space-between;
+}
+.fp-kat{
+  font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:#78838F;
+  margin:16px 0 4px; padding-left:2px;
+}
+.fp-item{
+  display:grid; grid-template-columns:30px 1fr 30px; gap:8px;
+  align-items:center; width:100%; text-align:left;
+  background:none; border:0; border-bottom:1px solid var(--enamel-dim);
+  padding:8px 2px; cursor:pointer; line-height:1.28;
+}
+.fp-item:hover{background:#E0E3DD}
+.fp-item.on{background:var(--ink); color:var(--enamel)}
+.fp-item.on .fp-g{color:var(--signal)}
+.fp-g{font-family:var(--mono); font-size:12px; color:#78838F; font-weight:700}
+.fp-t{font-family:var(--sans-w); font-size:13.5px; font-weight:600; letter-spacing:.01em}
+.fp-t em{
+  display:block; font-style:normal; font-size:10.5px; font-weight:500;
+  color:#78838F; letter-spacing:.04em;
+}
+.fp-item.on .fp-t em{color:#9AA6B2}
+.fp-dot{
+  width:12px; height:12px; border-radius:50%; justify-self:end;
+  border:2px solid #B6BCB4; background:transparent;
+}
+.fp-dot.part{background:var(--signal); border-color:var(--signal-dim)}
+.fp-dot.done{background:var(--gruen); border-color:var(--gruen)}
+
+/* ---------- main ---------- */
+main{padding:26px 0 0; min-width:0}
+
+.station-head{margin-bottom:26px}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--rail); margin-bottom:7px;
+}
+h1{
+  font-family:var(--sans-w); font-weight:800; font-size:clamp(28px,4.6vw,42px);
+  line-height:1.06; letter-spacing:-.015em; margin:0 0 6px;
+}
+h1 .en{
+  display:block; font-size:15px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:#6E7A86; margin-top:9px;
+}
+.lead{
+  font-size:17.5px; color:var(--ink-soft); max-width:60ch; margin:14px 0 0;
+  border-left:4px solid var(--signal); padding-left:15px;
+}
+
+.blk{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-radius:var(--rad); box-shadow:var(--shadow);
+  margin:22px 0; overflow:hidden;
+}
+.blk-head{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:var(--ink); color:var(--enamel); padding:9px 16px;
+}
+.blk-head .tag{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; background:var(--signal); color:var(--ink);
+  padding:2px 7px; border-radius:2px; font-weight:700;
+}
+.blk-head .tag.gram{background:var(--rail-light); color:#fff}
+.blk-head .tag.ueb{background:var(--gruen); color:#fff}
+.blk-head h2{
+  font-family:var(--sans-w); font-weight:700; font-size:15.5px;
+  letter-spacing:.03em; margin:0;
+}
+.blk-body{padding:18px 18px 20px}
+.blk-body>*:first-child{margin-top:0}
+.blk-body>*:last-child{margin-bottom:0}
+
+h3{
+  font-family:var(--sans-w); font-weight:700; font-size:14.5px;
+  letter-spacing:.05em; text-transform:uppercase;
+  margin:22px 0 9px; color:var(--rail);
+}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px; padding-left:22px}
+li{margin-bottom:5px}
+b,strong{color:var(--ink)}
+.de{font-weight:700; color:var(--rail)}
+.en-i{color:#6E7A86; font-style:italic}
+
+/* rule / grammar callout */
+.rule{
+  background:#F3F5F8; border-left:4px solid var(--rail);
+  padding:13px 16px; margin:14px 0; border-radius:0 var(--rad) var(--rad) 0;
+}
+.rule .lbl{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rail); display:block; margin-bottom:5px;
+}
+.warn{background:#FFF8E4; border-left-color:var(--signal-dim)}
+.warn .lbl{color:var(--signal-dim)}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto; margin:14px 0; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:340px}
+th{
+  font-family:var(--mono); font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; text-align:left; color:#fff; background:var(--ink-soft);
+  padding:7px 11px; font-weight:600; white-space:nowrap;
+}
+td{padding:7px 11px; border-bottom:1px solid var(--enamel-dim); vertical-align:top}
+tbody tr:nth-child(even){background:#F5F6F3}
+td.g{font-family:var(--sans-w); font-weight:700; color:var(--rail); white-space:nowrap}
+td.e{color:var(--ink-soft)}
+td.n{font-size:13.5px; color:#78838F; font-style:italic}
+
+/* speak button */
+.spk{
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  width:26px; height:24px; cursor:pointer; padding:0; line-height:1;
+  color:var(--rail); font-size:13px; vertical-align:middle;
+}
+.spk:hover{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.spk:active{transform:translateY(1px)}
+
+/* ---------- dialog ---------- */
+.dlg{margin:14px 0}
+.dlg-row{
+  display:grid; grid-template-columns:78px 1fr auto; gap:11px;
+  padding:8px 0; border-bottom:1px dashed var(--enamel-dim); align-items:start;
+}
+.dlg-who{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--rail); padding-top:3px; font-weight:700;
+}
+.dlg-de{font-weight:600}
+.dlg-en{display:block; font-size:14px; color:#78838F; font-style:italic; font-weight:400}
+
+/* ---------- reading text / sign ---------- */
+.lesetext{
+  background:#fff; border:1px solid var(--enamel-dim);
+  border-top:4px solid var(--ink); padding:16px 18px; margin:14px 0;
+  font-size:16.5px;
+}
+.lesetext .meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  color:#78838F; text-transform:uppercase; margin-bottom:9px;
+  border-bottom:1px solid var(--enamel-dim); padding-bottom:7px;
+}
+.schild{
+  background:var(--rail); color:#fff; border:3px solid #fff;
+  outline:2px solid var(--rail); border-radius:var(--rad);
+  padding:16px 18px; margin:12px 0; text-align:center;
+  font-family:var(--sans-w); font-weight:700; letter-spacing:.05em; font-size:18px;
+}
+.schild.gelb{background:var(--signal); color:var(--ink); outline-color:var(--signal-dim)}
+
+/* ============================================================
+   EXERCISES
+============================================================ */
+.ex{margin:6px 0 0}
+.ex-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  flex-wrap:wrap; margin-bottom:12px; padding-bottom:9px;
+  border-bottom:2px solid var(--ink);
+}
+.ex-count{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:#78838F;
+}
+.q{
+  padding:13px 0; border-bottom:1px solid var(--enamel-dim);
+}
+.q:last-of-type{border-bottom:0}
+.q-txt{margin-bottom:9px; font-size:16.5px}
+.q-no{
+  font-family:var(--mono); font-size:12px; color:#98A2AC;
+  margin-right:9px; font-weight:700;
+}
+.q-en{display:block; font-size:13.5px; color:#8A939C; font-style:italic; margin-top:3px}
+
+.opts{display:flex; flex-direction:column; gap:7px; max-width:640px}
+.opt{
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 13px; cursor:pointer; font-family:var(--serif); font-size:16px;
+  transition:border-color .12s, background .12s;
+}
+.opt:hover:not(:disabled){border-color:var(--rail); background:#F3F7FC}
+.opt:disabled{cursor:default}
+.opt .key{
+  font-family:var(--mono); font-size:11px; font-weight:700; color:#98A2AC;
+  border:1px solid var(--enamel-dim); border-radius:2px;
+  width:21px; height:21px; display:grid; place-items:center; flex:none;
+}
+.opt.right{border-color:var(--gruen); background:#EAF6F1}
+.opt.right .key{background:var(--gruen); color:#fff; border-color:var(--gruen)}
+.opt.wrong{border-color:var(--rot); background:#FBEDEE}
+.opt.wrong .key{background:var(--rot); color:#fff; border-color:var(--rot)}
+
+.inrow{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+input.gap{
+  border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:8px 11px; font-family:var(--serif); font-size:16px; background:#fff;
+  min-width:190px; flex:1 1 190px; max-width:340px;
+}
+input.gap:focus{outline:2px solid var(--rail); outline-offset:0; border-color:var(--rail)}
+input.gap.right{border-color:var(--gruen); background:#EAF6F1}
+input.gap.wrong{border-color:var(--rot); background:#FBEDEE}
+.btn{
+  font-family:var(--sans-w); font-weight:700; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase;
+  background:var(--ink); color:var(--enamel); border:0; border-radius:var(--rad);
+  padding:9px 16px; cursor:pointer;
+}
+.btn:hover{background:var(--rail)}
+.btn:active{transform:translateY(1px)}
+.btn.gelb{background:var(--signal); color:var(--ink)}
+.btn.gelb:hover{background:var(--signal-dim)}
+.btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink); color:var(--enamel)}
+.btn.sm{padding:6px 11px; font-size:11px}
+
+.umlaut{display:flex; gap:4px; flex-wrap:wrap; margin:8px 0}
+.umlaut button{
+  font-family:var(--serif); font-size:15px; width:32px; height:30px;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px; cursor:pointer;
+}
+.umlaut button:hover{background:var(--signal); border-color:var(--signal-dim)}
+
+.fb{
+  margin-top:8px; font-size:14.5px; padding:7px 11px; border-radius:var(--rad);
+  display:none;
+}
+.fb.show{display:block}
+.fb.ok{background:#EAF6F1; color:#14513C; border-left:3px solid var(--gruen)}
+.fb.no{background:#FBEDEE; color:#7C1620; border-left:3px solid var(--rot)}
+
+/* word ordering */
+.pool,.slot{
+  display:flex; flex-wrap:wrap; gap:6px; min-height:44px; padding:8px;
+  border-radius:var(--rad);
+}
+.slot{border:2px dashed var(--rail); background:#F3F7FC; margin-bottom:7px}
+.pool{border:1px solid var(--enamel-dim); background:#fff}
+.word{
+  font-family:var(--serif); font-size:16px; background:var(--ink); color:var(--enamel);
+  border:0; border-radius:2px; padding:6px 11px; cursor:pointer;
+}
+.word:hover{background:var(--rail)}
+.slot .word{background:var(--signal); color:var(--ink)}
+.slot .word:hover{background:var(--signal-dim)}
+
+/* matching pairs */
+.pairs{display:grid; grid-template-columns:1fr 1fr; gap:9px; max-width:620px}
+.pcol{display:flex; flex-direction:column; gap:6px}
+.pbtn{
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 12px; cursor:pointer; text-align:left; font-family:var(--serif); font-size:15.5px;
+}
+.pbtn:hover:not(:disabled){border-color:var(--rail)}
+.pbtn.sel{background:var(--rail); color:#fff; border-color:var(--rail)}
+.pbtn.done{background:#EAF6F1; border-color:var(--gruen); color:#14513C; cursor:default; opacity:.72}
+.pbtn.miss{border-color:var(--rot); animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* dictation */
+.dikt-row{display:flex; gap:9px; align-items:center; flex-wrap:wrap; margin-bottom:8px}
+.big-spk{
+  background:var(--rail); color:#fff; border:0; border-radius:var(--rad);
+  padding:9px 15px; cursor:pointer; font-family:var(--sans-w); font-weight:700;
+  font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+}
+.big-spk:hover{background:var(--rail-light)}
+.speed{
+  font-family:var(--mono); font-size:11px; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:7px 9px; cursor:pointer;
+}
+
+/* writing */
+textarea.schreib{
+  width:100%; min-height:150px; border:1.5px solid var(--enamel-dim);
+  border-radius:var(--rad); padding:12px; font-family:var(--serif); font-size:16px;
+  background:#fff; resize:vertical; line-height:1.6;
+}
+textarea.schreib:focus{outline:2px solid var(--rail); border-color:var(--rail)}
+.muster{
+  display:none; background:#F3F5F8; border-left:4px solid var(--gruen);
+  padding:13px 16px; margin-top:12px; white-space:pre-wrap; font-size:16px;
+}
+.muster.show{display:block}
+.checklist{list-style:none; padding:0; margin:10px 0}
+.checklist li{
+  padding-left:24px; position:relative; font-size:15.5px; margin-bottom:6px;
+}
+.checklist li::before{
+  content:"□"; position:absolute; left:0; color:var(--rail);
+  font-size:17px; line-height:1;
+}
+
+/* flashcards */
+.fc-stage{display:flex; flex-direction:column; align-items:center; gap:14px}
+.card{
+  width:100%; max-width:430px; min-height:170px; background:var(--ink);
+  color:var(--enamel); border-radius:var(--rad); display:grid; place-items:center;
+  text-align:center; padding:26px 20px; cursor:pointer; box-shadow:var(--shadow);
+}
+.card .face{font-family:var(--sans-w); font-weight:700; font-size:26px; letter-spacing:.01em}
+.card .back{font-size:19px; color:var(--signal); margin-top:9px; font-family:var(--serif)}
+.card .hint{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:#7C8896; margin-top:13px;
+}
+
+/* score panel */
+.score{
+  margin-top:16px; background:var(--ink); color:var(--enamel);
+  border-radius:var(--rad); padding:14px 17px;
+  display:flex; justify-content:space-between; align-items:center; gap:13px; flex-wrap:wrap;
+}
+.score .num{font-family:var(--mono); font-size:26px; color:var(--signal); font-weight:700}
+.score .lbl{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3;
+}
+
+/* footer nav */
+.stepper{
+  display:flex; justify-content:space-between; gap:12px; margin:34px 0 0;
+  padding-top:20px; border-top:3px solid var(--ink);
+}
+
+/* toast */
+#toast{
+  position:fixed; left:50%; bottom:24px; transform:translate(-50%,90px);
+  background:var(--ink); color:var(--signal); font-family:var(--mono);
+  font-size:13px; letter-spacing:.06em; padding:11px 20px; border-radius:var(--rad);
+  z-index:200; transition:transform .26s ease; box-shadow:0 6px 24px rgba(0,0,0,.25);
+}
+#toast.up{transform:translate(-50%,0)}
+
+/* mobile drawer button */
+.menu-btn{display:none}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 15px 80px}
+  nav.fahrplan{
+    position:fixed; inset:0 auto 0 0; width:288px; background:var(--enamel);
+    z-index:90; transform:translateX(-102%); transition:transform .24s ease;
+    box-shadow:6px 0 24px rgba(0,0,0,.2); padding:18px 16px 40px;
+    max-height:none; overflow-y:auto;
+  }
+  nav.fahrplan.open{transform:none}
+  .menu-btn{
+    display:inline-block; background:var(--signal); color:var(--ink); border:0;
+    font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; padding:8px 13px; border-radius:var(--rad); cursor:pointer;
+  }
+  .scrim{
+    display:none; position:fixed; inset:0; background:rgba(16,24,32,.5); z-index:80;
+  }
+  .scrim.on{display:block}
+  .pairs{grid-template-columns:1fr}
+  body{font-size:16px}
+  .board-strip{grid-template-columns:52px 1fr; gap:11px}
+  .xp-pod{grid-column:1/-1; text-align:left; border-top:1px solid #232C36; padding-top:6px}
+  .xp-pod b{display:inline; font-size:14px}
+  .dlg-row{grid-template-columns:1fr}
+  .dlg-who{padding-top:0}
+}
+/* ============================================================
+   HOME / LEVEL SELECT
+============================================================ */
+.home-head{margin:26px 0 24px}
+.home-head h1{margin-bottom:10px}
+.resume{
+  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center;
+  background:var(--ink); color:var(--enamel); border-left:6px solid var(--signal);
+  border-radius:var(--rad); padding:16px 18px; margin:0 0 26px; cursor:pointer;
+  box-shadow:var(--shadow); width:100%; text-align:left; border-top:0;border-right:0;border-bottom:0;
+}
+.resume:hover{background:#1B2husk}
+.resume:hover{background:#1A2430}
+.resume .rg{
+  font-family:var(--mono); font-weight:700; font-size:26px; color:var(--ink);
+  background:var(--signal); border-radius:2px; padding:6px 11px; line-height:1.1;
+}
+.resume .rt{font-family:var(--sans-w); font-weight:700; font-size:17px; letter-spacing:.02em}
+.resume .rt small{
+  display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3; margin-bottom:4px; font-weight:500;
+}
+.resume .ra{
+  font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--signal); white-space:nowrap;
+}
+
+.lvl-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 30px}
+.lvl-card{
+  background:var(--paper); border:1px solid var(--enamel-dim); border-top:5px solid var(--rail);
+  border-radius:var(--rad); padding:18px 18px 16px; text-align:left; cursor:pointer;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
+  transition:transform .12s, box-shadow .12s;
+}
+.lvl-card:hover{transform:translateY(-2px); box-shadow:0 4px 18px rgba(16,24,32,.13)}
+.lvl-card.l2{border-top-color:#1B4D89}
+.lvl-card.l3{border-top-color:#C43000}
+.lvl-card.l4{border-top-color:#8C2200}
+.lvl-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.lvl-code{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--rail); font-weight:700;
+}
+.lvl-card.l2 .lvl-code{color:#1B4D89}
+.lvl-card.l3 .lvl-code{color:#C43000}
+.lvl-card.l4 .lvl-code{color:#8C2200}
+.lvl-name{
+  font-family:var(--sans-w); font-weight:800; font-size:20px; letter-spacing:-.01em;
+  line-height:1.15; margin:2px 0 0;
+}
+.lvl-name em{
+  display:block; font-style:normal; font-size:12px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color:#78838F; margin-top:4px;
+}
+.lvl-desc{font-size:15px; color:var(--ink-soft); margin:0}
+.lvl-meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:#78838F;
+  border-top:1px solid var(--enamel-dim); padding-top:9px; margin-top:auto;
+  display:flex; justify-content:space-between; gap:10px;
+}
+.ring{width:52px; height:52px; flex:none; position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring span{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-family:var(--mono); font-size:12px; font-weight:700; color:var(--ink);
+}
+.lvl-stations{display:flex; flex-wrap:wrap; gap:4px}
+.lvl-chip{
+  font-family:var(--mono); font-size:10.5px; font-weight:700; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:2px 6px; line-height:1.5;
+}
+.lvl-chip.part{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.lvl-chip.done{background:var(--gruen); border-color:var(--gruen); color:#fff}
+
+.home-tools{display:flex; gap:11px; flex-wrap:wrap; margin-bottom:30px}
+
+/* placement test */
+.place{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-left:5px solid var(--signal); border-radius:var(--rad);
+  padding:18px; box-shadow:var(--shadow); margin-bottom:30px;
+}
+.place h3{margin-top:0}
+.place-result{
+  background:var(--ink); color:var(--enamel); border-radius:var(--rad);
+  padding:16px 18px; margin-top:14px;
+}
+.place-result b{color:var(--signal); font-size:19px; display:block; margin-bottom:5px;
+  font-family:var(--sans-w); letter-spacing:.02em}
+
+/* level badge in sidebar + station head */
+.fp-lvl{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:#fff; background:var(--rail); padding:4px 8px; border-radius:2px;
+  margin:16px 0 5px;
+}
+.fp-lvl.l2{background:#1B4D89}
+.fp-lvl.l3{background:#C43000}
+.fp-lvl.l4{background:#8C2200}
+.home-btn{
+  background:transparent; border:1.5px solid #3A4653; color:var(--enamel);
+  font-family:var(--sans-w); font-weight:700; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; padding:6px 12px; border-radius:var(--rad); cursor:pointer;
+}
+.home-btn:hover{background:var(--signal); color:var(--ink); border-color:var(--signal)}
+
+@media (max-width:900px){
+  .lvl-grid{grid-template-columns:1fr}
+  .resume{grid-template-columns:auto 1fr; gap:12px}
+  .resume .ra{grid-column:1/-1}
+}
+
+@media print{
+  nav.fahrplan,.stepper,header.board{display:none}
+  .wrap{grid-template-columns:1fr}
+  .blk{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important}
+}
+/* ---------- Pioneer header lockup ---------- */
+.board-top{display:flex; align-items:center; gap:14px; max-width:1180px; margin:0 auto}
+.plogo{height:46px; width:auto; display:block; border-radius:3px; flex:none;
+       box-shadow:0 1px 6px rgba(0,0,0,.35)}
+.brandcenter{flex:1; text-align:center; min-width:0}
+.bname{
+  font-family:var(--sans-w); font-weight:800; font-size:17px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--enamel); line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bweb{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--signal); margin-top:3px;
+}
+.bweb span{color:#8A96A3}
+.levelchip{
+  font-family:var(--sans-w); font-weight:800; font-size:21px; letter-spacing:.06em;
+  background:var(--signal); color:var(--board); padding:4px 12px; border-radius:3px;
+  line-height:1.15; flex:none;
+}
+@media (max-width:900px){
+  .board-top{gap:9px; flex-wrap:wrap}
+  .plogo{height:32px}
+  .plogo.right{display:none}
+  .bname{font-size:12px; letter-spacing:.09em}
+  .bweb{font-size:9px; letter-spacing:.1em}
+  .levelchip{font-size:16px; padding:3px 9px}
+}
+
+/* ---------- English trainer additions ---------- */
+.eng{font-weight:700; color:var(--rail)}
+.hi,.pa{font-family:"Noto Sans Devanagari","Nirmala UI","Mangal","Kohinoor Devanagari",var(--sans-w)}
+.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI","Raavi","Gurmukhi MN",var(--sans-w)}
+.trl{display:none; font-size:14.5px; line-height:1.5; color:#5C6874; font-weight:400; font-style:normal; margin-top:2px; letter-spacing:0; text-transform:none}
+body.t-hi .trl.hi{display:block}
+body.t-pa .trl.pa{display:block}
+.trl.hi::before{content:"हि  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+.trl.pa::before{content:"ਪੰ  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+p.lead.trl{border-left:4px solid var(--enamel-dim); padding-left:15px; font-size:15.5px; margin-top:8px; max-width:60ch}
+th.hi,td.hi,th.pa,td.pa{display:none}
+body.t-hi th.hi, body.t-hi td.hi, body.t-pa th.pa, body.t-pa td.pa{display:table-cell}
+td.hi,td.pa{color:#34414D}
+td.g{font-family:var(--sans-w)}
+.cue{display:block; font-size:16.5px; line-height:1.5}
+.cue.pa-i{color:#5C6874; font-size:15px}
+.langbar{max-width:1180px; margin:9px auto 0; display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.langbar .lb-l{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#8A96A3; margin-right:2px}
+.trbtn{font-family:"Noto Sans Devanagari","Nirmala UI",var(--sans-w); font-weight:700; font-size:13px;
+  background:transparent; color:var(--enamel); border:1.5px solid #3A4653; border-radius:var(--rad);
+  padding:4px 12px; cursor:pointer}
+.trbtn.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI",var(--sans-w)}
+.trbtn.on{background:var(--signal); color:var(--board); border-color:var(--signal)}
+.q-txt .trl{margin-top:3px}
+.fb .trl{margin-top:2px}
+.card .back{line-height:1.5}
+.tbl-wrap td.g{min-width:92px}
+.ex-tip{font-size:14px; color:#5C6874}
+@media (max-width:900px){ .langbar{margin-top:7px} }
+</style>
+</head>
+<body>
+
+<header class="board">
+  <div class="board-top">
+    <button class="menu-btn" id="menuBtn" aria-label="Open unit list">☰</button>
+    <img class="plogo" src="data:image/png;base64,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" alt="Pioneer Education">
+    <div class="brandcenter">
+      <div class="bname">Pioneer Education Morinda</div>
+      <div class="bweb">www.pioneermorinda.com <span>· English A2 · Elementary</span></div>
+    </div>
+    <span class="levelchip">A2</span>
+    <img class="plogo right" src="data:image/png;base64,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" alt="">
+    <button class="home-btn" id="homeBtn">⌂</button>
+  </div>
+  <div class="board-strip">
+    <div class="gleis-no mono" id="stripG">01</div>
+    <div class="strip-title" id="stripT">English A2<small>Pioneer Education</small></div>
+    <div class="xp-pod">
+      <b id="xpVal">0</b>
+      <span id="xpLbl">Points · 0 % complete</span>
+    </div>
+  </div>
+  <div class="langbar">
+    <span class="lb-l">Translate</span>
+    <button class="trbtn" id="trHi" type="button">हिन्दी</button>
+    <button class="trbtn pa" id="trPa" type="button">ਪੰਜਾਬੀ</button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="wrap">
+  <nav class="fahrplan" id="fahrplan" aria-label="Unit list"></nav>
+  <main id="main"></main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   CONTENT HELPERS — self-contained, no network.
+   Translations: hi = हिन्दी, pa = ਪੰਜਾਬੀ
+============================================================ */
+const STATIONEN = [];
+function T(hi,pa){ return '<span class="trl hi">'+hi+'</span><span class="trl pa">'+pa+'</span>'; }
+function P(en,hi,pa){ return '<p>'+en+'</p>'+(hi?T(hi,pa||''):''); }
+function _hash(str){ var h=7; for(var i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))&0x7fffffff; } return h; }
+function _s(r){ return r.split('|').map(function(x){return x.trim();}); }
+const B = {
+  rule:function(t,html){ return {typ:'regel',t:t,html:html}; },
+  vok:function(t,rows){ return {typ:'vok',t:t,items:rows.map(_s)}; },
+  dlg:function(t,rows){ return {typ:'dlg',t:t,zeilen:rows.map(_s)}; },
+  text:function(t,meta,html){ return {typ:'text',t:t,meta:meta,html:html}; },
+  cards:function(t,rows){ return {typ:'karten',t:t,items:rows.map(_s)}; },
+  mcq:function(t,rows){ return {typ:'ueb',art:'mcq',t:t,items:rows.map(function(r){
+      var a=_s(r), o=a[1].split(';').map(function(x){return x.trim();}), c=+a[2];
+      var idx=o.map(function(_,i){return i;}), h=_hash(a[0]);
+      for(var i=idx.length-1;i>0;i--){ h=(h*1103515245+12345)&0x7fffffff; var j=h%(i+1); var tmp=idx[i]; idx[i]=idx[j]; idx[j]=tmp; }
+      var no=idx.map(function(k){return o[k];}), na=idx.indexOf(c);
+      return {q:a[0],opts:no,a:na,fb:a[3]||'',hi:a[4]||'',pa:a[5]||''}; })}; },
+  gap:function(t,rows){ return {typ:'ueb',art:'luecke',t:t,items:rows.map(function(r){
+      var a=_s(r); return {q:a[0],a:a[1].split('/').map(function(x){return x.trim();}),hi:a[2]||'',pa:a[3]||''}; })}; },
+  ord:function(t,rows){ return {typ:'ueb',art:'ordnen',t:t,items:rows.map(function(r){
+      var a=_s(r); return {a:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  pairs:function(t,rows){ return {typ:'ueb',art:'paare',t:t,items:rows.map(_s)}; },
+  dikt:function(t,rows){ return {typ:'ueb',art:'diktat',t:t,items:rows.map(function(r){
+      var a=_s(r); return {t:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  write:function(t,prompt,points,model){ return {typ:'schreiben',t:t,prompt:prompt,punkte:points,muster:model}; }
+};
+function UNIT(id,g,kat,t,sub,lead,leadHi,leadPa,blocks){
+  STATIONEN.push({id:id,g:g,kat:kat,t:t,en:sub,lead:lead,leadHi:leadHi,leadPa:leadPa,bloecke:blocks});
+}
+function ADD(id,block){ for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id){ STATIONEN[i].bloecke.push(block); return; } } }
+
+var LEVELS = [
+ {code:'A2.1', cls:'', name:'Past & Future', en:'भूत और भविष्य · ਭੂਤ ਅਤੇ ਭਵਿੱਖ',
+  desc:'Past simple review, past continuous, present perfect and talking about the future with will, going to and the present continuous.',
+  ids:['a2_past','a2_pastc','a2_pp','a2_fut']},
+ {code:'A2.2', cls:'l2', name:'Grammar Building', en:'व्याकरण का विस्तार · ਵਿਆਕਰਨ ਦਾ ਵਿਸਥਾਰ',
+  desc:'Comparatives, quantifiers, modal verbs, adverbs, conditionals, linking words and phrasal verbs.',
+  ids:['a2_comp','a2_quant','a2_modal','a2_adv','a2_cond','a2_link']},
+ {code:'A2.3', cls:'l3', name:'Topics & Vocabulary', en:'विषय और शब्दावली · ਵਿਸ਼ੇ ਅਤੇ ਸ਼ਬਦਾਵਲੀ',
+  desc:'Travel and booking, health and advice, work and interviews, weather, free time and technology.',
+  ids:['a2_travel','a2_health','a2_work','a2_free']},
+ {code:'A2.4', cls:'l4', name:'Exam Practice', en:'परीक्षा अभ्यास · ਪ੍ਰੀਖਿਆ ਅਭਿਆਸ',
+  desc:'Reading strategies, writing emails and paragraphs, speaking and listening practice, and a full A2 mock test.',
+  ids:['a2_read','a2_write','a2_speak','a2_mock']}
+];
+var PLACEMENT = [
+ {q:'Yesterday I ___ to the market.',opts:['go','went','gone'],a:1,lvl:0},
+ {q:'I ___ TV when the phone rang.',opts:['watched','was watching','watch'],a:1,lvl:0},
+ {q:'I have lived here ___ 2015.',opts:['for','since','from'],a:1,lvl:0},
+ {q:'Look at those clouds! It ___ rain.',opts:['will','is going to','rains'],a:1,lvl:0},
+ {q:'She is ___ than her sister.',opts:['tall','taller','tallest'],a:1,lvl:1},
+ {q:'How ___ water do you drink?',opts:['many','much','few'],a:1,lvl:1},
+ {q:'You ___ park here. It is forbidden.',opts:['mustn\'t','don\'t have to','can'],a:0,lvl:1},
+ {q:'If it ___ tomorrow, we will stay home.',opts:['rains','will rain','rained'],a:0,lvl:1},
+ {q:'It was cold, ___ I wore a jacket.',opts:['because','so','although'],a:1,lvl:1},
+ {q:'Please ___ your shoes before you enter.',opts:['take off','take out','take on'],a:0,lvl:2},
+ {q:'You should ___ a doctor.',opts:['to see','seeing','see'],a:2,lvl:2},
+ {q:'She has worked here ___ five years.',opts:['for','since','at'],a:0,lvl:2},
+ {q:'You like tea, ___?',opts:['do you','don\'t you','aren\'t you'],a:1,lvl:2},
+ {q:'Formal email ending to "Dear Sir or Madam":',opts:['Love,','Yours faithfully,','See ya'],a:1,lvl:3},
+ {q:'True/False/Not given: "Priya lives in a big city." Text: "She lives in a small village."',opts:['True','False','Not given'],a:1,lvl:3},
+ {q:'Which is more polite?',opts:['Give me the menu.','Could I have the menu, please?','I want the menu.'],a:1,lvl:3}
+];
+
+
+/* ══════════ UNIT 01 — Past Simple Review ══════════ */
+UNIT('a2_past','01','Past & Future','Past Simple: Irregular Verbs, Negatives & Questions','साधारण भूतकाल: irregular verbs · ਸਧਾਰਨ ਭੂਤ ਕਾਲ: irregular verbs',
+'A2 starts with a solid past simple. You will meet more irregular verbs, use time expressions and tell short stories about last week, last year or your childhood.',
+'A2 की शुरुआत मज़बूत past simple से होती है। अधिक irregular verbs, समय के शब्द और बीते हफ़्ते, साल या बचपन की छोटी कहानियाँ।',
+'A2 ਦੀ ਸ਼ੁਰੂਆਤ ਮਜ਼ਬੂਤ past simple ਨਾਲ ਹੁੰਦੀ ਹੈ। ਹੋਰ irregular verbs, ਸਮੇਂ ਦੇ ਸ਼ਬਦ ਅਤੇ ਪਿਛਲੇ ਹਫ਼ਤੇ, ਸਾਲ ਜਾਂ ਬਚਪਨ ਦੀਆਂ ਛੋਟੀਆਂ ਕਹਾਣੀਆਂ।',[
+ B.rule('Form & use — quick review',
+  P('Use the <b>past simple</b> for finished actions at a definite time in the past. <b class="eng">I visited Shimla last year. She didn\'t call me. Did you finish?</b>','पहले से पूरी हो चुकी, निश्चित समय की क्रिया के लिए past simple। I visited Shimla last year.','ਪਹਿਲਾਂ ਹੀ ਮੁੱਕ ਚੁੱਕੀ, ਨਿਸ਼ਚਿਤ ਸਮੇਂ ਦੀ ਕਿਰਿਆ ਲਈ past simple। I visited Shimla last year.')+
+  '<div class="tbl-wrap"><table><thead><tr><th>Positive</th><th>Negative</th><th>Question</th></tr></thead><tbody>'+
+  '<tr><td class="e">I <b>went</b> to Delhi.</td><td class="e">I <b>didn\'t go</b> to Delhi.</td><td class="e"><b>Did</b> you <b>go</b> to Delhi?</td></tr>'+
+  '<tr><td class="e">She <b>worked</b> late.</td><td class="e">She <b>didn\'t work</b> late.</td><td class="e"><b>Did</b> she <b>work</b> late?</td></tr>'+
+  '<tr><td class="e">They <b>were</b> tired.</td><td class="e">They <b>weren\'t</b> tired.</td><td class="e"><b>Were</b> they tired?</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Time expressions</span><b class="eng">yesterday, last night / week / month / year, in 2019, two years ago, when I was ten, the day before yesterday, on Monday, in the morning, then, after that, finally</b></div>'+
+  '<div class="rule warn"><span class="lbl">Common mistakes</span>✗ Did you went? → ✓ <b class="eng">Did you go?</b> &nbsp; ✗ I didn\'t saw him. → ✓ <b class="eng">I didn\'t see him.</b> &nbsp; ✗ Yesterday I am going → ✓ <b class="eng">Yesterday I went</b>'+T('did/didn\'t के बाद क्रिया का सादा रूप, दूसरा रूप (V2) नहीं।','did/didn\'t ਤੋਂ ਬਾਅਦ ਕਿਰਿਆ ਦਾ ਸਾਦਾ ਰੂਪ, ਦੂਜਾ ਰੂਪ (V2) ਨਹੀਂ।')+'</div>'),
+ B.vok('More irregular verbs',[
+  'begin → began|The class began at 9.|शुरू हुआ|ਸ਼ੁਰੂ ਹੋਇਆ','bring → brought|She brought sweets.|लाया|ਲਿਆਇਆ','build → built|They built a house.|बनाया (निर्माण)|ਬਣਾਇਆ (ਉਸਾਰੀ)','catch → caught|I caught the bus.|पकड़ा|ਫੜਿਆ','choose → chose|He chose the red one.|चुना|ਚੁਣਿਆ','feel → felt|I felt tired.|महसूस किया|ਮਹਿਸੂਸ ਕੀਤਾ','find → found|I found my keys.|पाया / मिला|ਲੱਭਿਆ','fly → flew|We flew to Mumbai.|उड़ा|ਉੱਡਿਆ','forget → forgot|I forgot my phone.|भूल गया|ਭੁੱਲ ਗਿਆ','grow → grew|He grew up in Punjab.|बड़ा हुआ|ਵੱਡਾ ਹੋਇਆ','hear → heard|I heard a noise.|सुना|ਸੁਣਿਆ','leave → left|She left at five.|छोड़ा / गया|ਛੱਡਿਆ / ਗਿਆ','lose → lost|I lost my wallet.|खो दिया|ਗੁਆ ਦਿੱਤਾ','pay → paid|He paid in cash.|भुगतान किया|ਭੁਗਤਾਨ ਕੀਤਾ','run → ran|She ran fast.|दौड़ा|ਦੌੜਿਆ','sell → sold|He sold his bike.|बेचा|ਵੇਚਿਆ','send → sent|I sent a message.|भेजा|ਭੇਜਿਆ','sit → sat|We sat outside.|बैठा|ਬੈਠਿਆ','tell → told|She told me the truth.|बताया|ਦੱਸਿਆ','think → thought|I thought it was easy.|सोचा|ਸੋਚਿਆ','understand → understood|I understood the lesson.|समझा|ਸਮਝਿਆ','wear → wore|He wore a blue turban.|पहना|ਪਾਇਆ','win → won|We won the match.|जीता|ਜਿੱਤਿਆ']),
+ B.mcq('Practice 1 — Past simple',[
+  'I ___ my keys yesterday.|lose;lost;losed|1|lose → lost.|मैंने कल अपनी चाबियाँ खो दीं।|ਮੈਂ ਕੱਲ੍ਹ ਆਪਣੀਆਂ ਚਾਬੀਆਂ ਗੁਆ ਦਿੱਤੀਆਂ।',
+  'Did she ___ to the party?|came;come;comes|1|did + plain verb.',
+  'They ___ the match last Sunday.|win;won;wined|1|win → won.',
+  'We didn\'t ___ the news.|heard;hear;hears|1|didn\'t + plain verb.',
+  'When ___ you buy that phone?|do;did;were|1|When did you buy…?',
+  'He ___ a message to his friend.|sended;sent;sends|1|send → sent.',
+  'She ___ very tired after work.|felt;feeled;feel|0|feel → felt.',
+  'I ___ English when I was a child.|didn\'t speak;don\'t spoke;didn\'t spoke|0|didn\'t + speak.',
+  'Where ___ you go on holiday?|did;do;were|0|Where did you go?',
+  'Which is correct?|I buyed a book.;I bought a book.;I did bought a book.|1|buy → bought.']),
+ B.gap('Practice 2 — Past simple',[
+  'Yesterday we ___ (go) to the market.|went|कल हम बाज़ार गए।|ਕੱਲ੍ਹ ਅਸੀਂ ਬਾਜ਼ਾਰ ਗਏ।','She ___ (not / see) the film.|didn\'t see/did not see|उसने फ़िल्म नहीं देखी।|ਉਸਨੇ ਫ਼ਿਲਮ ਨਹੀਂ ਵੇਖੀ।','___ you ___ (understand) the lesson? (Did you understand)|did you understand|क्या आपने पाठ समझा?|ਕੀ ਤੁਸੀਂ ਪਾਠ ਸਮਝਿਆ?','He ___ (leave) home at six.|left|वह छह बजे घर से निकला।|ਉਹ ਛੇ ਵਜੇ ਘਰੋਂ ਨਿਕਲਿਆ।','I ___ (forget) my book at home.|forgot|मैं अपनी किताब घर भूल गया।|ਮੈਂ ਆਪਣੀ ਕਿਤਾਬ ਘਰ ਭੁੱਲ ਗਿਆ।','They ___ (win) the kabaddi match.|won|उन्होंने कबड्डी का मैच जीता।|ਉਨ੍ਹਾਂ ਨੇ ਕਬੱਡੀ ਦਾ ਮੈਚ ਜਿੱਤਿਆ।','We ___ (sit) in the garden.|sat|हम बाग़ में बैठे।|ਅਸੀਂ ਬਾਗ਼ ਵਿੱਚ ਬੈਠੇ।','What time ___ the class begin? (did)|did|कक्षा कब शुरू हुई?|ਜਮਾਤ ਕਦੋਂ ਸ਼ੁਰੂ ਹੋਈ?']),
+ B.text('Reading — A trip to Amritsar','Story · A2',
+  '<p>Last month, my family and I travelled to Amritsar. We left Morinda at five in the morning and arrived at nine. First we visited the Golden Temple. It was crowded but very peaceful. We ate langar and then we walked to Jallianwala Bagh. After that we went to the Wagah Border for the evening ceremony. I took many photos. We returned home late at night. I was tired, but it was an unforgettable day.</p>'+
+  T('पिछले महीने मेरा परिवार अमृतसर गया। हमने स्वर्ण मंदिर देखा, लंगर खाया, जलियाँवाला बाग़ और वाघा बॉर्डर गए। हम देर रात घर लौटे। मैं थक गया था, पर यह यादगार दिन था।','ਪਿਛਲੇ ਮਹੀਨੇ ਮੇਰਾ ਪਰਿਵਾਰ ਅੰਮ੍ਰਿਤਸਰ ਗਿਆ। ਅਸੀਂ ਹਰਿਮੰਦਰ ਸਾਹਿਬ ਵੇਖਿਆ, ਲੰਗਰ ਛਕਿਆ, ਜਲ੍ਹਿਆਂਵਾਲਾ ਬਾਗ਼ ਅਤੇ ਵਾਹਗਾ ਬਾਰਡਰ ਗਏ। ਅਸੀਂ ਦੇਰ ਰਾਤ ਘਰ ਮੁੜੇ। ਮੈਂ ਥੱਕ ਗਿਆ ਸੀ, ਪਰ ਇਹ ਯਾਦਗਾਰ ਦਿਨ ਸੀ।')),
+ B.mcq('Questions on the text',[
+  'When did they leave Morinda?|at nine;at five in the morning;at night|1|They left at five in the morning.',
+  'What did they eat?|pizza;langar;nothing|1|They ate langar.',
+  'Where did they go after Jallianwala Bagh?|Delhi;Wagah Border;Shimla|1|Then Wagah Border.',
+  'How did the writer feel at the end?|tired but happy;angry;bored|0|tired but it was unforgettable.']),
+ B.dikt('Practice 3 — Dictation',[
+  'We left the house at seven and arrived at nine.|हम सात बजे घर से निकले और नौ बजे पहुँचे।|ਅਸੀਂ ਸੱਤ ਵਜੇ ਘਰੋਂ ਨਿਕਲੇ ਅਤੇ ਨੌਂ ਵਜੇ ਪਹੁੰਚੇ।','She didn\'t know the answer.|उसे जवाब नहीं पता था।|ਉਸਨੂੰ ਜਵਾਬ ਨਹੀਂ ਪਤਾ ਸੀ।','Did you hear the news yesterday?|क्या तुमने कल ख़बर सुनी?|ਕੀ ਤੁਸੀਂ ਕੱਲ੍ਹ ਖ਼ਬਰ ਸੁਣੀ?','He lost his wallet on the bus.|उसने बस में अपना बटुआ खो दिया।|ਉਸਨੇ ਬੱਸ ਵਿੱਚ ਆਪਣਾ ਬਟੂਆ ਗੁਆ ਦਿੱਤਾ।']),
+ B.write('Practice 4 — Write about a trip','Write 8–10 sentences about a trip you took (past simple).',['Where did you go and when?','Who went with you?','What did you do?','How did you feel?'],
+  'Last summer I went to Shimla with my family. We travelled by bus and arrived in the evening. The next day we visited the Mall Road and took many photos. We ate hot momos and drank tea. It was cold, but we enjoyed it a lot. I felt very happy and I want to go again.')
+]);
+
+/* ══════════ UNIT 02 — Past Continuous ══════════ */
+UNIT('a2_pastc','02','Past & Future','Past Continuous & Linking Past Events','भूतकाल का चलता रूप · ਭੂਤ ਕਾਲ ਦਾ ਚਲੰਤ ਰੂਪ',
+'Use the past continuous for actions in progress in the past ("I was cooking when you called"). Join events with when and while.',
+'अतीत में चल रही क्रिया ("जब तुमने फ़ोन किया, मैं खाना बना रहा था") के लिए past continuous। when और while से घटनाएँ जोड़ें।',
+'ਅਤੀਤ ਵਿੱਚ ਚੱਲ ਰਹੀ ਕਿਰਿਆ ("ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੋਨ ਕੀਤਾ, ਮੈਂ ਖਾਣਾ ਬਣਾ ਰਿਹਾ ਸੀ") ਲਈ past continuous। when ਅਤੇ while ਨਾਲ ਘਟਨਾਵਾਂ ਜੋੜੋ।',[
+ B.rule('Form: was / were + verb-ing',
+  '<div class="tbl-wrap"><table><thead><tr><th>Positive</th><th>Negative</th><th>Question</th></tr></thead><tbody>'+
+  '<tr><td class="e">I <b>was cooking</b>.</td><td class="e">I <b>wasn\'t cooking</b>.</td><td class="e"><b>Was</b> I cooking?</td></tr>'+
+  '<tr><td class="e">They <b>were playing</b>.</td><td class="e">They <b>weren\'t playing</b>.</td><td class="e"><b>Were</b> they playing?</td></tr>'+
+  '</tbody></table></div>'+
+  P('Hindi/Punjabi: "मैं खा रहा था" = <b class="eng">I was eating</b>. The long action is in the <b>past continuous</b>; the short, interrupting action is in the <b>past simple</b>: <b class="eng">I was eating when the phone rang.</b>','"मैं खा रहा था" = I was eating। लंबी चलती क्रिया past continuous में; बीच में आने वाली छोटी क्रिया past simple में।','"ਮੈਂ ਖਾ ਰਿਹਾ ਸੀ" = I was eating। ਲੰਮੀ ਚੱਲ ਰਹੀ ਕਿਰਿਆ past continuous ਵਿੱਚ; ਵਿਚਕਾਰ ਆਉਣ ਵਾਲੀ ਛੋਟੀ ਕਿਰਿਆ past simple ਵਿੱਚ।')+
+  '<div class="tbl-wrap"><table><thead><tr><th>Word</th><th>Use</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">when</td><td class="e">+ past simple (short action)</td><td class="n">I was sleeping when he arrived.</td></tr>'+
+  '<tr><td class="g">while</td><td class="e">+ past continuous (long action)</td><td class="n">While I was sleeping, he arrived.</td></tr>'+
+  '<tr><td class="g">while … while</td><td class="e">two long actions together</td><td class="n">I was cooking while she was studying.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule warn"><span class="lbl">State verbs</span>Do not use the continuous for state verbs: ✗ I was knowing → ✓ <b class="eng">I knew</b>. ✗ She was having a car (owning) → ✓ <b class="eng">She had a car.</b></div>'),
+ B.mcq('Practice 1 — Simple or continuous?',[
+  'I ___ TV when the lights went out.|watched;was watching;watching|1|long action = continuous.|जब बत्ती गई, मैं टीवी देख रहा था।|ਜਦੋਂ ਬਿਜਲੀ ਗਈ, ਮੈਂ ਟੀਵੀ ਵੇਖ ਰਿਹਾ ਸੀ।',
+  'While she ___, the phone rang.|cooked;was cooking;cooks|1|while + continuous.',
+  'What ___ you doing at 8 last night?|did;were;was|1|you → were.',
+  'They ___ football when it started to rain.|were playing;played;was playing|0|they → were playing.',
+  'He ___ his friend while he was walking.|was meeting;met;meeting|1|short action = simple.',
+  'I ___ the answer, so I didn\'t say anything.|wasn\'t knowing;didn\'t know;didn\'t knew|1|know is a state verb.',
+  'We ___ dinner when the guests arrived.|have;were having;having|1|were having.',
+  'She ___ when the teacher came in.|was not listening;did not listening;not was listening|0|wasn\'t listening.']),
+ B.gap('Practice 2 — Complete',[
+  'I ___ (walk) to school when I saw an accident.|was walking|मैं स्कूल जा रहा था जब मैंने दुर्घटना देखी।|ਮੈਂ ਸਕੂਲ ਜਾ ਰਿਹਾ ਸੀ ਜਦੋਂ ਮੈਂ ਹਾਦਸਾ ਵੇਖਿਆ।','While my mother ___ (cook), I did my homework.|was cooking|जब माँ खाना बना रही थीं, मैंने होमवर्क किया।|ਜਦੋਂ ਮਾਂ ਖਾਣਾ ਬਣਾ ਰਹੀ ਸੀ, ਮੈਂ ਹੋਮਵਰਕ ਕੀਤਾ।','They ___ (not / pay) attention.|weren\'t paying/were not paying|वे ध्यान नहीं दे रहे थे।|ਉਹ ਧਿਆਨ ਨਹੀਂ ਦੇ ਰਹੇ ਸਨ।','What ___ you ___ (do) at nine o\'clock? (were you doing)|were you doing|नौ बजे तुम क्या कर रहे थे?|ਨੌਂ ਵਜੇ ਤੁਸੀਂ ਕੀ ਕਰ ਰਹੇ ਸੀ?','He fell while he ___ (ride) his bike.|was riding|वह साइकिल चलाते समय गिर गया।|ਉਹ ਸਾਈਕਲ ਚਲਾਉਂਦੇ ਸਮੇਂ ਡਿੱਗ ਪਿਆ।']),
+ B.ord('Practice 3 — Make sentences',[
+  'I was reading when you called|जब तुमने फ़ोन किया, मैं पढ़ रहा था|ਜਦੋਂ ਤੁਸੀਂ ਫ਼ੋਨ ਕੀਤਾ, ਮੈਂ ਪੜ੍ਹ ਰਿਹਾ ਸੀ','While we were eating the power went off|जब हम खा रहे थे, बिजली चली गई|ਜਦੋਂ ਅਸੀਂ ਖਾ ਰਹੇ ਸੀ, ਬਿਜਲੀ ਚਲੀ ਗਈ','Were they waiting for the bus|क्या वे बस का इंतज़ार कर रहे थे?|ਕੀ ਉਹ ਬੱਸ ਦੀ ਉਡੀਕ ਕਰ ਰਹੇ ਸਨ?','She was not sleeping at ten|वह दस बजे सो नहीं रही थी|ਉਹ ਦਸ ਵਜੇ ਸੌਂ ਨਹੀਂ ਰਹੀ ਸੀ']),
+ B.dikt('Practice 4 — Dictation',[
+  'I was studying when my friend arrived.|जब मेरा दोस्त आया, मैं पढ़ाई कर रहा था।|ਜਦੋਂ ਮੇਰਾ ਦੋਸਤ ਆਇਆ, ਮੈਂ ਪੜ੍ਹਾਈ ਕਰ ਰਿਹਾ ਸੀ।','It was raining while we were travelling.|जब हम सफ़र कर रहे थे, बारिश हो रही थी।|ਜਦੋਂ ਅਸੀਂ ਸਫ਼ਰ ਕਰ ਰਹੇ ਸੀ, ਮੀਂਹ ਪੈ ਰਿਹਾ ਸੀ।','What were you doing at seven?|तुम सात बजे क्या कर रहे थे?|ਤੁਸੀਂ ਸੱਤ ਵਜੇ ਕੀ ਕਰ ਰਹੇ ਸੀ?'])
+]);
+
+/* ══════════ UNIT 03 — Present Perfect ══════════ */
+UNIT('a2_pp','03','Past & Future','Present Perfect: have / has + past participle','पूर्ण वर्तमान काल · ਪੂਰਨ ਵਰਤਮਾਨ ਕਾਲ',
+'The present perfect connects the past with now. It is used for experience ("I have been to Delhi"), recent news and unfinished time ("for / since").',
+'Present perfect अतीत को वर्तमान से जोड़ता है: अनुभव ("I have been to Delhi"), ताज़ा ख़बर, और अधूरा समय (for / since)।',
+'Present perfect ਅਤੀਤ ਨੂੰ ਵਰਤਮਾਨ ਨਾਲ ਜੋੜਦਾ ਹੈ: ਤਜਰਬਾ ("I have been to Delhi"), ਤਾਜ਼ਾ ਖ਼ਬਰ, ਅਤੇ ਅਧੂਰਾ ਸਮਾਂ (for / since)।',[
+ B.rule('Form & participles',
+  '<div class="tbl-wrap"><table><thead><tr><th>Positive</th><th>Negative</th><th>Question</th></tr></thead><tbody>'+
+  '<tr><td class="e">I <b>have seen</b> it.</td><td class="e">I <b>haven\'t seen</b> it.</td><td class="e"><b>Have</b> you seen it?</td></tr>'+
+  '<tr><td class="e">She <b>has finished</b>.</td><td class="e">She <b>hasn\'t finished</b>.</td><td class="e"><b>Has</b> she finished?</td></tr>'+
+  '</tbody></table></div>'+
+  P('Regular verbs: past participle = <b>-ed</b> (worked). Irregular: <b>go → gone / been, see → seen, eat → eaten, do → done, write → written, take → taken, give → given, break → broken, know → known, buy → bought, have → had, make → made</b>.','Regular verbs में past participle = -ed। Irregular का तीसरा रूप (V3) याद करें: go → gone/been, see → seen, eat → eaten, do → done, write → written।','Regular verbs ਵਿੱਚ past participle = -ed। Irregular ਦਾ ਤੀਜਾ ਰੂਪ (V3) ਯਾਦ ਕਰੋ: go → gone/been, see → seen, eat → eaten, do → done, write → written।')+
+  '<h3>Uses</h3>'+
+  '<div class="tbl-wrap"><table><thead><tr><th>Use</th><th>Example</th><th>Key words</th></tr></thead><tbody>'+
+  '<tr><td class="g">Life experience</td><td class="e">I have visited Delhi. Have you ever eaten sushi?</td><td class="n">ever, never, before</td></tr>'+
+  '<tr><td class="g">Recent result</td><td class="e">I have lost my keys. (I can\'t find them now.)</td><td class="n">just, already, yet</td></tr>'+
+  '<tr><td class="g">Unfinished period</td><td class="e">I have lived here <b>for</b> ten years / <b>since</b> 2016.</td><td class="n">for, since, so far</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">for vs since</span><b>for</b> + length of time: for two hours, for five years. &nbsp; <b>since</b> + starting point: since Monday, since 2020, since I was a child.'+T('for = कितने समय से (दो साल से); since = कब से (2020 से)।','for = ਕਿੰਨੇ ਸਮੇਂ ਤੋਂ (ਦੋ ਸਾਲ ਤੋਂ); since = ਕਦੋਂ ਤੋਂ (2020 ਤੋਂ)।')+'</div>'+
+  '<div class="rule warn"><span class="lbl">Present perfect or past simple?</span>Finished time word (yesterday, last week, in 2019) → <b>past simple</b>: <i>I saw him yesterday.</i> No time word / time not finished → <b>present perfect</b>: <i>I have seen him.</i> ✗ <i>I have seen him yesterday.</i><br><b>been</b> = went and came back (<i>I have been to Delhi</i>); <b>gone</b> = is still there (<i>He has gone to Delhi</i>).'+T('"yesterday, last week" जैसे बीते समय के साथ present perfect नहीं लगता।','"yesterday, last week" ਵਰਗੇ ਬੀਤੇ ਸਮੇਂ ਨਾਲ present perfect ਨਹੀਂ ਲੱਗਦਾ।')+'</div>'),
+ B.mcq('Practice 1 — Present perfect or past simple?',[
+  'I ___ in Morinda since 2015.|lived;have lived;am living|1|since → present perfect.|मैं 2015 से मोरिंडा में रह रहा हूँ।|ਮੈਂ 2015 ਤੋਂ ਮੋਰਿੰਡਾ ਵਿੱਚ ਰਹਿ ਰਿਹਾ ਹਾਂ।',
+  'She ___ her homework yet.|hasn\'t finished;didn\'t finished;hasn\'t finish|0|has + participle.',
+  'We ___ to Goa last year.|have been;went;have gone|1|last year = finished time → past simple.',
+  '___ you ever ___ sushi?|Did … ate;Have … eaten;Do … eat|1|Have you ever eaten…?',
+  'I have known him ___ ten years.|since;for;from|1|for + length of time.',
+  'He ___ already ___ lunch.|has … eaten;have … eaten;has … ate|0|has already eaten.',
+  'They ___ a new house. (They bought it recently.)|have bought;buyed;has bought|0|have bought.',
+  'I ___ him yesterday.|have seen;saw;have saw|1|yesterday = past simple.',
+  'She has ___ to London. (She is still there.)|been;gone;went|1|gone = still there.',
+  'How long ___ you ___ English?|did … study;have … studied;do … study|1|How long have you studied…?']),
+ B.gap('Practice 2 — Past participles',[
+  'see → I have ___ it.|seen|मैंने देखा है।|ਮੈਂ ਵੇਖਿਆ ਹੈ।','eat → She has ___ lunch.|eaten|उसने खाना खा लिया है।|ਉਸਨੇ ਖਾਣਾ ਖਾ ਲਿਆ ਹੈ।','write → We have ___ the letter.|written|हमने पत्र लिख दिया है।|ਅਸੀਂ ਚਿੱਠੀ ਲਿਖ ਦਿੱਤੀ ਹੈ।','take → He has ___ my pen.|taken|उसने मेरा पेन ले लिया है।|ਉਸਨੇ ਮੇਰਾ ਪੈੱਨ ਲੈ ਲਿਆ ਹੈ।','do → Have you ___ your work?|done|क्या तुमने काम कर लिया है?|ਕੀ ਤੁਸੀਂ ਕੰਮ ਕਰ ਲਿਆ ਹੈ?','break → Who has ___ the window?|broken|खिड़की किसने तोड़ी है?|ਖਿੜਕੀ ਕਿਸਨੇ ਤੋੜੀ ਹੈ?','know → I have ___ her for years.|known|मैं उसे सालों से जानता हूँ।|ਮੈਂ ਉਸਨੂੰ ਸਾਲਾਂ ਤੋਂ ਜਾਣਦਾ ਹਾਂ।']),
+ B.pairs('Practice 3 — Match V1 ↔ V3',['go|gone / been','see|seen','eat|eaten','write|written','give|given','take|taken','know|known','buy|bought']),
+ B.dlg('Dialogue — travel experience',[
+  'Anita|Have you ever been abroad?|क्या तुम कभी विदेश गए हो?|ਕੀ ਤੁਸੀਂ ਕਦੇ ਵਿਦੇਸ਼ ਗਏ ਹੋ?',
+  'Karan|No, I have never travelled outside India. And you?|नहीं, मैं कभी भारत से बाहर नहीं गया। और तुम?|ਨਹੀਂ, ਮੈਂ ਕਦੇ ਭਾਰਤ ਤੋਂ ਬਾਹਰ ਨਹੀਂ ਗਿਆ। ਤੁਸੀਂ?',
+  'Anita|I have been to Dubai twice. I went there in 2022 and again last year.|मैं दो बार दुबई गई हूँ। 2022 में और पिछले साल।|ਮੈਂ ਦੋ ਵਾਰ ਦੁਬਈ ਗਈ ਹਾਂ। 2022 ਵਿੱਚ ਅਤੇ ਪਿਛਲੇ ਸਾਲ।',
+  'Karan|Wow! Have you learned any Arabic?|वाह! क्या तुमने अरबी सीखी है?|ਵਾਹ! ਕੀ ਤੁਸੀਂ ਅਰਬੀ ਸਿੱਖੀ ਹੈ?',
+  'Anita|Just a few words. I have studied English for years, but not Arabic!|बस कुछ शब्द। मैंने अंग्रेज़ी सालों से पढ़ी है, अरबी नहीं!|ਬੱਸ ਕੁਝ ਸ਼ਬਦ। ਮੈਂ ਅੰਗਰੇਜ਼ੀ ਸਾਲਾਂ ਤੋਂ ਪੜ੍ਹੀ ਹੈ, ਅਰਬੀ ਨਹੀਂ!']),
+ B.dikt('Practice 4 — Dictation',[
+  'I have lived in Punjab all my life.|मैं पूरी ज़िंदगी पंजाब में रहा हूँ।|ਮੈਂ ਸਾਰੀ ਉਮਰ ਪੰਜਾਬ ਵਿੱਚ ਰਿਹਾ ਹਾਂ।','She has just finished her exam.|उसने अभी-अभी परीक्षा खत्म की है।|ਉਸਨੇ ਹੁਣੇ-ਹੁਣੇ ਪ੍ਰੀਖਿਆ ਮੁਕਾਈ ਹੈ।','Have you ever eaten Chinese food?|क्या तुमने कभी चीनी खाना खाया है?|ਕੀ ਤੁਸੀਂ ਕਦੇ ਚੀਨੀ ਖਾਣਾ ਖਾਧਾ ਹੈ?','We have not met since 2020.|हम 2020 से नहीं मिले।|ਅਸੀਂ 2020 ਤੋਂ ਨਹੀਂ ਮਿਲੇ।'])
+]);
+
+/* ══════════ UNIT 04 — Future ══════════ */
+UNIT('a2_fut','04','Past & Future','Talking about the Future: will, going to & Present Continuous','भविष्य की बात: will, going to · ਭਵਿੱਖ ਦੀ ਗੱਲ: will, going to',
+'English has three common ways to talk about the future. Each has a different meaning: decisions now, plans, and arrangements.',
+'अंग्रेज़ी में भविष्य के तीन आम तरीके हैं। हर का अर्थ अलग है: अभी लिया निर्णय, पहले से बनी योजना, और तय कार्यक्रम।',
+'ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਭਵਿੱਖ ਦੇ ਤਿੰਨ ਆਮ ਤਰੀਕੇ ਹਨ। ਹਰ ਇੱਕ ਦਾ ਅਰਥ ਵੱਖਰਾ ਹੈ: ਹੁਣੇ ਲਿਆ ਫ਼ੈਸਲਾ, ਪਹਿਲਾਂ ਬਣੀ ਯੋਜਨਾ, ਅਤੇ ਤੈਅ ਪ੍ਰੋਗਰਾਮ।',[
+ B.rule('will, going to, present continuous',
+  '<div class="tbl-wrap"><table><thead><tr><th>Form</th><th>Use</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">will + verb</td><td class="e">decision made now, promise, offer, prediction (opinion)</td><td class="n">I\'ll help you. / It will rain tomorrow, I think. / I will call you.</td></tr>'+
+  '<tr><td class="g">am/is/are going to + verb</td><td class="e">plan or intention already decided; prediction with evidence</td><td class="n">I\'m going to study abroad. / Look at those clouds! It\'s going to rain.</td></tr>'+
+  '<tr><td class="g">am/is/are + verb-ing</td><td class="e">fixed arrangement (time and place fixed)</td><td class="n">I\'m meeting the doctor at 5 p.m. tomorrow.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="tbl-wrap"><table><thead><tr><th></th><th>will</th><th>going to</th></tr></thead><tbody>'+
+  '<tr><td class="g">Positive</td><td class="e">I will go. (I\'ll go)</td><td class="e">I am going to go.</td></tr>'+
+  '<tr><td class="g">Negative</td><td class="e">I won\'t go. (will not)</td><td class="e">I\'m not going to go.</td></tr>'+
+  '<tr><td class="g">Question</td><td class="e">Will you go?</td><td class="e">Are you going to go?</td></tr>'+
+  '</tbody></table></div>'+
+  T('अभी निर्णय लिया: "ठीक है, मैं मदद करूँगा" = I\'ll help. पहले से योजना: "मैं विदेश पढ़ने जाने वाला हूँ" = I\'m going to study abroad।','ਹੁਣੇ ਫ਼ੈਸਲਾ ਕੀਤਾ: "ਠੀਕ ਹੈ, ਮੈਂ ਮਦਦ ਕਰਾਂਗਾ" = I\'ll help। ਪਹਿਲਾਂ ਦੀ ਯੋਜਨਾ: "ਮੈਂ ਵਿਦੇਸ਼ ਪੜ੍ਹਨ ਜਾਣ ਵਾਲਾ ਹਾਂ" = I\'m going to study abroad।')+
+  '<div class="rule"><span class="lbl">Time words</span><b class="eng">tomorrow, next week / month / year, soon, in two days, tonight, this evening, in the future</b></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ I will going to go. ✗ I am going to went. ✓ <b class="eng">I am going to go.</b> After <i>if / when / as soon as</i> do <b>not</b> use will: ✗ If it will rain… ✓ <b class="eng">If it rains, I will stay home.</b></div>'),
+ B.mcq('Practice 1 — will or going to?',[
+  'The phone is ringing. — I ___ answer it.|am going to;will;am answering|1|decision now → will.|फ़ोन बज रहा है — मैं उठाता हूँ।|ਫ਼ੋਨ ਵੱਜ ਰਿਹਾ ਹੈ — ਮੈਂ ਚੁੱਕਦਾ ਹਾਂ।',
+  'I have decided. I ___ buy a new bike next month.|will;am going to;buy|1|plan → going to.',
+  'Look at the sky! It ___ rain.|will;is going to;rains|1|evidence now → going to.',
+  'I ___ meet my teacher at 4 p.m. tomorrow. (fixed)|am meeting;will meeting;meet|0|arrangement → present continuous.',
+  'Don\'t worry. I ___ help you.|am going to;will;help|1|offer → will.',
+  'He ___ come to the party. He is ill.|isn\'t going to;won\'t going;not will|0|negative.',
+  '___ you going to study abroad?|Will;Are;Do|1|Are you going to…?',
+  'If it rains, we ___ at home.|stay;will stay;are staying|1|if-clause → will in result clause.']),
+ B.gap('Practice 2 — Complete',[
+  'Tomorrow I ___ (visit) my grandparents. (plan: going to)|am going to visit|कल मैं अपने दादा-दादी से मिलने जाऊँगा।|ਕੱਲ੍ਹ ਮੈਂ ਆਪਣੇ ਦਾਦਾ-ਦਾਦੀ ਨੂੰ ਮਿਲਣ ਜਾਵਾਂਗਾ।','"It\'s cold." "I ___ (close) the window." (will)|will close/\'ll close|ठंड है। मैं खिड़की बंद कर दूँगा।|ਠੰਢ ਹੈ। ਮੈਂ ਖਿੜਕੀ ਬੰਦ ਕਰ ਦੇਵਾਂਗਾ।','She ___ (not / come) tomorrow. (going to)|isn\'t going to come/is not going to come|वह कल नहीं आएगी।|ਉਹ ਕੱਲ੍ਹ ਨਹੀਂ ਆਵੇਗੀ।','If you study hard, you ___ (pass).|will pass|अगर तुम मेहनत करोगे तो पास हो जाओगे।|ਜੇ ਤੁਸੀਂ ਮਿਹਨਤ ਕਰੋਗੇ ਤਾਂ ਪਾਸ ਹੋ ਜਾਓਗੇ।','What ___ you ___ (do) this weekend? (are you going to do)|are you going to do|इस सप्ताहांत तुम क्या करने वाले हो?|ਇਸ ਹਫ਼ਤੇ ਦੇ ਅੰਤ ਤੁਸੀਂ ਕੀ ਕਰਨ ਵਾਲੇ ਹੋ?']),
+ B.write('Practice 3 — My plans','Write 6–8 sentences about your plans for next year. Use going to and will.',['What are you going to study or do?','Where are you going to live or travel?','What do you think will happen?'],
+  'Next year I am going to start a new course. I am going to study English every day. I am also going to look for a part-time job. In the summer I am going to visit my cousins in Chandigarh. I think my English will be much better next year.'),
+ B.dikt('Practice 4 — Dictation',[
+  'I am going to learn German next year.|मैं अगले साल जर्मन सीखने वाला हूँ।|ਮੈਂ ਅਗਲੇ ਸਾਲ ਜਰਮਨ ਸਿੱਖਣ ਵਾਲਾ ਹਾਂ।','I will call you tonight.|मैं तुम्हें आज रात फ़ोन करूँगा।|ਮੈਂ ਤੁਹਾਨੂੰ ਅੱਜ ਰਾਤ ਫ਼ੋਨ ਕਰਾਂਗਾ।','We are meeting at the station at six.|हम छह बजे स्टेशन पर मिल रहे हैं।|ਅਸੀਂ ਛੇ ਵਜੇ ਸਟੇਸ਼ਨ ਤੇ ਮਿਲ ਰਹੇ ਹਾਂ।','If it rains, we will stay at home.|अगर बारिश हुई तो हम घर पर रहेंगे।|ਜੇ ਮੀਂਹ ਪਿਆ ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।'])
+]);
+
+/* ══════════ UNIT 05 — Comparatives & Superlatives ══════════ */
+UNIT('a2_comp','05','Grammar','Comparatives, Superlatives, as … as, too & enough','तुलना: comparative और superlative · ਤੁਲਨਾ: comparative ਅਤੇ superlative',
+'Compare people, places and things. Learn all the rules for short and long adjectives, plus useful patterns like "as … as", "too" and "enough".',
+'लोगों, जगहों और चीज़ों की तुलना करना सीखें — छोटे-लंबे विशेषण के नियम, साथ में "as … as", "too" और "enough"।',
+'ਲੋਕਾਂ, ਥਾਵਾਂ ਅਤੇ ਚੀਜ਼ਾਂ ਦੀ ਤੁਲਨਾ ਕਰਨਾ ਸਿੱਖੋ — ਛੋਟੇ-ਲੰਮੇ ਵਿਸ਼ੇਸ਼ਣਾਂ ਦੇ ਨਿਯਮ, ਨਾਲ "as … as", "too" ਅਤੇ "enough"।',[
+ B.rule('Rules',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Comparative</th><th>Superlative</th></tr></thead><tbody>'+
+  '<tr><td class="g">1 syllable: tall, cold, fast</td><td class="e">taller, colder, faster</td><td class="e">the tallest, the coldest, the fastest</td></tr>'+
+  '<tr><td class="g">ends in e: nice, large</td><td class="e">nicer, larger</td><td class="e">the nicest, the largest</td></tr>'+
+  '<tr><td class="g">1 vowel + 1 consonant: big, hot</td><td class="e">bigger, hotter</td><td class="e">the biggest, the hottest</td></tr>'+
+  '<tr><td class="g">consonant + y: easy, happy</td><td class="e">easier, happier</td><td class="e">the easiest, the happiest</td></tr>'+
+  '<tr><td class="g">2+ syllables: beautiful, expensive</td><td class="e">more beautiful, more expensive</td><td class="e">the most beautiful, the most expensive</td></tr>'+
+  '<tr><td class="g">irregular</td><td class="e">good → better, bad → worse, far → farther/further, little → less, much → more</td><td class="e">the best, the worst, the farthest, the least, the most</td></tr>'+
+  '</tbody></table></div>'+
+  P('Use <b class="eng">than</b> after a comparative: <i>Delhi is bigger <b>than</b> Chandigarh.</i> Use <b class="eng">the</b> before a superlative: <i>She is <b>the</b> youngest in the class.</i> Use <b class="eng">in</b> + place / group: <i>the tallest <b>in</b> the family</i>; use <b class="eng">of</b> + plural: <i>the best <b>of</b> all</i>.','comparative के बाद than; superlative से पहले the। group/जगह के साथ in (the tallest in the class), plural के साथ of।','comparative ਤੋਂ ਬਾਅਦ than; superlative ਤੋਂ ਪਹਿਲਾਂ the। group/ਥਾਂ ਨਾਲ in (the tallest in the class), plural ਨਾਲ of।')+
+  '<div class="rule warn"><span class="lbl">Common mistakes</span>✗ more better ✗ most best ✗ more cheaper ✗ taller from ✓ <b class="eng">better, the best, cheaper, taller than</b></div>'),
+ B.rule('as … as, not as … as, too, enough',
+  '<div class="tbl-wrap"><table><thead><tr><th>Pattern</th><th>Meaning</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">as + adjective + as</td><td class="e">equal</td><td class="n">She is as tall as her brother.</td></tr>'+
+  '<tr><td class="g">not as + adjective + as</td><td class="e">less than</td><td class="n">This phone isn\'t as expensive as that one.</td></tr>'+
+  '<tr><td class="g">too + adjective</td><td class="e">more than needed (negative)</td><td class="n">It\'s too hot to go out. (✗ very hot to)</td></tr>'+
+  '<tr><td class="g">adjective + enough</td><td class="e">sufficient</td><td class="n">He is old enough to drive.</td></tr>'+
+  '<tr><td class="g">enough + noun</td><td class="e">sufficient amount</td><td class="n">We have enough time.</td></tr>'+
+  '<tr><td class="g">the same as / different from</td><td class="e">similarity</td><td class="n">My bag is the same as yours.</td></tr>'+
+  '</tbody></table></div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'This book is ___ than that one.|interesting;more interesting;most interesting|1|2+ syllables → more.|यह किताब उससे ज़्यादा दिलचस्प है।|ਇਹ ਕਿਤਾਬ ਉਸ ਨਾਲੋਂ ਵੱਧ ਦਿਲਚਸਪ ਹੈ।',
+  'Mount Everest is ___ mountain in the world.|the higher;the highest;most high|1|the + -est.',
+  'My sister is ___ than me.|youngest;younger;more young|1|young → younger.',
+  'This is the ___ film I have ever seen. (bad)|worse;worst;baddest|1|bad → worst.',
+  'She isn\'t ___ tall as her father.|so;as;more|1|not as … as.',
+  'The room is ___ small for ten people.|enough;too;very|1|too = more than needed.',
+  'He is old ___ to drive.|enough;too;as|0|adjective + enough.',
+  'Ludhiana is ___ than Morinda.|more big;bigger;biggest|1|big → bigger.',
+  'She is the ___ girl in the class. (clever)|cleverest;more clever;cleverer|0|the cleverest.',
+  'It is ___ to walk. It is 40 km away.|too far;far enough;as far|0|too far.']),
+ B.gap('Practice 2 — Comparatives & superlatives',[
+  'My phone is ___ than yours. (good)|better|मेरा फ़ोन तुम्हारे से बेहतर है।|ਮੇਰਾ ਫ਼ੋਨ ਤੁਹਾਡੇ ਨਾਲੋਂ ਬਿਹਤਰ ਹੈ।','August is the ___ month in Punjab. (wet)|wettest|अगस्त पंजाब का सबसे गीला महीना है।|ਅਗਸਤ ਪੰਜਾਬ ਦਾ ਸਭ ਤੋਂ ਗਿੱਲਾ ਮਹੀਨਾ ਹੈ।','Gold is ___ expensive than silver. (more/less)|more|सोना चाँदी से महँगा है।|ਸੋਨਾ ਚਾਂਦੀ ਨਾਲੋਂ ਮਹਿੰਗਾ ਹੈ।','This exam was ___ difficult than the last one. (less)|less|यह परीक्षा पिछली से कम कठिन थी।|ਇਹ ਪ੍ਰੀਖਿਆ ਪਿਛਲੀ ਨਾਲੋਂ ਘੱਟ ਔਖੀ ਸੀ।','He is not ___ fast ___ his brother. (as … as: write "as as")|as as|वह अपने भाई जितना तेज़ नहीं है।|ਉਹ ਆਪਣੇ ਭਰਾ ਜਿੰਨਾ ਤੇਜ਼ ਨਹੀਂ ਹੈ।','The tea is ___ hot to drink. (too)|too|चाय पीने के लिए बहुत गर्म है।|ਚਾਹ ਪੀਣ ਲਈ ਬਹੁਤ ਗਰਮ ਹੈ।']),
+ B.ord('Practice 3 — Make sentences',[
+  'This is the best restaurant in town|यह शहर का सबसे अच्छा रेस्तरां है|ਇਹ ਸ਼ਹਿਰ ਦਾ ਸਭ ਤੋਂ ਵਧੀਆ ਰੈਸਟੋਰੈਂਟ ਹੈ','She is taller than her mother|वह अपनी माँ से लंबी है|ਉਹ ਆਪਣੀ ਮਾਂ ਨਾਲੋਂ ਲੰਮੀ ਹੈ','It is too cold to swim today|आज तैरने के लिए बहुत ठंड है|ਅੱਜ ਤੈਰਨ ਲਈ ਬਹੁਤ ਠੰਢ ਹੈ','I am not as tired as yesterday|मैं कल जितना थका हुआ नहीं हूँ|ਮੈਂ ਕੱਲ੍ਹ ਜਿੰਨਾ ਥੱਕਿਆ ਹੋਇਆ ਨਹੀਂ ਹਾਂ']),
+ B.write('Practice 4 — Compare two places','Write 6–8 sentences comparing your village / town with a big city.',['Size and population','Prices and food','Air, traffic, life','Which do you prefer and why?'],
+  'Morinda is smaller than Chandigarh, but it is quieter. The air in my town is cleaner than in the city. Chandigarh has bigger shops and better hospitals, but everything is more expensive. Life in Morinda is slower and more relaxed. I think the best place to live is a small town near a big city.')
+]);
+
+/* ══════════ UNIT 06 — Quantifiers ══════════ */
+UNIT('a2_quant','06','Grammar','Quantifiers: some, any, much, many, a few, a little, a lot of','मात्रा बताने वाले शब्द · ਮਾਤਰਾ ਦੱਸਣ ਵਾਲੇ ਸ਼ਬਦ',
+'Say how much or how many. The right word depends on whether the noun is countable or uncountable.',
+'कितना या कितने — सही शब्द इस पर निर्भर करता है कि संज्ञा गिनी जा सकती है या नहीं।',
+'ਕਿੰਨਾ ਜਾਂ ਕਿੰਨੇ — ਸਹੀ ਸ਼ਬਦ ਇਸ ਉੱਤੇ ਨਿਰਭਰ ਹੈ ਕਿ ਨਾਂਵ ਗਿਣਿਆ ਜਾ ਸਕਦਾ ਹੈ ਜਾਂ ਨਹੀਂ।',[
+ B.rule('Which quantifier?',
+  '<div class="tbl-wrap"><table><thead><tr><th>Meaning</th><th>Countable (books, apples)</th><th>Uncountable (water, money, time)</th></tr></thead><tbody>'+
+  '<tr><td class="g">a large amount</td><td class="e">many / a lot of / lots of</td><td class="e">much / a lot of / lots of</td></tr>'+
+  '<tr><td class="g">a small amount (enough)</td><td class="e">a few</td><td class="e">a little</td></tr>'+
+  '<tr><td class="g">almost none (negative idea)</td><td class="e">few</td><td class="e">little</td></tr>'+
+  '<tr><td class="g">some / any</td><td class="e">some / any</td><td class="e">some / any</td></tr>'+
+  '<tr><td class="g">zero</td><td class="e">no / none</td><td class="e">no / none</td></tr>'+
+  '<tr><td class="g">all / every</td><td class="e">all the books / every book (+ singular verb)</td><td class="e">all the water</td></tr>'+
+  '</tbody></table></div>'+
+  P('<b class="eng">a few / a little</b> = some, enough (positive). <b class="eng">few / little</b> = hardly any (negative): <i>I have a few friends here</i> (good) vs <i>I have few friends here</i> (sad). Use <b class="eng">many / much</b> mostly in questions and negatives; in positive sentences use <b class="eng">a lot of</b>.','a few/a little = थोड़े-बहुत (पर्याप्त, सकारात्मक); few/little = लगभग नहीं (नकारात्मक)। many/much प्रश्न और नकारात्मक वाक्यों में; सकारात्मक में a lot of।','a few/a little = ਥੋੜ੍ਹੇ-ਬਹੁਤ (ਕਾਫ਼ੀ, ਸਕਾਰਾਤਮਕ); few/little = ਲਗਭਗ ਨਹੀਂ (ਨਕਾਰਾਤਮਕ)। many/much ਪ੍ਰਸ਼ਨ ਅਤੇ ਨਕਾਰਾਤਮਕ ਵਿੱਚ; ਸਕਾਰਾਤਮਕ ਵਿੱਚ a lot of।')+
+  '<div class="rule"><span class="lbl">some & any</span><b>some</b>: positive, offers, requests (<i>Would you like some tea?</i>). <b>any</b>: negatives, questions, and "it doesn\'t matter which" (<i>Take any book you like.</i>). Compounds: <b class="eng">somebody, anything, nowhere, everyone</b>.</div>'+
+  '<div class="rule warn"><span class="lbl">Common mistakes</span>✗ many water, ✗ much books, ✗ a lot of informations, ✗ I have a little friends. ✓ <b class="eng">much water, many books, a lot of information, a few friends.</b></div>'),
+ B.mcq('Practice 1 — Choose the correct quantifier',[
+  'How ___ money do you have?|many;much;few|1|money = uncountable.|आपके पास कितने पैसे हैं?|ਤੁਹਾਡੇ ਕੋਲ ਕਿੰਨੇ ਪੈਸੇ ਹਨ?',
+  'How ___ students are in your class?|much;many;little|1|students = countable.',
+  'I have ___ friends in this city. I feel lonely.|a few;few;a little|1|few = almost none.',
+  'There is ___ milk left. We can make tea.|a little;little;few|0|a little = some.',
+  'She doesn\'t have ___ time.|many;much;a few|1|negative + uncountable → much.',
+  'Would you like ___ coffee?|any;some;many|1|offer → some.',
+  'I haven\'t got ___ questions.|some;any;much|1|negative → any.',
+  '___ of my friends play cricket. (nearly all)|Most;Much;Any|0|most of my friends.',
+  'There is ___ furniture in the room.|a lot of;many;a few|0|furniture = uncountable.',
+  '___ student in this class has a mobile.|All;Every;Many|1|Every + singular.']),
+ B.gap('Practice 2 — Complete',[
+  'We don\'t have ___ rice. (much/many)|much|हमारे पास ज़्यादा चावल नहीं है।|ਸਾਡੇ ਕੋਲ ਬਹੁਤੇ ਚੌਲ ਨਹੀਂ ਹਨ।','Can I have ___ water, please? (some/any)|some|क्या मुझे थोड़ा पानी मिल सकता है?|ਕੀ ਮੈਨੂੰ ਥੋੜ੍ਹਾ ਪਾਣੀ ਮਿਲ ਸਕਦਾ ਹੈ?','There are ___ cars on the road today. (a lot of / much)|a lot of|आज सड़क पर बहुत कारें हैं।|ਅੱਜ ਸੜਕ ਤੇ ਬਹੁਤ ਕਾਰਾਂ ਹਨ।','I need ___ eggs for the cake. (a few / a little)|a few|केक के लिए मुझे कुछ अंडे चाहिए।|ਕੇਕ ਲਈ ਮੈਨੂੰ ਕੁਝ ਆਂਡੇ ਚਾਹੀਦੇ ਹਨ।','Is there ___ sugar in the tea? (any/some)|any|क्या चाय में चीनी है?|ਕੀ ਚਾਹ ਵਿੱਚ ਖੰਡ ਹੈ?','He has ___ experience. He is new. (little / a little)|little|उसके पास बहुत कम अनुभव है।|ਉਸ ਕੋਲ ਬਹੁਤ ਘੱਟ ਤਜਰਬਾ ਹੈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'There isn\'t much traffic on Sundays.|रविवार को ज़्यादा ट्रैफ़िक नहीं होता।|ਐਤਵਾਰ ਨੂੰ ਬਹੁਤੀ ਟ੍ਰੈਫ਼ਿਕ ਨਹੀਂ ਹੁੰਦੀ।','I have a few good friends.|मेरे कुछ अच्छे दोस्त हैं।|ਮੇਰੇ ਕੁਝ ਚੰਗੇ ਦੋਸਤ ਹਨ।','How many people came to the party?|पार्टी में कितने लोग आए?|ਪਾਰਟੀ ਵਿੱਚ ਕਿੰਨੇ ਲੋਕ ਆਏ?','Is there any milk in the fridge?|क्या फ़्रिज में दूध है?|ਕੀ ਫ਼ਰਿੱਜ ਵਿੱਚ ਦੁੱਧ ਹੈ?'])
+]);
+
+/* ══════════ UNIT 07 — Modal Verbs ══════════ */
+UNIT('a2_modal','07','Grammar','Modal Verbs: should, must, have to, could, may, would like','मॉडल क्रियाएँ · ਮਾਡਲ ਕਿਰਿਆਵਾਂ',
+'Modal verbs add meaning: advice, obligation, permission, possibility and polite requests. They never change form and are followed by the plain verb.',
+'Modal verbs में सलाह, अनिवार्यता, अनुमति, संभावना और शिष्ट अनुरोध का भाव होता है। इनका रूप कभी नहीं बदलता और इनके बाद क्रिया का सादा रूप आता है।',
+'Modal verbs ਵਿੱਚ ਸਲਾਹ, ਲਾਜ਼ਮੀਅਤ, ਇਜਾਜ਼ਤ, ਸੰਭਾਵਨਾ ਅਤੇ ਸ਼ਿਸ਼ਟ ਬੇਨਤੀ ਦਾ ਭਾਵ ਹੁੰਦਾ ਹੈ। ਇਨ੍ਹਾਂ ਦਾ ਰੂਪ ਕਦੇ ਨਹੀਂ ਬਦਲਦਾ ਅਤੇ ਇਨ੍ਹਾਂ ਤੋਂ ਬਾਅਦ ਕਿਰਿਆ ਦਾ ਸਾਦਾ ਰੂਪ ਆਉਂਦਾ ਹੈ।',[
+ B.rule('The most useful modals',
+  '<div class="tbl-wrap"><table><thead><tr><th>Modal</th><th>Meaning</th><th>Example</th><th class="hi">हिन्दी</th><th class="pa">ਪੰਜਾਬੀ</th></tr></thead><tbody>'+
+  '<tr><td class="g">can / can\'t</td><td class="e">ability, permission</td><td class="n">I can swim. Can I come in?</td><td class="hi">सकना</td><td class="pa">ਸਕਣਾ</td></tr>'+
+  '<tr><td class="g">could</td><td class="e">past ability; polite request</td><td class="n">I could run fast. Could you help me?</td><td class="hi">सकता था / क्या आप कृपया</td><td class="pa">ਸਕਦਾ ਸੀ / ਕੀ ਤੁਸੀਂ ਕਿਰਪਾ</td></tr>'+
+  '<tr><td class="g">should / shouldn\'t</td><td class="e">advice</td><td class="n">You should rest. You shouldn\'t smoke.</td><td class="hi">चाहिए</td><td class="pa">ਚਾਹੀਦਾ ਹੈ</td></tr>'+
+  '<tr><td class="g">must / mustn\'t</td><td class="e">strong obligation / prohibition</td><td class="n">You must wear a helmet. You mustn\'t park here.</td><td class="hi">ज़रूर करना चाहिए / नहीं करना</td><td class="pa">ਜ਼ਰੂਰ ਕਰਨਾ / ਨਹੀਂ ਕਰਨਾ</td></tr>'+
+  '<tr><td class="g">have to / don\'t have to</td><td class="e">necessary (rule) / not necessary</td><td class="n">I have to get up early. You don\'t have to come.</td><td class="hi">करना पड़ता है / ज़रूरी नहीं</td><td class="pa">ਕਰਨਾ ਪੈਂਦਾ ਹੈ / ਲੋੜ ਨਹੀਂ</td></tr>'+
+  '<tr><td class="g">may / might</td><td class="e">possibility; formal permission</td><td class="n">It may rain. May I sit here?</td><td class="hi">शायद / क्या मैं</td><td class="pa">ਸ਼ਾਇਦ / ਕੀ ਮੈਂ</td></tr>'+
+  '<tr><td class="g">would like</td><td class="e">polite want</td><td class="n">I\'d like some tea. Would you like to dance?</td><td class="hi">मैं चाहूँगा</td><td class="pa">ਮੈਂ ਚਾਹਾਂਗਾ</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span><b>mustn\'t</b> = forbidden (<i>You mustn\'t smoke here</i>). <b>don\'t have to</b> = not necessary (<i>You don\'t have to pay</i>). They are NOT the same! &nbsp; ✗ She musts go. ✗ He should to study. ✗ Can you to help? ✓ <b class="eng">She must go. He should study. Can you help?</b>'+T('mustn\'t = मना है; don\'t have to = ज़रूरी नहीं। दोनों अलग हैं!','mustn\'t = ਮਨ੍ਹਾ ਹੈ; don\'t have to = ਲੋੜ ਨਹੀਂ। ਦੋਵੇਂ ਵੱਖਰੇ ਹਨ!')+'</div>'+
+  '<div class="rule"><span class="lbl">Polite requests (from casual to formal)</span>Can you help me? → <b>Could</b> you help me? → <b>Would you mind</b> helping me? → I was wondering if you could help me.</div>'),
+ B.mcq('Practice 1 — Choose the correct modal',[
+  'You look ill. You ___ see a doctor.|can;should;would|1|advice → should.|आप बीमार लग रहे हैं। आपको डॉक्टर को दिखाना चाहिए।|ਤੁਸੀਂ ਬਿਮਾਰ ਲੱਗ ਰਹੇ ਹੋ। ਤੁਹਾਨੂੰ ਡਾਕਟਰ ਨੂੰ ਵਿਖਾਉਣਾ ਚਾਹੀਦਾ ਹੈ।',
+  'Cars ___ park here. It is a no-parking zone.|mustn\'t;don\'t have to;shouldn\'t to|0|forbidden → mustn\'t.',
+  'Tomorrow is a holiday. You ___ come to school.|mustn\'t;don\'t have to;must|1|not necessary → don\'t have to.',
+  '___ you open the window, please?|Must;Could;Should|1|polite request → could.',
+  'She ___ to work on Sundays. It is her job.|have;has to;must to|1|she → has to.',
+  'I ___ swim when I was five.|can;could;should|1|past ability → could.',
+  'It ___ rain tonight. Take an umbrella.|may;must;has to|0|possibility → may.',
+  'I ___ like a glass of water, please.|will;would;should|1|I\'d like = I would like.',
+  'Which is correct?|He can sings.;He can sing.;He can to sing.|1|modal + plain verb.',
+  'Students ___ wear uniform. It is a school rule.|have to;can;may|0|rule → have to.']),
+ B.gap('Practice 2 — Complete',[
+  'You ___ drink more water. (advice)|should|आपको ज़्यादा पानी पीना चाहिए।|ਤੁਹਾਨੂੰ ਵੱਧ ਪਾਣੀ ਪੀਣਾ ਚਾਹੀਦਾ ਹੈ।','We ___ be late. The exam starts at nine. (strong obligation)|mustn\'t/must not|हमें देर नहीं करनी चाहिए।|ਸਾਨੂੰ ਦੇਰ ਨਹੀਂ ਕਰਨੀ ਚਾਹੀਦੀ।','You ___ pay. It is free. (not necessary)|don\'t have to|आपको पैसे देने की ज़रूरत नहीं।|ਤੁਹਾਨੂੰ ਪੈਸੇ ਦੇਣ ਦੀ ਲੋੜ ਨਹੀਂ।','___ I borrow your pen? (permission)|can/may/could|क्या मैं आपका पेन ले सकता हूँ?|ਕੀ ਮੈਂ ਤੁਹਾਡਾ ਪੈੱਨ ਲੈ ਸਕਦਾ ਹਾਂ?','Where is Raj? He ___ be at the library. (possibility)|may/might|राज कहाँ है? शायद लाइब्रेरी में हो।|ਰਾਜ ਕਿੱਥੇ ਹੈ? ਸ਼ਾਇਦ ਲਾਇਬ੍ਰੇਰੀ ਵਿੱਚ ਹੋਵੇ।','I ___ to get up at five every day. (necessary)|have|मुझे रोज़ पाँच बजे उठना पड़ता है।|ਮੈਨੂੰ ਰੋਜ਼ ਪੰਜ ਵਜੇ ਉੱਠਣਾ ਪੈਂਦਾ ਹੈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'You should eat more vegetables.|आपको ज़्यादा सब्ज़ियाँ खानी चाहिए।|ਤੁਹਾਨੂੰ ਵੱਧ ਸਬਜ਼ੀਆਂ ਖਾਣੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ।','You mustn\'t use your phone in the exam.|परीक्षा में फ़ोन का प्रयोग नहीं करना चाहिए।|ਪ੍ਰੀਖਿਆ ਵਿੱਚ ਫ਼ੋਨ ਨਹੀਂ ਵਰਤਣਾ ਚਾਹੀਦਾ।','Could you tell me the time, please?|क्या आप कृपया समय बता सकते हैं?|ਕੀ ਤੁਸੀਂ ਕਿਰਪਾ ਕਰਕੇ ਸਮਾਂ ਦੱਸ ਸਕਦੇ ਹੋ?','I have to finish this work today.|मुझे यह काम आज ही पूरा करना है।|ਮੈਨੂੰ ਇਹ ਕੰਮ ਅੱਜ ਹੀ ਪੂਰਾ ਕਰਨਾ ਹੈ।'])
+]);
+
+/* ══════════ UNIT 08 — Adverbs ══════════ */
+UNIT('a2_adv','08','Grammar','Adverbs & Adjectives, Frequency, Manner & Degree','क्रिया-विशेषण · ਕਿਰਿਆ-ਵਿਸ਼ੇਸ਼ਣ',
+'Adjectives describe nouns (a <i>quick</i> reply). Adverbs describe verbs (he replied <i>quickly</i>). Learn how to form and place them.',
+'विशेषण संज्ञा का वर्णन करते हैं (a quick reply)। क्रिया-विशेषण क्रिया का (he replied quickly)। उन्हें बनाना और लगाना सीखें।',
+'ਵਿਸ਼ੇਸ਼ਣ ਨਾਂਵ ਦਾ ਵਰਣਨ ਕਰਦੇ ਹਨ (a quick reply)। ਕਿਰਿਆ-ਵਿਸ਼ੇਸ਼ਣ ਕਿਰਿਆ ਦਾ (he replied quickly)। ਇਨ੍ਹਾਂ ਨੂੰ ਬਣਾਉਣਾ ਅਤੇ ਲਗਾਉਣਾ ਸਿੱਖੋ।',[
+ B.rule('Forming adverbs of manner',
+  '<div class="tbl-wrap"><table><thead><tr><th>Rule</th><th>Adjective → Adverb</th></tr></thead><tbody>'+
+  '<tr><td class="g">most: + ly</td><td class="e">quick → quickly, slow → slowly, careful → carefully, loud → loudly</td></tr>'+
+  '<tr><td class="g">y → ily</td><td class="e">easy → easily, happy → happily, angry → angrily</td></tr>'+
+  '<tr><td class="g">ends in le → ly</td><td class="e">gentle → gently, simple → simply</td></tr>'+
+  '<tr><td class="g">irregular</td><td class="e">good → <b>well</b>, fast → <b>fast</b>, hard → <b>hard</b>, late → <b>late</b>, early → <b>early</b></td></tr>'+
+  '</tbody></table></div>'+
+  P('Adjective after <b class="eng">be / look / feel / seem / sound</b>: <i>She looks <b>happy</b>. The food smells <b>good</b>.</i> Adverb with an action verb: <i>She sings <b>beautifully</b>. He works <b>hard</b>.</i> ✗ He speaks English <i>good</i>. ✓ He speaks English <b class="eng">well</b>.','be/look/feel/seem के बाद विशेषण; क्रिया के साथ क्रिया-विशेषण। ✗ He speaks English good → ✓ well।','be/look/feel/seem ਤੋਂ ਬਾਅਦ ਵਿਸ਼ੇਸ਼ਣ; ਕਿਰਿਆ ਨਾਲ ਕਿਰਿਆ-ਵਿਸ਼ੇਸ਼ਣ। ✗ He speaks English good → ✓ well।')),
+ B.rule('Adverbs of frequency, degree & time',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Words</th><th>Position</th></tr></thead><tbody>'+
+  '<tr><td class="g">Frequency (100% → 0%)</td><td class="e">always, usually, often, sometimes, rarely, hardly ever, never</td><td class="n">before the main verb; after be: <i>She is <b>always</b> late. I <b>never</b> eat meat.</i></td></tr>'+
+  '<tr><td class="g">Degree</td><td class="e">very, really, quite, a bit, extremely, too, enough</td><td class="n">before adjective/adverb: <i>very cold, quite easy</i></td></tr>'+
+  '<tr><td class="g">Time</td><td class="e">already, yet, still, just, soon, recently</td><td class="n">already/just/still → mid; yet → end: <i>I haven\'t finished <b>yet</b>.</i></td></tr>'+
+  '<tr><td class="g">Place</td><td class="e">here, there, outside, upstairs, nearby</td><td class="n">after the verb</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Order at the end of a sentence</span><b>Manner → Place → Time</b>: <i>She sang <b>beautifully</b> <b>at the party</b> <b>last night</b>.</i></div>'),
+ B.mcq('Practice 1 — Adjective or adverb?',[
+  'She sings ___.|beautiful;beautifully;beauty|1|sings (verb) → adverb.|वह सुंदर गाती है।|ਉਹ ਸੁਹਣਾ ਗਾਉਂਦੀ ਹੈ।',
+  'The food smells ___.|good;well;goodly|0|smell + adjective.',
+  'He drives very ___.|careful;carefully;care|1|drives → adverb.',
+  'You speak English ___.|good;well;best|1|adverb of good = well.',
+  'She is ___ late for class.|late always;always;always is|1|after be: She is always late.',
+  'I ___ drink coffee at night.|never;ever;don\'t never|0|never + positive verb.',
+  'The test was ___ easy.|quite;quietly;quiet|0|quite = fairly.',
+  'He works ___. He is tired.|hardly;hard;hardy|1|hard = with effort; hardly = almost not.',
+  'She ___ finished her work.|yet has;has already;already has|1|has already finished.',
+  'Have you eaten ___?|already;yet;still|1|yet in questions.']),
+ B.gap('Practice 2 — Make the adverb',[
+  'slow → She walks ___.|slowly|वह धीरे चलती है।|ਉਹ ਹੌਲੀ ਤੁਰਦੀ ਹੈ।','easy → He passed the exam ___.|easily|वह आसानी से पास हो गया।|ਉਹ ਆਸਾਨੀ ਨਾਲ ਪਾਸ ਹੋ ਗਿਆ।','good → She plays cricket ___.|well|वह अच्छा क्रिकेट खेलती है।|ਉਹ ਵਧੀਆ ਕ੍ਰਿਕਟ ਖੇਡਦੀ ਹੈ।','careful → Please drive ___.|carefully|कृपया ध्यान से चलाइए।|ਕਿਰਪਾ ਕਰਕੇ ਧਿਆਨ ਨਾਲ ਚਲਾਓ।','happy → The children played ___.|happily|बच्चे खुशी से खेले।|ਬੱਚੇ ਖੁਸ਼ੀ ਨਾਲ ਖੇਡੇ।','fast → He runs very ___.|fast|वह बहुत तेज़ दौड़ता है।|ਉਹ ਬਹੁਤ ਤੇਜ਼ ਦੌੜਦਾ ਹੈ।']),
+ B.ord('Practice 3 — Word order',[
+  'She always arrives on time|वह हमेशा समय पर पहुँचती है|ਉਹ ਹਮੇਸ਼ਾ ਸਮੇਂ ਤੇ ਪਹੁੰਚਦੀ ਹੈ','I have never been to Mumbai|मैं कभी मुंबई नहीं गया|ਮੈਂ ਕਦੇ ਮੁੰਬਈ ਨਹੀਂ ਗਿਆ','He spoke clearly in the meeting|उसने बैठक में साफ़ बोला|ਉਸਨੇ ਮੀਟਿੰਗ ਵਿੱਚ ਸਾਫ਼ ਬੋਲਿਆ','They have already left|वे पहले ही जा चुके हैं|ਉਹ ਪਹਿਲਾਂ ਹੀ ਜਾ ਚੁੱਕੇ ਹਨ'])
+]);
+
+/* ══════════ UNIT 09 — Conditionals ══════════ */
+UNIT('a2_cond','09','Grammar','Zero & First Conditionals, if / when / unless','शर्त वाले वाक्य · ਸ਼ਰਤ ਵਾਲੇ ਵਾਕ',
+'Talk about real situations and their results: "If you heat ice, it melts" and "If it rains tomorrow, I will stay at home".',
+'असली स्थितियों और उनके परिणाम की बात: "If you heat ice, it melts" और "If it rains tomorrow, I will stay at home"।',
+'ਅਸਲੀ ਹਾਲਾਤ ਅਤੇ ਉਨ੍ਹਾਂ ਦੇ ਨਤੀਜੇ ਦੀ ਗੱਲ: "If you heat ice, it melts" ਅਤੇ "If it rains tomorrow, I will stay at home"।',[
+ B.rule('Zero and first conditional',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>If-clause</th><th>Main clause</th><th>Use</th></tr></thead><tbody>'+
+  '<tr><td class="g">Zero</td><td class="e">If + present simple</td><td class="e">present simple</td><td class="n">facts, habits: <i>If you heat water to 100°C, it boils.</i></td></tr>'+
+  '<tr><td class="g">First</td><td class="e">If + present simple</td><td class="e">will + plain verb</td><td class="n">real future possibility: <i>If I pass, I will celebrate.</i></td></tr>'+
+  '</tbody></table></div>'+
+  P('Never use <b>will</b> in the if-clause: ✗ <i>If it will rain…</i> ✓ <b class="eng">If it rains, I will stay home.</b> The if-clause can come first (with a comma) or second (no comma): <i>I will stay home if it rains.</i>','if वाले हिस्से में will नहीं आता: If it rains, I will stay home। if-clause पहले हो तो comma लगाएँ।','if ਵਾਲੇ ਹਿੱਸੇ ਵਿੱਚ will ਨਹੀਂ ਆਉਂਦਾ: If it rains, I will stay home। if-clause ਪਹਿਲਾਂ ਹੋਵੇ ਤਾਂ comma ਲਗਾਓ।')+
+  '<div class="tbl-wrap"><table><thead><tr><th>Word</th><th>Meaning</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">if</td><td class="e">maybe</td><td class="n">If I see him, I\'ll tell him.</td></tr>'+
+  '<tr><td class="g">when</td><td class="e">sure it will happen</td><td class="n">When I see him, I\'ll tell him.</td></tr>'+
+  '<tr><td class="g">unless</td><td class="e">if … not</td><td class="n">Unless you study, you will fail. (= If you don\'t study…)</td></tr>'+
+  '<tr><td class="g">as soon as / before / after / until</td><td class="e">time clauses (present simple, not will)</td><td class="n">I\'ll call you as soon as I arrive.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Other main clauses</span>You can use <b>can, may, might, should, must, imperative</b>: <i>If you are tired, you should rest. If you need help, call me.</i></div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'If it ___ tomorrow, we will stay home.|will rain;rains;rained|1|present simple in if-clause.|अगर कल बारिश हुई तो हम घर रहेंगे।|ਜੇ ਕੱਲ੍ਹ ਮੀਂਹ ਪਿਆ ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ।',
+  'If you heat ice, it ___.|will melt;melts;melted|1|zero conditional.',
+  'I ___ you if I find your keys.|call;will call;called|1|will in main clause.',
+  '___ you study, you will fail. (= if not)|If;Unless;When|1|unless = if … not.',
+  'If she ___ hard, she will pass.|works;will work;worked|0|present simple.',
+  'I\'ll call you as soon as I ___.|will arrive;arrive;arrived|1|time clause: present simple.',
+  'If I ___ time, I will visit you.|have;will have;had|0|present simple.',
+  'If you need help, ___ me.|calls;call;will call|1|imperative in main clause.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'If I ___ (see) him, I will tell him.|see|अगर मैं उसे देखूँगा तो बता दूँगा।|ਜੇ ਮੈਂ ਉਸਨੂੰ ਵੇਖਿਆ ਤਾਂ ਦੱਸ ਦਿਆਂਗਾ।','If you don\'t hurry, you ___ (miss) the bus.|will miss|अगर जल्दी नहीं की तो बस छूट जाएगी।|ਜੇ ਜਲਦੀ ਨਾ ਕੀਤੀ ਤਾਂ ਬੱਸ ਨਿਕਲ ਜਾਵੇਗੀ।','If you mix red and blue, you ___ (get) purple.|get|लाल और नीला मिलाओ तो बैंगनी बनता है।|ਲਾਲ ਅਤੇ ਨੀਲਾ ਮਿਲਾਓ ਤਾਂ ਬੈਂਗਣੀ ਬਣਦਾ ਹੈ।','___ you work hard, you won\'t succeed. (unless/if)|unless|जब तक मेहनत नहीं करोगे सफल नहीं होगे।|ਜਦ ਤੱਕ ਮਿਹਨਤ ਨਹੀਂ ਕਰੋਗੇ ਸਫਲ ਨਹੀਂ ਹੋਵੋਗੇ।','I will wait until she ___ (come).|comes|मैं तब तक इंतज़ार करूँगा जब तक वह आ न जाए।|ਮੈਂ ਉਦੋਂ ਤੱਕ ਉਡੀਕ ਕਰਾਂਗਾ ਜਦੋਂ ਤੱਕ ਉਹ ਆ ਨਾ ਜਾਵੇ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'If you study every day, you will improve.|अगर तुम रोज़ पढ़ोगे तो तुम सुधरोगे।|ਜੇ ਤੁਸੀਂ ਰੋਜ਼ ਪੜ੍ਹੋਗੇ ਤਾਂ ਸੁਧਰੋਗੇ।','Unless we leave now, we will be late.|अगर हम अभी नहीं निकले तो देर हो जाएगी।|ਜੇ ਅਸੀਂ ਹੁਣੇ ਨਾ ਨਿਕਲੇ ਤਾਂ ਦੇਰ ਹੋ ਜਾਵੇਗੀ।','If it is sunny tomorrow, we will go for a picnic.|कल धूप हुई तो हम पिकनिक पर जाएँगे।|ਕੱਲ੍ਹ ਧੁੱਪ ਹੋਈ ਤਾਂ ਅਸੀਂ ਪਿਕਨਿਕ ਤੇ ਜਾਵਾਂਗੇ।','I will call you when I get home.|घर पहुँचकर मैं तुम्हें फ़ोन करूँगा।|ਘਰ ਪਹੁੰਚ ਕੇ ਮੈਂ ਤੁਹਾਨੂੰ ਫ਼ੋਨ ਕਰਾਂਗਾ।'])
+]);
+
+/* ══════════ UNIT 10 — Linkers & Phrasal verbs ══════════ */
+UNIT('a2_link','10','Grammar','Linking Words, Prepositions & Phrasal Verbs','जोड़ने वाले शब्द और phrasal verbs · ਜੋੜਨ ਵਾਲੇ ਸ਼ਬਦ ਅਤੇ phrasal verbs',
+'Connect your ideas with and, but, because, so, although. Learn the most common phrasal verbs — verbs with a small word that changes the meaning.',
+'and, but, because, so, although से अपने विचार जोड़ें। सबसे आम phrasal verbs सीखें — क्रिया के साथ छोटा शब्द जो अर्थ बदल देता है।',
+'and, but, because, so, although ਨਾਲ ਆਪਣੇ ਵਿਚਾਰ ਜੋੜੋ। ਸਭ ਤੋਂ ਆਮ phrasal verbs ਸਿੱਖੋ — ਕਿਰਿਆ ਨਾਲ ਛੋਟਾ ਸ਼ਬਦ ਜੋ ਅਰਥ ਬਦਲ ਦਿੰਦਾ ਹੈ।',[
+ B.rule('Linking words',
+  '<div class="tbl-wrap"><table><thead><tr><th>Word</th><th>Function</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">and</td><td class="e">adds</td><td class="n">I like tea and coffee.</td></tr>'+
+  '<tr><td class="g">but</td><td class="e">contrast</td><td class="n">I am tired, but I can\'t sleep.</td></tr>'+
+  '<tr><td class="g">or</td><td class="e">choice</td><td class="n">Tea or coffee?</td></tr>'+
+  '<tr><td class="g">because</td><td class="e">reason</td><td class="n">I stayed home because I was ill.</td></tr>'+
+  '<tr><td class="g">so</td><td class="e">result</td><td class="n">I was ill, so I stayed home.</td></tr>'+
+  '<tr><td class="g">although / even though</td><td class="e">contrast (+ clause)</td><td class="n">Although it was late, we kept working.</td></tr>'+
+  '<tr><td class="g">however</td><td class="e">contrast (new sentence)</td><td class="n">He is rich. However, he is not happy.</td></tr>'+
+  '<tr><td class="g">first, then, after that, finally</td><td class="e">sequence</td><td class="n">First, wash the rice. Then …</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ <i>Although</i> it was cold, <i>but</i> we went out. ✓ <b class="eng">Although it was cold, we went out.</b> (use only one: although OR but). &nbsp; ✗ Because I was ill. (a fragment) ✓ <b class="eng">I stayed home because I was ill.</b>'+T('Although और but एक साथ नहीं आते — एक ही चुनें।','Although ਅਤੇ but ਇਕੱਠੇ ਨਹੀਂ ਆਉਂਦੇ — ਇੱਕੋ ਚੁਣੋ।')+'</div>'),
+ B.vok('Phrasal verbs',[
+  'get up|I get up at six.|उठना|ਉੱਠਣਾ','wake up|Wake up! It\'s late.|जागना|ਜਾਗਣਾ','sit down / stand up|Please sit down.|बैठना / खड़ा होना|ਬੈਠਣਾ / ਖੜ੍ਹਾ ਹੋਣਾ','turn on / turn off|Turn off the light.|चालू / बंद करना|ਚਾਲੂ / ਬੰਦ ਕਰਨਾ','put on / take off|Put on your jacket. / Take off your shoes.|पहनना / उतारना|ਪਾਉਣਾ / ਲਾਹੁਣਾ','look for|I\'m looking for my keys.|ढूँढना|ਲੱਭਣਾ','look after|She looks after her grandmother.|देखभाल करना|ਸੰਭਾਲ ਕਰਨੀ','find out|I found out the answer.|पता लगाना|ਪਤਾ ਲਗਾਉਣਾ','give up|Don\'t give up!|हार मानना / छोड़ना|ਹਾਰ ਮੰਨਣੀ / ਛੱਡਣਾ','come back / go back|I\'ll come back soon.|वापस आना / जाना|ਵਾਪਸ ਆਉਣਾ / ਜਾਣਾ','pick up|Can you pick me up at six?|उठाना / लेने आना|ਚੁੱਕਣਾ / ਲੈਣ ਆਉਣਾ','fill in|Fill in this form.|भरना (फ़ॉर्म)|ਭਰਨਾ (ਫ਼ਾਰਮ)','set up|They set up a business.|शुरू करना / स्थापित करना|ਸ਼ੁਰੂ ਕਰਨਾ / ਸਥਾਪਿਤ ਕਰਨਾ','run out of|We ran out of milk.|ख़त्म हो जाना|ਮੁੱਕ ਜਾਣਾ','get on / get off|Get off the bus here.|चढ़ना / उतरना|ਚੜ੍ਹਨਾ / ਉਤਰਨਾ','carry on|Carry on working.|जारी रखना|ਜਾਰੀ ਰੱਖਣਾ']),
+ B.rule('Phrasal verbs — word order',
+  P('<b>Separable</b>: the object can go in the middle: <i>turn <b>the light</b> off / turn it off</i> (with a pronoun it must be in the middle: ✗ turn off it). <b>Inseparable</b>: <i>look after her</i>, <i>get on the bus</i> — the object always comes after.','Separable: संज्ञा बीच में आ सकती है (turn the light off); सर्वनाम हमेशा बीच में (turn it off)। Inseparable: look after her — कर्म हमेशा बाद में।','Separable: ਨਾਂਵ ਵਿਚਕਾਰ ਆ ਸਕਦਾ ਹੈ (turn the light off); ਪੜਨਾਂਵ ਹਮੇਸ਼ਾ ਵਿਚਕਾਰ (turn it off)। Inseparable: look after her — ਕਰਮ ਹਮੇਸ਼ਾ ਬਾਅਦ ਵਿੱਚ।')),
+ B.mcq('Practice 1 — Linkers & phrasal verbs',[
+  'I was hungry, ___ I ate something.|because;so;but|1|result → so.|मुझे भूख लगी थी, इसलिए मैंने कुछ खाया।|ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਸੀ, ਇਸ ਲਈ ਮੈਂ ਕੁਝ ਖਾਧਾ।',
+  'I stayed at home ___ it was raining.|so;because;however|1|reason → because.',
+  '___ he is rich, he is not happy.|Although;But;So|0|Although + clause.',
+  'Please ___ your shoes before you enter.|take off;take out;take in|0|take off = remove.',
+  'I am ___ my glasses. I can\'t find them.|looking at;looking for;looking after|1|look for = search.',
+  'She ___ her little brother while her mother works.|looks for;looks after;looks up|1|look after = take care of.',
+  'We ___ of petrol on the highway.|ran out;ran away;ran off|0|run out of = no more.',
+  'Can you ___ the form, please?|fill in;fill on;fill at|0|fill in a form.',
+  'Don\'t ___! Keep trying.|give in;give up;give out|1|give up = stop trying.',
+  '___ it was late, we finished the work.|Because;Although;So|1|Although = contrast.']),
+ B.gap('Practice 2 — Complete',[
+  'It was cold, ___ I wore a jacket. (so / because)|so|ठंड थी, इसलिए मैंने जैकेट पहनी।|ਠੰਢ ਸੀ, ਇਸ ਲਈ ਮੈਂ ਜੈਕਟ ਪਾਈ।','I like cricket ___ I don\'t like football. (and / but)|but|मुझे क्रिकेट पसंद है पर फ़ुटबॉल नहीं।|ਮੈਨੂੰ ਕ੍ਰਿਕਟ ਪਸੰਦ ਹੈ ਪਰ ਫੁੱਟਬਾਲ ਨਹੀਂ।','Please turn ___ the fan. It\'s cold. (on/off)|off|कृपया पंखा बंद कर दीजिए।|ਕਿਰਪਾ ਕਰਕੇ ਪੱਖਾ ਬੰਦ ਕਰ ਦਿਓ।','He is ___ for a job. (looking)|looking|वह नौकरी ढूँढ रहा है।|ਉਹ ਨੌਕਰੀ ਲੱਭ ਰਿਹਾ ਹੈ।','She didn\'t pass ___ she studied hard. (although/because)|although|उसने मेहनत की, फिर भी पास नहीं हुई।|ਉਸਨੇ ਮਿਹਨਤ ਕੀਤੀ, ਫਿਰ ਵੀ ਪਾਸ ਨਹੀਂ ਹੋਈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'I was tired, so I went to bed early.|मैं थका हुआ था, इसलिए जल्दी सो गया।|ਮੈਂ ਥੱਕਿਆ ਹੋਇਆ ਸੀ, ਇਸ ਲਈ ਛੇਤੀ ਸੌਂ ਗਿਆ।','Although it was expensive, I bought it.|महँगा था, फिर भी मैंने खरीद लिया।|ਮਹਿੰਗਾ ਸੀ, ਫਿਰ ਵੀ ਮੈਂ ਖ਼ਰੀਦ ਲਿਆ।','Please fill in this form and sit down.|कृपया यह फ़ॉर्म भरिए और बैठिए।|ਕਿਰਪਾ ਕਰਕੇ ਇਹ ਫ਼ਾਰਮ ਭਰੋ ਅਤੇ ਬੈਠੋ।','We ran out of time, however we finished the main part.|समय कम पड़ गया, फिर भी हमने मुख्य भाग पूरा किया।|ਸਮਾਂ ਮੁੱਕ ਗਿਆ, ਫਿਰ ਵੀ ਅਸੀਂ ਮੁੱਖ ਹਿੱਸਾ ਪੂਰਾ ਕੀਤਾ।'])
+]);
+
+/* ══════════ UNIT 11 — Travel ══════════ */
+UNIT('a2_travel','11','Topics','Travel, Transport & Booking','यात्रा, परिवहन और बुकिंग · ਯਾਤਰਾ, ਆਵਾਜਾਈ ਅਤੇ ਬੁਕਿੰਗ',
+'Buy tickets, ask about timings, book a hotel and deal with travel problems — useful English for trips and for exams.',
+'टिकट खरीदना, समय पूछना, होटल बुक करना और यात्रा की समस्याएँ — यात्राओं और परीक्षाओं के लिए ज़रूरी अंग्रेज़ी।',
+'ਟਿਕਟ ਖ਼ਰੀਦਣਾ, ਸਮਾਂ ਪੁੱਛਣਾ, ਹੋਟਲ ਬੁੱਕ ਕਰਨਾ ਅਤੇ ਯਾਤਰਾ ਦੀਆਂ ਮੁਸ਼ਕਲਾਂ — ਯਾਤਰਾਵਾਂ ਅਤੇ ਪ੍ਰੀਖਿਆਵਾਂ ਲਈ ਜ਼ਰੂਰੀ ਅੰਗਰੇਜ਼ੀ।',[
+ B.vok('Transport & tickets',[
+  'ticket|Two tickets to Delhi, please.|टिकट|ਟਿਕਟ','single / return ticket|one way / go and come back|एक तरफ़ा / आना-जाना टिकट|ਇੱਕ ਪਾਸੜ / ਆਉਣ-ਜਾਣ ਟਿਕਟ','platform|The train leaves from platform 3.|प्लेटफ़ॉर्म|ਪਲੇਟਫ਼ਾਰਮ','departure / arrival|departure 9:15, arrival 12:40|प्रस्थान / आगमन|ਰਵਾਨਗੀ / ਆਮਦ','delay / delayed|The train is delayed.|देरी / लेट|ਦੇਰੀ / ਲੇਟ','cancelled|The flight is cancelled.|रद्द|ਰੱਦ','luggage / baggage|I have two bags.|सामान|ਸਾਮਾਨ','seat / window seat|a window seat|सीट / खिड़की वाली सीट|ਸੀਟ / ਖਿੜਕੀ ਵਾਲੀ ਸੀਟ','passport / visa|Don\'t forget your passport.|पासपोर्ट / वीज़ा|ਪਾਸਪੋਰਟ / ਵੀਜ਼ਾ','airport / flight|My flight is at 6.|हवाई अड्डा / उड़ान|ਹਵਾਈ ਅੱਡਾ / ਉਡਾਣ','board / get on|board the train|(गाड़ी में) चढ़ना|(ਗੱਡੀ ਵਿੱਚ) ਚੜ੍ਹਨਾ','book / reserve|book a room|बुक करना|ਬੁੱਕ ਕਰਨਾ','single room / double room|a double room with a bathroom|एक / दो बिस्तर वाला कमरा|ਇੱਕ / ਦੋ ਬਿਸਤਰਿਆਂ ਵਾਲਾ ਕਮਰਾ','check in / check out|Check-out is at 11.|होटल में आना / छोड़ना|ਹੋਟਲ ਵਿੱਚ ਆਉਣਾ / ਛੱਡਣਾ']),
+ B.dlg('Dialogue — at the railway station',[
+  'Passenger|Good morning. I\'d like two return tickets to Delhi, please.|सुप्रभात। मुझे दिल्ली के लिए दो रिटर्न टिकट चाहिए।|ਸ਼ੁਭ ਸਵੇਰ। ਮੈਨੂੰ ਦਿੱਲੀ ਲਈ ਦੋ ਰਿਟਰਨ ਟਿਕਟਾਂ ਚਾਹੀਦੀਆਂ ਹਨ।',
+  'Clerk|For which date?|किस तारीख़ के लिए?|ਕਿਸ ਤਾਰੀਖ਼ ਲਈ?',
+  'Passenger|This Friday, in the morning. What time does the train leave?|इस शुक्रवार सुबह। गाड़ी कितने बजे जाती है?|ਇਸ ਸ਼ੁੱਕਰਵਾਰ ਸਵੇਰੇ। ਗੱਡੀ ਕਿੰਨੇ ਵਜੇ ਜਾਂਦੀ ਹੈ?',
+  'Clerk|There is a train at 7:40. It arrives in Delhi at 11:55.|7:40 पर एक गाड़ी है। यह 11:55 पर दिल्ली पहुँचती है।|7:40 ਤੇ ਇੱਕ ਗੱਡੀ ਹੈ। ਇਹ 11:55 ਤੇ ਦਿੱਲੀ ਪਹੁੰਚਦੀ ਹੈ।',
+  'Passenger|Which platform does it leave from?|यह किस प्लेटफ़ॉर्म से जाती है?|ਇਹ ਕਿਸ ਪਲੇਟਫ਼ਾਰਮ ਤੋਂ ਜਾਂਦੀ ਹੈ?',
+  'Clerk|Platform 2. That will be 820 rupees, please.|प्लेटफ़ॉर्म 2। कुल 820 रुपये।|ਪਲੇਟਫ਼ਾਰਮ 2। ਕੁੱਲ 820 ਰੁਪਏ।']),
+ B.rule('Useful patterns for travel',
+  '<div class="tbl-wrap"><table><thead><tr><th>Situation</th><th>Say</th></tr></thead><tbody>'+
+  '<tr><td class="g">Ask the time</td><td class="e">What time does the bus leave? / When does the train arrive?</td></tr>'+
+  '<tr><td class="g">Ask how long</td><td class="e">How long does it take? — It takes about three hours.</td></tr>'+
+  '<tr><td class="g">Book a room</td><td class="e">I\'d like to book a single room for two nights, please.</td></tr>'+
+  '<tr><td class="g">Ask about facilities</td><td class="e">Is breakfast included? Is there Wi-Fi in the room?</td></tr>'+
+  '<tr><td class="g">Problems</td><td class="e">The train is late. I\'ve lost my ticket. My luggage hasn\'t arrived.</td></tr>'+
+  '<tr><td class="g">Ask for help</td><td class="e">Could you help me with my bag, please?</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Prepositions of transport</span><b>by</b> bus / train / car / plane (no article): <i>I go by bus.</i> &nbsp; <b>on</b> the bus / train / plane; <b>in</b> a car / taxi. &nbsp; <b>on foot</b> = walking.'+T('"बस से" = by bus; "बस में" = on the bus; "कार में" = in a car; "पैदल" = on foot।','"ਬੱਸ ਰਾਹੀਂ" = by bus; "ਬੱਸ ਵਿੱਚ" = on the bus; "ਕਾਰ ਵਿੱਚ" = in a car; "ਪੈਦਲ" = on foot।')+'</div>'),
+ B.mcq('Practice 1 — Travel English',[
+  'You want to travel to Delhi and come back. You ask for a…|single ticket;return ticket;platform ticket|1|return = go and come back.|आप दिल्ली जाकर लौटना चाहते हैं।|ਤੁਸੀਂ ਦਿੱਲੀ ਜਾ ਕੇ ਮੁੜਨਾ ਚਾਹੁੰਦੇ ਹੋ।',
+  'The train is 2 hours ___.|delay;delayed;delaying|1|The train is delayed.',
+  'I go to college ___ bus.|on;by;in|1|by bus.',
+  'We arrived ___ the airport at nine.|in;to;at|2|arrive at an airport / station.',
+  'How long does it ___ to get there?|take;make;spend|0|How long does it take?',
+  'You say this when you arrive at a hotel:|I\'d like to check in.;I want to check out.;I will book out.|0|check in = register.',
+  'The flight was ___ because of fog. (not flown)|cancelled;delayed;booked|0|cancelled = not operated.',
+  'Is breakfast ___? — Yes, it comes with the room.|including;included;include|1|included.']),
+ B.gap('Practice 2 — Complete',[
+  'What time ___ the bus leave? (does/do)|does|बस कब जाती है?|ਬੱਸ ਕਦੋਂ ਜਾਂਦੀ ਹੈ?','We travelled ___ train. (by/on)|by|हम रेल से गए।|ਅਸੀਂ ਰੇਲ ਰਾਹੀਂ ਗਏ।','I\'d like to ___ a room for two nights. (b _ _ k)|book|मैं दो रातों के लिए कमरा बुक करना चाहता हूँ।|ਮੈਂ ਦੋ ਰਾਤਾਂ ਲਈ ਕਮਰਾ ਬੁੱਕ ਕਰਨਾ ਚਾਹੁੰਦਾ ਹਾਂ।','Our flight ___ at 6 a.m. (leave, present simple)|leaves|हमारी उड़ान सुबह 6 बजे जाती है।|ਸਾਡੀ ਉਡਾਣ ਸਵੇਰੇ 6 ਵਜੇ ਜਾਂਦੀ ਹੈ।','How ___ does the journey take? (long/much)|long|यात्रा में कितना समय लगता है?|ਯਾਤਰਾ ਵਿੱਚ ਕਿੰਨਾ ਸਮਾਂ ਲੱਗਦਾ ਹੈ?']),
+ B.write('Practice 3 — Hotel booking email','Write an email (50 words) to a hotel. Ask for a double room for 3 nights, say the dates and ask about breakfast and the price.',['Greeting + why you write','Dates and room','Questions','Closing'],
+  'Subject: Room booking\n\nDear Sir or Madam,\n\nI would like to book a double room from 12 to 15 December. Is breakfast included in the price? Could you also tell me how much the room costs per night and whether there is Wi-Fi?\n\nI look forward to your reply.\n\nYours faithfully,\nSimran Kaur')
+]);
+
+/* ══════════ UNIT 12 — Health ══════════ */
+UNIT('a2_health','12','Topics','Health, Body & Giving Advice','स्वास्थ्य, शरीर और सलाह · ਸਿਹਤ, ਸਰੀਰ ਅਤੇ ਸਲਾਹ',
+'Describe symptoms, make a doctor\'s appointment and give advice with should and shouldn\'t.',
+'लक्षण बताना, डॉक्टर की अपॉइंटमेंट लेना और should / shouldn\'t से सलाह देना सीखें।',
+'ਲੱਛਣ ਦੱਸਣਾ, ਡਾਕਟਰ ਦੀ ਅਪੌਇੰਟਮੈਂਟ ਲੈਣੀ ਅਤੇ should / shouldn\'t ਨਾਲ ਸਲਾਹ ਦੇਣੀ ਸਿੱਖੋ।',[
+ B.vok('Body & illness',[
+  'head / eye / ear / nose / mouth|body parts|सिर / आँख / कान / नाक / मुँह|ਸਿਰ / ਅੱਖ / ਕੰਨ / ਨੱਕ / ਮੂੰਹ','throat / neck / shoulder|sore throat|गला / गर्दन / कंधा|ਗਲ਼ਾ / ਗਰਦਨ / ਮੋਢਾ','arm / hand / finger|broken arm|बाँह / हाथ / उँगली|ਬਾਂਹ / ਹੱਥ / ਉਂਗਲ','stomach / back / chest|back pain|पेट / पीठ / छाती|ਪੇਟ / ਪਿੱਠ / ਛਾਤੀ','leg / knee / foot|hurt my knee|टाँग / घुटना / पैर|ਲੱਤ / ਗੋਡਾ / ਪੈਰ','headache|I have a headache.|सिरदर्द|ਸਿਰ ਦਰਦ','stomach ache|I have a stomach ache.|पेट दर्द|ਪੇਟ ਦਰਦ','toothache|dentist|दाँत दर्द|ਦੰਦ ਦਰਦ','a cold / a cough|I have a cold and a cough.|ज़ुकाम / खाँसी|ਜ਼ੁਕਾਮ / ਖੰਘ','a fever / a temperature|He has a high temperature.|बुखार|ਬੁਖ਼ਾਰ','sore throat|My throat is sore.|गले में दर्द|ਗਲ਼ੇ ਵਿੱਚ ਦਰਦ','allergy|I\'m allergic to dust.|एलर्जी|ਐਲਰਜੀ','dizzy|I feel dizzy.|चक्कर आना|ਚੱਕਰ ਆਉਣਾ','medicine / tablet / syrup|Take this medicine twice a day.|दवाई / गोली / सिरप|ਦਵਾਈ / ਗੋਲ਼ੀ / ਸਿਰਪ','prescription|The doctor wrote a prescription.|पर्ची|ਪਰਚੀ','appointment|I have a doctor\'s appointment.|अपॉइंटमेंट|ਅਪੌਇੰਟਮੈਂਟ','rest|You need rest.|आराम|ਆਰਾਮ','recover / get better|I hope you get better soon.|ठीक होना|ਠੀਕ ਹੋਣਾ']),
+ B.rule('Describing symptoms & giving advice',
+  '<div class="tbl-wrap"><table><thead><tr><th>Say</th><th>Pattern</th></tr></thead><tbody>'+
+  '<tr><td class="g">I have a + illness</td><td class="e">I have a headache / a cold / a fever.</td></tr>'+
+  '<tr><td class="g">My + body part + hurts</td><td class="e">My back hurts. / I have a pain in my chest.</td></tr>'+
+  '<tr><td class="g">I feel + adjective</td><td class="e">I feel sick / dizzy / tired.</td></tr>'+
+  '<tr><td class="g">What\'s the matter? / What\'s wrong?</td><td class="e">doctor asks</td></tr>'+
+  '<tr><td class="g">How long have you had it?</td><td class="e">For two days. / Since Monday.</td></tr>'+
+  '<tr><td class="g">You should / shouldn\'t …</td><td class="e">You should rest and drink a lot of water. You shouldn\'t eat spicy food.</td></tr>'+
+  '<tr><td class="g">Why don\'t you …? / Try …</td><td class="e">Why don\'t you see a doctor? Try to sleep early.</td></tr>'+
+  '<tr><td class="g">If I were you, I would …</td><td class="e">If I were you, I would stay at home.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule warn"><span class="lbl">Common mistakes</span>✗ I have fever. ✓ <b class="eng">I have a fever.</b> &nbsp; ✗ My head is paining. ✓ <b class="eng">I have a headache. / My head hurts.</b> &nbsp; ✗ I am having cold. ✓ <b class="eng">I have a cold.</b>'+T('"मेरा सिर दुख रहा है" = My head hurts / I have a headache; "मुझे बुखार है" = I have a fever।','"ਮੇਰਾ ਸਿਰ ਦੁਖ ਰਿਹਾ ਹੈ" = My head hurts / I have a headache; "ਮੈਨੂੰ ਬੁਖ਼ਾਰ ਹੈ" = I have a fever।')+'</div>'),
+ B.dlg('Dialogue — at the doctor\'s',[
+  'Doctor|Good morning. What\'s the matter?|सुप्रभात। क्या तकलीफ़ है?|ਸ਼ੁਭ ਸਵੇਰ। ਕੀ ਤਕਲੀਫ਼ ਹੈ?',
+  'Patient|I have a sore throat and a cough. I feel very tired.|गले में दर्द और खाँसी है। बहुत थकान लग रही है।|ਗਲ਼ੇ ਵਿੱਚ ਦਰਦ ਅਤੇ ਖੰਘ ਹੈ। ਬਹੁਤ ਥਕਾਵਟ ਲੱਗ ਰਹੀ ਹੈ।',
+  'Doctor|How long have you had these symptoms?|ये लक्षण कब से हैं?|ਇਹ ਲੱਛਣ ਕਦੋਂ ਤੋਂ ਹਨ?',
+  'Patient|For three days.|तीन दिन से।|ਤਿੰਨ ਦਿਨ ਤੋਂ।',
+  'Doctor|Let me check. You have a fever too. You should rest and drink warm water. Take this medicine twice a day.|देखता हूँ। आपको बुखार भी है। आराम कीजिए और गुनगुना पानी पीजिए। यह दवाई दिन में दो बार लीजिए।|ਵੇਖਦਾ ਹਾਂ। ਤੁਹਾਨੂੰ ਬੁਖ਼ਾਰ ਵੀ ਹੈ। ਆਰਾਮ ਕਰੋ ਅਤੇ ਕੋਸਾ ਪਾਣੀ ਪੀਓ। ਇਹ ਦਵਾਈ ਦਿਨ ਵਿੱਚ ਦੋ ਵਾਰ ਲਓ।',
+  'Patient|Thank you, doctor. Should I come back?|धन्यवाद डॉक्टर। क्या मैं फिर आऊँ?|ਧੰਨਵਾਦ ਡਾਕਟਰ। ਕੀ ਮੈਂ ਫਿਰ ਆਵਾਂ?',
+  'Doctor|Yes, if you don\'t feel better in three days.|हाँ, अगर तीन दिन में आराम न मिले।|ਹਾਂ, ਜੇ ਤਿੰਨ ਦਿਨਾਂ ਵਿੱਚ ਆਰਾਮ ਨਾ ਮਿਲੇ।']),
+ B.mcq('Practice 1 — Health English',[
+  'You have pain in your head. You say…|I have a headache.;I have headache.;My head is pain.|0|a headache.|आपके सिर में दर्द है।|ਤੁਹਾਡੇ ਸਿਰ ਵਿੱਚ ਦਰਦ ਹੈ।',
+  'A friend has a bad cold. You say…|You should rest.;You shall rest.;You can rest.|0|should = advice.',
+  'The doctor asks "What\'s the ___?"|problem;matter;trouble to|1|What\'s the matter?',
+  'You should ___ more water.|to drink;drinking;drink|2|should + plain verb.',
+  'You ___ eat so much sugar.|shouldn\'t;mustn\'t to;don\'t|0|advice against.',
+  'I ___ a fever since Monday.|have;have had;am having|1|since → present perfect.',
+  'What do you take for a stomach ache?|a medicine;an exam;a ticket|0|medicine.',
+  'If I ___ you, I would see a doctor.|am;was;were|2|If I were you…']),
+ B.gap('Practice 2 — Give advice',[
+  'You look tired. You ___ go to bed early. (should)|should|आप थके हुए लग रहे हैं। जल्दी सोना चाहिए।|ਤੁਸੀਂ ਥੱਕੇ ਲੱਗ ਰਹੇ ਹੋ। ਜਲਦੀ ਸੌਣਾ ਚਾਹੀਦਾ ਹੈ।','You ___ smoke. It\'s bad for you. (shouldn\'t)|shouldn\'t|आपको धूम्रपान नहीं करना चाहिए।|ਤੁਹਾਨੂੰ ਤਮਾਕੂ ਨਹੀਂ ਪੀਣਾ ਚਾਹੀਦਾ।','I have a ___ (pain in the tooth: tooth+ache).|toothache|मेरे दाँत में दर्द है।|ਮੇਰੇ ਦੰਦ ਵਿੱਚ ਦਰਦ ਹੈ।','Why don\'t you ___ a doctor? (see/seeing)|see|तुम डॉक्टर को क्यों नहीं दिखाते?|ਤੁਸੀਂ ਡਾਕਟਰ ਨੂੰ ਕਿਉਂ ਨਹੀਂ ਵਿਖਾਉਂਦੇ?','I feel ___. (dizzy = like the room is spinning: d _ _ _ y)|dizzy|मुझे चक्कर आ रहे हैं।|ਮੈਨੂੰ ਚੱਕਰ ਆ ਰਹੇ ਹਨ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'I have a high temperature and a sore throat.|मुझे तेज़ बुखार और गले में दर्द है।|ਮੈਨੂੰ ਤੇਜ਼ ਬੁਖ਼ਾਰ ਅਤੇ ਗਲ਼ੇ ਵਿੱਚ ਦਰਦ ਹੈ।','You should drink plenty of water.|आपको खूब पानी पीना चाहिए।|ਤੁਹਾਨੂੰ ਬਹੁਤ ਪਾਣੀ ਪੀਣਾ ਚਾਹੀਦਾ ਹੈ।','Take this tablet twice a day after meals.|यह गोली खाने के बाद दिन में दो बार लें।|ਇਹ ਗੋਲ਼ੀ ਖਾਣੇ ਤੋਂ ਬਾਅਦ ਦਿਨ ਵਿੱਚ ਦੋ ਵਾਰ ਲਓ।','I would like to make an appointment, please.|मैं अपॉइंटमेंट लेना चाहता हूँ।|ਮੈਂ ਅਪੌਇੰਟਮੈਂਟ ਲੈਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।'])
+]);
+
+/* ══════════ UNIT 13 — Work & Study ══════════ */
+UNIT('a2_work','13','Topics','Work, Study & Interviews','काम, पढ़ाई और इंटरव्यू · ਕੰਮ, ਪੜ੍ਹਾਈ ਅਤੇ ਇੰਟਰਵਿਊ',
+'Talk about your job, studies and experience — and answer simple interview questions.',
+'अपनी नौकरी, पढ़ाई और अनुभव के बारे में बात करें — और सरल इंटरव्यू प्रश्नों के उत्तर दें।',
+'ਆਪਣੀ ਨੌਕਰੀ, ਪੜ੍ਹਾਈ ਅਤੇ ਤਜਰਬੇ ਬਾਰੇ ਗੱਲ ਕਰੋ — ਅਤੇ ਸਰਲ ਇੰਟਰਵਿਊ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਉੱਤਰ ਦਿਓ।',[
+ B.vok('Work & study vocabulary',[
+  'job / career / profession|What\'s your job?|नौकरी / करियर / पेशा|ਨੌਕਰੀ / ਕਰੀਅਰ / ਪੇਸ਼ਾ','employee / employer / boss|My boss is friendly.|कर्मचारी / मालिक / बॉस|ਮੁਲਾਜ਼ਮ / ਮਾਲਕ / ਬੌਸ','colleague / team|I work in a team.|सहकर्मी / टीम|ਸਹਿਕਰਮੀ / ਟੀਮ','salary / wages|a good salary|वेतन / मज़दूरी|ਤਨਖ਼ਾਹ / ਮਜ਼ਦੂਰੀ','full-time / part-time|a part-time job|पूर्णकालिक / अंशकालिक|ਪੂਰੇ ਸਮੇਂ / ਅੰਸ਼ਕ ਸਮੇਂ ਦੀ','CV / résumé|Send your CV.|बायोडाटा / सीवी|ਬਾਇਓਡਾਟਾ / ਸੀਵੀ','apply for a job|I applied for a job at a bank.|नौकरी के लिए आवेदन करना|ਨੌਕਰੀ ਲਈ ਅਰਜ਼ੀ ਦੇਣੀ','interview|I have an interview tomorrow.|इंटरव्यू / साक्षात्कार|ਇੰਟਰਵਿਊ','experience|two years\' experience|अनुभव|ਤਜਰਬਾ','skills|computer skills|कौशल|ਹੁਨਰ','qualification / degree / diploma|a diploma in engineering|योग्यता / डिग्री / डिप्लोमा|ਯੋਗਤਾ / ਡਿਗਰੀ / ਡਿਪਲੋਮਾ','subject / course|I study mathematics.|विषय / पाठ्यक्रम|ਵਿਸ਼ਾ / ਕੋਰਸ','exam / test / result|I passed the exam.|परीक्षा / टेस्ट / परिणाम|ਪ੍ਰੀਖਿਆ / ਟੈਸਟ / ਨਤੀਜਾ','deadline|The deadline is Friday.|अंतिम तिथि|ਆਖ਼ਰੀ ਮਿਤੀ','resign / retire|He retired last year.|इस्तीफ़ा देना / सेवानिवृत्त होना|ਅਸਤੀਫ਼ਾ ਦੇਣਾ / ਸੇਵਾ-ਮੁਕਤ ਹੋਣਾ']),
+ B.rule('Talking about yourself in an interview',
+  '<div class="tbl-wrap"><table><thead><tr><th>Question</th><th>Model answer</th></tr></thead><tbody>'+
+  '<tr><td class="g">Tell me about yourself.</td><td class="e">I am Gurpreet. I have a diploma in mechanical engineering and two years of experience in a workshop.</td></tr>'+
+  '<tr><td class="g">Why do you want this job?</td><td class="e">I want to improve my skills and I like working with people.</td></tr>'+
+  '<tr><td class="g">What are your strengths?</td><td class="e">I am hard-working and I learn quickly.</td></tr>'+
+  '<tr><td class="g">Can you work in a team?</td><td class="e">Yes, I can. I often worked in a team in my last job.</td></tr>'+
+  '<tr><td class="g">When can you start?</td><td class="e">I can start next Monday.</td></tr>'+
+  '<tr><td class="g">Do you have any questions?</td><td class="e">What are the working hours? Is there any training?</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Useful structures</span><b>I have worked as a … for …</b> (present perfect) &nbsp; <b>I\'m good at + -ing</b> (I\'m good at repairing machines) &nbsp; <b>I\'m interested in + -ing</b> &nbsp; <b>I\'m responsible for …</b> &nbsp; <b>I used to work at …</b></div>'),
+ B.dlg('Dialogue — a job interview',[
+  'Interviewer|Good morning. Please sit down. Tell me about yourself.|सुप्रभात। बैठिए। अपने बारे में बताइए।|ਸ਼ੁਭ ਸਵੇਰ। ਬੈਠੋ। ਆਪਣੇ ਬਾਰੇ ਦੱਸੋ।',
+  'Candidate|Thank you. My name is Karan. I have a diploma in engineering and I have worked in a car workshop for three years.|धन्यवाद। मेरा नाम करण है। मेरे पास इंजीनियरिंग डिप्लोमा है और मैंने तीन साल कार वर्कशॉप में काम किया है।|ਧੰਨਵਾਦ। ਮੇਰਾ ਨਾਮ ਕਰਨ ਹੈ। ਮੇਰੇ ਕੋਲ ਇੰਜੀਨੀਅਰਿੰਗ ਡਿਪਲੋਮਾ ਹੈ ਅਤੇ ਮੈਂ ਤਿੰਨ ਸਾਲ ਕਾਰ ਵਰਕਸ਼ਾਪ ਵਿੱਚ ਕੰਮ ਕੀਤਾ ਹੈ।',
+  'Interviewer|Why do you want to leave your present job?|आप अपनी वर्तमान नौकरी क्यों छोड़ना चाहते हैं?|ਤੁਸੀਂ ਆਪਣੀ ਮੌਜੂਦਾ ਨੌਕਰੀ ਕਿਉਂ ਛੱਡਣਾ ਚਾਹੁੰਦੇ ਹੋ?',
+  'Candidate|I want to learn new skills and I would like a bigger challenge.|मैं नए कौशल सीखना चाहता हूँ और बड़ी चुनौती चाहता हूँ।|ਮੈਂ ਨਵੇਂ ਹੁਨਰ ਸਿੱਖਣਾ ਚਾਹੁੰਦਾ ਹਾਂ ਅਤੇ ਵੱਡੀ ਚੁਣੌਤੀ ਚਾਹੁੰਦਾ ਹਾਂ।',
+  'Interviewer|When can you start?|आप कब से शुरू कर सकते हैं?|ਤੁਸੀਂ ਕਦੋਂ ਤੋਂ ਸ਼ੁਰੂ ਕਰ ਸਕਦੇ ਹੋ?',
+  'Candidate|I can start next month.|मैं अगले महीने से शुरू कर सकता हूँ।|ਮੈਂ ਅਗਲੇ ਮਹੀਨੇ ਤੋਂ ਸ਼ੁਰੂ ਕਰ ਸਕਦਾ ਹਾਂ।']),
+ B.mcq('Practice 1 — Work & study',[
+  'A person who pays your salary is your…|employer;colleague;customer|0|employer.|आपको वेतन देने वाला आपका क्या है?|ਤੁਹਾਨੂੰ ਤਨਖ਼ਾਹ ਦੇਣ ਵਾਲਾ ਤੁਹਾਡਾ ਕੀ ਹੈ?',
+  'I have worked here ___ 2019.|for;since;from|1|since + starting point.',
+  'She is good ___ solving problems.|in;at;on|1|good at + -ing.',
+  'He is interested ___ computers.|on;in;at|1|interested in.',
+  'I am applying ___ a job at a bank.|to;for;at|1|apply for a job.',
+  'A job for fewer hours each day is…|full-time;part-time;overtime|1|part-time.',
+  'Please send me your ___ (a document with your education and experience).|CV;visa;bill|0|CV.',
+  'My exam ___ on Friday.|is;are;were|0|exam = singular.']),
+ B.gap('Practice 2 — Complete',[
+  'I am responsible ___ the accounts. (for/of)|for|मैं खातों के लिए ज़िम्मेदार हूँ।|ਮੈਂ ਖਾਤਿਆਂ ਲਈ ਜ਼ਿੰਮੇਵਾਰ ਹਾਂ।','She has worked as a nurse ___ five years. (for/since)|for|वह पाँच साल से नर्स का काम कर रही है।|ਉਹ ਪੰਜ ਸਾਲ ਤੋਂ ਨਰਸ ਵਜੋਂ ਕੰਮ ਕਰ ਰਹੀ ਹੈ।','I am good ___ repairing machines. (at/in)|at|मैं मशीनें ठीक करने में माहिर हूँ।|ਮੈਂ ਮਸ਼ੀਨਾਂ ਠੀਕ ਕਰਨ ਵਿੱਚ ਮਾਹਿਰ ਹਾਂ।','I ___ for this job last week. (apply, past)|applied|मैंने पिछले हफ़्ते इस नौकरी के लिए आवेदन किया।|ਮੈਂ ਪਿਛਲੇ ਹਫ਼ਤੇ ਇਸ ਨੌਕਰੀ ਲਈ ਅਰਜ਼ੀ ਦਿੱਤੀ।','The ___ is on Friday. (last date to submit)|deadline|अंतिम तिथि शुक्रवार है।|ਆਖ਼ਰੀ ਮਿਤੀ ਸ਼ੁੱਕਰਵਾਰ ਹੈ।']),
+ B.write('Practice 3 — Introduce yourself for a job','Write 8 sentences you can use at an interview.',['Name and education','Experience','Skills','Why this job'],
+  'My name is Karan Singh. I have a diploma in mechanical engineering. I have worked in a car workshop for three years. I am good at repairing engines and I can work in a team. I am hard-working and I learn quickly. I want this job because I would like to improve my skills. I can start next month.')
+]);
+
+/* ══════════ UNIT 14 — Weather & Free time ══════════ */
+UNIT('a2_free','14','Topics','Weather, Free Time & Technology','मौसम, खाली समय और टेक्नोलॉजी · ਮੌਸਮ, ਵਿਹਲਾ ਸਮਾਂ ਅਤੇ ਤਕਨਾਲੋਜੀ',
+'Small talk about the weather, hobbies, phones and the internet — the topics you hear in everyday conversation.',
+'मौसम, शौक, फ़ोन और इंटरनेट — रोज़ की बातचीत में आने वाले विषयों पर छोटी बातचीत।',
+'ਮੌਸਮ, ਸ਼ੌਕ, ਫ਼ੋਨ ਅਤੇ ਇੰਟਰਨੈੱਟ — ਰੋਜ਼ ਦੀ ਗੱਲਬਾਤ ਵਿੱਚ ਆਉਣ ਵਾਲੇ ਵਿਸ਼ਿਆਂ ਤੇ ਛੋਟੀ ਗੱਲਬਾਤ।',[
+ B.vok('Weather',[
+  'sunny / cloudy|It\'s sunny today.|धूप वाला / बादल वाला|ਧੁੱਪ ਵਾਲਾ / ਬੱਦਲਵਾਈ','rainy / It\'s raining.|The monsoon is rainy.|बरसात वाला / बारिश हो रही है|ਮੀਂਹ ਵਾਲਾ / ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ','windy / stormy|a stormy night|हवादार / तूफ़ानी|ਹਵਾਦਾਰ / ਤੂਫ਼ਾਨੀ','foggy / misty|Fog in winter.|कोहरा / धुंध|ਧੁੰਦ / ਕੁਹਾਸਾ','hot / warm / cool / cold|It\'s freezing!|गर्म / हल्का गर्म / ठंडा / बहुत ठंडा|ਗਰਮ / ਕੋਸਾ / ਠੰਢਾ / ਬਹੁਤ ਠੰਢਾ','humid|hot and humid|उमस भरा|ਹੁੰਮਸ ਵਾਲਾ','temperature|The temperature is 35°C.|तापमान|ਤਾਪਮਾਨ','weather forecast|Check the forecast.|मौसम का पूर्वानुमान|ਮੌਸਮ ਦੀ ਭਵਿੱਖਬਾਣੀ','thunder / lightning|a loud thunder|गरज / बिजली|ਗਰਜ / ਬਿਜਲੀ','flood / drought|a flood in the village|बाढ़ / सूखा|ਹੜ੍ਹ / ਸੋਕਾ']),
+ B.vok('Technology',[
+  'smartphone / laptop / tablet|a new smartphone|स्मार्टफ़ोन / लैपटॉप / टैबलेट|ਸਮਾਰਟਫ਼ੋਨ / ਲੈਪਟਾਪ / ਟੈਬਲੇਟ','internet / Wi-Fi|There is no Wi-Fi here.|इंटरनेट / वाई-फ़ाई|ਇੰਟਰਨੈੱਟ / ਵਾਈ-ਫ਼ਾਈ','app / website|download an app|ऐप / वेबसाइट|ਐਪ / ਵੈੱਬਸਾਈਟ','download / upload|download a video|डाउनलोड / अपलोड करना|ਡਾਊਨਲੋਡ / ਅਪਲੋਡ ਕਰਨਾ','log in / log out|Log in with your password.|लॉग इन / लॉग आउट|ਲੌਗ ਇਨ / ਲੌਗ ਆਊਟ','password / username|Never share your password.|पासवर्ड / यूज़रनेम|ਪਾਸਵਰਡ / ਯੂਜ਼ਰਨੇਮ','charge / battery|My battery is low.|चार्ज करना / बैटरी|ਚਾਰਜ ਕਰਨਾ / ਬੈਟਰੀ','message / text / call|Send me a text.|संदेश / टेक्स्ट / कॉल|ਸੁਨੇਹਾ / ਟੈਕਸਟ / ਕਾਲ','post / share / like|Share this photo.|पोस्ट / शेयर / लाइक|ਪੋਸਟ / ਸ਼ੇਅਰ / ਲਾਈਕ','online / offline|I\'m online now.|ऑनलाइन / ऑफ़लाइन|ਆਨਲਾਈਨ / ਆਫ਼ਲਾਈਨ']),
+ B.rule('Small talk patterns',
+  '<div class="tbl-wrap"><table><thead><tr><th>Topic</th><th>Say</th></tr></thead><tbody>'+
+  '<tr><td class="g">Weather</td><td class="e">It\'s a lovely day, isn\'t it? / It\'s so hot today! / It looks like rain. / What\'s the weather like in Punjab in winter?</td></tr>'+
+  '<tr><td class="g">Question tags</td><td class="e">It\'s cold, <b>isn\'t it</b>? You like tea, <b>don\'t you</b>? She can swim, <b>can\'t she</b>?</td></tr>'+
+  '<tr><td class="g">Free time</td><td class="e">What do you do in your free time? — I usually watch films / play cricket / go for walks.</td></tr>'+
+  '<tr><td class="g">Technology</td><td class="e">Can you help me install this app? My phone isn\'t working. The battery is dead.</td></tr>'+
+  '<tr><td class="g">Opinion</td><td class="e">I think / In my opinion / I don\'t think … / I agree / I disagree.</td></tr>'+
+  '</tbody></table></div>'+
+  P('<b>Question tags</b>: positive sentence → negative tag; negative sentence → positive tag. Use the same helping verb: <i>It is hot, <b>isn\'t it</b>? You don\'t smoke, <b>do you</b>?</i> With no helping verb use do/does/did.','Question tag: positive वाक्य के बाद negative tag, negative के बाद positive। वही सहायक क्रिया लें: It is hot, isn\'t it?','Question tag: positive ਵਾਕ ਤੋਂ ਬਾਅਦ negative tag, negative ਤੋਂ ਬਾਅਦ positive। ਉਹੀ ਸਹਾਇਕ ਕਿਰਿਆ ਲਓ: It is hot, isn\'t it?')),
+ B.mcq('Practice 1 — Choose the correct tag / word',[
+  'It is cold today, ___?|is it;isn\'t it;doesn\'t it|1|positive → negative tag.|आज ठंड है, है ना?|ਅੱਜ ਠੰਢ ਹੈ, ਹੈ ਨਾ?',
+  'You like tea, ___?|do you;don\'t you;aren\'t you|1|like → don\'t you.',
+  'She can\'t swim, ___?|can she;can\'t she;does she|0|negative → positive tag.',
+  'It is very ___ in July. We use the AC all day.|freezing;hot;foggy|1|July is hot in Punjab.',
+  'Fog in winter makes it difficult to ___.|see;saw;seen|0|difficult to see.',
+  'You need a password to ___ your account.|log in;log on to out;log up|0|log in.',
+  'My phone ___ battery. I need to charge it.|is low on;has low in;low on|0|The battery is low.',
+  'What is the weather ___ today?|like;as;similar|0|What is the weather like?']),
+ B.gap('Practice 2 — Question tags',[
+  'He is a teacher, ___ he?|isn\'t|वह शिक्षक है, है ना?|ਉਹ ਅਧਿਆਪਕ ਹੈ, ਹੈ ਨਾ?','They don\'t live here, ___ they?|do|वे यहाँ नहीं रहते, है ना?|ਉਹ ਇੱਥੇ ਨਹੀਂ ਰਹਿੰਦੇ, ਹੈ ਨਾ?','She went to Delhi, ___ she?|didn\'t|वह दिल्ली गई, है ना?|ਉਹ ਦਿੱਲੀ ਗਈ, ਹੈ ਨਾ?','You can help me, ___ you?|can\'t|आप मेरी मदद कर सकते हैं, है ना?|ਤੁਸੀਂ ਮੇਰੀ ਮਦਦ ਕਰ ਸਕਦੇ ਹੋ, ਹੈ ਨਾ?']),
+ B.dikt('Practice 3 — Dictation',[
+  'It looks like rain. Take an umbrella.|बारिश के आसार हैं। छाता ले लो।|ਮੀਂਹ ਦੇ ਆਸਾਰ ਹਨ। ਛੱਤਰੀ ਲੈ ਲਓ।','What do you usually do in your free time?|आप खाली समय में आमतौर पर क्या करते हैं?|ਤੁਸੀਂ ਵਿਹਲੇ ਸਮੇਂ ਆਮ ਤੌਰ ਤੇ ਕੀ ਕਰਦੇ ਹੋ?','My phone battery is almost dead.|मेरे फ़ोन की बैटरी लगभग खत्म है।|ਮੇਰੇ ਫ਼ੋਨ ਦੀ ਬੈਟਰੀ ਲਗਭਗ ਮੁੱਕ ਗਈ ਹੈ।','It was very foggy yesterday, wasn\'t it?|कल बहुत कोहरा था, है ना?|ਕੱਲ੍ਹ ਬਹੁਤ ਧੁੰਦ ਸੀ, ਹੈ ਨਾ?'])
+]);
+
+/* ══════════ UNIT 15 — Reading ══════════ */
+UNIT('a2_read','15','Exam practice','Reading Skills: True / False, Notices & Short Texts','पढ़ने के कौशल · ਪੜ੍ਹਨ ਦੇ ਹੁਨਰ',
+'In A2 exams you read signs, emails and short articles and answer True / False / Not given questions. Learn the strategy and practise.',
+'A2 परीक्षाओं में आप संकेत, ईमेल और छोटे लेख पढ़कर True / False / Not given प्रश्न हल करते हैं। रणनीति सीखें और अभ्यास करें।',
+'A2 ਪ੍ਰੀਖਿਆਵਾਂ ਵਿੱਚ ਤੁਸੀਂ ਸੰਕੇਤ, ਈਮੇਲ ਅਤੇ ਛੋਟੇ ਲੇਖ ਪੜ੍ਹ ਕੇ True / False / Not given ਪ੍ਰਸ਼ਨ ਹੱਲ ਕਰਦੇ ਹੋ। ਰਣਨੀਤੀ ਸਿੱਖੋ ਅਤੇ ਅਭਿਆਸ ਕਰੋ।',[
+ B.rule('Strategy',
+  '<div class="tbl-wrap"><table><thead><tr><th>Step</th><th>What to do</th></tr></thead><tbody>'+
+  '<tr><td class="g">1</td><td class="e">Read the questions first, then the text.</td></tr>'+
+  '<tr><td class="g">2</td><td class="e">Underline key words in the question (names, numbers, times).</td></tr>'+
+  '<tr><td class="g">3</td><td class="e"><b>True</b> = the text says the same thing. <b>False</b> = the text says the opposite. <b>Not given</b> = the text does not say it at all.</td></tr>'+
+  '<tr><td class="g">4</td><td class="e">Don\'t use your own knowledge — use only the text.</td></tr>'+
+  '<tr><td class="g">5</td><td class="e">Watch for words like <i>all, never, always, only, most</i>.</td></tr>'+
+  '</tbody></table></div>'+
+  T('True = पाठ में वही लिखा है; False = पाठ में उल्टा लिखा है; Not given = पाठ में इसके बारे में कुछ नहीं लिखा।','True = ਪਾਠ ਵਿੱਚ ਉਹੀ ਲਿਖਿਆ ਹੈ; False = ਪਾਠ ਵਿੱਚ ਉਲਟਾ ਲਿਖਿਆ ਹੈ; Not given = ਪਾਠ ਵਿੱਚ ਇਸ ਬਾਰੇ ਕੁਝ ਨਹੀਂ ਲਿਖਿਆ।')),
+ B.text('Text 1 — Article: Learning English online','Reading · A2',
+  '<p>More and more people in India are learning English online. They watch videos, use apps and join live classes on their phones. Priya, 22, lives in a small village near Ludhiana. She works in a shop in the morning and studies English for one hour every evening. "I can\'t go to a big city for a course," she says, "but I can learn from my phone." After six months, Priya can speak with tourists and she is now looking for a job in a hotel. Experts say online learning is cheaper than a classroom course, but you need discipline.</p>'+
+  T('प्रिया लुधियाना के पास गाँव में रहती है, सुबह दुकान में काम करती है और हर शाम एक घंटा फ़ोन पर अंग्रेज़ी सीखती है। छह महीने बाद वह पर्यटकों से बात कर सकती है। विशेषज्ञ कहते हैं कि ऑनलाइन सीखना सस्ता है पर अनुशासन चाहिए।','ਪ੍ਰਿਯਾ ਲੁਧਿਆਣੇ ਨੇੜੇ ਪਿੰਡ ਵਿੱਚ ਰਹਿੰਦੀ ਹੈ, ਸਵੇਰੇ ਦੁਕਾਨ ਵਿੱਚ ਕੰਮ ਕਰਦੀ ਹੈ ਅਤੇ ਹਰ ਸ਼ਾਮ ਇੱਕ ਘੰਟਾ ਫ਼ੋਨ ਤੇ ਅੰਗਰੇਜ਼ੀ ਸਿੱਖਦੀ ਹੈ। ਛੇ ਮਹੀਨੇ ਬਾਅਦ ਉਹ ਸੈਲਾਨੀਆਂ ਨਾਲ ਗੱਲ ਕਰ ਸਕਦੀ ਹੈ। ਮਾਹਿਰ ਕਹਿੰਦੇ ਹਨ ਕਿ ਆਨਲਾਈਨ ਸਿੱਖਣਾ ਸਸਤਾ ਹੈ ਪਰ ਅਨੁਸ਼ਾਸਨ ਚਾਹੀਦਾ ਹੈ।')),
+ B.mcq('Questions on Text 1 — True / False / Not given',[
+  'Priya lives in a big city.|True;False;Not given|1|She lives in a small village near Ludhiana.',
+  'Priya studies English every evening.|True;False;Not given|0|one hour every evening.',
+  'Priya\'s family is rich.|True;False;Not given|2|Nothing is said about her family.',
+  'She is looking for a job in a hotel.|True;False;Not given|0|she is now looking for a job in a hotel.',
+  'Experts say online learning is more expensive than classroom courses.|True;False;Not given|1|The text says cheaper.',
+  'Priya wants to move abroad.|True;False;Not given|2|Not mentioned.']),
+ B.text('Text 2 — Email','Reading · A2',
+  '<p><b>From:</b> Anita<br><b>To:</b> Simran<br><b>Subject:</b> Weekend plans<br><br>Hi Simran,<br>Are you free this Saturday? Some friends and I are going to Sukhna Lake in Chandigarh. We are leaving at 8 a.m. by car, so we will be back before dinner. Can you bring some sandwiches? I\'ll bring the drinks. Please tell me by Thursday if you can come. It will be fun!<br>Love, Anita</p>'),
+ B.mcq('Questions on Text 2',[
+  'Where are they going?|Sukhna Lake;Amritsar;Shimla|0|Sukhna Lake in Chandigarh.',
+  'How will they travel?|by bus;by car;by train|1|by car.',
+  'What should Simran bring?|drinks;sandwiches;a camera|1|sandwiches.',
+  'Simran must reply by…|Saturday;Thursday;8 a.m.|1|by Thursday.']),
+ B.pairs('Matching — signs and meanings',['No Entry|You can\'t go in','Wet Floor|Be careful, you may slip','Keep Left|Walk or drive on the left side','Push|Open the door by pushing','Out of Order|The machine is not working','Fragile|Handle with care'])
+]);
+
+/* ══════════ UNIT 16 — Writing ══════════ */
+UNIT('a2_write','16','Exam practice','Writing: Emails, Messages & Short Paragraphs','लिखना: ईमेल, संदेश और छोटे अनुच्छेद · ਲਿਖਣਾ: ਈਮੇਲ, ਸੁਨੇਹੇ ਅਤੇ ਛੋਟੇ ਪੈਰੇ',
+'Write clear, correct short texts of 50–100 words: informal emails, formal requests, and a paragraph about your life.',
+'50–100 शब्दों के स्पष्ट और शुद्ध छोटे पाठ लिखें: अनौपचारिक ईमेल, औपचारिक अनुरोध और अपने जीवन पर एक अनुच्छेद।',
+'50–100 ਸ਼ਬਦਾਂ ਦੇ ਸਪੱਸ਼ਟ ਅਤੇ ਸ਼ੁੱਧ ਛੋਟੇ ਪਾਠ ਲਿਖੋ: ਗ਼ੈਰ-ਰਸਮੀ ਈਮੇਲ, ਰਸਮੀ ਬੇਨਤੀ ਅਤੇ ਆਪਣੀ ਜ਼ਿੰਦਗੀ ਬਾਰੇ ਇੱਕ ਪੈਰਾ।',[
+ B.rule('Informal vs formal',
+  '<div class="tbl-wrap"><table><thead><tr><th></th><th>Informal (friend)</th><th>Formal (office, school, hotel)</th></tr></thead><tbody>'+
+  '<tr><td class="g">Greeting</td><td class="e">Hi Anita, / Dear Anita,</td><td class="e">Dear Sir or Madam, / Dear Mr Sharma,</td></tr>'+
+  '<tr><td class="g">Opening</td><td class="e">Thanks for your email. How are you?</td><td class="e">I am writing to ask about … / to apply for …</td></tr>'+
+  '<tr><td class="g">Request</td><td class="e">Can you send me …?</td><td class="e">Could you please send me …? I would be grateful if …</td></tr>'+
+  '<tr><td class="g">Apology</td><td class="e">Sorry I can\'t come!</td><td class="e">I am sorry, but I will not be able to attend.</td></tr>'+
+  '<tr><td class="g">Closing</td><td class="e">See you soon! / Write back soon. / Love, / Best wishes,</td><td class="e">I look forward to hearing from you. / Yours faithfully, (Dear Sir/Madam) / Yours sincerely, (Dear Mr …)</td></tr>'+
+  '<tr><td class="g">Style</td><td class="e">contractions: I\'m, can\'t, don\'t</td><td class="e">no contractions: I am, cannot, do not</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">A good paragraph</span>1) topic sentence 2) 2–3 detail sentences 3) closing sentence. Use linkers (<b>first, then, because, however, finally</b>). Check: capital letters, full stops, verb forms, spelling.'+T('अच्छे अनुच्छेद में: विषय-वाक्य, 2–3 विवरण-वाक्य और समापन वाक्य होते हैं।','ਚੰਗੇ ਪੈਰੇ ਵਿੱਚ: ਵਿਸ਼ਾ-ਵਾਕ, 2–3 ਵੇਰਵੇ ਵਾਲੇ ਵਾਕ ਅਤੇ ਸਮਾਪਤੀ ਵਾਕ ਹੁੰਦੇ ਹਨ।')+'</div>'),
+ B.write('Task 1 — Informal email (about 60 words)','Your friend invited you to a birthday party next Saturday. Write an email: thank her, say you will come, ask what to bring, ask where and when.',['Thank her for the invitation','Say you will come','Ask what to bring','Ask for the place and time'],
+  'Hi Anita,\n\nThank you so much for inviting me to your birthday party! I would love to come. What can I bring? Shall I bring a cake or some drinks? Could you also tell me the time and the address?\n\nI am really looking forward to it.\n\nLove,\nSimran'),
+ B.write('Task 2 — Formal email (about 70 words)','You bought a phone online but it does not work. Write to the shop. Explain the problem, say what you want, and ask for a quick reply.',['Say what you bought and when','Explain the problem','Say what you want','Close politely'],
+  'Subject: Faulty phone\n\nDear Sir or Madam,\n\nI am writing to complain about a phone that I bought from your website on 5 March. Unfortunately, the screen does not work and the battery dies very quickly. I would like to exchange the phone or get a full refund. I look forward to hearing from you soon.\n\nYours faithfully,\nGurpreet Singh'),
+ B.write('Task 3 — Paragraph (about 80 words)','Write a paragraph: "My typical weekend". Say what you do on Saturday and Sunday and what you like best.',['Morning / afternoon / evening','Who you spend time with','What you like best'],
+  'My weekends are usually busy but enjoyable. On Saturday morning I help my father in the shop. In the afternoon I meet my friends and we play cricket. In the evening I watch a film with my family. On Sunday I get up late and have a big breakfast. Then I study English for two hours. What I like best is spending time with my family.')
+]);
+
+/* ══════════ UNIT 17 — Speaking & Listening ══════════ */
+UNIT('a2_speak','17','Exam practice','Speaking & Listening Practice','बोलना और सुनना · ਬੋਲਣਾ ਅਤੇ ਸੁਣਨਾ',
+'Practise answering personal questions, describing a picture and listening for numbers, times and names.',
+'व्यक्तिगत प्रश्नों के उत्तर देना, चित्र का वर्णन करना, और संख्याएँ, समय व नाम सुनकर पकड़ना — इन सबका अभ्यास करें।',
+'ਨਿੱਜੀ ਪ੍ਰਸ਼ਨਾਂ ਦੇ ਉੱਤਰ ਦੇਣੇ, ਤਸਵੀਰ ਦਾ ਵਰਣਨ ਕਰਨਾ, ਅਤੇ ਗਿਣਤੀ, ਸਮਾਂ ਤੇ ਨਾਮ ਸੁਣ ਕੇ ਫੜਨਾ — ਇਨ੍ਹਾਂ ਸਭ ਦਾ ਅਭਿਆਸ ਕਰੋ।',[
+ B.rule('Speaking tips',
+  '<div class="tbl-wrap"><table><thead><tr><th>Tip</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Answer fully (not one word)</td><td class="e">"Do you like cooking?" → "Yes, I do. I love cooking, especially Punjabi food."</td></tr>'+
+  '<tr><td class="g">Give a reason</td><td class="e">"… because it helps me relax."</td></tr>'+
+  '<tr><td class="g">Use linkers</td><td class="e">and, but, because, so, also, for example</td></tr>'+
+  '<tr><td class="g">Buy time</td><td class="e">Well … / Let me think … / That\'s an interesting question.</td></tr>'+
+  '<tr><td class="g">Ask for repetition</td><td class="e">Sorry, could you repeat that, please? / Could you speak more slowly?</td></tr>'+
+  '<tr><td class="g">Describe a picture</td><td class="e">In the picture I can see … / There is … / On the left … / They are + -ing / I think they are happy because …</td></tr>'+
+  '</tbody></table></div>'),
+ B.dlg('Model answers — personal questions',[
+  'Examiner|Tell me about your family.|अपने परिवार के बारे में बताइए।|ਆਪਣੇ ਪਰਿਵਾਰ ਬਾਰੇ ਦੱਸੋ।',
+  'You|There are five people in my family: my parents, my sister, my brother and me. My father is a farmer and my mother is a housewife.|मेरे परिवार में पाँच लोग हैं: माता-पिता, बहन, भाई और मैं। पिता किसान हैं और माँ गृहिणी।|ਮੇਰੇ ਪਰਿਵਾਰ ਵਿੱਚ ਪੰਜ ਜੀਅ ਹਨ: ਮਾਪੇ, ਭੈਣ, ਭਰਾ ਅਤੇ ਮੈਂ। ਪਿਤਾ ਜੀ ਕਿਸਾਨ ਹਨ ਅਤੇ ਮਾਂ ਘਰੇਲੂ ਔਰਤ।',
+  'Examiner|What did you do last weekend?|पिछले सप्ताहांत में आपने क्या किया?|ਪਿਛਲੇ ਹਫ਼ਤੇ ਦੇ ਅੰਤ ਵਿੱਚ ਤੁਸੀਂ ਕੀ ਕੀਤਾ?',
+  'You|I visited my cousins and we played kabaddi. After that we had dinner together. It was a great day.|मैं अपने चचेरे भाइयों से मिला और हमने कबड्डी खेली। फिर साथ खाना खाया। बहुत अच्छा दिन था।|ਮੈਂ ਆਪਣੇ ਚਚੇਰੇ ਭਰਾਵਾਂ ਨੂੰ ਮਿਲਿਆ ਅਤੇ ਅਸੀਂ ਕਬੱਡੀ ਖੇਡੀ। ਫਿਰ ਇਕੱਠੇ ਖਾਣਾ ਖਾਧਾ। ਬਹੁਤ ਵਧੀਆ ਦਿਨ ਸੀ।',
+  'Examiner|What are you going to do next year?|अगले साल आप क्या करेंगे?|ਅਗਲੇ ਸਾਲ ਤੁਸੀਂ ਕੀ ਕਰੋਗੇ?',
+  'You|I am going to take an English course, because I want to get a better job. I would also like to travel to Goa.|मैं अंग्रेज़ी का कोर्स करूँगा क्योंकि मुझे बेहतर नौकरी चाहिए। मैं गोवा भी घूमना चाहता हूँ।|ਮੈਂ ਅੰਗਰੇਜ਼ੀ ਦਾ ਕੋਰਸ ਕਰਾਂਗਾ ਕਿਉਂਕਿ ਮੈਨੂੰ ਵਧੀਆ ਨੌਕਰੀ ਚਾਹੀਦੀ ਹੈ। ਮੈਂ ਗੋਆ ਵੀ ਘੁੰਮਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।']),
+ B.dikt('Listening — type what you hear (numbers, times, names)',[
+  'The train to Amritsar leaves at ten forty-five from platform three.|अमृतसर की गाड़ी दस बजकर पैंतालीस मिनट पर प्लेटफ़ॉर्म तीन से जाती है।|ਅੰਮ੍ਰਿਤਸਰ ਦੀ ਗੱਡੀ ਦਸ ਵੱਜ ਕੇ ਪੰਤਾਲੀ ਮਿੰਟ ਤੇ ਪਲੇਟਫ਼ਾਰਮ ਤਿੰਨ ਤੋਂ ਜਾਂਦੀ ਹੈ।','My phone number is nine eight seven six five four three two one zero.|मेरा फ़ोन नंबर नौ आठ सात छह पाँच चार तीन दो एक शून्य है।|ਮੇਰਾ ਫ਼ੋਨ ਨੰਬਰ ਨੌਂ ਅੱਠ ਸੱਤ ਛੇ ਪੰਜ ਚਾਰ ਤਿੰਨ ਦੋ ਇੱਕ ਸਿਫ਼ਰ ਹੈ।','The meeting is on the twenty-third of March at half past two.|बैठक तेईस मार्च को ढाई बजे है।|ਮੀਟਿੰਗ ਤੇਈ ਮਾਰਚ ਨੂੰ ਢਾਈ ਵਜੇ ਹੈ।','Please call Mr Sharma on extension four five seven.|कृपया श्री शर्मा को एक्सटेंशन चार पाँच सात पर फ़ोन करें।|ਕਿਰਪਾ ਕਰਕੇ ਸ਼੍ਰੀ ਸ਼ਰਮਾ ਨੂੰ ਐਕਸਟੈਂਸ਼ਨ ਚਾਰ ਪੰਜ ਸੱਤ ਤੇ ਫ਼ੋਨ ਕਰੋ।','The shop is closed on Sundays and public holidays.|दुकान रविवार और सार्वजनिक छुट्टियों पर बंद रहती है।|ਦੁਕਾਨ ਐਤਵਾਰ ਅਤੇ ਸਰਕਾਰੀ ਛੁੱਟੀਆਂ ਨੂੰ ਬੰਦ ਰਹਿੰਦੀ ਹੈ।']),
+ B.write('Speaking task — prepare your answers','Write what you would say for these 4 questions (3 sentences each): 1) Tell me about your hometown. 2) What is your favourite food? 3) Describe your best friend. 4) What are your plans for the weekend?',['Answer fully','Give a reason','Use linkers'],
+  'My hometown is Morinda. It is a small, quiet town in Punjab and everyone knows each other.\nMy favourite food is butter chicken because it is spicy and creamy. I eat it with naan.\nMy best friend is Rohit. He is funny and kind, and he always helps me.\nThis weekend I am going to visit my grandparents, and then I am going to watch a film.')
+]);
+
+/* ══════════ UNIT 18 — A2 Mock test ══════════ */
+UNIT('a2_mock','18','Exam practice','A2 Final Review Test','A2 अंतिम समीक्षा परीक्षा · A2 ਅੰਤਿਮ ਸਮੀਖਿਆ ਪ੍ਰੀਖਿਆ',
+'A mixed test covering the whole A2 course. Aim for 80 % or more. Wrong answers tell you which unit to revise.',
+'पूरे A2 पाठ्यक्रम की मिश्रित परीक्षा। 80 % या अधिक का लक्ष्य रखें। गलत उत्तर बताते हैं कि कौन-सी यूनिट दोहरानी है।',
+'ਪੂਰੇ A2 ਸਿਲੇਬਸ ਦੀ ਮਿਲੀ-ਜੁਲੀ ਪ੍ਰੀਖਿਆ। 80 % ਜਾਂ ਵੱਧ ਦਾ ਟੀਚਾ ਰੱਖੋ। ਗ਼ਲਤ ਉੱਤਰ ਦੱਸਦੇ ਹਨ ਕਿ ਕਿਹੜੀ ਯੂਨਿਟ ਦੁਹਰਾਉਣੀ ਹੈ।',[
+ B.mcq('Part A — Grammar (30 questions)',[
+  'I ___ to Shimla last winter.|go;went;have gone|1|Unit 01: finished time → past simple.',
+  'She didn\'t ___ the answer.|knew;know;known|1|Unit 01.',
+  'I ___ TV when the phone rang.|watched;was watching;watch|1|Unit 02.',
+  'While he ___, I was cooking.|studied;was studying;studies|1|Unit 02.',
+  'I have lived here ___ ten years.|since;for;from|1|Unit 03.',
+  'Have you ___ finished your work?|yet;already;just|0|Unit 03: yet in questions.',
+  'Look at the clouds! It ___ rain.|will;is going to;rains|1|Unit 04.',
+  'I\'m so thirsty. — I ___ get you some water.|am going to;will;get|1|Unit 04.',
+  'My brother is ___ than me.|tall;taller;tallest|1|Unit 05.',
+  'This is the ___ film I have ever seen.|good;better;best|2|Unit 05.',
+  'How ___ money do you have?|many;much;few|1|Unit 06.',
+  'There are ___ students in the library today.|a little;a few;much|1|Unit 06.',
+  'You ___ smoke here. It is forbidden.|mustn\'t;don\'t have to;shouldn\'t to|0|Unit 07.',
+  'We ___ wear a uniform at school. It\'s a rule.|have to;can;may|0|Unit 07.',
+  'She drives very ___.|careful;carefully;care|1|Unit 08.',
+  'He speaks English ___.|good;well;goodly|1|Unit 08.',
+  'If it ___ tomorrow, we will stay home.|rains;will rain;rained|0|Unit 09.',
+  '___ you work hard, you will fail.|If;Unless;When|1|Unit 09.',
+  'It was cold, ___ I wore a jacket.|because;so;although|1|Unit 10.',
+  'Please ___ your shoes before you enter.|take off;take out;take up|0|Unit 10.',
+  'I\'d like to ___ a room for two nights.|book;make;take|0|Unit 11.',
+  'The train is two hours ___.|delay;delayed;delaying|1|Unit 11.',
+  'You should ___ more water.|drinking;to drink;drink|2|Unit 12.',
+  'I have ___ headache.|a;an;the|0|Unit 12.',
+  'She has worked here ___ 2018.|for;since;from|1|Unit 13.',
+  'He is good ___ solving problems.|in;at;on|1|Unit 13.',
+  'It is cold today, ___?|is it;isn\'t it;does it|1|Unit 14.',
+  'You can swim, ___ you?|can;can\'t;don\'t|1|Unit 14.',
+  'I ___ my keys. I can\'t find them.|lost;have lost;was losing|1|Unit 03: result now.',
+  'What ___ you doing at 8 last night?|did;were;was|1|Unit 02.']),
+ B.gap('Part B — Fill the gap (10 questions)',[
+  'I ___ (see) him yesterday.|saw','She ___ (not / come) to class last week.|didn\'t come/did not come','They ___ (live) here since 2015. (present perfect)|have lived','We ___ (go) to the cinema tomorrow. (plan)|are going to go/are going','My phone is ___ than yours. (good)|better','You ___ (should / not) eat so much sugar.|shouldn\'t/should not','If I ___ (have) time, I will help you.|have','She plays the guitar ___. (beautiful)|beautifully','There isn\'t ___ milk. (much / many)|much','He ___ (study) for two hours when I called.|had been studying/was studying']),
+ B.ord('Part C — Word order (5 sentences)',[
+  'I have never been to Mumbai|मैं कभी मुंबई नहीं गया|ਮੈਂ ਕਦੇ ਮੁੰਬਈ ਨਹੀਂ ਗਿਆ','What time does the train leave|गाड़ी कितने बजे जाती है?|ਗੱਡੀ ਕਿੰਨੇ ਵਜੇ ਜਾਂਦੀ ਹੈ?','If it rains we will stay at home|बारिश हुई तो हम घर रहेंगे|ਮੀਂਹ ਪਿਆ ਤਾਂ ਅਸੀਂ ਘਰ ਰਹਾਂਗੇ','She is the tallest girl in the class|वह कक्षा की सबसे लंबी लड़की है|ਉਹ ਜਮਾਤ ਦੀ ਸਭ ਤੋਂ ਲੰਮੀ ਕੁੜੀ ਹੈ','You should see a doctor|आपको डॉक्टर को दिखाना चाहिए|ਤੁਹਾਨੂੰ ਡਾਕਟਰ ਨੂੰ ਵਿਖਾਉਣਾ ਚਾਹੀਦਾ ਹੈ']),
+ B.dikt('Part D — Listening dictation (5 sentences)',[
+  'I have been learning English for two years.|मैं दो साल से अंग्रेज़ी सीख रहा हूँ।|ਮੈਂ ਦੋ ਸਾਲ ਤੋਂ ਅੰਗਰੇਜ਼ੀ ਸਿੱਖ ਰਿਹਾ ਹਾਂ।','We are going to travel to Goa next month.|हम अगले महीने गोवा घूमने जाने वाले हैं।|ਅਸੀਂ ਅਗਲੇ ਮਹੀਨੇ ਗੋਆ ਘੁੰਮਣ ਜਾਣ ਵਾਲੇ ਹਾਂ।','You mustn\'t park your car in front of the gate.|आप अपनी कार गेट के सामने पार्क नहीं कर सकते।|ਤੁਸੀਂ ਆਪਣੀ ਕਾਰ ਗੇਟ ਦੇ ਸਾਹਮਣੇ ਪਾਰਕ ਨਹੀਂ ਕਰ ਸਕਦੇ।','Although it was raining, we went out for a walk.|बारिश हो रही थी, फिर भी हम सैर पर गए।|ਮੀਂਹ ਪੈ ਰਿਹਾ ਸੀ, ਫਿਰ ਵੀ ਅਸੀਂ ਸੈਰ ਤੇ ਗਏ।','Could you tell me how much this costs?|क्या आप बता सकते हैं कि यह कितने का है?|ਕੀ ਤੁਸੀਂ ਦੱਸ ਸਕਦੇ ਹੋ ਕਿ ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?']),
+ B.write('Part E — Writing (about 80 words)','Write an email to a friend. Tell him / her about your last holiday: where you went, what you did, and your plans for your next holiday.',['Where you went and when','What you did','Your next plans'],
+  'Hi Rohit,\n\nHow are you? I want to tell you about my holiday. Last month I went to Manali with my family. We stayed in a small hotel and visited the snow point. I took a lot of photos and ate hot momos. It was very cold, but I enjoyed it a lot. Next year I am going to visit Goa with my friends. Would you like to come?\n\nWrite back soon!\nGurpreet')
+]);
+
+ADD('a2_past',B.cards('Flashcards — Irregular verbs (V1 → V2)',['begin → began|शुरू करना → शुरू किया|ਸ਼ੁਰੂ ਕਰਨਾ → ਸ਼ੁਰੂ ਕੀਤਾ','bring → brought|लाना → लाया|ਲਿਆਉਣਾ → ਲਿਆਇਆ','build → built|बनाना → बनाया|ਬਣਾਉਣਾ → ਬਣਾਇਆ','catch → caught|पकड़ना → पकड़ा|ਫੜਨਾ → ਫੜਿਆ','forget → forgot|भूलना → भूल गया|ਭੁੱਲਣਾ → ਭੁੱਲ ਗਿਆ','leave → left|छोड़ना → छोड़ा|ਛੱਡਣਾ → ਛੱਡਿਆ','lose → lost|खोना → खो दिया|ਗੁਆਉਣਾ → ਗੁਆ ਦਿੱਤਾ','sell → sold|बेचना → बेचा|ਵੇਚਣਾ → ਵੇਚਿਆ','tell → told|बताना → बताया|ਦੱਸਣਾ → ਦੱਸਿਆ','win → won|जीतना → जीता|ਜਿੱਤਣਾ → ਜਿੱਤਿਆ']));
+ADD('a2_travel',B.cards('Flashcards — Travel',['platform|प्लेटफ़ॉर्म|ਪਲੇਟਫ਼ਾਰਮ','delay|देरी|ਦੇਰੀ','luggage|सामान|ਸਾਮਾਨ','return ticket|आना-जाना टिकट|ਆਉਣ-ਜਾਣ ਟਿਕਟ','departure|प्रस्थान|ਰਵਾਨਗੀ','arrival|आगमन|ਆਮਦ','check in|होटल में दर्ज होना|ਹੋਟਲ ਵਿੱਚ ਦਰਜ ਹੋਣਾ','passport|पासपोर्ट|ਪਾਸਪੋਰਟ']));
+ADD('a2_health',B.cards('Flashcards — Health',['headache|सिरदर्द|ਸਿਰ ਦਰਦ','fever|बुखार|ਬੁਖ਼ਾਰ','cough|खाँसी|ਖੰਘ','sore throat|गले में दर्द|ਗਲ਼ੇ ਵਿੱਚ ਦਰਦ','prescription|पर्ची|ਪਰਚੀ','appointment|अपॉइंटमेंट|ਅਪੌਇੰਟਮੈਂਟ','allergy|एलर्जी|ਐਲਰਜੀ','dizzy|चक्कर|ਚੱਕਰ']));
+ADD('a2_work',B.cards('Flashcards — Work',['salary|वेतन|ਤਨਖ਼ਾਹ','colleague|सहकर्मी|ਸਹਿਕਰਮੀ','deadline|अंतिम तिथि|ਆਖ਼ਰੀ ਮਿਤੀ','experience|अनुभव|ਤਜਰਬਾ','skills|कौशल|ਹੁਨਰ','interview|इंटरव्यू|ਇੰਟਰਵਿਊ','apply|आवेदन करना|ਅਰਜ਼ੀ ਦੇਣੀ','part-time|अंशकालिक|ਅੰਸ਼ਕ ਸਮੇਂ ਦੀ']));
+
+(function(){
+'use strict';
+
+function levelOf(stId){
+  for(var i=0;i<LEVELS.length;i++){ if(LEVELS[i].ids.indexOf(stId)>-1) return i; }
+  return 0;
+}
+function idxOfId(id){
+  for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id) return i; }
+  return 0;
+}
+
+/* ---------- safe storage (never breaks if blocked) ---------- */
+var mem = {};
+var STORE = {
+  get:function(k){ try{ var v=localStorage.getItem(k); return v===null?mem[k]:v; }catch(e){ return mem[k]; } },
+  set:function(k,v){ mem[k]=v; try{ localStorage.setItem(k,v); }catch(e){} }
+};
+var KEY='pioneerEnglishA2_v1';
+var save={xp:0, done:{}, last:null, ans:{}, typed:{}};
+try{ var raw=STORE.get(KEY); if(raw){ var p=JSON.parse(raw); if(p&&typeof p==='object'){ save.xp=p.xp||0; save.done=p.done||{}; save.last=p.last||null; save.ans=p.ans||{}; save.typed=p.typed||{}; } } }catch(e){}
+function persist(){ try{ STORE.set(KEY, JSON.stringify(save)); }catch(e){} }
+
+/* ---------- answers survive leaving a station ---------- */
+function setAns(blk, idx, val){
+  if(!save.ans) save.ans={};
+  if(!save.ans[blk._st]) save.ans[blk._st]={};
+  if(!save.ans[blk._st][blk._k]) save.ans[blk._st][blk._k]={};
+  save.ans[blk._st][blk._k][idx]=val;
+  persist();
+}
+function getAns(blk, idx){
+  try{ return save.ans[blk._st][blk._k][idx]; }catch(e){ return undefined; }
+}
+function restoreTyped(stId){
+  var main=document.getElementById('main');
+  if(!main) return;
+  var nodes=main.querySelectorAll('input[type=text], textarea');
+  if(!save.typed) save.typed={};
+  var store=save.typed[stId]||{};
+  Array.prototype.forEach.call(nodes, function(nd, i){
+    var k='n'+i;
+    if(store[k]!==undefined && store[k]!=='' && !nd.value) nd.value=store[k];
+    nd.addEventListener('input', function(){
+      if(!save.typed[stId]) save.typed[stId]={};
+      save.typed[stId][k]=nd.value;
+      persist();
+    });
+  });
+}
+
+/* ---------- speech (browser built-in, no network) ---------- */
+var voice=null, voiceReady=false;
+function pickVoice(){
+  try{
+    var vs = window.speechSynthesis.getVoices()||[];
+    voice = vs.filter(function(v){return /^en-(IN|GB)/i.test(v.lang);})[0] || vs.filter(function(v){return /^en/i.test(v.lang);})[0] || null;
+    voiceReady = true;
+  }catch(e){ voiceReady=true; }
+}
+if('speechSynthesis' in window){
+  pickVoice();
+  window.speechSynthesis.onvoiceschanged = pickVoice;
+}
+var warned=false;
+function say(text, rate){
+  if(!('speechSynthesis' in window)){
+    if(!warned){ toast('Audio not supported in this browser'); warned=true; }
+    return;
+  }
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,''));
+    u.lang=(voice&&voice.lang)||'en-GB';
+    u.rate = rate||0.9;
+    if(voice) u.voice=voice;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- helpers ---------- */
+function el(tag, cls, html){
+  var n=document.createElement(tag);
+  if(cls) n.className=cls;
+  if(html!=null) n.innerHTML=html;
+  return n;
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function shuffle(a){
+  a=a.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+var toastT=null;
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('up');
+  clearTimeout(toastT);
+  toastT=setTimeout(function(){ t.classList.remove('up'); },2000);
+}
+/* normalise an answer for comparison */
+function norm(s){
+  return String(s).toLowerCase().trim()
+    .replace(/[\u2018\u2019\u02BC]/g,"'")
+    .replace(/[.,!?;:"'()\u201C\u201D]/g,'')
+    .replace(/\s+/g,' ');
+}
+function trh(it){
+  return (it.hi?'<span class="trl hi">'+esc(it.hi)+'</span>':'')+(it.pa?'<span class="trl pa">'+esc(it.pa)+'</span>':'');
+}
+function matches(input, answers){
+  var n=norm(input);
+  if(!n) return false;
+  for(var i=0;i<answers.length;i++){ if(norm(answers[i])===n) return true; }
+  return false;
+}
+function speakBtn(text){
+  var b=el('button','spk','▶');
+  b.type='button';
+  b.title='Listen';
+  b.setAttribute('aria-label','Play English audio');
+  b.onclick=function(e){ e.stopPropagation(); say(text); };
+  return b;
+}
+function umlautBar(input){ return document.createElement('span'); }
+
+/* ---------- progress ---------- */
+function addXP(n){
+  save.xp += n; persist(); paintXP();
+}
+function markProgress(stationId, blockKey, pct){
+  if(!save.done[stationId]) save.done[stationId]={};
+  var cur = save.done[stationId][blockKey]||0;
+  if(pct>cur){ save.done[stationId][blockKey]=pct; persist(); }
+  paintNav(); paintXP();
+}
+function stationPct(st){
+  var total=0, sum=0;
+  st.bloecke.forEach(function(b,i){
+    if(b.typ!=='ueb' && b.typ!=='schreiben') return;
+    total++;
+    var d=(save.done[st.id]||{})['b'+i]||0;
+    sum+=d;
+  });
+  if(!total) return (save.done[st.id]&&save.done[st.id].seen)?100:0;
+  return Math.round(sum/total);
+}
+function paintXP(){
+  var totals=0;
+  STATIONEN.forEach(function(s){ totals+=stationPct(s); });
+  var overall = Math.round(totals/STATIONEN.length);
+  document.getElementById('xpVal').textContent=save.xp;
+  document.getElementById('xpLbl').textContent='Points · '+overall+' % complete';
+}
+
+/* ============================================================
+   EXERCISE RENDERERS
+============================================================ */
+
+/* --- multiple choice --- */
+function renderMCQ(blk, onDone){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' questions'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, answered=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var opts=el('div','opts');
+    var btns=[];
+    var fb=el('div','fb');
+    function apply(i, restoring){
+      btns.forEach(function(x){ x.disabled=true; });
+      answered++;
+      if(i===item.a){
+        btns[i].classList.add('right'); right++;
+        if(!restoring) addXP(2);
+      }else{
+        btns[i].classList.add('wrong');
+        btns[item.a].classList.add('right');
+      }
+      fb.className='fb show '+(i===item.a?'ok':'no');
+      fb.innerHTML=(i===item.a?'✓ Correct! ':'✗ ')+(item.fb||'');
+      scoreLbl.textContent=right+' correct';
+      if(!restoring) setAns(blk, idx, i);
+      markProgress(blk._st, blk._k, Math.round(right/n*100));
+    }
+    item.opts.forEach(function(o,i){
+      var b=el('button','opt');
+      b.type='button';
+      b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+      b.onclick=function(){ if(b.disabled) return; apply(i, false); };
+      btns.push(b);
+      opts.appendChild(b);
+    });
+    q.appendChild(opts);
+    q.appendChild(fb);
+    wrap.appendChild(q);
+    var prevA=getAns(blk, idx);
+    if(prevA!==undefined && prevA!==null) apply(prevA, true);
+  });
+  return wrap;
+}
+
+/* --- gap fill --- */
+function renderLuecke(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' gaps'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, checked=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var row=el('div','inrow');
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('autocapitalize','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type your answer …';
+    var btn=el('button','btn sm','Check');
+    btn.type='button';
+    var show=el('button','btn sm ghost','Show answer');
+    show.type='button';
+    row.appendChild(inp); row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb');
+    q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok=matches(inp.value, item.a);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; checked++; addXP(3);
+        fb.textContent='✓ Correct!';
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not yet. Try again.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; checked++;
+      inp.value=item.a[0]; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a[0])+'</b>';
+      btn.disabled=true;
+      if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- word ordering --- */
+function renderOrdnen(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var target=item.a.split(' ');
+    var q=el('div','q');
+    q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+
+      '<span class="cue">'+esc(item.hi||'')+'</span><span class="cue pa-i">'+esc(item.pa||'')+'</span>'));
+
+    var slot=el('div','slot');
+    var pool=el('div','pool');
+    var settled=false;
+
+    function mkWord(w, inSlot){
+      var b=el('button','word', esc(w));
+      b.type='button';
+      b.onclick=function(){
+        if(settled) return;
+        b.remove();
+        (inSlot?pool:slot).appendChild(mkWord(w, !inSlot));
+      };
+      return b;
+    }
+    shuffle(target).forEach(function(w){ pool.appendChild(mkWord(w,false)); });
+    q.appendChild(slot); q.appendChild(pool);
+
+    var row=el('div','inrow');
+    row.style.marginTop='8px';
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    btn.onclick=function(){
+      if(settled) return;
+      var got=Array.prototype.map.call(slot.children,function(c){return c.textContent;}).join(' ');
+      var ok = norm(got)===norm(item.a);
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(4);
+        fb.innerHTML='✓ Richtig! <b>'+esc(item.a)+'.</b> ';
+        var s=speakBtn(item.a); fb.appendChild(s);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Check the word order: Subject + Verb + Object, with time words at the end.';
+      }
+    };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      slot.innerHTML=''; pool.innerHTML='';
+      target.forEach(function(w){ slot.appendChild(mkWord(w,true)); });
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a)+'.</b> ';
+      fb.appendChild(speakBtn(item.a));
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- matching pairs --- */
+function renderPaare(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' pairs'));
+  var scoreLbl=el('div','ex-count','0 found');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var grid=el('div','pairs');
+  var L=el('div','pcol'), R=el('div','pcol');
+  grid.appendChild(L); grid.appendChild(R);
+  wrap.appendChild(grid);
+
+  var found=0, n=blk.items.length, sel=null;
+  var leftItems=shuffle(blk.items.map(function(p,i){return {t:p[0],i:i};}));
+  var rightItems=shuffle(blk.items.map(function(p,i){return {t:p[1],i:i};}));
+
+  function mk(col, obj, side){
+    var b=el('button','pbtn', esc(obj.t));
+    b.type='button';
+    b.dataset.i=obj.i;
+    b.onclick=function(){
+      if(b.classList.contains('done')) return;
+      if(side==='L'){ say(obj.t); }
+      if(!sel){ 
+        if(side!=='L'){ toast('Choose from the left column first'); return; }
+        sel=b; b.classList.add('sel'); return;
+      }
+      if(sel===b){ sel=null; b.classList.remove('sel'); return; }
+      if(side==='L'){ sel.classList.remove('sel'); sel=b; b.classList.add('sel'); return; }
+      if(sel.dataset.i===b.dataset.i){
+        sel.classList.remove('sel'); sel.classList.add('done'); b.classList.add('done');
+        sel=null; found++; addXP(2);
+        scoreLbl.textContent=found+' found';
+        if(found===n){ markProgress(blk._st, blk._k, 100); toast('All pairs found!'); }
+      }else{
+        b.classList.add('miss');
+        setTimeout(function(){ b.classList.remove('miss'); },320);
+      }
+    };
+    col.appendChild(b);
+  }
+  leftItems.forEach(function(o){ mk(L,o,'L'); });
+  rightItems.forEach(function(o){ mk(R,o,'R'); });
+  return wrap;
+}
+
+/* --- dictation --- */
+function renderDiktat(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences · listen and type'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var row=el('div','dikt-row');
+    row.appendChild(el('span','q-no',(idx+1)));
+    var play=el('button','big-spk','▶ Listen'); play.type='button';
+    play.onclick=function(){ say(item.t, 0.9); };
+    var slow=el('button','speed','slow ▶'); slow.type='button';
+    slow.onclick=function(){ say(item.t, 0.55); };
+    row.appendChild(play); row.appendChild(slow);
+    q.appendChild(row);
+
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.style.maxWidth='520px';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type what you hear …';
+    var r2=el('div','inrow');
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    r2.appendChild(inp); r2.appendChild(btn); r2.appendChild(show);
+    q.appendChild(r2);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok = norm(inp.value)===norm(item.t);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(5);
+        fb.innerHTML='✓ Perfect! '+trh(item);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Listen again, slowly.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      inp.value=item.t; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.de)+'</b><br><span class="en-i">'+esc(item.en)+'</span>';
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- flashcards --- */
+function renderKarten(blk){
+  var wrap=el('div','ex');
+  var stage=el('div','fc-stage');
+  var order=shuffle(blk.items.map(function(_,i){return i;}));
+  var pos=0, flipped=false;
+
+  var card=el('div','card');
+  var counter=el('div','ex-count','');
+  var ctrls=el('div','inrow');
+
+  function paint(){
+    var it=blk.items[order[pos]];
+    card.innerHTML='';
+    card.appendChild(el('div','face', esc(it[0])));
+    if(flipped){ card.appendChild(el('div','back', esc(it[1])+(it[2]?'<br>'+esc(it[2]):''))); }
+    card.appendChild(el('div','hint', flipped?'Tap to flip back':'Tap for the meaning'));
+    counter.textContent='Card '+(pos+1)+' of '+order.length;
+  }
+  card.onclick=function(){ flipped=!flipped; paint(); };
+
+  var prev=el('button','btn sm ghost','◀ Back'); prev.type='button';
+  var hear=el('button','btn sm gelb','▶ Listen'); hear.type='button';
+  var next=el('button','btn sm','Next ▶'); next.type='button';
+  var mix=el('button','btn sm ghost','Shuffle'); mix.type='button';
+
+  prev.onclick=function(){ pos=(pos-1+order.length)%order.length; flipped=false; paint(); };
+  next.onclick=function(){
+    pos=(pos+1)%order.length; flipped=false; paint();
+    if(pos===0){ markProgress(blk._st, blk._k, 100); addXP(5); toast('Deck finished!'); }
+  };
+  hear.onclick=function(){ var it=blk.items[order[pos]]; say(it[0]); };
+  mix.onclick=function(){ order=shuffle(order); pos=0; flipped=false; paint(); toast('Shuffled'); };
+
+  ctrls.appendChild(prev); ctrls.appendChild(hear); ctrls.appendChild(next); ctrls.appendChild(mix);
+  stage.appendChild(card); stage.appendChild(counter); stage.appendChild(ctrls);
+  wrap.appendChild(stage);
+  paint();
+  return wrap;
+}
+
+/* --- writing --- */
+function renderSchreiben(blk){
+  var wrap=el('div','ex');
+  wrap.appendChild(el('p',null, esc(blk.prompt)));
+  if(blk.punkte && blk.punkte.length){
+    var ul=el('ul','checklist');
+    blk.punkte.forEach(function(p){ ul.appendChild(el('li',null, esc(p))); });
+    wrap.appendChild(ul);
+  }
+  var ta=el('textarea','schreib');
+  ta.placeholder='Write your text here …';
+  wrap.appendChild(ta);
+
+  var row=el('div','inrow');
+  row.style.marginTop='10px';
+  var count=el('span','ex-count','0 words');
+  var btn=el('button','btn','Show model answer'); btn.type='button';
+  var read=el('button','btn ghost','Listen to model'); read.type='button';
+  row.appendChild(btn); row.appendChild(read); row.appendChild(count);
+  wrap.appendChild(row);
+
+  ta.oninput=function(){
+    var w=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;
+    count.textContent=w+' words';
+    if(w>=25){ markProgress(blk._st, blk._k, 100); }
+  };
+
+  var m=el('div','muster', esc(blk.muster));
+  wrap.appendChild(m);
+  btn.onclick=function(){
+    m.classList.toggle('show');
+    btn.textContent = m.classList.contains('show')?'Hide model answer':'Show model answer';
+    if(m.classList.contains('show')) addXP(3);
+  };
+  read.onclick=function(){ say(blk.muster, 0.85); };
+  return wrap;
+}
+
+/* ============================================================
+   BLOCK & STATION RENDERING
+============================================================ */
+function renderVok(blk){
+  var w=el('div','tbl-wrap');
+  var t=el('table');
+  t.innerHTML='<thead><tr><th>English</th><th>Meaning / example</th><th class="hi">हिन्दी</th><th class="pa">ਪੰਜਾਬੀ</th><th></th></tr></thead>';
+  var tb=el('tbody');
+  blk.items.forEach(function(it){
+    var tr=el('tr');
+    tr.appendChild(el('td','g', esc(it[0])));
+    tr.appendChild(el('td','e', esc(it[1]||'')));
+    tr.appendChild(el('td','hi', esc(it[2]||'')));
+    tr.appendChild(el('td','pa', esc(it[3]||'')));
+    var td4=el('td');
+    td4.appendChild(speakBtn(it[0].split('—')[0].split('↔')[0].replace(/\(.*?\)/g,'')));
+    tr.appendChild(td4);
+    tb.appendChild(tr);
+  });
+  t.appendChild(tb); w.appendChild(t);
+  return w;
+}
+function renderDlg(blk){
+  var w=el('div','dlg');
+  var all=blk.zeilen.map(function(z){return z[1];}).join(' ');
+  var head=el('div','inrow');
+  head.style.marginBottom='10px';
+  var b=el('button','btn sm gelb','▶ Play whole dialogue'); b.type='button';
+  b.onclick=function(){ say(all, 0.85); };
+  head.appendChild(b);
+  w.appendChild(head);
+  blk.zeilen.forEach(function(z){
+    var r=el('div','dlg-row');
+    r.appendChild(el('div','dlg-who', esc(z[0])));
+    r.appendChild(el('div','dlg-de', esc(z[1])+trh({hi:z[2],pa:z[3]})));
+    var c=el('div'); c.appendChild(speakBtn(z[1]));
+    r.appendChild(c);
+    w.appendChild(r);
+  });
+  return w;
+}
+function renderText(blk){
+  var w=el('div','lesetext');
+  if(blk.meta) w.appendChild(el('div','meta', esc(blk.meta)));
+  var body=el('div',null, blk.html);
+  w.appendChild(body);
+  return w;
+}
+
+var TAGS={ vok:['','Vocabulary'], regel:['gram','Grammar'], dlg:['','Dialogue'],
+           text:['','Reading'], ueb:['ueb','Practice'], karten:['','Flashcards'],
+           schreiben:['ueb','Writing'] };
+
+function renderBlock(st, blk, i){
+  blk._st=st.id; blk._k='b'+i;
+  var box=el('div','blk');
+  var head=el('div','blk-head');
+  var meta=TAGS[blk.typ]||['',''];
+  head.appendChild(el('span','tag '+meta[0], meta[1]));
+  head.appendChild(el('h2',null, esc(blk.t||'')));
+  box.appendChild(head);
+  var body=el('div','blk-body');
+
+  if(blk.typ==='vok') body.appendChild(renderVok(blk));
+  else if(blk.typ==='regel') body.innerHTML=blk.html;
+  else if(blk.typ==='dlg') body.appendChild(renderDlg(blk));
+  else if(blk.typ==='text') body.appendChild(renderText(blk));
+  else if(blk.typ==='karten') body.appendChild(renderKarten(blk));
+  else if(blk.typ==='schreiben') body.appendChild(renderSchreiben(blk));
+  else if(blk.typ==='ueb'){
+    if(blk.art==='mcq') body.appendChild(renderMCQ(blk));
+    else if(blk.art==='luecke') body.appendChild(renderLuecke(blk));
+    else if(blk.art==='ordnen') body.appendChild(renderOrdnen(blk));
+    else if(blk.art==='paare') body.appendChild(renderPaare(blk));
+    else if(blk.art==='diktat') body.appendChild(renderDiktat(blk));
+  }
+  box.appendChild(body);
+  return box;
+}
+
+/* ============================================================
+   HOME SCREEN — level select
+============================================================ */
+function levelPct(lv){
+  var sum=0;
+  lv.ids.forEach(function(id){ sum+=stationPct(STATIONEN[idxOfId(id)]); });
+  return Math.round(sum/lv.ids.length);
+}
+function ring(pct, colour){
+  var w=el('div','ring');
+  var r=22, c=2*Math.PI*r, off=c*(1-pct/100);
+  w.innerHTML='<svg width="52" height="52" viewBox="0 0 52 52">'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="#DADDD6" stroke-width="5"/>'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="'+colour+'" stroke-width="5" '+
+    'stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" stroke-linecap="round"/>'+
+    '</svg><span>'+pct+'%</span>';
+  return w;
+}
+var LVL_COLOUR=['#12457A','#2A7F62','#35A0F0','#B8202E'];
+
+function renderHome(){
+  current=-1;
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var head=el('div','home-head');
+  head.appendChild(el('div','eyebrow','Overview · choose your level'));
+  head.appendChild(el('h1',null,'Where would you like to start?<span class="en">Pick a part — you do not have to start at Unit 01</span>'));
+  head.appendChild(el('p','lead','The course is split into four levels. Jump straight to the one that matches you, or take the two-minute placement test below and let it choose for you. Your progress is saved automatically.'));
+  main.appendChild(head);
+
+  /* resume card */
+  if(save.last){
+    var li=idxOfId(save.last), lst=STATIONEN[li];
+    var rc=el('button','resume'); rc.type='button';
+    rc.appendChild(el('span','rg', lst.g));
+    rc.appendChild(el('span','rt','<small>Continue · continue where you stopped</small>'+esc(lst.t)));
+    rc.appendChild(el('span','ra','Next ▶'));
+    rc.onclick=function(){ go(li); };
+    main.appendChild(rc);
+  }
+
+  /* level cards */
+  var grid=el('div','lvl-grid');
+  LEVELS.forEach(function(lv, li){
+    var card=el('button','lvl-card '+lv.cls); card.type='button';
+    var top=el('div','lvl-top');
+    var left=el('div');
+    left.appendChild(el('div','lvl-code','Part '+(li+1)+' · '+lv.code));
+    left.appendChild(el('div','lvl-name', esc(lv.name)+'<em>'+esc(lv.en)+'</em>'));
+    top.appendChild(left);
+    top.appendChild(ring(levelPct(lv), LVL_COLOUR[li]));
+    card.appendChild(top);
+    card.appendChild(el('p','lvl-desc', esc(lv.desc)));
+
+    var chips=el('div','lvl-stations');
+    lv.ids.forEach(function(id){
+      var st=STATIONEN[idxOfId(id)], p=stationPct(st);
+      chips.appendChild(el('span','lvl-chip'+(p>=100?' done':(p>0?' part':'')), st.g));
+    });
+    card.appendChild(chips);
+
+    var meta=el('div','lvl-meta');
+    meta.appendChild(el('span',null, lv.ids.length+' units'));
+    meta.appendChild(el('span',null,'Start ▶'));
+    card.appendChild(meta);
+
+    card.onclick=function(){
+      /* open the first unfinished station in this level */
+      var target=lv.ids[0];
+      for(var k=0;k<lv.ids.length;k++){
+        if(stationPct(STATIONEN[idxOfId(lv.ids[k])])<100){ target=lv.ids[k]; break; }
+      }
+      go(idxOfId(target));
+    };
+    grid.appendChild(card);
+  });
+  main.appendChild(grid);
+
+  /* placement test */
+  main.appendChild(renderPlacement());
+
+  var tools=el('div','home-tools');
+  var all=el('button','btn ghost','View all '+STATIONEN.length+' units'); all.type='button';
+  all.onclick=function(){ go(0); };
+  tools.appendChild(all);
+  main.appendChild(tools);
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent='⌂';
+  t.innerHTML='Overview<small>Level select</small>';
+  paintNav(); paintXP();
+}
+
+function renderPlacement(){
+  var box=el('div','place');
+  box.appendChild(el('h3',null,'Placement test — where should I start?'));
+  box.appendChild(el('p',null,PLACEMENT.length+' quick questions. Answer honestly and skip nothing — the result tells you which part to open first.'));
+
+  var start=el('button','btn gelb','Start test'); start.type='button';
+  box.appendChild(start);
+  var area=el('div');
+  box.appendChild(area);
+
+  start.onclick=function(){
+    start.style.display='none';
+    area.innerHTML='';
+    var score=[0,0,0,0], count=[0,0,0,0], answered=0;
+    PLACEMENT.forEach(function(item, idx){
+      count[item.lvl]++;
+      var q=el('div','q');
+      q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+item.q));
+      var opts=el('div','opts'); var btns=[];
+      item.opts.forEach(function(o,i){
+        var b=el('button','opt'); b.type='button';
+        b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+        b.onclick=function(){
+          if(b.disabled) return;
+          btns.forEach(function(x){x.disabled=true;});
+          answered++;
+          if(i===item.a){ b.classList.add('right'); score[item.lvl]++; }
+          else{ b.classList.add('wrong'); btns[item.a].classList.add('right'); }
+          if(answered===PLACEMENT.length) finish();
+        };
+        btns.push(b); opts.appendChild(b);
+      });
+      q.appendChild(opts);
+      area.appendChild(q);
+    });
+
+    function finish(){
+      /* recommended level = first level where the student scored below 70% */
+      var rec=LEVELS.length-1;
+      for(var i=0;i<4;i++){
+        if(count[i] && (score[i]/count[i])<0.7){ rec=i; break; }
+      }
+      var total=score.reduce(function(a,b){return a+b;},0);
+      var res=el('div','place-result');
+      var lv=LEVELS[rec];
+      res.innerHTML='<b>Recommended: Part '+(rec+1)+' — '+esc(lv.name)+' ('+lv.code+')</b>'+
+        'You scored '+total+' out of '+PLACEMENT.length+'. '+
+        'Per part: '+LEVELS.map(function(l,i){return l.code+' '+score[i]+'/'+count[i];}).join(' · ')+'.';
+      var goBtn=el('button','btn gelb','Open Part '+(rec+1)+' ▶');
+      goBtn.type='button'; goBtn.style.marginTop='12px';
+      goBtn.onclick=function(){ go(idxOfId(lv.ids[0])); };
+      res.appendChild(goBtn);
+      area.appendChild(res);
+      addXP(10);
+      res.scrollIntoView({block:'nearest'});
+    }
+  };
+  return box;
+}
+
+var current=-1;
+function renderStation(idx){
+  current=idx;
+  var st=STATIONEN[idx];
+  save.last=st.id; persist();
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var lvi=levelOf(st.id), lv=LEVELS[lvi];
+  var posInLvl=lv.ids.indexOf(st.id)+1;
+
+  var head=el('div','station-head');
+  head.appendChild(el('div','eyebrow','Part '+(lvi+1)+' · '+lv.code+' '+lv.name+
+    ' · Unit '+st.g+' ('+posInLvl+' of '+lv.ids.length+')'));
+  head.appendChild(el('h1',null, esc(st.t)+'<span class="en">'+esc(st.en)+'</span>'));
+  if(st.lead) head.appendChild(el('p','lead', esc(st.lead)));
+  if(st.leadHi) head.appendChild(el('p','lead trl hi', esc(st.leadHi)));
+  if(st.leadPa) head.appendChild(el('p','lead trl pa', esc(st.leadPa)));
+  main.appendChild(head);
+
+  st.bloecke.forEach(function(b,i){ main.appendChild(renderBlock(st,b,i)); });
+
+  var step=el('div','stepper');
+  var prev=el('button','btn ghost','◀ Unit '+(idx>0?STATIONEN[idx-1].g:STATIONEN[STATIONEN.length-1].g));
+  prev.type='button';
+  prev.onclick=function(){ go((idx-1+STATIONEN.length)%STATIONEN.length); };
+
+  var over=el('button','btn ghost','⌂ Overview'); over.type='button';
+  over.onclick=function(){ goHome(); };
+
+  var isLast = (posInLvl===lv.ids.length);
+  var next=el('button','btn', isLast
+    ? (lvi<LEVELS.length-1 ? 'Part '+(lvi+2)+' ▶' : 'To overview ▶')
+    : 'Unit '+STATIONEN[idxOfId(lv.ids[posInLvl])].g+' ▶');
+  next.type='button';
+  next.onclick=function(){
+    if(!isLast){ go(idxOfId(lv.ids[posInLvl])); return; }
+    if(lvi<LEVELS.length-1){ go(idxOfId(LEVELS[lvi+1].ids[0])); toast('Part '+(lvi+2)+' — '+LEVELS[lvi+1].name); }
+    else{ goHome(); }
+  };
+  step.appendChild(prev); step.appendChild(over); step.appendChild(next);
+  main.appendChild(step);
+
+  if(!save.done[st.id]) save.done[st.id]={};
+  save.done[st.id].seen=1; persist();
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent=st.g;
+  t.innerHTML=esc(st.t)+'<small>'+esc(st.en)+'</small>';
+  g.classList.remove('flip'); t.classList.remove('flip');
+  void g.offsetWidth;
+  g.classList.add('flip'); t.classList.add('flip');
+
+  restoreTyped(st.id);
+  paintNav(); paintXP();
+}
+function go(i){
+  renderStation(i);
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+function goHome(){
+  renderHome();
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+
+/* ---------- sidebar ---------- */
+function paintNav(){
+  var nav=document.getElementById('fahrplan');
+  nav.innerHTML='';
+  var h=el('div','fp-head');
+  h.appendChild(el('span',null,'Course map'));
+  h.appendChild(el('span',null,STATIONEN.length+' units'));
+  nav.appendChild(h);
+
+  var hb=el('button','fp-item'+(current===-1?' on':''));
+  hb.type='button';
+  hb.appendChild(el('span','fp-g','⌂'));
+  hb.appendChild(el('span','fp-t','Overview<em>All levels</em>'));
+  hb.appendChild(el('span'));
+  hb.onclick=goHome;
+  nav.appendChild(hb);
+
+  LEVELS.forEach(function(lv, li){
+    var lh=el('div','fp-lvl '+lv.cls);
+    lh.appendChild(el('span',null,'Part '+(li+1)+' · '+lv.code));
+    lh.appendChild(el('span',null, levelPct(lv)+'%'));
+    nav.appendChild(lh);
+
+    lv.ids.forEach(function(id){
+      var i=idxOfId(id), st=STATIONEN[i];
+      var b=el('button','fp-item'+(i===current?' on':''));
+      b.type='button';
+      b.appendChild(el('span','fp-g', st.g));
+      b.appendChild(el('span','fp-t', esc(st.t)+'<em>'+esc(st.en)+'</em>'));
+      var p=stationPct(st);
+      b.appendChild(el('span','fp-dot'+(p>=100?' done':(p>0?' part':''))));
+      b.onclick=function(){ go(i); };
+      nav.appendChild(b);
+    });
+  });
+
+  var reset=el('button','btn sm ghost','Reset progress');
+  reset.type='button';
+  reset.style.marginTop='18px';
+  reset.onclick=function(){
+    if(confirm('Delete all your progress?')){
+      save={xp:0,done:{},last:null,ans:{},typed:{}}; persist(); goHome(); toast('Progress reset');
+    }
+  };
+  nav.appendChild(reset);
+}
+function closeNav(){
+  document.getElementById('fahrplan').classList.remove('open');
+  document.getElementById('scrim').classList.remove('on');
+}
+document.getElementById('menuBtn').onclick=function(){
+  document.getElementById('fahrplan').classList.toggle('open');
+  document.getElementById('scrim').classList.toggle('on');
+};
+document.getElementById('scrim').onclick=closeNav;
+document.getElementById('homeBtn').onclick=goHome;
+
+/* keyboard: arrows move between stations, Esc returns to the overview */
+document.addEventListener('keydown', function(e){
+  var tag=(e.target.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea') return;
+  if(e.key==='Escape'){ goHome(); return; }
+  if(current<0) return;
+  if(e.key==='ArrowLeft') go((current-1+STATIONEN.length)%STATIONEN.length);
+  if(e.key==='ArrowRight') go((current+1)%STATIONEN.length);
+});
+
+/* ---------- translation toggles ---------- */
+var TRKEY=KEY+'_tr';
+var trs={hi:true, pa:true};
+try{ var rawT=STORE.get(TRKEY); if(rawT){ var pt=JSON.parse(rawT); trs.hi=!!pt.hi; trs.pa=!!pt.pa; } }catch(e){}
+function applyTr(){
+  document.body.classList.toggle('t-hi', trs.hi);
+  document.body.classList.toggle('t-pa', trs.pa);
+  document.getElementById('trHi').classList.toggle('on', trs.hi);
+  document.getElementById('trPa').classList.toggle('on', trs.pa);
+  STORE.set(TRKEY, JSON.stringify(trs));
+}
+document.getElementById('trHi').onclick=function(){ trs.hi=!trs.hi; applyTr(); };
+document.getElementById('trPa').onclick=function(){ trs.pa=!trs.pa; applyTr(); };
+applyTr();
+
+renderHome();
+})();
+</script>
+</body>
+</html>
