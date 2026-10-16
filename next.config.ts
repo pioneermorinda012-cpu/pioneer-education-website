@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
     "/practice/writing/**": ["./content/writing/*.json"],
     // The PTE trainers are whole HTML pages served by app/practice/pte/[id]/route.ts.
     "/practice/pte/**": ["./content/pte/*.html"],
+    // The English trainers are whole HTML pages served by app/practice/english/[id]/route.ts.
+    "/practice/english/**": ["./content/english/*.html"],
   },
 };
 
