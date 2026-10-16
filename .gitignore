@@ -62,3 +62,5 @@ next-env.d.ts
 
 # staging copy of the recordings for manual upload to Supabase
 /supabase-upload/
+
+/_transfer/
