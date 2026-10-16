@@ -5,6 +5,7 @@ import Chatbot from "../components/Chatbot";
 import SiteNav from "../components/SiteNav";
 import Link from "next/link";
 import Image from "next/image";
+import { COURSES } from "./data/courses";
 
 function Barcode() {
   // Purely decorative — generated client-side only, after mount, so the
@@ -202,7 +203,7 @@ export default function Home() {
     </div>
     <div className="why-features-grid">
       <div className="why-feat"><div className="wf-icon">⏰</div><h4>4–5 Hours Daily</h4><p>Intensive classes from 9 AM to 1 PM, with evening batches available.</p></div>
-      <div className="why-feat"><div className="wf-icon">👤</div><h4>Individual Attention</h4><p>Maximum 8 students per batch, so every student gets personal focus.</p></div>
+      <div className="why-feat"><div className="wf-icon">👤</div><h4>Individual Attention</h4><p>Maximum 10 students per batch, so every student gets personal focus.</p></div>
       <div className="why-feat"><div className="wf-icon">📊</div><h4>3 Level Material</h4><p>Beginner, Intermediate &amp; Advanced practice material designed for all levels.</p></div>
       <div className="why-feat"><div className="wf-icon">📝</div><h4>Weekly Mock Tests</h4><p>Every Friday mock test plus detailed feedback to track your progress.</p></div>
       <div className="why-feat"><div className="wf-icon">🖥️</div><h4>Visual Learning</h4><p>Every Saturday — visual presentations and vocabulary-building games.</p></div>
@@ -273,7 +274,7 @@ export default function Home() {
         <p>Intensive classes from 9 AM to 1 PM, with evening batches available for working students.</p>
       </div>
       <div className="fact-card">
-        <h4>👤 Max 8 per batch</h4>
+        <h4>👤 Max 10 per batch</h4>
         <p>Small batches by design, so every student gets personal attention and speaking time.</p>
       </div>
       <div className="fact-card">
@@ -312,47 +313,41 @@ export default function Home() {
   <div className="wrap">
     <div className="section-head">
       <div className="section-eyebrow">Investment</div>
-      <h2>Simple, honest pricing.</h2>
-      <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn ₹500</p>
+      <h2>Fees, course by course.</h2>
+      <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn up to ₹500</p>
     </div>
-    <div className="pricing-grid">
-      <div className="price-card">
-        <div className="pc-name">Material Access</div>
-        <div className="pc-price">₹499<span>/month</span></div>
-        <ul className="course-feats">
-          <li>Study material &amp; resources</li>
-          <li>Practice exercises &amp; quizzes</li>
-          <li>Self-paced learning</li>
-        </ul>
-        <a href="#contact" className="btn btn-outline" style={{width: '100%', justifyContent: 'center'}}>Enroll Now</a>
-      </div>
-      <div className="price-card featured">
-        <div className="pc-badge">Most Popular</div>
-        <div className="pc-name" style={{color: 'rgba(255,255,255,0.8)'}}>Group Class</div>
-        <div className="pc-price" style={{color: '#fff'}}>₹2,499<span style={{color: 'rgba(255,255,255,0.7)'}}>/month</span></div>
-        <ul className="course-feats" style={{color: 'rgba(255,255,255,0.85)'}}>
-          <li style={{color: 'rgba(255,255,255,0.9)'}}>Live classes 5 days/week</li>
-          <li style={{color: 'rgba(255,255,255,0.9)'}}>Max 8 students per batch</li>
-          <li style={{color: 'rgba(255,255,255,0.9)'}}>Online + Offline</li>
-          <li style={{color: 'rgba(255,255,255,0.9)'}}>Weekly progress feedback</li>
-          <li style={{color: 'rgba(255,255,255,0.9)'}}>Certificate on completion</li>
-        </ul>
-        <a href="#contact" className="btn" style={{width: '100%', justifyContent: 'center', background: '#fff', color: 'var(--coral-dark)'}}>Enroll Now</a>
-      </div>
-      <div className="price-card">
-        <div className="pc-name">1-to-1 Coaching</div>
-        <div className="pc-price">₹4,999<span>/month</span></div>
-        <ul className="course-feats">
-          <li>Dedicated personal sessions</li>
-          <li>Custom curriculum</li>
-          <li>Flexible timings</li>
-          <li>Interview prep</li>
-          <li>Priority WhatsApp support</li>
-        </ul>
-        <a href="#contact" className="btn btn-outline" style={{width: '100%', justifyContent: 'center'}}>Enroll Now</a>
-      </div>
+    <div className="courses-grid">
+      {COURSES.map((c) => {
+        const priced = c.plans.map((p) => p.price).filter((v): v is number => v !== null);
+        const from = priced.length ? Math.min(...priced) : null;
+        const tint =
+          c.slug === "pte"
+            ? { background: 'var(--teal-light)', color: 'var(--teal)' }
+            : c.slug === "spoken-english"
+            ? { background: 'var(--gold-light)', color: 'var(--coral-dark)' }
+            : c.slug === "german"
+            ? { background: 'var(--navy)', color: '#fff' }
+            : { background: 'var(--coral-light)', color: 'var(--coral-dark)' };
+        return (
+          <Link key={c.slug} href={`/courses/${c.slug}#fees`} className="course-card">
+            <div className="course-icon" style={tint}>{c.icon}</div>
+            <h3>{c.name}</h3>
+            <div className="pc-price" style={{fontSize: '1.5rem', margin: '2px 0 12px'}}>
+              {from === null
+                ? <span style={{fontSize: '1rem'}}>Fee on request</span>
+                : <>From ₹{from.toLocaleString("en-IN")}<span>/month</span></>}
+            </div>
+            <ul className="course-feats">
+              <li>Online self-study option</li>
+              <li>Live group classes, max 10 per batch</li>
+              <li>1-to-1 coaching available</li>
+            </ul>
+            <span className="go">See {c.name} fees →</span>
+          </Link>
+        );
+      })}
     </div>
-    <div className="price-note">📞 &nbsp;IELTS, PTE &amp; German fees — contact us on WhatsApp for custom pricing based on your requirement and batch type. <strong>WhatsApp: +91 73802 61308</strong></div>
+    <div className="price-note">📞 &nbsp;Every course is sold in three plans — online self-study, live group class, and 1-to-1 coaching. Open a course for its fees, or just ask us. <strong>WhatsApp: +91 73802 61308</strong></div>
   </div>
 </section>
 
@@ -481,7 +476,7 @@ export default function Home() {
         <div className="lead-perks">
           <div>✓ &nbsp;First demo class always free</div>
           <div>✓ &nbsp;Sibling discount 20%</div>
-          <div>✓ &nbsp;Refer &amp; Earn ₹500</div>
+          <div>✓ &nbsp;Refer &amp; Earn up to ₹500</div>
         </div>
       </div>
       {submitted ? (
@@ -512,11 +507,11 @@ export default function Home() {
           </select>
         </div>
         <div>
-          <label htmlFor="lead-budget">Budget (monthly)</label>
+          <label htmlFor="lead-budget">Plan You're Interested In</label>
           <select id="lead-budget" ref={budgetRef}>
-            <option>₹499 — Material Access</option>
-            <option>₹2,499 — Group Class</option>
-            <option>₹4,999 — 1-to-1 Coaching</option>
+            <option>Online Self-Study</option>
+            <option>Group Class</option>
+            <option>1-to-1 Coaching</option>
             <option>Not sure yet</option>
           </select>
         </div>

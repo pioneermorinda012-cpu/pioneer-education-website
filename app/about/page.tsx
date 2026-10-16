@@ -77,7 +77,7 @@ export default function AboutPage() {
               <p>Intensive classes from 9 AM to 1 PM, with evening batches for working students.</p>
             </div>
             <div className="fact-card">
-              <h4>👤 Max 8 per batch</h4>
+              <h4>👤 Max 10 per batch</h4>
               <p>Small batches by design, so every student gets real speaking time and attention.</p>
             </div>
             <div className="fact-card">

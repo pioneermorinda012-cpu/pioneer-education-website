@@ -38,6 +38,8 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
     `Hi Pioneer Education, I'd like to know more about ${course.name}.`
   )}`;
 
+  const feesOnRequest = course.plans.every((p) => p.price === null);
+
   return (
     <>
       <SiteNav ctaHref={wa} />
@@ -52,7 +54,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
           <p style={{ fontSize: "1.1rem", color: "var(--grey)", maxWidth: "620px", marginBottom: "24px" }}>{course.tagline}</p>
           <div className="hero-ctas" style={{ marginBottom: "32px" }}>
             <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Book a Free Demo Class</a>
-            <Link href="/#pricing" className="btn btn-outline">See Pricing</Link>
+            <a href="#fees" className="btn btn-outline">See Fees</a>
           </div>
         </div>
       </section>
@@ -95,6 +97,68 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
           <div>
             <h3 style={{ fontFamily: "Fraunces, serif", fontSize: "1.3rem", color: "var(--navy)", marginBottom: "16px" }}>Duration</h3>
             <p style={{ fontSize: "0.95rem", color: "var(--ink)" }}>{course.duration}</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="fees">
+        <div className="wrap">
+          <div className="section-head">
+            <div className="section-eyebrow">Fees</div>
+            <h2>{course.name} — what it costs.</h2>
+            <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn up to ₹500</p>
+          </div>
+          <div className="pricing-grid">
+            {course.plans.map((plan, i) => {
+              const light = plan.featured ? { color: "rgba(255,255,255,0.9)" } : undefined;
+              return (
+                <div key={i} className={plan.featured ? "price-card featured" : "price-card"}>
+                  {plan.featured && <div className="pc-badge">Most Popular</div>}
+                  <div className="pc-name" style={plan.featured ? { color: "rgba(255,255,255,0.8)" } : undefined}>{plan.name}</div>
+                  <div className="pc-price" style={plan.featured ? { color: "#fff" } : undefined}>
+                    {plan.price === null ? (
+                      <span style={{ fontSize: "1.1rem" }}>Fee on request</span>
+                    ) : (
+                      <>
+                        ₹{plan.price.toLocaleString("en-IN")}
+                        <span style={plan.featured ? { color: "rgba(255,255,255,0.7)" } : undefined}>{plan.period}</span>
+                      </>
+                    )}
+                  </div>
+                  <ul className="course-feats" style={light}>
+                    {plan.feats.map((f, j) => (
+                      <li key={j} style={light}>{f}</li>
+                    ))}
+                  </ul>
+                  <a
+                    href={wa}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={plan.featured ? "btn" : "btn btn-outline"}
+                    style={
+                      plan.featured
+                        ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
+                        : { width: "100%", justifyContent: "center" }
+                    }
+                  >
+                    Ask on WhatsApp
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+          <div className="price-note">
+            {feesOnRequest ? (
+              <>
+                📞 &nbsp;{course.name} fees depend on your level and the batch you join — message us and we will tell you
+                straight away. <strong>WhatsApp: +91 73802 61308</strong>
+              </>
+            ) : (
+              <>
+                📞 &nbsp;Not sure which plan fits? Message us and we will recommend one after your free demo class.{" "}
+                <strong>WhatsApp: +91 73802 61308</strong>
+              </>
+            )}
           </div>
         </div>
       </section>

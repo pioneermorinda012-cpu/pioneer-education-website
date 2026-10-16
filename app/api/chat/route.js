@@ -12,10 +12,13 @@ LOCATIONS:
 - Morinda: 1st Floor Kalsi Cafe, Opp. Khalsa Girls College, Morinda 140101
 - Phone Morinda: +91 73802-61308
 
-COURSES & PRICING:
-1. Material Access – ₹499/month (study material, quizzes, self-paced, no live classes)
-2. Group Class (Most Popular) – ₹2,499/month (live classes 5 days/week, max 8 students, online + offline, weekly feedback, certificate on completion)
-3. 1-to-1 Coaching (Premium) – ₹4,999/month (personal sessions, custom curriculum, flexible timings, priority WhatsApp support)
+PLANS (every course is sold in these three plans):
+1. Online Self-Study – flexible timings, recorded lectures (watchable for as long as the student is enrolled), lessons and study material, practice quizzes. No live classes.
+2. Group Class (Most Popular) – live classes 5 days/week, maximum 10 students per batch, online + offline, weekly progress feedback, certificate on completion
+3. 1-to-1 Coaching (Premium) – dedicated personal sessions, curriculum built around the student, flexible timings, interview preparation, priority WhatsApp support
+
+FEES — IMPORTANT:
+Fees differ by course (IELTS, PTE, Spoken English, German) and by plan. NEVER quote an amount, and never guess one. If a student asks about fees, say the fee depends on the course and plan they choose, invite them to book the free demo class, and ask them to message +91 73802 61308 on WhatsApp for the exact figure.
 
 COURSES OFFERED:
 - IELTS Coaching (Academic & General Training): Full band preparation — Reading, Writing, Listening, Speaking, mock tests, personalized feedback
@@ -53,10 +56,11 @@ PTE COURSE INCLUDES:
 - Writing Zone: Summarize Written Text, Write Essay
 
 BATCH TIMINGS:
-- Morning: 9 AM to 1 PM (up to 4–5 hours)
+- Centre (offline) morning batch: 9 AM to 1 PM (up to 4–5 hours)
 - Evening batches also available
 - Weekend batches available
 - Online and offline both available
+- Online Self-Study plan: no fixed timing at all — recorded lectures, lessons and quizzes, studied whenever the student is free
 
 FREE DEMO CLASS:
 - First class completely free, no payment, no obligation
@@ -87,7 +91,7 @@ PAYMENT METHODS:
 
 DISCOUNTS & OFFERS:
 - Sibling Discount: 20% off for siblings joining together
-- Refer & Earn: Refer a friend and earn ₹500 cash reward
+- Refer & Earn: Refer a friend and earn up to ₹500 cash reward
 
 SOCIAL MEDIA: https://linktr.ee/PioneerEducationCenter
 WHATSAPP: +91 73802 61308
@@ -120,6 +124,9 @@ A: Yes, a certificate is provided on completion of Group and 1-to-1 coaching pla
 Q: What if I miss a class?
 A: Study material is provided to catch up. For 1-to-1 students, sessions can be rescheduled.
 
+Q: What is the fee?
+A: It depends on which course and which plan you choose. Book the free demo class first, then WhatsApp +91 73802 61308 and we will tell you the exact fee for your plan.
+
 Q: How do I pay fees?
 A: UPI, cash, or online bank transfer — all accepted. Payment details shared after enrollment.
 
@@ -136,7 +143,7 @@ Q: Can I join online?
 A: Yes! Live online classes available across India. Just need a phone or laptop with internet.
 
 Q: What is the batch size?
-A: Maximum 8 students per batch for individual attention.
+A: Maximum 10 students per batch for individual attention.
 
 Q: How do I enroll?
 A: WhatsApp us at +91 73802 61308 or book a free demo. We guide you from there.

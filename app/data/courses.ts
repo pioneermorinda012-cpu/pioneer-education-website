@@ -1,3 +1,16 @@
+export type Plan = {
+  name: string;
+  /**
+   * Monthly fee in rupees. Set it to a number to show the price;
+   * leave it null and the card says "Fee on request" instead.
+   * e.g. standardPlans(999, 2499, 4999) on the course below.
+   */
+  price: number | null;
+  period: string;
+  feats: string[];
+  featured?: boolean;
+};
+
 export type Course = {
   slug: string;
   name: string;
@@ -7,8 +20,56 @@ export type Course = {
   modules: { title: string; desc: string }[];
   forWhom: string[];
   duration: string;
+  plans: Plan[];
   faqs: { q: string; a: string }[];
 };
+
+/**
+ * The three plans every course is sold under. Pass the fee for each tier,
+ * or null to leave that tier as "Fee on request".
+ */
+const standardPlans = (
+  selfStudy: number | null,
+  group: number | null,
+  oneToOne: number | null
+): Plan[] => [
+  {
+    name: "Online Self-Study",
+    price: selfStudy,
+    period: "/month",
+    feats: [
+      "Flexible timings — study when you can",
+      "Recorded lectures, watchable while enrolled",
+      "Lessons and study material",
+      "Practice quizzes",
+    ],
+  },
+  {
+    name: "Group Class",
+    price: group,
+    period: "/month",
+    featured: true,
+    feats: [
+      "Live classes 5 days a week",
+      "Maximum 10 students per batch",
+      "Online and offline both",
+      "Weekly progress feedback",
+      "Certificate on completion",
+    ],
+  },
+  {
+    name: "1-to-1 Coaching",
+    price: oneToOne,
+    period: "/month",
+    feats: [
+      "Dedicated personal sessions",
+      "Curriculum built around you",
+      "Flexible timings",
+      "Interview preparation",
+      "Priority WhatsApp support",
+    ],
+  },
+];
 
 export const COURSES: Course[] = [
   {
@@ -30,6 +91,7 @@ export const COURSES: Course[] = [
       "Anyone needing a specific band score for immigration",
     ],
     duration: "4–5 hours daily, weekday batches with evening options",
+    plans: standardPlans(null, null, null),
     faqs: [
       { q: "How long does the course take?", a: "Most students prepare in 6–10 weeks depending on their starting level and target band." },
       { q: "Do you cover both Academic and General Training?", a: "Yes — the core skills overlap, and we tailor Reading and Writing Task 1 practice to whichever version you're taking." },
@@ -55,6 +117,7 @@ export const COURSES: Course[] = [
       "Those more comfortable with computer-based testing",
     ],
     duration: "Flexible batches — typically 3–6 weeks",
+    plans: standardPlans(null, null, null),
     faqs: [
       { q: "Is PTE easier than IELTS?", a: "Not easier exactly, but more predictable — since it's AI-scored, strong templates and strategy consistently produce reliable results." },
       { q: "How fast are PTE results?", a: "Usually within 1–2 business days, much faster than IELTS." },
@@ -80,6 +143,7 @@ export const COURSES: Course[] = [
       "Anyone preparing for job interviews or workplace communication",
     ],
     duration: "Beginner to Advanced, self-paced batches",
+    plans: standardPlans(null, null, null),
     faqs: [
       { q: "I understand English but can't speak it — is this for me?", a: "Yes, this is exactly who the course is designed for." },
       { q: "Do I need any prior English knowledge?", a: "No, we have a dedicated beginner track that starts from the basics." },
@@ -105,6 +169,7 @@ export const COURSES: Course[] = [
       "Complete beginners — no prior German needed",
     ],
     duration: "Structured A1 → A2 → B1 progression, typically 6–9 months total",
+    plans: standardPlans(null, null, null),
     faqs: [
       { q: "Do I need any German background to start?", a: "No, the A1 track starts from absolute zero." },
       { q: "Is B1 enough for a German visa?", a: "B1 is the most commonly required level for study and work visas — we'll confirm the exact requirement for your specific visa type." },
