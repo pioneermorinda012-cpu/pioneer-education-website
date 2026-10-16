@@ -18,8 +18,13 @@ create table if not exists students (
   batch        text,                          -- 'Morning', 'Evening' …
   track        text check (track in ('academic','gt')) default 'academic',
   active       boolean not null default true, -- switch off when a student leaves
-  created_at   timestamptz not null default now()
+  created_at   timestamptz not null default now(),
+  email        text,                          -- online enrolments: where the login is emailed
+  phone        text,
+  payment_id   text                           -- the Razorpay payment that created this login
 );
+create unique index if not exists students_payment_id_key on students (payment_id) where payment_id is not null;
+create unique index if not exists students_email_active_key on students (lower(email)) where email is not null and active;
 create index if not exists students_batch_idx on students (batch) where active;
 
 -- ── attempts ───────────────────────────────────────────────

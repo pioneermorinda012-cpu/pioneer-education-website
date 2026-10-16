@@ -9,6 +9,10 @@ export type Student = {
   track: "academic" | "gt";
   active: boolean;
   created_at: string;
+  /* Filled in for students who enrolled by paying online. */
+  email?: string | null;
+  phone?: string | null;
+  payment_id?: string | null;
 };
 
 const BASE = (process.env.NEXT_PUBLIC_SUPABASE_URL ?? "").replace(/\/+$/, "");
@@ -37,8 +41,30 @@ async function rest(path: string, init: RequestInit = {}) {
 /** The row plus its PIN hash. Only the login route should call this. */
 export async function findStudentForLogin(code: string):
   Promise<(Student & { pin_hash: string }) | null> {
+  // A student who enrolled online may sign in with their email instead of the code.
+  if (code.includes("@")) return findStudentByEmail(code);
   const q = encodeURIComponent(code.trim().toUpperCase());
   const rows = await rest(`students?code=eq.${q}&active=is.true&limit=1`);
+  return Array.isArray(rows) && rows.length ? rows[0] : null;
+}
+
+/** Emails are stored in lower case, so this is an exact match. */
+export async function findStudentByEmail(email: string):
+  Promise<(Student & { pin_hash: string }) | null> {
+  const q = encodeURIComponent(email.trim().toLowerCase());
+  const rows = await rest(`students?email=eq.${q}&active=is.true&order=created_at.desc&limit=1`);
+  return Array.isArray(rows) && rows.length ? rows[0] : null;
+}
+
+export async function findStudentById(id: string):
+  Promise<(Student & { pin_hash: string }) | null> {
+  const rows = await rest(`students?id=eq.${encodeURIComponent(id)}&limit=1`);
+  return Array.isArray(rows) && rows.length ? rows[0] : null;
+}
+
+/** Razorpay sends the same payment more than once; this is how a repeat is spotted. */
+export async function findStudentByPayment(paymentId: string): Promise<Student | null> {
+  const rows = await rest(`students?payment_id=eq.${encodeURIComponent(paymentId)}&limit=1`);
   return Array.isArray(rows) && rows.length ? rows[0] : null;
 }
 
@@ -51,6 +77,7 @@ export async function listStudents(): Promise<Student[]> {
 
 export async function createStudent(s: {
   code: string; pin_hash: string; full_name: string; batch?: string; track?: "academic" | "gt";
+  email?: string; phone?: string; payment_id?: string;
 }): Promise<Student> {
   const rows = await rest("students", {
     method: "POST",
@@ -61,6 +88,11 @@ export async function createStudent(s: {
       full_name: s.full_name.trim(),
       batch: s.batch?.trim() || null,
       track: s.track ?? "academic",
+      // only sent when present, so the teacher page keeps working before the
+      // payments columns have been added to the database
+      ...(s.email ? { email: s.email.trim().toLowerCase() } : {}),
+      ...(s.phone ? { phone: s.phone.trim() } : {}),
+      ...(s.payment_id ? { payment_id: s.payment_id } : {}),
     }),
   });
   return Array.isArray(rows) ? rows[0] : (rows as Student);

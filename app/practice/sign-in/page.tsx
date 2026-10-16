@@ -52,20 +52,20 @@ function SignInForm() {
       <h1>Student sign in</h1>
       <p className="lede">
         The practice tests are for enrolled Pioneer students. Use the code and PIN
-        your teacher gave you.
+        your teacher gave you, or the login emailed to you after paying online.
       </p>
 
       <form onSubmit={submit}>
-        <label htmlFor="code">Student code</label>
+        <label htmlFor="code">Student code or email</label>
         <input
           id="code" value={code} autoFocus autoComplete="username"
-          autoCapitalize="characters" spellCheck={false} placeholder="PEC-0000"
-          onChange={(e) => setCode(e.target.value.toUpperCase())}
+          autoCapitalize="none" spellCheck={false} placeholder="PEC-0000"
+          onChange={(e) => setCode(e.target.value.includes("@") ? e.target.value : e.target.value.toUpperCase())}
         />
 
-        <label htmlFor="pin">PIN</label>
+        <label htmlFor="pin">PIN or password</label>
         <input
-          id="pin" value={pin} type="password" inputMode="numeric"
+          id="pin" value={pin} type="password"
           autoComplete="current-password" placeholder="••••"
           onChange={(e) => setPin(e.target.value)}
         />
@@ -84,7 +84,8 @@ function SignInForm() {
       </form>
 
       <p className="pr-help">
-        Forgotten your code or PIN? Ask Narinder Sir — he can reset it for you.
+        <a href="/practice/forgot" style={{ fontWeight: 700 }}>Forgot password?</a> — we email you a link
+        (students who enrolled online). Joined at the centre? Ask Narinder Sir to reset it.
       </p>
     </div>
   );

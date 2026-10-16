@@ -1,6 +1,8 @@
 import { COURSES, getCourse } from "../../data/courses";
 import Link from "next/link";
 import SiteNav from "../../../components/SiteNav";
+import CourseVideos from "../../../components/CourseVideos";
+import PricingReveal from "../../../components/PricingReveal";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -54,10 +56,12 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
           <p style={{ fontSize: "1.1rem", color: "var(--grey)", maxWidth: "620px", marginBottom: "24px" }}>{course.tagline}</p>
           <div className="hero-ctas" style={{ marginBottom: "32px" }}>
             <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Book a Free Demo Class</a>
-            <a href="#fees" className="btn btn-outline">See Fees</a>
+            <a href="#fees" className="btn btn-outline">See Pricing</a>
           </div>
         </div>
       </section>
+
+      <CourseVideos demo={course.demoVideo} explain={course.explainVideo} />
 
       <section style={{ paddingTop: 0 }}>
         <div className="wrap">
@@ -108,6 +112,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
             <h2>{course.name} — what it costs.</h2>
             <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn up to ₹500</p>
           </div>
+          <PricingReveal>
           <div className="pricing-grid">
             {course.plans.map((plan, i) => {
               const light = plan.featured ? { color: "rgba(255,255,255,0.9)" } : undefined;
@@ -130,19 +135,46 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
                       <li key={j} style={light}>{f}</li>
                     ))}
                   </ul>
-                  <a
-                    href={wa}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={plan.featured ? "btn" : "btn btn-outline"}
-                    style={
-                      plan.featured
-                        ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
-                        : { width: "100%", justifyContent: "center" }
-                    }
-                  >
-                    Ask on WhatsApp
-                  </a>
+                  {plan.payLink ? (
+                    <>
+                      <a
+                        href={plan.payLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={plan.featured ? "btn" : "btn btn-coral"}
+                        style={
+                          plan.featured
+                            ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
+                            : { width: "100%", justifyContent: "center" }
+                        }
+                      >
+                        Pay now — secure Razorpay
+                      </a>
+                      <a
+                        href={wa}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ display: "block", textAlign: "center", marginTop: 10, fontSize: "0.85rem", fontWeight: 600,
+                          color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}
+                      >
+                        Questions first? Ask on WhatsApp
+                      </a>
+                    </>
+                  ) : (
+                    <a
+                      href={wa}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={plan.featured ? "btn" : "btn btn-outline"}
+                      style={
+                        plan.featured
+                          ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
+                          : { width: "100%", justifyContent: "center" }
+                      }
+                    >
+                      Ask on WhatsApp
+                    </a>
+                  )}
                 </div>
               );
             })}
@@ -160,6 +192,12 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
               </>
             )}
           </div>
+          {course.plans.some((p) => p.payLink) && (
+            <p style={{ fontSize: "0.85rem", color: "var(--grey)", marginTop: 14, textAlign: "center" }}>
+              After you pay, your student login for the practice tests is emailed to the address you give Razorpay.
+            </p>
+          )}
+          </PricingReveal>
         </div>
       </section>
 

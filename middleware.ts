@@ -7,7 +7,8 @@ import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
-  if (pathname === "/practice/sign-in" || pathname.startsWith("/practice/teacher")) {
+  if (pathname === "/practice/sign-in" || pathname === "/practice/forgot" || pathname === "/practice/reset" ||
+      pathname.startsWith("/practice/teacher")) {
     return NextResponse.next();
   }
 

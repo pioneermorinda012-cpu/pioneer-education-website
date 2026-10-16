@@ -9,6 +9,11 @@ export type Plan = {
   period: string;
   feats: string[];
   featured?: boolean;
+  /**
+   * The Razorpay payment link for this plan, e.g. "https://rzp.io/rzp/abc123".
+   * Leave it out and the card offers WhatsApp instead of "Pay now".
+   */
+  payLink?: string;
 };
 
 export type Course = {
@@ -22,6 +27,10 @@ export type Course = {
   duration: string;
   plans: Plan[];
   faqs: { q: string; a: string }[];
+  /** A free demo lesson (YouTube or any link). Shown under the course title. */
+  demoVideo?: string;
+  /** A short video explaining the course (YouTube or any link). */
+  explainVideo?: string;
 };
 
 /**
@@ -92,6 +101,7 @@ export const COURSES: Course[] = [
     ],
     duration: "4–5 hours daily, weekday batches with evening options",
     plans: standardPlans(null, null, null),
+    // demoVideo: "https://youtu.be/…",      explainVideo: "https://youtu.be/…",
     faqs: [
       { q: "How long does the course take?", a: "Most students prepare in 6–10 weeks depending on their starting level and target band." },
       { q: "Do you cover both Academic and General Training?", a: "Yes — the core skills overlap, and we tailor Reading and Writing Task 1 practice to whichever version you're taking." },
@@ -177,6 +187,27 @@ export const COURSES: Course[] = [
     ],
   },
 ];
+
+/**
+ * Put the payment links on a course's three plans, in the same order as
+ * standardPlans: self-study, group, 1-to-1. Use null for a plan with no link.
+ *   plans: withLinks(standardPlans(999, 2499, 4999), "https://rzp.io/...", null, null),
+ */
+export function withLinks(plans: Plan[], ...links: (string | null)[]): Plan[] {
+  return plans.map((p, i) => (links[i] ? { ...p, payLink: links[i] as string } : p));
+}
+
+/** Which course and plan a Razorpay payment link belongs to, for the webhook. */
+export function findPlanByLink(url: string): { course: Course; plan: Plan } | null {
+  const norm = (u: string) => u.trim().replace(/\/+$/, "").replace(/^http:/, "https:").toLowerCase();
+  const want = norm(url);
+  for (const course of COURSES) {
+    for (const plan of course.plans) {
+      if (plan.payLink && norm(plan.payLink) === want) return { course, plan };
+    }
+  }
+  return null;
+}
 
 export function getCourse(slug: string) {
   return COURSES.find((c) => c.slug === slug);

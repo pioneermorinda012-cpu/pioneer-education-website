@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Bad request." }, { status: 400 });
   }
   if (!code.trim() || !pin.trim()) {
-    return NextResponse.json({ error: "Enter your student code and PIN." }, { status: 400 });
+    return NextResponse.json({ error: "Enter your student code (or email) and password." }, { status: 400 });
   }
 
   let student;
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
 
   // Same message whether the code is unknown or the PIN is wrong, so nobody can
   // use the error to work out which student codes exist.
-  const bad = NextResponse.json({ error: "That code and PIN do not match." }, { status: 401 });
+  const bad = NextResponse.json({ error: "That code (or email) and password do not match." }, { status: 401 });
   if (!student) return bad;
   if (!(await verifyPin(pin, student.pin_hash))) return bad;
 
