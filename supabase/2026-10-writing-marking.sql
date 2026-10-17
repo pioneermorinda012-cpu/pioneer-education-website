@@ -23,3 +23,6 @@ create index if not exists writings_student_idx on writings (student_id, submitt
 create index if not exists writings_status_idx  on writings (status, submitted_at desc);
 
 alter table writings enable row level security;   -- server-only, like the other tables
+
+-- tell the API layer about the new table straight away
+notify pgrst, 'reload schema';
