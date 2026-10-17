@@ -13,7 +13,7 @@ export async function POST(req: NextRequest) {
   const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
   const s = secret ? await readSession(req.cookies.get(COOKIE)?.value, secret) : null;
   if (!s || s.role !== "student") return NextResponse.json({ saved: false, reason: "not a student" });
-  if (!writingsReady()) return NextResponse.json({ saved: false, reason: "database not set up" });
+  if (!writingsReady()) return NextResponse.json({ saved: false, reason: "database not set up", v: "attempts" });
 
   let b: Record<string, unknown>;
   try { b = await req.json(); } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
@@ -41,6 +41,6 @@ export async function POST(req: NextRequest) {
     if (/writings/.test(msg) && /PGRST205|42P01|does not exist|schema cache|Could not find the table/i.test(msg)) {
       return NextResponse.json({ saved: false, reason: "table missing" }, { status: 503 });
     }
-    return NextResponse.json({ saved: false, reason: "could not reach the database", detail: msg.slice(0, 160) }, { status: 502 });
+    return NextResponse.json({ saved: false, reason: "could not reach the database", detail: msg.slice(0, 160), v: "attempts" }, { status: 502 });
   }
 }

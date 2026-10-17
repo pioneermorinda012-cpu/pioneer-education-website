@@ -40,6 +40,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   const savedId = useRef<string | undefined>(undefined);
   const router = useRouter();
   const [saved, setSaved] = useState<"" | "saving" | "saved" | "failed" | "off" | "setup">("");
+  const [saveWhy, setSaveWhy] = useState("");
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
 
@@ -96,9 +97,12 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
         // refresh re-reads the "saved answers" list under the question
         // without touching anything typed on this page
         if (d.saved) { savedId.current = d.id; setSaved("saved"); router.refresh(); }
-        else setSaved(d.reason === "not a student" ? "off" : d.reason === "table missing" || d.reason === "database not set up" ? "setup" : "failed");
+        else {
+          setSaveWhy([d.reason, d.detail, d.v].filter(Boolean).join(" · ") || "no answer from the server");
+          setSaved(d.reason === "not a student" ? "off" : d.reason === "table missing" || d.reason === "database not set up" ? "setup" : "failed");
+        }
       })
-      .catch(() => setSaved("failed"));
+      .catch(() => { setSaveWhy("no connection"); setSaved("failed"); });
   }, [text, task, left, chosen, router]);
 
   const restart = () => {
@@ -142,7 +146,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
         </div>
       )}
 
-      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} saved={saved} />}
+      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} saved={saved} why={saveWhy} />}
 
       {/* Task 1 Academic: the chart sits beside the answer box, as it does on
           the computer-delivered test, so a student never scrolls away from the
@@ -244,9 +248,9 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   );
 }
 
-function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
+function Report({ done, elapsed, restart, phrases, letter, report, saved, why }: {
   done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean; report?: boolean;
-  saved?: "" | "saving" | "saved" | "failed" | "off" | "setup";
+  saved?: "" | "saving" | "saved" | "failed" | "off" | "setup"; why?: string;
 }) {
   return (
     <section className="pr-set wr-report">
@@ -262,12 +266,14 @@ function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
             <p className="wr-savednote bad">
               Saving writing to your account is not switched on yet. Show this to Narinder Sir — and
               copy your writing somewhere safe for now.
+              {why && <small style={{ display: "block", opacity: 0.7, marginTop: 4 }}>Reason: {why}</small>}
             </p>
           )}
           {saved === "failed" && (
             <p className="wr-savednote bad">
               Could not save it to your account just now. Press “Check again” in a minute, or copy your
               writing somewhere safe.
+              {why && <small style={{ display: "block", opacity: 0.7, marginTop: 4 }}>Reason: {why}</small>}
             </p>
           )}
           <div className="wr-tiles">
