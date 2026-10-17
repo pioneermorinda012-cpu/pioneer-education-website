@@ -4,7 +4,7 @@ import {
 } from "@/lib/students";
 import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
-import { markWriting, recentWritings, writingById, writingsReady } from "@/lib/writings";
+import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
 } from "@/lib/session";
@@ -67,13 +67,14 @@ export async function GET(req: NextRequest) {
   const who = req.nextUrl.searchParams.get("student");
   try {
     if (who) {
-      const [students, attempts, catalogue] = await Promise.all([
+      const [students, attempts, catalogue, writings] = await Promise.all([
         listStudents(), attemptsForStudent(who), getCatalogue(),
+        writingsReady() ? writingsForStudent(who).catch(() => []) : Promise.resolve([]),
       ]);
       const student = students.find((s) => s.id === who) ?? null;
       const names: Record<string, string> = {};
       for (const c of catalogue) names[c.id] = c.name;
-      return NextResponse.json({ configured: true, authed: true, student, attempts, names });
+      return NextResponse.json({ configured: true, authed: true, student, attempts, names, writings });
     }
     const [students, attempts, catalogue] = await Promise.all([
       listStudents(), recentAttempts(), getCatalogue(),

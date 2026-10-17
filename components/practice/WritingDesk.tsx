@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { countWords, score, type Score } from "@/lib/writing-score";
 import type { WritingTask } from "@/lib/writing";
 
@@ -37,6 +38,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   /* The saved copy in the student's account. Pressing "Check again" before
      the teacher has marked it updates the same copy rather than adding one. */
   const savedId = useRef<string | undefined>(undefined);
+  const router = useRouter();
   const [saved, setSaved] = useState<"" | "saving" | "saved" | "failed" | "off" | "setup">("");
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
@@ -91,11 +93,13 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
     })
       .then((r) => r.json().catch(() => ({})))
       .then((d) => {
-        if (d.saved) { savedId.current = d.id; setSaved("saved"); }
+        // refresh re-reads the "saved answers" list under the question
+        // without touching anything typed on this page
+        if (d.saved) { savedId.current = d.id; setSaved("saved"); router.refresh(); }
         else setSaved(d.reason === "not a student" ? "off" : d.reason === "table missing" || d.reason === "database not set up" ? "setup" : "failed");
       })
       .catch(() => setSaved("failed"));
-  }, [text, task, left, chosen]);
+  }, [text, task, left, chosen, router]);
 
   const restart = () => {
     setDone(null); setText(""); setLeft(task.minutes * 60); setRunning(false);
@@ -250,8 +254,8 @@ function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
           {saved === "saving" && <p className="wr-savednote">Saving to your account…</p>}
           {saved === "saved" && (
             <p className="wr-savednote ok">
-              ✓ Saved to your account. Your teacher will check it and mark the mistakes — see it under{" "}
-              <Link href="/practice/results#writing">My results → My writing</Link>.
+              ✓ Saved to your account. Your teacher will check it and mark the mistakes — it is listed
+              under this question (scroll down) and in <Link href="/practice/results#writing">My results</Link>.
             </p>
           )}
           {saved === "setup" && (

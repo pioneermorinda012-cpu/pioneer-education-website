@@ -4,6 +4,8 @@ import WritingDesk from "@/components/practice/WritingDesk";
 import { getWritingTask, forStudent } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { readSession, TEACHER_COOKIE } from "@/lib/session";
+import { writingsForStudentTask, writingsReady, type Writing } from "@/lib/writings";
+import MyWriting from "@/components/practice/MyWriting";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +14,7 @@ export default async function WritingTaskPage({ params, searchParams }: {
 }) {
   const { id } = await params;
   const { q } = await searchParams;
-  await requireStudent(`/practice/writing/${id}`);
+  const me = await requireStudent(`/practice/writing/${id}`);
 
   const task = await getWritingTask(id);
   if (!task) notFound();
@@ -25,10 +27,21 @@ export default async function WritingTaskPage({ params, searchParams }: {
   const teacher = secret ? await readSession(store.get(TEACHER_COOKIE)?.value, secret) : null;
   const isTeacher = teacher?.role === "teacher";
 
+  /* What this student has already written for this question, with the
+     teacher's marks once checked — so it is right there when they come back. */
+  const mine: Writing[] = me.role === "student" && writingsReady()
+    ? await writingsForStudentTask(me.sid, task.id).catch(() => [])
+    : [];
+
   return (
     <div className="wrap">
       <WritingDesk task={isTeacher ? task : forStudent(task)}
         start={q !== undefined && Number(q) >= 0 && Number(q) < (task.prompts?.length ?? 0) ? Math.floor(Number(q)) : undefined} />
+
+      {me.role === "student" && (
+        <MyWriting items={mine} hideQuestion title="Your saved answers to this question"
+          empty="When you press “I have finished”, your answer is saved here and your teacher checks it. Checked answers show your mistakes underlined in red." />
+      )}
 
       {isTeacher && (task.sampleText || task.sampleImages?.length) && (
         <section className="pr-set wr-model">

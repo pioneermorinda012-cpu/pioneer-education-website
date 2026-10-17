@@ -7,23 +7,28 @@ const KIND: Record<string, string> = {
 
 /* The student's saved writing, newest first, with whether the teacher has
  * checked it yet. */
-export default function MyWriting({ items }: { items: Writing[] }) {
+export default function MyWriting({ items, title = "My writing", empty, hideQuestion }: {
+  items: Writing[]; title?: string; empty?: string; hideQuestion?: boolean;
+}) {
   return (
     <section className="pr-set" id="writing">
-      <h2>My writing</h2>
+      <h2>{title}</h2>
       {!items.length ? (
         <div className="pr-note">
-          Finish a writing task and it is saved here for your teacher to check. Once it is checked you
-          see your mistakes underlined in red.
+          {empty ?? "Finish a writing task and it is saved here for your teacher to check. Once it is checked you see your mistakes underlined in red."}
         </div>
       ) : (
         <div className="pr-rows">
           {items.map((w) => (
             <div className="pr-row" key={w.id}>
               <div>
-                <div className="nm">{KIND[w.kind] ?? "Writing"} · {w.question.split("\n")[0].slice(0, 90)}{w.question.length > 90 ? "…" : ""}</div>
+                <div className="nm">
+                  {hideQuestion
+                    ? `${new Date(w.submitted_at).toLocaleString()}`
+                    : <>{KIND[w.kind] ?? "Writing"} · {w.question.split("\n")[0].slice(0, 90)}{w.question.length > 90 ? "…" : ""}</>}
+                </div>
                 <div className="fx">
-                  <span>{new Date(w.submitted_at).toLocaleDateString()}</span>
+                  {!hideQuestion && <span>{new Date(w.submitted_at).toLocaleDateString()}</span>}
                   <span>{w.words} words</span>
                   <span className={"wm-status" + (w.status === "checked" ? " checked" : "")}>
                     {w.status === "checked" ? "Checked" : "Waiting for teacher"}

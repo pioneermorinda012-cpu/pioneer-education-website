@@ -77,6 +77,15 @@ export async function writingsForStudent(studentId: string, limit = 100): Promis
   return Array.isArray(rows) ? rows : [];
 }
 
+/** One student's saved answers to one task, newest first. */
+export async function writingsForStudentTask(studentId: string, taskId: string): Promise<Writing[]> {
+  const rows = await rest(
+    `writings?select=${LIST}&student_id=eq.${encodeURIComponent(studentId)}` +
+    `&task_id=eq.${encodeURIComponent(taskId)}&order=submitted_at.desc&limit=50`,
+  );
+  return Array.isArray(rows) ? rows : [];
+}
+
 /** Waiting to be checked first, oldest first, then the recently checked. */
 export async function recentWritings(limit = 200): Promise<Writing[]> {
   const rows = await rest(

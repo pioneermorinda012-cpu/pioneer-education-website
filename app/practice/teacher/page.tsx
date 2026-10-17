@@ -30,7 +30,7 @@ export default function TeacherPage() {
   };
   const [writings, setWritings] = useState<Wr[] | null>(null);
   const [wFilter, setWFilter] = useState<"todo" | "all">("todo");
-  const [open, setOpen] = useState<{ student: Student | null; attempts: Att[] } | null>(null);
+  const [open, setOpen] = useState<{ student: Student | null; attempts: Att[]; writings: Wr[] } | null>(null);
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -92,7 +92,7 @@ export default function TeacherPage() {
     setErr("");
     const res = await fetch(`/api/practice/teacher?student=${encodeURIComponent(s.id)}`, { cache: "no-store" });
     const d = await res.json().catch(() => ({}));
-    setOpen({ student: d.student ?? s, attempts: d.attempts ?? [] });
+    setOpen({ student: d.student ?? s, attempts: d.attempts ?? [], writings: d.writings ?? [] });
   }
 
   async function toggle(s: Student) {
@@ -266,6 +266,42 @@ export default function TeacherPage() {
             </section>
           </>
         )}
+
+        {/* This student's writing, newest first — open one to check it with the pen. */}
+        <section className="pr-set">
+          <h2>Writing</h2>
+          {open.writings.length === 0 ? (
+            <div className="pr-note">No writing saved by this student yet.</div>
+          ) : (
+            <div className="pr-rows">
+              {open.writings.map((x) => (
+                <div className="pr-row" key={x.id}>
+                  <div>
+                    <div className="nm">
+                      {x.kind === "task2" ? "Task 2" : x.kind === "gt1" ? "GT letter" : "Academic Task 1"} · {x.question.split("\n")[0].slice(0, 70)}{x.question.length > 70 ? "…" : ""}
+                    </div>
+                    <div className="fx">
+                      <span>{new Date(x.submitted_at).toLocaleString()}</span>
+                      <span>{x.words} words</span>
+                      {x.auto_band != null && <span>auto {Number(x.auto_band).toFixed(1)}</span>}
+                    </div>
+                  </div>
+                  <a className={x.status === "checked" ? "btn btn-outline" : "btn btn-coral"} href={`/practice/teacher/writing/${x.id}`}
+                    style={{ padding: "7px 13px", fontSize: "0.8rem", minHeight: 38 }}>
+                    {x.status === "checked" ? "Open" : "Check"}
+                  </a>
+                  {x.status === "checked" && x.teacher_band != null ? (
+                    <span className={"pr-band " + (Number(x.teacher_band) >= 7 ? "hi" : Number(x.teacher_band) >= 5.5 ? "mid" : "lo")}>
+                      <span className="lb">band</span>{Number(x.teacher_band).toFixed(1)}
+                    </span>
+                  ) : (
+                    <span className="pr-band none">{x.status === "checked" ? "checked" : "new"}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
       </div>
     );
   }
