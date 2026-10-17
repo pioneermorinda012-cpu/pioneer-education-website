@@ -61,9 +61,13 @@ export async function saveAttempt(a: {
   });
 }
 
+/* Saved writing lives in this table too, with a skill starting "W-" (see
+   lib/writings.ts). Test results never include it. */
+const NOT_WRITING = "&skill=not.like.W-*";
+
 export async function attemptsForStudent(studentId: string, limit = 200): Promise<Attempt[]> {
   const rows = await rest(
-    `attempts?student_id=eq.${encodeURIComponent(studentId)}` +
+    `attempts?student_id=eq.${encodeURIComponent(studentId)}${NOT_WRITING}` +
     `&order=submitted_at.desc&limit=${limit}`,
   );
   return Array.isArray(rows) ? rows : [];
@@ -116,7 +120,7 @@ export async function leaderboard(testId: string, meId?: string, top = 10): Prom
 /** One attempt in full, for reopening a review later. */
 export async function attemptById(id: string): Promise<Attempt | null> {
   if (!/^[0-9a-f-]{10,40}$/i.test(id)) return null;
-  const rows = await rest(`attempts?id=eq.${encodeURIComponent(id)}&limit=1`);
+  const rows = await rest(`attempts?id=eq.${encodeURIComponent(id)}${NOT_WRITING}&limit=1`);
   return Array.isArray(rows) && rows[0] ? (rows[0] as Attempt) : null;
 }
 
@@ -124,7 +128,7 @@ export async function attemptById(id: string): Promise<Attempt | null> {
 export async function recentAttempts(limit = 300) {
   const rows = await rest(
     "attempts?select=id,student_id,test_id,skill,raw_score,total,band,submitted_at" +
-    `&order=submitted_at.desc&limit=${limit}`,
+    `${NOT_WRITING}&order=submitted_at.desc&limit=${limit}`,
   );
   return Array.isArray(rows) ? rows : [];
 }
