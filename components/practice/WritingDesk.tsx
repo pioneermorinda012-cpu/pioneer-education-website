@@ -34,6 +34,10 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   const [done, setDone] = useState<Score | null>(null);
   const [showIdeas, setShowIdeas] = useState(false);
   const [showChart, setShowChart] = useState(false);
+  /* The saved copy in the student's account. Pressing "Check again" before
+     the teacher has marked it updates the same copy rather than adding one. */
+  const savedId = useRef<string | undefined>(undefined);
+  const [saved, setSaved] = useState<"" | "saving" | "saved" | "failed" | "off">("");
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
 
@@ -70,13 +74,32 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
 
   const finish = useCallback(() => {
     setRunning(false);
-    setElapsedAtFinish(task.minutes * 60 - left);
-    setDone(score(text, task.minWords, task.kind, task.check));
+    const used = task.minutes * 60 - left;
+    setElapsedAtFinish(used);
+    const result = score(text, task.minWords, task.kind, task.check);
+    setDone(result);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [text, task, left]);
+
+    setSaved("saving");
+    fetch("/api/practice/writing", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id: savedId.current, task_id: task.id, chosen, body: text,
+        seconds: used, estimate: result.estimate,
+      }),
+    })
+      .then((r) => r.json().catch(() => ({})))
+      .then((d) => {
+        if (d.saved) { savedId.current = d.id; setSaved("saved"); }
+        else setSaved(d.reason === "not a student" ? "off" : "failed");
+      })
+      .catch(() => setSaved("failed"));
+  }, [text, task, left, chosen]);
 
   const restart = () => {
     setDone(null); setText(""); setLeft(task.minutes * 60); setRunning(false);
+    savedId.current = undefined; setSaved("");
     try { window.localStorage.removeItem(store); } catch { /* fine */ }
     box.current?.focus();
   };
@@ -115,7 +138,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
         </div>
       )}
 
-      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} />}
+      {done && <Report done={done} elapsed={elapsedAtFinish} restart={restart} phrases={task.phrases} letter={!!task.check && task.kind === "gt1"} report={!!task.check && task.kind === "task1"} saved={saved} />}
 
       {/* Task 1 Academic: the chart sits beside the answer box, as it does on
           the computer-delivered test, so a student never scrolls away from the
@@ -217,12 +240,26 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   );
 }
 
-function Report({ done, elapsed, restart, phrases, letter, report }: {
+function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
   done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean; report?: boolean;
+  saved?: "" | "saving" | "saved" | "failed" | "off";
 }) {
   return (
     <section className="pr-set wr-report">
           <h2>Your writing, checked</h2>
+          {saved === "saving" && <p className="wr-savednote">Saving to your account…</p>}
+          {saved === "saved" && (
+            <p className="wr-savednote ok">
+              ✓ Saved to your account. Your teacher will check it and mark the mistakes — see it under{" "}
+              <Link href="/practice/results#writing">My results → My writing</Link>.
+            </p>
+          )}
+          {saved === "failed" && (
+            <p className="wr-savednote bad">
+              Could not save it to your account just now. Press “Check again” in a minute, or copy your
+              writing somewhere safe.
+            </p>
+          )}
           <div className="wr-tiles">
             <div className="wr-tile"><span className="v">{done.words}</span><span className="k">words</span></div>
             <div className="wr-tile"><span className="v">{done.paragraphs}</span><span className="k">paragraphs</span></div>

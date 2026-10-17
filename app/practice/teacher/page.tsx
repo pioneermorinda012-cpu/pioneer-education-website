@@ -22,7 +22,14 @@ export default function TeacherPage() {
   const [students, setStudents] = useState<Student[]>([]);
   const [attempts, setAttempts] = useState<Att[]>([]);
   const [names, setNames] = useState<Record<string, string>>({});
-  const [tab, setTab] = useState<"results" | "people">("results");
+  const [tab, setTab] = useState<"results" | "writing" | "people">("results");
+  type Wr = {
+    id: string; student_id: string; kind: string; question: string; words: number;
+    status: string; auto_band: number | null; teacher_band: number | null; submitted_at: string;
+    students?: { full_name?: string; code?: string; batch?: string | null } | null;
+  };
+  const [writings, setWritings] = useState<Wr[] | null>(null);
+  const [wFilter, setWFilter] = useState<"todo" | "all">("todo");
   const [open, setOpen] = useState<{ student: Student | null; attempts: Att[] } | null>(null);
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
@@ -44,6 +51,14 @@ export default function TeacherPage() {
   }, []);
 
   useEffect(() => { load(); }, [load]);
+
+  const loadWritings = useCallback(async () => {
+    const res = await fetch("/api/practice/teacher?writings=1", { cache: "no-store" });
+    const d = await res.json().catch(() => ({}));
+    setWritings(d.writings ?? []);
+    if (d.error) setErr(d.error);
+  }, []);
+  useEffect(() => { if (tab === "writing" && state === "in") loadWritings(); }, [tab, state, loadWritings]);
 
   async function post(payload: Record<string, unknown>) {
     setErr(""); setBusy(true);
@@ -180,7 +195,7 @@ export default function TeacherPage() {
         </button>
         <div className="pr-head">
           <h1>{st?.full_name ?? "Student"}</h1>
-          <span className="meta">{st?.code}{st?.batch ? " \u00b7 " + st.batch : ""} \u00b7 {open.attempts.length} attempt{open.attempts.length === 1 ? "" : "s"}</span>
+          <span className="meta">{st?.code}{st?.batch ? " \u00b7 " + st.batch : ""} · {open.attempts.length} attempt{open.attempts.length === 1 ? "" : "s"}</span>
         </div>
 
         {open.attempts.length === 0 ? (
@@ -260,12 +275,14 @@ export default function TeacherPage() {
     <div className="wrap">
       <div className="pr-head">
         <h1>Teacher</h1>
-        <span className="meta">{live} active \u00b7 {attempts.length} attempt{attempts.length === 1 ? "" : "s"} recorded</span>
+        <span className="meta">{live} active · {attempts.length} attempt{attempts.length === 1 ? "" : "s"} recorded</span>
       </div>
 
       <nav className="pr-skills" aria-label="View">
         <a onClick={() => setTab("results")} aria-current={tab === "results" ? "page" : undefined}
            style={{ cursor: "pointer" }}>Results</a>
+        <a onClick={() => setTab("writing")} aria-current={tab === "writing" ? "page" : undefined}
+           style={{ cursor: "pointer" }}>Writing to check</a>
         <a onClick={() => setTab("people")} aria-current={tab === "people" ? "page" : undefined}
            style={{ cursor: "pointer" }}>Students</a>
       </nav>
@@ -273,7 +290,7 @@ export default function TeacherPage() {
       {justMade && (
         <div className="pr-note">
           <b>Give this to {justMade.name}:</b> code <b>{justMade.code}</b>, PIN <b>{justMade.pin}</b>.
-          <br />Write it down now \u2014 the PIN is stored scrambled and cannot be read back later.
+          <br />Write it down now — the PIN is stored scrambled and cannot be read back later.
         </div>
       )}
       {err && <div className="pr-err">{err}</div>}
@@ -369,6 +386,57 @@ export default function TeacherPage() {
         </>
       )}
 
+      {tab === "writing" && (
+        <section className="pr-set">
+          <h2>Students&apos; writing</h2>
+          <nav className="wr-types" aria-label="Show" style={{ marginBottom: 12 }}>
+            <a onClick={() => setWFilter("todo")} aria-current={wFilter === "todo" ? "page" : undefined} style={{ cursor: "pointer" }}>
+              To check <span>{writings?.filter((x) => x.status !== "checked").length ?? 0}</span>
+            </a>
+            <a onClick={() => setWFilter("all")} aria-current={wFilter === "all" ? "page" : undefined} style={{ cursor: "pointer" }}>
+              All <span>{writings?.length ?? 0}</span>
+            </a>
+          </nav>
+          {writings === null ? (
+            <div className="pr-note">Loading…</div>
+          ) : (
+            <div className="pr-rows">
+              {writings.filter((x) => wFilter === "all" || x.status !== "checked").length === 0 && (
+                <div className="pr-note">
+                  {wFilter === "todo" ? "Nothing waiting — every piece of writing has been checked." : "No writing has been saved yet."}
+                </div>
+              )}
+              {writings.filter((x) => wFilter === "all" || x.status !== "checked").map((x) => (
+                <div className="pr-row" key={x.id}>
+                  <div>
+                    <div className="nm">
+                      {x.students?.full_name ?? "Student"} · {x.kind === "task2" ? "Task 2" : x.kind === "gt1" ? "GT letter" : "Academic Task 1"}
+                    </div>
+                    <div className="fx">
+                      <span>{x.question.split("\n")[0].slice(0, 70)}{x.question.length > 70 ? "…" : ""}</span>
+                      <span>{x.words} words</span>
+                      <span>{new Date(x.submitted_at).toLocaleString()}</span>
+                      {x.auto_band != null && <span>auto {Number(x.auto_band).toFixed(1)}</span>}
+                    </div>
+                  </div>
+                  <a className={x.status === "checked" ? "btn btn-outline" : "btn btn-coral"} href={`/practice/teacher/writing/${x.id}`}
+                    style={{ padding: "7px 13px", fontSize: "0.8rem", minHeight: 38 }}>
+                    {x.status === "checked" ? "Open" : "Check"}
+                  </a>
+                  {x.status === "checked" && x.teacher_band != null ? (
+                    <span className={"pr-band " + (Number(x.teacher_band) >= 7 ? "hi" : Number(x.teacher_band) >= 5.5 ? "mid" : "lo")}>
+                      <span className="lb">band</span>{Number(x.teacher_band).toFixed(1)}
+                    </span>
+                  ) : (
+                    <span className="pr-band none">{x.status === "checked" ? "checked" : "new"}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
+      )}
+
       {tab === "people" && (
         <>
           <section className="pr-set">
@@ -390,7 +458,7 @@ export default function TeacherPage() {
                        onChange={(e) => setForm({ ...form, batch: e.target.value })} />
               </div>
               <div>
-                <label htmlFor="f-pin">PIN (4\u20138 digits)</label>
+                <label htmlFor="f-pin">PIN (4–8 digits)</label>
                 <input id="f-pin" value={form.pin} inputMode="numeric" placeholder="1234"
                        onChange={(e) => setForm({ ...form, pin: e.target.value.replace(/\D/g, "") })} />
               </div>

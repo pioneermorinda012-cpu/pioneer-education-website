@@ -4,6 +4,7 @@ import {
 } from "@/lib/students";
 import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
+import { markWriting, recentWritings, writingById, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
 } from "@/lib/session";
@@ -40,6 +41,27 @@ export async function GET(req: NextRequest) {
     });
   }
   if (!(await signedIn(req))) return NextResponse.json({ configured: true, authed: false });
+
+  /* Writing to check: ?writings=1 is the list, ?writing=<id> one paper in full. */
+  const one = req.nextUrl.searchParams.get("writing");
+  if (one || req.nextUrl.searchParams.get("writings")) {
+    if (!writingsReady()) return NextResponse.json({ configured: true, authed: true, writings: [], error: "Database not set up." });
+    try {
+      if (one) {
+        const writing = await writingById(one);
+        return NextResponse.json({ configured: true, authed: true, writing });
+      }
+      return NextResponse.json({ configured: true, authed: true, writings: await recentWritings() });
+    } catch (e) {
+      const msg = String((e as Error).message);
+      return NextResponse.json({
+        configured: true, authed: true, writings: [], writing: null,
+        error: /writings/.test(msg) && /exist|relation|schema/i.test(msg)
+          ? "The writings table is missing — run supabase/2026-10-writing-marking.sql in Supabase."
+          : msg.slice(0, 200),
+      });
+    }
+  }
 
   // ?student=<id> returns one student's full history; otherwise the overview.
   const who = req.nextUrl.searchParams.get("student");
@@ -122,6 +144,18 @@ export async function POST(req: NextRequest) {
         track: body.track === "gt" ? "gt" : "academic",
       });
       return NextResponse.json({ ok: true, student });
+    }
+
+    if (action === "markWriting") {
+      const c = (body.criteria ?? null) as Record<string, unknown> | null;
+      await markWriting(String(body.id ?? ""), {
+        marks: body.marks,
+        teacher_band: body.teacher_band,
+        criteria: c ? { ta: c.ta as number, cc: c.cc as number, lr: c.lr as number, gra: c.gra as number } : null,
+        teacher_note: String(body.teacher_note ?? ""),
+        done: Boolean(body.done),
+      });
+      return NextResponse.json({ ok: true });
     }
 
     if (action === "active") {

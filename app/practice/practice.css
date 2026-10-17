@@ -419,3 +419,49 @@ mark.ev-near .ev-badge { opacity: 0.85; }
 .wr-types a span { font-weight: 600; color: var(--grey); margin-left: 3px; }
 .wr-types a[aria-current="page"] { background: var(--coral); border-color: var(--coral); color: #fff; }
 .wr-types a[aria-current="page"] span { color: #fff; opacity: 0.85; }
+
+/* ---------- saved writing and the teacher's pen (MarkedText, WritingMarker) ---------- */
+.wr-savednote { margin: 6px 0 14px; font-size: 0.92rem; color: var(--grey); }
+.wr-savednote.ok { color: #2e7d4f; }
+.wr-savednote.bad { color: #b3392f; }
+.wm-text { white-space: pre-wrap; font-size: 1.02rem; line-height: 2; color: var(--ink);
+  background: #fff; border: 1.5px solid var(--grey-light); border-radius: 12px; padding: 18px 20px; }
+.wm { cursor: default; border-radius: 3px; }
+.wm.err { text-decoration: underline wavy #d32f2f; text-decoration-thickness: 2px; text-underline-offset: 4px;
+  background: rgba(211, 47, 47, 0.07); }
+.wm.good { text-decoration: underline #2e7d4f; text-decoration-thickness: 2px; text-underline-offset: 4px;
+  background: rgba(46, 125, 79, 0.08); }
+.wm::after { content: attr(data-n); font-size: 0.66em; font-weight: 800; vertical-align: super; margin-left: 1px; }
+.wm.err::after { color: #d32f2f; }
+.wm.good::after { color: #2e7d4f; }
+.wm.on { outline: 2px solid var(--navy); }
+.wm-notes { margin: 14px 0 0; padding-left: 26px; line-height: 1.7; }
+.wm-notes li.err::marker { color: #d32f2f; font-weight: 800; }
+.wm-notes li.good::marker { color: #2e7d4f; font-weight: 800; }
+.wm-notes .q { font-style: italic; color: var(--grey); }
+.wm-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
+.wm-status { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 20px; background: #fdecd6; color: #8a5a12; }
+.wm-status.checked { background: #e1f1e7; color: #2e7d4f; }
+.wm-q { white-space: pre-wrap; background: #faf7f0; border-left: 4px solid var(--coral); border-radius: 8px;
+  padding: 12px 14px; font-size: 0.95rem; color: var(--ink); margin: 0 0 16px; }
+.wm-bands { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin: 14px 0; }
+.wm-bands label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--grey); margin-bottom: 4px; }
+.wm-bands input, .wm-bands .v { width: 100%; font: inherit; font-size: 1.2rem; font-weight: 700; padding: 8px 10px;
+  border: 1.5px solid var(--grey-light); border-radius: 10px; background: #fff; color: var(--navy); }
+.wm-bands .main input, .wm-bands .main .v { border-color: var(--navy); }
+/* the pen tray: sticks to the top while the teacher works down a long essay */
+.wm-tray { position: sticky; top: 64px; z-index: 20; display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  background: var(--paper, #fff); border: 1.5px solid var(--grey-light); border-radius: 12px; padding: 10px 12px; margin: 0 0 12px;
+  box-shadow: 0 4px 14px rgba(0,0,0,.06); }
+.wm-pen { font: inherit; font-weight: 700; border-radius: 22px; padding: 8px 14px; cursor: pointer; border: 2px solid; background: #fff; }
+.wm-pen.err { color: #d32f2f; border-color: #d32f2f; }
+.wm-pen.good { color: #2e7d4f; border-color: #2e7d4f; }
+.wm-pen.sel.err { background: #d32f2f; color: #fff; }
+.wm-pen.sel.good { background: #2e7d4f; color: #fff; }
+.wm-tray .hint { font-size: 0.85rem; color: var(--grey); }
+.wm-edit { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 10px 0 0; padding: 10px 12px;
+  border-radius: 10px; background: #faf7f0; }
+.wm-edit input { flex: 1 1 220px; font: inherit; padding: 8px 10px; border: 1.5px solid var(--grey-light); border-radius: 8px; }
+.wm-comment { width: 100%; min-height: 110px; font: inherit; padding: 10px 12px; border: 1.5px solid var(--grey-light);
+  border-radius: 10px; resize: vertical; }

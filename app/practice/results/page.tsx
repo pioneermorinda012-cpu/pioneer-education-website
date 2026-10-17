@@ -9,6 +9,8 @@ import { currentId } from "@/lib/aliases";
 import Trend from "@/components/practice/Trend";
 import MistakeBook, { type Miss } from "@/components/practice/MistakeBook";
 import { byType } from "@/lib/qtypes";
+import { writingsForStudent, writingsReady, type Writing } from "@/lib/writings";
+import MyWriting from "@/components/practice/MyWriting";
 
 export const dynamic = "force-dynamic";
 
@@ -32,9 +34,11 @@ export default async function ResultsPage() {
     );
   }
 
-  const [attempts, catalogue] = await Promise.all([
+  const [attempts, catalogue, writings] = await Promise.all([
     attemptsForStudent(session.sid),
     getCatalogue(),
+    // saved writing is new: a database without the table yet just shows none
+    writingsReady() ? writingsForStudent(session.sid).catch((): Writing[] => []) : Promise.resolve([] as Writing[]),
   ]);
   // A test sat before the renaming is still the same paper.
   const nameOf = (id: string) =>
@@ -51,6 +55,7 @@ export default async function ResultsPage() {
         <div style={{ marginTop: 18 }}>
           <Link className="btn btn-coral" href="/practice">Go to the tests</Link>
         </div>
+        <MyWriting items={writings} />
       </div>
     );
   }
@@ -159,6 +164,8 @@ export default async function ResultsPage() {
         <div className="pr-stat"><span className="v">{latest.toFixed(1)}</span><span className="k">Most recent</span></div>
         <div className="pr-stat"><span className="v">{avg.toFixed(1)}</span><span className="k">Average</span></div>
       </div>
+
+      <MyWriting items={writings} />
 
       <section className="pr-set">
         <h2>Progress</h2>
