@@ -37,7 +37,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
   /* The saved copy in the student's account. Pressing "Check again" before
      the teacher has marked it updates the same copy rather than adding one. */
   const savedId = useRef<string | undefined>(undefined);
-  const [saved, setSaved] = useState<"" | "saving" | "saved" | "failed" | "off">("");
+  const [saved, setSaved] = useState<"" | "saving" | "saved" | "failed" | "off" | "setup">("");
   const [elapsedAtFinish, setElapsedAtFinish] = useState(0);
   const box = useRef<HTMLTextAreaElement>(null);
 
@@ -92,7 +92,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
       .then((r) => r.json().catch(() => ({})))
       .then((d) => {
         if (d.saved) { savedId.current = d.id; setSaved("saved"); }
-        else setSaved(d.reason === "not a student" ? "off" : "failed");
+        else setSaved(d.reason === "not a student" ? "off" : d.reason === "table missing" || d.reason === "database not set up" ? "setup" : "failed");
       })
       .catch(() => setSaved("failed"));
   }, [text, task, left, chosen]);
@@ -242,7 +242,7 @@ export default function WritingDesk({ task, start }: { task: WritingTask; start?
 
 function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
   done: Score; elapsed: number; restart: () => void; phrases?: string[]; letter?: boolean; report?: boolean;
-  saved?: "" | "saving" | "saved" | "failed" | "off";
+  saved?: "" | "saving" | "saved" | "failed" | "off" | "setup";
 }) {
   return (
     <section className="pr-set wr-report">
@@ -252,6 +252,12 @@ function Report({ done, elapsed, restart, phrases, letter, report, saved }: {
             <p className="wr-savednote ok">
               ✓ Saved to your account. Your teacher will check it and mark the mistakes — see it under{" "}
               <Link href="/practice/results#writing">My results → My writing</Link>.
+            </p>
+          )}
+          {saved === "setup" && (
+            <p className="wr-savednote bad">
+              Saving writing to your account is not switched on yet. Show this to Narinder Sir — and
+              copy your writing somewhere safe for now.
             </p>
           )}
           {saved === "failed" && (

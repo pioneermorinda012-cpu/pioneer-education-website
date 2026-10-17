@@ -36,6 +36,11 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ saved: true, id });
   } catch (e) {
     console.error("save writing", e);
-    return NextResponse.json({ saved: false, reason: "could not reach the database" }, { status: 502 });
+    const msg = String((e as Error).message);
+    // The usual cause: supabase/2026-10-writing-marking.sql has not been run yet.
+    if (/writings/.test(msg) && /PGRST205|42P01|does not exist|schema cache|Could not find the table/i.test(msg)) {
+      return NextResponse.json({ saved: false, reason: "table missing" }, { status: 503 });
+    }
+    return NextResponse.json({ saved: false, reason: "could not reach the database", detail: msg.slice(0, 160) }, { status: 502 });
   }
 }
