@@ -32,6 +32,11 @@
 .pr-skills span { opacity: 0.5; }
 /* a thin divider between IELTS papers, Writing and PTE in the menu */
 .pr-skills .pr-sep { flex: 0 0 1px; align-self: stretch; margin: 6px 2px; background: var(--grey-light); }
+/* the practice menu: labelled groups that wrap instead of scrolling sideways */
+.pr-skills.pr-menu { flex-wrap: wrap; overflow: visible; row-gap: 10px; column-gap: 22px; align-items: flex-start; }
+.pr-menu-g { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.pr-skills .pr-menu-h { flex: 0 0 100%; padding: 0 2px; border: 0; background: none; min-height: 0; opacity: 1;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral-dark); }
 
 /* ── page head ─────────────────────────────────────────── */
 .pr-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin: 28px 0 2px; }
@@ -218,6 +223,7 @@
 @media (max-width: 520px) {
   .pr-head h1 { font-size: 1.5rem; }
   .pr-skills a, .pr-skills span { padding: 8px 14px; font-size: 0.8rem; }
+  .pr-skills .pr-menu-h { padding: 0 2px; font-size: 0.66rem; }
   .pr-stats { gap: 8px; }
   .pr-stat { padding: 13px 8px; }
 }
