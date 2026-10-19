@@ -1,11 +1,19 @@
-import Link from "next/link";
+import { Suspense } from "react";
 import SiteNav from "../../../components/SiteNav";
+import ThankYouBody from "../../../components/payment/ThankYouBody";
 import type { Metadata } from "next";
 
 /* Where Razorpay sends the student after paying. Set this page as the
- * "redirect after payment" address on each payment link. The login itself is
- * created by the webhook (app/api/razorpay/webhook), not by this page: anyone
- * can open a URL, only Razorpay can sign a webhook. */
+ * "redirect after payment" address on each payment link.
+ *
+ * The LOGIN ITSELF is still created only by the webhook (app/api/razorpay/
+ * webhook) — anyone can open this URL by hand, only Razorpay can sign a
+ * webhook. What this page adds is a shortcut: if Razorpay's redirect
+ * carries its own signed parameters (razorpay_payment_id, razorpay_
+ * signature and friends), ThankYouBody lets the student pick their own
+ * password immediately instead of waiting for the emailed one. If those
+ * parameters are missing — some payment methods do not reliably return to
+ * the browser — it falls back to the original "check your email" message. */
 
 export const metadata: Metadata = {
   title: "Payment received — Pioneer Education",
@@ -23,23 +31,13 @@ export default function ThankYou() {
       <section>
         <div className="wrap" style={{ maxWidth: 680 }}>
           <div className="section-eyebrow">Payment received</div>
-          <h1 style={{ fontFamily: "Fraunces, serif", fontSize: "2.2rem", color: "var(--navy)", margin: "0 0 16px" }}>
-            Thank you — welcome to Pioneer Education.
-          </h1>
-          <p style={{ fontSize: "1.05rem", lineHeight: 1.7, color: "var(--ink)" }}>
-            Your payment has gone through. Within a few minutes we email you your <b>student login</b> — a
-            student code and a password — at the email address you gave Razorpay. Use it to sign in to the
-            practice tests.
-          </p>
-          <ul style={{ lineHeight: 1.9, color: "var(--ink)", paddingLeft: 20, margin: "18px 0" }}>
-            <li>No email after 15 minutes? Check the Spam or Promotions folder.</li>
-            <li>Keep your Razorpay receipt — it has your payment ID.</li>
-            <li>Lost your password later? Use “Forgot password” on the sign-in page.</li>
-          </ul>
-          <div className="hero-ctas" style={{ marginTop: 24 }}>
-            <Link href="/practice/sign-in" className="btn btn-coral">Go to student sign in</Link>
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="btn btn-outline">Message us on WhatsApp</a>
-          </div>
+          <Suspense fallback={
+            <h1 style={{ fontFamily: "Fraunces, serif", fontSize: "2.2rem", color: "var(--navy)", margin: "0 0 16px" }}>
+              Thank you — welcome to Pioneer Education.
+            </h1>
+          }>
+            <ThankYouBody waHref={WA} />
+          </Suspense>
         </div>
       </section>
     </>
