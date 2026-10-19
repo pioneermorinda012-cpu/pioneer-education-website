@@ -62,8 +62,9 @@ export async function saveAttempt(a: {
 }
 
 /* Saved writing lives in this table too, with a skill starting "W-" (see
-   lib/writings.ts). Test results never include it. */
-const NOT_WRITING = "&skill=not.like.W-*";
+   lib/writings.ts), and so do module settings, "X-access" (lib/access.ts).
+   Test skills (AL, AR, GR…) never have a dash, so this leaves both out. */
+const NOT_WRITING = "&skill=not.like.*-*";
 
 export async function attemptsForStudent(studentId: string, limit = 200): Promise<Attempt[]> {
   const rows = await rest(

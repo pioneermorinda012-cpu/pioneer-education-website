@@ -25,7 +25,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> },
 ) {
   const { id } = await params;
-  await requireStudent(`/practice/pte/${id}`);
+  await requireStudent(`/practice/pte/${id}`, ["pte"]);
 
   const item = pteItem(id);
   if (!item) return new Response("Not found", { status: 404 });

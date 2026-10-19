@@ -15,6 +15,8 @@ export type Session = {
   name: string;
   batch?: string;
   role: "student" | "teacher";
+  /** modules this login opens (lib/access.ts); absent means everything */
+  access?: ("academic" | "gt" | "english" | "pte")[];
   exp: number;      // ms since epoch
 };
 

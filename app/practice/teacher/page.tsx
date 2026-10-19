@@ -12,6 +12,15 @@ type Att = {
   raw_score: number; total: number; band: number; submitted_at: string;
   per_question?: { n: string; correct: boolean; given: string; expected: string; type?: string }[];
 };
+/* the modules a login can open — the same keys as lib/access.ts */
+const AREAS = [
+  { key: "academic", label: "IELTS Academic" },
+  { key: "gt", label: "IELTS GT" },
+  { key: "english", label: "English" },
+  { key: "pte", label: "PTE" },
+] as const;
+const areaLabel = (k: string) => AREAS.find((a) => a.key === k)?.label ?? k;
+
 const SKILL_NAME: Record<string, string> = {
   AL: "Academic Listening", AR: "Academic Reading", GL: "GT Listening", GR: "GT Reading",
 };
@@ -22,6 +31,8 @@ export default function TeacherPage() {
   const [students, setStudents] = useState<Student[]>([]);
   const [attempts, setAttempts] = useState<Att[]>([]);
   const [names, setNames] = useState<Record<string, string>>({});
+  const [access, setAccessMap] = useState<Record<string, string[]>>({});
+  const [editing, setEditing] = useState<{ id: string; areas: string[] } | null>(null);
   const [tab, setTab] = useState<"results" | "writing" | "people">("results");
   type Wr = {
     id: string; student_id: string; kind: string; question: string; words: number;
@@ -35,7 +46,7 @@ export default function TeacherPage() {
   const [busy, setBusy] = useState(false);
 
   const [teacherCode, setTeacherCode] = useState("");
-  const [form, setForm] = useState({ code: "", full_name: "", batch: "", pin: "", track: "academic" });
+  const [form, setForm] = useState({ code: "", full_name: "", batch: "", pin: "", access: ["academic"] as string[] });
   const [justMade, setJustMade] = useState<{ code: string; pin: string; name: string } | null>(null);
 
   const load = useCallback(async () => {
@@ -46,6 +57,7 @@ export default function TeacherPage() {
     setStudents(d.students ?? []);
     setAttempts(d.attempts ?? []);
     setNames(d.names ?? {});
+    setAccessMap(d.access ?? {});
     if (d.error) setErr(d.error);
     setState("in");
   }, []);
@@ -81,9 +93,22 @@ export default function TeacherPage() {
   async function addStudent(e: React.FormEvent) {
     e.preventDefault();
     const made = { code: form.code.toUpperCase(), pin: form.pin, name: form.full_name };
-    if (await post({ action: "create", ...form })) {
+    const d = await post({ action: "create", ...form });
+    if (d) {
       setJustMade(made);
-      setForm({ code: "", full_name: "", batch: form.batch, pin: "", track: form.track });
+      if (d.warning) setErr(d.warning);
+      setForm({ code: "", full_name: "", batch: form.batch, pin: "", access: form.access });
+      load();
+    }
+  }
+
+  const flip = (list: string[], k: string) =>
+    list.includes(k) ? list.filter((x) => x !== k) : [...list, k];
+
+  async function saveAccess() {
+    if (!editing) return;
+    if (await post({ action: "access", id: editing.id, access: editing.areas })) {
+      setEditing(null);
       load();
     }
   }
@@ -498,13 +523,17 @@ export default function TeacherPage() {
                 <input id="f-pin" value={form.pin} inputMode="numeric" placeholder="1234"
                        onChange={(e) => setForm({ ...form, pin: e.target.value.replace(/\D/g, "") })} />
               </div>
-              <div>
-                <label htmlFor="f-track">Track</label>
-                <select id="f-track" value={form.track}
-                        onChange={(e) => setForm({ ...form, track: e.target.value })}>
-                  <option value="academic">Academic</option>
-                  <option value="gt">General Training</option>
-                </select>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <label>This login opens</label>
+                <div className="pr-access">
+                  {AREAS.map((a) => (
+                    <label key={a.key}>
+                      <input type="checkbox" checked={form.access.includes(a.key)}
+                             onChange={() => setForm({ ...form, access: flip(form.access, a.key) })} />
+                      {a.label}
+                    </label>
+                  ))}
+                </div>
               </div>
               <div className="pr-form-go">
                 <button className="btn" type="submit" disabled={busy}>Add student</button>
@@ -523,10 +552,31 @@ export default function TeacherPage() {
                     <div className="fx">
                       <span>{s2.code}</span>
                       {s2.batch && <span>{s2.batch}</span>}
-                      <span>{s2.track === "gt" ? "General Training" : "Academic"}</span>
+                      <span className="pr-opens">
+                        {access[s2.id] ? access[s2.id].map(areaLabel).join(" + ") : "Opens everything"}
+                      </span>
                     </div>
+                    {editing?.id === s2.id && (
+                      <div className="pr-access" style={{ marginTop: 8 }}>
+                        {AREAS.map((a) => (
+                          <label key={a.key}>
+                            <input type="checkbox" checked={editing.areas.includes(a.key)}
+                                   onChange={() => setEditing({ ...editing, areas: flip(editing.areas, a.key) })} />
+                            {a.label}
+                          </label>
+                        ))}
+                        <button className="btn" type="button" onClick={saveAccess} disabled={busy || !editing.areas.length}>
+                          Save
+                        </button>
+                        <button className="btn ghost" type="button" onClick={() => setEditing(null)}>Cancel</button>
+                      </div>
+                    )}
                   </div>
                   <div className="go" style={{ display: "flex", gap: 8 }}>
+                    <button className="btn ghost" type="button" disabled={busy}
+                            onClick={() => setEditing({ id: s2.id, areas: access[s2.id] ?? AREAS.map((a) => a.key) })}>
+                      Modules
+                    </button>
                     <button className="btn ghost" type="button" onClick={() => resetPin(s2)} disabled={busy}>
                       Reset PIN
                     </button>

@@ -7,6 +7,8 @@ import { readSession, COOKIE } from "@/lib/session";
 import { typeMap } from "@/lib/qtypes";
 import { getEvidence } from "@/lib/evidence";
 import { getTranscript } from "@/lib/transcript";
+import { allows, SKILL_AREAS } from "@/lib/access";
+import type { SkillCode } from "@/lib/catalogue";
 
 /**
  * The student's answers come in, the band score goes out.
@@ -51,6 +53,16 @@ export async function POST(req: NextRequest) {
       { error: "This test does not have an answer key yet, so it cannot be marked." },
       { status: 409 }
     );
+  }
+
+  // A paper from a module this login does not open is not marked for it.
+  {
+    const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
+    const s = secret ? await readSession((await cookies()).get(COOKIE)?.value, secret) : null;
+    const need = SKILL_AREAS[String(test.catalogue?.skill ?? "") as SkillCode];
+    if (s && need && !allows(s, need)) {
+      return NextResponse.json({ error: "This test is not part of your course." }, { status: 403 });
+    }
   }
 
   const bands = test.mode === "reading" ? test.bandsReading : test.bandsListening;

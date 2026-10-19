@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import { getCatalogue, SKILLS, type SkillCode } from "@/lib/catalogue";
 import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { requireStudent } from "@/lib/guard";
+import { allows, homeFor, SKILL_AREAS } from "@/lib/access";
+import { redirect } from "next/navigation";
 import PracticeNav from "@/components/practice/PracticeNav";
 
 export const dynamic = "force-dynamic";
@@ -17,6 +19,14 @@ export default async function PracticeHome({
 
   // Nothing is read, and nothing is rendered, until we know who is asking.
   const session = await requireStudent(`/practice?skill=${active}`);
+
+  // Only the modules this login opens. Asked for one outside the course: say
+  // so. Arrived with no choice made (straight after signing in): go to the
+  // first module they do have.
+  if (!allows(session, SKILL_AREAS[active])) {
+    if (skill) redirect(`/practice/locked?from=${encodeURIComponent(`/practice?skill=${active}`)}`);
+    redirect(homeFor(session));
+  }
 
   const catalogue = await getCatalogue();
   const mine = catalogue.filter((t) => t.skill === active);
@@ -54,7 +64,7 @@ export default async function PracticeHome({
 
   return (
     <div className="wrap" data-track={track}>
-      <PracticeNav active={active} />
+      <PracticeNav active={active} session={session} />
 
       <div className="pr-head">
         <h1>{label}</h1>

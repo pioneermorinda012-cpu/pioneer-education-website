@@ -6,11 +6,11 @@ import PracticeNav from "@/components/practice/PracticeNav";
 export const dynamic = "force-dynamic";
 
 export default async function EnglishLibrary() {
-  await requireStudent("/practice/english");
+  const session = await requireStudent("/practice/english", ["english"]);
 
   return (
     <div className="wrap">
-      <PracticeNav active="ENGLISH" />
+      <PracticeNav active="ENGLISH" session={session} />
 
       <div className="pr-head">
         <h1>English Trainer</h1>

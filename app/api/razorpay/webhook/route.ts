@@ -6,6 +6,7 @@ import {
 import { hashPin } from "@/lib/session";
 import { esc, letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
 import { findPlanByLink } from "@/app/data/courses";
+import { areasForCourse, getAccess, setAccess } from "@/lib/access";
 
 export const runtime = "nodejs";
 
@@ -101,7 +102,17 @@ export async function POST(req: NextRequest) {
     /* Someone who already has a login (a renewal, or a second course) keeps
        it: a second account would split their results in two. */
     const existing = await findStudentByEmail(d.email);
+    // what this payment opens: IELTS → Academic and GT, PTE → PTE, Spoken English → English
+    const opens = match ? areasForCourse(match.course.slug) : [];
     if (existing) {
+      /* A second course adds its modules. A login with no settings already
+         opens everything, so it is left alone. */
+      if (opens.length) {
+        try {
+          const had = await getAccess(existing.id);
+          if (had) await setAccess(existing.id, [...had, ...opens]);
+        } catch (e) { console.error("access", e); }
+      }
       {
         await sendMail(
           d.email,
@@ -135,6 +146,10 @@ export async function POST(req: NextRequest) {
       }
     }
     if (!created) throw new Error("Could not find a free student code");
+    if (opens.length) {
+      // the login opens only the course that was paid for
+      try { await setAccess(created.id, opens); } catch (e) { console.error("access", e); }
+    }
 
     const signIn = `${siteUrl()}/practice/sign-in`;
     {

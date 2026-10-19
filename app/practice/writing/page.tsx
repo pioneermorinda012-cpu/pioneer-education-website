@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getWriting, CHART_TYPES, ESSAY_TYPES } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
+import { WRITING_AREAS } from "@/lib/access";
 import PracticeNav from "@/components/practice/PracticeNav";
 
 export const dynamic = "force-dynamic";
@@ -39,9 +40,11 @@ export default async function WritingLibrary({
 }: {
   searchParams: Promise<{ task?: string; type?: string; reg?: string; cat?: string }>;
 }) {
-  await requireStudent("/practice/writing");
   const { task, type, reg, cat } = await searchParams;
   const kind = task === "1" ? "task1" : task === "gt1" ? "gt1" : "task2";
+  const session = await requireStudent(
+    `/practice/writing${task ? `?task=${task}` : ""}`, WRITING_AREAS[kind],
+  );
   const page = PAGES[kind];
 
   const all = await getWriting();
@@ -92,7 +95,7 @@ export default async function WritingLibrary({
 
   return (
     <div className="wrap">
-      <PracticeNav active={page.nav} />
+      <PracticeNav active={page.nav} session={session} />
 
       <div className="pr-head">
         <h1>{page.title}</h1>

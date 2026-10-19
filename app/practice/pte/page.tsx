@@ -6,11 +6,11 @@ import PracticeNav from "@/components/practice/PracticeNav";
 export const dynamic = "force-dynamic";
 
 export default async function PteLibrary() {
-  await requireStudent("/practice/pte");
+  const session = await requireStudent("/practice/pte", ["pte"]);
 
   return (
     <div className="wrap">
-      <PracticeNav active="PTE" />
+      <PracticeNav active="PTE" session={session} />
 
       <div className="pr-head">
         <h1>PTE Academic</h1>

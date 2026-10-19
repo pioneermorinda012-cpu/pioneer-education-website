@@ -4,6 +4,7 @@ import {
 } from "@/lib/students";
 import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
+import { allAccess, cleanAreas, setAccess } from "@/lib/access";
 import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
@@ -76,12 +77,12 @@ export async function GET(req: NextRequest) {
       for (const c of catalogue) names[c.id] = c.name;
       return NextResponse.json({ configured: true, authed: true, student, attempts, names, writings });
     }
-    const [students, attempts, catalogue] = await Promise.all([
-      listStudents(), recentAttempts(), getCatalogue(),
+    const [students, attempts, catalogue, access] = await Promise.all([
+      listStudents(), recentAttempts(), getCatalogue(), allAccess().catch(() => ({})),
     ]);
     const names: Record<string, string> = {};
     for (const c of catalogue) names[c.id] = c.name;
-    return NextResponse.json({ configured: true, authed: true, students, attempts, names });
+    return NextResponse.json({ configured: true, authed: true, students, attempts, names, access });
   } catch (e) {
     return NextResponse.json(
       { configured: true, authed: true, students: [], attempts: [], names: {},
@@ -139,12 +140,28 @@ export async function POST(req: NextRequest) {
       if (!/^\d{4,8}$/.test(pin)) {
         return NextResponse.json({ error: "PIN must be 4 to 8 digits." }, { status: 400 });
       }
+      const access = cleanAreas(body.access);
+      if (!access.length) {
+        return NextResponse.json({ error: "Tick at least one module this login opens." }, { status: 400 });
+      }
       const student = await createStudent({
         code, full_name: name, pin_hash: await hashPin(pin),
         batch: String(body.batch ?? ""),
-        track: body.track === "gt" ? "gt" : "academic",
+        track: access.includes("gt") && !access.includes("academic") ? "gt" : "academic",
       });
-      return NextResponse.json({ ok: true, student });
+      let warning: string | undefined;
+      try { await setAccess(student.id, access); }
+      catch (e) { warning = "Student added, but the modules could not be saved: " + String((e as Error).message).slice(0, 120); }
+      return NextResponse.json({ ok: true, student, warning });
+    }
+
+    if (action === "access") {
+      const access = cleanAreas(body.access);
+      if (!access.length) {
+        return NextResponse.json({ error: "Tick at least one module." }, { status: 400 });
+      }
+      await setAccess(String(body.id ?? ""), access);
+      return NextResponse.json({ ok: true, access });
     }
 
     if (action === "markWriting") {

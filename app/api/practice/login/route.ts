@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { findStudentForLogin, supabaseReady } from "@/lib/students";
 import { verifyPin, signSession, COOKIE, SESSION_HOURS, type Session } from "@/lib/session";
+import { getAccess, homeFor } from "@/lib/access";
 
 export const runtime = "nodejs";
 
@@ -44,15 +45,21 @@ export async function POST(req: NextRequest) {
   if (!student) return bad;
   if (!(await verifyPin(pin, student.pin_hash))) return bad;
 
+  // Which modules this login opens. If it cannot be read, the student still
+  // gets in — with everything, as before — rather than being locked out.
+  let access: Session["access"];
+  try { access = await getAccess(student.id); } catch { access = undefined; }
+
   const session: Session = {
     sid: student.id,
     code: student.code,
     name: student.full_name,
     batch: student.batch ?? undefined,
     role: "student",
+    ...(access ? { access } : {}),
     exp: Date.now() + SESSION_HOURS * 60 * 60 * 1000,
   };
-  const res = NextResponse.json({ ok: true, name: student.full_name });
+  const res = NextResponse.json({ ok: true, name: student.full_name, home: homeFor({ role: "student", access }) });
   res.cookies.set(COOKIE, await signSession(session, secret), {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

@@ -3,6 +3,8 @@ import { cookies } from "next/headers";
 import WritingDesk from "@/components/practice/WritingDesk";
 import { getWritingTask, forStudent } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
+import { allows, WRITING_AREAS } from "@/lib/access";
+import { redirect } from "next/navigation";
 import { readSession, TEACHER_COOKIE } from "@/lib/session";
 import { writingsForStudentTask, writingsReady, type Writing } from "@/lib/writings";
 import MyWriting from "@/components/practice/MyWriting";
@@ -18,6 +20,9 @@ export default async function WritingTaskPage({ params, searchParams }: {
 
   const task = await getWritingTask(id);
   if (!task) notFound();
+  if (!allows(me, WRITING_AREAS[task.kind])) {
+    redirect(`/practice/locked?from=${encodeURIComponent(`/practice/writing/${id}`)}`);
+  }
 
   /* The model answer is a teacher's tool. It is decided here, on the server,
      and a student's browser is never sent the text at all — not hidden behind

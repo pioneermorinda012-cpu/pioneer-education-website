@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { readSession, COOKIE, TEACHER_COOKIE, type Session } from "@/lib/session";
+import { allows, type Area } from "@/lib/access";
 
 /**
  * Who is asking — checked on the page itself, not only at the edge.
@@ -15,8 +16,18 @@ import { readSession, COOKIE, TEACHER_COOKIE, type Session } from "@/lib/session
  *
  * Every page under /practice calls this first, before it reads a paper,
  * touches the database or renders a single word.
+ *
+ * `need` names the modules the page belongs to (lib/access.ts). A student
+ * whose login does not open any of them is sent to /practice/locked.
  */
-export async function requireStudent(next: string): Promise<Session> {
+export async function requireStudent(next: string, need?: Area[]): Promise<Session> {
+  const s = await signedIn();
+  if (!s) redirect(`/practice/sign-in?next=${encodeURIComponent(next)}`);
+  if (need && !allows(s, need)) redirect(`/practice/locked?from=${encodeURIComponent(next)}`);
+  return s;
+}
+
+async function signedIn(): Promise<Session | null> {
   const secret = process.env.PRACTICE_SESSION_SECRET ?? "";
   const store = await cookies();
 
@@ -29,8 +40,7 @@ export async function requireStudent(next: string): Promise<Session> {
     const teacher = await readSession(store.get(TEACHER_COOKIE)?.value, secret);
     if (teacher && teacher.role === "teacher") return teacher;
   }
-
-  redirect(`/practice/sign-in?next=${encodeURIComponent(next)}`);
+  return null;
 }
 
 /** The session if there is one, and no redirect if there is not. */

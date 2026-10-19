@@ -3,6 +3,7 @@ import { readSession, COOKIE } from "@/lib/session";
 import { saveWriting, writingsReady } from "@/lib/writings";
 import { getWritingTask } from "@/lib/writing";
 import { countWords } from "@/lib/writing-score";
+import { allows, WRITING_AREAS } from "@/lib/access";
 
 export const runtime = "nodejs";
 
@@ -19,6 +20,9 @@ export async function POST(req: NextRequest) {
   try { b = await req.json(); } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
   const task = await getWritingTask(String(b.task_id ?? ""));
   if (!task) return NextResponse.json({ error: "Unknown task." }, { status: 400 });
+  if (!allows(s, WRITING_AREAS[task.kind])) {
+    return NextResponse.json({ saved: false, reason: "not in your course" }, { status: 403 });
+  }
   const body = String(b.body ?? "").replace(/\r\n?/g, "\n").slice(0, 20000);
   if (!body.trim()) return NextResponse.json({ error: "Nothing written." }, { status: 400 });
 
