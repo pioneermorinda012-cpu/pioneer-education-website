@@ -69,18 +69,8 @@ export default function Player(
   }, []);
 
   /* ---- submit ---- */
-  /* Reading is handed in by the clock, as in the exam room: the full hour is
-     there to be used for checking answers, so the paper cannot be submitted
-     before the time is up. */
-  const lockedUntilTimeUp = isReading && left > 0;
-
   const submit = useCallback(async (force = false) => {
     if (sending || result) return;
-    if (!force && isReading && left > 0) {
-      setError(`The Reading test is submitted when the time is up — ${mmss(left)} left. Use it to check your answers.`);
-      window.scrollTo(0, 0);
-      return;
-    }
     // No key on the server yet. Sending it would only come back as an error,
     // so the paper simply ends here and the student is shown what they wrote,
     // to mark against the book themselves. Far better than a paper they are
@@ -132,7 +122,7 @@ export default function Player(
     } finally {
       setSending(false);
     }
-  }, [answers, sending, result, test.id, test.sections, marked, warned, left, test.minutes, isReading]);
+  }, [answers, sending, result, test.id, test.sections, marked, warned, left, test.minutes]);
 
   /* ---- timer ---- */
   useEffect(() => {
@@ -323,14 +313,13 @@ export default function Player(
             Next →
           </button>
         ) : (
-          <button className="btn btn-coral" type="button" onClick={() => void submit()} disabled={sending || lockedUntilTimeUp}
-            title={lockedUntilTimeUp ? "Reading is submitted automatically when the time is up" : undefined}>
-            {sending ? "Marking…" : lockedUntilTimeUp ? `Submits at 0:00 · ${mmss(left)} left` : marked ? "Submit test ✓" : "Finish ✓"}
+          <button className="btn btn-coral" type="button" onClick={() => void submit()} disabled={sending}>
+            {sending ? "Marking…" : marked ? "Submit test ✓" : "Finish ✓"}
           </button>
         )}
         {/* Finishing early should not mean paging back to the last section to
-            find the button. Reading has no early finish, so it has no button. */}
-        {current < test.sections.length - 1 && !lockedUntilTimeUp && (
+            find the button. */}
+        {current < test.sections.length - 1 && (
           <button className="btn btn-outline" type="button" onClick={() => void submit()} disabled={sending}>
             {marked ? "Submit test ✓" : "Finish ✓"}
           </button>
