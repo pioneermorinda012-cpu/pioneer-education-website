@@ -7,6 +7,7 @@ import { hashPin } from "@/lib/session";
 import { esc, letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
 import { findPlanByLink } from "@/app/data/courses";
 import { areasForCourse, getAccess, setAccess } from "@/lib/access";
+import { notifyOwnerWhatsApp } from "@/lib/whatsapp-notify";
 
 export const runtime = "nodejs";
 
@@ -181,6 +182,14 @@ export async function POST(req: NextRequest) {
           `${d.name} paid. Email ${d.email}, phone ${d.phone || "-"}, code ${created.code}, payment ${d.paymentId}`,
         ).catch((e) => console.error("mail to owner", e));
       }
+
+      // A second, independent channel — free WhatsApp ping to the owner's
+      // own number via CallMeBot. Does nothing if it is not configured, and
+      // can never fail the enrolment (see lib/whatsapp-notify.ts).
+      await notifyOwnerWhatsApp(
+        `New enrolment: ${d.name}${match ? ` — ${match.course.name}` : ""}. ` +
+        `Code ${created.code}.${d.phone ? ` Phone ${d.phone}.` : ""} Payment ${d.paymentId}.`,
+      );
     }
     return NextResponse.json({ ok: true, code: created.code });
   } catch (e) {
