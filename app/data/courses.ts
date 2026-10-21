@@ -153,7 +153,7 @@ export const COURSES: Course[] = [
       "Anyone preparing for job interviews or workplace communication",
     ],
     duration: "Beginner to Advanced, self-paced batches",
-    plans: standardPlans(null, null, null),
+    plans: withLinks(standardPlans(999, null, null), "https://pages.razorpay.com/pl_NHIt9P9D83nsDm/view", null, null),
     faqs: [
       { q: "I understand English but can't speak it — is this for me?", a: "Yes, this is exactly who the course is designed for." },
       { q: "Do I need any prior English knowledge?", a: "No, we have a dedicated beginner track that starts from the basics." },
