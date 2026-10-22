@@ -6,11 +6,12 @@ import { attemptsForStudent, attemptsReady } from "@/lib/attempts";
 import { getCatalogue, getTest } from "@/lib/catalogue";
 import { contextFor } from "@/lib/qcontext";
 import { currentId } from "@/lib/aliases";
-import Trend from "@/components/practice/Trend";
 import MistakeBook, { type Miss } from "@/components/practice/MistakeBook";
 import { byType } from "@/lib/qtypes";
 import { writingsForStudent, writingsReady, type Writing } from "@/lib/writings";
 import MyWriting from "@/components/practice/MyWriting";
+import SkillCards from "@/components/practice/SkillCards";
+import { summarise } from "@/lib/skill-summary";
 
 export const dynamic = "force-dynamic";
 
@@ -44,6 +45,9 @@ export default async function ResultsPage() {
   const nameOf = (id: string) =>
     catalogue.find((c) => c.id === currentId(id))?.name ?? id;
 
+  // Listening, Reading and Writing each on their own card
+  const areas = summarise(attempts, writings);
+
   if (!attempts.length) {
     return (
       <div className="wrap">
@@ -55,19 +59,16 @@ export default async function ResultsPage() {
         <div style={{ marginTop: 18 }}>
           <Link className="btn btn-coral" href="/practice">Go to the tests</Link>
         </div>
+        {areas.length > 0 && (
+          <section className="pr-set">
+            <h2>Your bands by skill</h2>
+            <SkillCards areas={areas} />
+          </section>
+        )}
         <MyWriting items={writings} />
       </div>
     );
   }
-
-  /* ---- headline numbers ---- */
-  const best = Math.max(...attempts.map((a) => Number(a.band)));
-  const latest = Number(attempts[0].band);
-  const avg = attempts.reduce((s, a) => s + Number(a.band), 0) / attempts.length;
-
-  /* ---- best band per skill ---- */
-  const bySkill: Record<string, number[]> = {};
-  for (const a of attempts) (bySkill[a.skill] ??= []).push(Number(a.band));
 
   /* ---- accuracy by question type, kept apart for Listening and Reading ----
      A student can be strong at Matching Headings in Reading and hopeless at
@@ -159,36 +160,14 @@ export default async function ResultsPage() {
         <span className="meta">{session.name} · {attempts.length} test{attempts.length === 1 ? "" : "s"} completed</span>
       </div>
 
-      <div className="pr-stats">
-        <div className="pr-stat"><span className="v">{best.toFixed(1)}</span><span className="k">Best band</span></div>
-        <div className="pr-stat"><span className="v">{latest.toFixed(1)}</span><span className="k">Most recent</span></div>
-        <div className="pr-stat"><span className="v">{avg.toFixed(1)}</span><span className="k">Average</span></div>
-      </div>
+      {/* Each skill on its own — a single mixed band hides which one is
+          holding the score down. */}
+      <section className="pr-set">
+        <h2>Your bands by skill</h2>
+        <SkillCards areas={areas} />
+      </section>
 
       <MyWriting items={writings} />
-
-      <section className="pr-set">
-        <h2>Progress</h2>
-        <Trend points={attempts.slice().reverse().map((a) => ({
-          band: Number(a.band),
-          label: new Date(a.submitted_at).toLocaleDateString(),
-        }))} />
-      </section>
-
-      <section className="pr-set">
-        <h2>Best band by skill</h2>
-        <div className="pr-rows">
-          {Object.entries(bySkill).map(([skill, bands]) => (
-            <div className="pr-row" key={skill}>
-              <div>
-                <div className="nm">{SKILL_NAME[skill] ?? skill}</div>
-                <div className="fx"><span>{bands.length} attempt{bands.length === 1 ? "" : "s"}</span></div>
-              </div>
-              <span className="pr-band hi"><span className="lb">best</span>{Math.max(...bands).toFixed(1)}</span>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {noTypes ? (
         <section className="pr-set">
@@ -259,6 +238,7 @@ export default async function ResultsPage() {
               <div>
                 <div className="nm">{nameOf(a.test_id)}</div>
                 <div className="fx">
+                  <span>{SKILL_NAME[a.skill] ?? a.skill}</span>
                   <span>{new Date(a.submitted_at).toLocaleString()}</span>
                   <span>{a.raw_score}/{a.total} correct</span>
                 </div>

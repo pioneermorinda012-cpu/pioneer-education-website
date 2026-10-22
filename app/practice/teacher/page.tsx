@@ -2,6 +2,8 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { byType } from "@/lib/qtypes";
+import SkillCards from "@/components/practice/SkillCards";
+import { summarise } from "@/lib/skill-summary";
 
 type Student = {
   id: string; code: string; full_name: string;
@@ -32,6 +34,11 @@ export default function TeacherPage() {
   const [attempts, setAttempts] = useState<Att[]>([]);
   const [names, setNames] = useState<Record<string, string>>({});
   const [access, setAccessMap] = useState<Record<string, string[]>>({});
+  type WBand = {
+    student_id: string; kind: string; status: string; submitted_at: string;
+    teacher_band: number | null; auto_band: number | null;
+  };
+  const [wbands, setWbands] = useState<WBand[]>([]);
   const [editing, setEditing] = useState<{ id: string; areas: string[] } | null>(null);
   const [tab, setTab] = useState<"results" | "writing" | "people">("results");
   type Wr = {
@@ -58,6 +65,7 @@ export default function TeacherPage() {
     setAttempts(d.attempts ?? []);
     setNames(d.names ?? {});
     setAccessMap(d.access ?? {});
+    setWbands(d.wbands ?? []);
     if (d.error) setErr(d.error);
     setState("in");
   }, []);
@@ -172,20 +180,24 @@ export default function TeacherPage() {
   /* ---- per-student roll-up from the attempt rows ---- */
   const roll = students.map((st) => {
     const mine = attempts.filter((a) => a.student_id === st.id);
-    const bands = mine.map((a) => Number(a.band));
     return {
       st,
+      areas: summarise(mine, wbands.filter((w) => w.student_id === st.id)),
       count: mine.length,
-      best: bands.length ? Math.max(...bands) : null,
-      last: bands.length ? bands[0] : null,
       when: mine.length ? mine[0].submitted_at : null,
-      trend: bands.length >= 2 ? bands[0] - bands[bands.length - 1] : null,
     };
   }).sort((a, b) => (b.when ?? "").localeCompare(a.when ?? ""));
 
   const done = roll.filter((r) => r.count > 0);
-  const centreAvg = done.length
-    ? done.reduce((s2, r) => s2 + (r.best ?? 0), 0) / done.length : 0;
+  /* centre average per skill: each student's latest band in that skill */
+  const centre = (["L", "RA", "RG", "W"] as const).map((k) => {
+    const latest = roll.map((r) => r.areas.find((a) => a.key === k)?.latest).filter((b): b is number => b != null);
+    return {
+      k, n: latest.length,
+      label: k === "L" ? "Listening" : k === "RA" ? "Academic Reading" : k === "RG" ? "GT Reading" : "Writing",
+      avg: latest.length ? latest.reduce((x, y) => x + y, 0) / latest.length : 0,
+    };
+  }).filter((c) => c.n > 0);
 
   /* ---- what the whole centre gets wrong, by question type ----
      The list view only carries scores, not per-question detail, so this fills
@@ -203,7 +215,7 @@ export default function TeacherPage() {
   /* ================= one student, opened ================= */
   if (open) {
     const st = open.student;
-    const bands = open.attempts.map((a) => Number(a.band));
+    const areas = summarise(open.attempts, open.writings);
     const rowsR: { correct: boolean; type?: string }[] = [];
     const rowsL: { correct: boolean; type?: string }[] = [];
     for (const a of open.attempts) {
@@ -223,15 +235,17 @@ export default function TeacherPage() {
           <span className="meta">{st?.code}{st?.batch ? " \u00b7 " + st.batch : ""} · {open.attempts.length} attempt{open.attempts.length === 1 ? "" : "s"}</span>
         </div>
 
+        {areas.length > 0 && (
+          <section className="pr-set">
+            <h2>Bands by skill</h2>
+            <SkillCards areas={areas} who="student" />
+          </section>
+        )}
+
         {open.attempts.length === 0 ? (
           <div className="pr-note">This student has not finished a test yet.</div>
         ) : (
           <>
-            <div className="pr-stats">
-              <div className="pr-stat"><span className="v">{Math.max(...bands).toFixed(1)}</span><span className="k">Best band</span></div>
-              <div className="pr-stat"><span className="v">{bands[0].toFixed(1)}</span><span className="k">Most recent</span></div>
-              <div className="pr-stat"><span className="v">{(bands.reduce((a, b) => a + b, 0) / bands.length).toFixed(1)}</span><span className="k">Average</span></div>
-            </div>
 
             {!weakR.length && !weakL.length && (
               <div className="pr-note">
@@ -271,6 +285,7 @@ export default function TeacherPage() {
                     <div>
                       <div className="nm">{names[a.test_id] ?? a.test_id}</div>
                       <div className="fx">
+                        <span>{SKILL_NAME[a.skill] ?? a.skill}</span>
                         <span>{new Date(a.submitted_at).toLocaleString()}</span>
                         <span>{a.raw_score}/{a.total} correct</span>
                       </div>
@@ -368,8 +383,24 @@ export default function TeacherPage() {
               <div className="pr-stats">
                 <div className="pr-stat"><span className="v">{done.length}</span><span className="k">Students active</span></div>
                 <div className="pr-stat"><span className="v">{attempts.length}</span><span className="k">Tests done</span></div>
-                <div className="pr-stat"><span className="v">{centreAvg.toFixed(1)}</span><span className="k">Average best band</span></div>
+                <div className="pr-stat"><span className="v">{wbands.length}</span><span className="k">Writings saved</span></div>
               </div>
+              {centre.length > 0 && (
+                <section className="pr-set">
+                  <h2>Centre average by skill</h2>
+                  <p style={{ color: "var(--grey)", fontSize: "0.84rem", margin: "0 0 4px" }}>
+                    Each student&apos;s latest band in that skill, averaged. The number after the skill is how many students.
+                  </p>
+                  <div className="pr-stats" style={{ gridTemplateColumns: `repeat(${centre.length}, 1fr)`, marginTop: 8 }}>
+                    {centre.map((c) => (
+                      <div className="pr-stat" key={c.k}>
+                        <span className="v">{c.avg.toFixed(1)}</span>
+                        <span className="k">{c.label} · {c.n}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
 
               {!classReading.length && !classListening.length ? (
                 <div className="pr-note">
@@ -423,15 +454,16 @@ export default function TeacherPage() {
                       {r.when && <span>last {new Date(r.when).toLocaleDateString()}</span>}
                     </div>
                   </div>
-                  {r.best != null ? (
-                    <span className={"pr-band " + (r.best >= 7 ? "hi" : r.best >= 5.5 ? "mid" : "lo")}>
-                      <span className="lb">best</span>{r.best.toFixed(1)}
-                      {r.trend != null && r.trend !== 0 && (
-                        <span className="lb" style={{ marginLeft: 4 }}>
-                          {r.trend > 0 ? "\u2191" : "\u2193"}{Math.abs(r.trend).toFixed(1)}
+                  {/* latest band in each skill, side by side, so the weak one shows at a glance */}
+                  {r.areas.length ? (
+                    <div className="sk-chips">
+                      {r.areas.map((a) => (
+                        <span key={a.key} title={`${a.label}: latest ${a.latest.toFixed(1)}, best ${a.best.toFixed(1)}, average ${a.avg.toFixed(1)} over ${a.count}`}
+                              className={"pr-band " + (a.latest >= 7 ? "hi" : a.latest >= 5.5 ? "mid" : "lo")}>
+                          <span className="lb">{a.key === "L" ? "L" : a.key === "W" ? "W" : a.key === "RA" ? "R" : "R·GT"}</span>{a.latest.toFixed(1)}
                         </span>
-                      )}
-                    </span>
+                      ))}
+                    </div>
                   ) : (
                     <span className="pr-band none">no tests</span>
                   )}

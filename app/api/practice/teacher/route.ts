@@ -77,12 +77,18 @@ export async function GET(req: NextRequest) {
       for (const c of catalogue) names[c.id] = c.name;
       return NextResponse.json({ configured: true, authed: true, student, attempts, names, writings });
     }
-    const [students, attempts, catalogue, access] = await Promise.all([
+    const [students, attempts, catalogue, access, writingRows] = await Promise.all([
       listStudents(), recentAttempts(), getCatalogue(), allAccess().catch(() => ({})),
+      writingsReady() ? recentWritings(500).catch(() => []) : Promise.resolve([]),
     ]);
     const names: Record<string, string> = {};
     for (const c of catalogue) names[c.id] = c.name;
-    return NextResponse.json({ configured: true, authed: true, students, attempts, names, access });
+    // just the bands, for the Writing column of the students list — not the text
+    const wbands = writingRows.map((w) => ({
+      student_id: w.student_id, kind: w.kind, status: w.status, submitted_at: w.submitted_at,
+      teacher_band: w.teacher_band, auto_band: w.auto_band,
+    }));
+    return NextResponse.json({ configured: true, authed: true, students, attempts, names, access, wbands });
   } catch (e) {
     return NextResponse.json(
       { configured: true, authed: true, students: [], attempts: [], names: {},
