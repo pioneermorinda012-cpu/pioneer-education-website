@@ -5,7 +5,7 @@ import {
 } from "@/lib/students";
 import { hashPin } from "@/lib/session";
 import { esc, letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
-import { findPlanByLink } from "@/app/data/courses";
+import { findPlanByLink, planTitle } from "@/app/data/courses";
 import { areasForCourse, getAccess, setAccess } from "@/lib/access";
 import { notifyOwnerWhatsApp } from "@/lib/whatsapp-notify";
 
@@ -93,7 +93,7 @@ export async function POST(req: NextRequest) {
   }
 
   const match = d.linkUrl ? findPlanByLink(d.linkUrl) : null;
-  const batch = match ? `${match.course.name} · ${match.plan.name} (online)` : "Paid online";
+  const batch = match ? `${match.course.name} · ${planTitle(match.plan)} (online)` : "Paid online";
 
   try {
     if (await findStudentByPayment(d.paymentId)) {
@@ -120,7 +120,7 @@ export async function POST(req: NextRequest) {
           "Payment received — your Pioneer login is unchanged",
           letter("Payment received — thank you", `
 <p>Dear ${esc(existing.full_name)},</p>
-<p>We have received your payment${d.amount ? ` of <b>₹${d.amount.toLocaleString("en-IN")}</b>` : ""}${match ? ` for <b>${esc(match.course.name)} — ${esc(match.plan.name)}</b>` : ""}.</p>
+<p>We have received your payment${d.amount ? ` of <b>₹${d.amount.toLocaleString("en-IN")}</b>` : ""}${match ? ` for <b>${esc(match.course.name)} — ${esc(planTitle(match.plan))}</b>` : ""}.</p>
 <p>You already have a student login, so it stays the same: student code <b>${esc(existing.code)}</b> (you can also sign in with this email address).</p>
 <p>Forgotten the password? <a href="${siteUrl()}/practice/forgot">Reset it here</a>.</p>`),
           `We have received your payment. Your student login is unchanged: code ${existing.code}. Forgot the password? ${siteUrl()}/practice/forgot`,
@@ -159,7 +159,7 @@ export async function POST(req: NextRequest) {
         "Your Pioneer Education student login",
         letter("Welcome to Pioneer Education", `
 <p>Dear ${esc(d.name)},</p>
-<p>Thank you — your payment${d.amount ? ` of <b>₹${d.amount.toLocaleString("en-IN")}</b>` : ""} is confirmed${match ? ` for <b>${esc(match.course.name)} — ${esc(match.plan.name)}</b>` : ""}.</p>
+<p>Thank you — your payment${d.amount ? ` of <b>₹${d.amount.toLocaleString("en-IN")}</b>` : ""} is confirmed${match ? ` for <b>${esc(match.course.name)} — ${esc(planTitle(match.plan))}</b>` : ""}.</p>
 <p>Your login for the practice tests:</p>
 <table style="border-collapse:collapse;margin:8px 0 14px">
 <tr><td style="padding:6px 14px 6px 0;color:#5a6272">Student code</td><td style="padding:6px 0;font-size:18px"><b>${esc(created.code)}</b></td></tr>
@@ -177,7 +177,7 @@ export async function POST(req: NextRequest) {
           owner,
           `New online enrolment: ${d.name}${match ? ` — ${match.course.name}` : ""}`,
           letter("New online enrolment", `
-<p><b>${esc(d.name)}</b> paid${d.amount ? ` ₹${d.amount.toLocaleString("en-IN")}` : ""}${match ? ` for ${esc(match.course.name)} — ${esc(match.plan.name)}` : ""}.</p>
+<p><b>${esc(d.name)}</b> paid${d.amount ? ` ₹${d.amount.toLocaleString("en-IN")}` : ""}${match ? ` for ${esc(match.course.name)} — ${esc(planTitle(match.plan))}` : ""}.</p>
 <p>Email: ${esc(d.email)}<br>Phone: ${esc(d.phone || "—")}<br>Student code: <b>${esc(created.code)}</b><br>Razorpay payment: ${esc(d.paymentId)}</p>`),
           `${d.name} paid. Email ${d.email}, phone ${d.phone || "-"}, code ${created.code}, payment ${d.paymentId}`,
         ).catch((e) => console.error("mail to owner", e));

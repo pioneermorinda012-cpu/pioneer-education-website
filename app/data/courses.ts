@@ -1,20 +1,33 @@
+/** How long one payment covers. */
+export type Term = "1m" | "3m";
+export const TERM_LABEL: Record<Term, string> = { "1m": "1 month", "3m": "3 months" };
+
 export type Plan = {
   name: string;
+  tier: "self" | "group" | "one";
+  term: Term;
+  /** German is priced per level (A1, A2, B1); other courses leave this out. */
+  level?: string;
   /**
-   * Monthly fee in rupees. Set it to a number to show the price;
-   * leave it null and the card says "Fee on request" instead.
-   * e.g. standardPlans(999, 2499, 4999) on the course below.
+   * The fee in rupees for the whole term. A number shows the price; null
+   * shows "Fee on request" — or "Coming soon" when comingSoon is set.
    */
   price: number | null;
+  comingSoon?: boolean;
   period: string;
   feats: string[];
   featured?: boolean;
   /**
-   * The Razorpay payment link for this plan, e.g. "https://rzp.io/rzp/abc123".
+   * The Razorpay payment page/link for exactly this plan, level and term.
    * Leave it out and the card offers WhatsApp instead of "Pay now".
    */
   payLink?: string;
 };
+
+/** "German A1 · Group Class · 3 months" — for emails and the student's batch. */
+export function planTitle(p: Plan): string {
+  return [p.level, p.name, TERM_LABEL[p.term]].filter(Boolean).join(" · ");
+}
 
 export type Course = {
   slug: string;
@@ -34,50 +47,61 @@ export type Course = {
 };
 
 /**
- * The three plans every course is sold under. Pass the fee for each tier,
- * or null to leave that tier as "Fee on request".
+ * The three plans every course is sold under, for one term (and one level,
+ * for German). Each fee is a number, null for "Fee on request", or "soon"
+ * for "Coming soon".
  */
-const standardPlans = (
-  selfStudy: number | null,
-  group: number | null,
-  oneToOne: number | null
-): Plan[] => [
-  {
-    name: "Online Self-Study",
-    price: selfStudy,
-    period: "/month",
-    feats: [
-      "Flexible timings — study when you can",
-      "Recorded lectures, watchable while enrolled",
-      "Lessons and study material",
-      "Practice quizzes",
-    ],
-  },
-  {
-    name: "Group Class",
-    price: group,
-    period: "/month",
-    featured: true,
-    feats: [
-      "Live classes 5 days a week",
-      "Maximum 10 students per batch",
-      "Online and offline both",
-      "Weekly progress feedback",
-      "Certificate on completion",
-    ],
-  },
-  {
-    name: "1-to-1 Coaching",
-    price: oneToOne,
-    period: "/month",
-    feats: [
-      "Dedicated personal sessions",
-      "Curriculum built around you",
-      "Flexible timings",
-      "Interview preparation",
-      "Priority WhatsApp support",
-    ],
-  },
+type Fee = number | null | "soon";
+
+const FEATS = {
+  self: [
+    "Full access to the study material and practice tests",
+    "Recorded lectures, watchable while enrolled",
+    "Flexible timings — study when you can",
+    "Practice quizzes",
+  ],
+  group: [
+    "Live classes 5 days a week",
+    "Maximum 10 students per batch",
+    "Online and offline both",
+    "Weekly progress feedback",
+    "Study material and practice tests included",
+  ],
+  one: [
+    "Dedicated personal sessions",
+    "Curriculum built around you",
+    "Flexible timings",
+    "Interview preparation",
+    "Priority WhatsApp support",
+  ],
+};
+
+function tierPlans(term: Term, fees: [Fee, Fee, Fee], level?: string): Plan[] {
+  const tiers = [
+    { tier: "self", name: "Self-Study & Material Access" },
+    { tier: "group", name: "Group Class", featured: true },
+    { tier: "one", name: "1-to-1 Intensive Class" },
+  ] as const;
+  return tiers.map((t, i) => {
+    const fee = fees[i];
+    return {
+      name: t.name,
+      tier: t.tier,
+      term,
+      ...(level ? { level } : {}),
+      price: typeof fee === "number" ? fee : null,
+      ...(fee === "soon" ? { comingSoon: true } : {}),
+      period: term === "1m" ? "/month" : "for 3 months",
+      feats: FEATS[t.tier],
+      ...("featured" in t ? { featured: true } : {}),
+    };
+  });
+}
+
+/** One month and three months of the three plans: [self-study, group, 1-to-1] each. */
+const plans = (oneMonth: [Fee, Fee, Fee], threeMonths: [Fee, Fee, Fee], level?: string): Plan[] => [
+  ...tierPlans("1m", oneMonth, level),
+  ...tierPlans("3m", threeMonths, level),
 ];
 
 export const COURSES: Course[] = [
@@ -100,7 +124,7 @@ export const COURSES: Course[] = [
       "Anyone needing a specific band score for immigration",
     ],
     duration: "4–5 hours daily, weekday batches with evening options",
-    plans: standardPlans(null, null, null),
+    plans: plans([1499, 3499, 6999], [3499, 8999, 17999]),
     // demoVideo: "https://youtu.be/…",      explainVideo: "https://youtu.be/…",
     faqs: [
       { q: "How long does the course take?", a: "Most students prepare in 6–10 weeks depending on their starting level and target band." },
@@ -127,7 +151,7 @@ export const COURSES: Course[] = [
       "Those more comfortable with computer-based testing",
     ],
     duration: "Flexible batches — typically 3–6 weeks",
-    plans: standardPlans(null, null, null),
+    plans: plans([999, null, null], [2499, null, null]),
     faqs: [
       { q: "Is PTE easier than IELTS?", a: "Not easier exactly, but more predictable — since it's AI-scored, strong templates and strategy consistently produce reliable results." },
       { q: "How fast are PTE results?", a: "Usually within 1–2 business days, much faster than IELTS." },
@@ -153,7 +177,9 @@ export const COURSES: Course[] = [
       "Anyone preparing for job interviews or workplace communication",
     ],
     duration: "Beginner to Advanced, self-paced batches",
-    plans: withLinks(standardPlans(999, null, null), "https://pages.razorpay.com/pl_NHIt9P9D83nsDm/view", null, null),
+    // The ₹999 Razorpay page (pages.razorpay.com/pl_NHIt9P9D83nsDm) was the old
+    // price, so it is not shown until a link for the new fee is added.
+    plans: plans([799, 1999, 4999], [1499, 4999, 12499]),
     faqs: [
       { q: "I understand English but can't speak it — is this for me?", a: "Yes, this is exactly who the course is designed for." },
       { q: "Do I need any prior English knowledge?", a: "No, we have a dedicated beginner track that starts from the basics." },
@@ -179,7 +205,11 @@ export const COURSES: Course[] = [
       "Complete beginners — no prior German needed",
     ],
     duration: "Structured A1 → A2 → B1 progression, typically 6–9 months total",
-    plans: standardPlans(null, null, null),
+    plans: [
+      ...plans([1499, 3999, 7999], [3999, 9499, 18999], "A1"),
+      ...plans([2499, 4999, 9999], [5999, 11999, 24999], "A2"),
+      ...plans([3499, "soon", "soon"], [7999, "soon", "soon"], "B1"),
+    ],
     faqs: [
       { q: "Do I need any German background to start?", a: "No, the A1 track starts from absolute zero." },
       { q: "Is B1 enough for a German visa?", a: "B1 is the most commonly required level for study and work visas — we'll confirm the exact requirement for your specific visa type." },
@@ -189,12 +219,14 @@ export const COURSES: Course[] = [
 ];
 
 /**
- * Put the payment links on a course's three plans, in the same order as
- * standardPlans: self-study, group, 1-to-1. Use null for a plan with no link.
- *   plans: withLinks(standardPlans(999, 2499, 4999), "https://rzp.io/...", null, null),
+ * Put a payment link on one plan. Wrap the course's plans with it, once per link:
+ *   plans: withLink(plans([...], [...]), "group", "1m", "https://rzp.io/rzp/abc"),
+ * For German add the level: withLink(..., "group", "1m", "https://...", "A1").
  */
-export function withLinks(plans: Plan[], ...links: (string | null)[]): Plan[] {
-  return plans.map((p, i) => (links[i] ? { ...p, payLink: links[i] as string } : p));
+export function withLink(list: Plan[], tier: Plan["tier"], term: Term, url: string, level?: string): Plan[] {
+  return list.map((p) =>
+    p.tier === tier && p.term === term && (level ? p.level === level : true) ? { ...p, payLink: url } : p,
+  );
 }
 
 /** Which course and plan a Razorpay payment link belongs to, for the webhook. */

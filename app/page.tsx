@@ -318,7 +318,7 @@ export default function Home() {
     </div>
     <div className="courses-grid">
       {COURSES.map((c) => {
-        const priced = c.plans.map((p) => p.price).filter((v): v is number => v !== null);
+        const priced = c.plans.filter((p) => p.term === "1m").map((p) => p.price).filter((v): v is number => v !== null);
         const from = priced.length ? Math.min(...priced) : null;
         const tint =
           c.slug === "pte"
@@ -347,7 +347,7 @@ export default function Home() {
         );
       })}
     </div>
-    <div className="price-note">📞 &nbsp;Every course is sold in three plans — online self-study, live group class, and 1-to-1 coaching. Open a course for its fees, or just ask us. <strong>WhatsApp: +91 73802 61308</strong></div>
+    <div className="price-note">📞 &nbsp;Every course is sold in three plans — self-study with material access, live group class, and 1-to-1 intensive — for 1 month or 3 months, with 3 months working out cheaper. Open a course for its fees, or just ask us. <strong>WhatsApp: +91 73802 61308</strong></div>
   </div>
 </section>
 

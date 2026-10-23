@@ -3,6 +3,7 @@ import Link from "next/link";
 import SiteNav from "../../../components/SiteNav";
 import CourseVideos from "../../../components/CourseVideos";
 import PricingReveal from "../../../components/PricingReveal";
+import PlanPicker from "../../../components/PlanPicker";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -113,72 +114,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
             <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn up to ₹500</p>
           </div>
           <PricingReveal>
-          <div className="pricing-grid">
-            {course.plans.map((plan, i) => {
-              const light = plan.featured ? { color: "rgba(255,255,255,0.9)" } : undefined;
-              return (
-                <div key={i} className={plan.featured ? "price-card featured" : "price-card"}>
-                  {plan.featured && <div className="pc-badge">Most Popular</div>}
-                  <div className="pc-name" style={plan.featured ? { color: "rgba(255,255,255,0.8)" } : undefined}>{plan.name}</div>
-                  <div className="pc-price" style={plan.featured ? { color: "#fff" } : undefined}>
-                    {plan.price === null ? (
-                      <span style={{ fontSize: "1.1rem" }}>Fee on request</span>
-                    ) : (
-                      <>
-                        ₹{plan.price.toLocaleString("en-IN")}
-                        <span style={plan.featured ? { color: "rgba(255,255,255,0.7)" } : undefined}>{plan.period}</span>
-                      </>
-                    )}
-                  </div>
-                  <ul className="course-feats" style={light}>
-                    {plan.feats.map((f, j) => (
-                      <li key={j} style={light}>{f}</li>
-                    ))}
-                  </ul>
-                  {plan.payLink ? (
-                    <>
-                      <a
-                        href={plan.payLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={plan.featured ? "btn" : "btn btn-coral"}
-                        style={
-                          plan.featured
-                            ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
-                            : { width: "100%", justifyContent: "center" }
-                        }
-                      >
-                        Pay now — secure Razorpay
-                      </a>
-                      <a
-                        href={wa}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{ display: "block", textAlign: "center", marginTop: 10, fontSize: "0.85rem", fontWeight: 600,
-                          color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}
-                      >
-                        Questions first? Ask on WhatsApp
-                      </a>
-                    </>
-                  ) : (
-                    <a
-                      href={wa}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={plan.featured ? "btn" : "btn btn-outline"}
-                      style={
-                        plan.featured
-                          ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
-                          : { width: "100%", justifyContent: "center" }
-                      }
-                    >
-                      Ask on WhatsApp
-                    </a>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <PlanPicker plans={course.plans} wa={wa} />
           <div className="price-note">
             {feesOnRequest ? (
               <>

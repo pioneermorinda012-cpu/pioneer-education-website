@@ -34,7 +34,7 @@ export default function PricingReveal({ children }: { children: ReactNode }) {
         See Pricing
       </button>
       <p style={{ color: "var(--grey)", fontSize: "0.9rem", marginTop: 12 }}>
-        Three plans: Online Self-Study, Group Class and 1-to-1 Coaching.
+        Three plans — Self-Study & Material Access, Group Class and 1-to-1 Intensive — for 1 month or 3 months.
       </p>
     </div>
   );
