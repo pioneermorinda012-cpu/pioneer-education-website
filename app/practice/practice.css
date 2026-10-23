@@ -499,3 +499,17 @@ mark.ev-near .ev-badge { opacity: 0.85; }
 .sk-chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
 .pr-until { font-style: normal; font-weight: 600; color: var(--grey); font-size: .8rem; }
 .pr-untilbtn { border: 1px solid var(--grey-light); background: #fff; border-radius: 100px; font: inherit; font-size: .74rem; font-weight: 700; padding: 2px 8px; margin-left: 4px; cursor: pointer; color: var(--grey); }
+
+/* teacher: students by course */
+.pr-filter { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 4px 0 12px; }
+.pr-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.pr-chips button { border: 1px solid var(--grey-light); background: var(--paper); border-radius: 100px; font: inherit; font-size: .85rem; font-weight: 600; padding: 7px 13px; cursor: pointer; color: inherit; }
+.pr-chips button b { font-family: 'JetBrains Mono', monospace; margin-left: 2px; }
+.pr-chips button.on { background: var(--coral); border-color: var(--coral); color: #fff; }
+.pr-chip-ended { font-weight: 500; font-size: .78rem; opacity: .85; }
+.pr-search { flex: 1 1 220px; min-width: 0; font: inherit; font-size: .92rem; padding: 9px 13px; border: 1px solid var(--grey-light); border-radius: 100px; background: var(--paper); }
+/* teacher rows with several buttons: share the width on a phone instead of running off the side */
+@media (max-width: 640px) {
+  .pr-row .go.go-many { flex-wrap: wrap; }
+  .pr-row .go.go-many .btn { width: auto; flex: 1 1 0; min-width: 0; padding-left: 8px; padding-right: 8px; white-space: nowrap; }
+}

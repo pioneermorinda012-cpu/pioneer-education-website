@@ -24,6 +24,17 @@ const AREAS = [
   { key: "german", label: "German" },
 ] as const;
 const areaLabel = (k: string) => AREAS.find((a) => a.key === k)?.label ?? k;
+/* Students by course, for the filter above both student lists. A student on
+   two courses counts under both; "No modules set" is a login that opens
+   everything (made before modules existed). */
+const GROUPS = [
+  { key: "ielts", label: "IELTS", areas: ["academic", "gt"] },
+  { key: "pte", label: "PTE", areas: ["pte"] },
+  { key: "english", label: "English", areas: ["english"] },
+  { key: "german", label: "German", areas: ["german"] },
+] as const;
+type Group = "all" | "none" | (typeof GROUPS)[number]["key"];
+
 const shortDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata" });
 
@@ -47,6 +58,8 @@ export default function TeacherPage() {
   const [check, setCheck] = useState<Check | null>(null);
   const [mailTo, setMailTo] = useState("");
   const [mailResult, setMailResult] = useState("");
+  const [group, setGroup] = useState<Group>("all");
+  const [q, setQ] = useState("");
   const [until, setUntilMap] = useState<Record<string, Record<string, string>>>({});
   const [editing, setEditing] = useState<{ id: string; areas: string[]; clear: string[] } | null>(null);
   const [tab, setTab] = useState<"results" | "writing" | "people">("results");
@@ -199,6 +212,47 @@ export default function TeacherPage() {
   }
 
   const live = students.filter((s) => s.active).length;
+
+  /* ---- course filter and search, shared by both student lists ---- */
+  const areasOf = (g: Group) => GROUPS.find((x) => x.key === g)?.areas as readonly string[] | undefined;
+  const inGroup = (id: string, g: Group) =>
+    g === "all" ? true : g === "none" ? !access[id] : (access[id] ?? []).some((a) => areasOf(g)!.includes(a));
+  // on the course, but every one of its modules has passed its end date
+  const endedIn = (id: string, g: Group) => {
+    const want = areasOf(g);
+    if (!want) return false;
+    const mine = (access[id] ?? []).filter((a) => want.includes(a));
+    return mine.length > 0 && mine.every((a) => until[id]?.[a] && Date.parse(until[id][a]) <= Date.now());
+  };
+  const needle = q.trim().toLowerCase();
+  const matches = (st: Student) =>
+    inGroup(st.id, group) &&
+    (!needle || [st.full_name, st.code, st.email ?? "", st.phone ?? "", st.batch ?? ""]
+      .some((v) => v.toLowerCase().includes(needle)));
+  const counts = [
+    { key: "all" as Group, label: "All", n: students.length, ended: 0 },
+    ...GROUPS.map((g) => ({
+      key: g.key as Group, label: g.label,
+      n: students.filter((s) => inGroup(s.id, g.key)).length,
+      ended: students.filter((s) => endedIn(s.id, g.key)).length,
+    })),
+    { key: "none" as Group, label: "No modules set", n: students.filter((s) => !access[s.id]).length, ended: 0 },
+  ];
+  const filterBar = (
+    <div className="pr-filter">
+      <div className="pr-chips" role="tablist" aria-label="Course">
+        {counts.filter((c) => c.key === "all" || c.n > 0).map((c) => (
+          <button key={c.key} type="button" role="tab" aria-selected={group === c.key}
+                  className={group === c.key ? "on" : undefined} onClick={() => setGroup(c.key)}
+                  title={c.ended ? `${c.ended} whose access has ended` : undefined}>
+            {c.label} <b>{c.n}</b>{c.ended > 0 && <span className="pr-chip-ended"> · {c.ended} ended</span>}
+          </button>
+        ))}
+      </div>
+      <input className="pr-search" type="search" value={q} onChange={(e) => setQ(e.target.value)}
+             placeholder="Search name, code, email or phone" aria-label="Search students" />
+    </div>
+  );
   const byId: Record<string, Student> = {};
   for (const st of students) byId[st.id] = st;
 
@@ -465,8 +519,12 @@ export default function TeacherPage() {
 
           <section className="pr-set">
             <h2>Students</h2>
+            {filterBar}
             <div className="pr-rows">
-              {roll.map((r) => (
+              {roll.filter((r) => matches(r.st)).length === 0 && (
+                <div className="pr-row"><div className="nm">No students match.</div></div>
+              )}
+              {roll.filter((r) => matches(r.st)).map((r) => (
                 <div className="pr-row" key={r.st.id}>
                   <div>
                     <div className="nm">
@@ -630,9 +688,12 @@ export default function TeacherPage() {
 
           <section className="pr-set">
             <h2>All students</h2>
+            {filterBar}
             <div className="pr-rows">
-              {students.length === 0 && <div className="pr-row"><div className="nm">Nobody yet.</div></div>}
-              {students.map((s2) => (
+              {students.filter(matches).length === 0 && (
+                <div className="pr-row"><div className="nm">{students.length ? "No students match." : "Nobody yet."}</div></div>
+              )}
+              {students.filter(matches).map((s2) => (
                 <div className="pr-row" key={s2.id}>
                   <div>
                     <div className="nm">{s2.full_name} {!s2.active && <span className="pr-off">off</span>}</div>
@@ -678,7 +739,7 @@ export default function TeacherPage() {
                       </div>
                     )}
                   </div>
-                  <div className="go" style={{ display: "flex", gap: 8 }}>
+                  <div className="go go-many" style={{ display: "flex", gap: 8 }}>
                     <button className="btn ghost" type="button" disabled={busy}
                             onClick={() => setEditing({ id: s2.id, areas: access[s2.id] ?? AREAS.map((a) => a.key), clear: [] })}>
                       Modules
