@@ -1,0 +1,2238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAGFBMVEX4wbL+Thb/PwL/PwD/PgL/PgD+PgD/OADR/gd9AAADUklEQVR42u2Vz2/bZBjHP6+dNu1Gk9cibSoBq9mUA0JFHlW5cKATlXZgiB9SDqhToUXsSgfS+B/gQC5cduKGILAfQtoJZS0SMKSlSzQxiiqCtzGJVs3ypqu0tKltDrEd18mAP4D3Er/yx8/z/X7t94nIWbg2/tJM4isB5ci2btroVhQQuclc7JluwU4F73y86nFbcwGsyjFJAhG/L6anOxd2fh1ELjUL4Gqutvd5j8RZElAMdhP9LIhcRPNRevUmIluvGAd0KwqUganaQaLmA+Upp0IeqPWTAeWp8mie80DGTQsaABgRIF/M732cbqYVGe+Bw7QJ9v6NDiJyFvVVBcBSYez0Dy8O8FWjKRl9g+98wJn4FBAvrczcmv9+849u+8Vqp4X+50e7BbxlXjh+0fEikctQw6UNgKfXbz53pBDeTx4KRTqTvwEn7+vWjVK3QHtxGUAD9JtA8nAddGUYATB6kQDgqRlx7nBlCmeSRiMA5oxuDind++QcF6zt/Z4g0R8fB62y+Ov10kJp5/cWgPjgJ6OVrbV2hwKA8ZW3SpTfvTWoALJ33TO/iCdfyd0OAUZT13B+fPuZtaEWJAdPX3j43s9Xau6QLxK0KgDfnnkHkjPGN7r3pe1tvkYIiHsSBu9MFqtAFeOxkyo4S/7vswswUhXSAgmwKgwGLwc2/Srzd11xGeZWgNTz5mam1BWJJ69lb497ynH2/hoGqK/urA5FWuhXmLOAlPFhJ0Fh1CWRCmw44hCe8kauD/vPDPuHNxUcoq8lmomjH4xaC6+KstOLRwEGfVfXpqf6Ml1gIG+v10dszdUdIlMmFKkc2xh73TZdrT0A+3d6gO22UqZ94mpmK7vbTCdTVlyki5K2vCq32FCecnpdaGTBQoAA5q1em4C5bJJhTAojOgaDJBNP3DNNmyNaewBKZhxoSB68eqnjt+0PlwM55Jc59dmpo2iw+8UMZmjUr7Cz0Xy/IAzlirSSSiqpsr7RjkjPVV7hrKe7SdlcQqolZajw4CQB0a4jK62Hwml5a9Baaw23J2TUpivFgjK8sTRSCXFCnSVlHnQxi22Cq/XMfB/Y3uoZ6S/3SfIfPpjUm371sEmsBcHc0DvvUXPjSRqP+lP7Vw3/A/8R+BsFPx82AyTlVQAAAABJRU5ErkJggg==">
+<meta name="theme-color" content="#1FB5A8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English C1 Trainer | Pioneer Education</title>
+<meta name="description" content="Complete English C1 course with Hindi and Punjabi translations. Works offline.">
+<style>
+/* ============================================================
+   GLEIS A1  —  design tokens
+   Visual language: German rail & post signage.
+   Enamel white boards, signal yellow, signage blue, ink black.
+============================================================ */
+:root{
+  --ink:#101820;
+  --ink-soft:#2C3844;
+  --enamel:#E9EBE7;
+  --enamel-dim:#DADDD6;
+  --board:#151B22;
+  --signal:#1FB5A8;
+  --signal-dim:#0F7F76;
+  --rail:#0B4F4A;
+  --rail-light:#3A7CC4;
+  --rot:#B8202E;
+  --gruen:#1F7A5A;
+  --paper:#FBFBF9;
+
+  --sans:"Arial Narrow","Helvetica Neue Condensed","Liberation Sans Narrow",
+         "Helvetica Neue",Arial,sans-serif;
+  --sans-w:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+
+  --rad:3px;
+  --shadow:0 1px 0 rgba(16,24,32,.10), 0 2px 10px rgba(16,24,32,.06);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--enamel); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+}
+img{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* ---------- signage type ---------- */
+.sig{
+  font-family:var(--sans-w); font-weight:800;
+  text-transform:uppercase; letter-spacing:.09em;
+}
+.mono{font-family:var(--mono)}
+
+/* ============================================================
+   BOARD HEADER  (signature element: departure board)
+============================================================ */
+header.board{
+  background:var(--board); color:var(--enamel);
+  border-bottom:5px solid var(--signal);
+  padding:14px 20px 12px;
+  position:sticky; top:0; z-index:60;
+}
+.board-top{
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  max-width:1180px; margin:0 auto;
+}
+.brand{
+  font-family:var(--sans-w); font-weight:800; letter-spacing:.16em;
+  text-transform:uppercase; font-size:19px; color:var(--signal);
+}
+.brand span{color:var(--enamel)}
+.board-sub{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:#8A96A3;
+}
+.board-strip{
+  max-width:1180px; margin:10px auto 0;
+  display:grid; grid-template-columns:64px 1fr auto;
+  gap:14px; align-items:center;
+  background:#0A0E13; border:1px solid #232C36; border-radius:var(--rad);
+  padding:9px 13px;
+}
+.gleis-no{
+  font-family:var(--mono); font-weight:700; font-size:24px;
+  color:var(--board); background:var(--signal);
+  text-align:center; border-radius:2px; padding:3px 0; line-height:1.2;
+}
+.strip-title{
+  font-family:var(--sans-w); font-weight:700; font-size:16px;
+  letter-spacing:.03em; color:var(--enamel);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.strip-title small{
+  display:block; font-weight:500; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:#7C8896; margin-top:1px;
+}
+.flip{animation:flip .34s ease}
+@keyframes flip{
+  0%{opacity:0; transform:translateY(-7px) scaleY(.7)}
+  100%{opacity:1; transform:none}
+}
+.xp-pod{
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em;
+  color:var(--signal); text-align:right; white-space:nowrap;
+}
+.xp-pod b{font-size:17px; display:block; color:#fff}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.wrap{
+  max-width:1180px; margin:0 auto; padding:0 20px 90px;
+  display:grid; grid-template-columns:262px 1fr; gap:30px;
+  align-items:start;
+}
+
+/* ---------- Fahrplan sidebar ---------- */
+nav.fahrplan{
+  position:sticky; top:132px; max-height:calc(100vh - 156px);
+  overflow-y:auto; padding:22px 0 30px;
+}
+.fp-head{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--ink-soft);
+  border-bottom:2px solid var(--ink); padding-bottom:6px; margin-bottom:4px;
+  display:flex; justify-content:space-between;
+}
+.fp-kat{
+  font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:#78838F;
+  margin:16px 0 4px; padding-left:2px;
+}
+.fp-item{
+  display:grid; grid-template-columns:30px 1fr 30px; gap:8px;
+  align-items:center; width:100%; text-align:left;
+  background:none; border:0; border-bottom:1px solid var(--enamel-dim);
+  padding:8px 2px; cursor:pointer; line-height:1.28;
+}
+.fp-item:hover{background:#E0E3DD}
+.fp-item.on{background:var(--ink); color:var(--enamel)}
+.fp-item.on .fp-g{color:var(--signal)}
+.fp-g{font-family:var(--mono); font-size:12px; color:#78838F; font-weight:700}
+.fp-t{font-family:var(--sans-w); font-size:13.5px; font-weight:600; letter-spacing:.01em}
+.fp-t em{
+  display:block; font-style:normal; font-size:10.5px; font-weight:500;
+  color:#78838F; letter-spacing:.04em;
+}
+.fp-item.on .fp-t em{color:#9AA6B2}
+.fp-dot{
+  width:12px; height:12px; border-radius:50%; justify-self:end;
+  border:2px solid #B6BCB4; background:transparent;
+}
+.fp-dot.part{background:var(--signal); border-color:var(--signal-dim)}
+.fp-dot.done{background:var(--gruen); border-color:var(--gruen)}
+
+/* ---------- main ---------- */
+main{padding:26px 0 0; min-width:0}
+
+.station-head{margin-bottom:26px}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--rail); margin-bottom:7px;
+}
+h1{
+  font-family:var(--sans-w); font-weight:800; font-size:clamp(28px,4.6vw,42px);
+  line-height:1.06; letter-spacing:-.015em; margin:0 0 6px;
+}
+h1 .en{
+  display:block; font-size:15px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:#6E7A86; margin-top:9px;
+}
+.lead{
+  font-size:17.5px; color:var(--ink-soft); max-width:60ch; margin:14px 0 0;
+  border-left:4px solid var(--signal); padding-left:15px;
+}
+
+.blk{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-radius:var(--rad); box-shadow:var(--shadow);
+  margin:22px 0; overflow:hidden;
+}
+.blk-head{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:var(--ink); color:var(--enamel); padding:9px 16px;
+}
+.blk-head .tag{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; background:var(--signal); color:var(--ink);
+  padding:2px 7px; border-radius:2px; font-weight:700;
+}
+.blk-head .tag.gram{background:var(--rail-light); color:#fff}
+.blk-head .tag.ueb{background:var(--gruen); color:#fff}
+.blk-head h2{
+  font-family:var(--sans-w); font-weight:700; font-size:15.5px;
+  letter-spacing:.03em; margin:0;
+}
+.blk-body{padding:18px 18px 20px}
+.blk-body>*:first-child{margin-top:0}
+.blk-body>*:last-child{margin-bottom:0}
+
+h3{
+  font-family:var(--sans-w); font-weight:700; font-size:14.5px;
+  letter-spacing:.05em; text-transform:uppercase;
+  margin:22px 0 9px; color:var(--rail);
+}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px; padding-left:22px}
+li{margin-bottom:5px}
+b,strong{color:var(--ink)}
+.de{font-weight:700; color:var(--rail)}
+.en-i{color:#6E7A86; font-style:italic}
+
+/* rule / grammar callout */
+.rule{
+  background:#F3F5F8; border-left:4px solid var(--rail);
+  padding:13px 16px; margin:14px 0; border-radius:0 var(--rad) var(--rad) 0;
+}
+.rule .lbl{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rail); display:block; margin-bottom:5px;
+}
+.warn{background:#FFF8E4; border-left-color:var(--signal-dim)}
+.warn .lbl{color:var(--signal-dim)}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto; margin:14px 0; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:340px}
+th{
+  font-family:var(--mono); font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; text-align:left; color:#fff; background:var(--ink-soft);
+  padding:7px 11px; font-weight:600; white-space:nowrap;
+}
+td{padding:7px 11px; border-bottom:1px solid var(--enamel-dim); vertical-align:top}
+tbody tr:nth-child(even){background:#F5F6F3}
+td.g{font-family:var(--sans-w); font-weight:700; color:var(--rail); white-space:nowrap}
+td.e{color:var(--ink-soft)}
+td.n{font-size:13.5px; color:#78838F; font-style:italic}
+
+/* speak button */
+.spk{
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  width:26px; height:24px; cursor:pointer; padding:0; line-height:1;
+  color:var(--rail); font-size:13px; vertical-align:middle;
+}
+.spk:hover{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.spk:active{transform:translateY(1px)}
+
+/* ---------- dialog ---------- */
+.dlg{margin:14px 0}
+.dlg-row{
+  display:grid; grid-template-columns:78px 1fr auto; gap:11px;
+  padding:8px 0; border-bottom:1px dashed var(--enamel-dim); align-items:start;
+}
+.dlg-who{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--rail); padding-top:3px; font-weight:700;
+}
+.dlg-de{font-weight:600}
+.dlg-en{display:block; font-size:14px; color:#78838F; font-style:italic; font-weight:400}
+
+/* ---------- reading text / sign ---------- */
+.lesetext{
+  background:#fff; border:1px solid var(--enamel-dim);
+  border-top:4px solid var(--ink); padding:16px 18px; margin:14px 0;
+  font-size:16.5px;
+}
+.lesetext .meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  color:#78838F; text-transform:uppercase; margin-bottom:9px;
+  border-bottom:1px solid var(--enamel-dim); padding-bottom:7px;
+}
+.schild{
+  background:var(--rail); color:#fff; border:3px solid #fff;
+  outline:2px solid var(--rail); border-radius:var(--rad);
+  padding:16px 18px; margin:12px 0; text-align:center;
+  font-family:var(--sans-w); font-weight:700; letter-spacing:.05em; font-size:18px;
+}
+.schild.gelb{background:var(--signal); color:var(--ink); outline-color:var(--signal-dim)}
+
+/* ============================================================
+   EXERCISES
+============================================================ */
+.ex{margin:6px 0 0}
+.ex-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  flex-wrap:wrap; margin-bottom:12px; padding-bottom:9px;
+  border-bottom:2px solid var(--ink);
+}
+.ex-count{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:#78838F;
+}
+.q{
+  padding:13px 0; border-bottom:1px solid var(--enamel-dim);
+}
+.q:last-of-type{border-bottom:0}
+.q-txt{margin-bottom:9px; font-size:16.5px}
+.q-no{
+  font-family:var(--mono); font-size:12px; color:#98A2AC;
+  margin-right:9px; font-weight:700;
+}
+.q-en{display:block; font-size:13.5px; color:#8A939C; font-style:italic; margin-top:3px}
+
+.opts{display:flex; flex-direction:column; gap:7px; max-width:640px}
+.opt{
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 13px; cursor:pointer; font-family:var(--serif); font-size:16px;
+  transition:border-color .12s, background .12s;
+}
+.opt:hover:not(:disabled){border-color:var(--rail); background:#F3F7FC}
+.opt:disabled{cursor:default}
+.opt .key{
+  font-family:var(--mono); font-size:11px; font-weight:700; color:#98A2AC;
+  border:1px solid var(--enamel-dim); border-radius:2px;
+  width:21px; height:21px; display:grid; place-items:center; flex:none;
+}
+.opt.right{border-color:var(--gruen); background:#EAF6F1}
+.opt.right .key{background:var(--gruen); color:#fff; border-color:var(--gruen)}
+.opt.wrong{border-color:var(--rot); background:#FBEDEE}
+.opt.wrong .key{background:var(--rot); color:#fff; border-color:var(--rot)}
+
+.inrow{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+input.gap{
+  border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:8px 11px; font-family:var(--serif); font-size:16px; background:#fff;
+  min-width:190px; flex:1 1 190px; max-width:340px;
+}
+input.gap:focus{outline:2px solid var(--rail); outline-offset:0; border-color:var(--rail)}
+input.gap.right{border-color:var(--gruen); background:#EAF6F1}
+input.gap.wrong{border-color:var(--rot); background:#FBEDEE}
+.btn{
+  font-family:var(--sans-w); font-weight:700; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase;
+  background:var(--ink); color:var(--enamel); border:0; border-radius:var(--rad);
+  padding:9px 16px; cursor:pointer;
+}
+.btn:hover{background:var(--rail)}
+.btn:active{transform:translateY(1px)}
+.btn.gelb{background:var(--signal); color:var(--ink)}
+.btn.gelb:hover{background:var(--signal-dim)}
+.btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink); color:var(--enamel)}
+.btn.sm{padding:6px 11px; font-size:11px}
+
+.umlaut{display:flex; gap:4px; flex-wrap:wrap; margin:8px 0}
+.umlaut button{
+  font-family:var(--serif); font-size:15px; width:32px; height:30px;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px; cursor:pointer;
+}
+.umlaut button:hover{background:var(--signal); border-color:var(--signal-dim)}
+
+.fb{
+  margin-top:8px; font-size:14.5px; padding:7px 11px; border-radius:var(--rad);
+  display:none;
+}
+.fb.show{display:block}
+.fb.ok{background:#EAF6F1; color:#14513C; border-left:3px solid var(--gruen)}
+.fb.no{background:#FBEDEE; color:#7C1620; border-left:3px solid var(--rot)}
+
+/* word ordering */
+.pool,.slot{
+  display:flex; flex-wrap:wrap; gap:6px; min-height:44px; padding:8px;
+  border-radius:var(--rad);
+}
+.slot{border:2px dashed var(--rail); background:#F3F7FC; margin-bottom:7px}
+.pool{border:1px solid var(--enamel-dim); background:#fff}
+.word{
+  font-family:var(--serif); font-size:16px; background:var(--ink); color:var(--enamel);
+  border:0; border-radius:2px; padding:6px 11px; cursor:pointer;
+}
+.word:hover{background:var(--rail)}
+.slot .word{background:var(--signal); color:var(--ink)}
+.slot .word:hover{background:var(--signal-dim)}
+
+/* matching pairs */
+.pairs{display:grid; grid-template-columns:1fr 1fr; gap:9px; max-width:620px}
+.pcol{display:flex; flex-direction:column; gap:6px}
+.pbtn{
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 12px; cursor:pointer; text-align:left; font-family:var(--serif); font-size:15.5px;
+}
+.pbtn:hover:not(:disabled){border-color:var(--rail)}
+.pbtn.sel{background:var(--rail); color:#fff; border-color:var(--rail)}
+.pbtn.done{background:#EAF6F1; border-color:var(--gruen); color:#14513C; cursor:default; opacity:.72}
+.pbtn.miss{border-color:var(--rot); animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* dictation */
+.dikt-row{display:flex; gap:9px; align-items:center; flex-wrap:wrap; margin-bottom:8px}
+.big-spk{
+  background:var(--rail); color:#fff; border:0; border-radius:var(--rad);
+  padding:9px 15px; cursor:pointer; font-family:var(--sans-w); font-weight:700;
+  font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+}
+.big-spk:hover{background:var(--rail-light)}
+.speed{
+  font-family:var(--mono); font-size:11px; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:7px 9px; cursor:pointer;
+}
+
+/* writing */
+textarea.schreib{
+  width:100%; min-height:150px; border:1.5px solid var(--enamel-dim);
+  border-radius:var(--rad); padding:12px; font-family:var(--serif); font-size:16px;
+  background:#fff; resize:vertical; line-height:1.6;
+}
+textarea.schreib:focus{outline:2px solid var(--rail); border-color:var(--rail)}
+.muster{
+  display:none; background:#F3F5F8; border-left:4px solid var(--gruen);
+  padding:13px 16px; margin-top:12px; white-space:pre-wrap; font-size:16px;
+}
+.muster.show{display:block}
+.checklist{list-style:none; padding:0; margin:10px 0}
+.checklist li{
+  padding-left:24px; position:relative; font-size:15.5px; margin-bottom:6px;
+}
+.checklist li::before{
+  content:"□"; position:absolute; left:0; color:var(--rail);
+  font-size:17px; line-height:1;
+}
+
+/* flashcards */
+.fc-stage{display:flex; flex-direction:column; align-items:center; gap:14px}
+.card{
+  width:100%; max-width:430px; min-height:170px; background:var(--ink);
+  color:var(--enamel); border-radius:var(--rad); display:grid; place-items:center;
+  text-align:center; padding:26px 20px; cursor:pointer; box-shadow:var(--shadow);
+}
+.card .face{font-family:var(--sans-w); font-weight:700; font-size:26px; letter-spacing:.01em}
+.card .back{font-size:19px; color:var(--signal); margin-top:9px; font-family:var(--serif)}
+.card .hint{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:#7C8896; margin-top:13px;
+}
+
+/* score panel */
+.score{
+  margin-top:16px; background:var(--ink); color:var(--enamel);
+  border-radius:var(--rad); padding:14px 17px;
+  display:flex; justify-content:space-between; align-items:center; gap:13px; flex-wrap:wrap;
+}
+.score .num{font-family:var(--mono); font-size:26px; color:var(--signal); font-weight:700}
+.score .lbl{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3;
+}
+
+/* footer nav */
+.stepper{
+  display:flex; justify-content:space-between; gap:12px; margin:34px 0 0;
+  padding-top:20px; border-top:3px solid var(--ink);
+}
+
+/* toast */
+#toast{
+  position:fixed; left:50%; bottom:24px; transform:translate(-50%,90px);
+  background:var(--ink); color:var(--signal); font-family:var(--mono);
+  font-size:13px; letter-spacing:.06em; padding:11px 20px; border-radius:var(--rad);
+  z-index:200; transition:transform .26s ease; box-shadow:0 6px 24px rgba(0,0,0,.25);
+}
+#toast.up{transform:translate(-50%,0)}
+
+/* mobile drawer button */
+.menu-btn{display:none}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 15px 80px}
+  nav.fahrplan{
+    position:fixed; inset:0 auto 0 0; width:288px; background:var(--enamel);
+    z-index:90; transform:translateX(-102%); transition:transform .24s ease;
+    box-shadow:6px 0 24px rgba(0,0,0,.2); padding:18px 16px 40px;
+    max-height:none; overflow-y:auto;
+  }
+  nav.fahrplan.open{transform:none}
+  .menu-btn{
+    display:inline-block; background:var(--signal); color:var(--ink); border:0;
+    font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; padding:8px 13px; border-radius:var(--rad); cursor:pointer;
+  }
+  .scrim{
+    display:none; position:fixed; inset:0; background:rgba(16,24,32,.5); z-index:80;
+  }
+  .scrim.on{display:block}
+  .pairs{grid-template-columns:1fr}
+  body{font-size:16px}
+  .board-strip{grid-template-columns:52px 1fr; gap:11px}
+  .xp-pod{grid-column:1/-1; text-align:left; border-top:1px solid #232C36; padding-top:6px}
+  .xp-pod b{display:inline; font-size:14px}
+  .dlg-row{grid-template-columns:1fr}
+  .dlg-who{padding-top:0}
+}
+/* ============================================================
+   HOME / LEVEL SELECT
+============================================================ */
+.home-head{margin:26px 0 24px}
+.home-head h1{margin-bottom:10px}
+.resume{
+  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center;
+  background:var(--ink); color:var(--enamel); border-left:6px solid var(--signal);
+  border-radius:var(--rad); padding:16px 18px; margin:0 0 26px; cursor:pointer;
+  box-shadow:var(--shadow); width:100%; text-align:left; border-top:0;border-right:0;border-bottom:0;
+}
+.resume:hover{background:#1B2husk}
+.resume:hover{background:#1A2430}
+.resume .rg{
+  font-family:var(--mono); font-weight:700; font-size:26px; color:var(--ink);
+  background:var(--signal); border-radius:2px; padding:6px 11px; line-height:1.1;
+}
+.resume .rt{font-family:var(--sans-w); font-weight:700; font-size:17px; letter-spacing:.02em}
+.resume .rt small{
+  display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3; margin-bottom:4px; font-weight:500;
+}
+.resume .ra{
+  font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--signal); white-space:nowrap;
+}
+
+.lvl-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 30px}
+.lvl-card{
+  background:var(--paper); border:1px solid var(--enamel-dim); border-top:5px solid var(--rail);
+  border-radius:var(--rad); padding:18px 18px 16px; text-align:left; cursor:pointer;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
+  transition:transform .12s, box-shadow .12s;
+}
+.lvl-card:hover{transform:translateY(-2px); box-shadow:0 4px 18px rgba(16,24,32,.13)}
+.lvl-card.l2{border-top-color:#1B4D89}
+.lvl-card.l3{border-top-color:#0F7F76}
+.lvl-card.l4{border-top-color:#B8202E}
+.lvl-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.lvl-code{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--rail); font-weight:700;
+}
+.lvl-card.l2 .lvl-code{color:#1B4D89}
+.lvl-card.l3 .lvl-code{color:#0F7F76}
+.lvl-card.l4 .lvl-code{color:#B8202E}
+.lvl-name{
+  font-family:var(--sans-w); font-weight:800; font-size:20px; letter-spacing:-.01em;
+  line-height:1.15; margin:2px 0 0;
+}
+.lvl-name em{
+  display:block; font-style:normal; font-size:12px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color:#78838F; margin-top:4px;
+}
+.lvl-desc{font-size:15px; color:var(--ink-soft); margin:0}
+.lvl-meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:#78838F;
+  border-top:1px solid var(--enamel-dim); padding-top:9px; margin-top:auto;
+  display:flex; justify-content:space-between; gap:10px;
+}
+.ring{width:52px; height:52px; flex:none; position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring span{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-family:var(--mono); font-size:12px; font-weight:700; color:var(--ink);
+}
+.lvl-stations{display:flex; flex-wrap:wrap; gap:4px}
+.lvl-chip{
+  font-family:var(--mono); font-size:10.5px; font-weight:700; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:2px 6px; line-height:1.5;
+}
+.lvl-chip.part{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.lvl-chip.done{background:var(--gruen); border-color:var(--gruen); color:#fff}
+
+.home-tools{display:flex; gap:11px; flex-wrap:wrap; margin-bottom:30px}
+
+/* placement test */
+.place{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-left:5px solid var(--signal); border-radius:var(--rad);
+  padding:18px; box-shadow:var(--shadow); margin-bottom:30px;
+}
+.place h3{margin-top:0}
+.place-result{
+  background:var(--ink); color:var(--enamel); border-radius:var(--rad);
+  padding:16px 18px; margin-top:14px;
+}
+.place-result b{color:var(--signal); font-size:19px; display:block; margin-bottom:5px;
+  font-family:var(--sans-w); letter-spacing:.02em}
+
+/* level badge in sidebar + station head */
+.fp-lvl{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:#fff; background:var(--rail); padding:4px 8px; border-radius:2px;
+  margin:16px 0 5px;
+}
+.fp-lvl.l2{background:#1B4D89}
+.fp-lvl.l3{background:#0F7F76}
+.fp-lvl.l4{background:#B8202E}
+.home-btn{
+  background:transparent; border:1.5px solid #3A4653; color:var(--enamel);
+  font-family:var(--sans-w); font-weight:700; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; padding:6px 12px; border-radius:var(--rad); cursor:pointer;
+}
+.home-btn:hover{background:var(--signal); color:var(--ink); border-color:var(--signal)}
+
+@media (max-width:900px){
+  .lvl-grid{grid-template-columns:1fr}
+  .resume{grid-template-columns:auto 1fr; gap:12px}
+  .resume .ra{grid-column:1/-1}
+}
+
+@media print{
+  nav.fahrplan,.stepper,header.board{display:none}
+  .wrap{grid-template-columns:1fr}
+  .blk{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important}
+}
+/* ---------- Pioneer header lockup ---------- */
+.board-top{display:flex; align-items:center; gap:14px; max-width:1180px; margin:0 auto}
+.plogo{height:46px; width:auto; display:block; border-radius:3px; flex:none;
+       box-shadow:0 1px 6px rgba(0,0,0,.35)}
+.brandcenter{flex:1; text-align:center; min-width:0}
+.bname{
+  font-family:var(--sans-w); font-weight:800; font-size:17px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--enamel); line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bweb{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--signal); margin-top:3px;
+}
+.bweb span{color:#8A96A3}
+.levelchip{
+  font-family:var(--sans-w); font-weight:800; font-size:21px; letter-spacing:.06em;
+  background:var(--signal); color:var(--board); padding:4px 12px; border-radius:3px;
+  line-height:1.15; flex:none;
+}
+@media (max-width:900px){
+  .board-top{gap:9px; flex-wrap:wrap}
+  .plogo{height:32px}
+  .plogo.right{display:none}
+  .bname{font-size:12px; letter-spacing:.09em}
+  .bweb{font-size:9px; letter-spacing:.1em}
+  .levelchip{font-size:16px; padding:3px 9px}
+}
+
+/* ---------- English trainer additions ---------- */
+.eng{font-weight:700; color:var(--rail)}
+.hi,.pa{font-family:"Noto Sans Devanagari","Nirmala UI","Mangal","Kohinoor Devanagari",var(--sans-w)}
+.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI","Raavi","Gurmukhi MN",var(--sans-w)}
+.trl{display:none; font-size:14.5px; line-height:1.5; color:#5C6874; font-weight:400; font-style:normal; margin-top:2px; letter-spacing:0; text-transform:none}
+body.t-hi .trl.hi{display:block}
+body.t-pa .trl.pa{display:block}
+.trl.hi::before{content:"हि  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+.trl.pa::before{content:"ਪੰ  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+p.lead.trl{border-left:4px solid var(--enamel-dim); padding-left:15px; font-size:15.5px; margin-top:8px; max-width:60ch}
+th.hi,td.hi,th.pa,td.pa{display:none}
+body.t-hi th.hi, body.t-hi td.hi, body.t-pa th.pa, body.t-pa td.pa{display:table-cell}
+td.hi,td.pa{color:#34414D}
+td.g{font-family:var(--sans-w)}
+.cue{display:block; font-size:16.5px; line-height:1.5}
+.cue.pa-i{color:#5C6874; font-size:15px}
+.langbar{max-width:1180px; margin:9px auto 0; display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.langbar .lb-l{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#8A96A3; margin-right:2px}
+.trbtn{font-family:"Noto Sans Devanagari","Nirmala UI",var(--sans-w); font-weight:700; font-size:13px;
+  background:transparent; color:var(--enamel); border:1.5px solid #3A4653; border-radius:var(--rad);
+  padding:4px 12px; cursor:pointer}
+.trbtn.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI",var(--sans-w)}
+.trbtn.on{background:var(--signal); color:var(--board); border-color:var(--signal)}
+.q-txt .trl{margin-top:3px}
+.fb .trl{margin-top:2px}
+.card .back{line-height:1.5}
+.tbl-wrap td.g{min-width:92px}
+.ex-tip{font-size:14px; color:#5C6874}
+@media (max-width:900px){ .langbar{margin-top:7px} }
+</style>
+</head>
+<body>
+
+<header class="board">
+  <div class="board-top">
+    <button class="menu-btn" id="menuBtn" aria-label="Open unit list">☰</button>
+    <img class="plogo" src="data:image/png;base64,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" alt="Pioneer Education">
+    <div class="brandcenter">
+      <div class="bname">Pioneer Education Morinda</div>
+      <div class="bweb">www.pioneermorinda.com <span>· English C1 · Advanced</span></div>
+    </div>
+    <span class="levelchip">C1</span>
+    <img class="plogo right" src="data:image/png;base64,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" alt="">
+    <button class="home-btn" id="homeBtn">⌂</button>
+  </div>
+  <div class="board-strip">
+    <div class="gleis-no mono" id="stripG">01</div>
+    <div class="strip-title" id="stripT">English C1<small>Pioneer Education</small></div>
+    <div class="xp-pod">
+      <b id="xpVal">0</b>
+      <span id="xpLbl">Points · 0 % complete</span>
+    </div>
+  </div>
+  <div class="langbar">
+    <span class="lb-l">Translate</span>
+    <button class="trbtn" id="trHi" type="button">हिन्दी</button>
+    <button class="trbtn pa" id="trPa" type="button">ਪੰਜਾਬੀ</button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="wrap">
+  <nav class="fahrplan" id="fahrplan" aria-label="Unit list"></nav>
+  <main id="main"></main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   CONTENT HELPERS — self-contained, no network.
+   Translations: hi = हिन्दी, pa = ਪੰਜਾਬੀ
+============================================================ */
+const STATIONEN = [];
+function T(hi,pa){ return '<span class="trl hi">'+hi+'</span><span class="trl pa">'+pa+'</span>'; }
+function P(en,hi,pa){ return '<p>'+en+'</p>'+(hi?T(hi,pa||''):''); }
+function _hash(str){ var h=7; for(var i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))&0x7fffffff; } return h; }
+function _s(r){ return r.split('|').map(function(x){return x.trim();}); }
+const B = {
+  rule:function(t,html){ return {typ:'regel',t:t,html:html}; },
+  vok:function(t,rows){ return {typ:'vok',t:t,items:rows.map(_s)}; },
+  dlg:function(t,rows){ return {typ:'dlg',t:t,zeilen:rows.map(_s)}; },
+  text:function(t,meta,html){ return {typ:'text',t:t,meta:meta,html:html}; },
+  cards:function(t,rows){ return {typ:'karten',t:t,items:rows.map(_s)}; },
+  mcq:function(t,rows){ return {typ:'ueb',art:'mcq',t:t,items:rows.map(function(r){
+      var a=_s(r), o=a[1].split(';').map(function(x){return x.trim();}), c=+a[2];
+      var idx=o.map(function(_,i){return i;}), h=_hash(a[0]);
+      for(var i=idx.length-1;i>0;i--){ h=(h*1103515245+12345)&0x7fffffff; var j=h%(i+1); var tmp=idx[i]; idx[i]=idx[j]; idx[j]=tmp; }
+      var no=idx.map(function(k){return o[k];}), na=idx.indexOf(c);
+      return {q:a[0],opts:no,a:na,fb:a[3]||'',hi:a[4]||'',pa:a[5]||''}; })}; },
+  gap:function(t,rows){ return {typ:'ueb',art:'luecke',t:t,items:rows.map(function(r){
+      var a=_s(r); return {q:a[0],a:a[1].split('/').map(function(x){return x.trim();}),hi:a[2]||'',pa:a[3]||''}; })}; },
+  ord:function(t,rows){ return {typ:'ueb',art:'ordnen',t:t,items:rows.map(function(r){
+      var a=_s(r); return {a:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  pairs:function(t,rows){ return {typ:'ueb',art:'paare',t:t,items:rows.map(_s)}; },
+  dikt:function(t,rows){ return {typ:'ueb',art:'diktat',t:t,items:rows.map(function(r){
+      var a=_s(r); return {t:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  write:function(t,prompt,points,model){ return {typ:'schreiben',t:t,prompt:prompt,punkte:points,muster:model}; }
+};
+function UNIT(id,g,kat,t,sub,lead,leadHi,leadPa,blocks){
+  STATIONEN.push({id:id,g:g,kat:kat,t:t,en:sub,lead:lead,leadHi:leadHi,leadPa:leadPa,bloecke:blocks});
+}
+function ADD(id,block){ for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id){ STATIONEN[i].bloecke.push(block); return; } } }
+
+var LEVELS = [
+ {code:'C1.1', cls:'', name:'Grammar Precision', en:'व्याकरण की सटीकता · ਵਿਆਕਰਨ ਦੀ ਸਟੀਕਤਾ',
+  desc:'Tense nuance and the subjunctive, modality and hedging, advanced conditionals, nominalisation, and information structure.',
+  ids:['c1_tense','c1_modal','c1_cond','c1_nom','c1_cleft']},
+ {code:'C1.2', cls:'l2', name:'Vocabulary & Style', en:'शब्दावली और शैली · ਸ਼ਬਦਾਵਲੀ ਅਤੇ ਸ਼ੈਲੀ',
+  desc:'Collocations, idioms and phrasal verbs, register and tone, and the nuance of near-synonyms.',
+  ids:['c1_coll','c1_phr','c1_reg','c1_nuance']},
+ {code:'C1.3', cls:'l3', name:'Academic & Professional Skills', en:'अकादमिक कौशल · ਅਕਾਦਮਿਕ ਹੁਨਰ',
+  desc:'Academic writing, argumentation, describing data, and advanced reading of tone and implication.',
+  ids:['c1_acad','c1_argue','c1_data','c1_read']},
+ {code:'C1.4', cls:'l4', name:'Exam Practice', en:'परीक्षा अभ्यास · ਪ੍ਰੀਖਿਆ ਅਭਿਆਸ',
+  desc:'Speaking and listening at C1 and a full C1 review test.',
+  ids:['c1_speak','c1_mock']}
+];
+var PLACEMENT = [
+ {q:'I suggest that he ___ a doctor.',opts:['sees','see','seeing'],a:1,lvl:0},
+ {q:'She behaves as if she ___ the manager.',opts:['is','were','has been'],a:1,lvl:0},
+ {q:'___ the plan to fail, we would lose everything.',opts:['Was','Were','Should'],a:1,lvl:0},
+ {q:'It is high time we ___ a decision.',opts:['make','made','will make'],a:1,lvl:0},
+ {q:'Rarely ___ such honesty.',opts:['we see','do we see','we do see'],a:1,lvl:1},
+ {q:'___ surprised me most was her calm.',opts:['It','What','That'],a:1,lvl:1},
+ {q:'The results would ___ to support her theory.',opts:['appear','show','prove'],a:0,lvl:1},
+ {q:'The rapid ___ of the city worried planners.',opts:['expand','expansion','expanding'],a:1,lvl:1},
+ {q:'Which is the most formal?',opts:['find out','ascertain','look for'],a:1,lvl:2},
+ {q:'Fame can be a mixed ___.',opts:['blessing','luck','gift'],a:0,lvl:2},
+ {q:'The speaker ___ that costs would rise, but never said so.',opts:['implied','inferred','applied'],a:0,lvl:2},
+ {q:'The deal fell ___ at the last minute.',opts:['through','down','off'],a:0,lvl:2},
+ {q:'A “straw man” argument',opts:['distorts the opposing view','uses strong evidence','makes a concession'],a:0,lvl:3},
+ {q:'“Frictionless existence” suggests a life',opts:['without effort','full of conflict','of luxury'],a:0,lvl:3},
+ {q:'Smith (2020) ___ that diet affects mood.',opts:['says','contends','chats'],a:1,lvl:3},
+ {q:'Sales ___ for 40% of revenue.',opts:['account','take','hold'],a:0,lvl:3}
+];
+
+
+/* ══════════ C1.1 — Grammar at an advanced level ══════════ */
+UNIT('c1_tense','01','Advanced grammar','Tense Nuance, the Subjunctive and Mandative Structures','काल की बारीकियाँ · ਕਾਲ ਦੀਆਂ ਬਾਰੀਕੀਆਂ',
+'At C1 the question is not "which tense is correct?" but "which tense says exactly what I mean?" Master subtle contrasts, the subjunctive and formal "that" clauses.',
+'C1 में सवाल यह नहीं कि कौन-सा काल सही है, बल्कि यह कि कौन-सा काल ठीक वही कहता है जो मैं कहना चाहता हूँ।',
+'C1 ਵਿੱਚ ਸਵਾਲ ਇਹ ਨਹੀਂ ਕਿ ਕਿਹੜਾ ਕਾਲ ਸਹੀ ਹੈ, ਸਗੋਂ ਇਹ ਕਿ ਕਿਹੜਾ ਕਾਲ ਠੀਕ ਉਹੀ ਕਹਿੰਦਾ ਹੈ ਜੋ ਮੈਂ ਕਹਿਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।',[
+ B.rule('Subtle contrasts',
+  '<div class="tbl-wrap"><table><thead><tr><th>Contrast</th><th>Meaning</th></tr></thead><tbody>'+
+  '<tr><td class="g">I <b>have been</b> to Paris / I <b>have gone</b> to Paris</td><td class="n">visited and returned / is there now</td></tr>'+
+  '<tr><td class="g">He <b>is being</b> difficult / He <b>is</b> difficult</td><td class="n">temporary behaviour / permanent character</td></tr>'+
+  '<tr><td class="g">I <b>was going to</b> call / I <b>was about to</b> call</td><td class="n">unfulfilled intention / moment before the action</td></tr>'+
+  '<tr><td class="g">She <b>always loses</b> her keys / She <b>is always losing</b> her keys</td><td class="n">neutral fact / irritation</td></tr>'+
+  '<tr><td class="g">I <b>think</b> he is right / I <b>am thinking</b> of leaving</td><td class="n">opinion (state) / considering (process)</td></tr>'+
+  '</tbody></table></div>'+
+  T('Continuous + always = झुँझलाहट: She is always complaining. Stative verbs (know, believe) normally avoid -ing।','Continuous + always = ਖਿਝ: She is always complaining. Stative verbs (know, believe) ਆਮ ਤੌਰ ਤੇ -ing ਤੋਂ ਬਚਦੇ ਹਨ।')+
+  '<div class="rule"><span class="lbl">Subjunctive and mandative</span>After <b>suggest, insist, demand, recommend, propose, essential, vital, important</b> use the base form (no -s, no will): <i>The board demanded that he <b>resign</b>. It is vital that she <b>be</b> informed.</i> Also fixed: <i>Long live the queen! Be that as it may…</i> and <i>If I were…</i> / <i>as if he were…</i>'+T('formal "that" clause में verb का base form: I suggest that he go (✗ goes)।','formal "that" clause ਵਿੱਚ verb ਦਾ base form: I suggest that he go (✗ goes)।')+'</div>'+
+  '<div class="rule"><span class="lbl">Narrative present and historic uses</span>The present can tell stories (<i>So I walk in, and he says…</i>), headlines (<i>Minister resigns</i>) and reviews (<i>In chapter two, the hero leaves home.</i>). The past perfect can show a sequence <i>or</i> an unreal past: <i>She spoke as though she had never met him.</i></div>'),
+ B.mcq('Practice 1 — Choose the form that fits the meaning',[
+  'The committee insisted that the report ___ revised.|is;be;was|1|mandative subjunctive.',
+  'It is essential that every applicant ___ the form in person.|submits;submit;will submit|1|base form.',
+  'He ___ constantly interrupting me; it drives me mad.|is;is being;is always|2|always + continuous = irritation.',
+  'I ___ to call you, but the battery died.|was going;am going;will go|0|unfulfilled intention.',
+  'She talks as if she ___ the manager.|is;were;has been|1|unreal comparison.',
+  'I have a feeling I ___ this film before.|saw;have seen;see|1|present relevance.',
+  'We suggested that he ___ a break.|takes;take;is taking|1|mandative.',
+  'I ___ of moving to Chandigarh next year.|think;am thinking;thought|1|considering = process.']),
+ B.gap('Practice 2 — Complete with the correct form',[
+  'The doctor recommended that she ___ (rest) for a week.|rest',
+  'It is vital that he ___ (be) told immediately.|be',
+  'Minister ___ (resign) after scandal. (headline)|resigns',
+  'He behaves as though he ___ (own) the place.|owned/owns',
+  'The lecturer demanded that no one ___ (leave) early.|leave']),
+ B.dikt('Practice 3 — Dictation',[
+  'It is essential that every candidate arrive on time.|यह आवश्यक है कि हर उम्मीदवार समय पर पहुँचे।|ਇਹ ਜ਼ਰੂਰੀ ਹੈ ਕਿ ਹਰ ਉਮੀਦਵਾਰ ਸਮੇਂ ਸਿਰ ਪਹੁੰਚੇ।',
+  'She is always forgetting where she has put her keys.|वह हमेशा भूल जाती है कि उसने चाबियाँ कहाँ रखी हैं।|ਉਹ ਹਮੇਸ਼ਾ ਭੁੱਲ ਜਾਂਦੀ ਹੈ ਕਿ ਉਸਨੇ ਚਾਬੀਆਂ ਕਿੱਥੇ ਰੱਖੀਆਂ ਹਨ।'])
+]);
+
+UNIT('c1_modal','02','Advanced grammar','Modality, Hedging and Stance','Modality और Hedging · Modality ਅਤੇ Hedging',
+'Advanced users rarely state things bluntly. Learn to express degrees of certainty, obligation and attitude with modals, semi-modals and stance adverbs.',
+'उन्नत वक्ता बातें सपाट नहीं कहते। modals, semi-modals और stance adverbs से निश्चितता, बाध्यता और रवैये की डिग्री व्यक्त करें।',
+'ਉੱਨਤ ਬੁਲਾਰੇ ਗੱਲਾਂ ਸਿੱਧੀਆਂ ਨਹੀਂ ਕਹਿੰਦੇ। modals, semi-modals ਅਤੇ stance adverbs ਨਾਲ ਨਿਸ਼ਚਿਤਤਾ, ਲਾਜ਼ਮੀਪਨ ਅਤੇ ਰਵੱਈਏ ਦੀ ਡਿਗਰੀ ਪ੍ਰਗਟ ਕਰੋ।',[
+ B.rule('The modality toolkit',
+  '<div class="tbl-wrap"><table><thead><tr><th>Function</th><th>Language</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Strong certainty</td><td class="e">undoubtedly, clearly, there is no doubt that</td><td class="n">Undoubtedly, the policy has failed.</td></tr>'+
+  '<tr><td class="g">Probability</td><td class="e">is likely/bound/set to, tends to, would appear to</td><td class="n">Prices are bound to rise. The data would appear to confirm this.</td></tr>'+
+  '<tr><td class="g">Weak possibility</td><td class="e">may well, might conceivably, it is conceivable that</td><td class="n">She may well resign.</td></tr>'+
+  '<tr><td class="g">Obligation</td><td class="e">be obliged to, be required to, it is incumbent on</td><td class="n">Employers are obliged to provide a safe workplace.</td></tr>'+
+  '<tr><td class="g">Attitude</td><td class="e">admittedly, arguably, regrettably, predictably</td><td class="n">Arguably, it is the finest novel of the decade.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Distancing verbs</span>seem, appear, tend, suggest, indicate: <i>The results suggest that…</i> <i>He appears to have left.</i> <i>There seems to be a problem.</i> Past reference: <i>appears to have + V3</i>.</div>'+
+  '<div class="rule"><span class="lbl">Boosters vs hedges</span><b>Boosters</b> add force: clearly, undeniably, without question. <b>Hedges</b> soften: somewhat, to a degree, in some respects, on balance. Good academic style balances both.'+T('hedge = बात को नरम करना (somewhat, tends to); booster = ज़ोर देना (undeniably)।','hedge = ਗੱਲ ਨੂੰ ਨਰਮ ਕਰਨਾ (somewhat, tends to); booster = ਜ਼ੋਰ ਦੇਣਾ (undeniably)।')+'</div>'),
+ B.mcq('Practice 1 — Choose the best expression',[
+  'The figures ___ that unemployment is falling.|suggest;prove absolutely;are obvious|0|hedged verb.',
+  'Employers are ___ to provide training.|obliged;able;possible|0|obligation.',
+  'He ___ to have misunderstood the question.|seems;is seeming;seemed having|0|seem to have.',
+  'The scheme is ___ to fail without funding.|bound;able;used|0|bound to.',
+  '___, the film is overlong, but it is moving.|Admittedly;Fortunately not;Whereas|0|concession.',
+  'The results would ___ to support her theory.|appear;show;prove|0|hedged.',
+  'It is ___ that the strike may continue until spring.|conceivable;certain;evident|0|weak possibility.',
+  'This is, ___, the most important decision of his career.|arguably;obviously not;regrettably not|0|stance.']),
+ B.gap('Practice 2 — Complete the hedged sentence',[
+  'Prices are ___ to rise next year. (certain)|bound/set/sure',
+  'It would ___ that the plan has failed. (seem)|appear/seem',
+  'The company is ___ to submit annual accounts. (required)|obliged/required',
+  'She is ___ to be promoted. (probably)|likely/set/bound',
+  'The evidence ___ that diet affects mood. (suggest)|suggests/indicates']),
+ B.write('Practice 3 — Cautious claim','Write 5–6 sentences evaluating this claim with hedging: "Social media makes people lonelier."',['Hedged claim','Evidence (suggests / indicates)','Concession (admittedly)','Cautious conclusion'],
+  'It would appear that heavy social media use is associated with loneliness, although the relationship is far from straightforward. Several studies suggest that people who spend more than four hours online tend to report weaker offline friendships. Admittedly, it is possible that lonely people simply turn to the internet, rather than the other way round. In some respects, social platforms may well reduce isolation for those who live far from family. On balance, the evidence indicates that the quality of use matters more than the quantity.')
+]);
+
+UNIT('c1_cond','03','Advanced grammar','Conditionals, Wishes and Hypothetical Meaning','उन्नत conditionals · ਉੱਨਤ conditionals',
+'Express hypotheses with precision: inversion, "were to", "but for", "supposing", "would rather" and "it is time".',
+'परिकल्पनाओं को सटीकता से व्यक्त करें: inversion, "were to", "but for", "would rather", "it is time"।',
+'ਕਲਪਨਾਵਾਂ ਨੂੰ ਸਟੀਕਤਾ ਨਾਲ ਪ੍ਰਗਟ ਕਰੋ: inversion, "were to", "but for", "would rather", "it is time"।',[
+ B.rule('Beyond If',
+  '<div class="tbl-wrap"><table><thead><tr><th>Structure</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Were + subject + to + V1</td><td class="n">Were the government to cut taxes, spending would rise.</td></tr>'+
+  '<tr><td class="g">Should + subject + V1</td><td class="n">Should you require assistance, please contact us.</td></tr>'+
+  '<tr><td class="g">Had + subject + V3</td><td class="n">Had she known, she would have intervened.</td></tr>'+
+  '<tr><td class="g">But for + noun</td><td class="n">But for your help, we would have failed.</td></tr>'+
+  '<tr><td class="g">Supposing / Suppose / Imagine</td><td class="n">Supposing you lost your job, what would you do?</td></tr>'+
+  '<tr><td class="g">Otherwise / Or else</td><td class="n">Back up your files; otherwise you could lose everything.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Wishes and preferences</span><b>It is (high) time + past simple</b>: <i>It is high time we left.</i><br><b>would rather + past</b> (about another person): <i>I would rather you didn’t smoke here.</i><br><b>wish + would</b> (annoyance): <i>I wish he would listen.</i><br><b>If only + past perfect</b>: <i>If only I had listened!</i>'+T('It is time we left = अब हमें चलना चाहिए (past form, present meaning)।','It is time we left = ਹੁਣ ਸਾਨੂੰ ਚੱਲਣਾ ਚਾਹੀਦਾ ਹੈ (past form, present meaning)।')+'</div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  '___ the government to cut taxes, spending would rise.|Was;Were;Would|1|were to.',
+  '___ for your support, I would have given up.|But;Only;Except|0|but for.',
+  'I would rather you ___ here.|don’t smoke;didn’t smoke;not smoking|1|would rather + past.',
+  'It is high time we ___ a decision.|make;made;will make|1|it is time + past.',
+  '___ you need any help, just ask.|If;Should;Would|1|inversion.',
+  'If only I ___ his advice!|took;had taken;would take|1|regret.',
+  'I wish he ___ stop talking.|will;would;did|1|annoyance.',
+  '___ she known, she would have warned us.|Had;If;Would|0|inversion.']),
+ B.gap('Practice 2 — Rewrite with the structure in brackets',[
+  'If you should need help, call me. (Should) → ___ you need help, call me.|Should',
+  'If I had known, I would have come. (Had) → ___ I known, I would have come.|Had',
+  'If it were not for your help, I would fail. (But for) → ___ your help, I would fail.|But for',
+  'If the price were to rise… (Were) → ___ the price to rise…|Were',
+  'I prefer that you don’t smoke. → I would rather you ___ smoke.|didn’t/did not']),
+ B.dikt('Practice 3 — Dictation',[
+  'Had I realised the risk, I would never have signed the contract.|अगर मुझे ख़तरे का अंदाज़ा होता तो मैं कभी अनुबंध पर हस्ताक्षर न करता।|ਜੇ ਮੈਨੂੰ ਖ਼ਤਰੇ ਦਾ ਅੰਦਾਜ਼ਾ ਹੁੰਦਾ ਤਾਂ ਮੈਂ ਕਦੇ ਸਮਝੌਤੇ ਤੇ ਦਸਤਖ਼ਤ ਨਾ ਕਰਦਾ।',
+  'It is high time the authorities took action.|अब समय आ गया है कि अधिकारी कार्रवाई करें।|ਹੁਣ ਸਮਾਂ ਆ ਗਿਆ ਹੈ ਕਿ ਅਧਿਕਾਰੀ ਕਾਰਵਾਈ ਕਰਨ।'])
+]);
+
+UNIT('c1_nom','04','Advanced grammar','Nominalisation and Complex Noun Phrases','Nominalisation · Nominalisation',
+'Academic and professional English packs information into noun phrases. Convert verbs and adjectives into nouns to sound concise and formal.',
+'अकादमिक अंग्रेज़ी जानकारी को noun phrases में समेटती है। verbs और adjectives को nouns में बदलकर संक्षिप्त और औपचारिक बनें।',
+'ਅਕਾਦਮਿਕ ਅੰਗਰੇਜ਼ੀ ਜਾਣਕਾਰੀ ਨੂੰ noun phrases ਵਿੱਚ ਸਮੇਟਦੀ ਹੈ। verbs ਅਤੇ adjectives ਨੂੰ nouns ਵਿੱਚ ਬਦਲ ਕੇ ਸੰਖੇਪ ਅਤੇ ਰਸਮੀ ਬਣੋ।',[
+ B.rule('From clause to noun phrase',
+  '<div class="tbl-wrap"><table><thead><tr><th>Spoken / clausal</th><th>Written / nominal</th></tr></thead><tbody>'+
+  '<tr><td class="g">Because prices rose, people bought less.</td><td class="n">The rise in prices led to a reduction in consumption.</td></tr>'+
+  '<tr><td class="g">The company expanded quickly, which worried investors.</td><td class="n">The company’s rapid expansion worried investors.</td></tr>'+
+  '<tr><td class="g">People are becoming more aware of climate change.</td><td class="n">There is growing awareness of climate change.</td></tr>'+
+  '<tr><td class="g">It is important that we protect forests.</td><td class="n">The protection of forests is of great importance.</td></tr>'+
+  '<tr><td class="g">Because the data were unreliable, we couldn’t decide.</td><td class="n">The unreliability of the data prevented a decision.</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Useful noun suffixes</span>-tion/-sion (decision), -ment (development), -ence/-ance (reliance), -ity/-ness (reliability, kindness), -al (refusal), -ure (failure), -th (growth)</div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>Too many nominalisations make text heavy. Use them for formal writing; keep verbs for clarity in speech and instructions.</div>'),
+ B.mcq('Practice 1 — Choose the best nominal form',[
+  'People are becoming more aware. → There is growing ___.|aware;awareness;awarely|1|noun.',
+  'Prices rose sharply. → The sharp ___ in prices…|rise;rising;rose|0|noun.',
+  'The company failed. → The company’s ___ surprised no one.|fail;failure;failing|1|noun.',
+  'We decided to close the plant. → The ___ to close the plant…|decide;decision;deciding|1|noun.',
+  'They refused the offer. → Their ___ of the offer…|refuse;refusal;refusing|1|noun.',
+  'The data were unreliable. → The ___ of the data…|unreliability;unreliable;unrely|0|noun.',
+  'The economy grew quickly. → The rapid ___ of the economy…|grow;growth;grown|1|noun.',
+  'The team developed the product. → The ___ of the product…|develop;development;developed|1|noun.']),
+ B.gap('Practice 2 — Transform into a noun phrase',[
+  'Cities are expanding rapidly. → The rapid ___ of cities…|expansion',
+  'Many people migrate to cities. → Mass ___ to cities…|migration',
+  'The government reacted slowly. → The government’s slow ___…|reaction/response',
+  'Students perform better when they are motivated. → Student ___ improves performance.|motivation',
+  'The witness was unreliable. → The ___ of the witness…|unreliability']),
+ B.write('Practice 3 — Rewrite formally','Rewrite in a formal style using noun phrases: "Because more people use the internet, businesses have changed how they sell, and that worries small shop owners."',['Use: increase in, shift in, concern among'],
+  'The increase in internet use has led to a significant shift in retail practices, which is a source of concern among small shop owners.')
+]);
+
+UNIT('c1_cleft','05','Advanced grammar','Fronting, Ellipsis and Information Structure','Fronting और Ellipsis · Fronting ਅਤੇ Ellipsis',
+'Put the important information where it has the most impact. Learn fronting, cleft sentences, ellipsis and substitution to sound natural and cohesive.',
+'महत्वपूर्ण जानकारी को वहाँ रखें जहाँ उसका सबसे ज़्यादा असर हो: fronting, cleft sentences, ellipsis और substitution।',
+'ਮਹੱਤਵਪੂਰਨ ਜਾਣਕਾਰੀ ਉੱਥੇ ਰੱਖੋ ਜਿੱਥੇ ਉਸਦਾ ਸਭ ਤੋਂ ਵੱਧ ਅਸਰ ਹੋਵੇ: fronting, cleft sentences, ellipsis ਅਤੇ substitution।',[
+ B.rule('Information structure',
+  '<div class="tbl-wrap"><table><thead><tr><th>Device</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Fronting</td><td class="n">Rarely do we see such talent. / Such was his anger that he left.</td></tr>'+
+  '<tr><td class="g">It-cleft</td><td class="n">It was the cost, not the quality, that put customers off.</td></tr>'+
+  '<tr><td class="g">Wh-cleft</td><td class="n">What surprised me most was her calm.</td></tr>'+
+  '<tr><td class="g">Reverse wh-cleft</td><td class="n">Her calm was what surprised me most.</td></tr>'+
+  '<tr><td class="g">There-cleft / existential</td><td class="n">There is nothing we can do.</td></tr>'+
+  '<tr><td class="g">Ellipsis</td><td class="n">She can sing and (she can) dance. I would like to, but I can’t (come).</td></tr>'+
+  '<tr><td class="g">Substitution</td><td class="n">I think so. / I hope not. / Do so. / the former, the latter, one, ones</td></tr>'+
+  '</tbody></table></div>'+
+  T('Cleft sentence किसी एक हिस्से पर ज़ोर देता है: It was Rahul who won (जीता तो राहुल ही)।','Cleft sentence ਕਿਸੇ ਇੱਕ ਹਿੱਸੇ ਤੇ ਜ਼ੋਰ ਦਿੰਦਾ ਹੈ: It was Rahul who won।')+
+  '<div class="rule"><span class="lbl">End-weight</span>English prefers heavy information at the end: <i>It is obvious that the plan will fail</i> (✓) rather than <i>That the plan will fail is obvious</i> (heavy start).</div>'),
+ B.mcq('Practice 1 — Choose the correct structure',[
+  '___ I admire most is her honesty.|It;What;That|1|wh-cleft.',
+  'It was the price, not the design, ___ put customers off.|what;that;which was|1|it-cleft.',
+  'Such ___ his talent that everyone noticed.|is;was;being|1|fronting.',
+  '“Will he come?” — “I hope ___.”|so;it;that|0|substitution.',
+  'Of the two proposals, ___ is far cheaper.|the latter;the last;the later|0|latter.',
+  'She asked whether I would help, and I said I would ___.|to;do so;so to|1|substitution: do so.',
+  'Rarely ___ such honesty in politics.|we see;do we see;we do see|1|inversion.',
+  '___ was Anjali who solved the problem.|It;This;What|0|it-cleft.']),
+ B.gap('Practice 2 — Rephrase for emphasis',[
+  'I need peace and quiet. → What I need ___ peace and quiet.|is',
+  'The delay annoyed me most. → What annoyed me most ___ the delay.|was',
+  'Tom broke the window. → It ___ Tom who broke the window.|was',
+  'We have no choice but to wait. → There is ___ we can do but wait.|nothing',
+  'Ravi and Simran live in Delhi. Ravi works in a bank; Simran ___ in a school. (work)|does/works']),
+ B.dikt('Practice 3 — Dictation',[
+  'What surprised me most was her extraordinary calm.|मुझे सबसे ज़्यादा हैरान उसकी असाधारण शांति ने किया।|ਮੈਨੂੰ ਸਭ ਤੋਂ ਵੱਧ ਹੈਰਾਨ ਉਸਦੀ ਅਸਾਧਾਰਨ ਸ਼ਾਂਤੀ ਨੇ ਕੀਤਾ।',
+  'It was the cost, not the quality, that discouraged buyers.|ख़रीदारों को हतोत्साहित क़ीमत ने किया, गुणवत्ता ने नहीं।|ਖ਼ਰੀਦਦਾਰਾਂ ਨੂੰ ਨਿਰਾਸ਼ ਕੀਮਤ ਨੇ ਕੀਤਾ, ਗੁਣਵੱਤਾ ਨੇ ਨਹੀਂ।'])
+]);
+
+/* ══════════ C1.2 — Vocabulary & style ══════════ */
+UNIT('c1_coll','06','Vocabulary & style','Collocations and Fixed Expressions','Collocations · Collocations',
+'Fluency is largely about choosing the word that naturally partners another. Learn strong collocations by topic.',
+'प्रवाह का बड़ा हिस्सा यह जानना है कि कौन-सा शब्द किसके साथ स्वाभाविक रूप से आता है।',
+'ਰਵਾਨੀ ਦਾ ਵੱਡਾ ਹਿੱਸਾ ਇਹ ਜਾਣਨਾ ਹੈ ਕਿ ਕਿਹੜਾ ਸ਼ਬਦ ਕਿਸ ਨਾਲ ਕੁਦਰਤੀ ਤੌਰ ਤੇ ਆਉਂਦਾ ਹੈ।',[
+ B.vok('Strong collocations',[
+  'wield influence|Media owners wield enormous influence.|प्रभाव रखना|ਪ੍ਰਭਾਵ ਰੱਖਣਾ',
+  'bring to light|The inquiry brought new facts to light.|उजागर करना|ਉਜਾਗਰ ਕਰਨਾ',
+  'raise concerns|Residents raised concerns about safety.|चिंताएँ उठाना|ਚਿੰਤਾਵਾਂ ਉਠਾਉਣੀਆਂ',
+  'draw a distinction|We must draw a distinction between the two.|अंतर करना|ਫ਼ਰਕ ਕਰਨਾ',
+  'reach a verdict|The jury reached a verdict.|फ़ैसले पर पहुँचना|ਫ਼ੈਸਲੇ ਤੇ ਪਹੁੰਚਣਾ',
+  'pose a threat|Pollution poses a serious threat.|ख़तरा पैदा करना|ਖ਼ਤਰਾ ਪੈਦਾ ਕਰਨਾ',
+  'meet the criteria|She met all the criteria.|मानदंड पूरे करना|ਮਾਪਦੰਡ ਪੂਰੇ ਕਰਨਾ',
+  'a mixed blessing|Fame is a mixed blessing.|मिला-जुला वरदान|ਮਿਲਿਆ-ਜੁਲਿਆ ਵਰਦਾਨ',
+  'in the long run|In the long run, it pays off.|लंबे समय में|ਲੰਮੇ ਸਮੇਂ ਵਿੱਚ',
+  'a vicious circle|Poverty creates a vicious circle.|दुष्चक्र|ਦੁਸ਼ਚੱਕਰ',
+  'widespread belief|There is a widespread belief that…|व्यापक धारणा|ਵਿਆਪਕ ਧਾਰਨਾ',
+  'bitterly disappointed|He was bitterly disappointed.|बेहद निराश|ਬਹੁਤ ਨਿਰਾਸ਼']),
+ B.rule('How collocations behave',
+  '<div class="rule"><b>Adverb + adjective:</b> deeply moved, highly unlikely, utterly ridiculous, bitterly cold (not ✗ very-very).<br><b>Verb + noun:</b> <i>launch a campaign, conduct research, impose restrictions, reach a consensus, shoulder responsibility.</i><br><b>Adjective + noun:</b> <i>a heated debate, a sweeping generalisation, a fundamental flaw, a landmark ruling.</i><br>Learn them as chunks — a dictionary of collocations is one of the best C1 investments.'+T('शब्दों को अकेला नहीं, जोड़ी में सीखें: heated debate, sweeping generalisation।','ਸ਼ਬਦਾਂ ਨੂੰ ਇਕੱਲਾ ਨਹੀਂ, ਜੋੜੀ ਵਿੱਚ ਸਿੱਖੋ: heated debate, sweeping generalisation।')+'</div>'),
+ B.mcq('Practice 1 — Choose the natural partner',[
+  'The company will ___ a new advertising campaign.|launch;make;build|0|launch a campaign.',
+  'The government plans to ___ strict restrictions.|put;impose;make|1|impose restrictions.',
+  'It was a ___ debate lasting hours.|heated;hot;burning|0|heated debate.',
+  'It is ___ unlikely that he will resign.|highly;strongly;very much|0|highly unlikely.',
+  'Fame can be a mixed ___.|blessing;gift;luck|0|mixed blessing.',
+  'The court ___ its verdict yesterday.|reached;made;took|0|reach a verdict.',
+  'We must ___ a clear distinction.|make;draw;do|1|draw a distinction.',
+  'This is a ___ flaw in the design.|fundamental;strong;main|0|fundamental flaw.']),
+ B.gap('Practice 2 — Complete the collocation',[
+  'Rising prices create a vicious ___.|circle',
+  'In the long ___, the investment will pay off.|run',
+  'He was ___ disappointed by the result. (bitterly/very)|bitterly',
+  'The report brought several facts to ___.|light',
+  'Pollution ___ a serious threat to public health.|poses']),
+ B.dikt('Practice 3 — Dictation',[
+  'Residents have raised concerns about road safety.|निवासियों ने सड़क सुरक्षा पर चिंताएँ उठाई हैं।|ਵਸਨੀਕਾਂ ਨੇ ਸੜਕ ਸੁਰੱਖਿਆ ਬਾਰੇ ਚਿੰਤਾਵਾਂ ਉਠਾਈਆਂ ਹਨ।',
+  'In the long run, education is the best investment.|लंबे समय में शिक्षा सबसे अच्छा निवेश है।|ਲੰਮੇ ਸਮੇਂ ਵਿੱਚ ਸਿੱਖਿਆ ਸਭ ਤੋਂ ਵਧੀਆ ਨਿਵੇਸ਼ ਹੈ।'])
+]);
+
+UNIT('c1_phr','07','Vocabulary & style','Advanced Phrasal Verbs and Idiomatic Language','उन्नत phrasal verbs · ਉੱਨਤ phrasal verbs',
+'Understand and use the idiomatic language native speakers use in books, films and workplaces.',
+'किताबों, फ़िल्मों और दफ़्तरों में प्रयुक्त मुहावरेदार भाषा को समझें और प्रयोग करें।',
+'ਕਿਤਾਬਾਂ, ਫ਼ਿਲਮਾਂ ਅਤੇ ਦਫ਼ਤਰਾਂ ਵਿੱਚ ਵਰਤੀ ਜਾਂਦੀ ਮੁਹਾਵਰੇਦਾਰ ਭਾਸ਼ਾ ਨੂੰ ਸਮਝੋ ਅਤੇ ਵਰਤੋ।',[
+ B.vok('Phrasal verbs',[
+  'bring about|The reforms brought about real change.|कारण बनना|ਕਾਰਨ ਬਣਨਾ',
+  'buckle down|It’s time to buckle down and study.|गंभीरता से जुट जाना|ਗੰਭੀਰਤਾ ਨਾਲ ਜੁਟ ਜਾਣਾ',
+  'come to terms with|She came to terms with her loss.|स्वीकार कर लेना|ਸਵੀਕਾਰ ਕਰ ਲੈਣਾ',
+  'dwell on|Don’t dwell on past mistakes.|बार-बार सोचते रहना|ਵਾਰ-ਵਾਰ ਸੋਚਦੇ ਰਹਿਣਾ',
+  'fall through|The deal fell through.|असफल हो जाना|ਅਸਫਲ ਹੋ ਜਾਣਾ',
+  'iron out|We need to iron out the problems.|सुलझाना|ਸੁਲਝਾਉਣਾ',
+  'phase out|Plastic bags are being phased out.|धीरे-धीरे हटाना|ਹੌਲੀ-ਹੌਲੀ ਹਟਾਉਣਾ',
+  'play down|He played down the risks.|कम करके दिखाना|ਘੱਟ ਕਰ ਕੇ ਦਿਖਾਉਣਾ',
+  'stand out|Her work stands out.|अलग दिखना|ਵੱਖਰਾ ਦਿਸਣਾ',
+  'weed out|They weeded out weak candidates.|छाँट देना|ਛਾਂਟ ਦੇਣਾ',
+  'zero in on|Investigators zeroed in on the cause.|ध्यान केंद्रित करना|ਧਿਆਨ ਕੇਂਦਰਿਤ ਕਰਨਾ',
+  'tide over|This loan will tide us over.|कठिन समय निकालना|ਔਖਾ ਸਮਾਂ ਕੱਢਣਾ']),
+ B.vok('Idioms',[
+  'the tip of the iceberg|Those complaints are only the tip of the iceberg.|समस्या का छोटा हिस्सा|ਸਮੱਸਿਆ ਦਾ ਛੋਟਾ ਹਿੱਸਾ',
+  'a double-edged sword|Technology is a double-edged sword.|दोधारी तलवार|ਦੋਧਾਰੀ ਤਲਵਾਰ',
+  'cut corners|Don’t cut corners on safety.|शॉर्टकट मारना|ਸ਼ਾਰਟਕੱਟ ਮਾਰਨਾ',
+  'the elephant in the room|Nobody mentioned the elephant in the room.|जिस मुद्दे को सब टालते हैं|ਜਿਸ ਮੁੱਦੇ ਨੂੰ ਸਭ ਟਾਲਦੇ ਹਨ',
+  'back to square one|The test failed, so we are back to square one.|फिर शुरुआत पर|ਫਿਰ ਸ਼ੁਰੂਆਤ ਤੇ',
+  'a blessing in disguise|Losing that job was a blessing in disguise.|छिपा हुआ वरदान|ਲੁਕਿਆ ਹੋਇਆ ਵਰਦਾਨ',
+  'bite the bullet|I decided to bite the bullet and ask.|कठिन काम कर डालना|ਔਖਾ ਕੰਮ ਕਰ ਦੇਣਾ',
+  'on thin ice|You are on thin ice with the manager.|जोखिम भरी स्थिति में|ਜੋਖਮ ਭਰੀ ਹਾਲਤ ਵਿੱਚ']),
+ B.mcq('Practice 1 — Choose the correct phrase',[
+  'The deal ___ through at the last minute.|fell;went down;came|0|fall through.',
+  'It’s time to ___ down and revise.|buckle;bend;break|0|buckle down.',
+  'Technology is a double-edged ___.|sword;knife;blade|0|idiom.',
+  'He tried to ___ down the seriousness of the error.|play;take;put|0|play down.',
+  'We are back to ___ one.|point;square;line|1|square one.',
+  'The report is only the ___ of the iceberg.|top;tip;edge|1|tip.',
+  'Managers must ___ out weak proposals.|weed;weave;wipe|0|weed out.',
+  'Failing the test was a blessing in ___.|disguise;clothing;shadow|0|idiom.']),
+ B.gap('Practice 2 — Complete the phrase',[
+  'We need to iron ___ the remaining problems.|out',
+  'She slowly came to ___ with her loss.|terms',
+  'Old models will be phased ___ by June.|out',
+  'Don’t cut ___ on safety.|corners',
+  'Nobody mentioned the elephant in the ___.|room']),
+ B.dikt('Practice 3 — Dictation',[
+  'Do not dwell on the past; zero in on solutions.|अतीत में मत उलझो; समाधानों पर ध्यान दो।|ਅਤੀਤ ਵਿੱਚ ਨਾ ਉਲਝੋ; ਹੱਲਾਂ ਤੇ ਧਿਆਨ ਦਿਓ।',
+  'Nobody wanted to mention the elephant in the room.|कोई उस मुद्दे का ज़िक्र नहीं करना चाहता था जिसे सब टाल रहे थे।|ਕੋਈ ਉਸ ਮੁੱਦੇ ਦਾ ਜ਼ਿਕਰ ਨਹੀਂ ਕਰਨਾ ਚਾਹੁੰਦਾ ਸੀ ਜਿਸਨੂੰ ਸਭ ਟਾਲ ਰਹੇ ਸਨ।'])
+]);
+
+UNIT('c1_reg','08','Vocabulary & style','Register, Tone and Style','Register और Tone · Register ਅਤੇ Tone',
+'Choose the right level of formality for the situation: speech vs writing, email vs report, friend vs executive.',
+'स्थिति के अनुसार औपचारिकता का सही स्तर चुनें: बोलचाल बनाम लेखन, ईमेल बनाम रिपोर्ट।',
+'ਸਥਿਤੀ ਅਨੁਸਾਰ ਰਸਮੀਪਨ ਦਾ ਸਹੀ ਪੱਧਰ ਚੁਣੋ: ਬੋਲਚਾਲ ਬਨਾਮ ਲਿਖਤ, ਈਮੇਲ ਬਨਾਮ ਰਿਪੋਰਟ।',[
+ B.rule('Same meaning, different register',
+  '<div class="tbl-wrap"><table><thead><tr><th>Informal</th><th>Neutral</th><th>Formal</th></tr></thead><tbody>'+
+  '<tr><td class="g">get</td><td class="e">receive</td><td class="n">obtain</td></tr>'+
+  '<tr><td class="g">ask for</td><td class="e">request</td><td class="n">solicit</td></tr>'+
+  '<tr><td class="g">find out</td><td class="e">discover</td><td class="n">ascertain</td></tr>'+
+  '<tr><td class="g">start</td><td class="e">begin</td><td class="n">commence</td></tr>'+
+  '<tr><td class="g">enough</td><td class="e">sufficient</td><td class="n">adequate</td></tr>'+
+  '<tr><td class="g">sorry</td><td class="e">apologise</td><td class="n">express regret</td></tr>'+
+  '<tr><td class="g">look into</td><td class="e">investigate</td><td class="n">examine</td></tr>'+
+  '<tr><td class="g">put up with</td><td class="e">tolerate</td><td class="n">endure</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Formal markers</span>no contractions · passive and nominalisation · Latin-origin verbs · impersonal “it” subjects · avoiding phrasal verbs and idioms · full forms of conjunctions.<br><span class="lbl">Informal markers</span>contractions · phrasal verbs · idioms · ellipsis (“Got it.”) · questions as requests.'+T('formal में “get” की जगह obtain/receive, “find out” की जगह ascertain।','formal ਵਿੱਚ “get” ਦੀ ਥਾਂ obtain/receive, “find out” ਦੀ ਥਾਂ ascertain।')+'</div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>Very formal words in casual speech sound strange or arrogant: ✗ “Let us commence dinner, mate.”</div>'),
+ B.mcq('Practice 1 — Pick the formal equivalent',[
+  'We need to find out the cause.|ascertain;get;see|0|ascertain.',
+  'Please ask for more information.|request;beg;want|0|request.',
+  'The meeting will start at nine.|commence;go;get on|0|commence.',
+  'We can’t put up with this behaviour.|tolerate;stand;wait|0|tolerate.',
+  'The police will look into the matter.|investigate;look;see|0|investigate.',
+  'Sorry for the delay.|We express regret for;We are sorry about;Oops for|0|formal.',
+  'The funds are not enough.|inadequate;low;small|0|inadequate.',
+  'We got your letter yesterday.|received;took;had|0|received.']),
+ B.gap('Practice 2 — Make it formal',[
+  'Can you tell me where the office is? → I would be grateful if you could ___ me where the office is.|tell/inform',
+  'We’ll look into it. → We shall ___ the matter.|investigate/examine',
+  'Thanks for helping. → We are ___ for your assistance.|grateful',
+  'It’s up to you. → The decision ___ with you.|rests/lies',
+  'We can’t do that. → It is not ___ for us to do so.|possible/feasible']),
+ B.write('Practice 3 — Change the register','Rewrite this informal message as a formal email (4–5 sentences): "Hi Mr Verma, sorry I can’t make it to the meeting tomorrow. Something’s come up. Can we do it next week? Let me know. Thanks, Sam."',['Use: regret to inform, unavoidable, reschedule, at your convenience'],
+  'Dear Mr Verma, I regret to inform you that I shall be unable to attend tomorrow’s meeting owing to an unavoidable commitment. I apologise for any inconvenience this may cause. Would it be possible to reschedule it for next week? Please let me know at your convenience. Yours sincerely, Sam.')
+]);
+
+UNIT('c1_nuance','09','Vocabulary & style','Synonyms, Connotation and Easily Confused Words','Synonyms और Connotation · Synonyms ਅਤੇ Connotation',
+'No two words mean exactly the same. Learn to feel the difference between thin / slim / skinny, famous / notorious, and to avoid classic confusions.',
+'दो शब्द कभी बिलकुल एक-से नहीं होते। thin / slim / skinny और famous / notorious में फ़र्क महसूस करना सीखें।',
+'ਦੋ ਸ਼ਬਦ ਕਦੇ ਬਿਲਕੁਲ ਇੱਕੋ ਜਿਹੇ ਨਹੀਂ ਹੁੰਦੇ। thin / slim / skinny ਅਤੇ famous / notorious ਵਿੱਚ ਫ਼ਰਕ ਮਹਿਸੂਸ ਕਰਨਾ ਸਿੱਖੋ।',[
+ B.rule('Connotation',
+  '<div class="tbl-wrap"><table><thead><tr><th>Positive</th><th>Neutral</th><th>Negative</th></tr></thead><tbody>'+
+  '<tr><td class="g">slim, slender</td><td class="e">thin</td><td class="n">skinny, scrawny</td></tr>'+
+  '<tr><td class="g">determined</td><td class="e">persistent</td><td class="n">stubborn, obstinate</td></tr>'+
+  '<tr><td class="g">frugal, thrifty</td><td class="e">careful with money</td><td class="n">stingy, miserly</td></tr>'+
+  '<tr><td class="g">curious</td><td class="e">interested</td><td class="n">nosy</td></tr>'+
+  '<tr><td class="g">confident</td><td class="e">self-assured</td><td class="n">arrogant, cocky</td></tr>'+
+  '<tr><td class="g">famous</td><td class="e">well-known</td><td class="n">notorious (for bad reasons)</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Classic confusions</span><b>affect</b> (verb, influence) / <b>effect</b> (noun, result) · <b>economic</b> (of the economy) / <b>economical</b> (cheap to run) · <b>historic</b> (important) / <b>historical</b> (about history) · <b>continuous</b> (no break) / <b>continual</b> (repeated) · <b>imply</b> (speaker suggests) / <b>infer</b> (listener concludes) · <b>principal</b> (main) / <b>principle</b> (rule) · <b>sensible</b> (practical) / <b>sensitive</b> (easily hurt) · <b>lie/lay</b>.'+T('imply = बोलने वाला संकेत देता है; infer = सुनने वाला निष्कर्ष निकालता है।','imply = ਬੋਲਣ ਵਾਲਾ ਸੰਕੇਤ ਦਿੰਦਾ ਹੈ; infer = ਸੁਣਨ ਵਾਲਾ ਸਿੱਟਾ ਕੱਢਦਾ ਹੈ।')+'</div>'),
+ B.mcq('Practice 1 — Choose the precise word',[
+  'The new tax will ___ small businesses badly.|affect;effect;infect|0|affect = verb.',
+  'The ___ of the drug were severe.|affects;effects;affected|1|noun.',
+  'It was a ___ moment in the country’s history.|historical;historic;history|1|important event.',
+  'He is not mean; he is simply ___.|stingy;frugal;miserly|1|positive.',
+  'I did not say that, but you seem to ___ it from my tone.|imply;infer;apply|1|listener.',
+  'A ___ person is easily offended.|sensible;sensitive;sensitised|1|sensitive.',
+  'The ___ noise kept me awake all night.|continual;continuous;continued|1|no break.',
+  'She is ___ for her scandals.|famous;notorious;fameless|1|bad reasons.']),
+ B.gap('Practice 2 — Complete with the right word',[
+  'The ___ (principal/principle) reason is cost.|principal',
+  'It is a matter of ___ , not money. (principal/principle)|principle',
+  'A small car is more ___ to run. (economic/economical)|economical',
+  'The speaker ___ that prices would rise but never said so. (implied/inferred)|implied',
+  'Lack of sleep can ___ your memory. (affect/effect)|affect']),
+ B.dikt('Practice 3 — Dictation',[
+  'The effects of the new policy were felt immediately.|नई नीति के प्रभाव तुरंत महसूस किए गए।|ਨਵੀਂ ਨੀਤੀ ਦੇ ਪ੍ਰਭਾਵ ਤੁਰੰਤ ਮਹਿਸੂਸ ਕੀਤੇ ਗਏ।',
+  'I inferred from his silence that he disagreed.|उसकी चुप्पी से मैंने अनुमान लगाया कि वह असहमत था।|ਉਸਦੀ ਚੁੱਪ ਤੋਂ ਮੈਂ ਅੰਦਾਜ਼ਾ ਲਾਇਆ ਕਿ ਉਹ ਅਸਹਿਮਤ ਸੀ।'])
+]);
+
+/* ══════════ C1.3 — Academic & professional skills ══════════ */
+UNIT('c1_acad','10','Academic skills','Academic Writing: Structure, Citation and Objectivity','अकादमिक लेखन · ਅਕਾਦਮਿਕ ਲਿਖਤ',
+'Write essays and reports that sound objective, well-structured and evidence-based.',
+'ऐसे निबंध और रिपोर्ट लिखें जो वस्तुनिष्ठ, सुव्यवस्थित और प्रमाण-आधारित हों।',
+'ਅਜਿਹੇ ਲੇਖ ਅਤੇ ਰਿਪੋਰਟਾਂ ਲਿਖੋ ਜੋ ਨਿਰਪੱਖ, ਸੁਚੱਜੇ ਅਤੇ ਸਬੂਤ-ਆਧਾਰਿਤ ਹੋਣ।',[
+ B.rule('The anatomy of a paragraph',
+  '<div class="rule"><b>PEEL:</b> <b>P</b>oint (topic sentence) → <b>E</b>vidence → <b>E</b>xplanation → <b>L</b>ink (to the question or next idea).<br><i>Point:</i> Urban green spaces improve mental health. <i>Evidence:</i> A 2019 study of 10,000 residents found a 20% reduction in anxiety among those living near parks. <i>Explanation:</i> This suggests that contact with nature lowers stress. <i>Link:</i> Cities should therefore protect existing parks.</div>'+
+  '<div class="rule"><span class="lbl">Objective style</span>Avoid “I think”, “you”, rhetorical questions, contractions and emotive words. Prefer: <i>It could be argued that… · Evidence suggests… · There is a growing consensus that… · This view is open to criticism.</i></div>'+
+  '<div class="rule"><span class="lbl">Reporting sources</span>According to Smith (2020), … · Smith (2020) argues/contends/maintains that… · As Patel and Rao (2018) point out, … · These findings are consistent with… · In contrast to…'+T('स्रोत का हवाला: According to Smith (2020)…; वर्ब बदलें: argues, contends, claims, demonstrates।','ਸਰੋਤ ਦਾ ਹਵਾਲਾ: According to Smith (2020)…; verbs ਬਦਲੋ: argues, contends, claims, demonstrates।')+'</div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>Do not copy sources. Paraphrase in your own words and cite the source — otherwise it is plagiarism.</div>'),
+ B.mcq('Practice 1 — Choose the objective version',[
+  'Which sentence suits academic writing?|I think pollution is awful.;Pollution is arguably the greatest threat to public health.;You cannot ignore pollution.|1|objective.',
+  'Which verb best reports a strong claim?|says;contends;talks|1|contends.',
+  'In PEEL, the second E stands for|Evidence;Explanation;Example|1|Explanation.',
+  'Which is more formal?|The data show a rise.;The data say stuff went up.;The numbers are big.|0|formal.',
+  'Which linker shows contrast?|In contrast to;Similarly;As a result|0|contrast.',
+  '“Smith (2020) maintains that…” means|Smith is a friend;Smith strongly states;Smith disagrees|1|maintain = argue.',
+  'Plagiarism is|paraphrasing with citation;copying without credit;quoting with a reference|1|plagiarism.',
+  'The best topic sentence|states one main idea;lists all examples;asks a question|0|topic sentence.']),
+ B.gap('Practice 2 — Complete the academic phrase',[
+  '___ to Mehra (2021), literacy has doubled.|According',
+  'These results are consistent ___ earlier research.|with',
+  'It could ___ argued that the policy failed.|be',
+  'This view is open ___ criticism.|to',
+  'There is a growing ___ that renewables are essential.|consensus']),
+ B.write('Practice 3 — Write a PEEL paragraph','Write one paragraph (80–100 words): “Online learning is as effective as classroom learning.” Use a topic sentence, evidence (invented but realistic), explanation and link.',['Point','Evidence (According to…)','Explanation','Link'],
+  'Online learning can be as effective as classroom instruction when it is well designed. According to a 2022 meta-analysis of 50 studies, students in blended courses scored on average 5% higher than those in traditional classes. This suggests that flexibility and immediate feedback may compensate for the absence of face-to-face contact. However, the findings depend on learners’ motivation and access to technology. Therefore, institutions should invest in digital infrastructure and student support to ensure equity.')
+]);
+
+UNIT('c1_argue','11','Academic skills','Argumentation, Evaluation and Counter-argument','तर्क और मूल्यांकन · ਦਲੀਲ ਅਤੇ ਮੁਲਾਂਕਣ',
+'Build a case, anticipate objections and weigh evidence — essential for IELTS Task 2, university essays and professional proposals.',
+'अपना पक्ष बनाएँ, आपत्तियों का अनुमान लगाएँ और प्रमाणों को तौलें — IELTS Task 2 और विश्वविद्यालय निबंधों के लिए ज़रूरी।',
+'ਆਪਣਾ ਪੱਖ ਬਣਾਓ, ਇਤਰਾਜ਼ਾਂ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਓ ਅਤੇ ਸਬੂਤਾਂ ਨੂੰ ਤੋਲੋ — IELTS Task 2 ਅਤੇ ਯੂਨੀਵਰਸਿਟੀ ਲੇਖਾਂ ਲਈ ਜ਼ਰੂਰੀ।',[
+ B.rule('Argument toolkit',
+  '<div class="tbl-wrap"><table><thead><tr><th>Move</th><th>Language</th></tr></thead><tbody>'+
+  '<tr><td class="g">State a thesis</td><td class="n">This essay argues that… · I will contend that…</td></tr>'+
+  '<tr><td class="g">Support</td><td class="n">A compelling reason is… · This is borne out by… · Evidence from X lends weight to…</td></tr>'+
+  '<tr><td class="g">Concede</td><td class="n">Admittedly… · It is true that… · Proponents of X rightly point out that…</td></tr>'+
+  '<tr><td class="g">Rebut</td><td class="n">Nevertheless… · This argument, however, overlooks… · This claim is difficult to sustain because…</td></tr>'+
+  '<tr><td class="g">Weigh</td><td class="n">On balance… · The advantages outweigh the drawbacks… · All things considered…</td></tr>'+
+  '<tr><td class="g">Conclude</td><td class="n">It follows that… · Taken together, these points demonstrate… · Hence…</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Common fallacies to avoid</span><b>Overgeneralisation</b> (“All teenagers…”), <b>false cause</b> (A happened before B, so A caused B), <b>appeal to authority</b> without evidence, <b>straw man</b> (distorting the opposing view), <b>either-or</b> thinking.'+T('fallacy = तर्क की भूल; straw man = विरोधी पक्ष को तोड़-मरोड़कर पेश करना।','fallacy = ਤਰਕ ਦੀ ਭੁੱਲ; straw man = ਵਿਰੋਧੀ ਪੱਖ ਨੂੰ ਤੋੜ-ਮਰੋੜ ਕੇ ਪੇਸ਼ ਕਰਨਾ।')+'</div>'),
+ B.mcq('Practice 1 — Identify the move or fallacy',[
+  '“Admittedly, cars cause pollution…” is a|concession;conclusion;thesis|0|concession.',
+  '“Every politician is corrupt.” is|overgeneralisation;rebuttal;evidence|0|overgeneralisation.',
+  '“Crime rose after the cinema opened, so cinemas cause crime.” is|false cause;concession;weighing|0|false cause.',
+  '“This argument overlooks the cost.” is a|rebuttal;thesis;example|0|rebuttal.',
+  '“On balance, the benefits outweigh the risks.” is|weighing;concession;definition|0|weighing.',
+  'Which best states a thesis?|This essay argues that tax breaks widen inequality.;Taxes are a big topic.;Let us look at taxes.|0|thesis.',
+  'Misrepresenting an opponent’s view is a|straw man;concession;paraphrase|0|straw man.',
+  '“It follows that…” signals|a conclusion;an example;a doubt|0|conclusion.']),
+ B.gap('Practice 2 — Complete the argument phrase',[
+  'This claim is difficult to ___ because the data are limited.|sustain',
+  'Evidence from three studies lends ___ to this view.|weight',
+  '___ , social media has some benefits. (Admittedly)|Admittedly',
+  'On ___ , the benefits outweigh the costs.|balance',
+  'This argument, ___ , overlooks rural users. (however)|however']),
+ B.write('Practice 4 — Counter-argument paragraph','Write 100 words: Thesis “University education should be free.” Give one argument, one concession and a rebuttal.',['Thesis','Support','Admittedly…','Nevertheless… + conclusion'],
+  'This essay argues that university education should be free. A compelling reason is that tuition fees deter talented students from poorer families, which wastes national potential. Admittedly, free tuition would place a heavy burden on public finances, and critics rightly point out that taxpayers would fund degrees that some graduates never use. Nevertheless, this objection overlooks the long-term return: graduates earn more and therefore pay more tax. On balance, the social benefits outweigh the costs, provided that places are allocated fairly.')
+]);
+
+UNIT('c1_data','12','Academic skills','Describing Data, Graphs and Processes','डेटा और ग्राफ़ का वर्णन · ਡੇਟਾ ਅਤੇ ਗ੍ਰਾਫ਼ ਦਾ ਵਰਣਨ',
+'Report numbers and trends precisely: approximations, proportions, comparisons and process description.',
+'संख्याओं और रुझानों का सटीक वर्णन करें: अनुमान, अनुपात, तुलना और प्रक्रिया का वर्णन।',
+'ਗਿਣਤੀਆਂ ਅਤੇ ਰੁਝਾਨਾਂ ਦਾ ਸਟੀਕ ਵਰਣਨ ਕਰੋ: ਅਨੁਮਾਨ, ਅਨੁਪਾਤ, ਤੁਲਨਾ ਅਤੇ ਪ੍ਰਕਿਰਿਆ ਦਾ ਵਰਣਨ।',[
+ B.vok('Data language',[
+  'account for|Women accounted for 40% of the workforce.|हिस्सा होना|ਹਿੱਸਾ ਹੋਣਾ',
+  'a significant proportion|A significant proportion of students work part-time.|बड़ा अनुपात|ਵੱਡਾ ਅਨੁਪਾਤ',
+  'roughly / approximately|Roughly a third of respondents agreed.|लगभग|ਲਗਭਗ',
+  'peak at|Sales peaked at 5 million in June.|शिखर पर पहुँचना|ਸਿਖਰ ਤੇ ਪਹੁੰਚਣਾ',
+  'plummet|Prices plummeted in 2020.|तेज़ी से गिरना|ਤੇਜ਼ੀ ਨਾਲ ਡਿੱਗਣਾ',
+  'level off|The figure levelled off at 30%.|स्थिर हो जाना|ਸਥਿਰ ਹੋ ਜਾਣਾ',
+  'the vast majority|The vast majority of users were satisfied.|अधिकांश|ਵੱਡੀ ਬਹੁਗਿਣਤੀ',
+  'a marginal increase|There was a marginal increase of 1%.|मामूली वृद्धि|ਮਾਮੂਲੀ ਵਾਧਾ',
+  'twice as high as|Rents are twice as high as in 2010.|दोगुना|ਦੋ ਗੁਣਾ',
+  'by contrast|By contrast, imports fell.|इसके विपरीत|ਇਸਦੇ ਉਲਟ']),
+ B.rule('Patterns',
+  '<div class="rule"><b>Describing a trend:</b> There was a sharp rise in… / Sales rose sharply. · <b>Comparing:</b> X was considerably higher than Y; Y was only half as large as X. · <b>Proportion:</b> Just over/under a quarter; nearly two-thirds. · <b>Overview sentence:</b> Overall, the most striking feature is… · <b>Process:</b> First, … is collected. Next, it is filtered. Finally, … Use the passive.'+T('Overall (कुल मिलाकर) वाला वाक्य हमेशा लिखें — IELTS Task 1 में अंक मिलते हैं।','Overall (ਕੁੱਲ ਮਿਲਾ ਕੇ) ਵਾਲਾ ਵਾਕ ਹਮੇਸ਼ਾ ਲਿਖੋ — IELTS Task 1 ਵਿੱਚ ਅੰਕ ਮਿਲਦੇ ਹਨ।')+'</div>'),
+ B.mcq('Practice 1 — Choose the best word',[
+  'Women ___ for 40% of the workforce.|account;make;occupy|0|account for.',
+  'Sales ___ at 5 million in June.|peaked;fell off;stood up|0|peaked at.',
+  'Prices ___ after the crisis.|plummeted;climbed;levelled|0|fell sharply.',
+  'Rents are twice as ___ as in 2010.|high;higher;highest|0|as … as.',
+  'Just ___ a quarter of respondents agreed (24%).|under;over;through|0|slightly less.',
+  'The figure ___ off at 30%.|levelled;lifted;landed|0|levelled off.',
+  'A ___ proportion of students work part-time.|significant;significance;signify|0|adjective.',
+  '___, the main trend is upward growth.|Overall;Meanwhile;Besides|0|overview.']),
+ B.gap('Practice 2 — Complete the description',[
+  'The number of users rose ___ from 2 million to 5 million. (sharply)|sharply',
+  'Imports were only half as large ___ exports.|as',
+  'The vast ___ of users were satisfied.|majority',
+  'There was a ___ increase of 1%. (very small)|marginal/slight',
+  'First, the water ___ (filter), then it is purified.|is filtered']),
+ B.write('Practice 3 — Describe a trend','The graph shows smartphone ownership: 2015 – 30%, 2018 – 55%, 2021 – 78%, 2024 – 85%. Write an overview and two detail sentences.',['Overall…','Detail 1 (with numbers)','Detail 2 (compare)'],
+  'Overall, smartphone ownership rose steadily throughout the period, although the pace of growth slowed after 2021. In 2015 only 30% of people owned a smartphone, but this figure almost doubled to 55% by 2018. By contrast, between 2021 and 2024 the increase was marginal, from 78% to 85%.')
+]);
+
+UNIT('c1_read','13','Academic skills','Advanced Reading: Argument, Implication and Tone','उन्नत पढ़ना · ਉੱਨਤ ਪੜ੍ਹਨਾ',
+'Read between the lines: identify the author’s purpose, implied meaning, tone and the structure of an argument.',
+'पंक्तियों के बीच पढ़ें: लेखक का उद्देश्य, निहित अर्थ, लहजा और तर्क की संरचना पहचानें।',
+'ਸਤਰਾਂ ਦੇ ਵਿਚਕਾਰ ਪੜ੍ਹੋ: ਲੇਖਕ ਦਾ ਉਦੇਸ਼, ਛੁਪਿਆ ਅਰਥ, ਲਹਿਜਾ ਅਤੇ ਦਲੀਲ ਦੀ ਬਣਤਰ ਪਛਾਣੋ।',[
+ B.rule('Strategies',
+  '<div class="rule"><b>Tone words:</b> ironic, sceptical, wry, dismissive, indignant, ambivalent, cautiously optimistic.<br><b>Implication:</b> ask “What does the writer assume or suggest without saying?”<br><b>Structure:</b> thesis → evidence → counter-argument → rebuttal → conclusion.<br><b>Tricks:</b> options with absolutes (always, never, only) or true-but-irrelevant statements are often wrong.</div>'),
+ B.text('Text — The tyranny of convenience','Essay extract · C1',
+  '<p>We are, it is often said, the most fortunate generation in history: groceries arrive within the hour, films materialise at a touch, and any question can be answered before it has fully formed. Yet it is precisely this frictionless existence that merits suspicion. Convenience, by its very nature, shortens the distance between desire and gratification, and in doing so it quietly removes the effort through which satisfaction used to be earned. A meal that takes an afternoon to cook, a letter that requires careful composition, a journey that must be planned — each of these once demanded attention, and attention, as any psychologist will confirm, is the raw material of memory and meaning. None of this is to suggest that we should abandon our devices and retreat to the hills. Rather, we might consider where friction is worth preserving.</p>'),
+ B.mcq('Questions',[
+  'The writer’s attitude toward convenience is|wholly hostile;cautiously critical;enthusiastic|1|critical but not extreme.',
+  '“Frictionless existence” refers to|a life without effort;a dangerous life;a rich life|0|without friction.',
+  'What does the writer imply about effort?|It gives satisfaction its value;It is pointless;It is old-fashioned|0|earned satisfaction.',
+  '“None of this is to suggest…” signals|a concession;a new topic;a quotation|0|avoids extreme claim.',
+  'The final sentence|proposes a balanced approach;rejects technology;asks for more devices|0|where friction is worth preserving.',
+  'The tone of the first sentence is|mildly ironic;angry;neutral reporting|0|“it is often said”.']),
+ B.pairs('Matching — tone words',['ironic|saying the opposite of what is meant','sceptical|doubting','wry|dryly humorous','indignant|angry at unfair treatment','ambivalent|having mixed feelings','dismissive|treating as unimportant'])
+]);
+
+UNIT('c1_speak','14','Exam practice','Speaking & Listening at C1','C1 बोलना और सुनना · C1 ਬੋਲਣਾ ਅਤੇ ਸੁਣਨਾ',
+'Sustain discussion on abstract topics: develop ideas, speculate, challenge politely and manage the conversation.',
+'अमूर्त विषयों पर चर्चा चलाएँ: विचार विकसित करें, अनुमान लगाएँ, विनम्रता से चुनौती दें और बातचीत सँभालें।',
+'ਅਮੂਰਤ ਵਿਸ਼ਿਆਂ ਤੇ ਚਰਚਾ ਚਲਾਓ: ਵਿਚਾਰ ਵਿਕਸਿਤ ਕਰੋ, ਅੰਦਾਜ਼ਾ ਲਗਾਓ, ਨਿਮਰਤਾ ਨਾਲ ਚੁਣੌਤੀ ਦਿਓ ਅਤੇ ਗੱਲਬਾਤ ਸੰਭਾਲੋ।',[
+ B.rule('Discourse management',
+  '<div class="rule"><b>Develop:</b> What I mean by that is… · To give you an example… · This ties in with…<br><b>Speculate:</b> I would imagine that… · It could be that… · Presumably…<br><b>Challenge politely:</b> I take your point, but… · Is that necessarily the case? · I would question whether…<br><b>Buy time:</b> That is a thought-provoking question. · Let me think about that for a moment.<br><b>Redirect:</b> Coming back to what you said earlier… · To put it another way…'+T('बातचीत में विचार को विकसित करना सबसे ज़्यादा अंक देता है, सिर्फ़ छोटे उत्तर नहीं।','ਗੱਲਬਾਤ ਵਿੱਚ ਵਿਚਾਰ ਨੂੰ ਵਿਕਸਿਤ ਕਰਨਾ ਸਭ ਤੋਂ ਵੱਧ ਅੰਕ ਦਿੰਦਾ ਹੈ, ਸਿਰਫ਼ ਛੋਟੇ ਉੱਤਰ ਨਹੀਂ।')+'</div>'),
+ B.dlg('Model — Abstract discussion',[
+  'Examiner|Do you think technology has made society more or less equal?|क्या आपको लगता है कि तकनीक ने समाज को अधिक या कम समान बनाया है?|ਕੀ ਤੁਹਾਨੂੰ ਲੱਗਦਾ ਹੈ ਕਿ ਤਕਨੀਕ ਨੇ ਸਮਾਜ ਨੂੰ ਵੱਧ ਜਾਂ ਘੱਟ ਬਰਾਬਰ ਬਣਾਇਆ ਹੈ?',
+  'Candidate|That is a thought-provoking question. On the one hand, it has democratised access to information; on the other, it has widened the gap between those who are connected and those who are not.|यह विचारोत्तेजक सवाल है। एक ओर इसने जानकारी तक पहुँच को लोकतांत्रिक बनाया, दूसरी ओर जुड़े और बिना जुड़े लोगों का अंतर बढ़ाया।|ਇਹ ਸੋਚਣ ਯੋਗ ਸਵਾਲ ਹੈ। ਇੱਕ ਪਾਸੇ ਇਸਨੇ ਜਾਣਕਾਰੀ ਤੱਕ ਪਹੁੰਚ ਨੂੰ ਲੋਕਤੰਤਰੀ ਬਣਾਇਆ, ਦੂਜੇ ਪਾਸੇ ਜੁੜੇ ਅਤੇ ਬਿਨਾਂ ਜੁੜੇ ਲੋਕਾਂ ਦਾ ਫ਼ਰਕ ਵਧਾਇਆ।',
+  'Examiner|Could that gap be reduced?|क्या यह अंतर कम किया जा सकता है?|ਕੀ ਇਹ ਫ਼ਰਕ ਘਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ?',
+  'Candidate|I would imagine so, provided governments invest in infrastructure and digital skills. Otherwise, I suspect the divide will only deepen.|मैं मानता हूँ हाँ, बशर्ते सरकारें बुनियादी ढाँचे और डिजिटल कौशल में निवेश करें, वरना खाई गहरी होगी।|ਮੈਂ ਮੰਨਦਾ ਹਾਂ ਹਾਂ, ਬਸ਼ਰਤੇ ਸਰਕਾਰਾਂ ਬੁਨਿਆਦੀ ਢਾਂਚੇ ਅਤੇ ਡਿਜੀਟਲ ਹੁਨਰਾਂ ਵਿੱਚ ਨਿਵੇਸ਼ ਕਰਨ, ਨਹੀਂ ਤਾਂ ਖਾਈ ਡੂੰਘੀ ਹੋਵੇਗੀ।']),
+ B.dikt('Listening — type what you hear',[
+  'The findings are consistent with previous research on sleep and memory.|निष्कर्ष नींद और स्मृति पर पूर्व शोध के अनुरूप हैं।|ਨਤੀਜੇ ਨੀਂਦ ਅਤੇ ਯਾਦ ਬਾਰੇ ਪੁਰਾਣੀ ਖੋਜ ਦੇ ਅਨੁਕੂਲ ਹਨ।',
+  'Not only did the project exceed expectations, but it also came in under budget.|परियोजना ने उम्मीदों से बढ़कर प्रदर्शन किया और बजट से कम में पूरी हुई।|ਪ੍ਰੋਜੈਕਟ ਉਮੀਦਾਂ ਤੋਂ ਵੱਧ ਰਿਹਾ ਅਤੇ ਬਜਟ ਤੋਂ ਘੱਟ ਵਿੱਚ ਪੂਰਾ ਹੋਇਆ।',
+  'Were the proposal to be rejected, alternative funding would be required.|अगर प्रस्ताव अस्वीकार हुआ तो वैकल्पिक धन की ज़रूरत होगी।|ਜੇ ਪ੍ਰਸਤਾਵ ਰੱਦ ਹੋਇਆ ਤਾਂ ਬਦਲਵੇਂ ਫ਼ੰਡ ਦੀ ਲੋੜ ਹੋਵੇਗੀ।']),
+ B.write('Speaking task — prepare a 3-minute talk','Write notes for a talk: “Should governments regulate artificial intelligence?” Include a thesis, two arguments, a counter-argument and a conclusion.',['Thesis','Argument 1 + example','Argument 2','Counter-argument + rebuttal','Conclusion'],
+  'I believe governments should regulate artificial intelligence, but with care. Firstly, unregulated systems can reinforce bias, for example in recruitment. Secondly, accountability is essential when AI makes decisions that affect people’s lives. Admittedly, heavy-handed rules could stifle innovation; however, this risk can be reduced through flexible, risk-based regulation. To conclude, sensible oversight will build public trust and ultimately benefit innovation.')
+]);
+
+UNIT('c1_mock','15','Exam practice','C1 Final Review Test','C1 अंतिम परीक्षा · C1 ਅੰਤਿਮ ਪ੍ਰੀਖਿਆ',
+'A review of C1 grammar, vocabulary and style. A score of 80% or more means you are ready to refine toward C2 or to aim for IELTS 7.5+.',
+'C1 व्याकरण, शब्दावली और शैली की समीक्षा। 80% या अधिक का मतलब आप C2 या IELTS 7.5+ की ओर बढ़ने के लिए तैयार हैं।',
+'C1 ਵਿਆਕਰਨ, ਸ਼ਬਦਾਵਲੀ ਅਤੇ ਸ਼ੈਲੀ ਦੀ ਸਮੀਖਿਆ। 80% ਜਾਂ ਵੱਧ ਦਾ ਮਤਲਬ ਹੈ ਤੁਸੀਂ C2 ਜਾਂ IELTS 7.5+ ਵੱਲ ਵਧਣ ਲਈ ਤਿਆਰ ਹੋ।',[
+ B.mcq('Part A — Grammar, vocabulary and style (24 questions)',[
+  'The board demanded that the director ___.|resigns;resign;resigned|1|subjunctive.',
+  'She talks as though she ___ the owner.|is;were;has been|1|unreal.',
+  'He ___ to have misread the instructions.|seems;is seeming;seemed|0|seem to have.',
+  '___ the government to raise taxes, consumption would fall.|Was;Were;Should|1|inversion.',
+  'But ___ your help, I would have failed.|for;with;by|0|but for.',
+  'It is high time we ___ action.|take;took;will take|1|past form.',
+  'I would rather you ___ the window.|don’t open;didn’t open;not open|1|would rather + past.',
+  'The rapid ___ of the city worried planners. (expand)|expansion;expanding;expanded|0|noun.',
+  '___ surprised me most was her calm.|It;What;That|1|wh-cleft.',
+  'It was the price ___ put buyers off.|what;that;which was|1|it-cleft.',
+  'Rarely ___ such dedication.|you see;do you see;you do see|1|inversion.',
+  'He is ___ unlikely to resign.|highly;very much;strongly|0|collocation.',
+  'The negotiations ___ through at the last minute.|fell;went;came|0|fall through.',
+  'The new rules will be ___ in over two years.|phased;stepped;moved|0|phased in.',
+  'Technology is a double-edged ___.|sword;knife;tool|0|idiom.',
+  'Please ___ the matter as a priority. (formal: look into)|investigate;see;check|0|register.',
+  'The speaker ___ that costs would rise, but did not say so. (suggested without saying)|implied;inferred;applied|0|imply.',
+  'A ___ person takes offence easily.|sensible;sensitive;sensual|1|sensitive.',
+  'According ___ the study, sales rose.|to;with;from|0|according to.',
+  'Smith (2020) ___ that diet affects mood.|says;contends;talks|1|reporting verb.',
+  'Sales ___ for 40% of revenue.|account;take;count|0|account for.',
+  'Just ___ a third of voters were undecided (32%).|under;below;less|0|approximation.',
+  'The figure levelled ___ at 30%.|off;down;in|0|level off.',
+  'The writer’s tone is ironic. This means the writer|says the opposite of what is meant;is angry;is neutral|0|irony.']),
+ B.gap('Part B — Fill the gap (8 questions)',[
+  'It is vital that he ___ (be) informed at once.|be',
+  'Had they ___ (know), they would have acted.|known',
+  'What I need ___ a quiet room.|is',
+  'Not only ___ he arrive late, but he also forgot the files.|did',
+  'The ___ (decide) to close the plant surprised everyone.|decision',
+  'In the long ___ , investment pays off.|run',
+  'This claim is difficult to ___ . (sustain)|sustain',
+  'The results are consistent ___ earlier research.|with']),
+ B.ord('Part C — Word order (5 sentences)',[
+  'Were the plan to fail we would lose everything|अगर योजना असफल हुई तो हम सब कुछ खो देंगे|ਜੇ ਯੋਜਨਾ ਅਸਫਲ ਹੋਈ ਤਾਂ ਅਸੀਂ ਸਭ ਕੁਝ ਗੁਆ ਦੇਵਾਂਗੇ',
+  'What surprised me most was her calm|मुझे सबसे ज़्यादा उसकी शांति ने चौंकाया|ਮੈਨੂੰ ਸਭ ਤੋਂ ਵੱਧ ਉਸਦੀ ਸ਼ਾਂਤੀ ਨੇ ਹੈਰਾਨ ਕੀਤਾ',
+  'It was the cost that discouraged buyers|ख़रीदारों को क़ीमत ने हतोत्साहित किया|ਖ਼ਰੀਦਦਾਰਾਂ ਨੂੰ ਕੀਮਤ ਨੇ ਨਿਰਾਸ਼ ਕੀਤਾ',
+  'Rarely do we see such talent|हम ऐसी प्रतिभा कम ही देखते हैं|ਅਸੀਂ ਅਜਿਹੀ ਪ੍ਰਤਿਭਾ ਘੱਟ ਹੀ ਵੇਖਦੇ ਹਾਂ',
+  'The results would appear to support her theory|नतीजे उसके सिद्धांत का समर्थन करते प्रतीत होते हैं|ਨਤੀਜੇ ਉਸਦੇ ਸਿਧਾਂਤ ਦਾ ਸਮਰਥਨ ਕਰਦੇ ਜਾਪਦੇ ਹਨ']),
+ B.dikt('Part D — Dictation (4 sentences)',[
+  'It is essential that every candidate submit the form in person.|हर उम्मीदवार का फ़ॉर्म स्वयं जमा करना आवश्यक है।|ਹਰ ਉਮੀਦਵਾਰ ਦਾ ਫ਼ਾਰਮ ਆਪ ਜਮ੍ਹਾਂ ਕਰਨਾ ਜ਼ਰੂਰੀ ਹੈ।',
+  'Nobody wanted to mention the elephant in the room.|कोई उस बात का ज़िक्र नहीं करना चाहता था जिसे सब टाल रहे थे।|ਕੋਈ ਉਸ ਗੱਲ ਦਾ ਜ਼ਿਕਰ ਨਹੀਂ ਕਰਨਾ ਚਾਹੁੰਦਾ ਸੀ ਜਿਸਨੂੰ ਸਭ ਟਾਲ ਰਹੇ ਸਨ।',
+  'There is a growing consensus that renewable energy is essential.|एक बढ़ती सहमति है कि नवीकरणीय ऊर्जा आवश्यक है।|ਇੱਕ ਵਧਦੀ ਸਹਿਮਤੀ ਹੈ ਕਿ ਨਵਿਆਉਣਯੋਗ ਊਰਜਾ ਜ਼ਰੂਰੀ ਹੈ।',
+  'On balance, the advantages outweigh the drawbacks.|कुल मिलाकर फ़ायदे नुकसानों से भारी हैं।|ਕੁੱਲ ਮਿਲਾ ਕੇ ਫ਼ਾਇਦੇ ਨੁਕਸਾਨਾਂ ਨਾਲੋਂ ਭਾਰੀ ਹਨ।']),
+ B.write('Part E — Essay (about 250 words)','“Governments should prioritise economic growth over environmental protection.” To what extent do you agree?',['Introduction with thesis','Argument 1','Counter-argument + rebuttal','Conclusion'],
+  'This essay argues that economic growth and environmental protection are not opposing goals and that prioritising one at the expense of the other is short-sighted. Admittedly, developing countries rely on industry to reduce poverty, and strict regulations can raise costs. Nevertheless, this view overlooks the long-term price of environmental damage: polluted air and degraded land reduce productivity and impose enormous health costs. Evidence from several countries suggests that investment in clean technology creates jobs and new markets. Furthermore, climate-related disasters threaten the very economies that growth is meant to strengthen. On balance, governments should pursue sustainable growth, using incentives and regulation to encourage innovation rather than sacrifice either aim. Hence, the question is not which to prioritise, but how to integrate both.')
+]);
+
+(function(){
+'use strict';
+
+function levelOf(stId){
+  for(var i=0;i<LEVELS.length;i++){ if(LEVELS[i].ids.indexOf(stId)>-1) return i; }
+  return 0;
+}
+function idxOfId(id){
+  for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id) return i; }
+  return 0;
+}
+
+/* ---------- safe storage (never breaks if blocked) ---------- */
+var mem = {};
+var STORE = {
+  get:function(k){ try{ var v=localStorage.getItem(k); return v===null?mem[k]:v; }catch(e){ return mem[k]; } },
+  set:function(k,v){ mem[k]=v; try{ localStorage.setItem(k,v); }catch(e){} }
+};
+var KEY='pioneerEnglishC1_v1';
+var save={xp:0, done:{}, last:null, ans:{}, typed:{}};
+try{ var raw=STORE.get(KEY); if(raw){ var p=JSON.parse(raw); if(p&&typeof p==='object'){ save.xp=p.xp||0; save.done=p.done||{}; save.last=p.last||null; save.ans=p.ans||{}; save.typed=p.typed||{}; } } }catch(e){}
+function persist(){ try{ STORE.set(KEY, JSON.stringify(save)); }catch(e){} }
+
+/* ---------- answers survive leaving a station ---------- */
+function setAns(blk, idx, val){
+  if(!save.ans) save.ans={};
+  if(!save.ans[blk._st]) save.ans[blk._st]={};
+  if(!save.ans[blk._st][blk._k]) save.ans[blk._st][blk._k]={};
+  save.ans[blk._st][blk._k][idx]=val;
+  persist();
+}
+function getAns(blk, idx){
+  try{ return save.ans[blk._st][blk._k][idx]; }catch(e){ return undefined; }
+}
+function restoreTyped(stId){
+  var main=document.getElementById('main');
+  if(!main) return;
+  var nodes=main.querySelectorAll('input[type=text], textarea');
+  if(!save.typed) save.typed={};
+  var store=save.typed[stId]||{};
+  Array.prototype.forEach.call(nodes, function(nd, i){
+    var k='n'+i;
+    if(store[k]!==undefined && store[k]!=='' && !nd.value) nd.value=store[k];
+    nd.addEventListener('input', function(){
+      if(!save.typed[stId]) save.typed[stId]={};
+      save.typed[stId][k]=nd.value;
+      persist();
+    });
+  });
+}
+
+/* ---------- speech (browser built-in, no network) ---------- */
+var voice=null, voiceReady=false;
+function pickVoice(){
+  try{
+    var vs = window.speechSynthesis.getVoices()||[];
+    voice = vs.filter(function(v){return /^en-(IN|GB)/i.test(v.lang);})[0] || vs.filter(function(v){return /^en/i.test(v.lang);})[0] || null;
+    voiceReady = true;
+  }catch(e){ voiceReady=true; }
+}
+if('speechSynthesis' in window){
+  pickVoice();
+  window.speechSynthesis.onvoiceschanged = pickVoice;
+}
+var warned=false;
+function say(text, rate){
+  if(!('speechSynthesis' in window)){
+    if(!warned){ toast('Audio not supported in this browser'); warned=true; }
+    return;
+  }
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,''));
+    u.lang=(voice&&voice.lang)||'en-GB';
+    u.rate = rate||0.9;
+    if(voice) u.voice=voice;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- helpers ---------- */
+function el(tag, cls, html){
+  var n=document.createElement(tag);
+  if(cls) n.className=cls;
+  if(html!=null) n.innerHTML=html;
+  return n;
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function shuffle(a){
+  a=a.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+var toastT=null;
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('up');
+  clearTimeout(toastT);
+  toastT=setTimeout(function(){ t.classList.remove('up'); },2000);
+}
+/* normalise an answer for comparison */
+function norm(s){
+  return String(s).toLowerCase().trim()
+    .replace(/[\u2018\u2019\u02BC]/g,"'")
+    .replace(/[.,!?;:"'()\u201C\u201D]/g,'')
+    .replace(/\s+/g,' ');
+}
+function trh(it){
+  return (it.hi?'<span class="trl hi">'+esc(it.hi)+'</span>':'')+(it.pa?'<span class="trl pa">'+esc(it.pa)+'</span>':'');
+}
+function matches(input, answers){
+  var n=norm(input);
+  if(!n) return false;
+  for(var i=0;i<answers.length;i++){ if(norm(answers[i])===n) return true; }
+  return false;
+}
+function speakBtn(text){
+  var b=el('button','spk','▶');
+  b.type='button';
+  b.title='Listen';
+  b.setAttribute('aria-label','Play English audio');
+  b.onclick=function(e){ e.stopPropagation(); say(text); };
+  return b;
+}
+function umlautBar(input){ return document.createElement('span'); }
+
+/* ---------- progress ---------- */
+function addXP(n){
+  save.xp += n; persist(); paintXP();
+}
+function markProgress(stationId, blockKey, pct){
+  if(!save.done[stationId]) save.done[stationId]={};
+  var cur = save.done[stationId][blockKey]||0;
+  if(pct>cur){ save.done[stationId][blockKey]=pct; persist(); }
+  paintNav(); paintXP();
+}
+function stationPct(st){
+  var total=0, sum=0;
+  st.bloecke.forEach(function(b,i){
+    if(b.typ!=='ueb' && b.typ!=='schreiben') return;
+    total++;
+    var d=(save.done[st.id]||{})['b'+i]||0;
+    sum+=d;
+  });
+  if(!total) return (save.done[st.id]&&save.done[st.id].seen)?100:0;
+  return Math.round(sum/total);
+}
+function paintXP(){
+  var totals=0;
+  STATIONEN.forEach(function(s){ totals+=stationPct(s); });
+  var overall = Math.round(totals/STATIONEN.length);
+  document.getElementById('xpVal').textContent=save.xp;
+  document.getElementById('xpLbl').textContent='Points · '+overall+' % complete';
+}
+
+/* ============================================================
+   EXERCISE RENDERERS
+============================================================ */
+
+/* --- multiple choice --- */
+function renderMCQ(blk, onDone){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' questions'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, answered=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var opts=el('div','opts');
+    var btns=[];
+    var fb=el('div','fb');
+    function apply(i, restoring){
+      btns.forEach(function(x){ x.disabled=true; });
+      answered++;
+      if(i===item.a){
+        btns[i].classList.add('right'); right++;
+        if(!restoring) addXP(2);
+      }else{
+        btns[i].classList.add('wrong');
+        btns[item.a].classList.add('right');
+      }
+      fb.className='fb show '+(i===item.a?'ok':'no');
+      fb.innerHTML=(i===item.a?'✓ Correct! ':'✗ ')+(item.fb||'');
+      scoreLbl.textContent=right+' correct';
+      if(!restoring) setAns(blk, idx, i);
+      markProgress(blk._st, blk._k, Math.round(right/n*100));
+    }
+    item.opts.forEach(function(o,i){
+      var b=el('button','opt');
+      b.type='button';
+      b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+      b.onclick=function(){ if(b.disabled) return; apply(i, false); };
+      btns.push(b);
+      opts.appendChild(b);
+    });
+    q.appendChild(opts);
+    q.appendChild(fb);
+    wrap.appendChild(q);
+    var prevA=getAns(blk, idx);
+    if(prevA!==undefined && prevA!==null) apply(prevA, true);
+  });
+  return wrap;
+}
+
+/* --- gap fill --- */
+function renderLuecke(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' gaps'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, checked=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var row=el('div','inrow');
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('autocapitalize','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type your answer …';
+    var btn=el('button','btn sm','Check');
+    btn.type='button';
+    var show=el('button','btn sm ghost','Show answer');
+    show.type='button';
+    row.appendChild(inp); row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb');
+    q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok=matches(inp.value, item.a);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; checked++; addXP(3);
+        fb.textContent='✓ Correct!';
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not yet. Try again.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; checked++;
+      inp.value=item.a[0]; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a[0])+'</b>';
+      btn.disabled=true;
+      if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- word ordering --- */
+function renderOrdnen(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var target=item.a.split(' ');
+    var q=el('div','q');
+    q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+
+      '<span class="cue">'+esc(item.hi||'')+'</span><span class="cue pa-i">'+esc(item.pa||'')+'</span>'));
+
+    var slot=el('div','slot');
+    var pool=el('div','pool');
+    var settled=false;
+
+    function mkWord(w, inSlot){
+      var b=el('button','word', esc(w));
+      b.type='button';
+      b.onclick=function(){
+        if(settled) return;
+        b.remove();
+        (inSlot?pool:slot).appendChild(mkWord(w, !inSlot));
+      };
+      return b;
+    }
+    shuffle(target).forEach(function(w){ pool.appendChild(mkWord(w,false)); });
+    q.appendChild(slot); q.appendChild(pool);
+
+    var row=el('div','inrow');
+    row.style.marginTop='8px';
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    btn.onclick=function(){
+      if(settled) return;
+      var got=Array.prototype.map.call(slot.children,function(c){return c.textContent;}).join(' ');
+      var ok = norm(got)===norm(item.a);
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(4);
+        fb.innerHTML='✓ Richtig! <b>'+esc(item.a)+'.</b> ';
+        var s=speakBtn(item.a); fb.appendChild(s);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Check the word order: Subject + Verb + Object, with time words at the end.';
+      }
+    };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      slot.innerHTML=''; pool.innerHTML='';
+      target.forEach(function(w){ slot.appendChild(mkWord(w,true)); });
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a)+'.</b> ';
+      fb.appendChild(speakBtn(item.a));
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- matching pairs --- */
+function renderPaare(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' pairs'));
+  var scoreLbl=el('div','ex-count','0 found');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var grid=el('div','pairs');
+  var L=el('div','pcol'), R=el('div','pcol');
+  grid.appendChild(L); grid.appendChild(R);
+  wrap.appendChild(grid);
+
+  var found=0, n=blk.items.length, sel=null;
+  var leftItems=shuffle(blk.items.map(function(p,i){return {t:p[0],i:i};}));
+  var rightItems=shuffle(blk.items.map(function(p,i){return {t:p[1],i:i};}));
+
+  function mk(col, obj, side){
+    var b=el('button','pbtn', esc(obj.t));
+    b.type='button';
+    b.dataset.i=obj.i;
+    b.onclick=function(){
+      if(b.classList.contains('done')) return;
+      if(side==='L'){ say(obj.t); }
+      if(!sel){ 
+        if(side!=='L'){ toast('Choose from the left column first'); return; }
+        sel=b; b.classList.add('sel'); return;
+      }
+      if(sel===b){ sel=null; b.classList.remove('sel'); return; }
+      if(side==='L'){ sel.classList.remove('sel'); sel=b; b.classList.add('sel'); return; }
+      if(sel.dataset.i===b.dataset.i){
+        sel.classList.remove('sel'); sel.classList.add('done'); b.classList.add('done');
+        sel=null; found++; addXP(2);
+        scoreLbl.textContent=found+' found';
+        if(found===n){ markProgress(blk._st, blk._k, 100); toast('All pairs found!'); }
+      }else{
+        b.classList.add('miss');
+        setTimeout(function(){ b.classList.remove('miss'); },320);
+      }
+    };
+    col.appendChild(b);
+  }
+  leftItems.forEach(function(o){ mk(L,o,'L'); });
+  rightItems.forEach(function(o){ mk(R,o,'R'); });
+  return wrap;
+}
+
+/* --- dictation --- */
+function renderDiktat(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences · listen and type'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var row=el('div','dikt-row');
+    row.appendChild(el('span','q-no',(idx+1)));
+    var play=el('button','big-spk','▶ Listen'); play.type='button';
+    play.onclick=function(){ say(item.t, 0.9); };
+    var slow=el('button','speed','slow ▶'); slow.type='button';
+    slow.onclick=function(){ say(item.t, 0.55); };
+    row.appendChild(play); row.appendChild(slow);
+    q.appendChild(row);
+
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.style.maxWidth='520px';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type what you hear …';
+    var r2=el('div','inrow');
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    r2.appendChild(inp); r2.appendChild(btn); r2.appendChild(show);
+    q.appendChild(r2);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok = norm(inp.value)===norm(item.t);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(5);
+        fb.innerHTML='✓ Perfect! '+trh(item);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Listen again, slowly.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      inp.value=item.t; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.de)+'</b><br><span class="en-i">'+esc(item.en)+'</span>';
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- flashcards --- */
+function renderKarten(blk){
+  var wrap=el('div','ex');
+  var stage=el('div','fc-stage');
+  var order=shuffle(blk.items.map(function(_,i){return i;}));
+  var pos=0, flipped=false;
+
+  var card=el('div','card');
+  var counter=el('div','ex-count','');
+  var ctrls=el('div','inrow');
+
+  function paint(){
+    var it=blk.items[order[pos]];
+    card.innerHTML='';
+    card.appendChild(el('div','face', esc(it[0])));
+    if(flipped){ card.appendChild(el('div','back', esc(it[1])+(it[2]?'<br>'+esc(it[2]):''))); }
+    card.appendChild(el('div','hint', flipped?'Tap to flip back':'Tap for the meaning'));
+    counter.textContent='Card '+(pos+1)+' of '+order.length;
+  }
+  card.onclick=function(){ flipped=!flipped; paint(); };
+
+  var prev=el('button','btn sm ghost','◀ Back'); prev.type='button';
+  var hear=el('button','btn sm gelb','▶ Listen'); hear.type='button';
+  var next=el('button','btn sm','Next ▶'); next.type='button';
+  var mix=el('button','btn sm ghost','Shuffle'); mix.type='button';
+
+  prev.onclick=function(){ pos=(pos-1+order.length)%order.length; flipped=false; paint(); };
+  next.onclick=function(){
+    pos=(pos+1)%order.length; flipped=false; paint();
+    if(pos===0){ markProgress(blk._st, blk._k, 100); addXP(5); toast('Deck finished!'); }
+  };
+  hear.onclick=function(){ var it=blk.items[order[pos]]; say(it[0]); };
+  mix.onclick=function(){ order=shuffle(order); pos=0; flipped=false; paint(); toast('Shuffled'); };
+
+  ctrls.appendChild(prev); ctrls.appendChild(hear); ctrls.appendChild(next); ctrls.appendChild(mix);
+  stage.appendChild(card); stage.appendChild(counter); stage.appendChild(ctrls);
+  wrap.appendChild(stage);
+  paint();
+  return wrap;
+}
+
+/* --- writing --- */
+function renderSchreiben(blk){
+  var wrap=el('div','ex');
+  wrap.appendChild(el('p',null, esc(blk.prompt)));
+  if(blk.punkte && blk.punkte.length){
+    var ul=el('ul','checklist');
+    blk.punkte.forEach(function(p){ ul.appendChild(el('li',null, esc(p))); });
+    wrap.appendChild(ul);
+  }
+  var ta=el('textarea','schreib');
+  ta.placeholder='Write your text here …';
+  wrap.appendChild(ta);
+
+  var row=el('div','inrow');
+  row.style.marginTop='10px';
+  var count=el('span','ex-count','0 words');
+  var btn=el('button','btn','Show model answer'); btn.type='button';
+  var read=el('button','btn ghost','Listen to model'); read.type='button';
+  row.appendChild(btn); row.appendChild(read); row.appendChild(count);
+  wrap.appendChild(row);
+
+  ta.oninput=function(){
+    var w=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;
+    count.textContent=w+' words';
+    if(w>=25){ markProgress(blk._st, blk._k, 100); }
+  };
+
+  var m=el('div','muster', esc(blk.muster));
+  wrap.appendChild(m);
+  btn.onclick=function(){
+    m.classList.toggle('show');
+    btn.textContent = m.classList.contains('show')?'Hide model answer':'Show model answer';
+    if(m.classList.contains('show')) addXP(3);
+  };
+  read.onclick=function(){ say(blk.muster, 0.85); };
+  return wrap;
+}
+
+/* ============================================================
+   BLOCK & STATION RENDERING
+============================================================ */
+function renderVok(blk){
+  var w=el('div','tbl-wrap');
+  var t=el('table');
+  t.innerHTML='<thead><tr><th>English</th><th>Meaning / example</th><th class="hi">हिन्दी</th><th class="pa">ਪੰਜਾਬੀ</th><th></th></tr></thead>';
+  var tb=el('tbody');
+  blk.items.forEach(function(it){
+    var tr=el('tr');
+    tr.appendChild(el('td','g', esc(it[0])));
+    tr.appendChild(el('td','e', esc(it[1]||'')));
+    tr.appendChild(el('td','hi', esc(it[2]||'')));
+    tr.appendChild(el('td','pa', esc(it[3]||'')));
+    var td4=el('td');
+    td4.appendChild(speakBtn(it[0].split('—')[0].split('↔')[0].replace(/\(.*?\)/g,'')));
+    tr.appendChild(td4);
+    tb.appendChild(tr);
+  });
+  t.appendChild(tb); w.appendChild(t);
+  return w;
+}
+function renderDlg(blk){
+  var w=el('div','dlg');
+  var all=blk.zeilen.map(function(z){return z[1];}).join(' ');
+  var head=el('div','inrow');
+  head.style.marginBottom='10px';
+  var b=el('button','btn sm gelb','▶ Play whole dialogue'); b.type='button';
+  b.onclick=function(){ say(all, 0.85); };
+  head.appendChild(b);
+  w.appendChild(head);
+  blk.zeilen.forEach(function(z){
+    var r=el('div','dlg-row');
+    r.appendChild(el('div','dlg-who', esc(z[0])));
+    r.appendChild(el('div','dlg-de', esc(z[1])+trh({hi:z[2],pa:z[3]})));
+    var c=el('div'); c.appendChild(speakBtn(z[1]));
+    r.appendChild(c);
+    w.appendChild(r);
+  });
+  return w;
+}
+function renderText(blk){
+  var w=el('div','lesetext');
+  if(blk.meta) w.appendChild(el('div','meta', esc(blk.meta)));
+  var body=el('div',null, blk.html);
+  w.appendChild(body);
+  return w;
+}
+
+var TAGS={ vok:['','Vocabulary'], regel:['gram','Grammar'], dlg:['','Dialogue'],
+           text:['','Reading'], ueb:['ueb','Practice'], karten:['','Flashcards'],
+           schreiben:['ueb','Writing'] };
+
+function renderBlock(st, blk, i){
+  blk._st=st.id; blk._k='b'+i;
+  var box=el('div','blk');
+  var head=el('div','blk-head');
+  var meta=TAGS[blk.typ]||['',''];
+  head.appendChild(el('span','tag '+meta[0], meta[1]));
+  head.appendChild(el('h2',null, esc(blk.t||'')));
+  box.appendChild(head);
+  var body=el('div','blk-body');
+
+  if(blk.typ==='vok') body.appendChild(renderVok(blk));
+  else if(blk.typ==='regel') body.innerHTML=blk.html;
+  else if(blk.typ==='dlg') body.appendChild(renderDlg(blk));
+  else if(blk.typ==='text') body.appendChild(renderText(blk));
+  else if(blk.typ==='karten') body.appendChild(renderKarten(blk));
+  else if(blk.typ==='schreiben') body.appendChild(renderSchreiben(blk));
+  else if(blk.typ==='ueb'){
+    if(blk.art==='mcq') body.appendChild(renderMCQ(blk));
+    else if(blk.art==='luecke') body.appendChild(renderLuecke(blk));
+    else if(blk.art==='ordnen') body.appendChild(renderOrdnen(blk));
+    else if(blk.art==='paare') body.appendChild(renderPaare(blk));
+    else if(blk.art==='diktat') body.appendChild(renderDiktat(blk));
+  }
+  box.appendChild(body);
+  return box;
+}
+
+/* ============================================================
+   HOME SCREEN — level select
+============================================================ */
+function levelPct(lv){
+  var sum=0;
+  lv.ids.forEach(function(id){ sum+=stationPct(STATIONEN[idxOfId(id)]); });
+  return Math.round(sum/lv.ids.length);
+}
+function ring(pct, colour){
+  var w=el('div','ring');
+  var r=22, c=2*Math.PI*r, off=c*(1-pct/100);
+  w.innerHTML='<svg width="52" height="52" viewBox="0 0 52 52">'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="#DADDD6" stroke-width="5"/>'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="'+colour+'" stroke-width="5" '+
+    'stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" stroke-linecap="round"/>'+
+    '</svg><span>'+pct+'%</span>';
+  return w;
+}
+var LVL_COLOUR=['#12457A','#2A7F62','#35A0F0','#B8202E'];
+
+function renderHome(){
+  current=-1;
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var head=el('div','home-head');
+  head.appendChild(el('div','eyebrow','Overview · choose your level'));
+  head.appendChild(el('h1',null,'Where would you like to start?<span class="en">Pick a part — you do not have to start at Unit 01</span>'));
+  head.appendChild(el('p','lead','The course is split into four levels. Jump straight to the one that matches you, or take the two-minute placement test below and let it choose for you. Your progress is saved automatically.'));
+  main.appendChild(head);
+
+  /* resume card */
+  if(save.last){
+    var li=idxOfId(save.last), lst=STATIONEN[li];
+    var rc=el('button','resume'); rc.type='button';
+    rc.appendChild(el('span','rg', lst.g));
+    rc.appendChild(el('span','rt','<small>Continue · continue where you stopped</small>'+esc(lst.t)));
+    rc.appendChild(el('span','ra','Next ▶'));
+    rc.onclick=function(){ go(li); };
+    main.appendChild(rc);
+  }
+
+  /* level cards */
+  var grid=el('div','lvl-grid');
+  LEVELS.forEach(function(lv, li){
+    var card=el('button','lvl-card '+lv.cls); card.type='button';
+    var top=el('div','lvl-top');
+    var left=el('div');
+    left.appendChild(el('div','lvl-code','Part '+(li+1)+' · '+lv.code));
+    left.appendChild(el('div','lvl-name', esc(lv.name)+'<em>'+esc(lv.en)+'</em>'));
+    top.appendChild(left);
+    top.appendChild(ring(levelPct(lv), LVL_COLOUR[li]));
+    card.appendChild(top);
+    card.appendChild(el('p','lvl-desc', esc(lv.desc)));
+
+    var chips=el('div','lvl-stations');
+    lv.ids.forEach(function(id){
+      var st=STATIONEN[idxOfId(id)], p=stationPct(st);
+      chips.appendChild(el('span','lvl-chip'+(p>=100?' done':(p>0?' part':'')), st.g));
+    });
+    card.appendChild(chips);
+
+    var meta=el('div','lvl-meta');
+    meta.appendChild(el('span',null, lv.ids.length+' units'));
+    meta.appendChild(el('span',null,'Start ▶'));
+    card.appendChild(meta);
+
+    card.onclick=function(){
+      /* open the first unfinished station in this level */
+      var target=lv.ids[0];
+      for(var k=0;k<lv.ids.length;k++){
+        if(stationPct(STATIONEN[idxOfId(lv.ids[k])])<100){ target=lv.ids[k]; break; }
+      }
+      go(idxOfId(target));
+    };
+    grid.appendChild(card);
+  });
+  main.appendChild(grid);
+
+  /* placement test */
+  main.appendChild(renderPlacement());
+
+  var tools=el('div','home-tools');
+  var all=el('button','btn ghost','View all '+STATIONEN.length+' units'); all.type='button';
+  all.onclick=function(){ go(0); };
+  tools.appendChild(all);
+  main.appendChild(tools);
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent='⌂';
+  t.innerHTML='Overview<small>Level select</small>';
+  paintNav(); paintXP();
+}
+
+function renderPlacement(){
+  var box=el('div','place');
+  box.appendChild(el('h3',null,'Placement test — where should I start?'));
+  box.appendChild(el('p',null,PLACEMENT.length+' quick questions. Answer honestly and skip nothing — the result tells you which part to open first.'));
+
+  var start=el('button','btn gelb','Start test'); start.type='button';
+  box.appendChild(start);
+  var area=el('div');
+  box.appendChild(area);
+
+  start.onclick=function(){
+    start.style.display='none';
+    area.innerHTML='';
+    var score=[0,0,0,0], count=[0,0,0,0], answered=0;
+    PLACEMENT.forEach(function(item, idx){
+      count[item.lvl]++;
+      var q=el('div','q');
+      q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+item.q));
+      var opts=el('div','opts'); var btns=[];
+      item.opts.forEach(function(o,i){
+        var b=el('button','opt'); b.type='button';
+        b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+        b.onclick=function(){
+          if(b.disabled) return;
+          btns.forEach(function(x){x.disabled=true;});
+          answered++;
+          if(i===item.a){ b.classList.add('right'); score[item.lvl]++; }
+          else{ b.classList.add('wrong'); btns[item.a].classList.add('right'); }
+          if(answered===PLACEMENT.length) finish();
+        };
+        btns.push(b); opts.appendChild(b);
+      });
+      q.appendChild(opts);
+      area.appendChild(q);
+    });
+
+    function finish(){
+      /* recommended level = first level where the student scored below 70% */
+      var rec=LEVELS.length-1;
+      for(var i=0;i<4;i++){
+        if(count[i] && (score[i]/count[i])<0.7){ rec=i; break; }
+      }
+      var total=score.reduce(function(a,b){return a+b;},0);
+      var res=el('div','place-result');
+      var lv=LEVELS[rec];
+      res.innerHTML='<b>Recommended: Part '+(rec+1)+' — '+esc(lv.name)+' ('+lv.code+')</b>'+
+        'You scored '+total+' out of '+PLACEMENT.length+'. '+
+        'Per part: '+LEVELS.map(function(l,i){return l.code+' '+score[i]+'/'+count[i];}).join(' · ')+'.';
+      var goBtn=el('button','btn gelb','Open Part '+(rec+1)+' ▶');
+      goBtn.type='button'; goBtn.style.marginTop='12px';
+      goBtn.onclick=function(){ go(idxOfId(lv.ids[0])); };
+      res.appendChild(goBtn);
+      area.appendChild(res);
+      addXP(10);
+      res.scrollIntoView({block:'nearest'});
+    }
+  };
+  return box;
+}
+
+var current=-1;
+function renderStation(idx){
+  current=idx;
+  var st=STATIONEN[idx];
+  save.last=st.id; persist();
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var lvi=levelOf(st.id), lv=LEVELS[lvi];
+  var posInLvl=lv.ids.indexOf(st.id)+1;
+
+  var head=el('div','station-head');
+  head.appendChild(el('div','eyebrow','Part '+(lvi+1)+' · '+lv.code+' '+lv.name+
+    ' · Unit '+st.g+' ('+posInLvl+' of '+lv.ids.length+')'));
+  head.appendChild(el('h1',null, esc(st.t)+'<span class="en">'+esc(st.en)+'</span>'));
+  if(st.lead) head.appendChild(el('p','lead', esc(st.lead)));
+  if(st.leadHi) head.appendChild(el('p','lead trl hi', esc(st.leadHi)));
+  if(st.leadPa) head.appendChild(el('p','lead trl pa', esc(st.leadPa)));
+  main.appendChild(head);
+
+  st.bloecke.forEach(function(b,i){ main.appendChild(renderBlock(st,b,i)); });
+
+  var step=el('div','stepper');
+  var prev=el('button','btn ghost','◀ Unit '+(idx>0?STATIONEN[idx-1].g:STATIONEN[STATIONEN.length-1].g));
+  prev.type='button';
+  prev.onclick=function(){ go((idx-1+STATIONEN.length)%STATIONEN.length); };
+
+  var over=el('button','btn ghost','⌂ Overview'); over.type='button';
+  over.onclick=function(){ goHome(); };
+
+  var isLast = (posInLvl===lv.ids.length);
+  var next=el('button','btn', isLast
+    ? (lvi<LEVELS.length-1 ? 'Part '+(lvi+2)+' ▶' : 'To overview ▶')
+    : 'Unit '+STATIONEN[idxOfId(lv.ids[posInLvl])].g+' ▶');
+  next.type='button';
+  next.onclick=function(){
+    if(!isLast){ go(idxOfId(lv.ids[posInLvl])); return; }
+    if(lvi<LEVELS.length-1){ go(idxOfId(LEVELS[lvi+1].ids[0])); toast('Part '+(lvi+2)+' — '+LEVELS[lvi+1].name); }
+    else{ goHome(); }
+  };
+  step.appendChild(prev); step.appendChild(over); step.appendChild(next);
+  main.appendChild(step);
+
+  if(!save.done[st.id]) save.done[st.id]={};
+  save.done[st.id].seen=1; persist();
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent=st.g;
+  t.innerHTML=esc(st.t)+'<small>'+esc(st.en)+'</small>';
+  g.classList.remove('flip'); t.classList.remove('flip');
+  void g.offsetWidth;
+  g.classList.add('flip'); t.classList.add('flip');
+
+  restoreTyped(st.id);
+  paintNav(); paintXP();
+}
+function go(i){
+  renderStation(i);
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+function goHome(){
+  renderHome();
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+
+/* ---------- sidebar ---------- */
+function paintNav(){
+  var nav=document.getElementById('fahrplan');
+  nav.innerHTML='';
+  var h=el('div','fp-head');
+  h.appendChild(el('span',null,'Course map'));
+  h.appendChild(el('span',null,STATIONEN.length+' units'));
+  nav.appendChild(h);
+
+  var hb=el('button','fp-item'+(current===-1?' on':''));
+  hb.type='button';
+  hb.appendChild(el('span','fp-g','⌂'));
+  hb.appendChild(el('span','fp-t','Overview<em>All levels</em>'));
+  hb.appendChild(el('span'));
+  hb.onclick=goHome;
+  nav.appendChild(hb);
+
+  LEVELS.forEach(function(lv, li){
+    var lh=el('div','fp-lvl '+lv.cls);
+    lh.appendChild(el('span',null,'Part '+(li+1)+' · '+lv.code));
+    lh.appendChild(el('span',null, levelPct(lv)+'%'));
+    nav.appendChild(lh);
+
+    lv.ids.forEach(function(id){
+      var i=idxOfId(id), st=STATIONEN[i];
+      var b=el('button','fp-item'+(i===current?' on':''));
+      b.type='button';
+      b.appendChild(el('span','fp-g', st.g));
+      b.appendChild(el('span','fp-t', esc(st.t)+'<em>'+esc(st.en)+'</em>'));
+      var p=stationPct(st);
+      b.appendChild(el('span','fp-dot'+(p>=100?' done':(p>0?' part':''))));
+      b.onclick=function(){ go(i); };
+      nav.appendChild(b);
+    });
+  });
+
+  var reset=el('button','btn sm ghost','Reset progress');
+  reset.type='button';
+  reset.style.marginTop='18px';
+  reset.onclick=function(){
+    if(confirm('Delete all your progress?')){
+      save={xp:0,done:{},last:null,ans:{},typed:{}}; persist(); goHome(); toast('Progress reset');
+    }
+  };
+  nav.appendChild(reset);
+}
+function closeNav(){
+  document.getElementById('fahrplan').classList.remove('open');
+  document.getElementById('scrim').classList.remove('on');
+}
+document.getElementById('menuBtn').onclick=function(){
+  document.getElementById('fahrplan').classList.toggle('open');
+  document.getElementById('scrim').classList.toggle('on');
+};
+document.getElementById('scrim').onclick=closeNav;
+document.getElementById('homeBtn').onclick=goHome;
+
+/* keyboard: arrows move between stations, Esc returns to the overview */
+document.addEventListener('keydown', function(e){
+  var tag=(e.target.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea') return;
+  if(e.key==='Escape'){ goHome(); return; }
+  if(current<0) return;
+  if(e.key==='ArrowLeft') go((current-1+STATIONEN.length)%STATIONEN.length);
+  if(e.key==='ArrowRight') go((current+1)%STATIONEN.length);
+});
+
+/* ---------- translation toggles ---------- */
+var TRKEY=KEY+'_tr';
+var trs={hi:false, pa:false};
+try{ var rawT=STORE.get(TRKEY); if(rawT){ var pt=JSON.parse(rawT); trs.hi=!!pt.hi; trs.pa=!!pt.pa; } }catch(e){}
+function applyTr(){
+  document.body.classList.toggle('t-hi', trs.hi);
+  document.body.classList.toggle('t-pa', trs.pa);
+  document.getElementById('trHi').classList.toggle('on', trs.hi);
+  document.getElementById('trPa').classList.toggle('on', trs.pa);
+  STORE.set(TRKEY, JSON.stringify(trs));
+}
+document.getElementById('trHi').onclick=function(){ trs.hi=!trs.hi; applyTr(); };
+document.getElementById('trPa').onclick=function(){ trs.pa=!trs.pa; applyTr(); };
+applyTr();
+
+renderHome();
+})();
+</script>
+</body>
+</html>

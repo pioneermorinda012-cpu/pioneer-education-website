@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAGFBMVEX4wbL+Thb/PwL/PwD/PgL/PgD+PgD/OADR/gd9AAADUklEQVR42u2Vz2/bZBjHP6+dNu1Gk9cibSoBq9mUA0JFHlW5cKATlXZgiB9SDqhToUXsSgfS+B/gQC5cduKGILAfQtoJZS0SMKSlSzQxiiqCtzGJVs3ypqu0tKltDrEd18mAP4D3Er/yx8/z/X7t94nIWbg2/tJM4isB5ci2btroVhQQuclc7JluwU4F73y86nFbcwGsyjFJAhG/L6anOxd2fh1ELjUL4Gqutvd5j8RZElAMdhP9LIhcRPNRevUmIluvGAd0KwqUganaQaLmA+Upp0IeqPWTAeWp8mie80DGTQsaABgRIF/M732cbqYVGe+Bw7QJ9v6NDiJyFvVVBcBSYez0Dy8O8FWjKRl9g+98wJn4FBAvrczcmv9+849u+8Vqp4X+50e7BbxlXjh+0fEikctQw6UNgKfXbz53pBDeTx4KRTqTvwEn7+vWjVK3QHtxGUAD9JtA8nAddGUYATB6kQDgqRlx7nBlCmeSRiMA5oxuDind++QcF6zt/Z4g0R8fB62y+Ov10kJp5/cWgPjgJ6OVrbV2hwKA8ZW3SpTfvTWoALJ33TO/iCdfyd0OAUZT13B+fPuZtaEWJAdPX3j43s9Xau6QLxK0KgDfnnkHkjPGN7r3pe1tvkYIiHsSBu9MFqtAFeOxkyo4S/7vswswUhXSAgmwKgwGLwc2/Srzd11xGeZWgNTz5mam1BWJJ69lb497ynH2/hoGqK/urA5FWuhXmLOAlPFhJ0Fh1CWRCmw44hCe8kauD/vPDPuHNxUcoq8lmomjH4xaC6+KstOLRwEGfVfXpqf6Ml1gIG+v10dszdUdIlMmFKkc2xh73TZdrT0A+3d6gO22UqZ94mpmK7vbTCdTVlyki5K2vCq32FCecnpdaGTBQoAA5q1em4C5bJJhTAojOgaDJBNP3DNNmyNaewBKZhxoSB68eqnjt+0PlwM55Jc59dmpo2iw+8UMZmjUr7Cz0Xy/IAzlirSSSiqpsr7RjkjPVV7hrKe7SdlcQqolZajw4CQB0a4jK62Hwml5a9Baaw23J2TUpivFgjK8sTRSCXFCnSVlHnQxi22Cq/XMfB/Y3uoZ6S/3SfIfPpjUm371sEmsBcHc0DvvUXPjSRqP+lP7Vw3/A/8R+BsFPx82AyTlVQAAAABJRU5ErkJggg==">
+<meta name="theme-color" content="#9B6BFF">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English B2 Trainer | Pioneer Education</title>
+<meta name="description" content="Complete English B2 course with Hindi and Punjabi translations. Works offline.">
+<style>
+/* ============================================================
+   GLEIS A1  —  design tokens
+   Visual language: German rail & post signage.
+   Enamel white boards, signal yellow, signage blue, ink black.
+============================================================ */
+:root{
+  --ink:#101820;
+  --ink-soft:#2C3844;
+  --enamel:#E9EBE7;
+  --enamel-dim:#DADDD6;
+  --board:#151B22;
+  --signal:#9B6BFF;
+  --signal-dim:#6B3FBF;
+  --rail:#4A2A8A;
+  --rail-light:#3A7CC4;
+  --rot:#B8202E;
+  --gruen:#1F7A5A;
+  --paper:#FBFBF9;
+
+  --sans:"Arial Narrow","Helvetica Neue Condensed","Liberation Sans Narrow",
+         "Helvetica Neue",Arial,sans-serif;
+  --sans-w:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+
+  --rad:3px;
+  --shadow:0 1px 0 rgba(16,24,32,.10), 0 2px 10px rgba(16,24,32,.06);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--enamel); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.62;
+}
+img{max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+
+/* ---------- signage type ---------- */
+.sig{
+  font-family:var(--sans-w); font-weight:800;
+  text-transform:uppercase; letter-spacing:.09em;
+}
+.mono{font-family:var(--mono)}
+
+/* ============================================================
+   BOARD HEADER  (signature element: departure board)
+============================================================ */
+header.board{
+  background:var(--board); color:var(--enamel);
+  border-bottom:5px solid var(--signal);
+  padding:14px 20px 12px;
+  position:sticky; top:0; z-index:60;
+}
+.board-top{
+  display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+  max-width:1180px; margin:0 auto;
+}
+.brand{
+  font-family:var(--sans-w); font-weight:800; letter-spacing:.16em;
+  text-transform:uppercase; font-size:19px; color:var(--signal);
+}
+.brand span{color:var(--enamel)}
+.board-sub{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em;
+  text-transform:uppercase; color:#8A96A3;
+}
+.board-strip{
+  max-width:1180px; margin:10px auto 0;
+  display:grid; grid-template-columns:64px 1fr auto;
+  gap:14px; align-items:center;
+  background:#0A0E13; border:1px solid #232C36; border-radius:var(--rad);
+  padding:9px 13px;
+}
+.gleis-no{
+  font-family:var(--mono); font-weight:700; font-size:24px;
+  color:var(--board); background:var(--signal);
+  text-align:center; border-radius:2px; padding:3px 0; line-height:1.2;
+}
+.strip-title{
+  font-family:var(--sans-w); font-weight:700; font-size:16px;
+  letter-spacing:.03em; color:var(--enamel);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.strip-title small{
+  display:block; font-weight:500; font-size:11.5px; letter-spacing:.13em;
+  text-transform:uppercase; color:#7C8896; margin-top:1px;
+}
+.flip{animation:flip .34s ease}
+@keyframes flip{
+  0%{opacity:0; transform:translateY(-7px) scaleY(.7)}
+  100%{opacity:1; transform:none}
+}
+.xp-pod{
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em;
+  color:var(--signal); text-align:right; white-space:nowrap;
+}
+.xp-pod b{font-size:17px; display:block; color:#fff}
+
+/* ============================================================
+   LAYOUT
+============================================================ */
+.wrap{
+  max-width:1180px; margin:0 auto; padding:0 20px 90px;
+  display:grid; grid-template-columns:262px 1fr; gap:30px;
+  align-items:start;
+}
+
+/* ---------- Fahrplan sidebar ---------- */
+nav.fahrplan{
+  position:sticky; top:132px; max-height:calc(100vh - 156px);
+  overflow-y:auto; padding:22px 0 30px;
+}
+.fp-head{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--ink-soft);
+  border-bottom:2px solid var(--ink); padding-bottom:6px; margin-bottom:4px;
+  display:flex; justify-content:space-between;
+}
+.fp-kat{
+  font-family:var(--mono); font-size:10px; letter-spacing:.18em;
+  text-transform:uppercase; color:#78838F;
+  margin:16px 0 4px; padding-left:2px;
+}
+.fp-item{
+  display:grid; grid-template-columns:30px 1fr 30px; gap:8px;
+  align-items:center; width:100%; text-align:left;
+  background:none; border:0; border-bottom:1px solid var(--enamel-dim);
+  padding:8px 2px; cursor:pointer; line-height:1.28;
+}
+.fp-item:hover{background:#E0E3DD}
+.fp-item.on{background:var(--ink); color:var(--enamel)}
+.fp-item.on .fp-g{color:var(--signal)}
+.fp-g{font-family:var(--mono); font-size:12px; color:#78838F; font-weight:700}
+.fp-t{font-family:var(--sans-w); font-size:13.5px; font-weight:600; letter-spacing:.01em}
+.fp-t em{
+  display:block; font-style:normal; font-size:10.5px; font-weight:500;
+  color:#78838F; letter-spacing:.04em;
+}
+.fp-item.on .fp-t em{color:#9AA6B2}
+.fp-dot{
+  width:12px; height:12px; border-radius:50%; justify-self:end;
+  border:2px solid #B6BCB4; background:transparent;
+}
+.fp-dot.part{background:var(--signal); border-color:var(--signal-dim)}
+.fp-dot.done{background:var(--gruen); border-color:var(--gruen)}
+
+/* ---------- main ---------- */
+main{padding:26px 0 0; min-width:0}
+
+.station-head{margin-bottom:26px}
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.2em;
+  text-transform:uppercase; color:var(--rail); margin-bottom:7px;
+}
+h1{
+  font-family:var(--sans-w); font-weight:800; font-size:clamp(28px,4.6vw,42px);
+  line-height:1.06; letter-spacing:-.015em; margin:0 0 6px;
+}
+h1 .en{
+  display:block; font-size:15px; font-weight:600; letter-spacing:.1em;
+  text-transform:uppercase; color:#6E7A86; margin-top:9px;
+}
+.lead{
+  font-size:17.5px; color:var(--ink-soft); max-width:60ch; margin:14px 0 0;
+  border-left:4px solid var(--signal); padding-left:15px;
+}
+
+.blk{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-radius:var(--rad); box-shadow:var(--shadow);
+  margin:22px 0; overflow:hidden;
+}
+.blk-head{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  background:var(--ink); color:var(--enamel); padding:9px 16px;
+}
+.blk-head .tag{
+  font-family:var(--mono); font-size:9.5px; letter-spacing:.16em;
+  text-transform:uppercase; background:var(--signal); color:var(--ink);
+  padding:2px 7px; border-radius:2px; font-weight:700;
+}
+.blk-head .tag.gram{background:var(--rail-light); color:#fff}
+.blk-head .tag.ueb{background:var(--gruen); color:#fff}
+.blk-head h2{
+  font-family:var(--sans-w); font-weight:700; font-size:15.5px;
+  letter-spacing:.03em; margin:0;
+}
+.blk-body{padding:18px 18px 20px}
+.blk-body>*:first-child{margin-top:0}
+.blk-body>*:last-child{margin-bottom:0}
+
+h3{
+  font-family:var(--sans-w); font-weight:700; font-size:14.5px;
+  letter-spacing:.05em; text-transform:uppercase;
+  margin:22px 0 9px; color:var(--rail);
+}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px; padding-left:22px}
+li{margin-bottom:5px}
+b,strong{color:var(--ink)}
+.de{font-weight:700; color:var(--rail)}
+.en-i{color:#6E7A86; font-style:italic}
+
+/* rule / grammar callout */
+.rule{
+  background:#F3F5F8; border-left:4px solid var(--rail);
+  padding:13px 16px; margin:14px 0; border-radius:0 var(--rad) var(--rad) 0;
+}
+.rule .lbl{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--rail); display:block; margin-bottom:5px;
+}
+.warn{background:#FFF8E4; border-left-color:var(--signal-dim)}
+.warn .lbl{color:var(--signal-dim)}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow-x:auto; margin:14px 0; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-size:15.5px; min-width:340px}
+th{
+  font-family:var(--mono); font-size:10px; letter-spacing:.15em;
+  text-transform:uppercase; text-align:left; color:#fff; background:var(--ink-soft);
+  padding:7px 11px; font-weight:600; white-space:nowrap;
+}
+td{padding:7px 11px; border-bottom:1px solid var(--enamel-dim); vertical-align:top}
+tbody tr:nth-child(even){background:#F5F6F3}
+td.g{font-family:var(--sans-w); font-weight:700; color:var(--rail); white-space:nowrap}
+td.e{color:var(--ink-soft)}
+td.n{font-size:13.5px; color:#78838F; font-style:italic}
+
+/* speak button */
+.spk{
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  width:26px; height:24px; cursor:pointer; padding:0; line-height:1;
+  color:var(--rail); font-size:13px; vertical-align:middle;
+}
+.spk:hover{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.spk:active{transform:translateY(1px)}
+
+/* ---------- dialog ---------- */
+.dlg{margin:14px 0}
+.dlg-row{
+  display:grid; grid-template-columns:78px 1fr auto; gap:11px;
+  padding:8px 0; border-bottom:1px dashed var(--enamel-dim); align-items:start;
+}
+.dlg-who{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--rail); padding-top:3px; font-weight:700;
+}
+.dlg-de{font-weight:600}
+.dlg-en{display:block; font-size:14px; color:#78838F; font-style:italic; font-weight:400}
+
+/* ---------- reading text / sign ---------- */
+.lesetext{
+  background:#fff; border:1px solid var(--enamel-dim);
+  border-top:4px solid var(--ink); padding:16px 18px; margin:14px 0;
+  font-size:16.5px;
+}
+.lesetext .meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em;
+  color:#78838F; text-transform:uppercase; margin-bottom:9px;
+  border-bottom:1px solid var(--enamel-dim); padding-bottom:7px;
+}
+.schild{
+  background:var(--rail); color:#fff; border:3px solid #fff;
+  outline:2px solid var(--rail); border-radius:var(--rad);
+  padding:16px 18px; margin:12px 0; text-align:center;
+  font-family:var(--sans-w); font-weight:700; letter-spacing:.05em; font-size:18px;
+}
+.schild.gelb{background:var(--signal); color:var(--ink); outline-color:var(--signal-dim)}
+
+/* ============================================================
+   EXERCISES
+============================================================ */
+.ex{margin:6px 0 0}
+.ex-bar{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  flex-wrap:wrap; margin-bottom:12px; padding-bottom:9px;
+  border-bottom:2px solid var(--ink);
+}
+.ex-count{
+  font-family:var(--mono); font-size:11px; letter-spacing:.12em;
+  text-transform:uppercase; color:#78838F;
+}
+.q{
+  padding:13px 0; border-bottom:1px solid var(--enamel-dim);
+}
+.q:last-of-type{border-bottom:0}
+.q-txt{margin-bottom:9px; font-size:16.5px}
+.q-no{
+  font-family:var(--mono); font-size:12px; color:#98A2AC;
+  margin-right:9px; font-weight:700;
+}
+.q-en{display:block; font-size:13.5px; color:#8A939C; font-style:italic; margin-top:3px}
+
+.opts{display:flex; flex-direction:column; gap:7px; max-width:640px}
+.opt{
+  display:flex; align-items:center; gap:10px; width:100%; text-align:left;
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 13px; cursor:pointer; font-family:var(--serif); font-size:16px;
+  transition:border-color .12s, background .12s;
+}
+.opt:hover:not(:disabled){border-color:var(--rail); background:#F3F7FC}
+.opt:disabled{cursor:default}
+.opt .key{
+  font-family:var(--mono); font-size:11px; font-weight:700; color:#98A2AC;
+  border:1px solid var(--enamel-dim); border-radius:2px;
+  width:21px; height:21px; display:grid; place-items:center; flex:none;
+}
+.opt.right{border-color:var(--gruen); background:#EAF6F1}
+.opt.right .key{background:var(--gruen); color:#fff; border-color:var(--gruen)}
+.opt.wrong{border-color:var(--rot); background:#FBEDEE}
+.opt.wrong .key{background:var(--rot); color:#fff; border-color:var(--rot)}
+
+.inrow{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+input.gap{
+  border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:8px 11px; font-family:var(--serif); font-size:16px; background:#fff;
+  min-width:190px; flex:1 1 190px; max-width:340px;
+}
+input.gap:focus{outline:2px solid var(--rail); outline-offset:0; border-color:var(--rail)}
+input.gap.right{border-color:var(--gruen); background:#EAF6F1}
+input.gap.wrong{border-color:var(--rot); background:#FBEDEE}
+.btn{
+  font-family:var(--sans-w); font-weight:700; font-size:12.5px;
+  letter-spacing:.09em; text-transform:uppercase;
+  background:var(--ink); color:var(--enamel); border:0; border-radius:var(--rad);
+  padding:9px 16px; cursor:pointer;
+}
+.btn:hover{background:var(--rail)}
+.btn:active{transform:translateY(1px)}
+.btn.gelb{background:var(--signal); color:var(--ink)}
+.btn.gelb:hover{background:var(--signal-dim)}
+.btn.ghost{background:transparent; color:var(--ink); border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink); color:var(--enamel)}
+.btn.sm{padding:6px 11px; font-size:11px}
+
+.umlaut{display:flex; gap:4px; flex-wrap:wrap; margin:8px 0}
+.umlaut button{
+  font-family:var(--serif); font-size:15px; width:32px; height:30px;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px; cursor:pointer;
+}
+.umlaut button:hover{background:var(--signal); border-color:var(--signal-dim)}
+
+.fb{
+  margin-top:8px; font-size:14.5px; padding:7px 11px; border-radius:var(--rad);
+  display:none;
+}
+.fb.show{display:block}
+.fb.ok{background:#EAF6F1; color:#14513C; border-left:3px solid var(--gruen)}
+.fb.no{background:#FBEDEE; color:#7C1620; border-left:3px solid var(--rot)}
+
+/* word ordering */
+.pool,.slot{
+  display:flex; flex-wrap:wrap; gap:6px; min-height:44px; padding:8px;
+  border-radius:var(--rad);
+}
+.slot{border:2px dashed var(--rail); background:#F3F7FC; margin-bottom:7px}
+.pool{border:1px solid var(--enamel-dim); background:#fff}
+.word{
+  font-family:var(--serif); font-size:16px; background:var(--ink); color:var(--enamel);
+  border:0; border-radius:2px; padding:6px 11px; cursor:pointer;
+}
+.word:hover{background:var(--rail)}
+.slot .word{background:var(--signal); color:var(--ink)}
+.slot .word:hover{background:var(--signal-dim)}
+
+/* matching pairs */
+.pairs{display:grid; grid-template-columns:1fr 1fr; gap:9px; max-width:620px}
+.pcol{display:flex; flex-direction:column; gap:6px}
+.pbtn{
+  background:#fff; border:1.5px solid var(--enamel-dim); border-radius:var(--rad);
+  padding:9px 12px; cursor:pointer; text-align:left; font-family:var(--serif); font-size:15.5px;
+}
+.pbtn:hover:not(:disabled){border-color:var(--rail)}
+.pbtn.sel{background:var(--rail); color:#fff; border-color:var(--rail)}
+.pbtn.done{background:#EAF6F1; border-color:var(--gruen); color:#14513C; cursor:default; opacity:.72}
+.pbtn.miss{border-color:var(--rot); animation:shake .3s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* dictation */
+.dikt-row{display:flex; gap:9px; align-items:center; flex-wrap:wrap; margin-bottom:8px}
+.big-spk{
+  background:var(--rail); color:#fff; border:0; border-radius:var(--rad);
+  padding:9px 15px; cursor:pointer; font-family:var(--sans-w); font-weight:700;
+  font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+}
+.big-spk:hover{background:var(--rail-light)}
+.speed{
+  font-family:var(--mono); font-size:11px; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:7px 9px; cursor:pointer;
+}
+
+/* writing */
+textarea.schreib{
+  width:100%; min-height:150px; border:1.5px solid var(--enamel-dim);
+  border-radius:var(--rad); padding:12px; font-family:var(--serif); font-size:16px;
+  background:#fff; resize:vertical; line-height:1.6;
+}
+textarea.schreib:focus{outline:2px solid var(--rail); border-color:var(--rail)}
+.muster{
+  display:none; background:#F3F5F8; border-left:4px solid var(--gruen);
+  padding:13px 16px; margin-top:12px; white-space:pre-wrap; font-size:16px;
+}
+.muster.show{display:block}
+.checklist{list-style:none; padding:0; margin:10px 0}
+.checklist li{
+  padding-left:24px; position:relative; font-size:15.5px; margin-bottom:6px;
+}
+.checklist li::before{
+  content:"□"; position:absolute; left:0; color:var(--rail);
+  font-size:17px; line-height:1;
+}
+
+/* flashcards */
+.fc-stage{display:flex; flex-direction:column; align-items:center; gap:14px}
+.card{
+  width:100%; max-width:430px; min-height:170px; background:var(--ink);
+  color:var(--enamel); border-radius:var(--rad); display:grid; place-items:center;
+  text-align:center; padding:26px 20px; cursor:pointer; box-shadow:var(--shadow);
+}
+.card .face{font-family:var(--sans-w); font-weight:700; font-size:26px; letter-spacing:.01em}
+.card .back{font-size:19px; color:var(--signal); margin-top:9px; font-family:var(--serif)}
+.card .hint{
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em;
+  text-transform:uppercase; color:#7C8896; margin-top:13px;
+}
+
+/* score panel */
+.score{
+  margin-top:16px; background:var(--ink); color:var(--enamel);
+  border-radius:var(--rad); padding:14px 17px;
+  display:flex; justify-content:space-between; align-items:center; gap:13px; flex-wrap:wrap;
+}
+.score .num{font-family:var(--mono); font-size:26px; color:var(--signal); font-weight:700}
+.score .lbl{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3;
+}
+
+/* footer nav */
+.stepper{
+  display:flex; justify-content:space-between; gap:12px; margin:34px 0 0;
+  padding-top:20px; border-top:3px solid var(--ink);
+}
+
+/* toast */
+#toast{
+  position:fixed; left:50%; bottom:24px; transform:translate(-50%,90px);
+  background:var(--ink); color:var(--signal); font-family:var(--mono);
+  font-size:13px; letter-spacing:.06em; padding:11px 20px; border-radius:var(--rad);
+  z-index:200; transition:transform .26s ease; box-shadow:0 6px 24px rgba(0,0,0,.25);
+}
+#toast.up{transform:translate(-50%,0)}
+
+/* mobile drawer button */
+.menu-btn{display:none}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 15px 80px}
+  nav.fahrplan{
+    position:fixed; inset:0 auto 0 0; width:288px; background:var(--enamel);
+    z-index:90; transform:translateX(-102%); transition:transform .24s ease;
+    box-shadow:6px 0 24px rgba(0,0,0,.2); padding:18px 16px 40px;
+    max-height:none; overflow-y:auto;
+  }
+  nav.fahrplan.open{transform:none}
+  .menu-btn{
+    display:inline-block; background:var(--signal); color:var(--ink); border:0;
+    font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+    text-transform:uppercase; padding:8px 13px; border-radius:var(--rad); cursor:pointer;
+  }
+  .scrim{
+    display:none; position:fixed; inset:0; background:rgba(16,24,32,.5); z-index:80;
+  }
+  .scrim.on{display:block}
+  .pairs{grid-template-columns:1fr}
+  body{font-size:16px}
+  .board-strip{grid-template-columns:52px 1fr; gap:11px}
+  .xp-pod{grid-column:1/-1; text-align:left; border-top:1px solid #232C36; padding-top:6px}
+  .xp-pod b{display:inline; font-size:14px}
+  .dlg-row{grid-template-columns:1fr}
+  .dlg-who{padding-top:0}
+}
+/* ============================================================
+   HOME / LEVEL SELECT
+============================================================ */
+.home-head{margin:26px 0 24px}
+.home-head h1{margin-bottom:10px}
+.resume{
+  display:grid; grid-template-columns:auto 1fr auto; gap:16px; align-items:center;
+  background:var(--ink); color:var(--enamel); border-left:6px solid var(--signal);
+  border-radius:var(--rad); padding:16px 18px; margin:0 0 26px; cursor:pointer;
+  box-shadow:var(--shadow); width:100%; text-align:left; border-top:0;border-right:0;border-bottom:0;
+}
+.resume:hover{background:#1B2husk}
+.resume:hover{background:#1A2430}
+.resume .rg{
+  font-family:var(--mono); font-weight:700; font-size:26px; color:var(--ink);
+  background:var(--signal); border-radius:2px; padding:6px 11px; line-height:1.1;
+}
+.resume .rt{font-family:var(--sans-w); font-weight:700; font-size:17px; letter-spacing:.02em}
+.resume .rt small{
+  display:block; font-family:var(--mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:#8A96A3; margin-bottom:4px; font-weight:500;
+}
+.resume .ra{
+  font-family:var(--sans-w); font-weight:800; font-size:12px; letter-spacing:.1em;
+  text-transform:uppercase; color:var(--signal); white-space:nowrap;
+}
+
+.lvl-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:0 0 30px}
+.lvl-card{
+  background:var(--paper); border:1px solid var(--enamel-dim); border-top:5px solid var(--rail);
+  border-radius:var(--rad); padding:18px 18px 16px; text-align:left; cursor:pointer;
+  box-shadow:var(--shadow); display:flex; flex-direction:column; gap:10px;
+  transition:transform .12s, box-shadow .12s;
+}
+.lvl-card:hover{transform:translateY(-2px); box-shadow:0 4px 18px rgba(16,24,32,.13)}
+.lvl-card.l2{border-top-color:#2A7F62}
+.lvl-card.l3{border-top-color:#6B3FBF}
+.lvl-card.l4{border-top-color:#B8202E}
+.lvl-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.lvl-code{
+  font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--rail); font-weight:700;
+}
+.lvl-card.l2 .lvl-code{color:#2A7F62}
+.lvl-card.l3 .lvl-code{color:#6B3FBF}
+.lvl-card.l4 .lvl-code{color:#B8202E}
+.lvl-name{
+  font-family:var(--sans-w); font-weight:800; font-size:20px; letter-spacing:-.01em;
+  line-height:1.15; margin:2px 0 0;
+}
+.lvl-name em{
+  display:block; font-style:normal; font-size:12px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; color:#78838F; margin-top:4px;
+}
+.lvl-desc{font-size:15px; color:var(--ink-soft); margin:0}
+.lvl-meta{
+  font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:#78838F;
+  border-top:1px solid var(--enamel-dim); padding-top:9px; margin-top:auto;
+  display:flex; justify-content:space-between; gap:10px;
+}
+.ring{width:52px; height:52px; flex:none; position:relative}
+.ring svg{transform:rotate(-90deg)}
+.ring span{
+  position:absolute; inset:0; display:grid; place-items:center;
+  font-family:var(--mono); font-size:12px; font-weight:700; color:var(--ink);
+}
+.lvl-stations{display:flex; flex-wrap:wrap; gap:4px}
+.lvl-chip{
+  font-family:var(--mono); font-size:10.5px; font-weight:700; color:#78838F;
+  border:1px solid var(--enamel-dim); background:#fff; border-radius:2px;
+  padding:2px 6px; line-height:1.5;
+}
+.lvl-chip.part{background:var(--signal); border-color:var(--signal-dim); color:var(--ink)}
+.lvl-chip.done{background:var(--gruen); border-color:var(--gruen); color:#fff}
+
+.home-tools{display:flex; gap:11px; flex-wrap:wrap; margin-bottom:30px}
+
+/* placement test */
+.place{
+  background:var(--paper); border:1px solid var(--enamel-dim);
+  border-left:5px solid var(--signal); border-radius:var(--rad);
+  padding:18px; box-shadow:var(--shadow); margin-bottom:30px;
+}
+.place h3{margin-top:0}
+.place-result{
+  background:var(--ink); color:var(--enamel); border-radius:var(--rad);
+  padding:16px 18px; margin-top:14px;
+}
+.place-result b{color:var(--signal); font-size:19px; display:block; margin-bottom:5px;
+  font-family:var(--sans-w); letter-spacing:.02em}
+
+/* level badge in sidebar + station head */
+.fp-lvl{
+  display:flex; justify-content:space-between; align-items:center;
+  font-family:var(--mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+  color:#fff; background:var(--rail); padding:4px 8px; border-radius:2px;
+  margin:16px 0 5px;
+}
+.fp-lvl.l2{background:#2A7F62}
+.fp-lvl.l3{background:#6B3FBF}
+.fp-lvl.l4{background:#B8202E}
+.home-btn{
+  background:transparent; border:1.5px solid #3A4653; color:var(--enamel);
+  font-family:var(--sans-w); font-weight:700; font-size:11px; letter-spacing:.1em;
+  text-transform:uppercase; padding:6px 12px; border-radius:var(--rad); cursor:pointer;
+}
+.home-btn:hover{background:var(--signal); color:var(--ink); border-color:var(--signal)}
+
+@media (max-width:900px){
+  .lvl-grid{grid-template-columns:1fr}
+  .resume{grid-template-columns:auto 1fr; gap:12px}
+  .resume .ra{grid-column:1/-1}
+}
+
+@media print{
+  nav.fahrplan,.stepper,header.board{display:none}
+  .wrap{grid-template-columns:1fr}
+  .blk{break-inside:avoid}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important; transition:none!important}
+}
+/* ---------- Pioneer header lockup ---------- */
+.board-top{display:flex; align-items:center; gap:14px; max-width:1180px; margin:0 auto}
+.plogo{height:46px; width:auto; display:block; border-radius:3px; flex:none;
+       box-shadow:0 1px 6px rgba(0,0,0,.35)}
+.brandcenter{flex:1; text-align:center; min-width:0}
+.bname{
+  font-family:var(--sans-w); font-weight:800; font-size:17px; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--enamel); line-height:1.2;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.bweb{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--signal); margin-top:3px;
+}
+.bweb span{color:#8A96A3}
+.levelchip{
+  font-family:var(--sans-w); font-weight:800; font-size:21px; letter-spacing:.06em;
+  background:var(--signal); color:var(--board); padding:4px 12px; border-radius:3px;
+  line-height:1.15; flex:none;
+}
+@media (max-width:900px){
+  .board-top{gap:9px; flex-wrap:wrap}
+  .plogo{height:32px}
+  .plogo.right{display:none}
+  .bname{font-size:12px; letter-spacing:.09em}
+  .bweb{font-size:9px; letter-spacing:.1em}
+  .levelchip{font-size:16px; padding:3px 9px}
+}
+
+/* ---------- English trainer additions ---------- */
+.eng{font-weight:700; color:var(--rail)}
+.hi,.pa{font-family:"Noto Sans Devanagari","Nirmala UI","Mangal","Kohinoor Devanagari",var(--sans-w)}
+.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI","Raavi","Gurmukhi MN",var(--sans-w)}
+.trl{display:none; font-size:14.5px; line-height:1.5; color:#5C6874; font-weight:400; font-style:normal; margin-top:2px; letter-spacing:0; text-transform:none}
+body.t-hi .trl.hi{display:block}
+body.t-pa .trl.pa{display:block}
+.trl.hi::before{content:"हि  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+.trl.pa::before{content:"ਪੰ  "; font-size:10px; color:var(--rail); font-weight:700; letter-spacing:.04em}
+p.lead.trl{border-left:4px solid var(--enamel-dim); padding-left:15px; font-size:15.5px; margin-top:8px; max-width:60ch}
+th.hi,td.hi,th.pa,td.pa{display:none}
+body.t-hi th.hi, body.t-hi td.hi, body.t-pa th.pa, body.t-pa td.pa{display:table-cell}
+td.hi,td.pa{color:#34414D}
+td.g{font-family:var(--sans-w)}
+.cue{display:block; font-size:16.5px; line-height:1.5}
+.cue.pa-i{color:#5C6874; font-size:15px}
+.langbar{max-width:1180px; margin:9px auto 0; display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+.langbar .lb-l{font-family:var(--mono); font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:#8A96A3; margin-right:2px}
+.trbtn{font-family:"Noto Sans Devanagari","Nirmala UI",var(--sans-w); font-weight:700; font-size:13px;
+  background:transparent; color:var(--enamel); border:1.5px solid #3A4653; border-radius:var(--rad);
+  padding:4px 12px; cursor:pointer}
+.trbtn.pa{font-family:"Noto Sans Gurmukhi","Nirmala UI",var(--sans-w)}
+.trbtn.on{background:var(--signal); color:var(--board); border-color:var(--signal)}
+.q-txt .trl{margin-top:3px}
+.fb .trl{margin-top:2px}
+.card .back{line-height:1.5}
+.tbl-wrap td.g{min-width:92px}
+.ex-tip{font-size:14px; color:#5C6874}
+@media (max-width:900px){ .langbar{margin-top:7px} }
+</style>
+</head>
+<body>
+
+<header class="board">
+  <div class="board-top">
+    <button class="menu-btn" id="menuBtn" aria-label="Open unit list">☰</button>
+    <img class="plogo" src="data:image/png;base64,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" alt="Pioneer Education">
+    <div class="brandcenter">
+      <div class="bname">Pioneer Education Morinda</div>
+      <div class="bweb">www.pioneermorinda.com <span>· English B2 · Upper-intermediate</span></div>
+    </div>
+    <span class="levelchip">B2</span>
+    <img class="plogo right" src="data:image/png;base64,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" alt="">
+    <button class="home-btn" id="homeBtn">⌂</button>
+  </div>
+  <div class="board-strip">
+    <div class="gleis-no mono" id="stripG">01</div>
+    <div class="strip-title" id="stripT">English B2<small>Pioneer Education</small></div>
+    <div class="xp-pod">
+      <b id="xpVal">0</b>
+      <span id="xpLbl">Points · 0 % complete</span>
+    </div>
+  </div>
+  <div class="langbar">
+    <span class="lb-l">Translate</span>
+    <button class="trbtn" id="trHi" type="button">हिन्दी</button>
+    <button class="trbtn pa" id="trPa" type="button">ਪੰਜਾਬੀ</button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="wrap">
+  <nav class="fahrplan" id="fahrplan" aria-label="Unit list"></nav>
+  <main id="main"></main>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   CONTENT HELPERS — self-contained, no network.
+   Translations: hi = हिन्दी, pa = ਪੰਜਾਬੀ
+============================================================ */
+const STATIONEN = [];
+function T(hi,pa){ return '<span class="trl hi">'+hi+'</span><span class="trl pa">'+pa+'</span>'; }
+function P(en,hi,pa){ return '<p>'+en+'</p>'+(hi?T(hi,pa||''):''); }
+function _hash(str){ var h=7; for(var i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))&0x7fffffff; } return h; }
+function _s(r){ return r.split('|').map(function(x){return x.trim();}); }
+const B = {
+  rule:function(t,html){ return {typ:'regel',t:t,html:html}; },
+  vok:function(t,rows){ return {typ:'vok',t:t,items:rows.map(_s)}; },
+  dlg:function(t,rows){ return {typ:'dlg',t:t,zeilen:rows.map(_s)}; },
+  text:function(t,meta,html){ return {typ:'text',t:t,meta:meta,html:html}; },
+  cards:function(t,rows){ return {typ:'karten',t:t,items:rows.map(_s)}; },
+  mcq:function(t,rows){ return {typ:'ueb',art:'mcq',t:t,items:rows.map(function(r){
+      var a=_s(r), o=a[1].split(';').map(function(x){return x.trim();}), c=+a[2];
+      var idx=o.map(function(_,i){return i;}), h=_hash(a[0]);
+      for(var i=idx.length-1;i>0;i--){ h=(h*1103515245+12345)&0x7fffffff; var j=h%(i+1); var tmp=idx[i]; idx[i]=idx[j]; idx[j]=tmp; }
+      var no=idx.map(function(k){return o[k];}), na=idx.indexOf(c);
+      return {q:a[0],opts:no,a:na,fb:a[3]||'',hi:a[4]||'',pa:a[5]||''}; })}; },
+  gap:function(t,rows){ return {typ:'ueb',art:'luecke',t:t,items:rows.map(function(r){
+      var a=_s(r); return {q:a[0],a:a[1].split('/').map(function(x){return x.trim();}),hi:a[2]||'',pa:a[3]||''}; })}; },
+  ord:function(t,rows){ return {typ:'ueb',art:'ordnen',t:t,items:rows.map(function(r){
+      var a=_s(r); return {a:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  pairs:function(t,rows){ return {typ:'ueb',art:'paare',t:t,items:rows.map(_s)}; },
+  dikt:function(t,rows){ return {typ:'ueb',art:'diktat',t:t,items:rows.map(function(r){
+      var a=_s(r); return {t:a[0],hi:a[1]||'',pa:a[2]||''}; })}; },
+  write:function(t,prompt,points,model){ return {typ:'schreiben',t:t,prompt:prompt,punkte:points,muster:model}; }
+};
+function UNIT(id,g,kat,t,sub,lead,leadHi,leadPa,blocks){
+  STATIONEN.push({id:id,g:g,kat:kat,t:t,en:sub,lead:lead,leadHi:leadHi,leadPa:leadPa,bloecke:blocks});
+}
+function ADD(id,block){ for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id){ STATIONEN[i].bloecke.push(block); return; } } }
+
+var LEVELS = [
+ {code:'B2.1', cls:'', name:'Advanced Grammar', en:'उन्नत व्याकरण · ਉੱਨਤ ਵਿਆਕਰਨ',
+  desc:'Advanced tenses, modal deduction, mixed conditionals, advanced passive and causative, and reporting verbs.',
+  ids:['b2_tenses','b2_modal','b2_cond','b2_pass','b2_report']},
+ {code:'B2.2', cls:'l2', name:'Style & Structure', en:'शैली और संरचना · ਸ਼ੈਲੀ ਅਤੇ ਬਣਤਰ',
+  desc:'Participle clauses, inversion and emphasis, discourse markers, idioms and word formation.',
+  ids:['b2_part','b2_inv','b2_conn','b2_idiom','b2_word']},
+ {code:'B2.3', cls:'l3', name:'Topics & Academic Vocabulary', en:'विषय और शैक्षणिक शब्दावली · ਵਿਸ਼ੇ ਅਤੇ ਅਕਾਦਮਿਕ ਸ਼ਬਦਾਵਲੀ',
+  desc:'Society and debate, science and health, business and negotiation with precise vocabulary.',
+  ids:['b2_society','b2_science','b2_work']},
+ {code:'B2.4', cls:'l4', name:'Exam Practice', en:'परीक्षा अभ्यास · ਪ੍ਰੀਖਿਆ ਅਭਿਆਸ',
+  desc:'Inference reading, essays and reports, long-turn speaking, and a full B2 review test.',
+  ids:['b2_read','b2_write','b2_speak','b2_mock']}
+];
+var PLACEMENT = [
+ {q:'By next year I ___ my degree.',opts:['will finish','will have finished','finish'],a:1,lvl:0},
+ {q:'He isn\'t answering; he ___ be asleep.',opts:['must','mustn\'t','should have'],a:0,lvl:0},
+ {q:'If I had studied law, I ___ a lawyer now.',opts:['would be','would have been','will be'],a:0,lvl:0},
+ {q:'I had my phone ___ yesterday.',opts:['repair','repaired','repairing'],a:1,lvl:0},
+ {q:'She denied ___ the money.',opts:['to take','taking','take'],a:1,lvl:1},
+ {q:'___ I known, I would have helped.',opts:['Had','Have','If'],a:0,lvl:1},
+ {q:'The man ___ next to me is my uncle.',opts:['sit','sitting','sat'],a:1,lvl:1},
+ {q:'Never ___ such a beautiful view.',opts:['I have seen','have I seen','I saw'],a:1,lvl:1},
+ {q:'It was raining; ___, we played outside.',opts:['moreover','nevertheless','therefore'],a:1,lvl:2},
+ {q:'I can\'t put ___ with this noise.',opts:['up','on','off'],a:0,lvl:2},
+ {q:'It is ___ to park here. You may be fined.',opts:['unlegal','illegal','dislegal'],a:1,lvl:2},
+ {q:'The benefits ___ the risks.',opts:['outweigh','outgrow','overtake'],a:0,lvl:2},
+ {q:'"It could be argued that…" is an example of',opts:['hedging','slang','a question'],a:0,lvl:3},
+ {q:'No sooner had he left ___ it rained.',opts:['when','than','then'],a:1,lvl:3},
+ {q:'Heavy smoking can ___ in lung disease.',opts:['result','cause','lead of'],a:0,lvl:3},
+ {q:'"A piece of cake" means',opts:['very easy','very sweet','very costly'],a:0,lvl:3}
+];
+
+
+/* ══════════ B2.1 — Advanced grammar ══════════ */
+UNIT('b2_tenses','01','Advanced grammar','Advanced Tenses: Future Perfect, Continuous Forms & Narrative','उन्नत काल · ਉੱਨਤ ਕਾਲ',
+'B2 speakers combine tenses precisely: future perfect, future continuous, and the contrast between perfect and simple forms.',
+'B2 में काल सटीक रूप से मिलाए जाते हैं: future perfect, future continuous और perfect/simple का अंतर।',
+'B2 ਵਿੱਚ ਕਾਲ ਸਟੀਕ ਢੰਗ ਨਾਲ ਮਿਲਾਏ ਜਾਂਦੇ ਹਨ: future perfect, future continuous ਅਤੇ perfect/simple ਦਾ ਫ਼ਰਕ।',[
+ B.rule('Future forms in detail',
+  '<div class="tbl-wrap"><table><thead><tr><th>Form</th><th>Use</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Future continuous<br>will be + -ing</td><td class="e">in progress at a future moment; polite questions</td><td class="n">This time tomorrow I\'ll be flying to Toronto. Will you be using the car?</td></tr>'+
+  '<tr><td class="g">Future perfect<br>will have + V3</td><td class="e">completed before a future time</td><td class="n">By June I will have finished my degree.</td></tr>'+
+  '<tr><td class="g">Future perfect continuous<br>will have been + -ing</td><td class="e">duration up to a future time</td><td class="n">By 2030 she will have been teaching for 20 years.</td></tr>'+
+  '<tr><td class="g">be about to / be due to</td><td class="e">very near future / scheduled</td><td class="n">The train is about to leave. The report is due to arrive Monday.</td></tr>'+
+  '</tbody></table></div>'+
+  T('future perfect = "तब तक काम पूरा हो चुका होगा"; future continuous = "उस समय काम चल रहा होगा"।','future perfect = "ਉਦੋਂ ਤੱਕ ਕੰਮ ਪੂਰਾ ਹੋ ਚੁੱਕਾ ਹੋਵੇਗਾ"; future continuous = "ਉਸ ਵੇਲੇ ਕੰਮ ਚੱਲ ਰਿਹਾ ਹੋਵੇਗਾ"।')+
+  '<div class="rule"><span class="lbl">Time clauses</span>After <b>when, as soon as, before, until, once</b> use the present, not will: <i>I\'ll call you as soon as I arrive.</i> To stress completion use present perfect: <i>Once you have finished, let me know.</i></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ When I will arrive, I will call you. → ✓ <b class="eng">When I arrive, I will call you.</b></div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'By next year, I ___ my loan.|will repay;will have repaid;am repaying|1|future perfect.',
+  'This time next week we ___ on a beach.|will lie;will be lying;lie|1|future continuous.',
+  'I\'ll text you as soon as I ___.|will arrive;arrive;am arriving|1|present after as soon as.',
+  'By 2035 she ___ here for thirty years.|will work;will have been working;works|1|future perfect continuous.',
+  'Hurry up! The film ___ start.|is about to;will to;is going|0|be about to.',
+  '___ you be using your laptop tonight?|Will;Do;Are|0|polite question.',
+  'Don\'t phone me at eight. I ___ dinner.|will have;will be having;have|1|future continuous.',
+  'You can leave once you ___ the form.|will fill;have filled;filling|1|present perfect after once.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'By the time you arrive, I ___ (cook) dinner.|will have cooked|जब तक आप पहुँचेंगे, मैं खाना बना चुका होऊँगा।|ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਪਹੁੰਚੋਗੇ, ਮੈਂ ਖਾਣਾ ਬਣਾ ਚੁੱਕਾ ਹੋਵਾਂਗਾ।',
+  'This time tomorrow I ___ (sit) in an exam.|will be sitting|कल इस समय मैं परीक्षा में बैठा होऊँगा।|ਕੱਲ੍ਹ ਇਸ ਵੇਲੇ ਮੈਂ ਪ੍ਰੀਖਿਆ ਵਿੱਚ ਬੈਠਾ ਹੋਵਾਂਗਾ।',
+  'We\'ll leave when everyone ___ (arrive).|arrives/has arrived|जब सब आ जाएँगे तब हम निकलेंगे।|ਜਦੋਂ ਸਭ ਆ ਜਾਣਗੇ ਤਾਂ ਅਸੀਂ ਨਿਕਲਾਂਗੇ।',
+  'In June he ___ (work) here for ten years.|will have been working|जून में उसे यहाँ काम करते दस साल हो जाएँगे।|ਜੂਨ ਵਿੱਚ ਉਸਨੂੰ ਇੱਥੇ ਕੰਮ ਕਰਦਿਆਂ ਦਸ ਸਾਲ ਹੋ ਜਾਣਗੇ।',
+  'The plane ___ (about / land).|is about to land|जहाज़ उतरने ही वाला है।|ਜਹਾਜ਼ ਉੱਤਰਨ ਹੀ ਵਾਲਾ ਹੈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'By the end of the year I will have saved enough money.|साल के अंत तक मैंने पर्याप्त पैसे बचा लिए होंगे।|ਸਾਲ ਦੇ ਅੰਤ ਤੱਕ ਮੈਂ ਕਾਫ਼ੀ ਪੈਸੇ ਬਚਾ ਲਏ ਹੋਣਗੇ।',
+  'This time next month I will be working in Dubai.|अगले महीने इस समय मैं दुबई में काम कर रहा होऊँगा।|ਅਗਲੇ ਮਹੀਨੇ ਇਸ ਵੇਲੇ ਮੈਂ ਦੁਬਈ ਵਿੱਚ ਕੰਮ ਕਰ ਰਿਹਾ ਹੋਵਾਂਗਾ।'])
+]);
+
+UNIT('b2_modal','02','Advanced grammar','Modal Verbs: Deduction, Criticism and Regret','Modal verbs · Modal verbs',
+'Use modals to say how sure you are about the present and the past, and to criticise or regret what happened.',
+'Modals से बताएँ कि आप वर्तमान और भूतकाल के बारे में कितने निश्चित हैं, और आलोचना या पछतावा व्यक्त करें।',
+'Modals ਨਾਲ ਦੱਸੋ ਕਿ ਤੁਸੀਂ ਵਰਤਮਾਨ ਅਤੇ ਭੂਤਕਾਲ ਬਾਰੇ ਕਿੰਨੇ ਯਕੀਨੀ ਹੋ, ਅਤੇ ਆਲੋਚਨਾ ਜਾਂ ਪਛਤਾਵਾ ਪ੍ਰਗਟ ਕਰੋ।',[
+ B.rule('Certainty scale',
+  '<div class="tbl-wrap"><table><thead><tr><th>Certainty</th><th>Present</th><th>Past</th></tr></thead><tbody>'+
+  '<tr><td class="g">~100% sure it is true</td><td class="e">must be</td><td class="n">must have been / must have gone</td></tr>'+
+  '<tr><td class="g">possible</td><td class="e">may / might / could be</td><td class="n">may / might / could have gone</td></tr>'+
+  '<tr><td class="g">~100% sure it is not true</td><td class="e">can\'t be</td><td class="n">can\'t / couldn\'t have done it</td></tr>'+
+  '</tbody></table></div>'+
+  T('must have + V3 = "ज़रूर हुआ होगा"; might have = "शायद हुआ हो"; can\'t have = "हो ही नहीं सकता"।','must have + V3 = "ਜ਼ਰੂਰ ਹੋਇਆ ਹੋਵੇਗਾ"; might have = "ਸ਼ਾਇਦ ਹੋਇਆ ਹੋਵੇ"; can\'t have = "ਹੋ ਹੀ ਨਹੀਂ ਸਕਦਾ"।')+
+  '<div class="rule"><span class="lbl">Criticism and regret</span><b>should have + V3</b> = it was right but didn\'t happen: <i>You should have told me.</i><br><b>shouldn\'t have + V3</b> = it happened but was wrong: <i>I shouldn\'t have shouted.</i><br><b>needn\'t have + V3</b> = it wasn\'t necessary but was done: <i>You needn\'t have brought a gift.</i><br><b>could have + V3</b> = it was possible but didn\'t happen: <i>I could have won.</i></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ He must be gone → ✓ <b class="eng">He must have gone.</b> (past deduction needs have + V3)</div>'),
+ B.mcq('Practice 1 — Choose the correct modal',[
+  'The lights are off. They ___ asleep.|must be;must have;can\'t have|0|present deduction.',
+  'He didn\'t answer. He ___ the phone ringing.|can\'t have heard;mustn\'t hear;should hear|0|past impossible.',
+  'You ___ me earlier! I would have helped.|should have told;must tell;might tell|0|criticism.',
+  'I ___ the keys somewhere. Let me check.|might have left;must leave;can leave|0|possible.',
+  'She is not at home. She ___ out.|must have gone;can\'t go;should go|0|past deduction.',
+  'We took a taxi, but we ___. There was a bus.|needn\'t have;mustn\'t have;can\'t have|0|unnecessary action.',
+  'I ___ so rude. I\'m sorry.|shouldn\'t have been;mustn\'t be;couldn\'t be|0|regret.',
+  'It ___ true. It sounds too good.|can\'t be;must have;should be|0|present impossible.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'You ___ (not / go) there alone. It was dangerous.|shouldn\'t have gone|तुम्हें वहाँ अकेले नहीं जाना चाहिए था।|ਤੈਨੂੰ ਉੱਥੇ ਇਕੱਲਿਆਂ ਨਹੀਂ ਜਾਣਾ ਚਾਹੀਦਾ ਸੀ।',
+  'He isn\'t answering. He ___ (be) busy.|must be|वह जवाब नहीं दे रहा। वह ज़रूर व्यस्त होगा।|ਉਹ ਜਵਾਬ ਨਹੀਂ ਦੇ ਰਿਹਾ। ਉਹ ਜ਼ਰੂਰ ਰੁੱਝਿਆ ਹੋਵੇਗਾ।',
+  'She ___ (could / win) if she had practised more.|could have won|अगर वह ज़्यादा अभ्यास करती तो जीत सकती थी।|ਜੇ ਉਹ ਵੱਧ ਅਭਿਆਸ ਕਰਦੀ ਤਾਂ ਜਿੱਤ ਸਕਦੀ ਸੀ।',
+  'The thief ___ (must / enter) through the window.|must have entered|चोर खिड़की से ही घुसा होगा।|ਚੋਰ ਖਿੜਕੀ ਰਾਹੀਂ ਹੀ ਵੜਿਆ ਹੋਵੇਗਾ।',
+  'They ___ (can\'t / see) us. We were hiding.|can\'t have seen|उन्होंने हमें नहीं देखा होगा। हम छिपे थे।|ਉਹਨਾਂ ਨੇ ਸਾਨੂੰ ਨਹੀਂ ਵੇਖਿਆ ਹੋਣਾ। ਅਸੀਂ ਲੁਕੇ ਹੋਏ ਸੀ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'You should have told me the truth.|तुम्हें मुझे सच बताना चाहिए था।|ਤੈਨੂੰ ਮੈਨੂੰ ਸੱਚ ਦੱਸਣਾ ਚਾਹੀਦਾ ਸੀ।',
+  'He must have missed the bus.|उसकी बस छूट गई होगी।|ਉਸਦੀ ਬੱਸ ਛੁੱਟ ਗਈ ਹੋਵੇਗੀ।'])
+]);
+
+UNIT('b2_cond','03','Advanced grammar','Mixed Conditionals, Wishes and Alternatives to If','मिश्रित conditionals · ਮਿਸ਼ਰਤ conditionals',
+'Go beyond the basic types: mix past and present, and replace if with unless, provided that, as long as and otherwise.',
+'बुनियादी प्रकारों से आगे: भूत और वर्तमान मिलाएँ और if की जगह unless, provided that, as long as का प्रयोग करें।',
+'ਬੁਨਿਆਦੀ ਕਿਸਮਾਂ ਤੋਂ ਅੱਗੇ: ਭੂਤ ਅਤੇ ਵਰਤਮਾਨ ਮਿਲਾਓ ਅਤੇ if ਦੀ ਥਾਂ unless, provided that, as long as ਵਰਤੋ।',[
+ B.rule('Mixed conditionals',
+  '<div class="rule"><b>Past cause → present result:</b> If + past perfect, would + V1: <i>If I had studied medicine, I would be a doctor now.</i><br><b>Present state → past result:</b> If + past simple, would have + V3: <i>If I were more careful, I wouldn\'t have broken it.</i>'+T('पिछली बात का असर आज: If I had studied medicine, I would be a doctor now।','ਪਿਛਲੀ ਗੱਲ ਦਾ ਅਸਰ ਅੱਜ: If I had studied medicine, I would be a doctor now।')+'</div>'+
+  '<div class="rule"><span class="lbl">Alternatives to if</span><b>unless</b> = if not: <i>Unless you hurry, you\'ll miss the train.</i><br><b>provided / providing (that), as long as</b> = only if: <i>You can borrow it as long as you return it.</i><br><b>otherwise</b> = or else: <i>Take an umbrella; otherwise you\'ll get wet.</i><br><b>supposing / what if</b>: <i>What if he refuses?</i><br><b>In case</b> = as a precaution: <i>Take a coat in case it gets cold.</i></div>'+
+  '<div class="rule"><span class="lbl">Formal inversion</span><i>Had I known, I would have helped.</i> (= If I had known) &nbsp; <i>Should you need help, call me.</i> (= If you should need) &nbsp; <i>Were I you, I would refuse.</i></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ Unless you don\'t hurry → ✓ <b class="eng">Unless you hurry</b> (unless already means "if not").</div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'If I had taken that job, I ___ in London now.|would live;would be living;would have lived|1|mixed.',
+  '___ you study, you will fail.|If;Unless;Provided|1|unless = if not.',
+  'You can use my car ___ you drive carefully.|unless;as long as;otherwise|1|condition.',
+  '___ I known, I would have called you.|Had;Have;If|0|inversion.',
+  'Take a jacket ___ it gets cold.|in case;unless;otherwise|0|precaution.',
+  'If she weren\'t so shy, she ___ already made friends.|will have;would have;had|1|mixed.',
+  'Hurry up; ___, we\'ll be late.|unless;otherwise;provided|1|or else.',
+  '___ you need help, please call me.|Should;Would;Had|0|formal inversion.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'If he ___ (listen) to me, he wouldn\'t be in trouble now.|had listened|अगर उसने मेरी बात सुनी होती तो आज मुसीबत में न होता।|ਜੇ ਉਸਨੇ ਮੇਰੀ ਗੱਲ ਸੁਣੀ ਹੁੰਦੀ ਤਾਂ ਅੱਜ ਮੁਸੀਬਤ ਵਿੱਚ ਨਾ ਹੁੰਦਾ।',
+  '___ (not / you / leave) now, you\'ll miss the bus.|Unless you leave|अगर तुम अभी नहीं निकले तो बस छूट जाएगी।|ਜੇ ਤੁਸੀਂ ਹੁਣੇ ਨਾ ਨਿਕਲੇ ਤਾਂ ਬੱਸ ਛੁੱਟ ਜਾਵੇਗੀ।',
+  'I\'ll lend you the money ___ you pay me back.|as long as/provided that/providing|मैं पैसे उधार दूँगा बशर्ते तुम लौटा दो।|ਮੈਂ ਪੈਸੇ ਉਧਾਰ ਦੇਵਾਂਗਾ ਬਸ਼ਰਤੇ ਤੁਸੀਂ ਮੋੜ ਦਿਓ।',
+  'If I ___ (be) taller, I would have joined the police.|were/was|अगर मैं लंबा होता तो पुलिस में भर्ती हो जाता।|ਜੇ ਮੈਂ ਲੰਮਾ ਹੁੰਦਾ ਤਾਂ ਪੁਲਿਸ ਵਿੱਚ ਭਰਤੀ ਹੋ ਜਾਂਦਾ।',
+  'Had I ___ (know), I would have come.|known|अगर मुझे पता होता तो मैं आ जाता।|ਜੇ ਮੈਨੂੰ ਪਤਾ ਹੁੰਦਾ ਤਾਂ ਮੈਂ ਆ ਜਾਂਦਾ।']),
+ B.write('Practice 3 — Life choices','Write 6–8 sentences about decisions in your life. Use at least two mixed conditionals and one wish.',['If I had … I would be …','If I were … I wouldn\'t have …','I wish …'],
+  'If I had left school earlier, I would not be studying English now. If I were less shy, I would have applied for that job last year. I wish I had started learning to drive at eighteen. Unless I practise every day, I will never speak fluently, so I have decided to study for an hour each evening. Had I known how useful English is, I would have started much earlier.')
+]);
+
+UNIT('b2_pass','04','Advanced grammar','Advanced Passive, Causative and Reporting Verbs','उन्नत passive · ਉੱਨਤ passive',
+'Use the passive with modals and reporting verbs, and talk about services you arrange for others (have / get something done).',
+'Modals और reporting verbs के साथ passive, और दूसरों से करवाई गई सेवाओं की बात (have / get something done)।',
+'Modals ਅਤੇ reporting verbs ਨਾਲ passive, ਅਤੇ ਦੂਜਿਆਂ ਤੋਂ ਕਰਵਾਈਆਂ ਸੇਵਾਵਾਂ ਦੀ ਗੱਲ (have / get something done)।',[
+ B.rule('Patterns',
+  '<div class="tbl-wrap"><table><thead><tr><th>Pattern</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">modal + be + V3</td><td class="n">The report must be finished by Friday. It could be done.</td></tr>'+
+  '<tr><td class="g">modal + have been + V3</td><td class="n">The window might have been broken by the wind.</td></tr>'+
+  '<tr><td class="g">It is said / believed / thought that…</td><td class="n">It is believed that the city is 800 years old.</td></tr>'+
+  '<tr><td class="g">Subject + is said to + V1</td><td class="n">The city is believed to be 800 years old. He is said to have left.</td></tr>'+
+  '<tr><td class="g">have / get + object + V3</td><td class="n">I had my hair cut. She got her car repaired.</td></tr>'+
+  '<tr><td class="g">being + V3</td><td class="n">I hate being interrupted. He avoided being seen.</td></tr>'+
+  '</tbody></table></div>'+
+  T('have something done = किसी और से करवाना: I had my phone repaired (मैंने फ़ोन ठीक करवाया)।','have something done = ਕਿਸੇ ਹੋਰ ਤੋਂ ਕਰਵਾਉਣਾ: I had my phone repaired (ਮੈਂ ਫ਼ੋਨ ਠੀਕ ਕਰਵਾਇਆ)।')+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ I cut my hair at the salon → ✓ <b class="eng">I had my hair cut at the salon.</b> (someone else did it)</div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'I ___ my laptop repaired yesterday.|had;did;made|0|have something done.',
+  'The documents ___ be signed before Monday.|must;have;are|0|modal passive.',
+  'The thief is said ___ escaped through a window.|to have;having;has|0|said to have.',
+  'She hates ___ told what to do.|be;being;to be|1|being + V3.',
+  'It is believed ___ the temple is 500 years old.|that;to;of|0|it is believed that.',
+  'The road ___ closed by the police last night.|has been;had;was been|0|present perfect passive.',
+  'We are going to ___ the house painted.|have;do;make|0|have something done.',
+  'The package might ___ delivered by now.|have been;be been;been|0|modal perfect passive.']),
+ B.gap('Practice 2 — Rewrite using the passive',[
+  'They say he is rich. → He ___ rich.|is said to be|कहा जाता है कि वह अमीर है।|ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਉਹ ਅਮੀਰ ਹੈ।',
+  'Someone cleaned my car. → I ___ my car cleaned.|had/got|मैंने गाड़ी साफ़ करवाई।|ਮੈਂ ਗੱਡੀ ਸਾਫ਼ ਕਰਵਾਈ।',
+  'Someone must repair this roof. → This roof ___ repaired.|must be|इस छत की मरम्मत होनी चाहिए।|ਇਸ ਛੱਤ ਦੀ ਮੁਰੰਮਤ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।',
+  'People believe he left. → He is believed ___ left.|to have|माना जाता है कि वह चला गया।|ਮੰਨਿਆ ਜਾਂਦਾ ਹੈ ਕਿ ਉਹ ਚਲਾ ਗਿਆ।',
+  'I don\'t like people staring at me. → I don\'t like ___ stared at.|being|मुझे घूरे जाना पसंद नहीं।|ਮੈਨੂੰ ਘੂਰੇ ਜਾਣਾ ਪਸੰਦ ਨਹੀਂ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'The new airport is expected to open next year.|नया हवाई अड्डा अगले साल खुलने की उम्मीद है।|ਨਵਾਂ ਹਵਾਈ ਅੱਡਾ ਅਗਲੇ ਸਾਲ ਖੁੱਲ੍ਹਣ ਦੀ ਉਮੀਦ ਹੈ।',
+  'I had my passport renewed last month.|मैंने पिछले महीने पासपोर्ट का नवीनीकरण करवाया।|ਮੈਂ ਪਿਛਲੇ ਮਹੀਨੇ ਪਾਸਪੋਰਟ ਦਾ ਨਵੀਨੀਕਰਨ ਕਰਵਾਇਆ।'])
+]);
+
+UNIT('b2_report','05','Advanced grammar','Reported Speech and Reporting Verbs','Reported speech · Reported speech',
+'Report not only what people said but also what they meant: admit, deny, suggest, warn, insist, promise and more.',
+'सिर्फ़ यह नहीं कि लोगों ने क्या कहा, बल्कि उनका आशय भी बताएँ: admit, deny, suggest, warn, insist, promise आदि।',
+'ਸਿਰਫ਼ ਇਹ ਨਹੀਂ ਕਿ ਲੋਕਾਂ ਨੇ ਕੀ ਕਿਹਾ, ਸਗੋਂ ਉਹਨਾਂ ਦਾ ਮਤਲਬ ਵੀ ਦੱਸੋ: admit, deny, suggest, warn, insist, promise ਆਦਿ।',[
+ B.rule('Reporting verb patterns',
+  '<div class="tbl-wrap"><table><thead><tr><th>Pattern</th><th>Verbs</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">verb + -ing</td><td class="e">admit, deny, suggest, recommend, apologise for</td><td class="n">He denied stealing it. She suggested going by train.</td></tr>'+
+  '<tr><td class="g">verb + to V1</td><td class="e">promise, refuse, offer, threaten, agree</td><td class="n">She promised to call. He refused to pay.</td></tr>'+
+  '<tr><td class="g">verb + object + to V1</td><td class="e">advise, warn, remind, invite, order, persuade</td><td class="n">He advised me to wait. She warned us not to go.</td></tr>'+
+  '<tr><td class="g">verb + that clause</td><td class="e">claim, insist, explain, point out, announce</td><td class="n">He insisted that he was innocent.</td></tr>'+
+  '</tbody></table></div>'+
+  T('"उसने मना कर दिया" = refused to; "उसने इनकार किया कि…" = denied -ing; "उसने सलाह दी" = advised me to।','"ਉਸਨੇ ਮਨ੍ਹਾ ਕਰ ਦਿੱਤਾ" = refused to; "ਉਸਨੇ ਇਨਕਾਰ ਕੀਤਾ ਕਿ…" = denied -ing; "ਉਸਨੇ ਸਲਾਹ ਦਿੱਤੀ" = advised me to।')+
+  '<div class="rule"><span class="lbl">Backshift reminders</span>am/is → was, will → would, can → could, now → then, today → that day, tomorrow → the next day, here → there. If the situation is still true, you may keep the tense: <i>She said she lives in Mohali.</i></div>'),
+ B.mcq('Practice 1 — Choose the correct reported form',[
+  '"I\'ll call you tomorrow." → She promised ___ me the next day.|calling;to call;that calling|1|promise + to.',
+  '"Don\'t touch the wire!" → He warned me ___ the wire.|not to touch;don\'t touch;to not touching|0|warn + object + not to.',
+  '"You should see a doctor." → She advised me ___ a doctor.|seeing;to see;see|1|advise + object + to.',
+  '"I didn\'t take your pen." → He denied ___ my pen.|to take;taking;take|1|deny + -ing.',
+  '"Let\'s go to the cinema." → She suggested ___ to the cinema.|going;to go;we going to|0|suggest + -ing.',
+  '"Sorry I\'m late." → He apologised ___ late.|for being;to be;being|0|apologise for -ing.',
+  '"I won\'t help you." → He refused ___ me.|helping;to help;help|1|refuse + to.',
+  '"It\'s my fault." → She admitted ___ her fault.|that it was;it is;to being|0|admit + that clause.']),
+ B.gap('Practice 2 — Report the sentence',[
+  '"I\'ll pay you back." → He promised ___ me back.|to pay|उसने वादा किया कि वह पैसे लौटा देगा।|ਉਸਨੇ ਵਾਅਦਾ ਕੀਤਾ ਕਿ ਉਹ ਪੈਸੇ ਮੋੜ ਦੇਵੇਗਾ।',
+  '"Remember to lock the door." → She reminded me ___ the door.|to lock|उसने मुझे दरवाज़ा बंद करने की याद दिलाई।|ਉਸਨੇ ਮੈਨੂੰ ਦਰਵਾਜ਼ਾ ਬੰਦ ਕਰਨ ਦੀ ਯਾਦ ਕਰਵਾਈ।',
+  '"Why don\'t you take a break?" → He suggested I ___ a break.|take/should take/took|उसने सुझाव दिया कि मैं ब्रेक लूँ।|ਉਸਨੇ ਸੁਝਾਅ ਦਿੱਤਾ ਕਿ ਮੈਂ ਬ੍ਰੇਕ ਲਵਾਂ।',
+  '"I didn\'t cheat!" → He denied ___.|cheating|उसने नकल करने से इनकार किया।|ਉਸਨੇ ਨਕਲ ਕਰਨ ਤੋਂ ਇਨਕਾਰ ਕੀਤਾ।',
+  '"You must come!" → She insisted ___ I came.|that|उसने ज़ोर दिया कि मैं आऊँ।|ਉਸਨੇ ਜ਼ੋਰ ਦਿੱਤਾ ਕਿ ਮੈਂ ਆਵਾਂ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'She admitted that she had made a mistake.|उसने माना कि उससे ग़लती हुई थी।|ਉਸਨੇ ਮੰਨਿਆ ਕਿ ਉਸ ਤੋਂ ਗ਼ਲਤੀ ਹੋਈ ਸੀ।',
+  'He warned us not to walk alone at night.|उसने हमें रात को अकेले न चलने की चेतावनी दी।|ਉਸਨੇ ਸਾਨੂੰ ਰਾਤ ਨੂੰ ਇਕੱਲੇ ਨਾ ਤੁਰਨ ਦੀ ਚੇਤਾਵਨੀ ਦਿੱਤੀ।'])
+]);
+
+/* ══════════ B2.2 — Style & structure ══════════ */
+UNIT('b2_part','06','Style & structure','Participle Clauses and Reduced Relatives','Participle clauses · Participle clauses',
+'Make sentences shorter and more elegant: "The man standing there…", "Having finished, she left…".',
+'वाक्यों को छोटा और सुंदर बनाएँ: "The man standing there…", "Having finished, she left…"।',
+'ਵਾਕਾਂ ਨੂੰ ਛੋਟਾ ਅਤੇ ਸੁੰਦਰ ਬਣਾਓ: "The man standing there…", "Having finished, she left…"।',[
+ B.rule('Forms and uses',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Meaning</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">V-ing (active)</td><td class="e">happening at the same time / reduced relative</td><td class="n">The girl sitting next to me is my cousin. (= who is sitting)</td></tr>'+
+  '<tr><td class="g">V3 (passive)</td><td class="e">reduced passive</td><td class="n">The book written by Tagore is famous. (= which was written)</td></tr>'+
+  '<tr><td class="g">Having + V3</td><td class="e">action finished earlier</td><td class="n">Having finished the exam, she went home.</td></tr>'+
+  '<tr><td class="g">Being + V3 / Not + V-ing</td><td class="e">reason (passive / negative)</td><td class="n">Not knowing the way, we asked a stranger.</td></tr>'+
+  '</tbody></table></div>'+
+  T('Having finished = "ख़त्म करने के बाद"; Not knowing = "न जानते हुए / क्योंकि पता नहीं था"।','Having finished = "ਖ਼ਤਮ ਕਰਨ ਤੋਂ ਬਾਅਦ"; Not knowing = "ਨਾ ਜਾਣਦੇ ਹੋਏ / ਕਿਉਂਕਿ ਪਤਾ ਨਹੀਂ ਸੀ"।')+
+  '<div class="rule warn"><span class="lbl">Careful (dangling participle)</span>✗ Walking down the road, the rain started. → ✓ <b class="eng">Walking down the road, I felt the rain start.</b> The subject of both clauses must be the same person.</div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'The boy ___ the guitar is my brother.|play;playing;played|1|reduced relative active.',
+  'The house ___ in 1920 is now a museum.|building;built;being built|1|reduced passive.',
+  '___ the work, he went home.|Finish;Having finished;Finishing|1|earlier action.',
+  '___ the answer, I stayed quiet.|Not knowing;Knowing not;Don\'t know|0|negative participle.',
+  'Students ___ late will not be admitted.|arrive;arriving;arrived|1|reduced relative.',
+  '___ by the noise, the baby started crying.|Frightening;Frightened;Frighten|1|passive feeling.',
+  'The letters ___ yesterday are on the desk.|written;writing;wrote|0|reduced passive.',
+  '___ along the beach, we saw a dolphin.|Walk;Walked;Walking|2|same time.']),
+ B.gap('Practice 2 — Shorten the sentence',[
+  'The woman who is wearing a red sari is my aunt. → The woman ___ a red sari is my aunt.|wearing|लाल साड़ी पहनी महिला मेरी मौसी है।|ਲਾਲ ਸਾੜ੍ਹੀ ਪਾਈ ਔਰਤ ਮੇਰੀ ਮਾਸੀ ਹੈ।',
+  'The cake which was baked by my mother was delicious. → The cake ___ by my mother was delicious.|baked|माँ का बनाया केक स्वादिष्ट था।|ਮਾਂ ਦਾ ਬਣਾਇਆ ਕੇਕ ਸੁਆਦੀ ਸੀ।',
+  'After he had read the letter, he cried. → ___ the letter, he cried.|Having read|चिट्ठी पढ़ने के बाद वह रोया।|ਚਿੱਠੀ ਪੜ੍ਹਨ ਤੋਂ ਬਾਅਦ ਉਹ ਰੋਇਆ।',
+  'Because she didn\'t have money, she walked. → ___ money, she walked.|Not having|पैसे न होने से वह पैदल चली।|ਪੈਸੇ ਨਾ ਹੋਣ ਕਰਕੇ ਉਹ ਪੈਦਲ ਗਈ।',
+  'The people who live nearby are friendly. → The people ___ nearby are friendly.|living|आसपास रहने वाले लोग मिलनसार हैं।|ਨੇੜੇ ਰਹਿਣ ਵਾਲੇ ਲੋਕ ਮਿਲਣਸਾਰ ਹਨ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'Having finished my homework, I watched a film.|होमवर्क ख़त्म करके मैंने फ़िल्म देखी।|ਹੋਮਵਰਕ ਮੁਕਾ ਕੇ ਮੈਂ ਫ਼ਿਲਮ ਵੇਖੀ।',
+  'The man standing at the door is my uncle.|दरवाज़े पर खड़ा आदमी मेरा चाचा है।|ਦਰਵਾਜ਼ੇ ਤੇ ਖੜ੍ਹਾ ਆਦਮੀ ਮੇਰਾ ਚਾਚਾ ਹੈ।'])
+]);
+
+UNIT('b2_inv','07','Style & structure','Inversion, Emphasis and Cleft Sentences','उलटा क्रम और ज़ोर · ਉਲਟਾ ਕ੍ਰਮ ਅਤੇ ਜ਼ੋਰ',
+'For stronger, more formal English: "Never have I seen…", "Not only did he…", "It was John who…", "What I need is…".',
+'अधिक प्रभावशाली और औपचारिक अंग्रेज़ी के लिए: "Never have I seen…", "Not only did he…", "It was John who…"।',
+'ਵਧੇਰੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਅਤੇ ਰਸਮੀ ਅੰਗਰੇਜ਼ੀ ਲਈ: "Never have I seen…", "Not only did he…", "It was John who…"।',[
+ B.rule('Inversion after negative adverbs',
+  '<div class="tbl-wrap"><table><thead><tr><th>Start</th><th>Example</th></tr></thead><tbody>'+
+  '<tr><td class="g">Never / Rarely / Seldom</td><td class="n">Never have I eaten such delicious food.</td></tr>'+
+  '<tr><td class="g">Not only … but also</td><td class="n">Not only did she win, but she also broke the record.</td></tr>'+
+  '<tr><td class="g">No sooner … than</td><td class="n">No sooner had we left than it started to rain.</td></tr>'+
+  '<tr><td class="g">Hardly … when</td><td class="n">Hardly had he sat down when the phone rang.</td></tr>'+
+  '<tr><td class="g">Only when / Only after</td><td class="n">Only after the exam did I relax.</td></tr>'+
+  '<tr><td class="g">Under no circumstances</td><td class="n">Under no circumstances should you open this door.</td></tr>'+
+  '</tbody></table></div>'+
+  T('negative adverb वाक्य के शुरू में आए तो auxiliary verb subject से पहले आती है: Never have I…','negative adverb ਵਾਕ ਦੇ ਸ਼ੁਰੂ ਵਿੱਚ ਆਵੇ ਤਾਂ auxiliary verb subject ਤੋਂ ਪਹਿਲਾਂ ਆਉਂਦੀ ਹੈ: Never have I…')+
+  '<div class="rule"><span class="lbl">Cleft sentences for emphasis</span><b>It was + focus + that/who</b>: <i>It was my brother who broke the window.</i><br><b>What + clause + is/was</b>: <i>What I need is a long holiday.</i><br><b>The reason why … is that…</b>: <i>The reason I left is that I was bored.</i></div>'+
+  '<div class="rule warn"><span class="lbl">Careful</span>✗ Never I have seen → ✓ <b class="eng">Never have I seen</b> &nbsp; ✗ No sooner he arrived than → ✓ <b class="eng">No sooner had he arrived than</b></div>'),
+ B.mcq('Practice 1 — Choose the correct form',[
+  'Never ___ such a beautiful place.|I have seen;have I seen;I saw|1|inversion.',
+  'No sooner had he arrived ___ the meeting began.|when;than;then|1|no sooner … than.',
+  'Hardly had we started ___ it began to rain.|than;when;as|1|hardly … when.',
+  'Not only ___ late, but he also forgot the files.|he was;was he;did he come|1|inversion with be.',
+  'Under no circumstances ___ the exam hall.|you may leave;may you leave;you leave|1|inversion.',
+  '___ I need is a quiet room.|It;What;That|1|cleft.',
+  'It was Rohan ___ called me.|which;who;what|1|cleft.',
+  'Only after the results ___ I feel relieved.|did;do;was|0|inversion.']),
+ B.gap('Practice 2 — Rewrite using inversion',[
+  'I have never felt so happy. → Never ___ so happy.|have I felt|मैंने कभी इतना खुश महसूस नहीं किया।|ਮੈਂ ਕਦੇ ਇੰਨਾ ਖੁਸ਼ ਮਹਿਸੂਸ ਨਹੀਂ ਕੀਤਾ।',
+  'As soon as she saw him, she smiled. → No sooner ___ him than she smiled.|had she seen|ज्यों ही उसने उसे देखा, वह मुस्कुराई।|ਜਿਉਂ ਹੀ ਉਸਨੇ ਉਸਨੂੰ ਵੇਖਿਆ, ਉਹ ਮੁਸਕਰਾਈ।',
+  'He is clever and he is also kind. → Not only ___ clever, but also kind.|is he|वह न सिर्फ़ चतुर है बल्कि दयालु भी है।|ਉਹ ਨਾ ਸਿਰਫ਼ ਚਲਾਕ ਹੈ ਸਗੋਂ ਦਿਆਲੂ ਵੀ ਹੈ।',
+  'I rarely go out on weekdays. → Rarely ___ out on weekdays.|do I go|मैं हफ़्ते के दिनों में शायद ही बाहर जाता हूँ।|ਮੈਂ ਹਫ਼ਤੇ ਦੇ ਦਿਨਾਂ ਵਿੱਚ ਸ਼ਾਇਦ ਹੀ ਬਾਹਰ ਜਾਂਦਾ ਹਾਂ।',
+  'I want a cold drink. → What ___ is a cold drink.|I want|मुझे ठंडा पेय चाहिए।|ਮੈਨੂੰ ਠੰਡਾ ਪੀਣ ਵਾਲਾ ਚਾਹੀਦਾ ਹੈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'Never have I seen such a beautiful sunset.|मैंने कभी इतना सुंदर सूर्यास्त नहीं देखा।|ਮੈਂ ਕਦੇ ਇੰਨਾ ਸੋਹਣਾ ਸੂਰਜ ਛਿਪਣਾ ਨਹੀਂ ਵੇਖਿਆ।',
+  'No sooner had I sat down than the lights went out.|मैं बैठा ही था कि बत्ती चली गई।|ਮੈਂ ਬੈਠਾ ਹੀ ਸੀ ਕਿ ਬੱਤੀ ਚਲੀ ਗਈ।'])
+]);
+
+UNIT('b2_conn','08','Style & structure','Discourse Markers and Cohesion','Discourse markers · Discourse markers',
+'Speak and write like an upper-intermediate user: signal your argument, add nuance, and make texts flow.',
+'Upper-intermediate की तरह बोलें और लिखें: अपने तर्क के संकेत दें, बारीकी जोड़ें और पाठ को प्रवाहपूर्ण बनाएँ।',
+'Upper-intermediate ਵਾਂਗ ਬੋਲੋ ਅਤੇ ਲਿਖੋ: ਆਪਣੀ ਦਲੀਲ ਦੇ ਸੰਕੇਤ ਦਿਓ, ਬਾਰੀਕੀ ਜੋੜੋ ਅਤੇ ਪਾਠ ਨੂੰ ਪ੍ਰਵਾਹੀ ਬਣਾਓ।',[
+ B.vok('Discourse markers',[
+  'nevertheless|The plan is risky; nevertheless, I support it.|फिर भी|ਫਿਰ ਵੀ',
+  'moreover|He is skilled. Moreover, he is honest.|इसके अलावा|ਇਸ ਤੋਂ ਇਲਾਵਾ',
+  'consequently|Sales fell; consequently, prices were cut.|परिणामस्वरूप|ਸਿੱਟੇ ਵਜੋਂ',
+  'on the contrary|It isn\'t easy. On the contrary, it\'s very hard.|इसके विपरीत|ਇਸਦੇ ਉਲਟ',
+  'whereas|He likes tea, whereas she prefers coffee.|जबकि|ਜਦਕਿ',
+  'in addition to|In addition to English, she speaks French.|के अलावा|ਤੋਂ ਇਲਾਵਾ',
+  'as a matter of fact|As a matter of fact, I disagree.|दरअसल|ਅਸਲ ਵਿੱਚ',
+  'on the whole|On the whole, the trip was a success.|कुल मिलाकर|ਕੁੱਲ ਮਿਲਾ ਕੇ',
+  'for instance|Many cities, for instance Delhi, are crowded.|उदाहरण के लिए|ਉਦਾਹਰਣ ਲਈ',
+  'in other words|He is frugal; in other words, he hates spending.|दूसरे शब्दों में|ਦੂਜੇ ਸ਼ਬਦਾਂ ਵਿੱਚ',
+  'that said|It\'s expensive. That said, it\'s worth it.|ऐसा कहने के बाद भी|ਇਹ ਕਹਿਣ ਤੋਂ ਬਾਅਦ ਵੀ',
+  'to a certain extent|I agree with you to a certain extent.|एक हद तक|ਇੱਕ ਹੱਦ ਤੱਕ']),
+ B.rule('Choosing the right marker',
+  '<div class="rule"><b>Adding:</b> moreover, furthermore, in addition, besides<br><b>Contrasting:</b> however, nevertheless, on the other hand, whereas, that said<br><b>Result:</b> consequently, as a result, therefore, hence<br><b>Example:</b> for instance, such as, namely<br><b>Concluding:</b> to sum up, in conclusion, all in all, on the whole'+T('लिखित भाषा में However/Moreover के बाद कॉमा लगाएँ; वाक्य के बीच में उनके दोनों ओर कॉमा या semicolon।','ਲਿਖਤੀ ਭਾਸ਼ਾ ਵਿੱਚ However/Moreover ਤੋਂ ਬਾਅਦ ਕਾਮਾ ਲਗਾਓ; ਵਾਕ ਦੇ ਵਿਚਕਾਰ ਦੋਹਾਂ ਪਾਸੇ ਕਾਮਾ ਜਾਂ semicolon।')+'</div>'),
+ B.mcq('Practice 1 — Choose the best marker',[
+  'The hotel was cheap. ___, it was very clean.|Moreover;Nevertheless;Whereas|0|addition.',
+  'The task was difficult. ___, we finished on time.|Moreover;Nevertheless;Consequently|1|contrast.',
+  'Sales fell. ___, the company closed three shops.|Consequently;Besides;Whereas|0|result.',
+  'I thought it would be boring. ___, it was fascinating.|In addition;On the contrary;Hence|1|opposite.',
+  'My brother loves cricket, ___ I prefer football.|whereas;therefore;moreover|0|contrast.',
+  '___, the project was a great success.|On the whole;For instance;Besides|0|summary.',
+  'Many cities are polluted, ___ Delhi and Lahore.|for instance;however;therefore|0|example.',
+  'I agree with you ___.|to a certain extent;as a result;in addition|0|partial agreement.']),
+ B.gap('Practice 2 — Complete with a discourse marker',[
+  'He is intelligent. ___, he works hard.|Moreover/Furthermore/In addition|वह बुद्धिमान है। इसके अलावा वह मेहनती है।|ਉਹ ਬੁੱਧੀਮਾਨ ਹੈ। ਇਸ ਤੋਂ ਇਲਾਵਾ ਉਹ ਮਿਹਨਤੀ ਹੈ।',
+  'It was raining; ___, the match went ahead.|nevertheless/however|बारिश हो रही थी; फिर भी मैच हुआ।|ਮੀਂਹ ਪੈ ਰਿਹਾ ਸੀ; ਫਿਰ ਵੀ ਮੈਚ ਹੋਇਆ।',
+  'The roads were blocked. ___, many people were late.|Consequently/As a result|सड़कें बंद थीं। नतीजतन कई लोग देर से पहुँचे।|ਸੜਕਾਂ ਬੰਦ ਸਨ। ਸਿੱਟੇ ਵਜੋਂ ਕਈ ਲੋਕ ਦੇਰ ਨਾਲ ਪਹੁੰਚੇ।',
+  'She is shy; ___, she is a good speaker.|however/nevertheless/that said|वह शर्मीली है; फिर भी अच्छी वक्ता है।|ਉਹ ਸ਼ਰਮੀਲੀ ਹੈ; ਫਿਰ ਵੀ ਚੰਗੀ ਬੁਲਾਰਾ ਹੈ।',
+  '___, I enjoyed the course, but it was long.|On the whole/All in all|कुल मिलाकर मुझे कोर्स अच्छा लगा, पर लंबा था।|ਕੁੱਲ ਮਿਲਾ ਕੇ ਮੈਨੂੰ ਕੋਰਸ ਚੰਗਾ ਲੱਗਾ, ਪਰ ਲੰਮਾ ਸੀ।']),
+ B.write('Practice 3 — Argument paragraph','Write 100–120 words: "Remote work is better than office work." Use at least six different markers.',['On the one hand… on the other hand','Moreover / In addition','Nevertheless','To sum up'],
+  'Remote work has become very popular. On the one hand, employees save time and money because they do not need to commute. Moreover, many people feel more productive at home. On the other hand, working alone can be isolating. In addition, it is harder to separate work and private life. Nevertheless, most employees would prefer a flexible arrangement. For instance, they could work from home three days a week. On the whole, I believe remote work is a positive change, provided that companies communicate clearly. To sum up, flexibility is the key.')
+]);
+
+UNIT('b2_idiom','09','Style & structure','Phrasal Verbs and Idioms','Phrasal verbs और Idioms · Phrasal verbs ਅਤੇ Idioms',
+'Add colour and naturalness to your English with advanced phrasal verbs and everyday idioms.',
+'उन्नत phrasal verbs और रोज़मर्रा के idioms से अपनी अंग्रेज़ी में स्वाभाविकता लाएँ।',
+'ਉੱਨਤ phrasal verbs ਅਤੇ ਰੋਜ਼ਮਰ੍ਹਾ ਦੇ idioms ਨਾਲ ਆਪਣੀ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਕੁਦਰਤੀਪਨ ਲਿਆਓ।',[
+ B.vok('Advanced phrasal verbs',[
+  'bring up|She was brought up in Ludhiana.|पालना / मुद्दा उठाना|ਪਾਲਣਾ / ਮੁੱਦਾ ਚੁੱਕਣਾ',
+  'carry out|They carried out a survey.|अंजाम देना|ਅੰਜਾਮ ਦੇਣਾ',
+  'come across|I came across an old photo.|अचानक मिलना|ਅਚਾਨਕ ਮਿਲਣਾ',
+  'cut down on|You should cut down on sugar.|कम करना|ਘਟਾਉਣਾ',
+  'fall out with|He fell out with his partner.|झगड़ा हो जाना|ਝਗੜਾ ਹੋ ਜਾਣਾ',
+  'get over|She got over the flu quickly.|उबर जाना|ਉੱਭਰ ਜਾਣਾ',
+  'look into|The police are looking into the case.|जाँच करना|ਜਾਂਚ ਕਰਨੀ',
+  'pull off|They pulled off a surprise win.|सफलतापूर्वक कर दिखाना|ਸਫਲਤਾ ਨਾਲ ਕਰ ਵਿਖਾਉਣਾ',
+  'put up with|I can\'t put up with the noise.|बर्दाश्त करना|ਬਰਦਾਸ਼ਤ ਕਰਨਾ',
+  'take on|The company took on 50 new staff.|नियुक्त करना / ज़िम्मा लेना|ਨਿਯੁਕਤ ਕਰਨਾ / ਜ਼ਿੰਮਾ ਲੈਣਾ',
+  'turn out|It turned out to be a mistake.|निकलना / साबित होना|ਨਿਕਲਣਾ / ਸਾਬਤ ਹੋਣਾ',
+  'back up|Please back up your files.|बैकअप लेना / समर्थन करना|ਬੈਕਅੱਪ ਲੈਣਾ / ਸਮਰਥਨ ਕਰਨਾ']),
+ B.vok('Everyday idioms',[
+  'a piece of cake|The test was a piece of cake.|बहुत आसान|ਬਹੁਤ ਸੌਖਾ',
+  'break the ice|A joke can break the ice.|बातचीत शुरू करना|ਗੱਲਬਾਤ ਸ਼ੁਰੂ ਕਰਨੀ',
+  'hit the nail on the head|You hit the nail on the head!|बिलकुल सही कहना|ਬਿਲਕੁਲ ਸਹੀ ਕਹਿਣਾ',
+  'once in a blue moon|We meet once in a blue moon.|कभी-कभार|ਕਦੇ-ਕਦਾਈਂ',
+  'under the weather|I\'m feeling under the weather.|तबीयत ठीक न होना|ਤਬੀਅਤ ਠੀਕ ਨਾ ਹੋਣੀ',
+  'call it a day|Let\'s call it a day.|आज के लिए बस करना|ਅੱਜ ਲਈ ਬੱਸ ਕਰਨਾ',
+  'the last straw|His rudeness was the last straw.|सहनशक्ति की आख़िरी हद|ਸਬਰ ਦੀ ਆਖ਼ਰੀ ਹੱਦ',
+  'on the same page|Let\'s make sure we are on the same page.|एक ही राय पर होना|ਇੱਕੋ ਰਾਇ ਤੇ ਹੋਣਾ']),
+ B.mcq('Practice 1 — Choose the correct meaning or word',[
+  'I can\'t ___ up with this noise any longer.|put;take;bring|0|put up with.|मैं इस शोर को और बर्दाश्त नहीं कर सकता।|ਮੈਂ ਇਸ ਸ਼ੋਰ ਨੂੰ ਹੋਰ ਬਰਦਾਸ਼ਤ ਨਹੀਂ ਕਰ ਸਕਦਾ।',
+  '"A piece of cake" means|very easy;very sweet;very expensive|0|easy.',
+  'Police are ___ into the robbery.|looking;taking;putting|0|look into.',
+  'We should cut ___ on fried food.|down;off;out|0|cut down on.',
+  '"Once in a blue moon" means|very often;rarely;every night|1|rarely.',
+  'It ___ out that he was right.|came;turned;went|1|turn out.',
+  'He ___ up two children on his own.|brought;took;put|0|bring up.',
+  '"Call it a day" means|stop working;ask a day off;work all day|0|stop for today.']),
+ B.gap('Practice 2 — Complete the phrase',[
+  'Don\'t worry, the exam was a piece of ___.|cake|चिंता मत करो, परीक्षा बहुत आसान थी।|ਚਿੰਤਾ ਨਾ ਕਰੋ, ਪ੍ਰੀਖਿਆ ਬਹੁਤ ਸੌਖੀ ਸੀ।',
+  'She finally got ___ her illness.|over|वह आख़िरकार बीमारी से उबर गई।|ਉਹ ਆਖ਼ਰਕਾਰ ਬੀਮਾਰੀ ਤੋਂ ਉੱਭਰ ਗਈ।',
+  'I came ___ an old friend at the market.|across|बाज़ार में मुझे एक पुराना दोस्त अचानक मिल गया।|ਬਾਜ਼ਾਰ ਵਿੱਚ ਮੈਨੂੰ ਇੱਕ ਪੁਰਾਣਾ ਦੋਸਤ ਅਚਾਨਕ ਮਿਲ ਗਿਆ।',
+  'You hit the nail on the ___!|head|तुमने बिलकुल सही बात कही!|ਤੂੰ ਬਿਲਕੁਲ ਸਹੀ ਗੱਲ ਕਹੀ!',
+  'We need to carry ___ more research.|out|हमें और शोध करना होगा।|ਸਾਨੂੰ ਹੋਰ ਖੋਜ ਕਰਨੀ ਪਵੇਗੀ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'I am feeling a bit under the weather today.|आज मेरी तबीयत थोड़ी ठीक नहीं है।|ਅੱਜ ਮੇਰੀ ਤਬੀਅਤ ਥੋੜ੍ਹੀ ਠੀਕ ਨਹੀਂ ਹੈ।',
+  'Let us call it a day and continue tomorrow.|आज के लिए बस करें और कल जारी रखें।|ਅੱਜ ਲਈ ਬੱਸ ਕਰੀਏ ਅਤੇ ਕੱਲ੍ਹ ਜਾਰੀ ਰੱਖੀਏ।'])
+]);
+
+UNIT('b2_word','10','Style & structure','Word Formation and Collocations','शब्द-निर्माण और collocations · ਸ਼ਬਦ-ਨਿਰਮਾਣ ਅਤੇ collocations',
+'Build new words with prefixes and suffixes, and learn which words naturally go together. This is the fastest way to expand your vocabulary.',
+'prefix और suffix से नए शब्द बनाएँ और जानें कि कौन से शब्द स्वाभाविक रूप से साथ आते हैं।',
+'prefix ਅਤੇ suffix ਨਾਲ ਨਵੇਂ ਸ਼ਬਦ ਬਣਾਓ ਅਤੇ ਜਾਣੋ ਕਿ ਕਿਹੜੇ ਸ਼ਬਦ ਕੁਦਰਤੀ ਤੌਰ ਤੇ ਇਕੱਠੇ ਆਉਂਦੇ ਹਨ।',[
+ B.rule('Word formation',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Affixes</th><th>Examples</th></tr></thead><tbody>'+
+  '<tr><td class="g">Negative prefixes</td><td class="e">un-, in-, im-, il-, ir-, dis-, mis-</td><td class="n">unhappy, incorrect, impossible, illegal, irregular, dislike, misunderstand</td></tr>'+
+  '<tr><td class="g">Noun suffixes</td><td class="e">-tion, -ment, -ness, -ity, -ence, -ship</td><td class="n">decision, development, kindness, ability, importance, friendship</td></tr>'+
+  '<tr><td class="g">Adjective suffixes</td><td class="e">-ful, -less, -able, -ous, -ive, -al</td><td class="n">careful, careless, reliable, dangerous, creative, national</td></tr>'+
+  '<tr><td class="g">Verb suffixes</td><td class="e">-en, -ify, -ise, -ate</td><td class="n">strengthen, simplify, realise, motivate</td></tr>'+
+  '<tr><td class="g">Adverb suffix</td><td class="e">-ly</td><td class="n">carefully, hardly, fortunately</td></tr>'+
+  '</tbody></table></div>'+
+  '<div class="rule"><span class="lbl">Collocations</span><b>make</b> progress / a decision / an effort · <b>do</b> research / harm / business · <b>take</b> responsibility / a risk / advantage of · <b>heavy</b> rain / traffic · <b>strong</b> coffee / opinion · <b>raise</b> awareness / a question · <b>reach</b> a conclusion / an agreement'+T('collocations अनुवाद से नहीं बनते: "भारी बारिश" = heavy rain (✗ big rain); "फ़ैसला लेना" = make a decision।','collocations ਅਨੁਵਾਦ ਨਾਲ ਨਹੀਂ ਬਣਦੇ: "ਭਾਰੀ ਮੀਂਹ" = heavy rain (✗ big rain); "ਫ਼ੈਸਲਾ ਲੈਣਾ" = make a decision।')+'</div>'),
+ B.mcq('Practice 1 — Choose the correct word',[
+  'It is ___ to park here. You may be fined.|illegal;unlegal;dislegal|0|il- + legal.',
+  'She made great ___ in her English this year.|progress;progresses;a progress|0|uncountable.',
+  'We must ___ a decision by tomorrow.|do;make;take|1|make a decision.',
+  'It\'s ___ to predict the weather in Punjab in spring.|possible;impossible;unpossible|1|im- + possible.',
+  'There was a ___ traffic jam on the highway.|heavy;big;strong|0|heavy traffic.',
+  'He is a very ___ person; you can trust him.|reliable;reliance;rely|0|adjective.',
+  'The ___ of the new phone surprised everyone.|announce;announcement;announcing|1|noun.',
+  'Please ___ your explanation. It is too complicated.|simple;simplify;simplicity|1|verb.']),
+ B.gap('Practice 2 — Form a word from the word in brackets',[
+  'His ___ saved the company. (decide)|decision|उसके फ़ैसले ने कंपनी को बचा लिया।|ਉਸਦੇ ਫ਼ੈਸਲੇ ਨੇ ਕੰਪਨੀ ਨੂੰ ਬਚਾ ਲਿਆ।',
+  'It was a ___ mistake. (care)|careless|यह लापरवाही की ग़लती थी।|ਇਹ ਲਾਪਰਵਾਹੀ ਦੀ ਗ਼ਲਤੀ ਸੀ।',
+  'She spoke ___ about her experience. (honest)|honestly|उसने अपने अनुभव के बारे में ईमानदारी से बताया।|ਉਸਨੇ ਆਪਣੇ ਤਜਰਬੇ ਬਾਰੇ ਇਮਾਨਦਾਰੀ ਨਾਲ ਦੱਸਿਆ।',
+  'Exercise can ___ your muscles. (strong)|strengthen|कसरत मांसपेशियों को मज़बूत कर सकती है।|ਕਸਰਤ ਮਾਸਪੇਸ਼ੀਆਂ ਨੂੰ ਮਜ਼ਬੂਤ ਕਰ ਸਕਦੀ ਹੈ।',
+  'We had a long ___ about the plan. (discuss)|discussion|योजना पर हमारी लंबी चर्चा हुई।|ਯੋਜਨਾ ਤੇ ਸਾਡੀ ਲੰਮੀ ਚਰਚਾ ਹੋਈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'We need to raise awareness about climate change.|हमें जलवायु परिवर्तन के बारे में जागरूकता बढ़ानी होगी।|ਸਾਨੂੰ ਜਲਵਾਯੂ ਤਬਦੀਲੀ ਬਾਰੇ ਜਾਗਰੂਕਤਾ ਵਧਾਉਣੀ ਪਵੇਗੀ।',
+  'The two sides finally reached an agreement.|दोनों पक्ष आख़िरकार समझौते पर पहुँचे।|ਦੋਵੇਂ ਪੱਖ ਆਖ਼ਰਕਾਰ ਸਮਝੌਤੇ ਤੇ ਪਹੁੰਚੇ।'])
+]);
+
+/* ══════════ B2.3 — Topics & academic vocabulary ══════════ */
+UNIT('b2_society','11','Topics & vocabulary','Society, Culture and Debate','समाज, संस्कृति और बहस · ਸਮਾਜ, ਸੱਭਿਆਚਾਰ ਅਤੇ ਬਹਿਸ',
+'Discuss social issues in a balanced way: advanced vocabulary, hedging language and polite disagreement.',
+'सामाजिक मुद्दों पर संतुलित चर्चा करें: उन्नत शब्दावली, hedging भाषा और विनम्र असहमति।',
+'ਸਮਾਜਕ ਮੁੱਦਿਆਂ ਤੇ ਸੰਤੁਲਿਤ ਚਰਚਾ ਕਰੋ: ਉੱਨਤ ਸ਼ਬਦਾਵਲੀ, hedging ਭਾਸ਼ਾ ਅਤੇ ਨਿਮਰ ਅਸਹਿਮਤੀ।',[
+ B.vok('Advanced vocabulary',[
+  'inequality|Income inequality is widening.|असमानता|ਅਸਮਾਨਤਾ',
+  'prejudice|Prejudice against women still exists.|पूर्वाग्रह|ਪੱਖਪਾਤ',
+  'diversity|India is known for its cultural diversity.|विविधता|ਵਿਭਿੰਨਤਾ',
+  'controversial|It is a controversial law.|विवादास्पद|ਵਿਵਾਦਪੂਰਨ',
+  'urbanisation|Rapid urbanisation causes pollution.|शहरीकरण|ਸ਼ਹਿਰੀਕਰਨ',
+  'generation gap|There is a generation gap between us.|पीढ़ियों का अंतर|ਪੀੜ੍ਹੀਆਂ ਦਾ ਫ਼ਰਕ',
+  'impact|Social media has a huge impact on youth.|प्रभाव|ਪ੍ਰਭਾਵ',
+  'tackle|Governments must tackle unemployment.|निपटना|ਨਜਿੱਠਣਾ',
+  'implement|The scheme was implemented in 2020.|लागू करना|ਲਾਗੂ ਕਰਨਾ',
+  'consensus|There is no consensus on the issue.|आम सहमति|ਆਮ ਸਹਿਮਤੀ',
+  'outweigh|The benefits outweigh the risks.|भारी पड़ना|ਭਾਰੂ ਪੈਣਾ',
+  'dilemma|He faced a moral dilemma.|दुविधा|ਦੁਚਿੱਤੀ']),
+ B.rule('Hedging and polite disagreement',
+  '<div class="rule"><b>Hedging</b> (not too absolute): It seems that… · This might suggest… · To some extent… · tends to · is likely to · arguably · it could be argued that…<br><b>Polite disagreement:</b> I see what you mean, but… · I\'m afraid I can\'t agree entirely. · That\'s a valid point; however… · I\'d like to play devil\'s advocate.<br><b>Avoid:</b> "You are wrong." "That is stupid." → say "I take a different view."'+T('hedging = बात को पूरी तरह निश्चित न बताना: "It could be argued that…" (यह तर्क दिया जा सकता है कि…)।','hedging = ਗੱਲ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਨਿਸ਼ਚਿਤ ਨਾ ਦੱਸਣਾ: "It could be argued that…" (ਇਹ ਦਲੀਲ ਦਿੱਤੀ ਜਾ ਸਕਦੀ ਹੈ ਕਿ…)।')+'</div>'),
+ B.text('Reading — The generation gap','Opinion · B2',
+  '<p>It is often claimed that today\'s young people have less respect for tradition than their grandparents. Arguably, this view overlooks an important point: the world has changed faster in the last thirty years than in the previous three hundred. Teenagers who grew up with smartphones tend to communicate differently, and older relatives sometimes interpret this as rudeness rather than a simple difference in habit. That said, research suggests that young people still value family bonds highly; the way they express them has merely evolved. Rather than blaming one another, both generations could benefit from listening more carefully. Only then is a genuine consensus likely to emerge.</p>'+
+  T('अक्सर कहा जाता है कि आज के युवा परंपरा का कम सम्मान करते हैं। तर्क दिया जा सकता है कि यह दृष्टि एक महत्वपूर्ण बात को अनदेखा करती है: दुनिया पिछले तीस सालों में बहुत तेज़ी से बदली है। शोध बताते हैं कि युवा पारिवारिक रिश्तों को अब भी महत्व देते हैं; बस तरीक़ा बदला है। दोनों पीढ़ियाँ एक-दूसरे को सुनें तो सहमति बन सकती है।','ਅਕਸਰ ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਅੱਜ ਦੇ ਨੌਜਵਾਨ ਪਰੰਪਰਾ ਦਾ ਘੱਟ ਸਤਿਕਾਰ ਕਰਦੇ ਹਨ। ਦਲੀਲ ਦਿੱਤੀ ਜਾ ਸਕਦੀ ਹੈ ਕਿ ਇਹ ਨਜ਼ਰੀਆ ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਗੱਲ ਨੂੰ ਅਣਡਿੱਠ ਕਰਦਾ ਹੈ: ਦੁਨੀਆ ਪਿਛਲੇ ਤੀਹ ਸਾਲਾਂ ਵਿੱਚ ਬਹੁਤ ਤੇਜ਼ੀ ਨਾਲ ਬਦਲੀ ਹੈ। ਖੋਜ ਦੱਸਦੀ ਹੈ ਕਿ ਨੌਜਵਾਨ ਪਰਿਵਾਰਕ ਰਿਸ਼ਤਿਆਂ ਨੂੰ ਹੁਣ ਵੀ ਮਹੱਤਵ ਦਿੰਦੇ ਹਨ; ਬੱਸ ਢੰਗ ਬਦਲਿਆ ਹੈ।')),
+ B.mcq('Questions on the text',[
+  'What does the writer say about the common claim?|It is completely true;It may overlook an important point;It is rude|1|arguably overlooks.',
+  'Why do older relatives sometimes feel disrespected?|Teenagers communicate differently;Teenagers never speak;Teenagers live abroad|0|different habits.',
+  'What does research suggest about young people?|They ignore family;They still value family bonds;They hate tradition|1|still value.',
+  'The word "consensus" means|general agreement;strong argument;old tradition|0|agreement.']),
+ B.mcq('Practice 1 — Vocabulary and phrases',[
+  'The benefits of the plan ___ the risks.|outweigh;overlook;outline|0|outweigh.',
+  'It could ___ argued that prices will fall.|be;been;is|0|it could be argued.',
+  'There is no ___ among experts on this issue.|consensus;dilemma;impact|0|consensus.',
+  'The new law is highly ___; many people oppose it.|controversial;generous;reliable|0|controversial.',
+  'Governments must ___ unemployment urgently.|tackle;tickle;table|0|tackle.',
+  'I see what you mean, ___ I can\'t agree entirely.|so;but;because|1|polite disagreement.',
+  'Prejudice often ___ from fear of the unknown.|stems;stands;steps|0|stem from.',
+  'Rapid ___ has led to overcrowded cities.|urbanisation;generation;diversity|0|urbanisation.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'It is ___ that the economy will recover next year. (likely)|likely|यह संभावना है कि अर्थव्यवस्था अगले साल सुधरेगी।|ਇਹ ਸੰਭਾਵਨਾ ਹੈ ਕਿ ਆਰਥਿਕਤਾ ਅਗਲੇ ਸਾਲ ਸੁਧਰੇਗੀ।',
+  'Social media ___ to affect teenagers\' sleep. (tends)|tends|सोशल मीडिया किशोरों की नींद को प्रभावित करता है।|ਸੋਸ਼ਲ ਮੀਡੀਆ ਕਿਸ਼ੋਰਾਂ ਦੀ ਨੀਂਦ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦਾ ਹੈ।',
+  'That\'s a valid point; ___, I think there are other factors.|however|यह सही मुद्दा है; फिर भी और कारक भी हैं।|ਇਹ ਸਹੀ ਨੁਕਤਾ ਹੈ; ਫਿਰ ਵੀ ਹੋਰ ਕਾਰਕ ਵੀ ਹਨ।',
+  'India is known for its cultural ___.|diversity|भारत अपनी सांस्कृतिक विविधता के लिए जाना जाता है।|ਭਾਰਤ ਆਪਣੀ ਸੱਭਿਆਚਾਰਕ ਵਿਭਿੰਨਤਾ ਲਈ ਜਾਣਿਆ ਜਾਂਦਾ ਹੈ।',
+  'The scheme will be ___ next year. (implement)|implemented|योजना अगले साल लागू की जाएगी।|ਯੋਜਨਾ ਅਗਲੇ ਸਾਲ ਲਾਗੂ ਕੀਤੀ ਜਾਵੇਗੀ।']),
+ B.write('Practice 3 — Balanced discussion','Write 150 words: "Is the generation gap a serious problem?" Present both sides and use hedging.',['Introduction','Argument 1 + example','Counter-argument','Conclusion with hedging'],
+  'The generation gap is often described as a serious social problem. It could be argued that differences in values lead to constant arguments in families. For instance, parents may disapprove of their children\'s career choices. However, this view may be exaggerated. Many young people still seek their elders\' advice, and many grandparents enjoy learning new technologies. Moreover, disagreements can be productive, since they encourage both sides to explain their reasons. Arguably, the real problem is not the gap itself but the lack of communication. To a certain extent, tolerance and listening can bridge it. All in all, the generation gap seems manageable if both generations are willing to compromise.')
+]);
+
+UNIT('b2_science','12','Topics & vocabulary','Science, Health and the Future','विज्ञान, स्वास्थ्य और भविष्य · ਵਿਗਿਆਨ, ਸਿਹਤ ਅਤੇ ਭਵਿੱਖ',
+'Describe trends, causes and effects, and make predictions using precise academic language.',
+'रुझान, कारण-प्रभाव और भविष्यवाणियों का सटीक शैक्षणिक भाषा में वर्णन करें।',
+'ਰੁਝਾਨ, ਕਾਰਨ-ਪ੍ਰਭਾਵ ਅਤੇ ਭਵਿੱਖਬਾਣੀਆਂ ਦਾ ਸਟੀਕ ਅਕਾਦਮਿਕ ਭਾਸ਼ਾ ਵਿੱਚ ਵਰਣਨ ਕਰੋ।',[
+ B.vok('Academic vocabulary',[
+  'breakthrough|Scientists announced a breakthrough in cancer research.|महत्वपूर्ण सफलता|ਮਹੱਤਵਪੂਰਨ ਸਫਲਤਾ',
+  'sedentary|A sedentary lifestyle harms health.|बैठे रहने वाला|ਬੈਠਿਆਂ ਰਹਿਣ ਵਾਲਾ',
+  'obesity|Obesity is rising among children.|मोटापा|ਮੋਟਾਪਾ',
+  'chronic|He suffers from a chronic condition.|दीर्घकालिक|ਲੰਮੇ ਸਮੇਂ ਦਾ',
+  'prevention|Prevention is better than cure.|रोकथाम|ਰੋਕਥਾਮ',
+  'innovation|Innovation drives economic growth.|नवाचार|ਨਵੀਨਤਾ',
+  'automation|Automation will replace some jobs.|स्वचालन|ਸਵੈਚਾਲਨ',
+  'sustainable|We need sustainable energy sources.|टिकाऊ|ਟਿਕਾਊ',
+  'trigger|Stress can trigger headaches.|उत्पन्न करना|ਪੈਦਾ ਕਰਨਾ',
+  'fluctuate|Prices fluctuate throughout the year.|ऊपर-नीचे होना|ਉੱਪਰ-ਥੱਲੇ ਹੋਣਾ',
+  'decline|The population of tigers is declining.|घटना|ਘਟਣਾ',
+  'surge|There was a surge in demand.|तेज़ उछाल|ਤੇਜ਼ ਉਛਾਲ']),
+ B.rule('Describing trends and cause / effect',
+  '<div class="rule"><b>Trends:</b> rise / increase / climb / surge · fall / drop / decline / plunge · remain stable / level off · fluctuate<br><b>Degree:</b> slightly, gradually, steadily, sharply, dramatically<br><i>The number of users rose sharply from 2018 to 2022, then levelled off.</i></div>'+
+  '<div class="rule"><span class="lbl">Cause and effect</span><b>cause / lead to / result in / give rise to</b>: <i>Stress can lead to illness.</i><br><b>be caused by / result from / be due to</b>: <i>Illness is often caused by stress.</i><br><b>as a result of / owing to / thanks to</b>: <i>Owing to the heavy rain, schools closed.</i><br><b>so … that / such … that</b>: <i>It was so hot that we stayed inside.</i>'+T('lead to / result in = की वजह से (असर); result from / due to = से पैदा होना (कारण)।','lead to / result in = ਦਾ ਕਾਰਨ ਬਣਨਾ (ਅਸਰ); result from / due to = ਤੋਂ ਪੈਦਾ ਹੋਣਾ (ਕਾਰਨ)।')+'</div>'),
+ B.mcq('Practice 1 — Choose the best word',[
+  'The price of oil ___ sharply last month.|surged;levelled;decided|0|surged.',
+  'A ___ lifestyle can lead to obesity.|sedentary;sustainable;chronic|0|sedentary.',
+  'Heavy smoking can ___ in lung disease.|result;cause;lead|0|result in.',
+  'The illness was ___ by contaminated water.|caused;resulted;led|0|be caused by.',
+  'It was ___ a hot day that we stayed inside.|so;such;very|1|such a hot day.',
+  '___ to the strike, flights were cancelled.|Owing;Thanks;Because|0|owing to.',
+  'The number of students has been ___ since 2015.|declining;declining at;decline|0|trend.',
+  'Scientists have made a major ___ in vaccine research.|breakthrough;surge;trigger|0|breakthrough.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'The number of visitors ___ (rise) steadily over the last decade.|has risen/has been rising|पिछले दशक में आगंतुकों की संख्या लगातार बढ़ी है।|ਪਿਛਲੇ ਦਹਾਕੇ ਵਿੱਚ ਸੈਲਾਨੀਆਂ ਦੀ ਗਿਣਤੀ ਲਗਾਤਾਰ ਵਧੀ ਹੈ।',
+  'Poor diet can ___ to serious health problems.|lead/give rise|खराब आहार से गंभीर स्वास्थ्य समस्याएँ हो सकती हैं।|ਖ਼ਰਾਬ ਖੁਰਾਕ ਨਾਲ ਗੰਭੀਰ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ।',
+  'It was ___ cold that the lake froze.|so|इतनी ठंड थी कि झील जम गई।|ਇੰਨੀ ਠੰਡ ਸੀ ਕਿ ਝੀਲ ਜੰਮ ਗਈ।',
+  'By 2040 many jobs ___ (replace) by robots.|will have been replaced/will be replaced|2040 तक कई नौकरियाँ रोबोट ले चुके होंगे।|2040 ਤੱਕ ਕਈ ਨੌਕਰੀਆਂ ਰੋਬੋਟ ਲੈ ਚੁੱਕੇ ਹੋਣਗੇ।',
+  'Prevention is better ___ cure.|than|इलाज से बेहतर रोकथाम है।|ਇਲਾਜ ਨਾਲੋਂ ਰੋਕਥਾਮ ਬਿਹਤਰ ਹੈ।']),
+ B.dikt('Practice 3 — Dictation',[
+  'The number of users has risen dramatically in recent years.|हाल के वर्षों में उपयोगकर्ताओं की संख्या नाटकीय रूप से बढ़ी है।|ਹਾਲ ਦੇ ਸਾਲਾਂ ਵਿੱਚ ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਗਿਣਤੀ ਨਾਟਕੀ ਢੰਗ ਨਾਲ ਵਧੀ ਹੈ।',
+  'Stress can lead to a variety of health problems.|तनाव से कई स्वास्थ्य समस्याएँ हो सकती हैं।|ਤਣਾਅ ਨਾਲ ਕਈ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਹੋ ਸਕਦੀਆਂ ਹਨ।'])
+]);
+
+UNIT('b2_work','13','Topics & vocabulary','Business, Work and Negotiation','व्यापार, काम और बातचीत · ਵਪਾਰ, ਕੰਮ ਅਤੇ ਗੱਲਬਾਤ',
+'Professional English: meetings, emails, negotiating, giving feedback and handling difficult conversations.',
+'पेशेवर अंग्रेज़ी: मीटिंग, ईमेल, मोल-भाव, फ़ीडबैक और कठिन बातचीत।',
+'ਪੇਸ਼ੇਵਰ ਅੰਗਰੇਜ਼ੀ: ਮੀਟਿੰਗ, ਈਮੇਲ, ਮੋਲ-ਭਾਅ, ਫ਼ੀਡਬੈਕ ਅਤੇ ਔਖੀ ਗੱਲਬਾਤ।',[
+ B.vok('Business vocabulary',[
+  'revenue|The company\'s revenue grew by 20%.|आय / राजस्व|ਆਮਦਨ',
+  'budget|We have a limited budget.|बजट|ਬਜਟ',
+  'negotiate|They negotiated a better price.|मोल-भाव करना|ਮੋਲ-ਭਾਅ ਕਰਨਾ',
+  'agenda|What is on the agenda today?|कार्यसूची|ਏਜੰਡਾ',
+  'deadline|We must meet the deadline.|अंतिम तिथि|ਆਖ਼ਰੀ ਤਾਰੀਖ਼',
+  'stakeholder|All stakeholders were informed.|हितधारक|ਹਿੱਤਧਾਰਕ',
+  'delegate|A good manager delegates tasks.|काम सौंपना|ਕੰਮ ਸੌਂਪਣਾ',
+  'feasible|The plan is feasible.|व्यवहार्य|ਸੰਭਵ',
+  'compromise|We reached a compromise.|समझौता|ਸਮਝੌਤਾ',
+  'follow up|I\'ll follow up with an email.|आगे संपर्क करना|ਅੱਗੇ ਸੰਪਰਕ ਕਰਨਾ',
+  'brainstorm|Let\'s brainstorm some ideas.|विचार-मंथन करना|ਵਿਚਾਰ-ਮੰਥਨ ਕਰਨਾ',
+  'on behalf of|I\'m writing on behalf of the team.|की ओर से|ਵੱਲੋਂ']),
+ B.rule('Useful business phrases',
+  '<div class="tbl-wrap"><table><thead><tr><th>Function</th><th>Phrase</th></tr></thead><tbody>'+
+  '<tr><td class="g">Opening a meeting</td><td class="n">Shall we get started? · Let\'s move on to the next item.</td></tr>'+
+  '<tr><td class="g">Interrupting politely</td><td class="n">Sorry to interrupt, but… · Could I just add something?</td></tr>'+
+  '<tr><td class="g">Negotiating</td><td class="n">We could offer… in return for… · I\'m afraid that\'s not feasible. · How about meeting halfway?</td></tr>'+
+  '<tr><td class="g">Giving feedback</td><td class="n">You did well on… ; one area to improve is… · It would be helpful if you could…</td></tr>'+
+  '<tr><td class="g">Formal email</td><td class="n">I am writing with regard to… · Please find attached… · I would appreciate your prompt reply.</td></tr>'+
+  '</tbody></table></div>'+
+  T('"बीच का रास्ता निकालें" = Let\'s meet halfway; "मैं बीच में रोकना चाहता हूँ" = Sorry to interrupt।','"ਵਿਚਕਾਰਲਾ ਰਾਹ ਕੱਢੀਏ" = Let\'s meet halfway; "ਮੈਂ ਵਿਚਕਾਰ ਰੋਕਣਾ ਚਾਹੁੰਦਾ ਹਾਂ" = Sorry to interrupt।')),
+ B.dlg('Dialogue — Negotiating a deadline',[
+  'Manager|We need the report by Friday.|हमें रिपोर्ट शुक्रवार तक चाहिए।|ਸਾਨੂੰ ਰਿਪੋਰਟ ਸ਼ੁੱਕਰਵਾਰ ਤੱਕ ਚਾਹੀਦੀ ਹੈ।',
+  'Employee|I\'m afraid that\'s not feasible. The data won\'t be ready until Monday.|मुझे डर है कि यह संभव नहीं; डेटा सोमवार से पहले तैयार नहीं होगा।|ਮੈਨੂੰ ਡਰ ਹੈ ਕਿ ਇਹ ਸੰਭਵ ਨਹੀਂ; ਡੇਟਾ ਸੋਮਵਾਰ ਤੋਂ ਪਹਿਲਾਂ ਤਿਆਰ ਨਹੀਂ ਹੋਵੇਗਾ।',
+  'Manager|Could you send a summary on Friday and the full report on Monday?|क्या आप शुक्रवार को सारांश और सोमवार को पूरी रिपोर्ट भेज सकते हैं?|ਕੀ ਤੁਸੀਂ ਸ਼ੁੱਕਰਵਾਰ ਨੂੰ ਸਾਰ ਅਤੇ ਸੋਮਵਾਰ ਨੂੰ ਪੂਰੀ ਰਿਪੋਰਟ ਭੇਜ ਸਕਦੇ ਹੋ?',
+  'Employee|That sounds like a reasonable compromise. I\'ll follow up with an email.|यह उचित समझौता लगता है। मैं ईमेल से पुष्टि कर दूँगा।|ਇਹ ਵਾਜਬ ਸਮਝੌਤਾ ਲੱਗਦਾ ਹੈ। ਮੈਂ ਈਮੇਲ ਰਾਹੀਂ ਪੁਸ਼ਟੀ ਕਰ ਦਿਆਂਗਾ।']),
+ B.mcq('Practice 1 — Choose the best answer',[
+  'Could I just ___ something to that point?|add;adds;adding|0|add.|क्या मैं इसमें कुछ जोड़ सकता हूँ?|ਕੀ ਮੈਂ ਇਸ ਵਿੱਚ ਕੁਝ ਜੋੜ ਸਕਦਾ ਹਾਂ?',
+  'I am writing ___ regard to your recent order.|with;in;on|0|with regard to.',
+  'A good manager knows how to ___ tasks.|delegate;negotiate;fluctuate|0|delegate.',
+  'The plan is not ___; we lack the budget.|feasible;flexible;frequent|0|feasible.',
+  'Let\'s meet ___ and split the cost.|halfway;halfway on;in half|0|meet halfway.',
+  'I am writing ___ of the management team.|on behalf;in behalf;for behalf|0|on behalf of.',
+  'The company\'s ___ rose by 15% last quarter.|revenue;agenda;stakeholder|0|revenue.',
+  'Please find ___ the invoice.|attached;attach;attaching|0|please find attached.']),
+ B.gap('Practice 2 — Complete the sentences',[
+  'Sorry to ___, but could I ask a question?|interrupt|माफ़ कीजिए बीच में टोक रहा हूँ, एक सवाल पूछ सकता हूँ?|ਮਾਫ਼ ਕਰਨਾ ਵਿਚਕਾਰ ਟੋਕ ਰਿਹਾ ਹਾਂ, ਇੱਕ ਸਵਾਲ ਪੁੱਛ ਸਕਦਾ ਹਾਂ?',
+  'We reached a ___ after a long discussion.|compromise|लंबी चर्चा के बाद हम समझौते पर पहुँचे।|ਲੰਮੀ ਚਰਚਾ ਤੋਂ ਬਾਅਦ ਅਸੀਂ ਸਮਝੌਤੇ ਤੇ ਪਹੁੰਚੇ।',
+  'I would ___ your prompt reply.|appreciate|मैं आपके शीघ्र उत्तर की सराहना करूँगा।|ਮੈਂ ਤੁਹਾਡੇ ਜਲਦੀ ਜਵਾਬ ਦੀ ਸ਼ਲਾਘਾ ਕਰਾਂਗਾ।',
+  'Let\'s ___ some ideas for the campaign.|brainstorm|चलिए अभियान के लिए कुछ विचार सोचें।|ਆਓ ਮੁਹਿੰਮ ਲਈ ਕੁਝ ਵਿਚਾਰ ਸੋਚੀਏ।',
+  'It would be ___ if you could send the file today.|helpful|अगर आप आज फ़ाइल भेज सकें तो मददगार होगा।|ਜੇ ਤੁਸੀਂ ਅੱਜ ਫ਼ਾਈਲ ਭੇਜ ਸਕੋ ਤਾਂ ਮਦਦਗਾਰ ਹੋਵੇਗਾ।']),
+ B.write('Practice 3 — Formal email','Write a formal email (about 120 words) to a supplier. Explain that a delivery is late, say how it affects your business, ask for a new date and a discount.',['Subject line','I am writing with regard to…','Problem and consequences','Request','Closing'],
+  'Subject: Delayed delivery of order no. 4521. Dear Mr Sharma, I am writing with regard to our order placed on 3 March, which was due to arrive last Friday. Unfortunately, we have still not received the goods. As a result, several of our customers have been waiting, and we have lost sales. I would appreciate it if you could confirm a new delivery date as soon as possible. Furthermore, in view of the inconvenience, we would like to request a 10% discount on this order. Should you need any further information, please do not hesitate to contact me. I look forward to your prompt reply. Yours sincerely, Navdeep Singh')
+]);
+
+/* ══════════ B2.4 — Exam practice ══════════ */
+UNIT('b2_read','14','Exam practice','Reading: Inference, Attitude and Paraphrase','पढ़ना: अनुमान, दृष्टिकोण और paraphrase · ਪੜ੍ਹਨਾ: ਅਨੁਮਾਨ, ਰਵੱਈਆ ਅਤੇ paraphrase',
+'B2 reading needs more than finding words: you must infer the writer\'s attitude and recognise paraphrase.',
+'B2 reading में केवल शब्द खोजना काफ़ी नहीं; लेखक का दृष्टिकोण समझना और paraphrase पहचानना ज़रूरी है।',
+'B2 reading ਵਿੱਚ ਸਿਰਫ਼ ਸ਼ਬਦ ਲੱਭਣਾ ਕਾਫ਼ੀ ਨਹੀਂ; ਲੇਖਕ ਦਾ ਰਵੱਈਆ ਸਮਝਣਾ ਅਤੇ paraphrase ਪਛਾਣਨਾ ਜ਼ਰੂਰੀ ਹੈ।',[
+ B.rule('Strategies',
+  '<div class="rule"><b>Paraphrase:</b> the question rarely uses the same words as the text. "expensive" → "costly"; "rise" → "go up"; "said it was wrong" → "criticised".<br><b>Attitude words:</b> critical, sceptical, enthusiastic, cautious, ironic, neutral, dismissive. Look at adjectives and adverbs: <i>unfortunately, remarkably, merely</i>.<br><b>Distractors:</b> wrong options often use exact words from the text but change the meaning. Always check the whole sentence.'+T('सवाल में अक्सर पाठ के वही शब्द नहीं होते, समानार्थी होते हैं। सही उत्तर की पुष्टि पूरे वाक्य से करें।','ਸਵਾਲ ਵਿੱਚ ਅਕਸਰ ਪਾਠ ਦੇ ਉਹੀ ਸ਼ਬਦ ਨਹੀਂ ਹੁੰਦੇ, ਸਮਾਨਾਰਥੀ ਹੁੰਦੇ ਹਨ। ਸਹੀ ਉੱਤਰ ਦੀ ਪੁਸ਼ਟੀ ਪੂਰੇ ਵਾਕ ਨਾਲ ਕਰੋ।')+'</div>'),
+ B.text('Text 1 — The myth of multitasking','Article · B2',
+  '<p>Many professionals pride themselves on their ability to multitask, replying to emails while attending meetings and checking messages while writing reports. Yet neuroscientists have repeatedly shown that the brain does not truly perform two demanding tasks simultaneously; it merely switches rapidly between them, losing time and accuracy with every switch. One study found that people who were frequently interrupted took up to 25 minutes to return to their original task, and made considerably more errors. Productivity experts therefore recommend "single-tasking": setting aside blocks of uninterrupted time and silencing notifications. Admittedly, this advice is difficult to follow in workplaces that reward constant availability. Nevertheless, the evidence suggests that those who resist the temptation to do everything at once ultimately achieve more.</p>'),
+ B.mcq('Questions on Text 1',[
+  'What is the writer\'s attitude to multitasking?|Enthusiastic;Sceptical;Neutral|1|The writer calls it a myth.',
+  'According to the text, the brain|performs two tasks at once;switches rapidly between tasks;rests during interruptions|1|switches.',
+  'What did the study find about interruptions?|They improve accuracy;They cause long delays and more errors;They have no effect|1|up to 25 minutes.',
+  'What does "admittedly" signal?|a concession;a conclusion;an example|0|concession.',
+  'What do productivity experts recommend?|Checking messages often;Single-tasking in blocks;Working longer hours|1|single-tasking.']),
+ B.text('Text 2 — Review','Review · B2',
+  '<p>The film promises much but delivers little. Though the cinematography is undeniably stunning, the plot collapses halfway through, leaving the audience bewildered rather than moved. The lead actor, widely praised for his earlier work, appears oddly detached, as if he had wandered onto the wrong set. That said, the supporting cast is superb, and one scene in a crowded market is worth the ticket price alone. I would not describe the film as a disaster, merely as a missed opportunity.</p>'),
+ B.mcq('Questions on Text 2',[
+  'The reviewer\'s overall opinion is|enthusiastic;disappointed but fair;hostile|1|missed opportunity.',
+  '"delivers little" means|gives few results;is delivered late;costs little|0|fulfils little of its promise.',
+  'What does the reviewer praise?|The plot;The lead actor;Cinematography and supporting cast|2|stated.',
+  'The phrase "wandered onto the wrong set" suggests the actor|looked out of place;was lost;was late|0|detached.']),
+ B.pairs('Matching — synonyms',['reluctant|unwilling','considerable|substantial','swift|rapid','obscure|unclear','mitigate|reduce the effect of','scrutinise|examine closely'])
+]);
+
+UNIT('b2_write','15','Exam practice','Writing: Essays, Reports and Formal Letters','लिखना: निबंध, रिपोर्ट और औपचारिक पत्र · ਲਿਖਣਾ: ਲੇਖ, ਰਿਪੋਰਟ ਅਤੇ ਰਸਮੀ ਪੱਤਰ',
+'B2 writing is judged on content, organisation, vocabulary range and accuracy. Learn the structure of each text type and a bank of high-level phrases.',
+'B2 writing का आकलन विषयवस्तु, संगठन, शब्द-भंडार और शुद्धता पर होता है। हर प्रकार की संरचना और उच्च-स्तरीय वाक्यांश सीखें।',
+'B2 writing ਦਾ ਮੁਲਾਂਕਣ ਵਿਸ਼ਾ-ਵਸਤੂ, ਸੰਗਠਨ, ਸ਼ਬਦ-ਭੰਡਾਰ ਅਤੇ ਸ਼ੁੱਧਤਾ ਤੇ ਹੁੰਦਾ ਹੈ। ਹਰ ਕਿਸਮ ਦੀ ਬਣਤਰ ਅਤੇ ਉੱਚ-ਪੱਧਰੀ ਵਾਕਾਂਸ਼ ਸਿੱਖੋ।',[
+ B.rule('Text types',
+  '<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Structure</th><th>Key language</th></tr></thead><tbody>'+
+  '<tr><td class="g">For-and-against essay</td><td class="e">Intro · arguments for · arguments against · conclusion</td><td class="n">It is widely believed that… · A further advantage is… · On the other hand… · In conclusion, …</td></tr>'+
+  '<tr><td class="g">Opinion essay</td><td class="e">Intro with opinion · 2–3 reasons · counter-argument · conclusion</td><td class="n">In my view… · I firmly believe… · Admittedly… · Taking everything into account…</td></tr>'+
+  '<tr><td class="g">Report</td><td class="e">Title · Introduction · Findings (headings) · Recommendations</td><td class="n">The aim of this report is to… · It was found that… · I would recommend that…</td></tr>'+
+  '<tr><td class="g">Formal letter / proposal</td><td class="e">Dear Sir/Madam · Reason · Details · Request · Closing</td><td class="n">I am writing to enquire about… · I would be most grateful if…</td></tr>'+
+  '</tbody></table></div>'+
+  T('रिपोर्ट में passive और अवैयक्तिक भाषा का प्रयोग: "It was found that…"; सिफ़ारिश: "I would recommend that + subject + V1"।','ਰਿਪੋਰਟ ਵਿੱਚ passive ਅਤੇ ਨਿਰਪੇਖ ਭਾਸ਼ਾ: "It was found that…"; ਸਿਫ਼ਾਰਸ਼: "I would recommend that + subject + V1"।')+
+  '<div class="rule"><span class="lbl">Check your writing</span>Did you answer all parts of the question? · Is each paragraph about one idea? · Did you use a range of linking words and tenses? · No contractions in formal texts. · Proofread for articles, prepositions and subject-verb agreement.</div>'),
+ B.write('Task 1 — For-and-against essay (about 200 words)','"Working from home is better for employees than working in an office." Discuss both views and give your opinion.',['Introduction','Advantages','Disadvantages','Conclusion with opinion'],
+  'In recent years, working from home has become increasingly common. This essay will consider both its advantages and disadvantages. Firstly, employees save time and money because they do not have to commute. Furthermore, many people find that they concentrate better in a quiet environment. On the other hand, remote work can lead to isolation, and it is often difficult to separate professional and private life. In addition, younger employees may miss opportunities to learn from colleagues. Nevertheless, a flexible arrangement seems to offer the best of both worlds. In conclusion, I believe that working from home benefits employees provided that they remain in regular contact with their team and that companies set clear expectations.'),
+ B.write('Task 2 — Report (about 180 words)','You are a student representative. Write a report to the principal about the facilities in your college library and recommend improvements.',['Title','Introduction','Findings','Recommendations'],
+  'Report on Library Facilities. Introduction: The aim of this report is to evaluate the library facilities and to suggest improvements. It is based on a survey of 100 students. Findings: Opening hours — Most students stated that the library closes too early, especially during exams. Resources — It was found that many books are outdated and that there are too few computers. Atmosphere — Although the reading room is generally quiet, seating is limited. Recommendations: I would recommend that the library stay open until 9 p.m. during exam season. In addition, new books and at least ten more computers should be purchased. Finally, extra seating could be provided in the corridor. These measures would greatly improve the students\' learning experience.'),
+ B.write('Task 3 — Formal letter (about 150 words)','You saw an advertisement for a summer course in London. Write to the organiser asking for details of dates, fees, accommodation and the level of the course.',['Dear Sir or Madam','Reason for writing','Specific questions','Closing'],
+  'Dear Sir or Madam, I am writing to enquire about the summer English course advertised on your website. I am a university student from India and I am interested in improving my academic writing. Firstly, could you please let me know the exact dates of the course? Secondly, I would be grateful if you could send me details of the fees and whether any scholarships are available. I would also like to know whether accommodation is provided, and if so, at what cost. Finally, could you tell me which level the course is aimed at? I would appreciate a prompt reply. I look forward to hearing from you. Yours faithfully, Harpreet Singh')
+]);
+
+UNIT('b2_speak','16','Exam practice','Speaking & Listening: Long Turns and Discussion','बोलना और सुनना · ਬੋਲਣਾ ਅਤੇ ਸੁਣਨਾ',
+'Learn to speak for one to two minutes without stopping, compare photos, and discuss abstract topics with a partner.',
+'बिना रुके एक-दो मिनट बोलना, तस्वीरों की तुलना करना और अमूर्त विषयों पर चर्चा करना सीखें।',
+'ਬਿਨਾਂ ਰੁਕੇ ਇੱਕ-ਦੋ ਮਿੰਟ ਬੋਲਣਾ, ਤਸਵੀਰਾਂ ਦੀ ਤੁਲਨਾ ਕਰਨਾ ਅਤੇ ਅਮੂਰਤ ਵਿਸ਼ਿਆਂ ਤੇ ਚਰਚਾ ਕਰਨਾ ਸਿੱਖੋ।',[
+ B.rule('Long turn structure',
+  '<div class="rule"><b>Comparing two photos:</b> Both pictures show… · In the first picture… whereas in the second… · One similarity is… · A key difference is… · I would say the first is more… because…<br><b>Speculating:</b> They might be… · It looks as if… · I get the impression that… · They must have been…<br><b>Keep going:</b> What I mean is… · Let me put it another way… · Another point is…<br><b>Discussing:</b> What do you think? · I tend to agree, though… · That\'s true up to a point.'+T('"दोनों तस्वीरों में…" = Both pictures show…; "मुझे ऐसा लगता है कि…" = I get the impression that…','"ਦੋਵਾਂ ਤਸਵੀਰਾਂ ਵਿੱਚ…" = Both pictures show…; "ਮੈਨੂੰ ਇੰਝ ਲੱਗਦਾ ਹੈ ਕਿ…" = I get the impression that…')+'</div>'),
+ B.dlg('Model — Discussion',[
+  'Examiner|Some people say that learning a language is easier for children. What do you think?|कुछ लोग कहते हैं बच्चों के लिए भाषा सीखना आसान है। आप क्या सोचते हैं?|ਕੁਝ ਲੋਕ ਕਹਿੰਦੇ ਹਨ ਬੱਚਿਆਂ ਲਈ ਭਾਸ਼ਾ ਸਿੱਖਣੀ ਸੌਖੀ ਹੈ। ਤੁਸੀਂ ਕੀ ਸੋਚਦੇ ਹੋ?',
+  'Candidate|I tend to agree, though I think adults have advantages too. Children absorb pronunciation naturally, but adults can use strategies and study more systematically.|मैं कुछ हद तक सहमत हूँ; वयस्कों के भी फ़ायदे हैं।|ਮੈਂ ਕੁਝ ਹੱਦ ਤੱਕ ਸਹਿਮਤ ਹਾਂ; ਬਾਲਗਾਂ ਦੇ ਵੀ ਫ਼ਾਇਦੇ ਹਨ।',
+  'Examiner|Why do you think so?|आप ऐसा क्यों सोचते हैं?|ਤੁਸੀਂ ਇੰਝ ਕਿਉਂ ਸੋਚਦੇ ਹੋ?',
+  'Candidate|Well, for example, I started learning English at twenty, and although my accent isn\'t perfect, I can discuss complex topics. In other words, motivation matters more than age.|मैंने बीस साल की उम्र में अंग्रेज़ी सीखनी शुरू की; उच्चारण पूरा सही न हो तो भी मैं जटिल विषयों पर बात कर सकता हूँ। यानी प्रेरणा उम्र से ज़्यादा मायने रखती है।|ਮੈਂ ਵੀਹ ਸਾਲ ਦੀ ਉਮਰ ਵਿੱਚ ਅੰਗਰੇਜ਼ੀ ਸਿੱਖਣੀ ਸ਼ੁਰੂ ਕੀਤੀ; ਉਚਾਰਨ ਪੂਰਾ ਸਹੀ ਨਾ ਹੋਵੇ ਤਾਂ ਵੀ ਮੈਂ ਗੁੰਝਲਦਾਰ ਵਿਸ਼ਿਆਂ ਤੇ ਗੱਲ ਕਰ ਸਕਦਾ ਹਾਂ। ਯਾਨੀ ਪ੍ਰੇਰਨਾ ਉਮਰ ਨਾਲੋਂ ਵੱਧ ਮਾਇਨੇ ਰੱਖਦੀ ਹੈ।']),
+ B.dikt('Listening — type what you hear',[
+  'Unless the weather improves, the outdoor event will be cancelled.|जब तक मौसम नहीं सुधरता, बाहरी कार्यक्रम रद्द कर दिया जाएगा।|ਜਦੋਂ ਤੱਕ ਮੌਸਮ ਨਹੀਂ ਸੁਧਰਦਾ, ਬਾਹਰੀ ਸਮਾਗਮ ਰੱਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ।',
+  'The committee is expected to announce its decision by the end of the week.|समिति से अपेक्षा है कि वह हफ़्ते के अंत तक फ़ैसला सुनाएगी।|ਕਮੇਟੀ ਤੋਂ ਉਮੀਦ ਹੈ ਕਿ ਉਹ ਹਫ਼ਤੇ ਦੇ ਅੰਤ ਤੱਕ ਫ਼ੈਸਲਾ ਸੁਣਾਵੇਗੀ।',
+  'Had I realised how difficult it would be, I would have prepared more thoroughly.|अगर मुझे पता होता कि यह कितना कठिन होगा तो मैं और अच्छी तैयारी करता।|ਜੇ ਮੈਨੂੰ ਪਤਾ ਹੁੰਦਾ ਕਿ ਇਹ ਕਿੰਨਾ ਔਖਾ ਹੋਵੇਗਾ ਤਾਂ ਮੈਂ ਹੋਰ ਚੰਗੀ ਤਿਆਰੀ ਕਰਦਾ।']),
+ B.write('Speaking task — prepare a 2-minute talk','Write notes for a two-minute talk: "Describe a challenge you overcame and what you learnt from it."',['Set the scene','What went wrong','How you overcame it (use past perfect)','What you learnt (use If I hadn\'t…)'],
+  'Let me tell you about a time when I nearly gave up my studies. Two years ago I failed an important exam, which had never happened before. At first I felt devastated, and I had been avoiding my friends for weeks. Eventually, my teacher advised me to analyse my mistakes instead of blaming myself. I created a timetable, and by the time the next exam came, I had revised everything three times. I passed with distinction. If I hadn\'t failed, I would never have learnt to manage my time. What I learnt is that failure is simply feedback.')
+]);
+
+UNIT('b2_mock','17','Exam practice','B2 Final Review Test','B2 अंतिम समीक्षा परीक्षा · B2 ਅੰਤਿਮ ਸਮੀਖਿਆ ਪ੍ਰੀਖਿਆ',
+'A full review of B2 grammar and vocabulary. Aim for 80% or more, then move to C1 or an exam such as IELTS 6.5–7.0.',
+'B2 की व्याकरण और शब्दावली की पूरी समीक्षा। 80% या अधिक का लक्ष्य रखें, फिर C1 या IELTS 6.5–7.0 की तैयारी करें।',
+'B2 ਦੇ ਵਿਆਕਰਨ ਅਤੇ ਸ਼ਬਦਾਵਲੀ ਦੀ ਪੂਰੀ ਸਮੀਖਿਆ। 80% ਜਾਂ ਵੱਧ ਦਾ ਟੀਚਾ ਰੱਖੋ, ਫਿਰ C1 ਜਾਂ IELTS 6.5–7.0 ਦੀ ਤਿਆਰੀ ਕਰੋ।',[
+ B.mcq('Part A — Grammar and vocabulary (24 questions)',[
+  'By next June I ___ here for ten years.|will work;will have been working;work|1|future perfect continuous.',
+  'He ___ have left already; his car is gone.|must;can\'t;shouldn\'t|0|deduction.',
+  'You ___ told me! I would have helped.|should have;must have;might|0|criticism.',
+  'If I had studied law, I ___ a lawyer now.|would be;would have been;will be|0|mixed conditional.',
+  '___ you hurry, you will miss the train.|If;Unless;Provided|1|unless.',
+  '___ I known, I would have called.|Had;Have;If|0|inversion.',
+  'I had my watch ___ yesterday.|repair;repaired;repairing|1|have + V3.',
+  'He is said ___ left the country.|to have;having;that|0|reporting passive.',
+  'She denied ___ the money.|take;to take;taking|2|deny + -ing.',
+  'He warned me ___ the river.|not to cross;don\'t cross;to not crossing|0|warn + not to.',
+  'The woman ___ next to me is a doctor.|sit;sitting;sat|1|participle.',
+  '___ the exam, she went home.|Finishing;Having finished;Finished|1|perfect participle.',
+  'Never ___ such a beautiful view.|I have seen;have I seen;I saw|1|inversion.',
+  'No sooner had we arrived ___ it rained.|when;than;then|1|no sooner … than.',
+  'What I need ___ a holiday.|is;are;be|0|cleft.',
+  'The lecture was boring; ___, I took notes.|moreover;nevertheless;therefore|1|contrast.',
+  'He likes tea, ___ she prefers coffee.|whereas;therefore;moreover|0|contrast.',
+  'I can\'t put ___ with the noise.|up;on;in|0|put up with.',
+  'The test was a piece of ___.|cake;bread;pie|0|idiom.',
+  'It was an ___ decision; nobody expected it.|unexpected;disexpected;inexpected|0|prefix un-.',
+  'We reached an ___ after long talks.|agree;agreement;agreed|1|noun.',
+  'Heavy smoking can ___ in serious illness.|result;cause;lead of|0|result in.',
+  'It could ___ argued that prices will fall.|be;is;been|0|hedging.',
+  'The benefits ___ the risks.|outweigh;overtake;outgrow|0|outweigh.']),
+ B.gap('Part B — Fill the gap (8 questions)',[
+  'By the time you come, I ___ (finish) the report.|will have finished',
+  'This time tomorrow I ___ (fly) to London.|will be flying',
+  'You ___ (not / go) alone. It was dangerous.|shouldn\'t have gone',
+  'If I ___ (be) you, I would apologise.|were/was',
+  'He suggested ___ (take) a taxi.|taking',
+  'Not only ___ (she / win), but she also broke the record.|did she win',
+  'The documents ___ (must / sign) by Friday.|must be signed',
+  'She advised me ___ (see) a doctor.|to see']),
+ B.ord('Part C — Word order (5 sentences)',[
+  'Had I known I would have helped you|अगर मुझे पता होता तो मैं मदद करता|ਜੇ ਮੈਨੂੰ ਪਤਾ ਹੁੰਦਾ ਤਾਂ ਮੈਂ ਮਦਦ ਕਰਦਾ',
+  'Never have I seen such a crowd|मैंने कभी इतनी भीड़ नहीं देखी|ਮੈਂ ਕਦੇ ਇੰਨੀ ਭੀੜ ਨਹੀਂ ਵੇਖੀ',
+  'He is said to have left the country|कहा जाता है कि वह देश छोड़ गया|ਕਿਹਾ ਜਾਂਦਾ ਹੈ ਕਿ ਉਹ ਦੇਸ਼ ਛੱਡ ਗਿਆ',
+  'I had my car repaired last week|मैंने पिछले हफ़्ते गाड़ी ठीक करवाई|ਮੈਂ ਪਿਛਲੇ ਹਫ਼ਤੇ ਗੱਡੀ ਠੀਕ ਕਰਵਾਈ',
+  'It was my sister who called you|तुम्हें मेरी बहन ने फ़ोन किया था|ਤੁਹਾਨੂੰ ਮੇਰੀ ਭੈਣ ਨੇ ਫ਼ੋਨ ਕੀਤਾ ਸੀ']),
+ B.dikt('Part D — Listening dictation (4 sentences)',[
+  'The number of users has risen sharply in recent years.|हाल के वर्षों में उपयोगकर्ताओं की संख्या तेज़ी से बढ़ी है।|ਹਾਲ ਦੇ ਸਾਲਾਂ ਵਿੱਚ ਵਰਤੋਂਕਾਰਾਂ ਦੀ ਗਿਣਤੀ ਤੇਜ਼ੀ ਨਾਲ ਵਧੀ ਹੈ।',
+  'Having finished the report, he sent it to his manager.|रिपोर्ट पूरी करके उसने मैनेजर को भेज दी।|ਰਿਪੋਰਟ ਪੂਰੀ ਕਰ ਕੇ ਉਸਨੇ ਮੈਨੇਜਰ ਨੂੰ ਭੇਜ ਦਿੱਤੀ।',
+  'It could be argued that technology has made us more isolated.|तर्क दिया जा सकता है कि तकनीक ने हमें अधिक अकेला किया है।|ਦਲੀਲ ਦਿੱਤੀ ਜਾ ਸਕਦੀ ਹੈ ਕਿ ਤਕਨੀਕ ਨੇ ਸਾਨੂੰ ਵੱਧ ਇਕੱਲਾ ਕੀਤਾ ਹੈ।',
+  'Under no circumstances should you share your password.|किसी भी हालत में अपना पासवर्ड साझा न करें।|ਕਿਸੇ ਵੀ ਹਾਲਤ ਵਿੱਚ ਆਪਣਾ ਪਾਸਵਰਡ ਸਾਂਝਾ ਨਾ ਕਰੋ।']),
+ B.write('Part E — Writing (about 200 words)','Write an essay: "Social media does more harm than good." Discuss both sides and give your opinion.',['Introduction','Arguments for','Arguments against','Conclusion'],
+  'Few topics divide opinion as sharply as social media. On the one hand, it is argued that these platforms damage mental health, spread misinformation and encourage people to compare themselves with unrealistic images. Moreover, many users, particularly teenagers, spend so many hours online that their studies suffer. On the other hand, social media enables people to stay in touch across continents, to find jobs and to raise awareness of important causes. During emergencies, for instance, it can help authorities reach the public quickly. Nevertheless, these benefits are often outweighed by the risks if users have no self-control. In my view, social media is neither good nor bad in itself; rather, the outcome depends on how it is used. Therefore, schools and parents should teach young people to use it responsibly.')
+]);
+
+(function(){
+'use strict';
+
+function levelOf(stId){
+  for(var i=0;i<LEVELS.length;i++){ if(LEVELS[i].ids.indexOf(stId)>-1) return i; }
+  return 0;
+}
+function idxOfId(id){
+  for(var i=0;i<STATIONEN.length;i++){ if(STATIONEN[i].id===id) return i; }
+  return 0;
+}
+
+/* ---------- safe storage (never breaks if blocked) ---------- */
+var mem = {};
+var STORE = {
+  get:function(k){ try{ var v=localStorage.getItem(k); return v===null?mem[k]:v; }catch(e){ return mem[k]; } },
+  set:function(k,v){ mem[k]=v; try{ localStorage.setItem(k,v); }catch(e){} }
+};
+var KEY='pioneerEnglishB2_v1';
+var save={xp:0, done:{}, last:null, ans:{}, typed:{}};
+try{ var raw=STORE.get(KEY); if(raw){ var p=JSON.parse(raw); if(p&&typeof p==='object'){ save.xp=p.xp||0; save.done=p.done||{}; save.last=p.last||null; save.ans=p.ans||{}; save.typed=p.typed||{}; } } }catch(e){}
+function persist(){ try{ STORE.set(KEY, JSON.stringify(save)); }catch(e){} }
+
+/* ---------- answers survive leaving a station ---------- */
+function setAns(blk, idx, val){
+  if(!save.ans) save.ans={};
+  if(!save.ans[blk._st]) save.ans[blk._st]={};
+  if(!save.ans[blk._st][blk._k]) save.ans[blk._st][blk._k]={};
+  save.ans[blk._st][blk._k][idx]=val;
+  persist();
+}
+function getAns(blk, idx){
+  try{ return save.ans[blk._st][blk._k][idx]; }catch(e){ return undefined; }
+}
+function restoreTyped(stId){
+  var main=document.getElementById('main');
+  if(!main) return;
+  var nodes=main.querySelectorAll('input[type=text], textarea');
+  if(!save.typed) save.typed={};
+  var store=save.typed[stId]||{};
+  Array.prototype.forEach.call(nodes, function(nd, i){
+    var k='n'+i;
+    if(store[k]!==undefined && store[k]!=='' && !nd.value) nd.value=store[k];
+    nd.addEventListener('input', function(){
+      if(!save.typed[stId]) save.typed[stId]={};
+      save.typed[stId][k]=nd.value;
+      persist();
+    });
+  });
+}
+
+/* ---------- speech (browser built-in, no network) ---------- */
+var voice=null, voiceReady=false;
+function pickVoice(){
+  try{
+    var vs = window.speechSynthesis.getVoices()||[];
+    voice = vs.filter(function(v){return /^en-(IN|GB)/i.test(v.lang);})[0] || vs.filter(function(v){return /^en/i.test(v.lang);})[0] || null;
+    voiceReady = true;
+  }catch(e){ voiceReady=true; }
+}
+if('speechSynthesis' in window){
+  pickVoice();
+  window.speechSynthesis.onvoiceschanged = pickVoice;
+}
+var warned=false;
+function say(text, rate){
+  if(!('speechSynthesis' in window)){
+    if(!warned){ toast('Audio not supported in this browser'); warned=true; }
+    return;
+  }
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(String(text).replace(/<[^>]+>/g,''));
+    u.lang=(voice&&voice.lang)||'en-GB';
+    u.rate = rate||0.9;
+    if(voice) u.voice=voice;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
+/* ---------- helpers ---------- */
+function el(tag, cls, html){
+  var n=document.createElement(tag);
+  if(cls) n.className=cls;
+  if(html!=null) n.innerHTML=html;
+  return n;
+}
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function shuffle(a){
+  a=a.slice();
+  for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; }
+  return a;
+}
+var toastT=null;
+function toast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('up');
+  clearTimeout(toastT);
+  toastT=setTimeout(function(){ t.classList.remove('up'); },2000);
+}
+/* normalise an answer for comparison */
+function norm(s){
+  return String(s).toLowerCase().trim()
+    .replace(/[\u2018\u2019\u02BC]/g,"'")
+    .replace(/[.,!?;:"'()\u201C\u201D]/g,'')
+    .replace(/\s+/g,' ');
+}
+function trh(it){
+  return (it.hi?'<span class="trl hi">'+esc(it.hi)+'</span>':'')+(it.pa?'<span class="trl pa">'+esc(it.pa)+'</span>':'');
+}
+function matches(input, answers){
+  var n=norm(input);
+  if(!n) return false;
+  for(var i=0;i<answers.length;i++){ if(norm(answers[i])===n) return true; }
+  return false;
+}
+function speakBtn(text){
+  var b=el('button','spk','▶');
+  b.type='button';
+  b.title='Listen';
+  b.setAttribute('aria-label','Play English audio');
+  b.onclick=function(e){ e.stopPropagation(); say(text); };
+  return b;
+}
+function umlautBar(input){ return document.createElement('span'); }
+
+/* ---------- progress ---------- */
+function addXP(n){
+  save.xp += n; persist(); paintXP();
+}
+function markProgress(stationId, blockKey, pct){
+  if(!save.done[stationId]) save.done[stationId]={};
+  var cur = save.done[stationId][blockKey]||0;
+  if(pct>cur){ save.done[stationId][blockKey]=pct; persist(); }
+  paintNav(); paintXP();
+}
+function stationPct(st){
+  var total=0, sum=0;
+  st.bloecke.forEach(function(b,i){
+    if(b.typ!=='ueb' && b.typ!=='schreiben') return;
+    total++;
+    var d=(save.done[st.id]||{})['b'+i]||0;
+    sum+=d;
+  });
+  if(!total) return (save.done[st.id]&&save.done[st.id].seen)?100:0;
+  return Math.round(sum/total);
+}
+function paintXP(){
+  var totals=0;
+  STATIONEN.forEach(function(s){ totals+=stationPct(s); });
+  var overall = Math.round(totals/STATIONEN.length);
+  document.getElementById('xpVal').textContent=save.xp;
+  document.getElementById('xpLbl').textContent='Points · '+overall+' % complete';
+}
+
+/* ============================================================
+   EXERCISE RENDERERS
+============================================================ */
+
+/* --- multiple choice --- */
+function renderMCQ(blk, onDone){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' questions'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, answered=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var opts=el('div','opts');
+    var btns=[];
+    var fb=el('div','fb');
+    function apply(i, restoring){
+      btns.forEach(function(x){ x.disabled=true; });
+      answered++;
+      if(i===item.a){
+        btns[i].classList.add('right'); right++;
+        if(!restoring) addXP(2);
+      }else{
+        btns[i].classList.add('wrong');
+        btns[item.a].classList.add('right');
+      }
+      fb.className='fb show '+(i===item.a?'ok':'no');
+      fb.innerHTML=(i===item.a?'✓ Correct! ':'✗ ')+(item.fb||'');
+      scoreLbl.textContent=right+' correct';
+      if(!restoring) setAns(blk, idx, i);
+      markProgress(blk._st, blk._k, Math.round(right/n*100));
+    }
+    item.opts.forEach(function(o,i){
+      var b=el('button','opt');
+      b.type='button';
+      b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+      b.onclick=function(){ if(b.disabled) return; apply(i, false); };
+      btns.push(b);
+      opts.appendChild(b);
+    });
+    q.appendChild(opts);
+    q.appendChild(fb);
+    wrap.appendChild(q);
+    var prevA=getAns(blk, idx);
+    if(prevA!==undefined && prevA!==null) apply(prevA, true);
+  });
+  return wrap;
+}
+
+/* --- gap fill --- */
+function renderLuecke(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' gaps'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, checked=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var t=el('div','q-txt');
+    t.innerHTML='<span class="q-no">'+(idx+1)+'</span>'+item.q + trh(item);
+    q.appendChild(t);
+
+    var row=el('div','inrow');
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('autocapitalize','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type your answer …';
+    var btn=el('button','btn sm','Check');
+    btn.type='button';
+    var show=el('button','btn sm ghost','Show answer');
+    show.type='button';
+    row.appendChild(inp); row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb');
+    q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok=matches(inp.value, item.a);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; checked++; addXP(3);
+        fb.textContent='✓ Correct!';
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not yet. Try again.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; checked++;
+      inp.value=item.a[0]; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a[0])+'</b>';
+      btn.disabled=true;
+      if(checked===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- word ordering --- */
+function renderOrdnen(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var target=item.a.split(' ');
+    var q=el('div','q');
+    q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+
+      '<span class="cue">'+esc(item.hi||'')+'</span><span class="cue pa-i">'+esc(item.pa||'')+'</span>'));
+
+    var slot=el('div','slot');
+    var pool=el('div','pool');
+    var settled=false;
+
+    function mkWord(w, inSlot){
+      var b=el('button','word', esc(w));
+      b.type='button';
+      b.onclick=function(){
+        if(settled) return;
+        b.remove();
+        (inSlot?pool:slot).appendChild(mkWord(w, !inSlot));
+      };
+      return b;
+    }
+    shuffle(target).forEach(function(w){ pool.appendChild(mkWord(w,false)); });
+    q.appendChild(slot); q.appendChild(pool);
+
+    var row=el('div','inrow');
+    row.style.marginTop='8px';
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    row.appendChild(btn); row.appendChild(show);
+    q.appendChild(row);
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    btn.onclick=function(){
+      if(settled) return;
+      var got=Array.prototype.map.call(slot.children,function(c){return c.textContent;}).join(' ');
+      var ok = norm(got)===norm(item.a);
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(4);
+        fb.innerHTML='✓ Richtig! <b>'+esc(item.a)+'.</b> ';
+        var s=speakBtn(item.a); fb.appendChild(s);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Check the word order: Subject + Verb + Object, with time words at the end.';
+      }
+    };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      slot.innerHTML=''; pool.innerHTML='';
+      target.forEach(function(w){ slot.appendChild(mkWord(w,true)); });
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.a)+'.</b> ';
+      fb.appendChild(speakBtn(item.a));
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- matching pairs --- */
+function renderPaare(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' pairs'));
+  var scoreLbl=el('div','ex-count','0 found');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var grid=el('div','pairs');
+  var L=el('div','pcol'), R=el('div','pcol');
+  grid.appendChild(L); grid.appendChild(R);
+  wrap.appendChild(grid);
+
+  var found=0, n=blk.items.length, sel=null;
+  var leftItems=shuffle(blk.items.map(function(p,i){return {t:p[0],i:i};}));
+  var rightItems=shuffle(blk.items.map(function(p,i){return {t:p[1],i:i};}));
+
+  function mk(col, obj, side){
+    var b=el('button','pbtn', esc(obj.t));
+    b.type='button';
+    b.dataset.i=obj.i;
+    b.onclick=function(){
+      if(b.classList.contains('done')) return;
+      if(side==='L'){ say(obj.t); }
+      if(!sel){ 
+        if(side!=='L'){ toast('Choose from the left column first'); return; }
+        sel=b; b.classList.add('sel'); return;
+      }
+      if(sel===b){ sel=null; b.classList.remove('sel'); return; }
+      if(side==='L'){ sel.classList.remove('sel'); sel=b; b.classList.add('sel'); return; }
+      if(sel.dataset.i===b.dataset.i){
+        sel.classList.remove('sel'); sel.classList.add('done'); b.classList.add('done');
+        sel=null; found++; addXP(2);
+        scoreLbl.textContent=found+' found';
+        if(found===n){ markProgress(blk._st, blk._k, 100); toast('All pairs found!'); }
+      }else{
+        b.classList.add('miss');
+        setTimeout(function(){ b.classList.remove('miss'); },320);
+      }
+    };
+    col.appendChild(b);
+  }
+  leftItems.forEach(function(o){ mk(L,o,'L'); });
+  rightItems.forEach(function(o){ mk(R,o,'R'); });
+  return wrap;
+}
+
+/* --- dictation --- */
+function renderDiktat(blk){
+  var wrap=el('div','ex');
+  var bar=el('div','ex-bar');
+  bar.appendChild(el('div','ex-count', blk.items.length+' sentences · listen and type'));
+  var scoreLbl=el('div','ex-count','0 correct');
+  bar.appendChild(scoreLbl);
+  wrap.appendChild(bar);
+
+  var right=0, done=0, n=blk.items.length;
+
+  blk.items.forEach(function(item, idx){
+    var q=el('div','q');
+    var row=el('div','dikt-row');
+    row.appendChild(el('span','q-no',(idx+1)));
+    var play=el('button','big-spk','▶ Listen'); play.type='button';
+    play.onclick=function(){ say(item.t, 0.9); };
+    var slow=el('button','speed','slow ▶'); slow.type='button';
+    slow.onclick=function(){ say(item.t, 0.55); };
+    row.appendChild(play); row.appendChild(slow);
+    q.appendChild(row);
+
+    var inp=el('input','gap');
+    inp.type='text';
+    inp.style.maxWidth='520px';
+    inp.setAttribute('autocomplete','off');
+    inp.setAttribute('spellcheck','false');
+    inp.placeholder='Type what you hear …';
+    var r2=el('div','inrow');
+    var btn=el('button','btn sm','Check'); btn.type='button';
+    var show=el('button','btn sm ghost','Show answer'); show.type='button';
+    r2.appendChild(inp); r2.appendChild(btn); r2.appendChild(show);
+    q.appendChild(r2);
+    q.appendChild(umlautBar(inp));
+    var fb=el('div','fb'); q.appendChild(fb);
+
+    var settled=false;
+    function check(){
+      if(settled) return;
+      var ok = norm(inp.value)===norm(item.t);
+      inp.classList.remove('right','wrong');
+      inp.classList.add(ok?'right':'wrong');
+      fb.className='fb show '+(ok?'ok':'no');
+      if(ok){
+        settled=true; right++; done++; addXP(5);
+        fb.innerHTML='✓ Perfect! '+trh(item);
+        btn.disabled=true;
+        scoreLbl.textContent=right+' correct';
+        if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+      }else{
+        fb.textContent='✗ Not quite. Listen again, slowly.';
+      }
+    }
+    btn.onclick=check;
+    inp.onkeydown=function(e){ if(e.key==='Enter'){ e.preventDefault(); check(); } };
+    show.onclick=function(){
+      if(settled) return;
+      settled=true; done++;
+      inp.value=item.t; inp.classList.add('wrong');
+      fb.className='fb show no';
+      fb.innerHTML='Answer: <b>'+esc(item.de)+'</b><br><span class="en-i">'+esc(item.en)+'</span>';
+      btn.disabled=true;
+      if(done===n) markProgress(blk._st, blk._k, Math.round(right/n*100));
+    };
+    wrap.appendChild(q);
+  });
+  return wrap;
+}
+
+/* --- flashcards --- */
+function renderKarten(blk){
+  var wrap=el('div','ex');
+  var stage=el('div','fc-stage');
+  var order=shuffle(blk.items.map(function(_,i){return i;}));
+  var pos=0, flipped=false;
+
+  var card=el('div','card');
+  var counter=el('div','ex-count','');
+  var ctrls=el('div','inrow');
+
+  function paint(){
+    var it=blk.items[order[pos]];
+    card.innerHTML='';
+    card.appendChild(el('div','face', esc(it[0])));
+    if(flipped){ card.appendChild(el('div','back', esc(it[1])+(it[2]?'<br>'+esc(it[2]):''))); }
+    card.appendChild(el('div','hint', flipped?'Tap to flip back':'Tap for the meaning'));
+    counter.textContent='Card '+(pos+1)+' of '+order.length;
+  }
+  card.onclick=function(){ flipped=!flipped; paint(); };
+
+  var prev=el('button','btn sm ghost','◀ Back'); prev.type='button';
+  var hear=el('button','btn sm gelb','▶ Listen'); hear.type='button';
+  var next=el('button','btn sm','Next ▶'); next.type='button';
+  var mix=el('button','btn sm ghost','Shuffle'); mix.type='button';
+
+  prev.onclick=function(){ pos=(pos-1+order.length)%order.length; flipped=false; paint(); };
+  next.onclick=function(){
+    pos=(pos+1)%order.length; flipped=false; paint();
+    if(pos===0){ markProgress(blk._st, blk._k, 100); addXP(5); toast('Deck finished!'); }
+  };
+  hear.onclick=function(){ var it=blk.items[order[pos]]; say(it[0]); };
+  mix.onclick=function(){ order=shuffle(order); pos=0; flipped=false; paint(); toast('Shuffled'); };
+
+  ctrls.appendChild(prev); ctrls.appendChild(hear); ctrls.appendChild(next); ctrls.appendChild(mix);
+  stage.appendChild(card); stage.appendChild(counter); stage.appendChild(ctrls);
+  wrap.appendChild(stage);
+  paint();
+  return wrap;
+}
+
+/* --- writing --- */
+function renderSchreiben(blk){
+  var wrap=el('div','ex');
+  wrap.appendChild(el('p',null, esc(blk.prompt)));
+  if(blk.punkte && blk.punkte.length){
+    var ul=el('ul','checklist');
+    blk.punkte.forEach(function(p){ ul.appendChild(el('li',null, esc(p))); });
+    wrap.appendChild(ul);
+  }
+  var ta=el('textarea','schreib');
+  ta.placeholder='Write your text here …';
+  wrap.appendChild(ta);
+
+  var row=el('div','inrow');
+  row.style.marginTop='10px';
+  var count=el('span','ex-count','0 words');
+  var btn=el('button','btn','Show model answer'); btn.type='button';
+  var read=el('button','btn ghost','Listen to model'); read.type='button';
+  row.appendChild(btn); row.appendChild(read); row.appendChild(count);
+  wrap.appendChild(row);
+
+  ta.oninput=function(){
+    var w=ta.value.trim()?ta.value.trim().split(/\s+/).length:0;
+    count.textContent=w+' words';
+    if(w>=25){ markProgress(blk._st, blk._k, 100); }
+  };
+
+  var m=el('div','muster', esc(blk.muster));
+  wrap.appendChild(m);
+  btn.onclick=function(){
+    m.classList.toggle('show');
+    btn.textContent = m.classList.contains('show')?'Hide model answer':'Show model answer';
+    if(m.classList.contains('show')) addXP(3);
+  };
+  read.onclick=function(){ say(blk.muster, 0.85); };
+  return wrap;
+}
+
+/* ============================================================
+   BLOCK & STATION RENDERING
+============================================================ */
+function renderVok(blk){
+  var w=el('div','tbl-wrap');
+  var t=el('table');
+  t.innerHTML='<thead><tr><th>English</th><th>Meaning / example</th><th class="hi">हिन्दी</th><th class="pa">ਪੰਜਾਬੀ</th><th></th></tr></thead>';
+  var tb=el('tbody');
+  blk.items.forEach(function(it){
+    var tr=el('tr');
+    tr.appendChild(el('td','g', esc(it[0])));
+    tr.appendChild(el('td','e', esc(it[1]||'')));
+    tr.appendChild(el('td','hi', esc(it[2]||'')));
+    tr.appendChild(el('td','pa', esc(it[3]||'')));
+    var td4=el('td');
+    td4.appendChild(speakBtn(it[0].split('—')[0].split('↔')[0].replace(/\(.*?\)/g,'')));
+    tr.appendChild(td4);
+    tb.appendChild(tr);
+  });
+  t.appendChild(tb); w.appendChild(t);
+  return w;
+}
+function renderDlg(blk){
+  var w=el('div','dlg');
+  var all=blk.zeilen.map(function(z){return z[1];}).join(' ');
+  var head=el('div','inrow');
+  head.style.marginBottom='10px';
+  var b=el('button','btn sm gelb','▶ Play whole dialogue'); b.type='button';
+  b.onclick=function(){ say(all, 0.85); };
+  head.appendChild(b);
+  w.appendChild(head);
+  blk.zeilen.forEach(function(z){
+    var r=el('div','dlg-row');
+    r.appendChild(el('div','dlg-who', esc(z[0])));
+    r.appendChild(el('div','dlg-de', esc(z[1])+trh({hi:z[2],pa:z[3]})));
+    var c=el('div'); c.appendChild(speakBtn(z[1]));
+    r.appendChild(c);
+    w.appendChild(r);
+  });
+  return w;
+}
+function renderText(blk){
+  var w=el('div','lesetext');
+  if(blk.meta) w.appendChild(el('div','meta', esc(blk.meta)));
+  var body=el('div',null, blk.html);
+  w.appendChild(body);
+  return w;
+}
+
+var TAGS={ vok:['','Vocabulary'], regel:['gram','Grammar'], dlg:['','Dialogue'],
+           text:['','Reading'], ueb:['ueb','Practice'], karten:['','Flashcards'],
+           schreiben:['ueb','Writing'] };
+
+function renderBlock(st, blk, i){
+  blk._st=st.id; blk._k='b'+i;
+  var box=el('div','blk');
+  var head=el('div','blk-head');
+  var meta=TAGS[blk.typ]||['',''];
+  head.appendChild(el('span','tag '+meta[0], meta[1]));
+  head.appendChild(el('h2',null, esc(blk.t||'')));
+  box.appendChild(head);
+  var body=el('div','blk-body');
+
+  if(blk.typ==='vok') body.appendChild(renderVok(blk));
+  else if(blk.typ==='regel') body.innerHTML=blk.html;
+  else if(blk.typ==='dlg') body.appendChild(renderDlg(blk));
+  else if(blk.typ==='text') body.appendChild(renderText(blk));
+  else if(blk.typ==='karten') body.appendChild(renderKarten(blk));
+  else if(blk.typ==='schreiben') body.appendChild(renderSchreiben(blk));
+  else if(blk.typ==='ueb'){
+    if(blk.art==='mcq') body.appendChild(renderMCQ(blk));
+    else if(blk.art==='luecke') body.appendChild(renderLuecke(blk));
+    else if(blk.art==='ordnen') body.appendChild(renderOrdnen(blk));
+    else if(blk.art==='paare') body.appendChild(renderPaare(blk));
+    else if(blk.art==='diktat') body.appendChild(renderDiktat(blk));
+  }
+  box.appendChild(body);
+  return box;
+}
+
+/* ============================================================
+   HOME SCREEN — level select
+============================================================ */
+function levelPct(lv){
+  var sum=0;
+  lv.ids.forEach(function(id){ sum+=stationPct(STATIONEN[idxOfId(id)]); });
+  return Math.round(sum/lv.ids.length);
+}
+function ring(pct, colour){
+  var w=el('div','ring');
+  var r=22, c=2*Math.PI*r, off=c*(1-pct/100);
+  w.innerHTML='<svg width="52" height="52" viewBox="0 0 52 52">'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="#DADDD6" stroke-width="5"/>'+
+    '<circle cx="26" cy="26" r="'+r+'" fill="none" stroke="'+colour+'" stroke-width="5" '+
+    'stroke-dasharray="'+c.toFixed(1)+'" stroke-dashoffset="'+off.toFixed(1)+'" stroke-linecap="round"/>'+
+    '</svg><span>'+pct+'%</span>';
+  return w;
+}
+var LVL_COLOUR=['#12457A','#2A7F62','#35A0F0','#B8202E'];
+
+function renderHome(){
+  current=-1;
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var head=el('div','home-head');
+  head.appendChild(el('div','eyebrow','Overview · choose your level'));
+  head.appendChild(el('h1',null,'Where would you like to start?<span class="en">Pick a part — you do not have to start at Unit 01</span>'));
+  head.appendChild(el('p','lead','The course is split into four levels. Jump straight to the one that matches you, or take the two-minute placement test below and let it choose for you. Your progress is saved automatically.'));
+  main.appendChild(head);
+
+  /* resume card */
+  if(save.last){
+    var li=idxOfId(save.last), lst=STATIONEN[li];
+    var rc=el('button','resume'); rc.type='button';
+    rc.appendChild(el('span','rg', lst.g));
+    rc.appendChild(el('span','rt','<small>Continue · continue where you stopped</small>'+esc(lst.t)));
+    rc.appendChild(el('span','ra','Next ▶'));
+    rc.onclick=function(){ go(li); };
+    main.appendChild(rc);
+  }
+
+  /* level cards */
+  var grid=el('div','lvl-grid');
+  LEVELS.forEach(function(lv, li){
+    var card=el('button','lvl-card '+lv.cls); card.type='button';
+    var top=el('div','lvl-top');
+    var left=el('div');
+    left.appendChild(el('div','lvl-code','Part '+(li+1)+' · '+lv.code));
+    left.appendChild(el('div','lvl-name', esc(lv.name)+'<em>'+esc(lv.en)+'</em>'));
+    top.appendChild(left);
+    top.appendChild(ring(levelPct(lv), LVL_COLOUR[li]));
+    card.appendChild(top);
+    card.appendChild(el('p','lvl-desc', esc(lv.desc)));
+
+    var chips=el('div','lvl-stations');
+    lv.ids.forEach(function(id){
+      var st=STATIONEN[idxOfId(id)], p=stationPct(st);
+      chips.appendChild(el('span','lvl-chip'+(p>=100?' done':(p>0?' part':'')), st.g));
+    });
+    card.appendChild(chips);
+
+    var meta=el('div','lvl-meta');
+    meta.appendChild(el('span',null, lv.ids.length+' units'));
+    meta.appendChild(el('span',null,'Start ▶'));
+    card.appendChild(meta);
+
+    card.onclick=function(){
+      /* open the first unfinished station in this level */
+      var target=lv.ids[0];
+      for(var k=0;k<lv.ids.length;k++){
+        if(stationPct(STATIONEN[idxOfId(lv.ids[k])])<100){ target=lv.ids[k]; break; }
+      }
+      go(idxOfId(target));
+    };
+    grid.appendChild(card);
+  });
+  main.appendChild(grid);
+
+  /* placement test */
+  main.appendChild(renderPlacement());
+
+  var tools=el('div','home-tools');
+  var all=el('button','btn ghost','View all '+STATIONEN.length+' units'); all.type='button';
+  all.onclick=function(){ go(0); };
+  tools.appendChild(all);
+  main.appendChild(tools);
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent='⌂';
+  t.innerHTML='Overview<small>Level select</small>';
+  paintNav(); paintXP();
+}
+
+function renderPlacement(){
+  var box=el('div','place');
+  box.appendChild(el('h3',null,'Placement test — where should I start?'));
+  box.appendChild(el('p',null,PLACEMENT.length+' quick questions. Answer honestly and skip nothing — the result tells you which part to open first.'));
+
+  var start=el('button','btn gelb','Start test'); start.type='button';
+  box.appendChild(start);
+  var area=el('div');
+  box.appendChild(area);
+
+  start.onclick=function(){
+    start.style.display='none';
+    area.innerHTML='';
+    var score=[0,0,0,0], count=[0,0,0,0], answered=0;
+    PLACEMENT.forEach(function(item, idx){
+      count[item.lvl]++;
+      var q=el('div','q');
+      q.appendChild(el('div','q-txt','<span class="q-no">'+(idx+1)+'</span>'+item.q));
+      var opts=el('div','opts'); var btns=[];
+      item.opts.forEach(function(o,i){
+        var b=el('button','opt'); b.type='button';
+        b.innerHTML='<span class="key">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+        b.onclick=function(){
+          if(b.disabled) return;
+          btns.forEach(function(x){x.disabled=true;});
+          answered++;
+          if(i===item.a){ b.classList.add('right'); score[item.lvl]++; }
+          else{ b.classList.add('wrong'); btns[item.a].classList.add('right'); }
+          if(answered===PLACEMENT.length) finish();
+        };
+        btns.push(b); opts.appendChild(b);
+      });
+      q.appendChild(opts);
+      area.appendChild(q);
+    });
+
+    function finish(){
+      /* recommended level = first level where the student scored below 70% */
+      var rec=LEVELS.length-1;
+      for(var i=0;i<4;i++){
+        if(count[i] && (score[i]/count[i])<0.7){ rec=i; break; }
+      }
+      var total=score.reduce(function(a,b){return a+b;},0);
+      var res=el('div','place-result');
+      var lv=LEVELS[rec];
+      res.innerHTML='<b>Recommended: Part '+(rec+1)+' — '+esc(lv.name)+' ('+lv.code+')</b>'+
+        'You scored '+total+' out of '+PLACEMENT.length+'. '+
+        'Per part: '+LEVELS.map(function(l,i){return l.code+' '+score[i]+'/'+count[i];}).join(' · ')+'.';
+      var goBtn=el('button','btn gelb','Open Part '+(rec+1)+' ▶');
+      goBtn.type='button'; goBtn.style.marginTop='12px';
+      goBtn.onclick=function(){ go(idxOfId(lv.ids[0])); };
+      res.appendChild(goBtn);
+      area.appendChild(res);
+      addXP(10);
+      res.scrollIntoView({block:'nearest'});
+    }
+  };
+  return box;
+}
+
+var current=-1;
+function renderStation(idx){
+  current=idx;
+  var st=STATIONEN[idx];
+  save.last=st.id; persist();
+  var main=document.getElementById('main');
+  main.innerHTML='';
+
+  var lvi=levelOf(st.id), lv=LEVELS[lvi];
+  var posInLvl=lv.ids.indexOf(st.id)+1;
+
+  var head=el('div','station-head');
+  head.appendChild(el('div','eyebrow','Part '+(lvi+1)+' · '+lv.code+' '+lv.name+
+    ' · Unit '+st.g+' ('+posInLvl+' of '+lv.ids.length+')'));
+  head.appendChild(el('h1',null, esc(st.t)+'<span class="en">'+esc(st.en)+'</span>'));
+  if(st.lead) head.appendChild(el('p','lead', esc(st.lead)));
+  if(st.leadHi) head.appendChild(el('p','lead trl hi', esc(st.leadHi)));
+  if(st.leadPa) head.appendChild(el('p','lead trl pa', esc(st.leadPa)));
+  main.appendChild(head);
+
+  st.bloecke.forEach(function(b,i){ main.appendChild(renderBlock(st,b,i)); });
+
+  var step=el('div','stepper');
+  var prev=el('button','btn ghost','◀ Unit '+(idx>0?STATIONEN[idx-1].g:STATIONEN[STATIONEN.length-1].g));
+  prev.type='button';
+  prev.onclick=function(){ go((idx-1+STATIONEN.length)%STATIONEN.length); };
+
+  var over=el('button','btn ghost','⌂ Overview'); over.type='button';
+  over.onclick=function(){ goHome(); };
+
+  var isLast = (posInLvl===lv.ids.length);
+  var next=el('button','btn', isLast
+    ? (lvi<LEVELS.length-1 ? 'Part '+(lvi+2)+' ▶' : 'To overview ▶')
+    : 'Unit '+STATIONEN[idxOfId(lv.ids[posInLvl])].g+' ▶');
+  next.type='button';
+  next.onclick=function(){
+    if(!isLast){ go(idxOfId(lv.ids[posInLvl])); return; }
+    if(lvi<LEVELS.length-1){ go(idxOfId(LEVELS[lvi+1].ids[0])); toast('Part '+(lvi+2)+' — '+LEVELS[lvi+1].name); }
+    else{ goHome(); }
+  };
+  step.appendChild(prev); step.appendChild(over); step.appendChild(next);
+  main.appendChild(step);
+
+  if(!save.done[st.id]) save.done[st.id]={};
+  save.done[st.id].seen=1; persist();
+
+  var g=document.getElementById('stripG'), t=document.getElementById('stripT');
+  g.textContent=st.g;
+  t.innerHTML=esc(st.t)+'<small>'+esc(st.en)+'</small>';
+  g.classList.remove('flip'); t.classList.remove('flip');
+  void g.offsetWidth;
+  g.classList.add('flip'); t.classList.add('flip');
+
+  restoreTyped(st.id);
+  paintNav(); paintXP();
+}
+function go(i){
+  renderStation(i);
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+function goHome(){
+  renderHome();
+  window.scrollTo({top:0, behavior:'auto'});
+  closeNav();
+}
+
+/* ---------- sidebar ---------- */
+function paintNav(){
+  var nav=document.getElementById('fahrplan');
+  nav.innerHTML='';
+  var h=el('div','fp-head');
+  h.appendChild(el('span',null,'Course map'));
+  h.appendChild(el('span',null,STATIONEN.length+' units'));
+  nav.appendChild(h);
+
+  var hb=el('button','fp-item'+(current===-1?' on':''));
+  hb.type='button';
+  hb.appendChild(el('span','fp-g','⌂'));
+  hb.appendChild(el('span','fp-t','Overview<em>All levels</em>'));
+  hb.appendChild(el('span'));
+  hb.onclick=goHome;
+  nav.appendChild(hb);
+
+  LEVELS.forEach(function(lv, li){
+    var lh=el('div','fp-lvl '+lv.cls);
+    lh.appendChild(el('span',null,'Part '+(li+1)+' · '+lv.code));
+    lh.appendChild(el('span',null, levelPct(lv)+'%'));
+    nav.appendChild(lh);
+
+    lv.ids.forEach(function(id){
+      var i=idxOfId(id), st=STATIONEN[i];
+      var b=el('button','fp-item'+(i===current?' on':''));
+      b.type='button';
+      b.appendChild(el('span','fp-g', st.g));
+      b.appendChild(el('span','fp-t', esc(st.t)+'<em>'+esc(st.en)+'</em>'));
+      var p=stationPct(st);
+      b.appendChild(el('span','fp-dot'+(p>=100?' done':(p>0?' part':''))));
+      b.onclick=function(){ go(i); };
+      nav.appendChild(b);
+    });
+  });
+
+  var reset=el('button','btn sm ghost','Reset progress');
+  reset.type='button';
+  reset.style.marginTop='18px';
+  reset.onclick=function(){
+    if(confirm('Delete all your progress?')){
+      save={xp:0,done:{},last:null,ans:{},typed:{}}; persist(); goHome(); toast('Progress reset');
+    }
+  };
+  nav.appendChild(reset);
+}
+function closeNav(){
+  document.getElementById('fahrplan').classList.remove('open');
+  document.getElementById('scrim').classList.remove('on');
+}
+document.getElementById('menuBtn').onclick=function(){
+  document.getElementById('fahrplan').classList.toggle('open');
+  document.getElementById('scrim').classList.toggle('on');
+};
+document.getElementById('scrim').onclick=closeNav;
+document.getElementById('homeBtn').onclick=goHome;
+
+/* keyboard: arrows move between stations, Esc returns to the overview */
+document.addEventListener('keydown', function(e){
+  var tag=(e.target.tagName||'').toLowerCase();
+  if(tag==='input'||tag==='textarea') return;
+  if(e.key==='Escape'){ goHome(); return; }
+  if(current<0) return;
+  if(e.key==='ArrowLeft') go((current-1+STATIONEN.length)%STATIONEN.length);
+  if(e.key==='ArrowRight') go((current+1)%STATIONEN.length);
+});
+
+/* ---------- translation toggles ---------- */
+var TRKEY=KEY+'_tr';
+var trs={hi:false, pa:false};
+try{ var rawT=STORE.get(TRKEY); if(rawT){ var pt=JSON.parse(rawT); trs.hi=!!pt.hi; trs.pa=!!pt.pa; } }catch(e){}
+function applyTr(){
+  document.body.classList.toggle('t-hi', trs.hi);
+  document.body.classList.toggle('t-pa', trs.pa);
+  document.getElementById('trHi').classList.toggle('on', trs.hi);
+  document.getElementById('trPa').classList.toggle('on', trs.pa);
+  STORE.set(TRKEY, JSON.stringify(trs));
+}
+document.getElementById('trHi').onclick=function(){ trs.hi=!trs.hi; applyTr(); };
+document.getElementById('trPa').onclick=function(){ trs.pa=!trs.pa; applyTr(); };
+applyTr();
+
+renderHome();
+})();
+</script>
+</body>
+</html>

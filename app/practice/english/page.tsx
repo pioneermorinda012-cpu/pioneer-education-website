@@ -18,7 +18,7 @@ export default async function EnglishLibrary() {
       </div>
 
       <div className="pr-note">
-        New to English? Start with A1, then move on to A2 once it feels comfortable.
+        Six levels, from A1 (beginner) to C2 (near-native). Start at the level that feels a little difficult, and move up once it feels comfortable.
         Each trainer opens full screen — use the <b>&larr; Back to English</b> button to come back here.
       </div>
 
