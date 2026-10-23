@@ -20,6 +20,7 @@ const AREAS = [
   { key: "gt", label: "IELTS GT" },
   { key: "english", label: "English" },
   { key: "pte", label: "PTE" },
+  { key: "german", label: "German" },
 ] as const;
 const areaLabel = (k: string) => AREAS.find((a) => a.key === k)?.label ?? k;
 

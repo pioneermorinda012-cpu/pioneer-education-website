@@ -20,13 +20,14 @@
 import type { Session } from "@/lib/session";
 import type { SkillCode } from "@/lib/catalogue";
 
-export type Area = "academic" | "gt" | "english" | "pte";
+export type Area = "academic" | "gt" | "english" | "pte" | "german";
 
 export const AREAS: { key: Area; label: string; home: string }[] = [
   { key: "academic", label: "IELTS Academic", home: "/practice?skill=AR" },
   { key: "gt", label: "IELTS General Training", home: "/practice?skill=GR" },
   { key: "english", label: "English", home: "/practice/english" },
   { key: "pte", label: "PTE", home: "/practice/pte" },
+  { key: "german", label: "German", home: "/practice/german" },
 ];
 
 /** Listening is the same paper for Academic and GT, so both open it. */
@@ -136,6 +137,7 @@ export async function setAccess(studentId: string, areas: Area[]): Promise<void>
 /** What an online course opens. */
 export function areasForCourse(slug: string): Area[] {
   if (/pte/i.test(slug)) return ["pte"];
+  if (/german|deutsch/i.test(slug)) return ["german"];
   if (/english|spoken/i.test(slug)) return ["english"];
   if (/ielts/i.test(slug)) return ["academic", "gt"];
   return [];
