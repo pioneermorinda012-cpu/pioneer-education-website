@@ -69,9 +69,15 @@ export async function findStudentByPayment(paymentId: string): Promise<Student |
 }
 
 export async function listStudents(): Promise<Student[]> {
-  const rows = await rest(
-    "students?select=id,code,full_name,batch,track,active,created_at&order=created_at.desc&limit=500",
-  );
+  const cols = "id,code,full_name,batch,track,active,created_at";
+  // email and phone exist once supabase/2026-10-online-payments.sql has run;
+  // without them the list still loads, just without those two
+  let rows;
+  try {
+    rows = await rest(`students?select=${cols},email,phone&order=created_at.desc&limit=500`);
+  } catch {
+    rows = await rest(`students?select=${cols}&order=created_at.desc&limit=500`);
+  }
   return Array.isArray(rows) ? rows : [];
 }
 

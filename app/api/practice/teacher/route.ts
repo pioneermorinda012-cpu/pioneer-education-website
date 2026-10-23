@@ -5,6 +5,8 @@ import {
 import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
 import { allAccess, cleanAreas, setAccess } from "@/lib/access";
+import { paymentsMissing } from "@/lib/razorpay";
+import { letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
 import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
@@ -42,6 +44,20 @@ export async function GET(req: NextRequest) {
     });
   }
   if (!(await signedIn(req))) return NextResponse.json({ configured: true, authed: false });
+
+  /* ?check=1: is online payment fully set up? Names only, never the values. */
+  if (req.nextUrl.searchParams.get("check")) {
+    return NextResponse.json({
+      configured: true, authed: true,
+      missing: paymentsMissing(),
+      mail: mailReady(),
+      mailFrom: process.env.MAIL_FROM ?? "",
+      owner: process.env.OWNER_EMAIL ?? "",
+      site: siteUrl(),
+      keyMode: (process.env.RAZORPAY_KEY_ID ?? "").startsWith("rzp_live_") ? "live"
+        : (process.env.RAZORPAY_KEY_ID ?? "").startsWith("rzp_test_") ? "test" : "",
+    });
+  }
 
   /* Writing to check: ?writings=1 is the list, ?writing=<id> one paper in full. */
   const one = req.nextUrl.searchParams.get("writing");
@@ -178,6 +194,22 @@ export async function POST(req: NextRequest) {
       // `clear`: modules whose online end date the teacher removed
       await setAccess(String(body.id ?? ""), access, cleanAreas(body.clear));
       return NextResponse.json({ ok: true, access });
+    }
+
+    if (action === "testMail") {
+      // the exact answer from Resend, so a domain that is not verified shows as such
+      const to = String(body.to ?? process.env.OWNER_EMAIL ?? "").trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(to)) {
+        return NextResponse.json({ error: "Enter an email address to send the test to." }, { status: 400 });
+      }
+      try {
+        await sendMail(to, "Test email from pioneermorinda.com",
+          letter("Test email", "<p>If you can read this, the website can send email — student logins will arrive.</p>"),
+          "If you can read this, the website can send email.");
+        return NextResponse.json({ ok: true, to });
+      } catch (e) {
+        return NextResponse.json({ ok: false, error: String((e as Error).message).slice(0, 300) });
+      }
     }
 
     if (action === "markWriting") {

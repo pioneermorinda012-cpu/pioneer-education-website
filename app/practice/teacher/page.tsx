@@ -8,6 +8,7 @@ import { summarise } from "@/lib/skill-summary";
 type Student = {
   id: string; code: string; full_name: string;
   batch: string | null; track: string; active: boolean; created_at: string;
+  email?: string | null; phone?: string | null;
 };
 type Att = {
   id: string; student_id: string; test_id: string; skill: string;
@@ -42,6 +43,10 @@ export default function TeacherPage() {
     teacher_band: number | null; auto_band: number | null;
   };
   const [wbands, setWbands] = useState<WBand[]>([]);
+  type Check = { missing: string[]; mail: boolean; mailFrom: string; owner: string; site: string; keyMode: string };
+  const [check, setCheck] = useState<Check | null>(null);
+  const [mailTo, setMailTo] = useState("");
+  const [mailResult, setMailResult] = useState("");
   const [until, setUntilMap] = useState<Record<string, Record<string, string>>>({});
   const [editing, setEditing] = useState<{ id: string; areas: string[]; clear: string[] } | null>(null);
   const [tab, setTab] = useState<"results" | "writing" | "people">("results");
@@ -113,6 +118,21 @@ export default function TeacherPage() {
       setForm({ code: "", full_name: "", batch: form.batch, pin: "", access: form.access });
       load();
     }
+  }
+
+  async function runCheck() {
+    setMailResult("");
+    const res = await fetch("/api/practice/teacher?check=1", { cache: "no-store" });
+    const d = await res.json().catch(() => ({}));
+    setCheck(d);
+    if (!mailTo && d.owner) setMailTo(d.owner);
+  }
+
+  async function testMail() {
+    setMailResult("Sending…");
+    const d = await post({ action: "testMail", to: mailTo });
+    if (!d) { setMailResult(""); return; }
+    setMailResult(d.ok ? `Sent to ${d.to} — check that inbox (and spam).` : `Failed: ${d.error}`);
   }
 
   const flip = (list: string[], k: string) =>
@@ -537,6 +557,36 @@ export default function TeacherPage() {
 
       {tab === "people" && (
         <>
+          {/* Why didn't a student get their login? The list below shows whether
+              the login was made; this shows whether the site can take payments
+              and send email at all. */}
+          <section className="pr-set">
+            <h2>Online payments</h2>
+            {!check ? (
+              <button className="btn ghost" type="button" onClick={runCheck}>Check online payment setup</button>
+            ) : (
+              <div className="pr-note" style={{ marginTop: 0 }}>
+                {check.missing.length ? (
+                  <><b>Not ready — Pay now is hidden.</b> Missing in Vercel: {check.missing.join(", ")}. Add them, then redeploy.</>
+                ) : (
+                  <><b>Ready.</b> Pay now is shown on the course pages{check.keyMode ? ` (Razorpay ${check.keyMode} keys)` : ""}.</>
+                )}
+                <div style={{ marginTop: 6 }}>
+                  Emails are sent from <b>{check.mailFrom || "—"}</b>; enrolment copies go to <b>{check.owner || "nobody (OWNER_EMAIL not set)"}</b>.
+                  Links in emails point to {check.site}.
+                </div>
+                {check.mail && (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 10, alignItems: "center" }}>
+                    <input value={mailTo} onChange={(e) => setMailTo(e.target.value)} placeholder="your@email.com"
+                           style={{ flex: "1 1 220px", padding: "9px 12px", borderRadius: 10, border: "1px solid var(--grey-light)", font: "inherit" }} />
+                    <button className="btn" type="button" onClick={testMail} disabled={busy}>Send a test email</button>
+                  </div>
+                )}
+                {mailResult && <div style={{ marginTop: 8, fontWeight: 600 }}>{mailResult}</div>}
+              </div>
+            )}
+          </section>
+
           <section className="pr-set">
             <h2>Add a student</h2>
             <form className="pr-form" onSubmit={addStudent}>
@@ -588,6 +638,8 @@ export default function TeacherPage() {
                     <div className="nm">{s2.full_name} {!s2.active && <span className="pr-off">off</span>}</div>
                     <div className="fx">
                       <span>{s2.code}</span>
+                      {s2.email && <span>{s2.email}</span>}
+                      {s2.phone && <span>{s2.phone}</span>}
                       {s2.batch && <span>{s2.batch}</span>}
                       <span className="pr-opens">
                         {access[s2.id]
