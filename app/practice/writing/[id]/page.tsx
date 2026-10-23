@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import WritingDesk from "@/components/practice/WritingDesk";
+import Link from "next/link";
+import { lessonForType } from "@/lib/learn";
 import { getWritingTask, forStudent } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { allows, WRITING_AREAS } from "@/lib/access";
@@ -38,8 +40,17 @@ export default async function WritingTaskPage({ params, searchParams }: {
     ? await writingsForStudentTask(me.sid, task.id).catch(() => [])
     : [];
 
+  // Task 1: the lesson and video for this chart type, one tap away
+  const learn = task.kind === "task1" ? lessonForType(task.chartType) : null;
+
   return (
     <div className="wrap">
+      {learn && (
+        <div className="ln-first" style={{ marginTop: 16 }}>
+          <div><b>{task.chartType}:</b> not sure how to start? Watch the video and read the lesson first.</div>
+          <Link className="btn btn-outline" href={`/practice/learn/${learn.id}`} prefetch={false}>▶ Video &amp; lesson</Link>
+        </div>
+      )}
       <WritingDesk task={isTeacher ? task : forStudent(task)}
         start={q !== undefined && Number(q) >= 0 && Number(q) < (task.prompts?.length ?? 0) ? Math.floor(Number(q)) : undefined} />
 

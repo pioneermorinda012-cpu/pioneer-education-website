@@ -3,6 +3,7 @@ import { getWriting, CHART_TYPES, ESSAY_TYPES } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { WRITING_AREAS } from "@/lib/access";
 import PracticeNav from "@/components/practice/PracticeNav";
+import { lessonForType } from "@/lib/learn";
 
 export const dynamic = "force-dynamic";
 
@@ -105,6 +106,22 @@ export default async function WritingLibrary({
       </div>
 
       <div className="pr-note">{page.note}</div>
+
+      {/* Learn first: the lesson and video for this chart type, or all of them */}
+      {kind === "task1" && (() => {
+        const l = lessonForType(picked);
+        return (
+          <div className="ln-first">
+            <div>
+              {l ? <><b>Before you write:</b> watch the {l.title.toLowerCase()} video and read the lesson — the words, grammar and model answers for this chart type.</>
+                 : <><b>New to Task 1?</b> Learn each chart type first: a video, a lesson with exercises, and model answers.</>}
+            </div>
+            <Link className="btn btn-coral" href={l ? `/practice/learn/${l.id}` : "/practice/learn"} prefetch={false}>
+              {l ? "▶ Video & lesson" : "▶ Learn Task 1"}
+            </Link>
+          </div>
+        );
+      })()}
 
       {types.length > 0 && (
         <nav className="wr-types" aria-label="Chart type">

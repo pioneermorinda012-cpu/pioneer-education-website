@@ -513,3 +513,22 @@ mark.ev-near .ev-badge { opacity: 0.85; }
   .pr-row .go.go-many { flex-wrap: wrap; }
   .pr-row .go.go-many .btn { width: auto; flex: 1 1 0; min-width: 0; padding-left: 8px; padding-right: 8px; white-space: nowrap; }
 }
+
+/* Learn Task 1: one card per chart type with its video */
+.ln-plan { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px; padding: 16px 20px; margin: 18px 0; }
+.ln-plan h2 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.15rem; margin: 0 0 6px; }
+.ln-plan ol { margin: 6px 0 6px 18px; padding: 0; }
+.ln-plan p { margin: 6px 0 0; color: var(--grey); font-size: .92rem; }
+.ln-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; margin: 18px 0 40px; }
+.ln-card { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; scroll-margin-top: 12px; }
+.ln-step { color: var(--coral); font-weight: 800; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+.ln-card h2 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.3rem; margin: 2px 0 4px; }
+.ln-card p { color: var(--grey); font-size: .9rem; margin: 0 0 10px; }
+.ln-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 12px; overflow: hidden; background: #000; }
+.ln-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.ln-go { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 12px; }
+.ln-go .btn { flex: 1 1 130px; justify-content: center; white-space: nowrap; padding: 10px 12px; font-size: .86rem; min-height: 42px; }
+/* "learn first" note above the Task 1 library */
+.ln-first { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: space-between; background: #fff7ee; border: 1px solid #f3c79f; border-radius: 14px; padding: 12px 16px; margin: 14px 0; }
+.ln-first b { color: var(--navy); }
+.ln-first .btn { padding: 8px 16px; font-size: .85rem; min-height: 38px; }

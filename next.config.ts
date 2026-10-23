@@ -17,6 +17,12 @@ const nextConfig: NextConfig = {
     "/practice/pte/**": ["./content/pte/*.html"],
     // The English trainers are whole HTML pages served by app/practice/english/[id]/route.ts.
     "/practice/english/**": ["./content/english/*.html"],
+    // The German trainers, the same way (app/practice/german/[id]/route.ts).
+    "/practice/german/**": ["./content/german/*.html"],
+    // The Writing Task 1 lessons (app/practice/learn/[id]/route.ts); the lesson
+    // list also counts the practice tasks of each chart type.
+    "/practice/learn": ["./content/writing/*.json"],
+    "/practice/learn/**": ["./content/learn/*.html"],
   },
 };
 

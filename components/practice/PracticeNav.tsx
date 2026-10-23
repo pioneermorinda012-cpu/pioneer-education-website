@@ -26,6 +26,7 @@ export default function PracticeNav({ active, session }: { active: string; sessi
 
   const tests = SKILLS.filter((s) => s.available && can(SKILL_AREAS[s.code]));
   const writing = [
+    { href: "/practice/learn", code: "LEARN", label: "Learn Task 1 ▶", need: ["academic"] as Area[] },
     { href: "/practice/writing?task=1", code: "W1", label: "Task 1 · Academic", need: ["academic"] as Area[] },
     { href: "/practice/writing?task=gt1", code: "WG", label: "Task 1 · GT letter", need: ["gt"] as Area[] },
     { href: "/practice/writing?task=2", code: "W2", label: "Task 2", need: ["academic", "gt"] as Area[] },
