@@ -4,6 +4,7 @@ import SiteNav from "../../../components/SiteNav";
 import CourseVideos from "../../../components/CourseVideos";
 import PricingReveal from "../../../components/PricingReveal";
 import PlanPicker from "../../../components/PlanPicker";
+import { paymentsReady } from "@/lib/razorpay";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -42,6 +43,8 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
   )}`;
 
   const feesOnRequest = course.plans.every((p) => p.price === null);
+  // "Pay now" only when the server can take the payment and send the login
+  const canPay = paymentsReady();
 
   return (
     <>
@@ -114,7 +117,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
             <p>First demo class always free · Sibling discount 20% · Refer &amp; Earn up to ₹500</p>
           </div>
           <PricingReveal>
-          <PlanPicker plans={course.plans} wa={wa} />
+          <PlanPicker plans={course.plans} wa={wa} course={course.slug} courseName={course.name} canPay={canPay} />
           <div className="price-note">
             {feesOnRequest ? (
               <>
@@ -128,9 +131,9 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
               </>
             )}
           </div>
-          {course.plans.some((p) => p.payLink) && (
+          {canPay && course.plans.some((p) => p.price !== null && !p.comingSoon) && (
             <p style={{ fontSize: "0.85rem", color: "var(--grey)", marginTop: 14, textAlign: "center" }}>
-              After you pay, your student login for the practice tests is emailed to the address you give Razorpay.
+              After you pay, your student login for the practice material is emailed to the address you enter — it opens your course for the months you paid for.
             </p>
           )}
           </PricingReveal>

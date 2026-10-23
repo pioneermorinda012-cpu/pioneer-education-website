@@ -23,6 +23,8 @@ const AREAS = [
   { key: "german", label: "German" },
 ] as const;
 const areaLabel = (k: string) => AREAS.find((a) => a.key === k)?.label ?? k;
+const shortDate = (iso: string) =>
+  new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata" });
 
 const SKILL_NAME: Record<string, string> = {
   AL: "Academic Listening", AR: "Academic Reading", GL: "GT Listening", GR: "GT Reading",
@@ -40,7 +42,8 @@ export default function TeacherPage() {
     teacher_band: number | null; auto_band: number | null;
   };
   const [wbands, setWbands] = useState<WBand[]>([]);
-  const [editing, setEditing] = useState<{ id: string; areas: string[] } | null>(null);
+  const [until, setUntilMap] = useState<Record<string, Record<string, string>>>({});
+  const [editing, setEditing] = useState<{ id: string; areas: string[]; clear: string[] } | null>(null);
   const [tab, setTab] = useState<"results" | "writing" | "people">("results");
   type Wr = {
     id: string; student_id: string; kind: string; question: string; words: number;
@@ -66,6 +69,7 @@ export default function TeacherPage() {
     setAttempts(d.attempts ?? []);
     setNames(d.names ?? {});
     setAccessMap(d.access ?? {});
+    setUntilMap(d.until ?? {});
     setWbands(d.wbands ?? []);
     if (d.error) setErr(d.error);
     setState("in");
@@ -116,7 +120,7 @@ export default function TeacherPage() {
 
   async function saveAccess() {
     if (!editing) return;
-    if (await post({ action: "access", id: editing.id, access: editing.areas })) {
+    if (await post({ action: "access", id: editing.id, access: editing.areas, clear: editing.clear })) {
       setEditing(null);
       load();
     }
@@ -586,7 +590,14 @@ export default function TeacherPage() {
                       <span>{s2.code}</span>
                       {s2.batch && <span>{s2.batch}</span>}
                       <span className="pr-opens">
-                        {access[s2.id] ? access[s2.id].map(areaLabel).join(" + ") : "Opens everything"}
+                        {access[s2.id]
+                          ? access[s2.id].map((k) => {
+                              const end = until[s2.id]?.[k];
+                              if (!end) return areaLabel(k);
+                              const over = Date.parse(end) <= Date.now();
+                              return `${areaLabel(k)} (${over ? "ended" : "until"} ${shortDate(end)})`;
+                            }).join(" + ")
+                          : "Opens everything"}
                       </span>
                     </div>
                     {editing?.id === s2.id && (
@@ -596,6 +607,16 @@ export default function TeacherPage() {
                             <input type="checkbox" checked={editing.areas.includes(a.key)}
                                    onChange={() => setEditing({ ...editing, areas: flip(editing.areas, a.key) })} />
                             {a.label}
+                            {until[s2.id]?.[a.key] && editing.areas.includes(a.key) && (
+                              editing.clear.includes(a.key) ? (
+                                <em className="pr-until"> · no end date</em>
+                              ) : (
+                                <button type="button" className="pr-untilbtn" title="Remove the end date: open with no time limit"
+                                        onClick={(e) => { e.preventDefault(); setEditing({ ...editing, clear: [...editing.clear, a.key] }); }}>
+                                  {Date.parse(until[s2.id][a.key]) <= Date.now() ? "ended" : "until"} {shortDate(until[s2.id][a.key])} ✕
+                                </button>
+                              )
+                            )}
                           </label>
                         ))}
                         <button className="btn" type="button" onClick={saveAccess} disabled={busy || !editing.areas.length}>
@@ -607,7 +628,7 @@ export default function TeacherPage() {
                   </div>
                   <div className="go" style={{ display: "flex", gap: 8 }}>
                     <button className="btn ghost" type="button" disabled={busy}
-                            onClick={() => setEditing({ id: s2.id, areas: access[s2.id] ?? AREAS.map((a) => a.key) })}>
+                            onClick={() => setEditing({ id: s2.id, areas: access[s2.id] ?? AREAS.map((a) => a.key), clear: [] })}>
                       Modules
                     </button>
                     <button className="btn ghost" type="button" onClick={() => resetPin(s2)} disabled={busy}>

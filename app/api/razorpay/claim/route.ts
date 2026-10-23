@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { findStudentByPayment, setStudentPin, supabaseReady } from "@/lib/students";
 import { signSession, hashPin, COOKIE, SESSION_HOURS, type Session } from "@/lib/session";
-import { getAccess, homeFor } from "@/lib/access";
+import { activeAreas, getAccessRow, homeFor } from "@/lib/access";
 import { verifyPaymentLinkSignature } from "@/lib/link-signature";
 
 export const runtime = "nodejs";
@@ -55,11 +55,19 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ ok: false, pending: true }, { status: 202 });
   }
 
+  // The webhook saves which modules were paid for straight after making the
+  // login. Until that is in, say "not yet" rather than sign the student in
+  // with no settings — which would open everything.
+  let row;
+  try { row = await getAccessRow(student.id); } catch { row = undefined; }
+  if (!row || !row.payments.includes(paymentId)) {
+    return NextResponse.json({ ok: false, pending: true }, { status: 202 });
+  }
+
   try {
     await setStudentPin(student.id, await hashPin(password));
 
-    let access: Session["access"];
-    try { access = await getAccess(student.id); } catch { access = undefined; }
+    const access: Session["access"] = activeAreas(row);
 
     const session: Session = {
       sid: student.id, code: student.code, name: student.full_name,

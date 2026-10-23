@@ -229,6 +229,27 @@ export function withLink(list: Plan[], tier: Plan["tier"], term: Term, url: stri
   );
 }
 
+export const TERM_MONTHS: Record<Term, number> = { "1m": 1, "3m": 3 };
+
+/** A plan's address, e.g. "german:group:3m:A1" or "ielts:self:1m:". Sent to
+ *  Razorpay with the payment and read back by the webhook. */
+export function planKey(courseSlug: string, p: Plan): string {
+  return `${courseSlug}:${p.tier}:${p.term}:${p.level ?? ""}`;
+}
+
+/** The course and plan behind a key, or null if it no longer exists. */
+export function findPlanByKey(key: string): { course: Course; plan: Plan } | null {
+  for (const course of COURSES) {
+    for (const plan of course.plans) {
+      if (planKey(course.slug, plan) === key) return { course, plan };
+    }
+  }
+  return null;
+}
+
+/** Can this plan be bought online: a fixed price, not "coming soon". */
+export const buyable = (p: Plan) => typeof p.price === "number" && p.price > 0 && !p.comingSoon;
+
 /** Which course and plan a Razorpay payment link belongs to, for the webhook. */
 export function findPlanByLink(url: string): { course: Course; plan: Plan } | null {
   const norm = (u: string) => u.trim().replace(/\/+$/, "").replace(/^http:/, "https:").toLowerCase();

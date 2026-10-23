@@ -45,10 +45,13 @@ export async function POST(req: NextRequest) {
   if (!student) return bad;
   if (!(await verifyPin(pin, student.pin_hash))) return bad;
 
-  // Which modules this login opens. If it cannot be read, the student still
-  // gets in — with everything, as before — rather than being locked out.
+  // Which modules this login opens, and until when. If it cannot be read the
+  // student is asked to try again: signing them in without it would open
+  // everything, including courses whose paid time has run out.
   let access: Session["access"];
-  try { access = await getAccess(student.id); } catch { access = undefined; }
+  try { access = await getAccess(student.id); } catch {
+    return NextResponse.json({ error: "Could not reach the database. Try again." }, { status: 502 });
+  }
 
   const session: Session = {
     sid: student.id,

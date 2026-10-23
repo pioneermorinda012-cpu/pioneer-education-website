@@ -295,3 +295,15 @@
 .plan-tabs button { border: 0; background: transparent; font: inherit; font-weight: 700; font-size: .92rem; padding: 9px 18px; border-radius: 100px; cursor: pointer; color: var(--grey, #666); }
 .plan-tabs button.on { background: var(--coral); color: #fff; }
 .pc-save { font-size: .85rem; font-weight: 700; color: var(--teal, #1f8a4c); margin: -4px 0 10px; }
+.buy-ov { position: fixed; inset: 0; z-index: 1000; background: rgba(15, 18, 25, .55); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.buy-box { position: relative; background: #fff; border-radius: 18px; padding: 26px 24px 20px; width: 100%; max-width: 420px; max-height: calc(100vh - 32px); overflow: auto; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.buy-x { position: absolute; top: 10px; right: 12px; border: 0; background: transparent; font-size: 1.7rem; line-height: 1; cursor: pointer; color: var(--grey, #666); }
+.buy-what { font-size: .8rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--coral); }
+.buy-plan { font-weight: 800; font-size: 1.1rem; margin: 4px 0 2px; color: var(--navy, #111); }
+.buy-price { font-family: Fraunces, serif; font-size: 1.7rem; font-weight: 700; margin-bottom: 14px; color: var(--navy, #111); }
+.buy-price span { font-family: inherit; font-size: .95rem; font-weight: 500; color: var(--grey, #666); }
+.buy-box label { display: block; font-size: .8rem; font-weight: 700; margin: 10px 0 5px; color: var(--navy, #111); }
+.buy-box input { width: 100%; box-sizing: border-box; font: inherit; font-size: 1rem; padding: 11px 13px; border: 1px solid var(--grey-light, #ddd); border-radius: 10px; }
+.buy-box input:focus { outline: 2px solid var(--coral); outline-offset: 0; border-color: transparent; }
+.buy-err { margin-top: 10px; background: #fdecea; color: #a12b1d; border-radius: 8px; padding: 9px 12px; font-size: .88rem; font-weight: 600; }
+.buy-small { font-size: .78rem; color: var(--grey, #666); margin: 12px 0 0; line-height: 1.5; }

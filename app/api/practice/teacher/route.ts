@@ -88,7 +88,16 @@ export async function GET(req: NextRequest) {
       student_id: w.student_id, kind: w.kind, status: w.status, submitted_at: w.submitted_at,
       teacher_band: w.teacher_band, auto_band: w.auto_band,
     }));
-    return NextResponse.json({ configured: true, authed: true, students, attempts, names, access, wbands });
+    // modules per student, and the end date of any bought online
+    const accessMap: Record<string, string[]> = {}, untilMap: Record<string, Record<string, string>> = {};
+    for (const [id, row] of Object.entries(access)) {
+      accessMap[id] = row.access;
+      if (Object.keys(row.until).length) untilMap[id] = row.until as Record<string, string>;
+    }
+    return NextResponse.json({
+      configured: true, authed: true, students, attempts, names, wbands,
+      access: accessMap, until: untilMap,
+    });
   } catch (e) {
     return NextResponse.json(
       { configured: true, authed: true, students: [], attempts: [], names: {},
@@ -166,7 +175,8 @@ export async function POST(req: NextRequest) {
       if (!access.length) {
         return NextResponse.json({ error: "Tick at least one module." }, { status: 400 });
       }
-      await setAccess(String(body.id ?? ""), access);
+      // `clear`: modules whose online end date the teacher removed
+      await setAccess(String(body.id ?? ""), access, cleanAreas(body.clear));
       return NextResponse.json({ ok: true, access });
     }
 

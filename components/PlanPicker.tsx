@@ -3,6 +3,8 @@
 import { useState } from "react";
 import type { Plan, Term } from "@/app/data/courses";
 
+const buyable = (p: Plan) => typeof p.price === "number" && p.price > 0 && !p.comingSoon;
+
 /* The fee cards for one course: pick 1 month or 3 months (and the level, for
  * German), then the three plans for that choice. Every price is still in the
  * page source, so nothing depends on a click to be found. */
@@ -12,7 +14,10 @@ const TERMS: { key: Term; label: string }[] = [
   { key: "3m", label: "3 months" },
 ];
 
-export default function PlanPicker({ plans, wa }: { plans: Plan[]; wa: string }) {
+export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
+  plans: Plan[]; wa: string; course: string; courseName: string; canPay: boolean;
+}) {
+  const [buying, setBuying] = useState<Plan | null>(null);
   const levels = [...new Set(plans.map((p) => p.level).filter((l): l is string => Boolean(l)))];
   const [level, setLevel] = useState(levels[0]);
   const [term, setTerm] = useState<Term>("1m");
@@ -77,15 +82,15 @@ export default function PlanPicker({ plans, wa }: { plans: Plan[]; wa: string })
                   <li key={j} style={light}>{f}</li>
                 ))}
               </ul>
-              {plan.payLink && plan.price !== null ? (
+              {canPay && buyable(plan) ? (
                 <>
-                  <a href={plan.payLink} target="_blank" rel="noopener noreferrer"
+                  <button type="button" onClick={() => setBuying(plan)}
                      className={plan.featured ? "btn" : "btn btn-coral"}
                      style={plan.featured
                        ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
                        : { width: "100%", justifyContent: "center" }}>
                     Pay now — secure Razorpay
-                  </a>
+                  </button>
                   <a href={wa} target="_blank" rel="noopener noreferrer"
                      style={{ display: "block", textAlign: "center", marginTop: 10, fontSize: "0.85rem", fontWeight: 600,
                        color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}>
@@ -105,6 +110,74 @@ export default function PlanPicker({ plans, wa }: { plans: Plan[]; wa: string })
           );
         })}
       </div>
+      {buying && (
+        <BuyForm plan={buying} course={course} courseName={courseName} onClose={() => setBuying(null)} />
+      )}
     </>
+  );
+}
+
+/* The buyer's details, then off to Razorpay. The login is emailed to this
+   address, so it is asked for here rather than left to the payment page. */
+function BuyForm({ plan, course, courseName, onClose }: {
+  plan: Plan; course: string; courseName: string; onClose: () => void;
+}) {
+  const [f, setF] = useState({ name: "", email: "", phone: "" });
+  const [err, setErr] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  async function go(e: React.FormEvent) {
+    e.preventDefault();
+    setErr("");
+    if (f.name.trim().length < 2) return setErr("Enter your full name.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(f.email.trim())) return setErr("Enter a valid email address — your login is sent there.");
+    const digits = f.phone.replace(/\D/g, "").replace(/^91(?=\d{10}$)/, "");
+    if (!/^[6-9]\d{9}$/.test(digits)) return setErr("Enter a 10-digit mobile number.");
+    setBusy(true);
+    try {
+      const res = await fetch("/api/pay/start", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          course, tier: plan.tier, term: plan.term, level: plan.level ?? "",
+          name: f.name, email: f.email, phone: digits,
+        }),
+      });
+      const d = await res.json().catch(() => ({}));
+      if (!res.ok || !d.url) { setErr(d.error || "Could not open the payment page. Please try again."); setBusy(false); return; }
+      window.location.href = d.url;
+    } catch {
+      setErr("No connection. Please try again.");
+      setBusy(false);
+    }
+  }
+
+  return (
+    <div className="buy-ov" role="dialog" aria-modal="true" aria-label="Your details" onClick={(e) => { if (e.target === e.currentTarget && !busy) onClose(); }}>
+      <form className="buy-box" onSubmit={go}>
+        <button type="button" className="buy-x" aria-label="Close" onClick={onClose} disabled={busy}>×</button>
+        <div className="buy-what">{courseName}</div>
+        <div className="buy-plan">{[plan.level, plan.name].filter(Boolean).join(" · ")}</div>
+        <div className="buy-price">
+          ₹{plan.price!.toLocaleString("en-IN")} <span>{plan.term === "1m" ? "for 1 month" : "for 3 months"}</span>
+        </div>
+        <label htmlFor="b-name">Full name</label>
+        <input id="b-name" autoComplete="name" value={f.name} onChange={(e) => setF({ ...f, name: e.target.value })} />
+        <label htmlFor="b-email">Email — your login is sent here</label>
+        <input id="b-email" type="email" autoComplete="email" inputMode="email" value={f.email}
+               onChange={(e) => setF({ ...f, email: e.target.value })} />
+        <label htmlFor="b-phone">Mobile number</label>
+        <input id="b-phone" type="tel" autoComplete="tel" inputMode="numeric" placeholder="98765 43210" value={f.phone}
+               onChange={(e) => setF({ ...f, phone: e.target.value })} />
+        {err && <div className="buy-err">{err}</div>}
+        <button className="btn btn-coral" type="submit" disabled={busy} style={{ width: "100%", justifyContent: "center", marginTop: 14 }}>
+          {busy ? "Opening Razorpay…" : `Continue to pay ₹${plan.price!.toLocaleString("en-IN")}`}
+        </button>
+        <p className="buy-small">
+          You pay on Razorpay&apos;s secure page (UPI, cards, net banking). Your student login is emailed as soon as
+          the payment goes through. Already a student? Use the same email and the time is added to your login.
+        </p>
+      </form>
+    </div>
   );
 }
