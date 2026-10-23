@@ -12,13 +12,19 @@ LOCATIONS:
 - Morinda: 1st Floor Kalsi Cafe, Opp. Khalsa Girls College, Morinda 140101
 - Phone Morinda: +91 73802-61308
 
-PLANS (every course is sold in these three plans):
-1. Online Self-Study – flexible timings, recorded lectures (watchable for as long as the student is enrolled), lessons and study material, practice quizzes. No live classes.
+PLANS (every course is sold in these three plans, for 1 month or 3 months):
+1. Self-Study & Material Access – full access to the study material and practice tests, recorded lectures (watchable while enrolled), flexible timings, practice quizzes. No live classes.
 2. Group Class (Most Popular) – live classes 5 days/week, maximum 10 students per batch, online + offline, weekly progress feedback, certificate on completion
-3. 1-to-1 Coaching (Premium) – dedicated personal sessions, curriculum built around the student, flexible timings, interview preparation, priority WhatsApp support
+3. 1-to-1 Intensive Class (Premium) – dedicated personal sessions, curriculum built around the student, flexible timings, interview preparation, priority WhatsApp support
 
-FEES — IMPORTANT:
-Fees differ by course (IELTS, PTE, Spoken English, German) and by plan. NEVER quote an amount, and never guess one. If a student asks about fees, say the fee depends on the course and plan they choose, invite them to book the free demo class, and ask them to message +91 73802 61308 on WhatsApp for the exact figure.
+FEES (in rupees; Self-Study / Group Class / 1-to-1 Intensive). Quote only these figures, never guess others:
+- IELTS: 1 month 1,499 / 3,499 / 6,999 — 3 months 3,499 / 8,999 / 17,999
+- PTE: 1 month 999 self-study — 3 months 2,499 self-study. Group and 1-to-1 PTE: fee on request (WhatsApp +91 73802 61308)
+- Spoken English: 1 month 799 / 1,999 / 4,999 — 3 months 1,499 / 4,999 / 12,499
+- German A1: 1 month 1,499 / 3,999 / 7,999 — 3 months 3,999 / 9,499 / 18,999
+- German A2: 1 month 2,499 / 4,999 / 9,999 — 3 months 5,999 / 11,999 / 24,999
+- German B1: self-study 3,499 for 1 month, 7,999 for 3 months. B1 group and 1-to-1 are coming soon.
+The 3-month plan is one payment and works out cheaper per month. Offers: free demo class, sibling discount 20%, refer & earn up to 500. Students can pay online on the course page (Pay now — Razorpay: UPI, cards, net banking) and get their practice login by email straight away; or pay at the centre.
 
 COURSES OFFERED:
 - IELTS Coaching (Academic & General Training): Full band preparation — Reading, Writing, Listening, Speaking, mock tests, personalized feedback
@@ -125,10 +131,10 @@ Q: What if I miss a class?
 A: Study material is provided to catch up. For 1-to-1 students, sessions can be rescheduled.
 
 Q: What is the fee?
-A: It depends on which course and which plan you choose. Book the free demo class first, then WhatsApp +91 73802 61308 and we will tell you the exact fee for your plan.
+A: It depends on the course, the plan and 1 or 3 months — give the figures from FEES above for the course they ask about, and mention the free demo class.
 
 Q: How do I pay fees?
-A: UPI, cash, or online bank transfer — all accepted. Payment details shared after enrollment.
+A: Online on the course page (tap See Pricing, then Pay now — UPI, cards or net banking through Razorpay; the login is emailed straight away), or by UPI or cash at the centre.
 
 Q: How quickly can I improve?
 A: Most students see noticeable improvement in 2–3 classes. Exam readiness in 6–8 weeks.

@@ -509,9 +509,9 @@ export default function Home() {
         <div>
           <label htmlFor="lead-budget">Plan You're Interested In</label>
           <select id="lead-budget" ref={budgetRef}>
-            <option>Online Self-Study</option>
+            <option>Self-Study & Material Access</option>
             <option>Group Class</option>
-            <option>1-to-1 Coaching</option>
+            <option>1-to-1 Intensive Class</option>
             <option>Not sure yet</option>
           </select>
         </div>
