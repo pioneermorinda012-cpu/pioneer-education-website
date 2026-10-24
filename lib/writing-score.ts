@@ -59,7 +59,21 @@ export type LetterCheck = {
   prompt?: string;
   /** Academic Task 1: the chart's own labels, which a report cannot avoid repeating. */
   topic?: string[];
+  /** Academic Task 1 process or cycle diagram: no figures to report, so the
+      check looks for sequence words instead, and the bullets are its stages.
+      `natural` (a life cycle, the water cycle) relaxes the passive check. */
+  process?: boolean;
+  natural?: boolean;
+  /** Academic Task 1 map or plan: changes and locations, not figures. */
+  map?: boolean;
 };
+
+/** Words that put the stages of a process in order. */
+const SEQUENCE = ["first", "firstly", "first of all", "to begin with", "initially", "at the beginning", "then",
+  "next", "after this", "after that", "after which", "following this", "following that", "following which",
+  "afterwards", "subsequently", "once", "when", "before", "until", "after", "at this stage", "in the next stage",
+  "in the following stage", "in the final stage", "in the first stage", "at the next stage", "finally",
+  "eventually", "ultimately", "lastly", "meanwhile", "at the same time", "during this time"];
 
 /** Misspellings students actually make, with the spelling they meant. */
 const SPELL: Record<string, string> = {
@@ -176,7 +190,9 @@ export function score(
     .filter(([, c]) => c >= 4 && c / Math.max(1, content.length) > 0.022)
     .sort((a, b) => b[1] - a[1]).slice(0, 4) as [string, number][];
 
-  const linkers = occurrences(text, kind === "gt1" ? [...LINKERS, ...LETTER_LINKERS] : LINKERS);
+  // A process is linked by its sequence words (first, then, once, finally) as much as by "however".
+  const linkers = occurrences(text, kind === "gt1" ? [...LINKERS, ...LETTER_LINKERS]
+    : kind === "task1" && check?.process ? [...new Set([...LINKERS, ...SEQUENCE])] : LINKERS);
   const complex = occurrences(text, kind === "task1" ? [...COMPLEX, ...REPORT_COMPLEX] : COMPLEX);
   if (kind === "task1" && /,\s+[a-z]+ing\b/.test(text)) complex.push(", …ing");
   const informal = occurrences(text, INFORMAL);
@@ -261,18 +277,55 @@ export function score(
   if (kind === "task1" && check) {
     check.bullets.forEach((b, i) => {
       const hits = b.kw.filter((k) => new RegExp(k, "i").test(lower)).length;
+      const what = check.process ? "Stage" : "Key feature";
       if (hits === 0) {
         est -= 1;
-        late.push({ kind: "fix", text: `Key feature ${i + 1} is missing: ${b.label}. Describe it, with the figures from the chart that show it.` });
+        late.push({ kind: "fix", text: check.process
+          ? `Stage ${i + 1} is missing: ${b.label}. Describe it, in order, with the words on the diagram.`
+          : check.map ? `Key feature ${i + 1} is missing: ${b.label}. Describe it, saying where it is or how it changed.`
+          : `Key feature ${i + 1} is missing: ${b.label}. Describe it, with the figures from the chart that show it.` });
       } else if (hits === 1) {
         est -= 0.25;
-        late.push({ kind: "fix", text: `Key feature ${i + 1} (${b.label}) is only touched on. Give it more detail and the key figures.` });
+        late.push({ kind: "fix", text: check.process
+          ? `Stage ${i + 1} (${b.label}) is only touched on. Describe each step in it, in order.`
+          : check.map ? `Key feature ${i + 1} (${b.label}) is only touched on. Say exactly where it is, and what replaced what.`
+          : `Key feature ${i + 1} (${b.label}) is only touched on. Give it more detail and the key figures.` });
       } else {
-        late.push({ kind: "good", text: `Key feature ${i + 1} is covered: ${b.label}.` });
+        late.push({ kind: "good", text: `${what} ${i + 1} is covered: ${b.label}.` });
       }
     });
     const figures = (text.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).length; // "120,000" is one figure
-    if (figures < 4) {
+    if (check.process) {
+      /* No figures to report in a process. What it needs instead: the stages
+         in order, and (for a man-made process) the passive. */
+      const seq = occurrences(text, SEQUENCE);
+      if (seq.length < 3) {
+        est -= 0.5;
+        late.push({ kind: "fix", text: `Only ${seq.length} sequence word${seq.length === 1 ? "" : "s"}. Guide the reader through the stages: first, then, next, after this, once…, finally.` });
+      } else if (seq.length >= 5) {
+        late.push({ kind: "good", text: `The stages are clearly ordered (${seq.slice(0, 5).join(", ")}).` });
+      }
+      const passive = (text.match(/\b(?:is|are|was|were|be|been|being)\s+(?:then\s+|first\s+|also\s+|finally\s+)?(?:[a-z]+ed|built|made|sent|taken|put|kept|cut|ground|sold|brought|fed|grown|drawn|spread|held|shown|known|given|done|seen|thrown|frozen|chosen|driven)\b/gi) ?? []).length;
+      if (!check.natural && passive < 3) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: `This is a man-made process, so use the passive for the steps: “the oranges are washed”, “the beans are roasted”. You used it ${passive} time${passive === 1 ? "" : "s"}.` });
+      } else if (!check.natural) {
+        late.push({ kind: "good", text: `Passive verbs used for the steps (${passive}), as a man-made process needs.` });
+      }
+    } else if (check.map) {
+      /* A map has few or no numbers; what it needs is the language of place
+         and change: located, to the north of, replaced, demolished, extended. */
+      const place = (lower.match(/\b(?:north|south|east|west|north-east|north-west|south-east|south-west|next to|opposite|beside|between|near|adjacent|located|situated|lies|in the (?:centre|middle|corner))\b/g) ?? []).length;
+      const change = (lower.match(/\b(?:replaced|demolished|built|constructed|added|removed|extended|expanded|converted|reduced|moved|relocated|remained|unchanged|became|will be|had been|has been)\b/g) ?? []).length;
+      if (place < 3) {
+        est -= 0.5;
+        late.push({ kind: "fix", text: "Say where things are: to the north of, next to, opposite, in the centre of. A map report is mostly about location." });
+      }
+      if (change < 2 && !/\bs1\b|\bs2\b|site/i.test(lower)) {
+        est -= 0.25;
+        late.push({ kind: "fix", text: "Describe the changes with the passive: was replaced by, had been built, will be extended." });
+      }
+    } else if (figures < 4) {
       est -= 0.5;
       late.push({ kind: "fix", text: `Only ${figures} figure${figures === 1 ? "" : "s"} from the chart. Support each main feature with the numbers or percentages that prove it.` });
     } else if (figures > 35) {
@@ -344,7 +397,11 @@ export function score(
     say("fix", "Task 1 has no opinion in it. Report what the chart shows and compare — never what you think of it.");
   }
   if (kind === "task1" && !/\boverall\b|\bin summary\b/i.test(text)) {
-    say("fix", "There is no overview. Task 1 must state the main trend in one sentence — leaving it out caps the mark for Task Achievement.");
+    say("fix", check?.map
+      ? "There is no overview. Start a paragraph with “Overall,” and give the biggest change (or the key difference between the sites) in one sentence — leaving it out caps the mark for Task Achievement."
+      : check?.process
+      ? "There is no overview. Start a paragraph with “Overall,” and say how many main stages there are, where the process begins and where it ends — leaving it out caps the mark for Task Achievement."
+      : "There is no overview. Task 1 must state the main trend in one sentence — leaving it out caps the mark for Task Achievement.");
   }
   /* A GT letter is marked on purpose, bullet points and tone, not on an
      overview. What can be counted: it opens as a letter and closes as one. */

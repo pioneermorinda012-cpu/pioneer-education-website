@@ -310,7 +310,77 @@
   ],
   "minutes": 20,
   "minWords": 150,
-  "chartType": "Map / plan"
+  "chartType": "Map / plan",
+  "check": {
+   "bullets": [
+    {
+     "label": "Site S1: outside the town, in the countryside to the north-west",
+     "kw": [
+      "\\bs1\\b",
+      "countryside",
+      "north-west",
+      "northwest",
+      "\\boutside\\b",
+      "hindon",
+      "outskirts"
+     ]
+    },
+    {
+     "label": "Site S2: in the town centre (no-traffic zone)",
+     "kw": [
+      "\\bs2\\b",
+      "town centre",
+      "\\bcentre\\b",
+      "no traffic",
+      "no-traffic",
+      "pedestrian",
+      "railway"
+     ]
+    },
+    {
+     "label": "Nearby towns, populations and road / rail access",
+     "kw": [
+      "\\bbran(?:s|d)don\\b",
+      "cransdon",
+      "hindon",
+      "65,000",
+      "10,000",
+      "15,000",
+      "29,000",
+      "main road",
+      "railway",
+      "\\bkm\\b"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The map below is of the town of Garlsdon and shows two possible sites for a new supermarket. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "garlsdon",
+    "site",
+    "supermarket",
+    "town",
+    "population",
+    "road",
+    "roads",
+    "centre"
+   ],
+   "map": true
+  },
+  "phrases": [
+   "The map shows two proposed locations for…",
+   "Overall, the first site (S1) is…, while the second (S2) is…",
+   "S1 is located to the north-west of…, close to…",
+   "S2, by contrast, is situated in…",
+   "It is surrounded by…, with… to the north and south.",
+   "…would be easily accessible by train."
+  ],
+  "sampleText": "The map shows two proposed locations for a new supermarket in Garlsdon, a town with a population of 65,000, together with the surrounding area and nearby towns.\n\nOverall, the first site (S1) is outside the town in the countryside, while the second (S2) is in the town centre. S1 would be easier to reach for people from the nearest town, whereas S2 would be more convenient for Garlsdon residents and rail travellers.\n\nS1 is located to the north-west of Garlsdon, just outside the urban area, close to the main road to Hindon. Hindon, which has a population of 10,000, lies 12 km away. The site is also next to the railway line, although the map does not show a station there. Because it is in the countryside, there would probably be more space for car parking.\n\nS2, by contrast, is situated in the middle of the town centre, which is a no-traffic zone. It is surrounded by housing, with industrial areas to the north and south. The railway passes through the centre, so S2 would be easily accessible by train, and the main roads to Bransdon (16 km, population 15,000) and Cransdon (25 km, population 29,000) both lead out from this part of the town. However, customers could not drive directly to this site.\n\n(About 215 words. It describes each site in its own paragraph and compares them on location, access and nearby population. The overview gives the key difference without numbers: one site is in the countryside, the other in the town centre.)"
  },
  {
   "id": "w1-48",
@@ -1212,5 +1282,530 @@
    "…more than fifteen times the… figure."
   ],
   "sampleText": "The bar chart illustrates how many minutes of telephone calls were made in the UK each year between 1995 and 2002, broken down into local fixed-line calls, national and international fixed-line calls, and mobile calls.\n\nOverall, local fixed-line calls were the most common type throughout the period, although they declined after 1999. In contrast, the other two categories grew continuously, with mobile calls showing the most dramatic increase.\n\nIn 1995, local calls accounted for about 72 billion minutes. This figure rose steadily to a peak of approximately 90 billion in 1999, but then fell back to around 72 billion in 2002, the same level as at the start of the period.\n\nNational and international calls increased every year, from roughly 37 billion minutes in 1995 to about 61 billion in 2002, which meant that by the end of the period they were only slightly below local calls. Mobile calls began from a very low base of just 3 billion minutes, but they grew slowly until 1999 and then rose sharply, reaching about 46 billion by 2002, more than fifteen times the 1995 figure.\n\n(About 215 words. It groups the three categories by trend (rise-then-fall, steady rise, rapid rise) and supports each with figures from the start, the peak and the end.)"
+ },
+ {
+  "id": "w1-76",
+  "title": "The diagram below shows how orange juice is produced.",
+  "images": [
+   "t1-orangejuiceproduction.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Process diagram",
+  "check": {
+   "bullets": [
+    {
+     "label": "Delivery, washing and extracting the juice (waste becomes animal feed)",
+     "kw": [
+      "deliver",
+      "truck",
+      "wash",
+      "extract",
+      "waste",
+      "animal feed",
+      "solid"
+     ]
+    },
+    {
+     "label": "Fresh juice: packaged and sent to shops",
+     "kw": [
+      "fresh juice",
+      "packag",
+      "shop"
+     ]
+    },
+    {
+     "label": "Concentrate: evaporation, canning, warehouse, water added, packaging, shops",
+     "kw": [
+      "evaporat",
+      "concentrate",
+      "refrigerat",
+      "\\bcan(?:s|ned|ning)\\b",
+      "warehouse",
+      "water",
+      "added"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "process": true,
+   "prompt": "The diagram below shows how orange juice is produced. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "juice",
+    "oranges",
+    "orange",
+    "factory",
+    "shop",
+    "shops",
+    "packaging",
+    "truck"
+   ]
+  },
+  "phrases": [
+   "The diagram illustrates the stages involved in turning… into…",
+   "Overall, after…, the process divides into two routes:…",
+   "At this stage, the solid waste is separated and used to make…",
+   "The remainder is taken in refrigerated trucks to be evaporated,…",
+   "…a process which removes the water and produces…",
+   "Finally, the reconstituted juice is packaged and delivered to shops."
+  ],
+  "sampleText": "The diagram illustrates the stages involved in turning fresh oranges into juice and delivering it to shops.\n\nOverall, after the juice is extracted, the process divides into two routes: fresh juice is packaged and sold straight away, while the rest is made into concentrate, which is later turned back into juice before being sold. The solid waste is also used, as animal feed.\n\nFirst, fresh oranges are delivered to a factory by truck, where they are washed. The juice is then extracted from the oranges. At this stage, the solid waste is separated and used to make animal feed, while the fresh juice is collected.\n\nSome of the fresh juice is packaged immediately and sent directly to shops. The remainder is taken in refrigerated trucks to be evaporated, a process which removes the water and produces concentrated juice. This concentrate is then canned and transported by truck to a warehouse for storage. Later, it is sent to another factory, where water is added to it. Finally, the reconstituted juice is packaged and delivered to shops.\n\n(About 175 words. The overview highlights the most important feature: the process splits into a fresh-juice route and a concentrate route. The passive voice is used for each step (are delivered, is extracted, is evaporated).)"
+ },
+ {
+  "id": "w1-77",
+  "title": "The illustration shows how chocolate is produced.",
+  "images": [
+   "t1-chocolateproduction.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Process diagram",
+  "check": {
+   "bullets": [
+    {
+     "label": "Growing and harvesting the pods (stages 1–2)",
+     "kw": [
+      "\\btrees?\\b",
+      "grown",
+      "south america",
+      "africa",
+      "indonesia",
+      "pods",
+      "harvest",
+      "\\bred\\b"
+     ]
+    },
+    {
+     "label": "Fermenting, drying and transporting the beans (stages 3–7)",
+     "kw": [
+      "ferment",
+      "\\bsun\\b",
+      "\\bdr(?:y|ied|ying)\\b",
+      "sack",
+      "\\btrains?\\b",
+      "lorry",
+      "truck",
+      "transport",
+      "factory"
+     ]
+    },
+    {
+     "label": "Roasting, crushing and pressing in the factory (stages 8–10)",
+     "kw": [
+      "roast",
+      "crush",
+      "shell",
+      "\\bpress",
+      "liquid",
+      "\\binner\\b"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "process": true,
+   "prompt": "The illustration shows how chocolate is produced. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "beans",
+    "cocoa",
+    "chocolate",
+    "pods",
+    "stage"
+   ]
+  },
+  "phrases": [
+   "The illustration shows the ten stages involved in producing…",
+   "Overall, the process can be divided into two main parts:…",
+   "To begin with,…",
+   "…after which they are spread out in the sun to dry.",
+   "Once they are dry, the beans are…",
+   "In the final stage,…"
+  ],
+  "sampleText": "The illustration shows the ten stages involved in producing chocolate, from growing cacao trees to the final liquid chocolate.\n\nOverall, the process can be divided into two main parts: the cultivation and preparation of the cocoa beans on the farm, and the processing of the beans in a factory.\n\nTo begin with, cacao trees are grown in South America, Africa and Indonesia. When their pods turn red and ripe, they are harvested and cut open to reveal the white cocoa beans inside. These beans are then fermented, after which they are spread out in the sun to dry. Once they are dry, the beans are put into large sacks and transported by train or lorry to a factory.\n\nAt the factory, the beans are first roasted at a high temperature. They are then crushed, and the outer shells are removed. In the final stage, the inner part of the beans is pressed, and this produces liquid chocolate, which can then be used to make chocolate products.\n\n(About 165 words. It is a man-made process, so the passive voice is used throughout (are grown, are harvested, are roasted). The overview splits the ten stages into two clear parts: on the farm and in the factory.)"
+ },
+ {
+  "id": "w1-78",
+  "title": "The diagrams show a structure that is used to generate electricity from wave power.",
+  "images": [
+   "t1-wavepower.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Process diagram",
+  "check": {
+   "bullets": [
+    {
+     "label": "The structure: chamber, column and turbine on a cliff or sea wall",
+     "kw": [
+      "cliff",
+      "sea wall",
+      "chamber",
+      "column",
+      "structure",
+      "built"
+     ]
+    },
+    {
+     "label": "Diagram A: incoming wave pushes air up the column",
+     "kw": [
+      "\\benter",
+      "rises",
+      "push",
+      "force",
+      "\\bup(?:wards?)?\\b",
+      "incoming",
+      "diagram a"
+     ]
+    },
+    {
+     "label": "Diagram B: retreating wave draws air down; turbine turns the same way",
+     "kw": [
+      "recede",
+      "retreat",
+      "\\bback\\b",
+      "\\bdown(?:wards?)?\\b",
+      "drawn",
+      "sucked",
+      "same direction",
+      "diagram b",
+      "pulled"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "process": true,
+   "prompt": "The diagrams show a structure that is used to generate electricity from wave power. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "wave",
+    "air",
+    "turbine",
+    "column",
+    "chamber",
+    "electricity",
+    "structure"
+   ]
+  },
+  "phrases": [
+   "The two diagrams illustrate how…uses… to produce electricity.",
+   "The key feature of the design is that…",
+   "The structure consists of…, which…",
+   "In the first stage, shown in diagram A,…",
+   "As a result, air is drawn down the column…",
+   "…rotates in the same direction as before."
+  ],
+  "sampleText": "The two diagrams illustrate how a structure built against a cliff or sea wall uses the movement of waves to produce electricity.\n\nOverall, electricity is generated as waves move in and out of a chamber, forcing air up and down a column. The key feature of the design is that the turbine in the column turns in the same direction in both stages, so electricity is produced continuously.\n\nThe structure consists of a chamber, which is partly filled with sea water and open to the sea at the bottom, and a narrow vertical column above it. A turbine connected to an electricity supply is located inside this column.\n\nIn the first stage, shown in diagram A, a wave enters the chamber and the water level inside rises. This pushes the air upwards through the column, which spins the turbine and generates electricity. In the second stage, shown in diagram B, the wave moves back out to sea and the water level in the chamber falls. As a result, air is drawn down the column into the chamber. This air also turns the turbine, which rotates in the same direction as before and continues to produce electricity.\n\n(About 195 words. It describes the structure first, then compares the two stages (wave coming in and going out), and highlights the main similarity: the turbine turns the same way in both stages.)"
+ },
+ {
+  "id": "w1-79",
+  "title": "The flow chart below shows the sources of natural gas and the way it is distributed.",
+  "images": [
+   "t1-naturalgasdistribution.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Process diagram",
+  "check": {
+   "bullets": [
+    {
+     "label": "Three sources: gas wells, oil wells and imports",
+     "kw": [
+      "gas well",
+      "oil well",
+      "import",
+      "source",
+      "\\bships?\\b"
+     ]
+    },
+    {
+     "label": "Processing and main underground storage",
+     "kw": [
+      "gas plant",
+      "refinery",
+      "underground",
+      "main storage",
+      "processed"
+     ]
+    },
+    {
+     "label": "Distribution by pipeline, tankers, wagons and trucks to customers",
+     "kw": [
+      "pipeline",
+      "regional",
+      "(?<![\\d.])40,?000",
+      "tanker",
+      "(?<![\\d.])24,?000",
+      "wagon",
+      "(?<![\\d.])120,?000",
+      "(?<![\\d.])12,?000",
+      "truck",
+      "customer",
+      "retail"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "process": true,
+   "prompt": "The flow chart below shows the sources of natural gas and the way it is distributed. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "gas",
+    "natural",
+    "storage",
+    "litre",
+    "litres",
+    "retail",
+    "pipeline"
+   ]
+  },
+  "phrases": [
+   "The flow chart illustrates where… comes from and how it is transported to…",
+   "Overall, … comes from three sources –…",
+   "…is first processed in…, while… is treated in…",
+   "From there, the gas is carried through a pipeline to…",
+   "…is distributed by road and rail.",
+   "Finally, … delivery trucks take the gas from… to…"
+  ],
+  "sampleText": "The flow chart illustrates where natural gas comes from and how it is transported to retail customers.\n\nOverall, natural gas comes from three sources – gas wells, oil wells and imports – and it is collected in a main underground store before being distributed in increasingly smaller quantities until it reaches the final customer.\n\nGas from gas wells is first processed in a gas plant, while gas from oil wells is treated in a refinery. Both are then sent to the main underground storage facility, which also receives gas imported by ship. From there, the gas is carried through a pipeline to regional storage centres.\n\nFrom regional storage, the gas is distributed by road and rail. It is transported in 40,000-litre tankers and 24,000-litre rail wagons to retail outlets, which have storage tanks holding 120,000 litres. Finally, smaller 12,000-litre delivery trucks take the gas from these retail outlets to individual retail customers, such as private homes.\n\n(About 155 words. It identifies the three sources and the point where they meet (main underground storage), then follows the gas to the customer, noting how the quantities become smaller at each step.)"
+ },
+ {
+  "id": "w1-80",
+  "title": "The diagram below shows the life cycle of a species of large fish called the salmon.",
+  "images": [
+   "t1-salmonlifecycle.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Process diagram",
+  "check": {
+   "bullets": [
+    {
+     "label": "Eggs in the slow-moving upper river (5–6 months)",
+     "kw": [
+      "egg",
+      "upper river",
+      "\\bslow",
+      "reeds",
+      "stones",
+      "(?<![\\d.])5\\s*(?:-|–|to)\\s*6\\s*months?",
+      "six months",
+      "\\b(?:five|six) months\\b"
+     ]
+    },
+    {
+     "label": "Fry and smolt in the fast-flowing lower river (about 4 years)",
+     "kw": [
+      "\\bfry\\b",
+      "lower river",
+      "\\bfast",
+      "(?<![\\d.])4 years",
+      "four years",
+      "smolt",
+      "(?<![\\d.])12(?!\\d)"
+     ]
+    },
+    {
+     "label": "Adult salmon in the open sea (about 5 years) and return to breed",
+     "kw": [
+      "open sea",
+      "\\bsea\\b",
+      "adult",
+      "(?<![\\d.])5 years",
+      "five years",
+      "(?<![\\d.])70(?!\\d)",
+      "(?<![\\d.])76(?!\\d)",
+      "return",
+      "\\bback\\b"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "process": true,
+   "natural": true,
+   "prompt": "The diagram below shows the life cycle of a species of large fish called the salmon. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "salmon",
+    "river",
+    "years",
+    "eggs",
+    "stage"
+   ]
+  },
+  "phrases": [
+   "The diagram illustrates the life cycle of…, from… to…",
+   "Overall, … passes through three main stages…",
+   "The cycle starts in…, where…",
+   "After approximately…, they hatch into…",
+   "…migrate to the open sea, where they spend around…",
+   "Finally, … and the cycle begins again."
+  ],
+  "sampleText": "The diagram illustrates the life cycle of the salmon, from the egg stage to the adult fish, and shows the different environments in which each stage takes place.\n\nOverall, the salmon passes through three main stages – fry, smolt and adult salmon – during which it grows from a tiny egg into a fish of more than 70 centimetres. The cycle begins and ends in a river, with the longest period spent in the open sea.\n\nThe cycle starts in the slow-moving waters of the upper river, where the eggs are laid among reeds and small stones. After approximately five to six months, they hatch into fry, which measure only 3 to 8 centimetres. These young fish then swim downstream to the fast-flowing lower river, where they remain for about four years.\n\nDuring this time, the fry develop into smolts, which are 12 to 15 centimetres long. The smolts then migrate to the open sea, where they spend around five years and grow considerably, reaching 70 to 76 centimetres as adult salmon. Finally, the adults swim back upstream to the upper river, where they lay their eggs, and the cycle begins again.\n\n(About 190 words. It is a natural cycle, so the overview names the three stages and says where the cycle starts and ends. Each stage is described in order with its location, its length of time and the size of the fish.)"
+ },
+ {
+  "id": "w1-81",
+  "title": "The two maps below show road access to a city hospital in 2007 and in 2010.",
+  "images": [
+   "t1-cityhospitalroadaccess.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Map / plan",
+  "check": {
+   "bullets": [
+    {
+     "label": "Roundabouts added on Hospital Road",
+     "kw": [
+      "roundabout",
+      "junction",
+      "hospital road",
+      "meets city road"
+     ]
+    },
+    {
+     "label": "Bus stops replaced by a bus station",
+     "kw": [
+      "bus station",
+      "bus stop",
+      "\\bbus\\b"
+     ]
+    },
+    {
+     "label": "Car parks: staff car park and new public car park",
+     "kw": [
+      "car park",
+      "\\bpublic\\b",
+      "\\bstaff\\b",
+      "parking"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The two maps below show road access to a city hospital in 2007 and in 2010. Summarise the information by selecting and reporting the main features and make comparisons where relevant.",
+   "topic": [
+    "hospital",
+    "road",
+    "car",
+    "park",
+    "bus",
+    "ring",
+    "city",
+    "staff",
+    "public",
+    "access"
+   ],
+   "map": true
+  },
+  "phrases": [
+   "The maps illustrate how… changed between… and…",
+   "Overall, the road layout was improved…, with the addition of…",
+   "…was surrounded by…, which was connected to… by…",
+   "By 2010, two roundabouts had been built on…",
+   "The bus stops had been removed and replaced by…",
+   "…a new public car park had been constructed to the east of…"
+  ],
+  "sampleText": "The maps illustrate how road access to City Hospital changed between 2007 and 2010.\n\nOverall, the road layout was improved over the three-year period, with the addition of two roundabouts, a bus station and a separate public car park, while the main roads around the hospital remained the same.\n\nIn 2007, the hospital was surrounded by Ring Road, which was connected to City Road by Hospital Road running from south to north. There were six bus stops along Hospital Road, three on each side, and a single car park for both staff and the public was located to the east of this road.\n\nBy 2010, two roundabouts had been built on Hospital Road, one where it meets City Road and the other at the junction with Ring Road. The bus stops had been removed and replaced by a bus station to the west of Hospital Road, between the two roundabouts. In addition, the original car park had become a staff car park, while a new, larger public car park had been constructed to the east of the hospital, with access from Ring Road.\n\n(About 185 words. It describes 2007 first, then the changes by 2010, using the past perfect passive (had been built, had been removed). The overview names the three main changes without small details.)"
+ },
+ {
+  "id": "w1-82",
+  "title": "The plans below show the layout of a university's sports centre now, and how it will look after redevelopment.",
+  "images": [
+   "t1-universitysportscentre.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Map / plan",
+  "check": {
+   "bullets": [
+    {
+     "label": "The present layout (gym, pool, changing room, seating, reception, outdoor courts)",
+     "kw": [
+      "\\bpresent\\b",
+      "currently",
+      "\\bnow\\b",
+      "outdoor courts",
+      "courts"
+     ]
+    },
+    {
+     "label": "West side: leisure pool, changing room and sports shop",
+     "kw": [
+      "leisure pool",
+      "\\bwest",
+      "sports shop",
+      "\\bshops?\\b"
+     ]
+    },
+    {
+     "label": "East side: sports hall, dance studios, café and changing room",
+     "kw": [
+      "sports hall",
+      "dance",
+      "studio",
+      "café",
+      "cafe",
+      "\\beast"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The plans below show the layout of a university's sports center now, and how it will look after redevelopment. Summarize the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "sports",
+    "centre",
+    "pool",
+    "changing",
+    "room",
+    "rooms",
+    "gym",
+    "courts",
+    "studio",
+    "studios",
+    "hall",
+    "reception",
+    "seating"
+   ],
+   "map": true
+  },
+  "phrases": [
+   "The plans compare the current layout of… with…",
+   "Overall, the… will be greatly expanded and will offer…",
+   "At present, … is a fairly small building with…",
+   "After the redevelopment, the outdoor courts will be replaced by…",
+   "On the west side, … will be added, together with…",
+   "However, … will stay in the same place."
+  ],
+  "sampleText": "The plans compare the current layout of a university sports centre with its design after a planned redevelopment.\n\nOverall, the sports centre will be greatly expanded and will offer a much wider range of facilities. The outdoor courts will disappear, but the original indoor facilities in the centre of the building will remain.\n\nAt present, the sports centre is a fairly small building with a single entrance and reception area on the south side. Inside, there is a 25-metre pool in the middle, with a changing room to the west, seating to the east and a gym to the north. There are also outdoor courts on both the west and east sides of the building.\n\nAfter the redevelopment, the outdoor courts will be replaced by extensions to the building. On the west side, a large leisure pool will be added, together with a new changing room and a sports shop near the entrance. On the east side, there will be a sports hall, two dance studios, a café and another changing room. In addition, the gym will be extended eastwards, along the northern side of the new sports hall. However, the 25-metre pool, seating and reception will stay in the same place.\n\n(About 200 words. It describes the present layout first, then the planned changes using the future passive (will be replaced, will be added).)"
  }
 ]
