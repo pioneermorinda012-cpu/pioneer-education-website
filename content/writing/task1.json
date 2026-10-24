@@ -1807,5 +1807,1481 @@
    "However, … will stay in the same place."
   ],
   "sampleText": "The plans compare the current layout of a university sports centre with its design after a planned redevelopment.\n\nOverall, the sports centre will be greatly expanded and will offer a much wider range of facilities. The outdoor courts will disappear, but the original indoor facilities in the centre of the building will remain.\n\nAt present, the sports centre is a fairly small building with a single entrance and reception area on the south side. Inside, there is a 25-metre pool in the middle, with a changing room to the west, seating to the east and a gym to the north. There are also outdoor courts on both the west and east sides of the building.\n\nAfter the redevelopment, the outdoor courts will be replaced by extensions to the building. On the west side, a large leisure pool will be added, together with a new changing room and a sports shop near the entrance. On the east side, there will be a sports hall, two dance studios, a café and another changing room. In addition, the gym will be extended eastwards, along the northern side of the new sports hall. However, the 25-metre pool, seating and reception will stay in the same place.\n\n(About 200 words. It describes the present layout first, then the planned changes using the future passive (will be replaced, will be added).)"
+ },
+ {
+  "id": "w1-83",
+  "title": "The chart below shows what anthropology graduates from one university did after finishing their undergraduate degree course. The table shows the salaries of the anthropologists in work after five years.",
+  "images": [
+   "t1-anthropologygraduates.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Destinations: over half in full-time work",
+     "kw": [
+      "full-time work",
+      "full time work",
+      "\\bhal(?:f|ves|ved)\\b",
+      "(?<![\\d.])52(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Other destinations: part-time work, study, unemployed",
+     "kw": [
+      "part-time",
+      "part time",
+      "postgrad",
+      "unemployed",
+      "not known",
+      "\\bstud(?:y|ying|ied)\\b"
+     ]
+    },
+    {
+     "label": "Salaries after five years by type of employment",
+     "kw": [
+      "salar",
+      "freelance",
+      "government",
+      "private",
+      "(?<![\\d.])100,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])75,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])50,?000(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The chart below shows what anthropology graduates from one university did after finishing their undergraduate degree course. The table shows the salaries of the anthropologists in work after five years. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "graduates",
+    "anthropology",
+    "anthropologists",
+    "work",
+    "salaries",
+    "government",
+    "freelance",
+    "private",
+    "time",
+    "full",
+    "part"
+   ]
+  },
+  "phrases": [
+   "The pie chart shows what…, and the table gives…",
+   "Overall, more than half of the graduates…",
+   "Just over half of the graduates (around 52%) went into…",
+   "…the destination of the remaining 8% was not known.",
+   "Turning to salaries,…",
+   "…compared with 40% of… and 30% of…"
+  ],
+  "sampleText": "The pie chart shows what graduates in anthropology from one university did after completing their first degree, and the table gives the salaries of those in employment five years later.\n\nOverall, more than half of the graduates found full-time work, and after five years most anthropologists in employment were earning at least $50,000. Government workers were the most likely to earn the highest salaries.\n\nJust over half of the graduates (around 52%) went into full-time work, and a further 15% or so took part-time jobs. About 8% continued with full-time postgraduate study, while roughly 5% combined part-time work with postgraduate study. Around 12% were unemployed, and the destination of the remaining 8% was not known.\n\nTurning to salaries, only a small minority of anthropologists in each sector earned between $25,000 and $49,999 (5–10%). Half of those in the government sector earned over $100,000, compared with 40% of freelance consultants and 30% of those in private companies. Freelance consultants were split equally between the $75,000–99,999 and $100,000+ bands (40% each), whereas private company employees were most commonly in the $50,000–74,999 band (35%).\n\n(About 180 words. The pie chart has no percentages printed, so the figures are approximate (“around 52%”). It links the two visuals and compares the three employment types.)"
+ },
+ {
+  "id": "w1-84",
+  "title": "The pie chart below shows where energy is used in a typical Australian household, and the table shows the amount of electricity used according to the number of occupants.",
+  "images": [
+   "t1-australiahouseholdenergytable.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Heating & cooling and water heating are the largest uses",
+     "kw": [
+      "heating",
+      "cooling",
+      "(?<![\\d.])38(?![\\d]|\\.\\d)",
+      "water heating",
+      "(?<![\\d.])25(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Smaller uses: other appliances, fridges, lighting, cooking, standby",
+     "kw": [
+      "other appliances",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)",
+      "fridge",
+      "freezer",
+      "(?<![\\d.])7(?![\\d]|\\.\\d)",
+      "lighting",
+      "cooking",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "stand-? ?by",
+      "(?<![\\d.])3(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Electricity use rises with the number of people",
+     "kw": [
+      "people",
+      "occupant",
+      "(?<![\\d.])5,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])6,?500(?![\\d]|\\.\\d)",
+      "(?<![\\d.])12,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])16,?000(?![\\d]|\\.\\d)",
+      "\\bkwh\\b",
+      "kilowatt"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie chart below shows where energy is used in a typical Australian household, and the table shows the amount of electricity used according to the number of occupants. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "energy",
+    "electricity",
+    "heating",
+    "household",
+    "kwh",
+    "people",
+    "home"
+   ]
+  },
+  "phrases": [
+   "The pie chart illustrates…, while the table shows…",
+   "Overall, … uses the largest share of…, and… rises as…",
+   "Together, these two uses make up almost two thirds of the total.",
+   "…is the smallest category at 3%.",
+   "According to the table,…",
+   "…roughly two and a half times as much as…"
+  ],
+  "sampleText": "The pie chart illustrates how energy is used in a typical Australian home, while the table shows how much electricity households use per year depending on how many people live in them.\n\nOverall, heating and cooling uses the largest share of household energy, and electricity consumption rises as the number of people in a home increases.\n\nHeating and cooling accounts for 38% of energy use, followed by water heating at 25%. Together, these two uses make up almost two thirds of the total. Other appliances account for 16%, while fridges and freezers, and lighting each use 7%. Cooking represents just 4%, and standby power is the smallest category at 3%.\n\nAccording to the table, a one-person household uses between 5,000 and 6,500 kilowatt hours (kWh) of electricity a year. This rises to 6,000–8,000 kWh for two people and 7,500–10,000 kWh for three. Homes with six or more occupants use between 12,000 and 16,000 kWh, roughly two and a half times as much as a single-person household.\n\n(About 170 words. It describes the pie chart and the table in separate paragraphs and makes a calculation-based comparison at the end.)"
+ },
+ {
+  "id": "w1-85",
+  "title": "The pie charts below show the online shopping sales for retail sectors in Australia in 2010 and 2015.",
+  "images": [
+   "t1-australiaonlineshopping.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Electric & appliances: largest, rose",
+     "kw": [
+      "electric",
+      "appliance",
+      "(?<![\\d.])27(?![\\d]|\\.\\d)",
+      "(?<![\\d.])33(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Video games fell sharply",
+     "kw": [
+      "video games",
+      "(?<![\\d.])19(?![\\d]|\\.\\d)",
+      "(?<![\\d.])8(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Food, home furnishings, gift items and books",
+     "kw": [
+      "\\bfoods?\\b",
+      "(?<![\\d.])21(?![\\d]|\\.\\d)",
+      "(?<![\\d.])22(?![\\d]|\\.\\d)",
+      "home furnishings",
+      "furnishings",
+      "gift",
+      "(?<![\\d.])7(?![\\d]|\\.\\d)",
+      "(?<![\\d.])11(?![\\d]|\\.\\d)",
+      "books",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie charts below show the online shopping sales for retail sectors in Australia in 2010 and 2015. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "online",
+    "sales",
+    "shopping",
+    "video",
+    "games",
+    "electric",
+    "appliances",
+    "food",
+    "books"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare the proportions of… in six retail sectors in…",
+   "Overall, … were the most popular online category in both years,…",
+   "The biggest change was the sharp fall in…",
+   "…had similar shares, at… respectively.",
+   "…had risen to one third (33%).",
+   "…whose share more than halved, from 19% to just 8%."
+  ],
+  "sampleText": "The pie charts compare the proportions of online shopping sales in six retail sectors in Australia in 2010 and 2015.\n\nOverall, electrical goods and appliances were the most popular online category in both years, and their share increased. The biggest change was the sharp fall in the share of video games, while gift items and books both became more popular.\n\nIn 2010, electric goods and appliances accounted for 27% of online sales. Home furnishings, food and beverages and video games had similar shares, at 22%, 21% and 19% respectively. Gift items made up 7%, and books only 4%.\n\nBy 2015, the share of electric goods and appliances had risen to one third (33%). Food and beverages remained almost unchanged at 22%, whereas home furnishings fell slightly to 19%. The most dramatic change was in video games, whose share more than halved, from 19% to just 8%. In contrast, gift items grew from 7% to 11%, and books from 4% to 7%.\n\n(About 160 words. It identifies the largest category, the biggest fall and the growing categories.)"
+ },
+ {
+  "id": "w1-86",
+  "title": "The first chart below shows how energy is used in an average Australian household. The second chart shows the greenhouse gas emissions which result from this energy use.",
+  "images": [
+   "t1-australianhouseholdenergy.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Energy use: heating and water heating are largest",
+     "kw": [
+      "heating",
+      "(?<![\\d.])42(?![\\d]|\\.\\d)",
+      "water heating",
+      "(?<![\\d.])30(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Emissions: water heating and other appliances are largest",
+     "kw": [
+      "emission",
+      "greenhouse",
+      "(?<![\\d.])32(?![\\d]|\\.\\d)",
+      "(?<![\\d.])28(?![\\d]|\\.\\d)",
+      "other appliances"
+     ]
+    },
+    {
+     "label": "Comparison: heating low emissions; refrigeration, appliances, lighting higher",
+     "kw": [
+      "(?<![\\d.])15(?![\\d]|\\.\\d)",
+      "refrigeration",
+      "(?<![\\d.])7(?![\\d]|\\.\\d)",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)",
+      "lighting",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "(?<![\\d.])8(?![\\d]|\\.\\d)",
+      "cooling",
+      "(?<![\\d.])2(?![\\d]|\\.\\d)",
+      "(?<![\\d.])3(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The first chart below shows how energy is used in an average Australian household. The second chart shows the greenhouse gas emissions which result from this energy use. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "energy",
+    "emissions",
+    "heating",
+    "water",
+    "appliances",
+    "household"
+   ]
+  },
+  "phrases": [
+   "The first pie chart shows…, and the second shows…",
+   "Overall, … use the most energy, but… are responsible for the largest share of emissions.",
+   "…accounting for 42% of the total, followed by…",
+   "The picture is quite different for…",
+   "…almost double their share of energy use.",
+   "…which is double their share of energy consumption."
+  ],
+  "sampleText": "The first pie chart shows how energy is used in a typical Australian home, and the second shows the greenhouse gas emissions that this energy use produces.\n\nOverall, heating and water heating use the most energy, but water heating and other appliances are responsible for the largest share of emissions. Heating produces far fewer emissions than its energy use would suggest.\n\nHeating is the largest consumer of energy, accounting for 42% of the total, followed by water heating at 30%. Other appliances use 15%, refrigeration 7% and lighting 4%, while cooling uses just 2%.\n\nThe picture is quite different for greenhouse gas emissions. Water heating produces the largest share, at 32%, and other appliances come second with 28%, almost double their share of energy use. Although heating uses the most energy, it causes only 15% of emissions. In contrast, refrigeration and lighting are responsible for 14% and 8% of emissions respectively, which is double their share of energy consumption. Cooling remains the smallest category, at 3%.\n\n(About 170 words. The key comparison is between the two charts: some uses (heating) create far fewer emissions than their energy share, while others (appliances, refrigeration, lighting) create more.)"
+ },
+ {
+  "id": "w1-87",
+  "title": "The pie charts show the amount of money that a children’s charity located in the USA spent and received in one year.",
+  "images": [
+   "t1-childrenscharity.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Revenue: donated food is the main source",
+     "kw": [
+      "donated food",
+      "(?<![\\d.])86\\.6(?![\\d]|\\.\\d)",
+      "revenue",
+      "income"
+     ]
+    },
+    {
+     "label": "Other revenue sources are small",
+     "kw": [
+      "community",
+      "(?<![\\d.])10\\.4(?![\\d]|\\.\\d)",
+      "program revenue",
+      "(?<![\\d.])2\\.2(?![\\d]|\\.\\d)",
+      "investment",
+      "government",
+      "grants",
+      "(?<![\\d.])0\\.2(?![\\d]|\\.\\d)",
+      "(?<![\\d.])0\\.4(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Expenditure: program services dominate",
+     "kw": [
+      "program services",
+      "(?<![\\d.])95\\.8(?![\\d]|\\.\\d)",
+      "fundraising",
+      "(?<![\\d.])2\\.6(?![\\d]|\\.\\d)",
+      "management",
+      "(?<![\\d.])1\\.6(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie charts show the amount of money that a children’s charity located in the USA spent and received in one year. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "charity",
+    "revenue",
+    "income",
+    "spending",
+    "expenditure",
+    "program",
+    "services",
+    "donated"
+   ]
+  },
+  "phrases": [
+   "The pie charts show the sources of income and the expenditure of…",
+   "Overall, … provided the vast majority of…, while almost all of its spending went on…",
+   "…were the second largest source, at…",
+   "The remaining sources were very small:…",
+   "Only a tiny proportion was spent on running the charity,…",
+   "As a result, the charity's income exceeded its spending by…"
+  ],
+  "sampleText": "The pie charts show where a children's charity in the USA obtained its money and how it spent it over one year.\n\nOverall, the charity relied overwhelmingly on donated food for its revenue, and almost all of its spending went on program services, with very little used for running costs.\n\nDonated food was by far the largest source of revenue, accounting for 86.6% of the total. Community contributions came a distant second, at 10.4%, and program revenue provided a further 2.2%. The remaining three sources were tiny: other income made up 0.4%, while investment income and government grants contributed only 0.2% each. Together, these three sources provided less than 1% of the charity's income.\n\nOn the expenditure side, program services accounted for 95.8% of the money spent. Only a very small proportion went on running the organisation: fundraising took 2.6%, and management and general costs just 1.6%. Taken together, these two administrative costs represented less than 5% of total expenditure, roughly half the share of revenue that came from community contributions.\n\n(About 170 words. It describes revenue and expenditure in separate paragraphs and compares the shares within each chart.)"
+ },
+ {
+  "id": "w1-88",
+  "title": "The three pie charts below show the coffee production and consumption around the world, and also the profit distribution.",
+  "images": [
+   "t1-coffeeproduction.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Consumption: Europe and America",
+     "kw": [
+      "consum",
+      "europe",
+      "(?<![\\d.])41(?![\\d]|\\.\\d)",
+      "america",
+      "(?<![\\d.])39(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Production: South Africa, Indonesia, Japan, Vietnam",
+     "kw": [
+      "produc",
+      "south africa",
+      "(?<![\\d.])44(?![\\d]|\\.\\d)",
+      "indonesia",
+      "(?<![\\d.])22(?![\\d]|\\.\\d)",
+      "vietnam",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)",
+      "japan",
+      "(?<![\\d.])18(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Profit distribution: delivery takes most; producers 15%",
+     "kw": [
+      "profit",
+      "delivery",
+      "(?<![\\d.])51(?![\\d]|\\.\\d)",
+      "retailers",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)",
+      "exporters",
+      "(?<![\\d.])10(?![\\d]|\\.\\d)",
+      "producers",
+      "(?<![\\d.])15(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The three pie charts below show the coffee production and consumption around the world, and also the profit distribution. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "coffee",
+    "consumption",
+    "production",
+    "profit",
+    "japan",
+    "europe",
+    "america"
+   ]
+  },
+  "phrases": [
+   "The three pie charts show which regions…, and how…",
+   "Overall, coffee is mainly consumed in… but mostly produced in…",
+   "…together account for 80% of world coffee consumption,…",
+   "In terms of production, … is the leading producer,…",
+   "Interestingly, … produces more than twice as much coffee as it consumes.",
+   "Producers, who actually grow the coffee, receive only 15% of the profit,…"
+  ],
+  "sampleText": "The three pie charts show which regions consume and produce coffee, and how the profits from coffee are shared.\n\nOverall, coffee is mainly consumed in Europe and America but mostly produced in other countries, and the largest share of the profit goes to delivery companies rather than to the producers.\n\nEurope and America together account for 80% of world coffee consumption, at 41% and 39% respectively. Japan consumes just 8%, and the rest of the world 12%. In terms of production, South Africa is the leading producer, with 44% of the total, followed by Indonesia with 22%. Japan and Vietnam produce 18% and 16% respectively. Interestingly, Japan produces more than twice as much coffee as it consumes.\n\nAs for profits, delivery takes just over half (51%), while retailers receive almost a quarter (24%). Producers, who actually grow the coffee, receive only 15% of the profit, and exporters get the smallest share, at 10%.\n\n(About 150 words. It links the three charts: where coffee is drunk, where it is grown and who earns the money.)"
+ },
+ {
+  "id": "w1-89",
+  "title": "The charts below show the different reasons why two groups of students chose Dorrifod University.",
+  "images": [
+   "t1-dorrifoduniversity.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Close to home: the top reason for both groups",
+     "kw": [
+      "close to home",
+      "(?<![\\d.])36(?![\\d]|\\.\\d)",
+      "(?<![\\d.])39(?![\\d]|\\.\\d)",
+      "\\bhomes?\\b"
+     ]
+    },
+    {
+     "label": "Course offered and facilities: more important to younger students",
+     "kw": [
+      "course",
+      "(?<![\\d.])35(?![\\d]|\\.\\d)",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)",
+      "facilities",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2(?![\\d]|\\.\\d)",
+      "abroad",
+      "(?<![\\d.])9(?![\\d]|\\.\\d)",
+      "(?<![\\d.])3(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Industry links and reputation: more important to older students",
+     "kw": [
+      "industry",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "(?<![\\d.])20(?![\\d]|\\.\\d)",
+      "reputation",
+      "(?<![\\d.])2(?![\\d]|\\.\\d)",
+      "(?<![\\d.])12(?![\\d]|\\.\\d)",
+      "teaching staff"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the different reasons why two groups of students chose Dorrifod University. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "students",
+    "university",
+    "home",
+    "course",
+    "industry",
+    "reputation",
+    "facilities",
+    "aged"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare the reasons why… chose to study at…",
+   "Overall, being close to home was the most important reason for both groups.",
+   "…were almost equally important, at 36% and 35% respectively.",
+   "Among students aged 25 and over, … was even more significant,…",
+   "…but links to industry were five times more important,…",
+   "By contrast, … were chosen by very few older students,…"
+  ],
+  "sampleText": "The pie charts compare the reasons why students aged 18–24 and students aged 25 and over chose to study at Dorrifod University.\n\nOverall, being close to home was the most important reason for both groups. However, younger students placed more importance on the course and campus facilities, whereas older students were much more interested in links to industry and the reputation of the teaching staff.\n\nFor students aged 18–24, the location close to home and the course offered were almost equally important, at 36% and 35% respectively. Facilities on campus were chosen by 14%, and the opportunity to study abroad by 9%. Only 4% chose the university because the course was related to industry, and just 2% because of the reputation of the teaching staff.\n\nAmong students aged 25 and over, being close to home was even more significant, at 39%. The course offered was less important than for younger students, at 24%, but links to industry were five times more important, at 20%. The reputation of the teaching staff was also a much stronger factor, at 12%. By contrast, campus facilities and studying abroad were chosen by very few older students, at 2% and 3% respectively.\n\n(About 200 words. It identifies the shared top reason, then contrasts what each age group values more.)"
+ },
+ {
+  "id": "w1-90",
+  "title": "The graph below shows the demand for electricity in England during typical days in winter and summer. The pie chart shows how electricity is used in an average English home.",
+  "images": [
+   "t1-englandelectricitydemand.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Winter demand is much higher than summer",
+     "kw": [
+      "winter",
+      "summer",
+      "higher",
+      "\\bdoubl",
+      "\\btwice\\b"
+     ]
+    },
+    {
+     "label": "Daily changes and peaks",
+     "kw": [
+      "\\bpeak",
+      "(?<![\\d.])48,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])45,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])40,?000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])20,?000(?![\\d]|\\.\\d)",
+      "\\bnight",
+      "evening",
+      "midday",
+      "fluctuat"
+     ]
+    },
+    {
+     "label": "How electricity is used at home",
+     "kw": [
+      "heating",
+      "(?<![\\d.])52(?![\\d]|\\.\\d)",
+      "ovens",
+      "(?<![\\d.])18(?![\\d]|\\.\\d)",
+      "lighting",
+      "(?<![\\d.])15(?![\\d]|\\.\\d)",
+      "vacuum"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The graph below shows the demand for electricity in England during typical days in winter and summer. The pie chart shows how electricity is used in an average English home. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "electricity",
+    "demand",
+    "units",
+    "winter",
+    "summer",
+    "heating"
+   ]
+  },
+  "phrases": [
+   "The line graph shows…, and the pie chart shows…",
+   "Overall, demand for electricity is much higher in winter than in summer…",
+   "…before falling to a low of about…",
+   "…and peaks sharply at about… at around 10 o'clock at night.",
+   "Summer demand is roughly half the winter level.",
+   "…each account for 15%."
+  ],
+  "sampleText": "The line graph compares electricity demand in England over a typical 24-hour period in winter and in summer, while the pie chart illustrates what this electricity is used for in an average English home.\n\nOverall, demand for electricity is much higher in winter than in summer throughout the day, and over half of household electricity is used for heating rooms and water.\n\nIn winter, demand starts at about 34,000 units at midnight and rises to around 39,000 by 3 o'clock in the morning. It then falls to a low of about 31,000 at 8 o'clock, after which it climbs steadily throughout the day. By 3 o'clock in the afternoon it has reached 40,000 units. Demand then peaks sharply at about 48,000 units at around 10 o'clock at night, before falling back to 34,000 at midnight.\n\nSummer demand is roughly half the winter level. It falls from about 17,000 units at midnight to around 14,000 in the early morning, then rises to a peak of 20,000 in the early afternoon. After a drop to around 16,000, it rises again to nearly 20,000 late in the evening.\n\nAs for household use, heating rooms and water accounts for 52% of electricity, followed by ovens, kettles and washing machines at 18%. Lighting, TV and radio, and vacuum cleaners, food mixers and electric tools each account for 15%.\n\n(About 220 words. Line values are approximate. It describes winter and summer separately and links the high winter demand to heating in the pie chart.)"
+ },
+ {
+  "id": "w1-91",
+  "title": "In June 1996, an experimental influenza vaccine was tested on women in a large provincial town. The results of this trial are shown in the following figures.",
+  "images": [
+   "t1-fluvaccine.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Female vaccine recipients by group",
+     "kw": [
+      "\\baged\\b",
+      "(?<![\\d.])65(?![\\d]|\\.\\d)",
+      "(?<![\\d.])35(?![\\d]|\\.\\d)",
+      "babies",
+      "children",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)",
+      "hospitalised",
+      "(?<![\\d.])13(?![\\d]|\\.\\d)",
+      "not given",
+      "(?<![\\d.])28(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Flu cases: females higher; peak in May",
+     "kw": [
+      "\\bcases?\\b",
+      "\\bin may\\b",
+      "(?<![\\d.])3,?500(?![\\d]|\\.\\d)",
+      "(?<![\\d.])3500(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2,?700(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2700(?![\\d]|\\.\\d)",
+      "\\bpeak",
+      "females",
+      "males"
+     ]
+    },
+    {
+     "label": "Deaths from flu",
+     "kw": [
+      "\\bdeath|\\bdied\\b",
+      "march to may",
+      "june to august",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2(?![\\d]|\\.\\d)",
+      "(?<![\\d.])1(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "In June 1996, an experimental influenza vaccine was tested on women in a large provincial town. The results of this trial are shown in the following figures. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "flu",
+    "vaccine",
+    "women",
+    "females",
+    "males",
+    "men",
+    "cases",
+    "deaths"
+   ]
+  },
+  "phrases": [
+   "The three charts give information about…",
+   "Overall, women had more cases of flu than men throughout 1996,…",
+   "…made up the largest group of vaccine recipients, at 35%,…",
+   "Flu cases rose sharply for both sexes from February, peaking in May at about…",
+   "…stayed at around 2,500 from August onwards,…",
+   "…deaths increased between June and August, to…"
+  ],
+  "sampleText": "The three charts give information about an experimental flu vaccine that was tested on women in a provincial town in June 1996. They show which groups of women received the vaccine, the number of flu cases among men and women, and the number of deaths from flu.\n\nOverall, women had more cases of flu than men throughout 1996, and more women than men died from the disease. Most of the women who received the vaccine belonged to high-risk groups.\n\nAmong the women in the trial, the elderly (over 65) made up the largest group of vaccine recipients, at 35%, followed by babies or children at 24% and hospitalised patients at 13%. The remaining 28% were not given the vaccine.\n\nFlu cases rose sharply for both sexes from February, peaking in May at about 3,500 among females and 2,700 among males. Cases then declined gradually. However, while the male figure fell to about 1,500 by December, the female figure stayed at around 2,500 from August onwards, even after the vaccine was introduced in June. The bar chart shows that one woman and no men died between March and May, but deaths increased between June and August, to four women and two men.\n\n(About 200 words. The charts are not very clear in the scan, so line values are approximate. It describes each chart in turn and links them in the overview.)"
+ },
+ {
+  "id": "w1-92",
+  "title": "The pie charts below compare the different kinds of energy production in France in two years.",
+  "images": [
+   "t1-franceenergyproduction.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Coal and gas: the largest sources, stable",
+     "kw": [
+      "\\bcoal\\b",
+      "\\bgas\\b",
+      "(?<![\\d.])29(?![\\d]|\\.\\d)",
+      "(?<![\\d.])30(?![\\d]|\\.\\d)",
+      "stable",
+      "similar"
+     ]
+    },
+    {
+     "label": "Petro fell sharply",
+     "kw": [
+      "petro",
+      "petrol",
+      "\\boil\\b",
+      "(?<![\\d.])29\\.27(?![\\d]|\\.\\d)",
+      "(?<![\\d.])19\\.55(?![\\d]|\\.\\d)",
+      "fell",
+      "decreased",
+      "declined"
+     ]
+    },
+    {
+     "label": "Nuclear and other sources rose",
+     "kw": [
+      "nuclear",
+      "\\bothers?\\b",
+      "(?<![\\d.])6\\.4(?![\\d]|\\.\\d)",
+      "(?<![\\d.])10\\.1(?![\\d]|\\.\\d)",
+      "(?<![\\d.])4\\.9(?![\\d]|\\.\\d)",
+      "(?<![\\d.])9\\.1(?![\\d]|\\.\\d)",
+      "rose",
+      "increased"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie charts below compare the different kinds of energy production in France in two years. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "energy",
+    "production",
+    "france",
+    "coal",
+    "gas",
+    "petro",
+    "nuclear"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare the proportions of… produced from… in…",
+   "Overall, … were the two largest sources in both years, and their shares changed very little.",
+   "…each made up almost 30% of…, at… respectively.",
+   "By contrast, the share of… dropped by almost ten percentage points,…",
+   "…almost doubled, from… to…",
+   "As a result, by 2005… together produced nearly a fifth of…"
+  ],
+  "sampleText": "The pie charts compare the proportions of energy produced from five different sources in France in 1995 and 2005.\n\nOverall, coal and gas were the two largest sources of energy in both years, and their shares changed very little. The main changes were a significant fall in the use of petro and increases in nuclear power and other sources.\n\nIn 1995, coal, gas and petro each made up almost 30% of energy production, at 29.80%, 29.63% and 29.27% respectively. Ten years later, coal and gas had both risen slightly, to 30.93% and 30.31%, which meant that together they still accounted for over 60% of the total, while petro had fallen well behind them.\n\nBy contrast, the share of petro dropped by almost ten percentage points, from 29.27% to 19.55%. At the same time, nuclear power grew from 6.40% to 10.10%, and the proportion produced from other sources almost doubled, from 4.90% to 9.10%. As a result, by 2005 nuclear and other sources together produced nearly a fifth of France's energy, compared with only around a tenth in 1995.\n\n(About 180 words. The task only says “two years”, so the model names them (1995 and 2005).)"
+ },
+ {
+  "id": "w1-93",
+  "title": "The charts below show the percentage of monthly household income spent on various items by two different groups in one European country.",
+  "images": [
+   "t1-householdincomespending.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Low-income group: food & drink and fuel bills are largest",
+     "kw": [
+      "\\blow(?:er|est)?\\b",
+      "\\bfoods?\\b",
+      "(?<![\\d.])29(?![\\d]|\\.\\d)",
+      "fuel",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "High-income group: miscellaneous, recreation and transport are largest",
+     "kw": [
+      "\\bhigh(?:er|est)?\\b",
+      "miscellaneous",
+      "(?<![\\d.])23(?![\\d]|\\.\\d)",
+      "recreation",
+      "(?<![\\d.])21(?![\\d]|\\.\\d)",
+      "transport",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Restaurants & hotels and clothing comparison",
+     "kw": [
+      "restaurant",
+      "\\bhotels?\\b",
+      "(?<![\\d.])12(?![\\d]|\\.\\d)",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "clothing",
+      "(?<![\\d.])5(?![\\d]|\\.\\d)",
+      "(?<![\\d.])6(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the percentage of monthly household income spent on various items by two different groups in one European country. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "income",
+    "group",
+    "groups",
+    "spend",
+    "spending",
+    "food",
+    "fuel",
+    "transport"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare how two income groups… spend their…",
+   "Overall, … spend almost half of their income on basic needs…, whereas…",
+   "…is the largest expense at 29%, followed by…",
+   "Only small shares go on…",
+   "…almost double the figure for the low-income group.",
+   "Spending on… is very similar for both groups,…"
+  ],
+  "sampleText": "The pie charts compare how two income groups in a European country spend their monthly household income on seven categories.\n\nOverall, low-income households spend over half of their income on basic needs such as food and fuel, whereas high-income households spend a much larger proportion on leisure, transport and miscellaneous items.\n\nFor the low-income group, food and drink is the largest expense at 29%, followed by fuel bills at 24%. Miscellaneous items account for 18%, while recreational and cultural activities make up 11%. Only small shares go on transport (9%), clothing (5%) and restaurants and hotels (4%).\n\nIn contrast, the high-income group spends just 15% on food and drink and 7% on fuel. Their largest category is miscellaneous spending at 23%, closely followed by recreational and cultural activities at 21%, almost double the figure for the low-income group. They also spend 16% on transport and 12% on restaurants and hotels, three times as much as poorer households. Spending on clothing is very similar for both groups, at around 5–6%.\n\n(About 170 words. It contrasts the two groups' priorities (basic needs vs leisure) and uses comparisons like “almost double” and “three times as much”.)"
+ },
+ {
+  "id": "w1-94",
+  "title": "The chart below shows the results of a survey of 4,000 participants who said what important things they had learned from the internship they had completed.",
+  "images": [
+   "t1-internshiplearning.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Practical knowledge and communication skills are the top named answers",
+     "kw": [
+      "practical",
+      "(?<![\\d.])15(?![\\d]|\\.\\d)",
+      "communication",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Understanding industry and the 7% group",
+     "kw": [
+      "understanding industry",
+      "industry",
+      "(?<![\\d.])10(?![\\d]|\\.\\d)",
+      "(?<![\\d.])7\\s*%",
+      "time management",
+      "career",
+      "work operation",
+      "real work"
+     ]
+    },
+    {
+     "label": "Smallest answers and 'other'",
+     "kw": [
+      "teamwork",
+      "(?<![\\d.])3(?![\\d]|\\.\\d)",
+      "work environment",
+      "(?<![\\d.])4(?![\\d]|\\.\\d)",
+      "\\bothers?\\b",
+      "(?<![\\d.])26(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The chart below shows the results of a survey of 4,000 participants who said what important things they had learned from the internship they had completed. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "participants",
+    "internship",
+    "skills",
+    "knowledge",
+    "work"
+   ]
+  },
+  "phrases": [
+   "The pie chart shows the results of a survey in which…",
+   "Overall, … were the most frequently mentioned…, while…",
+   "…was the most common response, chosen by…, followed closely by…",
+   "Four aspects – … – each accounted for 7% of the responses.",
+   "…was the least popular answer, at just 3%.",
+   "…making 'other' the largest single segment of the chart."
+  ],
+  "sampleText": "The pie chart shows the results of a survey in which 4,000 people were asked what they had learned most from their internship.\n\nOverall, practical knowledge and communication skills were the most frequently mentioned specific benefits, while teamwork and the work environment were mentioned least. A large proportion of participants also gave other answers.\n\nPractical knowledge was the most common response, chosen by 15% of participants, followed closely by communication skills at 14%. Understanding the industry came next, at 10%. Four aspects – real work experience, time management, work operation and planning a future career path – each accounted for 7% of the responses.\n\nIn contrast, only 4% of participants said they had mainly learned about the work environment, and teamwork was the least popular answer, at just 3%. It is also worth noting that 26% of respondents gave answers that did not fit into any of these categories, making 'other' the largest single segment of the chart.\n\n(About 160 words. With ten categories, it groups the equal 7% items together instead of describing each one separately.)"
+ },
+ {
+  "id": "w1-95",
+  "title": "The bar chart below shows the estimated sales of jeans for two companies next year in Turkey. The pie chart shows the projected market share of the two companies in jeans at the end of next year.",
+  "images": [
+   "t1-jeanssalesturkey.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Jack & Jones: higher sales, rising to 900,000 in December",
+     "kw": [
+      "\\bjack\\b",
+      "jones",
+      "(?<![\\d.])900(?![\\d]|\\.\\d)",
+      "(?<![\\d.])450(?![\\d]|\\.\\d)",
+      "(?<![\\d.])250(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Mango: rising from 100,000–150,000 to 600,000; ahead in July–August",
+     "kw": [
+      "mango",
+      "(?<![\\d.])600(?![\\d]|\\.\\d)",
+      "(?<![\\d.])150(?![\\d]|\\.\\d)",
+      "july",
+      "august",
+      "(?<![\\d.])500(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Market share: 50% vs 30% vs 20%",
+     "kw": [
+      "market share",
+      "(?<![\\d.])50(?![\\d]|\\.\\d)",
+      "(?<![\\d.])30(?![\\d]|\\.\\d)",
+      "(?<![\\d.])20(?![\\d]|\\.\\d)",
+      "others"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The bar chart below shows the estimated sales of jeans for two companies next year in Turkey. The pie chart shows the projected market share of the two companies in jeans at the end of next year. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "sales",
+    "jeans",
+    "mango",
+    "jack",
+    "jones",
+    "pairs",
+    "market"
+   ]
+  },
+  "phrases": [
+   "The bar chart shows the expected monthly sales of… and the pie chart shows…",
+   "Overall, sales for both companies are expected to rise over the year,…",
+   "…is expected to begin the year with sales of about…",
+   "…its sales are predicted to rise steadily, reaching…",
+   "…when Mango will briefly outsell Jack & Jones.",
+   "By the end of the year, … is projected to hold 50% of the market,…"
+  ],
+  "sampleText": "The bar chart shows the expected monthly sales of jeans for two companies, Mango and Jack & Jones, in Turkey next year, and the pie chart shows the companies' projected market share at the end of the year.\n\nOverall, sales for both companies are expected to rise over the year, with Jack & Jones selling more jeans in most months. Jack & Jones is projected to have half of the market, compared with 30% for Mango.\n\nJack & Jones is expected to begin the year with sales of about 450,000 pairs in January, before dropping to 250,000 in February. After that, its sales are predicted to rise steadily, reaching 400,000 by June, and then to increase sharply in the final months, to 700,000 in November and 900,000 in December.\n\nMango's sales are forecast to start much lower, at between 100,000 and 150,000 pairs from January to April. However, they are expected to grow rapidly in the summer, to 450,000 in July and 500,000 in August, when Mango will briefly outsell Jack & Jones. Mango's sales are then likely to remain at 500,000 until November and rise to 600,000 in December. By the end of the year, Jack & Jones is projected to hold 50% of the market, Mango 30% and other companies 20%.\n\n(About 210 words. It uses future forms (is expected to, is predicted to, is forecast to) because the data are projections. Bar values are approximate.)"
+ },
+ {
+  "id": "w1-96",
+  "title": "The charts below show the results of a survey conducted by a university library to find out the opinions of full-time and part-time students about its service.",
+  "images": [
+   "t1-librarysurvey.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "IT support: full-time students satisfied",
+     "kw": [
+      "\\bit support\\b",
+      "full-time",
+      "full time",
+      "(?<![\\d.])55(?![\\d]|\\.\\d)",
+      "(?<![\\d.])32(?![\\d]|\\.\\d)",
+      "(?<![\\d.])13(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "IT support: many part-time students unhappy",
+     "kw": [
+      "part-time",
+      "part time",
+      "(?<![\\d.])45(?![\\d]|\\.\\d)",
+      "(?<![\\d.])20(?![\\d]|\\.\\d)",
+      "(?<![\\d.])35(?![\\d]|\\.\\d)",
+      "not at all"
+     ]
+    },
+    {
+     "label": "Opening hours: both groups very satisfied",
+     "kw": [
+      "opening hours",
+      "hours",
+      "(?<![\\d.])67(?![\\d]|\\.\\d)",
+      "(?<![\\d.])72(?![\\d]|\\.\\d)",
+      "(?<![\\d.])1\\s*%",
+      "(?<![\\d.])5\\s*%"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the results of a survey conducted by a university library to find out the opinions of full-time and part-time students about its service. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "students",
+    "happy",
+    "support",
+    "hours",
+    "full-time",
+    "part-time",
+    "library",
+    "time",
+    "full",
+    "part"
+   ]
+  },
+  "phrases": [
+   "The pie charts show the results of a survey asking…",
+   "Overall, both groups were very satisfied with…, but opinions about… differed greatly:",
+   "In contrast, just 20% of part-time students were very happy…",
+   "…more than three times the proportion of full-time students.",
+   "…received a much more positive response.",
+   "…so only 1% of… and 5% of… were not happy at all."
+  ],
+  "sampleText": "The pie charts show the results of a university library survey asking full-time and part-time students how happy they were with its IT support and opening hours.\n\nOverall, both groups were very satisfied with the opening hours, but opinions about IT support differed greatly: full-time students were mostly happy with it, whereas many part-time students were not.\n\nRegarding IT support, just over half of full-time students (55%) said they were very happy and 32% were quite happy, while only 13% were not happy at all. In contrast, just 20% of part-time students were very happy with the IT support and 35% were quite happy. The largest group of part-time students (45%) were not happy at all, more than three times the proportion of full-time students.\n\nOpening hours received a much more positive response, with the overwhelming majority of both groups satisfied. Approximately two thirds of full-time students (67%) and 72% of part-time students were very happy with them. A further 32% of full-time students and 23% of part-time students were quite happy, so only 1% of full-time and 5% of part-time students were not happy at all.\n\n(About 190 words. It compares the two groups for each question and highlights the biggest difference (part-time students and IT support).)"
+ },
+ {
+  "id": "w1-97",
+  "title": "The bar chart below shows the proportions of English men and women of different ages who were living alone in 2011. The pie chart compares the numbers of bedrooms in these one-person households.",
+  "images": [
+   "t1-livingaloneengland.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Younger people living alone: more men",
+     "kw": [
+      "\\bmen\\b",
+      "\\bmales?\\b",
+      "younger",
+      "(?<![\\d.])25(?![\\d]|\\.\\d)",
+      "(?<![\\d.])35(?![\\d]|\\.\\d)",
+      "(?<![\\d.])49(?![\\d]|\\.\\d)",
+      "(?<![\\d.])60(?![\\d]|\\.\\d)",
+      "(?<![\\d.])65(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Older people living alone: more women",
+     "kw": [
+      "\\bwomen\\b",
+      "\\bfemales?\\b",
+      "\\bolder\\b",
+      "(?<![\\d.])65(?![\\d]|\\.\\d)",
+      "(?<![\\d.])75(?![\\d]|\\.\\d)",
+      "(?<![\\d.])85(?![\\d]|\\.\\d)",
+      "(?<![\\d.])75\\s*%"
+     ]
+    },
+    {
+     "label": "Number of bedrooms",
+     "kw": [
+      "bedroom",
+      "(?<![\\d.])35\\.4(?![\\d]|\\.\\d)",
+      "(?<![\\d.])29\\.8(?![\\d]|\\.\\d)",
+      "(?<![\\d.])28(?![\\d]|\\.\\d)",
+      "(?<![\\d.])5\\.3(?![\\d]|\\.\\d)",
+      "(?<![\\d.])1\\.4(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The bar chart below shows the proportions of English men and women of different ages who were living alone in 2011. The pie chart compares the numbers of bedrooms in these one-person households. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "men",
+    "women",
+    "alone",
+    "living",
+    "bedrooms",
+    "households",
+    "age",
+    "aged"
+   ]
+  },
+  "phrases": [
+   "The bar chart compares the proportions of… who…, and the pie chart shows…",
+   "Overall, more men than women lived alone up to the age of 49, but this pattern was reversed…",
+   "…men slightly ahead at around 53%.",
+   "…but from the age of 65 women made up the majority.",
+   "Across all ages, slightly more women… than men lived alone.",
+   "Very few had four bedrooms (5.3%) or…"
+  ],
+  "sampleText": "The bar chart compares the proportions of men and women in different age groups who lived alone in England in 2011, and the pie chart shows how many bedrooms these one-person households had.\n\nOverall, more men than women lived alone up to the age of 49, but this pattern was reversed in the older age groups. Most people living alone had homes with two or three bedrooms.\n\nAmong 16- to 24-year-olds living alone, men and women were almost equal, with men slightly ahead at around 53%. The male share was highest among people aged 25–34 and 35–49, at roughly 62% and 65% respectively. In the 50–64 age group, however, the figures were equal, whereas from the age of 65 women made up the majority, at about 63% of 65- to 74-year-olds. Their share then rose to about 72% for 75- to 84-year-olds and around 75% for those aged 85 and over. Across all ages, slightly more women (about 53%) than men lived alone.\n\nRegarding bedrooms, 35.4% of one-person households had two bedrooms, 29.8% had three and 28% had only one. Very few had four bedrooms (5.3%) or five or more (1.4%).\n\n(About 190 words. Bar values are read from the chart, so they are approximate. It shows the crossover at age 50–64 and gives the pie chart its own short paragraph.)"
+ },
+ {
+  "id": "w1-98",
+  "title": "The charts below show Morocco’s income from different economic sectors in 2003, as well as its income from fishing from 1982 to 2003.",
+  "images": [
+   "t1-moroccoincome.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Income by sector in 2003",
+     "kw": [
+      "tourism",
+      "(?<![\\d.])26(?![\\d]|\\.\\d)",
+      "industry",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)",
+      "remittance",
+      "(?<![\\d.])21(?![\\d]|\\.\\d)",
+      "petroleum",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)",
+      "agriculture",
+      "(?<![\\d.])2(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Fishing's share in 2003",
+     "kw": [
+      "fishing",
+      "(?<![\\d.])13(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Fishing income 1982–2003: rise, peak in 2000, fall",
+     "kw": [
+      "(?<![\\d.])1982(?![\\d]|\\.\\d)",
+      "(?<![\\d.])0\\.3(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2000(?![\\d]|\\.\\d)",
+      "(?<![\\d.])4\\.3(?![\\d]|\\.\\d)",
+      "\\bpeak",
+      "(?<![\\d.])2003(?![\\d]|\\.\\d)",
+      "(?<![\\d.])1\\.8(?![\\d]|\\.\\d)",
+      "billion"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show Morocco’s income from different economic sectors in 2003, as well as its income from fishing from 1982 to 2003. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "income",
+    "morocco",
+    "fishing",
+    "billion",
+    "tourism",
+    "industry"
+   ]
+  },
+  "phrases": [
+   "The pie chart shows the proportion of… that came from…, and the bar chart shows…",
+   "Overall, … were Morocco's main sources of income in 2003.",
+   "…closely followed by… at 24% and…",
+   "It then grew steadily, to around…",
+   "…before peaking at approximately…",
+   "…dropped dramatically to around…, less than half of the 2000 figure."
+  ],
+  "sampleText": "The pie chart shows the proportion of Morocco's income that came from six economic sectors in 2003, and the bar chart shows the country's income from fishing between 1982 and 2003.\n\nOverall, tourism, industry and workers' remittances were Morocco's main sources of income in 2003. Income from fishing rose substantially over the period, reaching a peak in 2000, before falling sharply by 2003.\n\nIn 2003, tourism generated the largest share of income, at 26%, closely followed by industry at 24% and workers' remittances at 21%. Petroleum and fishing contributed 14% and 13% respectively, whereas agriculture accounted for only 2%.\n\nTurning to fishing, income from this sector was very low in 1982, at about US$0.3 billion. It then grew steadily, to around US$1.9 billion in 1993, US$2.2 billion in 1995 and US$2.9 billion in 1997, before peaking at approximately US$4.3 billion in 2000. In 2001 and 2002, fishing income remained stable at about US$3.8 billion, but it then dropped dramatically to around US$1.8 billion in 2003, less than half of the 2000 figure.\n\n(About 180 words. Bar values are approximate. It describes the pie chart (one year) and the bar chart (trend over time) in separate paragraphs.)"
+ },
+ {
+  "id": "w1-99",
+  "title": "The charts below show the degrees granted in different fields at the National University in 1990, 2000 and 2010.",
+  "images": [
+   "t1-nationaluniversitydegrees.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Computer science grew to almost half",
+     "kw": [
+      "computer",
+      "(?<![\\d.])30(?![\\d]|\\.\\d)",
+      "(?<![\\d.])40(?![\\d]|\\.\\d)",
+      "(?<![\\d.])45(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Business fell by half",
+     "kw": [
+      "business",
+      "(?<![\\d.])30(?![\\d]|\\.\\d)",
+      "(?<![\\d.])20(?![\\d]|\\.\\d)",
+      "(?<![\\d.])15(?![\\d]|\\.\\d)",
+      "halved"
+     ]
+    },
+    {
+     "label": "Medicine and law changed little",
+     "kw": [
+      "medicine",
+      "(?<![\\d.])25(?![\\d]|\\.\\d)",
+      "\\blaws?\\b",
+      "(?<![\\d.])15(?![\\d]|\\.\\d)",
+      "(?<![\\d.])10(?![\\d]|\\.\\d)",
+      "stable",
+      "\\bsame\\b"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the degrees granted in different fields at the National University in 1990, 2000 and 2010. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "degrees",
+    "computer",
+    "science",
+    "business",
+    "medicine",
+    "law",
+    "university"
+   ]
+  },
+  "phrases": [
+   "The pie charts show the proportions of degrees awarded in…",
+   "Overall, … became increasingly popular…, whereas…",
+   "…each accounted for 30% of degrees, followed by…",
+   "By 2000, … had risen to…",
+   "…which was half of its 1990 share.",
+   "…so both were at exactly the same level as in 1990."
+  ],
+  "sampleText": "The pie charts show the proportions of degrees awarded in four subjects at the National University in 1990, 2000 and 2010.\n\nOverall, computer science became increasingly popular, rising from joint first place to almost half of all degrees, whereas the share of business degrees fell considerably. Medicine and law ended the period at the same levels as they had started.\n\nIn 1990, computer science and business each accounted for 30% of degrees, followed by medicine with 25% and law with 15%. By 2000, computer science had risen to 40%, and medicine had also increased, to 30%. In contrast, business fell to 20% and law dropped to 10%.\n\nIn 2010, computer science continued to grow, reaching 45%, almost half of all degrees. Business declined further to 15%, which was half of its 1990 share. Meanwhile, medicine returned to 25% and law rose back to 15%, so both were at exactly the same level as in 1990.\n\n(About 160 words. It follows the timeline (1990 → 2000 → 2010) and highlights the steady rise of computer science and fall of business.)"
+ },
+ {
+  "id": "w1-100",
+  "title": "The pie charts below show the online sales for retail sectors in New Zealand in 2003 and 2013.",
+  "images": [
+   "t1-newzealandonlinesales.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Travel: largest in 2003, fell",
+     "kw": [
+      "travel",
+      "(?<![\\d.])37(?![\\d]|\\.\\d)",
+      "(?<![\\d.])29(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Film/music: rose to become the largest",
+     "kw": [
+      "\\bfilms?\\b",
+      "music",
+      "(?<![\\d.])22(?![\\d]|\\.\\d)",
+      "(?<![\\d.])33(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Books and clothes",
+     "kw": [
+      "books",
+      "(?<![\\d.])19(?![\\d]|\\.\\d)",
+      "(?<![\\d.])22(?![\\d]|\\.\\d)",
+      "clothes",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The pie charts below show the online sales for retail sectors in New Zealand in 2003 and 2013. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "online",
+    "sales",
+    "travel",
+    "books",
+    "clothes",
+    "film",
+    "music"
+   ]
+  },
+  "phrases": [
+   "The pie charts compare the proportions of… in… in 2003 and 2013.",
+   "Overall, … was the biggest online sector in 2003, but by 2013 it had been overtaken by…",
+   "…considerably more than any other sector.",
+   "…had grown by 11 percentage points to 33%,…",
+   "…becoming the smallest category.",
+   "Meanwhile, … increased slightly, from… to…"
+  ],
+  "sampleText": "The pie charts compare the proportions of online sales in four retail sectors in New Zealand in 2003 and 2013, namely travel, clothes, film and music, and books.\n\nOverall, travel was the biggest online sector in 2003, but by 2013 it had been overtaken by film and music. The share of clothes fell over the decade, while that of books rose slightly.\n\nIn 2003, travel accounted for 37% of online sales, which was considerably more than any other sector. Clothes and film/music each made up 22%, while books had the smallest share, at 19%. This means that the three smaller sectors together represented just under two thirds of online spending.\n\nTen years later, the share of film and music sales had grown by 11 percentage points to 33%, making it the most popular online sector. In contrast, travel fell to 29%, and clothes dropped from 22% to 16%, becoming the smallest category. Meanwhile, book sales increased slightly, from 19% to 22%, so books moved from last place to third.\n\n(About 170 words. It focuses on the change in rank (film/music overtaking travel) and describes each sector's movement with a precise verb.)"
+ },
+ {
+  "id": "w1-101",
+  "title": "The table and charts below give information on the police budget for 2017 and 2018 in one area of Britain. The table shows where the money came from and the charts show how money was distributed.",
+  "images": [
+   "t1-policebudget.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "Sources of money: national government, local taxes, other",
+     "kw": [
+      "national government",
+      "government",
+      "local tax",
+      "grants",
+      "(?<![\\d.])175(?![\\d]|\\.\\d)",
+      "(?<![\\d.])177(?![\\d]|\\.\\d)",
+      "(?<![\\d.])91(?![\\d]|\\.\\d)",
+      "(?<![\\d.])102(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Total budget rose",
+     "kw": [
+      "\\btotal",
+      "(?<![\\d.])304\\.7(?![\\d]|\\.\\d)",
+      "(?<![\\d.])318\\.6(?![\\d]|\\.\\d)",
+      "rose",
+      "increased"
+     ]
+    },
+    {
+     "label": "Spending: salaries, technology, buildings and transport",
+     "kw": [
+      "salar",
+      "(?<![\\d.])75(?![\\d]|\\.\\d)",
+      "(?<![\\d.])69(?![\\d]|\\.\\d)",
+      "technology",
+      "(?<![\\d.])8(?![\\d]|\\.\\d)",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)",
+      "buildings",
+      "transport",
+      "(?<![\\d.])17(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The table and charts below give information on the police budget for 2017 and 2018 in one area of Britain. The table shows where the money came from and the charts show how money was distributed. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "budget",
+    "police",
+    "salaries",
+    "technology",
+    "government",
+    "taxes",
+    "spending"
+   ]
+  },
+  "phrases": [
+   "The table shows…, while the pie charts show how this money was spent.",
+   "Overall, the total budget increased slightly,…",
+   "…contributed £175.5m, more than half of the budget,…",
+   "The biggest increase came from…, which grew by about…",
+   "Regarding spending, … accounted for 75% of the budget in 2017,…",
+   "Meanwhile, the proportion spent on technology almost doubled,…"
+  ],
+  "sampleText": "The table shows the sources of the police budget in one area of Britain in 2017 and 2018, while the pie charts show how this money was spent.\n\nOverall, the total budget increased slightly, with the national government providing most of the money in both years. Salaries were by far the largest expense, although their share fell as spending on technology rose.\n\nIn 2017, the police received £304.7m in total. The national government contributed £175.5m, more than half of the budget, while local taxes provided £91.2m and other sources, such as grants, £38m. In 2018, the total rose to £318.6m. The biggest increase came from local taxes, which grew by about £11m to £102.3m, whereas national government funding rose only slightly to £177.8m and other sources remained almost unchanged at £38.5m.\n\nRegarding spending, salaries for officers and staff accounted for 75% of the budget in 2017, but this fell to 69% in 2018. Meanwhile, the proportion spent on technology almost doubled, from 8% to 14%. Spending on buildings and transport stayed the same, at 17%.\n\n(About 180 words. It describes the table (income) and the pie charts (spending) in separate paragraphs and highlights the shift from salaries to technology.)"
+ },
+ {
+  "id": "w1-102",
+  "title": "The charts below show the average percentages in typical meals of three types of nutrients, all of which may be unhealthy if eaten too much.",
+  "images": [
+   "t1-sodiumfatsugar.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Pie chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Sodium: dinner is the main source",
+     "kw": [
+      "sodium",
+      "(?<![\\d.])43(?![\\d]|\\.\\d)",
+      "(?<![\\d.])29(?![\\d]|\\.\\d)",
+      "(?<![\\d.])14(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Saturated fat: dinner and lunch",
+     "kw": [
+      "saturated fat",
+      "\\bfats?\\b",
+      "(?<![\\d.])37(?![\\d]|\\.\\d)",
+      "(?<![\\d.])26(?![\\d]|\\.\\d)",
+      "(?<![\\d.])21(?![\\d]|\\.\\d)",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)"
+     ]
+    },
+    {
+     "label": "Added sugar: snacks are the main source",
+     "kw": [
+      "\\bsugars?\\b",
+      "snack",
+      "(?<![\\d.])42(?![\\d]|\\.\\d)",
+      "(?<![\\d.])23(?![\\d]|\\.\\d)",
+      "(?<![\\d.])19(?![\\d]|\\.\\d)",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The charts below show the average percentages in typical meals of three types of nutrients, all of which may be unhealthy if eaten too much. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "sodium",
+    "fat",
+    "saturated",
+    "sugar",
+    "added",
+    "dinner",
+    "lunch",
+    "breakfast",
+    "snacks",
+    "meals"
+   ]
+  },
+  "phrases": [
+   "The pie charts show the average proportions of… consumed at…",
+   "Overall, dinner provides the largest share of…, whereas…",
+   "…making it the main source of both.",
+   "…follows a very different pattern.",
+   "…by far the largest source, at 42%, which is three times…",
+   "…it is the meal with the smallest or joint-smallest share."
+  ],
+  "sampleText": "The pie charts show the average proportions of sodium, saturated fat and added sugar consumed at breakfast, lunch, dinner and in snacks in the USA.\n\nOverall, dinner provides the largest share of both sodium and saturated fat, whereas most added sugar comes from snacks. Breakfast contributes the smallest (or joint-smallest) proportion of all three nutrients.\n\nDinner accounts for 43% of daily sodium intake and 37% of saturated fat, making it the main source of both. Lunch is the second biggest source, providing 29% of sodium and 26% of saturated fat. Snacks contribute 14% of sodium but a higher 21% of saturated fat, while breakfast makes up 14% and 16% respectively.\n\nAdded sugar follows a very different pattern. Snacks are by far the largest source, at 42%, which is three times their share of sodium. Dinner provides 23%, lunch 19% and breakfast 16%. Interestingly, breakfast contributes the same proportion of saturated fat and added sugar (16%), and in all three charts it is the meal with the smallest or joint-smallest share.\n\n(About 170 words. It groups sodium and saturated fat together (similar pattern) and contrasts them with added sugar.)"
  }
 ]
