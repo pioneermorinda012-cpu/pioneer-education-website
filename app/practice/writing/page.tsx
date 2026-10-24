@@ -3,7 +3,8 @@ import { getWriting, CHART_TYPES, ESSAY_TYPES } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { WRITING_AREAS } from "@/lib/access";
 import PracticeNav from "@/components/practice/PracticeNav";
-import { lessonForType } from "@/lib/learn";
+import { lessonForType, TASK2_STRUCTURE_VIDEO } from "@/lib/learn";
+import VideoNote from "@/components/practice/VideoNote";
 
 export const dynamic = "force-dynamic";
 
@@ -122,6 +123,12 @@ export default async function WritingLibrary({
           </div>
         );
       })()}
+
+      {kind === "task2" && (
+        <VideoNote url={TASK2_STRUCTURE_VIDEO} label="▶ Watch">
+          <b>Before you write:</b> the basic structure of a Task 2 essay — introduction, two body paragraphs, conclusion.
+        </VideoNote>
+      )}
 
       {types.length > 0 && (
         <nav className="wr-types" aria-label="Chart type">

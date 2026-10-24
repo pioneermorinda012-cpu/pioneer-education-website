@@ -532,3 +532,9 @@ mark.ev-near .ev-badge { opacity: 0.85; }
 .ln-first { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: space-between; background: #fff7ee; border: 1px solid #f3c79f; border-radius: 14px; padding: 12px 16px; margin: 14px 0; }
 .ln-first b { color: var(--navy); }
 .ln-first .btn { padding: 8px 16px; font-size: .85rem; min-height: 38px; }
+/* Task 2: video strip that opens in place */
+.ln-video { display: block; }
+.ln-video summary { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; justify-content: space-between; cursor: pointer; list-style: none; }
+.ln-video summary::-webkit-details-marker { display: none; }
+.ln-video[open] summary .btn { opacity: .7; }
+.ln-video .ln-frame { margin-top: 12px; max-width: 760px; }

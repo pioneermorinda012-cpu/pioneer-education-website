@@ -36,6 +36,10 @@ export const LESSONS: Lesson[] = [
     video: "https://youtu.be/gP-q6mTx55k" },
 ];
 
+/** Writing Task 2: the basic essay structure, shown above the Task 2 library
+ *  and on every Task 2 topic. Topic videos live in each topic's `links`. */
+export const TASK2_STRUCTURE_VIDEO = "https://youtu.be/ig5bPaqaDhg";
+
 export const lesson = (id: string) => LESSONS.find((l) => l.id === id) ?? null;
 export const lessonForType = (chartType?: string) =>
   chartType ? LESSONS.find((l) => l.chartType === chartType) ?? null : null;

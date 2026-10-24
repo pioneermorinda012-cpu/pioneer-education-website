@@ -2,7 +2,8 @@ import { notFound } from "next/navigation";
 import { cookies } from "next/headers";
 import WritingDesk from "@/components/practice/WritingDesk";
 import Link from "next/link";
-import { lessonForType } from "@/lib/learn";
+import { lessonForType, TASK2_STRUCTURE_VIDEO } from "@/lib/learn";
+import VideoNote from "@/components/practice/VideoNote";
 import { getWritingTask, forStudent } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { allows, WRITING_AREAS } from "@/lib/access";
@@ -42,6 +43,8 @@ export default async function WritingTaskPage({ params, searchParams }: {
 
   // Task 1: the lesson and video for this chart type, one tap away
   const learn = task.kind === "task1" ? lessonForType(task.chartType) : null;
+  // Task 2: this topic's own video lesson, if it has one, and the essay structure
+  const topicVideo = task.kind === "task2" ? task.links?.find((u) => /youtu\.?be/i.test(u)) : undefined;
 
   return (
     <div className="wrap">
@@ -50,6 +53,16 @@ export default async function WritingTaskPage({ params, searchParams }: {
           <div><b>{task.chartType}:</b> not sure how to start? Watch the video and read the lesson first.</div>
           <Link className="btn btn-outline" href={`/practice/learn/${learn.id}`} prefetch={false}>▶ Video &amp; lesson</Link>
         </div>
+      )}
+      {topicVideo && (
+        <div style={{ marginTop: 16 }}>
+          <VideoNote url={topicVideo}><b>{task.title}:</b> watch the video lesson on this topic — ideas and vocabulary for your essay.</VideoNote>
+        </div>
+      )}
+      {task.kind === "task2" && (
+        <VideoNote url={TASK2_STRUCTURE_VIDEO} label="▶ Watch">
+          <b>Essay structure:</b> introduction, two body paragraphs, conclusion — how to plan it in 40 minutes.
+        </VideoNote>
       )}
       <WritingDesk task={isTeacher ? task : forStudent(task)}
         start={q !== undefined && Number(q) >= 0 && Number(q) < (task.prompts?.length ?? 0) ? Math.floor(Number(q)) : undefined} />
