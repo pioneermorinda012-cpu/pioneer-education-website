@@ -1,10 +1,11 @@
 <title>Pioneer French A1</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Young+Serif&family=Noto+Sans:wght@400;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Young+Serif&family=Noto+Sans:wght@400;600&family=Noto+Sans+Gurmukhi:wght@400;600&display=swap">
 <style>
 /* Layout: one centred reading column (max 980px); units as a 2–3 column grid that stacks on phones. Blue ink on cool paper, poppy red only for sound highlights. */
 :root{
+  --pa:#8a4b12; --pa-bg:#fdf3e7;
   --bg:#f2f4f9; --surface:#ffffff; --sunk:#e8ecf5; --ink:#17203b; --muted:#56607e; --line:#d9deea;
   --accent:#2343a8; --accent-soft:#e3e9fb; --on-accent:#ffffff; --poppy:#c93c27;
   --good:#1b7a4c; --good-bg:#e2f4ea; --bad:#b0281e; --bad-bg:#fbe6e3;
@@ -16,11 +17,11 @@
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
   --bg:#0e1322; --surface:#161d31; --sunk:#1d2640; --ink:#e7ebf6; --muted:#9ba4c2; --line:#2b3452;
   --accent:#8aa2ff; --accent-soft:#232f57; --on-accent:#0e1322; --poppy:#ff8a72;
-  --good:#5fd09a; --good-bg:#16352a; --bad:#ff8b80; --bad-bg:#3d1c1c; color-scheme:dark}}
+  --good:#5fd09a; --good-bg:#16352a; --bad:#ff8b80; --bad-bg:#3d1c1c; --pa:#f0b47a; --pa-bg:#2e2416; color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0e1322; --surface:#161d31; --sunk:#1d2640; --ink:#e7ebf6; --muted:#9ba4c2; --line:#2b3452;
   --accent:#8aa2ff; --accent-soft:#232f57; --on-accent:#0e1322; --poppy:#ff8a72;
-  --good:#5fd09a; --good-bg:#16352a; --bad:#ff8b80; --bad-bg:#3d1c1c; color-scheme:dark}
+  --good:#5fd09a; --good-bg:#16352a; --bad:#ff8b80; --bad-bg:#3d1c1c; --pa:#f0b47a; --pa-bg:#2e2416; color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;
   padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
@@ -142,6 +143,53 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 
 .resume{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 14px;border-radius:var(--r);background:var(--accent-soft);margin-bottom:14px}
 #sndout:empty{display:none}
+.cellsay{display:flex;align-items:center;gap:8px}
+.cellsay .play{width:28px;height:28px}
+.alpha{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.al{display:grid;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px}
+.al-l{display:flex;align-items:baseline;justify-content:space-between;gap:6px;background:var(--accent-soft);color:var(--accent);border:0;border-radius:8px;padding:8px 10px;text-align:left}
+.al-l b{font-family:var(--f-display);font-size:1.3rem;font-weight:400}
+.al-l .ipa{font-size:1rem}
+.al-w{display:flex;align-items:center;gap:8px;min-width:0}
+/* menu, language buttons, translations */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-top:10px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:25;background:var(--bg)}
+.menu-btn{width:42px;height:42px;flex:none;border-radius:10px;border:1px solid var(--line);background:var(--surface);display:grid;place-content:center;gap:4px;padding:0}
+.menu-btn span{display:block;width:18px;height:2px;border-radius:2px;background:var(--ink)}
+.bar .brand{margin-right:auto}
+.langbar{display:flex;align-items:center;gap:6px;flex-basis:100%}
+.lb-l{font-size:.72rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-right:2px}
+.trbtn{padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);font-weight:700;font-size:.85rem;color:var(--muted)}
+.trbtn.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+[lang="pa"]{font-family:"Noto Sans Gurmukhi","Raavi","Nirmala UI","Gurmukhi MN",var(--f-body)}
+.tr{display:block}
+body:not(.t-en) .tr-en{display:none!important}
+body:not(.t-pa) .tr-pa{display:none!important}
+.tr-en{color:var(--muted);font-size:.92rem}
+.tr-pa{color:var(--pa);font-size:.95rem;line-height:1.6}
+td.tr-pa{display:table-cell}
+.pa-note{background:var(--pa-bg);border-left:3px solid var(--pa);padding:8px 12px;border-radius:0 8px 8px 0;max-width:68ch;margin:0}
+.uh-pa{margin:0;font-size:1rem}
+.q-pa{display:block;font-size:1rem;font-weight:400;margin-top:4px;color:var(--pa)}
+.ucard .tr-pa{font-size:.85rem}
+.scrim{position:fixed;inset:0;background:rgba(10,14,30,.45);z-index:40;opacity:0;pointer-events:none;transition:opacity .2s}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(330px,88vw);z-index:41;background:var(--surface);border-right:1px solid var(--line);overflow-y:auto;padding:calc(12px + env(safe-area-inset-top,0px)) 12px calc(20px + env(safe-area-inset-bottom,0px)) calc(12px + env(safe-area-inset-left,0px));transform:translateX(-102%);transition:transform .22s ease;display:grid;align-content:start;gap:2px;visibility:hidden}
+body.menu-open .drawer{transform:none;visibility:visible}
+body.menu-open .scrim{opacity:1;pointer-events:auto}
+body.menu-open{overflow:hidden}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 10px}
+.dr-x{border:0;background:none;font-size:1.1rem;padding:6px 10px;border-radius:8px}
+.dr-g{margin:12px 6px 4px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.dr-g span{text-transform:none;letter-spacing:0}
+.dr-row{display:flex;align-items:center;gap:10px;width:100%;text-align:left;border:0;background:none;padding:8px;border-radius:8px}
+.dr-row:hover{background:var(--sunk)}
+.dr-row.cur{background:var(--accent-soft);color:var(--accent)}
+.dr-n{width:26px;height:26px;flex:none;display:grid;place-items:center;border-radius:6px;background:var(--sunk);font-size:.8rem;font-weight:700;font-variant-numeric:tabular-nums}
+.dr-t{flex:1;min-width:0;font-weight:700;font-size:.92rem;line-height:1.3}
+.dr-t small{display:block;font-weight:400;color:var(--muted);font-size:.78rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dr-p{font-size:.75rem;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+.dr-p.ok{color:var(--good)}
+@media (prefers-reduced-motion:reduce){.drawer,.scrim{transition:none}}
 /* skills, AI, exam */
 .small{font-size:.85rem}
 .skillsec{margin-top:40px;display:grid;gap:16px}
@@ -197,10 +245,10 @@ var UNITS = [];
 UNITS.push({
   id: 0, fr: "Les sons du français", en: "Sounds & spelling",
   notes: [
-    { h: "The alphabet", html: "<p>Most letters are named close to English, but watch these: <b>e</b> [ə], <b>g</b> [ʒe], <b>i</b> [i], <b>j</b> [ʒi], <b>r</b> [ɛʁ], <b>u</b> [y], <b>w</b> [dubləve], <b>y</b> [igʁɛk]. Students often swap <b>g</b> and <b>j</b>: in French, g sounds like English “zhay” and j like “zhee”.</p>",
-      table: { head: ["Letter", "Name"], rows: [["a","[a]"],["b","[be]"],["c","[se]"],["d","[de]"],["e","[ə]"],["f","[ɛf]"],["g","[ʒe]"],["h","[aʃ]"],["i","[i]"],["j","[ʒi]"],["k","[ka]"],["l","[ɛl]"],["m","[ɛm]"],["n","[ɛn]"],["o","[o]"],["p","[pe]"],["q","[ky]"],["r","[ɛʁ]"],["s","[ɛs]"],["t","[te]"],["u","[y]"],["v","[ve]"],["w","[dubləve]"],["x","[iks]"],["y","[igʁɛk]"],["z","[zɛd]"]] } },
+    { h: "The alphabet", html: "<p>Most letters are named close to English, but watch these: <b>e</b> [ə], <b>g</b> [ʒe], <b>i</b> [i], <b>j</b> [ʒi], <b>r</b> [ɛʁ], <b>u</b> [y], <b>w</b> [dubləve], <b>y</b> [igʁɛk]. Students often swap <b>g</b> and <b>j</b>: in French, g sounds like English “zhay” and j like “zhee”. Tap the letter to hear its name, and the word to hear it in use.</p>",
+      alpha: [["a", "[a]", "a", "ami", "friend"], ["b", "[be]", "bé", "bonjour", "hello"], ["c", "[se]", "cé", "café", "coffee"], ["d", "[de]", "dé", "deux", "two"], ["e", "[ə]", "e", "le", "the"], ["f", "[ɛf]", "effe", "fille", "girl"], ["g", "[ʒe]", "gé", "gare", "station"], ["h", "[aʃ]", "hache", "hôtel", "hotel (h is silent)"], ["i", "[i]", "i", "ici", "here"], ["j", "[ʒi]", "ji", "jour", "day"], ["k", "[ka]", "ka", "kilo", "kilo"], ["l", "[ɛl]", "elle", "lune", "moon"], ["m", "[ɛm]", "emme", "mère", "mother"], ["n", "[ɛn]", "enne", "nuit", "night"], ["o", "[o]", "o", "orange", "orange"], ["p", "[pe]", "pé", "pain", "bread"], ["q", "[ky]", "cu", "quatre", "four"], ["r", "[ɛʁ]", "erre", "rouge", "red"], ["s", "[ɛs]", "esse", "sœur", "sister"], ["t", "[te]", "té", "thé", "tea"], ["u", "[y]", "u", "tu", "you"], ["v", "[ve]", "vé", "vin", "wine"], ["w", "[dubləve]", "double vé", "kiwi", "kiwi"], ["x", "[iks]", "ixe", "taxi", "taxi"], ["y", "[igʁɛk]", "i grec", "stylo", "pen"], ["z", "[zɛd]", "zède", "zéro", "zero"]] },
     { h: "Accents", html: "<p>Accents are part of the spelling. A missing accent is a spelling mistake, and sometimes it changes the word.</p>",
-      table: { head: ["Mark", "Name", "Effect", "Example"], rows: [
+      table: { say: [3], head: ["Mark", "Name", "Effect", "Example"], rows: [
         ["é", "accent aigu", "closed [e]", "café, été"],
         ["è", "accent grave", "open [ɛ] on e; on a/u it only separates words", "père · à (to) vs a (has) · où (where) vs ou (or)"],
         ["ê", "accent circonflexe", "open [ɛ] on e; often marks an old lost s", "fête (feast), forêt (forest)"],
@@ -294,7 +342,7 @@ UNITS.push({
     { h: "être — to be", conj: [["je","suis"],["tu","es"],["il / elle / on","est"],["nous","sommes"],["vous","êtes"],["ils / elles","sont"]], say: ["je suis","tu es","il est","nous sommes","vous êtes","ils sont"] },
     { h: "s'appeler — to be called", conj: [["je","m'appelle"],["tu","t'appelles"],["il / elle / on","s'appelle"],["nous","nous appelons"],["vous","vous appelez"],["ils / elles","s'appellent"]], say: ["je m'appelle","tu t'appelles","il s'appelle","nous nous appelons","vous vous appelez","ils s'appellent"], html: "<p>Note the spelling: <b>ll</b> in the je, tu, il, ils forms (stressed), single <b>l</b> with nous and vous.</p>" },
     { h: "Nationalities", html: "<p>Nationality adjectives agree with the person and take <b>no capital letter</b>: <i>Elle est indienne.</i> The noun for a person takes a capital: <i>un Indien, une Française</i>.</p>",
-      table: { head: ["Masculine", "Feminine", "English"], rows: [["indien","indienne","Indian"],["français","française","French"],["canadien","canadienne","Canadian"],["anglais","anglaise","English"],["allemand","allemande","German"],["américain","américaine","American"],["espagnol","espagnole","Spanish"],["italien","italienne","Italian"],["chinois","chinoise","Chinese"],["suisse","suisse","Swiss"],["belge","belge","Belgian"],["russe","russe","Russian"]] } },
+      table: { say: [0, 1], head: ["Masculine", "Feminine", "English"], rows: [["indien","indienne","Indian"],["français","française","French"],["canadien","canadienne","Canadian"],["anglais","anglaise","English"],["allemand","allemande","German"],["américain","américaine","American"],["espagnol","espagnole","Spanish"],["italien","italienne","Italian"],["chinois","chinoise","Chinese"],["suisse","suisse","Swiss"],["belge","belge","Belgian"],["russe","russe","Russian"]] } },
     { h: "Jobs after être", html: "<p>No article after être with a job or nationality: <i>Je suis professeur. Il est médecin.</i> With <b>c'est</b> you need un/une: <i>C'est un médecin.</i></p>" },
     { h: "French punctuation", html: "<p>French puts a space before <b>? ! : ;</b> → <i>Ça va ?</i> Quotation marks are « like this ».</p>" }
   ],
@@ -343,10 +391,10 @@ UNITS.push({
   id: 2, fr: "Le, la, un, une", en: "Gender, articles and plurals",
   notes: [
     { h: "Every noun has a gender", html: "<p>French nouns are <b>masculine</b> or <b>feminine</b>. Learn each noun with its article.</p>",
-      table: { head: ["", "Masculine", "Feminine", "Before a vowel / h muet", "Plural"], rows: [["the","le livre","la table","l'ami, l'école","les livres"],["a / some","un livre","une table","un ami, une école","des livres"]] } },
+      table: { say: [1, 2, 3, 4], head: ["", "Masculine", "Feminine", "Before a vowel / h muet", "Plural"], rows: [["the","le livre","la table","l'ami, l'école","les livres"],["a / some","un livre","une table","un ami, une école","des livres"]] } },
     { h: "Clues to gender", html: "<p>Usually <b>feminine</b>: -tion, -sion, -té, -ure, -ette, -ence, -ie (<i>la nation, la liberté, la voiture</i>). Usually <b>masculine</b>: -ment, -age, -eau, -isme (<i>le moment, le fromage, le bateau</i>).</p><p>Common exceptions: <i>la page, la plage, l'image (f), l'eau (f), la peau</i>.</p>" },
     { h: "Making plurals", html: "<p>Add <b>-s</b>, which is silent: <i>un livre → des livres</i>. You hear the plural in the article: le [lə] / les [le].</p>",
-      table: { head: ["Singular ending", "Plural", "Example"], rows: [["-s, -x, -z","no change","un bus → des bus, un prix → des prix, un nez → des nez"],["-eau","-eaux","un bateau → des bateaux"],["-eu","-eux","un jeu → des jeux, un cheveu → des cheveux"],["-al","-aux","un journal → des journaux, un cheval → des chevaux"],["-ou","-s (7 words take -x)","un trou → des trous; but bijoux, cailloux, choux, genoux, hiboux, joujoux, poux"],["œil","yeux","un œil → des yeux"]] } },
+      table: { say: [2], head: ["Singular ending", "Plural", "Example"], rows: [["-s, -x, -z","no change","un bus → des bus, un prix → des prix, un nez → des nez"],["-eau","-eaux","un bateau → des bateaux"],["-eu","-eux","un jeu → des jeux, un cheveu → des cheveux"],["-al","-aux","un journal → des journaux, un cheval → des chevaux"],["-ou","-s (7 words take -x)","un trou → des trous; but bijoux, cailloux, choux, genoux, hiboux, joujoux, poux"],["œil","yeux","un œil → des yeux"]] } },
     { h: "Il y a · C'est · Ce sont", html: "<p><b>Il y a</b> = there is / there are: <i>Il y a un sac. Il y a des stylos.</i></p><p><b>C'est</b> + singular, <b>Ce sont</b> + plural: <i>C'est un livre. Ce sont des livres.</i></p>",
       ex: [["Il y a un chat dans la maison.", "There is a cat in the house."], ["Ce sont des livres.", "These are books."]] }
   ],
@@ -397,7 +445,7 @@ UNITS.push({
     { h: "avoir — to have", conj: [["j'","ai"],["tu","as"],["il / elle / on","a"],["nous","avons"],["vous","avez"],["ils / elles","ont"]], say: ["j'ai","tu as","il a","nous avons","vous avez","ils ont"],
       html: "<p>Listen carefully: <b>ils‿ont</b> [ilzɔ̃] (they have) vs <b>ils sont</b> [ilsɔ̃] (they are). The only difference is [z] vs [s].</p>" },
     { h: "Expressions with avoir", html: "<p>French uses <b>avoir</b> where English uses “to be”:</p>",
-      table: { head: ["French", "English"], rows: [["avoir 20 ans","to be 20 years old"],["avoir faim / soif","to be hungry / thirsty"],["avoir chaud / froid","to be hot / cold"],["avoir peur (de)","to be afraid (of)"],["avoir sommeil","to be sleepy"],["avoir raison / tort","to be right / wrong"],["avoir besoin de","to need"],["avoir envie de","to feel like"],["avoir mal à la tête","to have a headache"]] } },
+      table: { say: [0], head: ["French", "English"], rows: [["avoir 20 ans","to be 20 years old"],["avoir faim / soif","to be hungry / thirsty"],["avoir chaud / froid","to be hot / cold"],["avoir peur (de)","to be afraid (of)"],["avoir sommeil","to be sleepy"],["avoir raison / tort","to be right / wrong"],["avoir besoin de","to need"],["avoir envie de","to feel like"],["avoir mal à la tête","to have a headache"]] } },
     { h: "Negation: ne … pas", html: "<p><b>ne</b> goes before the verb, <b>pas</b> after it: <i>Je ne suis pas fatigué.</i> ne → <b>n'</b> before a vowel: <i>Je n'ai pas faim.</i> In casual speech people often drop ne (<i>J'ai pas faim</i>), but always write it.</p><p>Other negatives: <b>ne … jamais</b> (never), <b>ne … plus</b> (no longer / no more), <b>ne … rien</b> (nothing), <b>ne … personne</b> (nobody).</p>" },
     { h: "un, une, des → de after a negative", html: "<p><i>J'ai un chien.</i> → <i>Je n'ai pas <b>de</b> chien.</i> · <i>Il a des amis.</i> → <i>Il n'a pas <b>d'</b>amis.</i></p><p>Exceptions: after <b>être</b> the article stays (<i>Ce n'est pas un chat</i>), and <b>le, la, les</b> never change (<i>Je n'aime pas le thé</i>).</p>" },
     { h: "Si", html: "<p>To say “yes” to a negative question, use <b>si</b>: <i>Tu n'as pas faim ? — Si, j'ai faim !</i></p>" }
@@ -445,10 +493,10 @@ UNITS.push({
 UNITS.push({
   id: 4, fr: "Les nombres", en: "Numbers 0–100",
   notes: [
-    { h: "0 to 20", table: { head: ["", "", "", ""], rows: [["0 zéro","1 un","2 deux","3 trois"],["4 quatre","5 cinq","6 six","7 sept"],["8 huit","9 neuf","10 dix","11 onze"],["12 douze","13 treize","14 quatorze","15 quinze"],["16 seize","17 dix-sept","18 dix-huit","19 dix-neuf"],["20 vingt","","",""]] } },
+    { h: "0 to 20", table: { say: [0, 1, 2, 3], head: ["", "", "", ""], rows: [["0 zéro","1 un","2 deux","3 trois"],["4 quatre","5 cinq","6 six","7 sept"],["8 huit","9 neuf","10 dix","11 onze"],["12 douze","13 treize","14 quatorze","15 quinze"],["16 seize","17 dix-sept","18 dix-huit","19 dix-neuf"],["20 vingt","","",""]] } },
     { h: "21 to 69", html: "<p>Tens: <b>vingt</b> (20), <b>trente</b> (30), <b>quarante</b> (40), <b>cinquante</b> (50), <b>soixante</b> (60). Units join with a hyphen, but 21, 31, 41, 51, 61 use <b>et</b>: <i>vingt et un, trente-deux, quarante-cinq, soixante et un</i>.</p>" },
     { h: "70 to 100", html: "<p>France counts in twenties after 60:</p>",
-      table: { head: ["Number", "French", "Literally"], rows: [["70","soixante-dix","sixty-ten"],["71","soixante et onze","sixty and eleven"],["72","soixante-douze","sixty-twelve"],["79","soixante-dix-neuf","sixty-nineteen"],["80","quatre-vingts","four twenties (with s)"],["81","quatre-vingt-un","no et, no s"],["90","quatre-vingt-dix","four-twenty-ten"],["91","quatre-vingt-onze",""],["99","quatre-vingt-dix-neuf",""],["100","cent",""]] },
+      table: { say: [1], head: ["Number", "French", "Literally"], rows: [["70","soixante-dix","sixty-ten"],["71","soixante et onze","sixty and eleven"],["72","soixante-douze","sixty-twelve"],["79","soixante-dix-neuf","sixty-nineteen"],["80","quatre-vingts","four twenties (with s)"],["81","quatre-vingt-un","no et, no s"],["90","quatre-vingt-dix","four-twenty-ten"],["91","quatre-vingt-onze",""],["99","quatre-vingt-dix-neuf",""],["100","cent",""]] },
       ex: [["soixante-dix", "70"], ["soixante et onze", "71"], ["quatre-vingts", "80"], ["quatre-vingt-un", "81"], ["quatre-vingt-dix-sept", "97"]] },
     { h: "Good to know", html: "<ul><li>Belgium and Switzerland say <b>septante</b> (70) and <b>nonante</b> (90); parts of Switzerland say <b>huitante</b> (80).</li><li>Since the 1990 spelling reform, hyphens everywhere are also correct (<i>vingt-et-un</i>). This course uses the traditional spelling.</li><li>Pronunciation: <b>six, dix</b> = [sis], [dis] alone, [si], [di] before a consonant (<i>six livres</i>), [siz], [diz] before a vowel (<i>six‿ans</i>). <b>huit</b> = [ɥit], [ɥi] before a consonant. <b>neuf ans</b> = [nœvɑ̃]. <b>vingt</b> = [vɛ̃], but the t is pronounced in 21–29. In <b>quatre-vingt-un</b> etc. the t is silent.</li><li>Phone numbers are read in pairs: 06 12 45 78 90 = <i>zéro six, douze, quarante-cinq, soixante-dix-huit, quatre-vingt-dix</i>.</li><li>Ordinals: <b>premier / première</b> (1st), deuxième, troisième, quatrième, cinquième, neuvième…</li></ul>" }
   ],
@@ -497,7 +545,7 @@ UNITS.push({
   notes: [
     { h: "parler — to speak", conj: [["je","parle"],["tu","parles"],["il / elle / on","parle"],["nous","parlons"],["vous","parlez"],["ils / elles","parlent"]], say: ["je parle","tu parles","il parle","nous parlons","vous parlez","ils parlent"],
       html: "<p>Take off <b>-er</b> and add <b>-e, -es, -e, -ons, -ez, -ent</b>. Four forms sound the same: parle, parles, parle, parlent are all [paʁl].</p><p>je → <b>j'</b> before a vowel or h muet: <i>j'aime, j'habite</i>.</p><p>One present tense covers three English forms: <i>je parle</i> = I speak / I am speaking / I do speak.</p>" },
-    { h: "Spelling changes", table: { head: ["Verb", "Change", "Example"], rows: [
+    { h: "Spelling changes", table: { say: [2], head: ["Verb", "Change", "Example"], rows: [
       ["manger, voyager, nager","add e before -ons","nous mangeons, nous voyageons"],
       ["commencer","c → ç before -ons","nous commençons"],
       ["acheter, se lever","e → è (not with nous/vous)","j'achète, nous achetons"],
@@ -549,11 +597,11 @@ UNITS.push({
   id: 6, fr: "Décrire", en: "Adjectives and possessives",
   notes: [
     { h: "Agreement", html: "<p>Adjectives agree with the noun: add <b>-e</b> for feminine, <b>-s</b> for plural. <i>un jardin vert, une maison verte, des jardins verts, des maisons vertes.</i> If the adjective already ends in -e, the feminine is the same: <i>rouge, jeune, facile</i>.</p>",
-      table: { head: ["Pattern", "Masculine", "Feminine"], rows: [["-eux → -euse","heureux","heureuse"],["-if → -ive","sportif","sportive"],["-er → -ère","cher","chère"],["-on → -onne","bon","bonne"],["-ien → -ienne","italien","italienne"],["-el → -elle","naturel","naturelle"],["-c → -che","blanc","blanche"],["irregular","gentil, long","gentille, longue"]] } },
-    { h: "Beau, nouveau, vieux", table: { head: ["Masculine", "Before a vowel (m.)", "Feminine", "Plural (m.)"], rows: [["beau","bel (un bel homme)","belle","beaux"],["nouveau","nouvel (un nouvel ami)","nouvelle","nouveaux"],["vieux","vieil (un vieil arbre)","vieille","vieux"]] } },
+      table: { say: [1, 2], head: ["Pattern", "Masculine", "Feminine"], rows: [["-eux → -euse","heureux","heureuse"],["-if → -ive","sportif","sportive"],["-er → -ère","cher","chère"],["-on → -onne","bon","bonne"],["-ien → -ienne","italien","italienne"],["-el → -elle","naturel","naturelle"],["-c → -che","blanc","blanche"],["irregular","gentil, long","gentille, longue"]] } },
+    { h: "Beau, nouveau, vieux", table: { say: [0, 1, 2, 3], head: ["Masculine", "Before a vowel (m.)", "Feminine", "Plural (m.)"], rows: [["beau","bel (un bel homme)","belle","beaux"],["nouveau","nouvel (un nouvel ami)","nouvelle","nouveaux"],["vieux","vieil (un vieil arbre)","vieille","vieux"]] } },
     { h: "Position", html: "<p>Most adjectives come <b>after</b> the noun: <i>une voiture rouge, un film intéressant</i>.</p><p>A short list comes <b>before</b> — remember <b>BAGS</b>: <b>B</b>eauty (beau, joli), <b>A</b>ge (jeune, vieux, nouveau), <b>G</b>ood/bad (bon, mauvais), <b>S</b>ize (grand, petit, gros): <i>une petite maison, un bon film</i>.</p><p><b>marron</b> and <b>orange</b> never change: <i>des chaussures marron</i>.</p>" },
     { h: "Possessives", html: "<p>The possessive agrees with the <b>thing owned</b>, not the owner: <i>son livre</i> = his book or her book; <i>sa voiture</i> = his car or her car.</p>",
-      table: { head: ["", "Masculine", "Feminine", "Plural"], rows: [["my","mon","ma","mes"],["your (tu)","ton","ta","tes"],["his / her","son","sa","ses"],["our","notre","notre","nos"],["your (vous)","votre","votre","vos"],["their","leur","leur","leurs"]] },
+      table: { say: [1, 2, 3], head: ["", "Masculine", "Feminine", "Plural"], rows: [["my","mon","ma","mes"],["your (tu)","ton","ta","tes"],["his / her","son","sa","ses"],["our","notre","notre","nos"],["your (vous)","votre","votre","vos"],["their","leur","leur","leurs"]] },
       ex: [["mon amie", "my (female) friend"], ["mon école", "my school"], ["sa sœur", "his/her sister"], ["leurs parents", "their parents"]] },
     { h: "mon amie, not ma amie", html: "<p>Before a feminine noun starting with a vowel, use <b>mon, ton, son</b> for the sound: <i>mon amie, ton école, son adresse</i>.</p>" }
   ],
@@ -600,12 +648,12 @@ UNITS.push({
 UNITS.push({
   id: 7, fr: "Les questions", en: "Asking questions",
   notes: [
-    { h: "Three ways to ask a yes/no question", table: { head: ["Style", "Example", "Use"], rows: [
+    { h: "Three ways to ask a yes/no question", table: { say: [1], head: ["Style", "Example", "Use"], rows: [
       ["Rising intonation","Tu parles français ?","Everyday speech"],
       ["Est-ce que …","Est-ce que tu parles français ?","Neutral, spoken and written"],
       ["Inversion","Parles-tu français ?","Formal, written"]] },
       html: "<p>Inversion with il/elle/on: if the verb ends in a vowel, add <b>-t-</b>: <i>Parle-t-il ? A-t-elle un frère ?</i> With a noun subject, keep the noun and add the pronoun: <i>Paul parle-t-il français ?</i></p>" },
-    { h: "Question words", table: { head: ["French", "English", "Example"], rows: [
+    { h: "Question words", table: { say: [0, 2], head: ["French", "English", "Example"], rows: [
       ["qui","who","Qui est-ce ?"],["que / qu'est-ce que","what","Qu'est-ce que tu fais ?"],["quoi","what (informal, after the verb)","Tu fais quoi ?"],["où","where","Où habites-tu ?"],["quand","when","Quand est-ce que tu pars ?"],["comment","how","Comment allez-vous ?"],["pourquoi … ? — parce que …","why … ? — because …","Pourquoi ? — Parce que …"],["combien (de)","how much / how many","Combien de frères as-tu ?"]] } },
     { h: "Quel, quelle, quels, quelles", html: "<p><b>quel</b> (which / what) agrees with the noun. All four forms sound the same [kɛl].</p>",
       ex: [["Quel âge as-tu ?", "How old are you?"], ["Quelle heure est-il ?", "What time is it?"], ["Quels livres ?", "Which books?"], ["Quelles langues parles-tu ?", "Which languages do you speak?"]] }
@@ -658,9 +706,9 @@ UNITS.push({
     { h: "faire — to do, to make", conj: [["je","fais"],["tu","fais"],["il / elle / on","fait"],["nous","faisons"],["vous","faites"],["ils / elles","font"]], say: ["je fais","tu fais","il fait","nous faisons","vous faites","ils font"],
       html: "<p>Pronunciation: <b>nous faisons</b> is [fəzɔ̃], with the sound of “le”, not [ɛ]. Never say “vous faisez”: it is <b>vous faites</b>.</p>" },
     { h: "venir — to come", conj: [["je","viens"],["tu","viens"],["il / elle / on","vient"],["nous","venons"],["vous","venez"],["ils / elles","viennent"]], say: ["je viens","tu viens","il vient","nous venons","vous venez","ils viennent"] },
-    { h: "à and de join with le and les", table: { head: ["", "+ le", "+ la", "+ l'", "+ les"], rows: [["à (to, at)","au","à la","à l'","aux"],["de (from, of)","du","de la","de l'","des"]] },
+    { h: "à and de join with le and les", table: { say: [1, 2, 3, 4], head: ["", "+ le", "+ la", "+ l'", "+ les"], rows: [["à (to, at)","au","à la","à l'","aux"],["de (from, of)","du","de la","de l'","des"]] },
       ex: [["Je vais au cinéma.", "I'm going to the cinema."], ["Je vais à la plage.", "I'm going to the beach."], ["Il va à l'école.", "He goes to school."], ["Je viens du marché.", "I'm coming from the market."]] },
-    { h: "Countries and cities", table: { head: ["", "in / to", "from", "Examples"], rows: [
+    { h: "Countries and cities", table: { say: [3], head: ["", "in / to", "from", "Examples"], rows: [
       ["City","à","de / d'","à Paris, de Delhi, d'Amritsar"],
       ["Feminine country (most end in -e)","en","de / d'","en France, en Inde, de France, d'Inde"],
       ["Masculine country","au","du","au Canada, au Japon, du Canada"],
@@ -716,8 +764,8 @@ UNITS.push({
     { h: "Days and months", html: "<p>Days and months take <b>no capital letter</b> in French.</p><p><b>Days:</b> lundi, mardi, mercredi, jeudi, vendredi, samedi, dimanche.</p><p><b>Months:</b> janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre.</p><p><i>lundi</i> = this Monday · <i>le lundi</i> = every Monday · <i>en mai</i> or <i>au mois de mai</i> = in May.</p>" },
     { h: "Dates", html: "<p>Use <b>le</b> + number + month: <i>le 14 juillet</i>. The 1st is <b>le premier</b> (written 1er): <i>le 1er mai</i>. Years: <i>deux mille vingt-six</i> (2026).</p>",
       ex: [["Nous sommes le vingt-six octobre.", "Today is 26 October."], ["C'est quand, ton anniversaire ?", "When is your birthday?"], ["Mon anniversaire est le premier juin.", "My birthday is on 1 June."]] },
-    { h: "Seasons", table: { head: ["Season", "in …"], rows: [["le printemps (spring)","au printemps"],["l'été (summer)","en été"],["l'automne (autumn)","en automne"],["l'hiver (winter)","en hiver"]] } },
-    { h: "Telling the time", table: { head: ["Time", "Everyday", "Official (24 h)"], rows: [
+    { h: "Seasons", table: { say: [0, 1], head: ["Season", "in …"], rows: [["le printemps (spring)","au printemps"],["l'été (summer)","en été"],["l'automne (autumn)","en automne"],["l'hiver (winter)","en hiver"]] } },
+    { h: "Telling the time", table: { say: [1], head: ["Time", "Everyday", "Official (24 h)"], rows: [
       ["1:00","Il est une heure.","une heure"],["3:15","Il est trois heures et quart.","trois heures quinze"],["4:30","Il est quatre heures et demie.","seize heures trente (pm)"],
       ["6:45","Il est sept heures moins le quart.","dix-huit heures quarante-cinq (pm)"],["9:50","Il est dix heures moins dix.","vingt et une heures cinquante (pm)"],["12:00","Il est midi. / Il est minuit.","douze heures / zéro heure"]] },
       html: "<p><b>heure</b> is feminine: <i>une heure, et demie</i>. After midi and minuit (masculine) write <i>midi et demi</i>. At what time? <b>À quelle heure ?</b> → <i>à huit heures</i>. Add <i>du matin, de l'après-midi, du soir</i> to be clear. Official times (stations, TV, appointments) use the 24-hour clock.</p>" }
@@ -764,7 +812,7 @@ UNITS.push({
 UNITS.push({
   id: 10, fr: "À table !", en: "Food, the partitive and quantities",
   notes: [
-    { h: "Some / any: the partitive", table: { head: ["Masculine", "Feminine", "Before a vowel", "Plural"], rows: [["du pain","de la confiture","de l'eau","des pommes"]] },
+    { h: "Some / any: the partitive", table: { say: [0, 1, 2, 3], head: ["Masculine", "Feminine", "Before a vowel", "Plural"], rows: [["du pain","de la confiture","de l'eau","des pommes"]] },
       html: "<p>Use the partitive for an <b>unspecified amount</b>: <i>Je mange du pain</i> (some bread). English often leaves “some” out; French never leaves the article out.</p>" },
     { h: "When it becomes de", html: "<ul><li>After a negative: <i>Je ne bois pas <b>de</b> café. Il n'y a plus <b>d'</b>eau.</i></li><li>After a quantity: <b>beaucoup de</b>, <b>un peu de</b>, <b>trop de</b>, <b>assez de</b>, <b>un kilo de</b>, <b>une bouteille de</b>, <b>un verre de</b>, <b>une tasse de</b>, <b>un paquet de</b>: <i>beaucoup de fruits, un kilo de tomates</i>.</li></ul>" },
     { h: "Like vs eat", html: "<p>With <b>aimer, adorer, détester, préférer</b>, use le/la/les (you mean the thing in general): <i>J'aime <b>le</b> café, mais aujourd'hui je bois <b>du</b> thé.</i></p>" },
@@ -915,8 +963,8 @@ UNITS.push({
   id: 13, fr: "Le passé composé (1)", en: "Past tense with avoir",
   notes: [
     { h: "How to form it", html: "<p><b>avoir</b> in the present + <b>past participle</b>: <i>j'ai parlé, tu as fini, il a vendu</i>. It means both “I spoke” and “I have spoken”.</p>",
-      table: { head: ["Infinitive", "Participle", "Example"], rows: [["-er: parler","-é: parlé","J'ai parlé."],["-ir: finir","-i: fini","Nous avons fini."],["-re: vendre","-u: vendu","Ils ont vendu la maison."]] } },
-    { h: "Irregular participles", table: { head: ["Verb", "Participle", "Verb", "Participle"], rows: [
+      table: { say: [2], head: ["Infinitive", "Participle", "Example"], rows: [["-er: parler","-é: parlé","J'ai parlé."],["-ir: finir","-i: fini","Nous avons fini."],["-re: vendre","-u: vendu","Ils ont vendu la maison."]] } },
+    { h: "Irregular participles", table: { say: [0, 1, 2, 3], head: ["Verb", "Participle", "Verb", "Participle"], rows: [
       ["avoir","eu","être","été"],["faire","fait","prendre","pris"],["mettre","mis","dire","dit"],["écrire","écrit","voir","vu"],
       ["lire","lu","boire","bu"],["pouvoir","pu","vouloir","voulu"],["devoir","dû","savoir","su"],["ouvrir","ouvert","recevoir","reçu"],["connaître","connu","vivre","vécu"]] } },
     { h: "Negative and time words", html: "<p>ne … pas goes around <b>avoir</b>: <i>Je <b>n'</b>ai <b>pas</b> mangé.</i></p><p>Time words: <b>hier</b> (yesterday), <b>ce matin</b>, <b>la semaine dernière</b>, <b>l'année dernière</b>, <b>il y a deux jours</b> (two days ago).</p>" }
@@ -964,7 +1012,7 @@ UNITS.push({
   id: 14, fr: "Le passé composé (2)", en: "Past tense with être",
   notes: [
     { h: "Verbs that take être", html: "<p>About 17 verbs of movement or change of state use <b>être</b>. Memory aid: <b>DR & MRS VANDERTRAMP</b>.</p>",
-      table: { head: ["Verb", "Participle", "Verb", "Participle"], rows: [
+      table: { say: [0, 1, 2, 3], head: ["Verb", "Participle", "Verb", "Participle"], rows: [
         ["aller","allé","venir","venu"],["arriver","arrivé","partir","parti"],["entrer","entré","sortir","sorti"],["monter","monté","descendre","descendu"],
         ["naître","né","mourir","mort"],["rester","resté","tomber","tombé"],["retourner","retourné","rentrer","rentré"],["devenir","devenu","revenir","revenu"]] } },
     { h: "Agreement with the subject", html: "<p>With être, the participle agrees like an adjective: <b>+e</b> feminine, <b>+s</b> plural.</p>",
@@ -1014,10 +1062,10 @@ UNITS.push({
   id: 15, fr: "En ville", en: "Imperative, il faut, directions",
   notes: [
     { h: "The imperative", html: "<p>Use the <b>tu, nous, vous</b> forms without the subject: <i>Écoute ! Écoutons ! Écoutez !</i></p><p>For <b>-er verbs</b> (and aller), drop the -s of the tu form: <i>tu parles → Parle ! tu vas → Va !</i> Other verbs keep it: <i>Finis ! Prends ! Viens !</i></p>",
-      table: { head: ["", "tu", "nous", "vous"], rows: [["parler","parle","parlons","parlez"],["finir","finis","finissons","finissez"],["prendre","prends","prenons","prenez"],["aller","va","allons","allez"],["être","sois","soyons","soyez"],["avoir","aie","ayons","ayez"]] } },
+      table: { say: [0, 1, 2, 3], head: ["", "tu", "nous", "vous"], rows: [["parler","parle","parlons","parlez"],["finir","finis","finissons","finissez"],["prendre","prends","prenons","prenez"],["aller","va","allons","allez"],["être","sois","soyons","soyez"],["avoir","aie","ayons","ayez"]] } },
     { h: "Negative and reflexive", html: "<p>Negative: <i>Ne parle pas ! Ne mangez pas ici !</i></p><p>Reflexive verbs: the pronoun goes after with a hyphen, and te → <b>toi</b>: <i>Lève-toi ! Asseyez-vous !</i> In the negative it goes back before the verb: <i>Ne te lève pas !</i></p>" },
     { h: "il faut", html: "<p><b>Il faut</b> + infinitive = you must / it is necessary: <i>Il faut apprendre les verbes.</i> <b>Il ne faut pas</b> = you must not: <i>Il ne faut pas fumer ici.</i></p>" },
-    { h: "Where is it?", table: { head: ["French", "English"], rows: [["sur / sous","on / under"],["devant / derrière","in front of / behind"],["dans","in"],["entre","between"],["à côté de","next to"],["en face de","opposite"],["près de / loin de","near / far from"]] },
+    { h: "Where is it?", table: { say: [0], head: ["French", "English"], rows: [["sur / sous","on / under"],["devant / derrière","in front of / behind"],["dans","in"],["entre","between"],["à côté de","next to"],["en face de","opposite"],["près de / loin de","near / far from"]] },
       html: "<p>de joins with le/les: <i>à côté <b>du</b> parc, en face <b>des</b> magasins</i>.</p>" },
     { h: "Directions", ex: [["Allez tout droit.", "Go straight on."], ["Tournez à gauche.", "Turn left."], ["Tournez à droite.", "Turn right."], ["Prenez la première rue à droite.", "Take the first street on the right."], ["Traversez la place.", "Cross the square."]] }
   ],
@@ -1065,12 +1113,12 @@ UNITS.push({
 UNITS.push({
   id: 16, fr: "Ce, cette · moi, toi", en: "Demonstratives, stress pronouns, c'est vs il est",
   notes: [
-    { h: "this / that / these", table: { head: ["", "Form", "Example"], rows: [
+    { h: "this / that / these", table: { say: [1, 2], head: ["", "Form", "Example"], rows: [
       ["masculine","ce","ce livre"],["masculine before a vowel or h muet","cet","cet ami, cet hôtel"],["feminine","cette","cette maison"],["plural (m and f)","ces","ces enfants, ces chaussures"]] },
       html: "<p>One form means both “this” and “that”. To contrast, add <b>-ci</b> (here) or <b>-là</b> (there): <i>ce livre-ci, ce livre-là</i>. Note: <b>cet</b> and <b>cette</b> sound the same [sɛt].</p><p>Time: <i>ce matin, cet après-midi, ce soir, cette semaine, cette année</i>.</p>" },
-    { h: "Stress pronouns", table: { head: ["Subject", "Stress pronoun"], rows: [["je","moi"],["tu","toi"],["il","lui"],["elle","elle"],["nous","nous"],["vous","vous"],["ils","eux"],["elles","elles"]] },
+    { h: "Stress pronouns", table: { say: [0, 1], head: ["Subject", "Stress pronoun"], rows: [["je","moi"],["tu","toi"],["il","lui"],["elle","elle"],["nous","nous"],["vous","vous"],["ils","eux"],["elles","elles"]] },
       html: "<p>Use them:</p><ul><li>after a preposition: <i>avec moi, chez toi, pour lui, sans eux</i></li><li>alone or for emphasis: <i>Qui parle français ? — Moi ! · Moi, je suis indien.</i></li><li>after c'est: <i>C'est moi. C'est lui.</i></li><li>with aussi / non plus: <i>J'aime le thé. — Moi aussi.</i> · <i>Je n'aime pas le café. — Moi non plus.</i></li></ul><p><b>chez</b> + person = at someone's home or shop: <i>chez moi, chez Paul, chez le médecin</i>.</p>" },
-    { h: "C'est or il est?", table: { head: ["Use", "Followed by", "Example"], rows: [
+    { h: "C'est or il est?", table: { say: [2], head: ["Use", "Followed by", "Example"], rows: [
       ["c'est","un/une/le/mon… + noun, or a name","C'est un médecin. C'est mon frère. C'est Paul."],
       ["c'est","adjective, for a general comment","C'est facile ! C'est beau !"],
       ["c'est","stress pronoun","C'est moi."],
@@ -1124,12 +1172,12 @@ UNITS.push({
 UNITS.push({
   id: 17, fr: "La famille et le corps", en: "Family, describing people, body and health",
   notes: [
-    { h: "The family", table: { head: ["Masculine", "Feminine", "English"], rows: [
+    { h: "The family", table: { say: [0, 1], head: ["Masculine", "Feminine", "English"], rows: [
       ["le père","la mère","father / mother"],["le mari","la femme","husband / wife"],["le fils","la fille","son / daughter"],["le frère","la sœur","brother / sister"],
       ["le grand-père","la grand-mère","grandfather / grandmother"],["l'oncle","la tante","uncle / aunt"],["le cousin","la cousine","cousin"],["le neveu","la nièce","nephew / niece"],["le petit-fils","la petite-fille","grandson / granddaughter"]] },
       html: "<p>Plurals: <i>les parents, les grands-parents, les enfants, les petits-enfants</i>. Pronunciation: <b>fils</b> is [fis]: the s is pronounced and the l is silent. Status: <i>marié(e), célibataire, divorcé(e)</i>. <i>Vous avez des frères et sœurs ? — Oui, j'ai un frère. / Non, je suis fils unique (fille unique).</i></p>" },
     { h: "Describing people", html: "<p>Hair and eyes use <b>avoir</b> + <b>les</b>: <i>Elle a <b>les</b> yeux bleus. Il a <b>les</b> cheveux noirs / courts / longs.</i> Height and build use <b>être</b>: <i>Il est grand. Elle est petite et mince.</i> Also: <i>Il porte des lunettes. Il a une barbe / une moustache.</i></p>" },
-    { h: "The body", table: { head: ["", "", ""], rows: [["la tête (head)","les cheveux (hair)","les yeux (eyes) · un œil"],["le nez (nose)","la bouche (mouth)","l'oreille (f) (ear)"],["les dents (f) (teeth)","la gorge (throat)","le cou (neck)"],["le bras (arm)","la main (hand)","le doigt (finger)"],["le dos (back)","le ventre (stomach)","la jambe (leg)"],["le genou (knee)","le pied (foot)",""]] } },
+    { h: "The body", table: { say: [0, 1, 2], head: ["", "", ""], rows: [["la tête (head)","les cheveux (hair)","les yeux (eyes) · un œil"],["le nez (nose)","la bouche (mouth)","l'oreille (f) (ear)"],["les dents (f) (teeth)","la gorge (throat)","le cou (neck)"],["le bras (arm)","la main (hand)","le doigt (finger)"],["le dos (back)","le ventre (stomach)","la jambe (leg)"],["le genou (knee)","le pied (foot)",""]] } },
     { h: "Saying what hurts: avoir mal à", html: "<p><b>à</b> joins with the article: <i>J'ai mal <b>à la</b> tête. J'ai mal <b>au</b> dos. J'ai mal <b>à l'</b>oreille. J'ai mal <b>aux</b> dents.</i></p>",
       ex: [["Qu'est-ce qui ne va pas ?", "What's wrong?"], ["Où avez-vous mal ?", "Where does it hurt?"], ["J'ai de la fièvre.", "I have a temperature."], ["Je tousse.", "I'm coughing."], ["J'ai un rhume.", "I have a cold."], ["Je suis malade.", "I'm ill."]] }
   ],
@@ -1185,7 +1233,7 @@ UNITS.push({
       conj: [["je","mets"],["tu","mets"],["il / elle / on","met"],["nous","mettons"],["vous","mettez"],["ils / elles","mettent"]], say: ["je mets","tu mets","il met","nous mettons","vous mettez","ils mettent"] },
     { h: "In a shop", ex: [["Je peux vous aider ?", "Can I help you?"], ["Je cherche une veste.", "I'm looking for a jacket."], ["Vous faites quelle taille ?", "What size are you?"], ["Quelle est votre pointure ?", "What is your shoe size?"], ["Je peux l'essayer ?", "Can I try it on?"], ["C'est combien ?", "How much is it?"], ["C'est trop cher.", "It's too expensive."], ["Je le prends.", "I'll take it."], ["Vous payez comment ? — Par carte.", "How are you paying? — By card."]],
       html: "<p>Prices: French uses a <b>comma</b> for decimals. <i>15,50 €</i> is read <i>quinze euros cinquante</i>. Pay <b>par carte</b> (by card) or <b>en espèces</b> (in cash).</p>" },
-    { h: "Comparing", table: { head: ["", "Structure", "Example"], rows: [
+    { h: "Comparing", table: { say: [2], head: ["", "Structure", "Example"], rows: [
       ["more … than","plus + adjective + que","Elle est plus grande que son frère."],["less … than","moins + adjective + que","Cette veste est moins chère que l'autre."],["as … as","aussi + adjective + que","Il est aussi grand que moi."],
       ["better (adjective)","meilleur(e)(s) que — never plus bon","Ce gâteau est meilleur que l'autre."],["better (adverb)","mieux que — never plus bien","Tu chantes mieux que moi."],
       ["the most / the least","le / la / les plus, le / la / les moins","C'est la plus belle robe. C'est le moins cher."]] },
@@ -1237,7 +1285,7 @@ UNITS.push({
 UNITS.push({
   id: 19, fr: "Chez moi et la météo", en: "Home, weather, how often",
   notes: [
-    { h: "The home", table: { head: ["Rooms", "Furniture and things"], rows: [
+    { h: "The home", table: { say: [0, 1], head: ["Rooms", "Furniture and things"], rows: [
       ["la cuisine (kitchen)","le frigo (fridge), la cuisinière (cooker)"],["le salon (living room)","le canapé (sofa), la télé"],["la salle à manger (dining room)","la table, les chaises"],
       ["la chambre (bedroom)","le lit (bed), l'armoire (f) (wardrobe)"],["la salle de bains (bathroom)","la douche (shower), le lavabo (washbasin)"],["les toilettes (f) (toilet)",""],["le jardin, le balcon, le garage","l'escalier (m) (stairs)"]] },
       html: "<p>Floors: <b>le rez-de-chaussée</b> = ground floor, <b>le premier étage</b> = first floor (one above the ground). <i>J'habite au deuxième étage.</i> <i>un appartement</i> is in <i>un immeuble</i> (a block of flats).</p>" },
@@ -1292,9 +1340,9 @@ UNITS.push({
   id: 20, fr: "Loisirs, transports et travail", en: "Free time, transport and jobs",
   notes: [
     { h: "Free time", html: "<p><b>faire de</b> + activity: <i>faire du sport, du yoga, du vélo, de la natation, de la danse, de la randonnée</i>. <b>jouer à</b> + game: <i>jouer au cricket, au foot, aux cartes, aux échecs</i>. <b>jouer de</b> + instrument: <i>jouer de la guitare, du piano</i>.</p><p><b>aimer / adorer / préférer + infinitive</b>: <i>J'aime lire. J'adore danser. Je préfère regarder des séries.</i></p>" },
-    { h: "Transport", table: { head: ["Inside the vehicle → en", "On top of it / on foot → à"], rows: [["en bus, en voiture, en train","à pied (on foot)"],["en avion, en métro, en taxi","à vélo (by bike)"],["en bateau","à moto, à cheval"]] },
+    { h: "Transport", table: { say: [0, 1], head: ["Inside the vehicle → en", "On top of it / on foot → à"], rows: [["en bus, en voiture, en train","à pied (on foot)"],["en avion, en métro, en taxi","à vélo (by bike)"],["en bateau","à moto, à cheval"]] },
       html: "<p><i>Je vais au travail en bus. Il vient à pied.</i> Or use prendre: <i>Je prends le bus.</i> (You may hear “en vélo”; “à vélo” is the standard form.)</p>" },
-    { h: "Jobs", table: { head: ["Pattern", "Masculine", "Feminine"], rows: [
+    { h: "Jobs", table: { say: [1, 2], head: ["Pattern", "Masculine", "Feminine"], rows: [
       ["-eur → -euse","vendeur, serveur, chanteur","vendeuse, serveuse, chanteuse"],["-teur → -trice","acteur, agriculteur","actrice, agricultrice"],["-ier / -er → -ière / -ère","infirmier, cuisinier, policier, boulanger","infirmière, cuisinière, policière, boulangère"],
       ["-ien → -ienne","mécanicien, informaticien","mécanicienne, informaticienne"],["add -e","avocat, employé, étudiant","avocate, employée, étudiante"],["same form","médecin, secrétaire, architecte","médecin, secrétaire, architecte"]] },
       ex: [["Qu'est-ce que vous faites dans la vie ?", "What do you do (for a living)?"], ["Je suis infirmière.", "I'm a nurse."], ["Je travaille dans un bureau.", "I work in an office."], ["Il travaille dans une usine.", "He works in a factory."], ["Elle est à la retraite.", "She is retired."], ["Je cherche du travail.", "I'm looking for work."]] }
@@ -1545,6 +1593,429 @@ var EXAM = {
   }
 };
 
+// Punjabi (Gurmukhi) translations — part 1 (units 0–5)
+// PA.w: French word/sentence → Punjabi meaning.  PA.n: "unit-note" → Punjabi explanation.
+var PA = { w: {}, n: {}, u: {} };
+function PAW(o){ for (var k in o) PA.w[k] = o[k]; }
+function PAN(o){ for (var k in o) PA.n[k] = o[k]; }
+
+PA.u = {
+  0: "ਫ਼ਰਾਂਸੀਸੀ ਦੀਆਂ ਆਵਾਜ਼ਾਂ ਅਤੇ ਸਪੈਲਿੰਗ", 1: "ਨਮਸਕਾਰ, être ਅਤੇ ਆਪਣੀ ਜਾਣ-ਪਛਾਣ", 2: "ਲਿੰਗ, ਆਰਟੀਕਲ ਅਤੇ ਬਹੁਵਚਨ",
+  3: "avoir, ਉਮਰ ਅਤੇ ਨਾਂਹ (ne … pas)", 4: "ਗਿਣਤੀ 0–100", 5: "-er ਵਾਲੀਆਂ ਕਿਰਿਆਵਾਂ, ਵਰਤਮਾਨ ਕਾਲ",
+  6: "ਵਿਸ਼ੇਸ਼ਣ ਅਤੇ ਮੇਰਾ/ਤੇਰਾ/ਉਸਦਾ", 7: "ਪ੍ਰਸ਼ਨ ਪੁੱਛਣਾ", 8: "ਜਾਣਾ, ਕਰਨਾ, ਆਉਣਾ — ਥਾਵਾਂ ਅਤੇ ਦੇਸ਼",
+  9: "ਸਮਾਂ, ਦਿਨ, ਮਹੀਨੇ ਅਤੇ ਤਾਰੀਖ਼", 10: "ਖਾਣਾ-ਪੀਣਾ ਅਤੇ ਮਾਤਰਾ", 11: "-ir, -re ਅਤੇ ਬੇਨਿਯਮ ਕਿਰਿਆਵਾਂ",
+  12: "ਮੇਰਾ ਦਿਨ — ਆਪਣੇ-ਆਪ ਵਾਲੀਆਂ ਕਿਰਿਆਵਾਂ, ਨੇੜਲਾ ਭਵਿੱਖ", 13: "ਭੂਤਕਾਲ (avoir ਨਾਲ)", 14: "ਭੂਤਕਾਲ (être ਨਾਲ)",
+  15: "ਸ਼ਹਿਰ ਵਿੱਚ — ਹੁਕਮ, il faut, ਰਸਤਾ ਦੱਸਣਾ", 16: "ਇਹ/ਉਹ (ce, cette) ਅਤੇ moi, toi", 17: "ਪਰਿਵਾਰ, ਸਰੀਰ ਅਤੇ ਸਿਹਤ",
+  18: "ਕੱਪੜੇ, ਖ਼ਰੀਦਦਾਰੀ ਅਤੇ ਤੁਲਨਾ", 19: "ਘਰ, ਮੌਸਮ ਅਤੇ ਕਿੰਨੀ ਵਾਰ", 20: "ਸ਼ੌਕ, ਆਵਾਜਾਈ ਅਤੇ ਕੰਮ-ਕਾਰ"
+};
+
+/* ---------- Unit 0 ---------- */
+PAN({
+  "0-0": "ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ 26 ਅੱਖਰ ਹਨ, ਅੰਗਰੇਜ਼ੀ ਵਾਂਗ, ਪਰ ਨਾਂ ਵੱਖਰੇ ਹਨ। ਧਿਆਨ ਦਿਓ: g ਨੂੰ “ਜ਼ੇ” ਅਤੇ j ਨੂੰ “ਜ਼ੀ” ਕਹਿੰਦੇ ਹਨ — ਵਿਦਿਆਰਥੀ ਅਕਸਰ ਇਹ ਦੋਵੇਂ ਉਲਟ ਬੋਲਦੇ ਹਨ। ਅੱਖਰ ਉੱਤੇ ਟੈਪ ਕਰਕੇ ਉਸਦਾ ਨਾਂ ਸੁਣੋ।",
+  "0-1": "ਅਕਸੈਂਟ (é, è, ê, ç…) ਸਪੈਲਿੰਗ ਦਾ ਹਿੱਸਾ ਹਨ। ਅਕਸੈਂਟ ਛੱਡਣਾ ਗ਼ਲਤੀ ਹੈ ਅਤੇ ਕਈ ਵਾਰ ਸ਼ਬਦ ਦਾ ਅਰਥ ਬਦਲ ਜਾਂਦਾ ਹੈ: a = ਹੈ, à = ਨੂੰ/ਵਿੱਚ; ou = ਜਾਂ, où = ਕਿੱਥੇ।",
+  "0-2": "ਹਰ ਸਵਰ ਦੀ ਆਵਾਜ਼ ਸਿੱਧੀ ਅਤੇ ਛੋਟੀ ਹੁੰਦੀ ਹੈ, ਅੰਗਰੇਜ਼ੀ ਵਾਂਗ ਖਿੱਚੀ ਨਹੀਂ ਜਾਂਦੀ। ਸਭ ਤੋਂ ਔਖੀ ਆਵਾਜ਼ u [y] ਹੈ: “ਈ” ਬੋਲੋ ਅਤੇ ਬੁੱਲ੍ਹ “ਊ” ਵਾਂਗ ਗੋਲ ਕਰੋ। oi ਨੂੰ ਹਮੇਸ਼ਾ “ਵਾ” ਬੋਲੋ।",
+  "0-3": "ਨਾਸਿਕ ਸਵਰਾਂ ਵਿੱਚ ਹਵਾ ਨੱਕ ਰਾਹੀਂ ਜਾਂਦੀ ਹੈ ਅਤੇ n/m ਬੋਲਿਆ ਨਹੀਂ ਜਾਂਦਾ — ਪੰਜਾਬੀ ਦੀ ਬਿੰਦੀ (ਂ) ਵਰਗੀ ਆਵਾਜ਼। ਪਰ ਜੇ n/m ਤੋਂ ਬਾਅਦ ਸਵਰ ਆਵੇ ਜਾਂ nn/mm ਹੋਵੇ, ਤਾਂ ਨਾਸਿਕ ਨਹੀਂ: bon (ਬੋਂ) ਪਰ bonne (ਬੋਨ)।",
+  "0-4": "r ਗਲੇ ਦੇ ਪਿੱਛਿਓਂ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ, ਪੰਜਾਬੀ ਦੇ “ਗ਼” ਵਰਗਾ — ਜੀਭ ਨਾਲ ਘੁਮਾਇਆ ਨਹੀਂ ਜਾਂਦਾ। ch = “ਸ਼”, j = “ਜ਼” (measure ਵਾਲਾ), gn = “ਨਯ”। ਦੋ ਸਵਰਾਂ ਵਿਚਕਾਰ ਇੱਕ s = “ਜ਼”।",
+  "0-5": "ਸ਼ਬਦ ਦੇ ਅੰਤ ਵਾਲਾ e ਅਤੇ ਜ਼ਿਆਦਾਤਰ ਅੰਤਲੇ ਵਿਅੰਜਨ ਨਹੀਂ ਬੋਲੇ ਜਾਂਦੇ। ਅਪਵਾਦ: c, r, f, l (CaReFuL) ਅਕਸਰ ਬੋਲੇ ਜਾਂਦੇ ਹਨ। ils parlent ਵਿੱਚ -ent ਬਿਲਕੁਲ ਚੁੱਪ ਹੈ। h ਕਦੇ ਨਹੀਂ ਬੋਲਿਆ ਜਾਂਦਾ।",
+  "0-6": "Liaison: ਚੁੱਪ ਅੰਤਲਾ ਅੱਖਰ ਅਗਲੇ ਸਵਰ ਨਾਲ ਜੁੜ ਕੇ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ — les amis = “ਲੇਜ਼ਾਮੀ”। Élision: je, le, la, de, ne ਵਰਗੇ ਛੋਟੇ ਸ਼ਬਦ ਸਵਰ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣਾ ਸਵਰ ਛੱਡ ਕੇ apostrophe ਲੈਂਦੇ ਹਨ: j'aime, l'homme।"
+});
+PAW({
+  "ami": "ਦੋਸਤ", "café": "ਕੌਫ਼ੀ", "père": "ਪਿਤਾ", "fête": "ਤਿਉਹਾਰ, ਪਾਰਟੀ", "lit": "ਬਿਸਤਰਾ, ਮੰਜਾ", "porte": "ਦਰਵਾਜ਼ਾ",
+  "vous": "ਤੁਸੀਂ (ਆਦਰ ਨਾਲ / ਬਹੁਤੇ)", "tu": "ਤੂੰ", "deux": "ਦੋ", "sœur": "ਭੈਣ", "moi": "ਮੈਂ / ਮੈਨੂੰ", "huit": "ਅੱਠ",
+  "enfant": "ਬੱਚਾ", "bon": "ਚੰਗਾ", "vin": "ਵਾਈਨ (ਸ਼ਰਾਬ)", "fille": "ਕੁੜੀ, ਧੀ", "montagne": "ਪਹਾੜ", "chat": "ਬਿੱਲੀ",
+  "rouge": "ਲਾਲ", "gare": "ਰੇਲਵੇ ਸਟੇਸ਼ਨ", "garçon": "ਮੁੰਡਾ", "maison": "ਘਰ", "poisson": "ਮੱਛੀ", "thé": "ਚਾਹ",
+  "les amis": "ਦੋਸਤ (ਬਹੁਤੇ)", "vous avez": "ਤੁਹਾਡੇ ਕੋਲ ਹੈ", "ils ont": "ਉਹਨਾਂ ਕੋਲ ਹੈ", "l'homme": "ਆਦਮੀ", "le héros": "ਨਾਇਕ, ਹੀਰੋ",
+  "J'aime les oiseaux.": "ਮੈਨੂੰ ਪੰਛੀ ਪਸੰਦ ਹਨ।", "Les enfants sont à l'école.": "ਬੱਚੇ ਸਕੂਲ ਵਿੱਚ ਹਨ।",
+  "Mon oncle habite à Lyon.": "ਮੇਰੇ ਚਾਚਾ/ਮਾਮਾ ਜੀ ਲਿਓਂ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ।", "Vous avez un chat ?": "ਕੀ ਤੁਹਾਡੇ ਕੋਲ ਬਿੱਲੀ ਹੈ?",
+  "Ils ont deux filles.": "ਉਹਨਾਂ ਦੀਆਂ ਦੋ ਧੀਆਂ ਹਨ।"
+});
+
+/* ---------- Unit 1 ---------- */
+PAN({
+  "1-0": "tu = ਤੂੰ (ਦੋਸਤ, ਪਰਿਵਾਰ, ਬੱਚੇ), vous = ਤੁਸੀਂ (ਅਧਿਆਪਕ, ਅਫ਼ਸਰ, ਅਣਜਾਣ ਵੱਡੇ, ਜਾਂ ਇੱਕ ਤੋਂ ਵੱਧ ਲੋਕ)। on ਦਾ ਅਰਥ ਗੱਲਬਾਤ ਵਿੱਚ “ਅਸੀਂ” ਹੁੰਦਾ ਹੈ, ਪਰ ਕਿਰਿਆ il ਵਾਲੀ ਲੱਗਦੀ ਹੈ। ils = ਉਹ (ਮਰਦ ਜਾਂ ਮਿਲੇ-ਜੁਲੇ), elles = ਉਹ (ਸਿਰਫ਼ ਔਰਤਾਂ)।",
+  "1-1": "être = ਹੋਣਾ (ਹਾਂ, ਹੈ, ਹੋ, ਹਨ)। je suis = ਮੈਂ ਹਾਂ, tu es = ਤੂੰ ਹੈਂ, il/elle est = ਉਹ ਹੈ, nous sommes = ਅਸੀਂ ਹਾਂ, vous êtes = ਤੁਸੀਂ ਹੋ, ils/elles sont = ਉਹ ਹਨ। ਇਹ ਰੂਪ ਜ਼ੁਬਾਨੀ ਯਾਦ ਕਰੋ।",
+  "1-2": "s'appeler = ਨਾਂ ਹੋਣਾ। Je m'appelle Simran = ਮੇਰਾ ਨਾਂ ਸਿਮਰਨ ਹੈ (ਸ਼ਬਦੀ ਅਰਥ: ਮੈਂ ਆਪਣੇ-ਆਪ ਨੂੰ ਸਿਮਰਨ ਕਹਿੰਦੀ ਹਾਂ)। je, tu, il, ils ਨਾਲ ਦੋ l (ll), nous ਅਤੇ vous ਨਾਲ ਇੱਕ l।",
+  "1-3": "ਕੌਮੀਅਤ ਵਾਲਾ ਸ਼ਬਦ ਵਿਅਕਤੀ ਦੇ ਲਿੰਗ ਨਾਲ ਬਦਲਦਾ ਹੈ ਅਤੇ ਵੱਡੇ ਅੱਖਰ ਨਾਲ ਨਹੀਂ ਲਿਖਿਆ ਜਾਂਦਾ: Il est indien (ਉਹ ਭਾਰਤੀ ਹੈ — ਮੁੰਡਾ), Elle est indienne (ਉਹ ਭਾਰਤੀ ਹੈ — ਕੁੜੀ)।",
+  "1-4": "être ਤੋਂ ਬਾਅਦ ਕਿੱਤਾ ਬਿਨਾਂ un/une ਦੇ ਆਉਂਦਾ ਹੈ: Je suis professeur (ਮੈਂ ਅਧਿਆਪਕ ਹਾਂ)। ਪਰ c'est ਨਾਲ un/une ਲਾਓ: C'est un médecin (ਇਹ ਡਾਕਟਰ ਹੈ)।",
+  "1-5": "ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ ? ! : ; ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਖਾਲੀ ਥਾਂ ਛੱਡੀ ਜਾਂਦੀ ਹੈ: Ça va ? ਹਵਾਲਾ ਚਿੰਨ੍ਹ « ਇਸ ਤਰ੍ਹਾਂ » ਹੁੰਦੇ ਹਨ।"
+});
+PAW({
+  "Bonjour": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ / ਸ਼ੁਭ ਸਵੇਰ", "Bonsoir": "ਸ਼ੁਭ ਸ਼ਾਮ", "Salut": "ਹੈਲੋ / ਅਲਵਿਦਾ (ਦੋਸਤਾਂ ਨਾਲ)", "Au revoir": "ਅਲਵਿਦਾ, ਫਿਰ ਮਿਲਾਂਗੇ",
+  "À bientôt": "ਜਲਦੀ ਮਿਲਾਂਗੇ", "Merci": "ਧੰਨਵਾਦ", "Merci beaucoup": "ਬਹੁਤ-ਬਹੁਤ ਧੰਨਵਾਦ", "De rien": "ਕੋਈ ਗੱਲ ਨਹੀਂ",
+  "S'il vous plaît": "ਕਿਰਪਾ ਕਰਕੇ (ਆਦਰ ਨਾਲ)", "S'il te plaît": "ਕਿਰਪਾ ਕਰਕੇ (ਦੋਸਤ ਨੂੰ)", "Excusez-moi": "ਮਾਫ਼ ਕਰਨਾ", "Oui": "ਹਾਂ", "Non": "ਨਹੀਂ",
+  "Comment ça va ?": "ਕੀ ਹਾਲ ਹੈ?", "Ça va bien, merci.": "ਮੈਂ ਠੀਕ ਹਾਂ, ਧੰਨਵਾਦ।", "Comment allez-vous ?": "ਤੁਹਾਡਾ ਕੀ ਹਾਲ ਹੈ? (ਆਦਰ ਨਾਲ)",
+  "Enchanté": "ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖ਼ੁਸ਼ੀ ਹੋਈ (ਮੁੰਡਾ ਕਹੇ)", "Enchantée": "ਤੁਹਾਨੂੰ ਮਿਲ ਕੇ ਖ਼ੁਸ਼ੀ ਹੋਈ (ਕੁੜੀ ਕਹੇ)",
+  "un étudiant / une étudiante": "ਵਿਦਿਆਰਥੀ / ਵਿਦਿਆਰਥਣ", "un professeur / une professeure": "ਅਧਿਆਪਕ / ਅਧਿਆਪਕਾ",
+  "je suis": "ਮੈਂ ਹਾਂ", "tu es": "ਤੂੰ ਹੈਂ", "il est": "ਉਹ ਹੈ", "nous sommes": "ਅਸੀਂ ਹਾਂ", "vous êtes": "ਤੁਸੀਂ ਹੋ", "ils sont": "ਉਹ ਹਨ",
+  "je m'appelle": "ਮੇਰਾ ਨਾਂ … ਹੈ", "tu t'appelles": "ਤੇਰਾ ਨਾਂ … ਹੈ", "il s'appelle": "ਉਸਦਾ ਨਾਂ … ਹੈ", "nous nous appelons": "ਸਾਡੇ ਨਾਂ … ਹਨ",
+  "vous vous appelez": "ਤੁਹਾਡਾ ਨਾਂ … ਹੈ", "ils s'appellent": "ਉਹਨਾਂ ਦੇ ਨਾਂ … ਹਨ",
+  "Je m'appelle Priya.": "ਮੇਰਾ ਨਾਂ ਪ੍ਰਿਯਾ ਹੈ।", "Nous sommes indiens.": "ਅਸੀਂ ਭਾਰਤੀ ਹਾਂ।", "Elle est professeure à Chandigarh.": "ਉਹ ਚੰਡੀਗੜ੍ਹ ਵਿੱਚ ਅਧਿਆਪਕਾ ਹੈ।",
+  "Vous êtes français ?": "ਕੀ ਤੁਸੀਂ ਫ਼ਰਾਂਸੀਸੀ ਹੋ?", "Je suis content de vous voir.": "ਤੁਹਾਨੂੰ ਦੇਖ ਕੇ ਮੈਨੂੰ ਖ਼ੁਸ਼ੀ ਹੋਈ।"
+});
+
+/* ---------- Unit 2 ---------- */
+PAN({
+  "2-0": "ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ ਹਰ ਨਾਂਵ ਪੁਲਿੰਗ ਜਾਂ ਇਸਤਰੀ-ਲਿੰਗ ਹੁੰਦਾ ਹੈ, ਪੰਜਾਬੀ ਵਾਂਗ — ਪਰ ਲਿੰਗ ਅਕਸਰ ਪੰਜਾਬੀ ਨਾਲ ਨਹੀਂ ਮਿਲਦਾ। le/un = ਪੁਲਿੰਗ, la/une = ਇਸਤਰੀ-ਲਿੰਗ, les/des = ਬਹੁਵਚਨ, ਸਵਰ ਤੋਂ ਪਹਿਲਾਂ l'। ਹਰ ਸ਼ਬਦ ਉਸਦੇ ਆਰਟੀਕਲ ਨਾਲ ਯਾਦ ਕਰੋ।",
+  "2-1": "ਕੁਝ ਅੰਤ ਲਿੰਗ ਦਾ ਇਸ਼ਾਰਾ ਦਿੰਦੇ ਹਨ: -tion, -té, -ure ਵਾਲੇ ਆਮ ਤੌਰ ’ਤੇ ਇਸਤਰੀ-ਲਿੰਗ; -ment, -age, -eau ਵਾਲੇ ਆਮ ਤੌਰ ’ਤੇ ਪੁਲਿੰਗ। ਪਰ ਅਪਵਾਦ ਹਨ: la page, la plage, l'eau (ਇਸਤਰੀ-ਲਿੰਗ)।",
+  "2-2": "ਬਹੁਵਚਨ ਲਈ ਆਮ ਤੌਰ ’ਤੇ -s ਲਗਾਓ, ਜੋ ਬੋਲਿਆ ਨਹੀਂ ਜਾਂਦਾ — ਫ਼ਰਕ le/les ਵਿੱਚ ਸੁਣਦਾ ਹੈ। -eau → -eaux, -al → -aux, ਅਤੇ -s/-x/-z ਵਾਲੇ ਸ਼ਬਦ ਨਹੀਂ ਬਦਲਦੇ। un œil → des yeux (ਅੱਖ → ਅੱਖਾਂ)।",
+  "2-3": "Il y a = ਹੈ / ਹਨ (ਕਿਸੇ ਥਾਂ ’ਤੇ ਕੁਝ ਮੌਜੂਦ ਹੈ)। C'est + ਇੱਕ ਚੀਜ਼ = ਇਹ … ਹੈ; Ce sont + ਬਹੁਤੀਆਂ = ਇਹ … ਹਨ।"
+});
+PAW({
+  "un livre": "ਕਿਤਾਬ", "un stylo": "ਪੈੱਨ", "un cahier": "ਕਾਪੀ", "un crayon": "ਪੈਨਸਿਲ", "une gomme": "ਰਬੜ", "un sac": "ਬੈਗ, ਥੈਲਾ",
+  "une table": "ਮੇਜ਼", "une chaise": "ਕੁਰਸੀ", "une porte": "ਦਰਵਾਜ਼ਾ", "une fenêtre": "ਖਿੜਕੀ", "un ordinateur": "ਕੰਪਿਊਟਰ", "un téléphone": "ਫ਼ੋਨ",
+  "une maison": "ਘਰ", "une voiture": "ਕਾਰ", "un bateau": "ਕਿਸ਼ਤੀ", "l'eau (f)": "ਪਾਣੀ", "un journal": "ਅਖ਼ਬਾਰ", "une école": "ਸਕੂਲ",
+  "un hôpital": "ਹਸਪਤਾਲ", "un hôtel": "ਹੋਟਲ",
+  "Il y a un chat dans la maison.": "ਘਰ ਵਿੱਚ ਇੱਕ ਬਿੱਲੀ ਹੈ।", "Ce sont des livres.": "ਇਹ ਕਿਤਾਬਾਂ ਹਨ।", "Ce sont des livres de français.": "ਇਹ ਫ਼ਰਾਂਸੀਸੀ ਦੀਆਂ ਕਿਤਾਬਾਂ ਹਨ।",
+  "La fenêtre est ouverte.": "ਖਿੜਕੀ ਖੁੱਲ੍ਹੀ ਹੈ।", "Les bateaux sont sur l'eau.": "ਕਿਸ਼ਤੀਆਂ ਪਾਣੀ ਉੱਤੇ ਹਨ।", "J'ai une gomme et un crayon.": "ਮੇਰੇ ਕੋਲ ਇੱਕ ਰਬੜ ਅਤੇ ਇੱਕ ਪੈਨਸਿਲ ਹੈ।"
+});
+
+/* ---------- Unit 3 ---------- */
+PAN({
+  "3-0": "avoir = ਕੋਲ ਹੋਣਾ। j'ai = ਮੇਰੇ ਕੋਲ ਹੈ, tu as, il a, nous avons, vous avez, ils ont। ਧਿਆਨ ਨਾਲ ਸੁਣੋ: ils ont (“ਇਲਜ਼ੋਂ” — ਉਹਨਾਂ ਕੋਲ ਹੈ) ਅਤੇ ils sont (“ਇਲਸੋਂ” — ਉਹ ਹਨ) ਵਿੱਚ ਸਿਰਫ਼ z/s ਦਾ ਫ਼ਰਕ ਹੈ।",
+  "3-1": "ਜਿੱਥੇ ਪੰਜਾਬੀ ਵਿੱਚ “ਮੈਨੂੰ ਭੁੱਖ ਲੱਗੀ ਹੈ” ਜਾਂ “ਮੈਂ 20 ਸਾਲ ਦਾ ਹਾਂ” ਕਹਿੰਦੇ ਹਾਂ, ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ avoir ਲੱਗਦਾ ਹੈ: J'ai faim, J'ai 20 ans। ਕਦੇ “Je suis 20 ans” ਨਾ ਕਹੋ।",
+  "3-2": "ਨਾਂਹ ਲਈ ne ਕਿਰਿਆ ਤੋਂ ਪਹਿਲਾਂ ਅਤੇ pas ਕਿਰਿਆ ਤੋਂ ਬਾਅਦ: Je ne suis pas fatigué (ਮੈਂ ਥੱਕਿਆ ਨਹੀਂ)। ਸਵਰ ਤੋਂ ਪਹਿਲਾਂ ne → n'। ne … jamais = ਕਦੇ ਨਹੀਂ, ne … plus = ਹੁਣ ਨਹੀਂ, ne … rien = ਕੁਝ ਨਹੀਂ।",
+  "3-3": "ਨਾਂਹ ਵਾਲੇ ਵਾਕ ਵਿੱਚ un, une, des ਬਦਲ ਕੇ de ਬਣ ਜਾਂਦੇ ਹਨ: J'ai un chien → Je n'ai pas de chien (ਮੇਰੇ ਕੋਲ ਕੁੱਤਾ ਨਹੀਂ)। ਪਰ être ਨਾਲ ਅਤੇ le/la/les ਨਹੀਂ ਬਦਲਦੇ।",
+  "3-4": "ਨਾਂਹ ਵਾਲੇ ਪ੍ਰਸ਼ਨ ਦਾ “ਹਾਂ” ਵਿੱਚ ਜਵਾਬ ਦੇਣ ਲਈ oui ਦੀ ਥਾਂ si ਵਰਤੋ: Tu n'as pas faim ? — Si ! (ਤੈਨੂੰ ਭੁੱਖ ਨਹੀਂ? — ਹਾਂ, ਲੱਗੀ ਹੈ!)"
+});
+PAW({
+  "avoir faim": "ਭੁੱਖ ਲੱਗਣਾ", "avoir soif": "ਪਿਆਸ ਲੱਗਣਾ", "avoir chaud": "ਗਰਮੀ ਲੱਗਣਾ", "avoir froid": "ਠੰਢ ਲੱਗਣਾ", "avoir peur": "ਡਰ ਲੱਗਣਾ",
+  "avoir sommeil": "ਨੀਂਦ ਆਉਣਾ", "avoir raison": "ਸਹੀ ਹੋਣਾ", "avoir tort": "ਗ਼ਲਤ ਹੋਣਾ", "avoir besoin de": "ਲੋੜ ਹੋਣਾ", "avoir envie de": "ਦਿਲ ਕਰਨਾ",
+  "un frère": "ਭਰਾ", "une sœur": "ਭੈਣ", "un chien": "ਕੁੱਤਾ", "un chat": "ਬਿੱਲੀ", "jamais": "ਕਦੇ ਨਹੀਂ", "rien": "ਕੁਝ ਨਹੀਂ", "personne": "ਕੋਈ ਨਹੀਂ",
+  "Quel âge as-tu ?": "ਤੇਰੀ ਉਮਰ ਕਿੰਨੀ ਹੈ?", "j'ai": "ਮੇਰੇ ਕੋਲ ਹੈ", "tu as": "ਤੇਰੇ ਕੋਲ ਹੈ", "il a": "ਉਸਦੇ ਕੋਲ ਹੈ", "nous avons": "ਸਾਡੇ ਕੋਲ ਹੈ",
+  "Je n'ai pas de voiture.": "ਮੇਰੇ ਕੋਲ ਕਾਰ ਨਹੀਂ ਹੈ।", "Elle a vingt ans.": "ਉਹ ਵੀਹ ਸਾਲ ਦੀ ਹੈ।", "Nous avons faim et soif.": "ਸਾਨੂੰ ਭੁੱਖ ਅਤੇ ਪਿਆਸ ਲੱਗੀ ਹੈ।",
+  "Il ne regarde jamais la télé.": "ਉਹ ਕਦੇ ਟੀਵੀ ਨਹੀਂ ਦੇਖਦਾ।", "Vous avez besoin d'un stylo ?": "ਕੀ ਤੁਹਾਨੂੰ ਪੈੱਨ ਦੀ ਲੋੜ ਹੈ?"
+});
+
+/* ---------- Unit 4 ---------- */
+PAN({
+  "4-0": "0 ਤੋਂ 16 ਤੱਕ ਹਰ ਗਿਣਤੀ ਦਾ ਆਪਣਾ ਨਾਂ ਹੈ। 17, 18, 19 = ਦਸ + ਸੱਤ, ਦਸ + ਅੱਠ, ਦਸ + ਨੌਂ (dix-sept, dix-huit, dix-neuf)।",
+  "4-1": "ਦਹਾਈਆਂ: vingt (20), trente (30), quarante (40), cinquante (50), soixante (60)। 21, 31 … 61 ਵਿੱਚ et (ਅਤੇ) ਲੱਗਦਾ ਹੈ: vingt et un; ਬਾਕੀ ਵਿੱਚ ਡੈਸ਼: vingt-deux।",
+  "4-2": "60 ਤੋਂ ਬਾਅਦ ਫ਼ਰਾਂਸ ਵੀਹਾਂ ਵਿੱਚ ਗਿਣਦਾ ਹੈ: 70 = ਸੱਠ + ਦਸ (soixante-dix), 80 = ਚਾਰ ਵੀਹਾਂ (quatre-vingts), 90 = ਚਾਰ ਵੀਹਾਂ + ਦਸ (quatre-vingt-dix)। 81 ਵਿੱਚ et ਨਹੀਂ ਲੱਗਦਾ।",
+  "4-3": "ਬੈਲਜੀਅਮ ਅਤੇ ਸਵਿਟਜ਼ਰਲੈਂਡ ਵਿੱਚ 70 = septante, 90 = nonante। ਫ਼ੋਨ ਨੰਬਰ ਜੋੜਿਆਂ ਵਿੱਚ ਪੜ੍ਹੇ ਜਾਂਦੇ ਹਨ: 06 12 45 = ਜ਼ੀਰੋ ਛੇ, ਬਾਰਾਂ, ਪੰਤਾਲੀ। ਪਹਿਲਾ = premier/première।"
+});
+PAW({
+  "un": "ਇੱਕ", "trois": "ਤਿੰਨ", "quatre": "ਚਾਰ", "cinq": "ਪੰਜ", "six": "ਛੇ", "sept": "ਸੱਤ", "neuf": "ਨੌਂ", "dix": "ਦਸ",
+  "onze": "ਗਿਆਰਾਂ", "douze": "ਬਾਰਾਂ", "treize": "ਤੇਰਾਂ", "quatorze": "ਚੌਦਾਂ", "quinze": "ਪੰਦਰਾਂ", "seize": "ਸੋਲਾਂ", "vingt": "ਵੀਹ", "vingt et un": "ਇੱਕੀ",
+  "trente": "ਤੀਹ", "quarante": "ਚਾਲੀ", "cinquante": "ਪੰਜਾਹ", "soixante": "ਸੱਠ", "soixante-dix": "ਸੱਤਰ", "soixante et onze": "ਇਕਹੱਤਰ",
+  "quatre-vingts": "ਅੱਸੀ", "quatre-vingt-un": "ਇਕਾਸੀ", "quatre-vingt-dix": "ਨੱਬੇ", "cent": "ਸੌ", "quatre-vingt-dix-sept": "ਸਤਾਨਵੇਂ",
+  "J'ai dix-huit ans.": "ਮੈਂ ਅਠਾਰਾਂ ਸਾਲ ਦਾ/ਦੀ ਹਾਂ।", "Il y a trente élèves dans la classe.": "ਜਮਾਤ ਵਿੱਚ ਤੀਹ ਵਿਦਿਆਰਥੀ ਹਨ।",
+  "Ça coûte quatre-vingts euros.": "ਇਸਦੀ ਕੀਮਤ ਅੱਸੀ ਯੂਰੋ ਹੈ।", "Ma mère a quarante-cinq ans.": "ਮੇਰੇ ਮਾਤਾ ਜੀ ਪੰਤਾਲੀ ਸਾਲ ਦੇ ਹਨ।",
+  "Notre maison est au numéro soixante et onze.": "ਸਾਡਾ ਘਰ ਨੰਬਰ ਇਕਹੱਤਰ ’ਤੇ ਹੈ।"
+});
+
+/* ---------- Unit 5 ---------- */
+PAN({
+  "5-0": "-er ਵਾਲੀਆਂ ਕਿਰਿਆਵਾਂ ਵਿੱਚੋਂ -er ਹਟਾਓ ਅਤੇ -e, -es, -e, -ons, -ez, -ent ਲਗਾਓ। parle, parles ਅਤੇ parlent ਤਿੰਨੇ ਇੱਕੋ ਜਿਹੇ ਬੋਲੇ ਜਾਂਦੇ ਹਨ। je parle ਦਾ ਅਰਥ “ਮੈਂ ਬੋਲਦਾ ਹਾਂ” ਅਤੇ “ਮੈਂ ਬੋਲ ਰਿਹਾ ਹਾਂ” ਦੋਵੇਂ ਹੈ।",
+  "5-1": "ਕੁਝ ਕਿਰਿਆਵਾਂ ਵਿੱਚ ਸਪੈਲਿੰਗ ਥੋੜ੍ਹੀ ਬਦਲਦੀ ਹੈ: nous mangeons (e ਜੋੜੋ), nous commençons (ç), j'achète (è), je préfère (è), j'appelle (ll)। ਇਹ ਆਵਾਜ਼ ਠੀਕ ਰੱਖਣ ਲਈ ਹੁੰਦਾ ਹੈ।",
+  "5-2": "aimer, adorer, détester, préférer ਨਾਲ le/la/les ਲਗਾਓ: J'aime le chocolat। ਸ਼ਹਿਰ ਵਿੱਚ ਰਹਿਣਾ = habiter à: J'habite à Morinda। aller (ਜਾਣਾ) -er ’ਤੇ ਖ਼ਤਮ ਹੁੰਦੀ ਹੈ ਪਰ ਬੇਨਿਯਮ ਹੈ।"
+});
+PAW({
+  "parler": "ਬੋਲਣਾ", "aimer": "ਪਸੰਦ ਕਰਨਾ, ਪਿਆਰ ਕਰਨਾ", "adorer": "ਬਹੁਤ ਪਸੰਦ ਕਰਨਾ", "détester": "ਨਫ਼ਰਤ ਕਰਨਾ", "habiter": "ਰਹਿਣਾ (ਕਿਸੇ ਥਾਂ)",
+  "travailler": "ਕੰਮ ਕਰਨਾ", "étudier": "ਪੜ੍ਹਨਾ (ਪੜ੍ਹਾਈ ਕਰਨਾ)", "regarder": "ਦੇਖਣਾ", "écouter": "ਸੁਣਨਾ", "jouer": "ਖੇਡਣਾ", "chercher": "ਲੱਭਣਾ (ਭਾਲਣਾ)",
+  "trouver": "ਲੱਭ ਜਾਣਾ", "donner": "ਦੇਣਾ", "chanter": "ਗਾਉਣਾ", "danser": "ਨੱਚਣਾ", "manger": "ਖਾਣਾ", "commencer": "ਸ਼ੁਰੂ ਕਰਨਾ",
+  "acheter": "ਖ਼ਰੀਦਣਾ", "préférer": "ਵੱਧ ਪਸੰਦ ਕਰਨਾ", "voyager": "ਸਫ਼ਰ ਕਰਨਾ",
+  "je parle": "ਮੈਂ ਬੋਲਦਾ/ਬੋਲਦੀ ਹਾਂ", "tu parles": "ਤੂੰ ਬੋਲਦਾ/ਬੋਲਦੀ ਹੈਂ", "il parle": "ਉਹ ਬੋਲਦਾ ਹੈ", "nous parlons": "ਅਸੀਂ ਬੋਲਦੇ ਹਾਂ",
+  "vous parlez": "ਤੁਸੀਂ ਬੋਲਦੇ ਹੋ", "ils parlent": "ਉਹ ਬੋਲਦੇ ਹਨ",
+  "Nous parlons français en classe.": "ਅਸੀਂ ਜਮਾਤ ਵਿੱਚ ਫ਼ਰਾਂਸੀਸੀ ਬੋਲਦੇ ਹਾਂ।", "J'habite à Morinda avec ma famille.": "ਮੈਂ ਆਪਣੇ ਪਰਿਵਾਰ ਨਾਲ ਮੋਰਿੰਡਾ ਵਿੱਚ ਰਹਿੰਦਾ/ਰਹਿੰਦੀ ਹਾਂ।",
+  "Elle travaille dans un hôpital.": "ਉਹ ਇੱਕ ਹਸਪਤਾਲ ਵਿੱਚ ਕੰਮ ਕਰਦੀ ਹੈ।", "Tu écoutes de la musique ?": "ਕੀ ਤੂੰ ਸੰਗੀਤ ਸੁਣ ਰਿਹਾ ਹੈਂ?", "Ils mangent à midi.": "ਉਹ ਦੁਪਹਿਰੇ ਖਾਣਾ ਖਾਂਦੇ ਹਨ।"
+});
+
+// Punjabi translations — part 2 (units 6–13)
+
+/* ---------- Unit 6 ---------- */
+PAN({
+  "6-0": "ਵਿਸ਼ੇਸ਼ਣ ਨਾਂਵ ਦੇ ਲਿੰਗ ਅਤੇ ਵਚਨ ਨਾਲ ਬਦਲਦਾ ਹੈ, ਜਿਵੇਂ ਪੰਜਾਬੀ ਵਿੱਚ “ਵੱਡਾ ਘਰ / ਵੱਡੀ ਕਾਰ”। ਇਸਤਰੀ-ਲਿੰਗ ਲਈ -e ਅਤੇ ਬਹੁਵਚਨ ਲਈ -s ਲਗਾਓ: grand → grande → grands → grandes।",
+  "6-1": "beau, nouveau, vieux ਦੇ ਖ਼ਾਸ ਰੂਪ ਹਨ: ਇਸਤਰੀ-ਲਿੰਗ belle, nouvelle, vieille; ਅਤੇ ਸਵਰ ਨਾਲ ਸ਼ੁਰੂ ਹੋਣ ਵਾਲੇ ਪੁਲਿੰਗ ਨਾਂਵ ਤੋਂ ਪਹਿਲਾਂ bel, nouvel, vieil (un bel homme)।",
+  "6-2": "ਪੰਜਾਬੀ ਤੋਂ ਉਲਟ, ਜ਼ਿਆਦਾਤਰ ਵਿਸ਼ੇਸ਼ਣ ਨਾਂਵ ਤੋਂ ਬਾਅਦ ਆਉਂਦੇ ਹਨ: une voiture rouge (ਲਾਲ ਕਾਰ)। ਸਿਰਫ਼ ਕੁਝ ਛੋਟੇ ਸ਼ਬਦ ਪਹਿਲਾਂ ਆਉਂਦੇ ਹਨ — BAGS: ਸੁੰਦਰਤਾ, ਉਮਰ, ਚੰਗਾ/ਮਾੜਾ, ਆਕਾਰ (beau, jeune, bon, grand…)।",
+  "6-3": "ਮੇਰਾ/ਤੇਰਾ/ਉਸਦਾ ਵਾਲਾ ਸ਼ਬਦ ਉਸ ਚੀਜ਼ ਦੇ ਲਿੰਗ ਨਾਲ ਬਦਲਦਾ ਹੈ ਜਿਸਦੀ ਗੱਲ ਹੋ ਰਹੀ ਹੈ, ਮਾਲਕ ਨਾਲ ਨਹੀਂ — ਬਿਲਕੁਲ ਪੰਜਾਬੀ ਵਾਂਗ (ਉਸਦਾ ਭਰਾ / ਉਸਦੀ ਭੈਣ): son frère, sa sœur, ਭਾਵੇਂ ਮਾਲਕ ਮੁੰਡਾ ਹੋਵੇ ਜਾਂ ਕੁੜੀ।",
+  "6-4": "ਸਵਰ ਨਾਲ ਸ਼ੁਰੂ ਹੋਣ ਵਾਲੇ ਇਸਤਰੀ-ਲਿੰਗ ਨਾਂਵ ਤੋਂ ਪਹਿਲਾਂ ma, ta, sa ਦੀ ਥਾਂ mon, ton, son ਵਰਤੋ, ਤਾਂ ਜੋ ਬੋਲਣਾ ਸੌਖਾ ਹੋਵੇ: mon amie (ਮੇਰੀ ਸਹੇਲੀ), mon école (ਮੇਰਾ ਸਕੂਲ)।"
+});
+PAW({
+  "grand / grande": "ਵੱਡਾ, ਲੰਬਾ / ਵੱਡੀ, ਲੰਬੀ", "petit / petite": "ਛੋਟਾ / ਛੋਟੀ", "beau / belle": "ਸੋਹਣਾ / ਸੋਹਣੀ", "joli / jolie": "ਪਿਆਰਾ / ਪਿਆਰੀ",
+  "jeune": "ਜਵਾਨ, ਨੌਜਵਾਨ", "vieux / vieille": "ਬੁੱਢਾ, ਪੁਰਾਣਾ / ਬੁੱਢੀ, ਪੁਰਾਣੀ", "nouveau / nouvelle": "ਨਵਾਂ / ਨਵੀਂ", "bon / bonne": "ਚੰਗਾ / ਚੰਗੀ",
+  "mauvais / mauvaise": "ਮਾੜਾ / ਮਾੜੀ", "heureux / heureuse": "ਖ਼ੁਸ਼", "gentil / gentille": "ਨੇਕ, ਦਿਆਲੂ", "intelligent / intelligente": "ਹੁਸ਼ਿਆਰ, ਸਮਝਦਾਰ",
+  "sportif / sportive": "ਖੇਡਾਂ ਦਾ ਸ਼ੌਕੀਨ", "blanc / blanche": "ਚਿੱਟਾ / ਚਿੱਟੀ", "noir / noire": "ਕਾਲਾ / ਕਾਲੀ", "bleu / bleue": "ਨੀਲਾ / ਨੀਲੀ",
+  "vert / verte": "ਹਰਾ / ਹਰੀ", "jaune": "ਪੀਲਾ", "marron": "ਭੂਰਾ",
+  "mon amie": "ਮੇਰੀ ਸਹੇਲੀ", "mon école": "ਮੇਰਾ ਸਕੂਲ", "sa sœur": "ਉਸਦੀ ਭੈਣ", "leurs parents": "ਉਹਨਾਂ ਦੇ ਮਾਪੇ",
+  "J'ai une petite voiture rouge.": "ਮੇਰੇ ਕੋਲ ਇੱਕ ਛੋਟੀ ਲਾਲ ਕਾਰ ਹੈ।", "Ma sœur est très intelligente.": "ਮੇਰੀ ਭੈਣ ਬਹੁਤ ਹੁਸ਼ਿਆਰ ਹੈ।",
+  "Ce sont nos nouveaux amis.": "ਇਹ ਸਾਡੇ ਨਵੇਂ ਦੋਸਤ ਹਨ।", "Il habite dans une belle maison.": "ਉਹ ਇੱਕ ਸੋਹਣੇ ਘਰ ਵਿੱਚ ਰਹਿੰਦਾ ਹੈ।",
+  "Leurs enfants sont gentils.": "ਉਹਨਾਂ ਦੇ ਬੱਚੇ ਨੇਕ ਹਨ।"
+});
+
+/* ---------- Unit 7 ---------- */
+PAN({
+  "7-0": "“ਹਾਂ/ਨਹੀਂ” ਵਾਲਾ ਪ੍ਰਸ਼ਨ ਤਿੰਨ ਤਰੀਕਿਆਂ ਨਾਲ: (1) ਆਵਾਜ਼ ਉੱਪਰ ਚੁੱਕੋ — Tu parles français ? (2) Est-ce que ਸ਼ੁਰੂ ਵਿੱਚ ਲਗਾਓ — ਇਹ ਪੰਜਾਬੀ ਦੇ “ਕੀ” ਵਰਗਾ ਹੈ। (3) ਕਿਰਿਆ ਅਤੇ ਕਰਤਾ ਦੀ ਥਾਂ ਬਦਲੋ — Parles-tu français ? (ਰਸਮੀ)।",
+  "7-1": "ਪ੍ਰਸ਼ਨਵਾਚਕ ਸ਼ਬਦ: qui = ਕੌਣ, que / qu'est-ce que = ਕੀ, où = ਕਿੱਥੇ, quand = ਕਦੋਂ, comment = ਕਿਵੇਂ, pourquoi = ਕਿਉਂ (ਜਵਾਬ: parce que = ਕਿਉਂਕਿ), combien = ਕਿੰਨਾ / ਕਿੰਨੇ।",
+  "7-2": "quel = ਕਿਹੜਾ / ਕੀ, ਅਤੇ ਇਹ ਨਾਂਵ ਨਾਲ ਬਦਲਦਾ ਹੈ: quel (ਪੁ.), quelle (ਇ.), quels, quelles (ਬਹੁ.)। ਚਾਰੇ ਇੱਕੋ ਜਿਹੇ ਬੋਲੇ ਜਾਂਦੇ ਹਨ।"
+});
+PAW({
+  "qui": "ਕੌਣ", "que": "ਕੀ", "qu'est-ce que": "ਕੀ", "où": "ਕਿੱਥੇ", "quand": "ਕਦੋਂ", "comment": "ਕਿਵੇਂ", "pourquoi": "ਕਿਉਂ", "parce que": "ਕਿਉਂਕਿ",
+  "combien": "ਕਿੰਨਾ, ਕਿੰਨੇ", "quel / quelle": "ਕਿਹੜਾ / ਕਿਹੜੀ", "Qui est-ce ?": "ਇਹ ਕੌਣ ਹੈ?", "Qu'est-ce que c'est ?": "ਇਹ ਕੀ ਹੈ?",
+  "Ça coûte combien ?": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?", "D'où viens-tu ?": "ਤੂੰ ਕਿੱਥੋਂ ਹੈਂ?", "Quelle heure est-il ?": "ਕੀ ਸਮਾਂ ਹੋਇਆ ਹੈ?", "Quels livres ?": "ਕਿਹੜੀਆਂ ਕਿਤਾਬਾਂ?",
+  "Quelles langues parles-tu ?": "ਤੂੰ ਕਿਹੜੀਆਂ ਭਾਸ਼ਾਵਾਂ ਬੋਲਦਾ ਹੈਂ?", "Où est-ce que tu habites ?": "ਤੂੰ ਕਿੱਥੇ ਰਹਿੰਦਾ ਹੈਂ?", "Quel âge avez-vous ?": "ਤੁਹਾਡੀ ਉਮਰ ਕਿੰਨੀ ਹੈ?",
+  "Est-ce que vous parlez anglais ?": "ਕੀ ਤੁਸੀਂ ਅੰਗਰੇਜ਼ੀ ਬੋਲਦੇ ਹੋ?", "Pourquoi apprends-tu le français ?": "ਤੂੰ ਫ਼ਰਾਂਸੀਸੀ ਕਿਉਂ ਸਿੱਖ ਰਿਹਾ ਹੈਂ?",
+  "Comment s'appelle ta sœur ?": "ਤੇਰੀ ਭੈਣ ਦਾ ਨਾਂ ਕੀ ਹੈ?"
+});
+
+/* ---------- Unit 8 ---------- */
+PAN({
+  "8-0": "aller = ਜਾਣਾ, ਪੂਰੀ ਤਰ੍ਹਾਂ ਬੇਨਿਯਮ: je vais, tu vas, il va, nous allons, vous allez, ils vont। ਇਹੀ ਕਿਰਿਆ ਹਾਲ-ਚਾਲ ਲਈ ਵੀ: Je vais bien (ਮੈਂ ਠੀਕ ਹਾਂ)।",
+  "8-1": "faire = ਕਰਨਾ / ਬਣਾਉਣਾ। ਧਿਆਨ: nous faisons ਦਾ ai “ਅ” ਵਾਂਗ ਬੋਲਿਆ ਜਾਂਦਾ ਹੈ (ਫ਼ਜ਼ੋਂ), ਅਤੇ vous faites ਸਹੀ ਹੈ — “vous faisez” ਗ਼ਲਤ ਹੈ।",
+  "8-2": "venir = ਆਉਣਾ: je viens, tu viens, il vient, nous venons, vous venez, ils viennent। venir de = ਕਿਤੋਂ ਆਉਣਾ: Je viens de Morinda (ਮੈਂ ਮੋਰਿੰਡਾ ਤੋਂ ਹਾਂ)।",
+  "8-3": "à (ਨੂੰ/ਵਿੱਚ) ਅਤੇ de (ਤੋਂ/ਦਾ) le ਅਤੇ les ਨਾਲ ਜੁੜ ਜਾਂਦੇ ਹਨ: à + le = au, à + les = aux, de + le = du, de + les = des। la ਅਤੇ l' ਨਾਲ ਨਹੀਂ ਜੁੜਦੇ।",
+  "8-4": "ਸ਼ਹਿਰ ਨਾਲ à (à Paris)। ਇਸਤਰੀ-ਲਿੰਗ ਦੇਸ਼ (ਜ਼ਿਆਦਾਤਰ -e ਵਾਲੇ) ਨਾਲ en (en Inde, en France)। ਪੁਲਿੰਗ ਦੇਸ਼ ਨਾਲ au (au Canada)। ਬਹੁਵਚਨ ਨਾਲ aux (aux États-Unis)।",
+  "8-5": "ਖੇਡ ਜਾਂ ਸਰਗਰਮੀ: faire du sport, faire de la natation। ਮੌਸਮ: il fait beau (ਮੌਸਮ ਵਧੀਆ ਹੈ)। ਖੇਡ ਖੇਡਣਾ = jouer à (jouer au foot), ਸਾਜ਼ ਵਜਾਉਣਾ = jouer de (jouer de la guitare)।"
+});
+PAW({
+  "le cinéma": "ਸਿਨੇਮਾ", "la plage": "ਸਮੁੰਦਰ ਦਾ ਕੰਢਾ", "l'école (f)": "ਸਕੂਲ", "le marché": "ਬਾਜ਼ਾਰ, ਮੰਡੀ", "la gare": "ਰੇਲਵੇ ਸਟੇਸ਼ਨ",
+  "l'aéroport (m)": "ਹਵਾਈ ਅੱਡਾ", "la poste": "ਡਾਕਖ਼ਾਨਾ", "la banque": "ਬੈਂਕ", "le magasin": "ਦੁਕਾਨ", "la bibliothèque": "ਲਾਇਬ੍ਰੇਰੀ", "le parc": "ਪਾਰਕ",
+  "faire les courses": "ਸੌਦਾ-ਪੱਤਾ ਲਿਆਉਣਾ", "faire la cuisine": "ਖਾਣਾ ਬਣਾਉਣਾ", "faire du sport": "ਖੇਡਾਂ / ਕਸਰਤ ਕਰਨਾ", "faire du vélo": "ਸਾਈਕਲ ਚਲਾਉਣਾ",
+  "il fait beau": "ਮੌਸਮ ਵਧੀਆ ਹੈ", "jouer au foot": "ਫੁੱਟਬਾਲ ਖੇਡਣਾ", "jouer du piano": "ਪਿਆਨੋ ਵਜਾਉਣਾ", "à pied": "ਪੈਦਲ", "en bus": "ਬੱਸ ਰਾਹੀਂ",
+  "je vais": "ਮੈਂ ਜਾਂਦਾ/ਜਾਂਦੀ ਹਾਂ", "tu vas": "ਤੂੰ ਜਾਂਦਾ ਹੈਂ", "il va": "ਉਹ ਜਾਂਦਾ ਹੈ", "nous allons": "ਅਸੀਂ ਜਾਂਦੇ ਹਾਂ", "vous allez": "ਤੁਸੀਂ ਜਾਂਦੇ ਹੋ", "ils vont": "ਉਹ ਜਾਂਦੇ ਹਨ",
+  "je fais": "ਮੈਂ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ", "tu fais": "ਤੂੰ ਕਰਦਾ ਹੈਂ", "il fait": "ਉਹ ਕਰਦਾ ਹੈ", "nous faisons": "ਅਸੀਂ ਕਰਦੇ ਹਾਂ", "vous faites": "ਤੁਸੀਂ ਕਰਦੇ ਹੋ", "ils font": "ਉਹ ਕਰਦੇ ਹਨ",
+  "je viens": "ਮੈਂ ਆਉਂਦਾ/ਆਉਂਦੀ ਹਾਂ", "tu viens": "ਤੂੰ ਆਉਂਦਾ ਹੈਂ", "il vient": "ਉਹ ਆਉਂਦਾ ਹੈ", "nous venons": "ਅਸੀਂ ਆਉਂਦੇ ਹਾਂ", "vous venez": "ਤੁਸੀਂ ਆਉਂਦੇ ਹੋ", "ils viennent": "ਉਹ ਆਉਂਦੇ ਹਨ",
+  "Je vais au cinéma.": "ਮੈਂ ਸਿਨੇਮਾ ਜਾ ਰਿਹਾ/ਰਹੀ ਹਾਂ।", "Je vais à la plage.": "ਮੈਂ ਸਮੁੰਦਰ ਦੇ ਕੰਢੇ ਜਾ ਰਿਹਾ/ਰਹੀ ਹਾਂ।", "Il va à l'école.": "ਉਹ ਸਕੂਲ ਜਾਂਦਾ ਹੈ।",
+  "Je viens du marché.": "ਮੈਂ ਬਾਜ਼ਾਰ ਤੋਂ ਆ ਰਿਹਾ/ਰਹੀ ਹਾਂ।", "Je vais à l'école à pied.": "ਮੈਂ ਪੈਦਲ ਸਕੂਲ ਜਾਂਦਾ/ਜਾਂਦੀ ਹਾਂ।",
+  "Nous faisons les courses le samedi.": "ਅਸੀਂ ਹਰ ਸ਼ਨਿੱਚਰਵਾਰ ਸੌਦਾ-ਪੱਤਾ ਲਿਆਉਂਦੇ ਹਾਂ।", "Ils viennent du Canada.": "ਉਹ ਕੈਨੇਡਾ ਤੋਂ ਹਨ।",
+  "Il fait froid en hiver.": "ਸਰਦੀਆਂ ਵਿੱਚ ਠੰਢ ਹੁੰਦੀ ਹੈ।", "Tu vas au cinéma ce soir ?": "ਕੀ ਤੂੰ ਅੱਜ ਸ਼ਾਮ ਸਿਨੇਮਾ ਜਾ ਰਿਹਾ ਹੈਂ?"
+});
+
+/* ---------- Unit 9 ---------- */
+PAN({
+  "9-0": "ਦਿਨਾਂ ਅਤੇ ਮਹੀਨਿਆਂ ਦੇ ਨਾਂ ਛੋਟੇ ਅੱਖਰ ਨਾਲ ਲਿਖੇ ਜਾਂਦੇ ਹਨ। lundi = ਇਸ ਸੋਮਵਾਰ, le lundi = ਹਰ ਸੋਮਵਾਰ। ਮਹੀਨੇ ਵਿੱਚ = en: en mai (ਮਈ ਵਿੱਚ)।",
+  "9-1": "ਤਾਰੀਖ਼ = le + ਗਿਣਤੀ + ਮਹੀਨਾ: le 14 juillet। ਸਿਰਫ਼ ਪਹਿਲੀ ਤਾਰੀਖ਼ ਨੂੰ le premier (1er) ਕਹਿੰਦੇ ਹਨ। ਸਾਲ: deux mille vingt-six (2026)।",
+  "9-2": "ਰੁੱਤਾਂ: le printemps (ਬਹਾਰ), l'été (ਗਰਮੀ), l'automne (ਪੱਤਝੜ), l'hiver (ਸਰਦੀ)। ਤਿੰਨਾਂ ਨਾਲ en (en été), ਪਰ au printemps।",
+  "9-3": "Il est … heures = … ਵੱਜੇ ਹਨ। et quart = ਸਵਾ, et demie = ਸਾਢੇ, moins le quart = ਪੌਣੇ। 6:45 = sept heures moins le quart (ਪੌਣੇ ਸੱਤ)। ਸਟੇਸ਼ਨ ਅਤੇ ਦਫ਼ਤਰ 24 ਘੰਟਿਆਂ ਵਾਲੀ ਘੜੀ ਵਰਤਦੇ ਹਨ।"
+});
+PAW({
+  "lundi": "ਸੋਮਵਾਰ", "mardi": "ਮੰਗਲਵਾਰ", "mercredi": "ਬੁੱਧਵਾਰ", "jeudi": "ਵੀਰਵਾਰ", "vendredi": "ਸ਼ੁੱਕਰਵਾਰ", "samedi": "ਸ਼ਨਿੱਚਰਵਾਰ", "dimanche": "ਐਤਵਾਰ",
+  "janvier": "ਜਨਵਰੀ", "février": "ਫ਼ਰਵਰੀ", "avril": "ਅਪ੍ਰੈਲ", "juillet": "ਜੁਲਾਈ", "août": "ਅਗਸਤ", "décembre": "ਦਸੰਬਰ",
+  "aujourd'hui": "ਅੱਜ", "demain": "ਕੱਲ੍ਹ (ਆਉਣ ਵਾਲਾ)", "hier": "ਕੱਲ੍ਹ (ਬੀਤਿਆ)", "le matin": "ਸਵੇਰ", "le soir": "ਸ਼ਾਮ", "midi": "ਦੁਪਹਿਰ ਦੇ ਬਾਰਾਂ",
+  "minuit": "ਅੱਧੀ ਰਾਤ", "une semaine": "ਹਫ਼ਤਾ", "un mois": "ਮਹੀਨਾ", "un an / une année": "ਸਾਲ",
+  "Nous sommes le vingt-six octobre.": "ਅੱਜ ਛੱਬੀ ਅਕਤੂਬਰ ਹੈ।", "C'est quand, ton anniversaire ?": "ਤੇਰਾ ਜਨਮਦਿਨ ਕਦੋਂ ਹੈ?",
+  "Mon anniversaire est le premier juin.": "ਮੇਰਾ ਜਨਮਦਿਨ ਪਹਿਲੀ ਜੂਨ ਨੂੰ ਹੈ।", "Il est trois heures et demie.": "ਸਾਢੇ ਤਿੰਨ ਵੱਜੇ ਹਨ।",
+  "Le magasin ferme à sept heures du soir.": "ਦੁਕਾਨ ਸ਼ਾਮ ਸੱਤ ਵਜੇ ਬੰਦ ਹੁੰਦੀ ਹੈ।", "Nous sommes lundi aujourd'hui.": "ਅੱਜ ਸੋਮਵਾਰ ਹੈ।"
+});
+
+/* ---------- Unit 10 ---------- */
+PAN({
+  "10-0": "“ਕੁਝ” (ਅਣਗਿਣਤ ਮਾਤਰਾ) ਲਈ du, de la, de l', des: Je mange du pain (ਮੈਂ ਰੋਟੀ ਖਾਂਦਾ ਹਾਂ)। ਪੰਜਾਬੀ ਅਤੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਇਹ ਸ਼ਬਦ ਅਕਸਰ ਛੱਡ ਦਿੰਦੇ ਹਾਂ, ਪਰ ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ ਕਦੇ ਨਹੀਂ ਛੱਡਿਆ ਜਾਂਦਾ।",
+  "10-1": "ਨਾਂਹ ਤੋਂ ਬਾਅਦ ਅਤੇ ਮਾਤਰਾ ਵਾਲੇ ਸ਼ਬਦਾਂ ਤੋਂ ਬਾਅਦ ਸਿਰਫ਼ de: Je ne bois pas de café; beaucoup de fruits; un kilo de tomates।",
+  "10-2": "ਪਸੰਦ-ਨਾਪਸੰਦ ਦੱਸਣ ਲਈ le/la/les (ਆਮ ਤੌਰ ’ਤੇ ਉਹ ਚੀਜ਼): J'aime le café। ਖਾਣ-ਪੀਣ ਲਈ du/de la (ਕੁਝ ਮਾਤਰਾ): Je bois du thé।",
+  "10-3": "boire = ਪੀਣਾ, ਬੇਨਿਯਮ: je bois, tu bois, il boit, nous buvons, vous buvez, ils boivent।",
+  "10-4": "ਕੈਫ਼ੇ ਵਿੱਚ ਆਦਰ ਨਾਲ ਮੰਗਣ ਲਈ Je voudrais … (ਮੈਨੂੰ … ਚਾਹੀਦਾ ਹੈ) ਅਤੇ s'il vous plaît ਵਰਤੋ। ਬਿੱਲ ਮੰਗਣਾ: L'addition, s'il vous plaît।"
+});
+PAW({
+  "le pain": "ਬਰੈੱਡ, ਡਬਲ ਰੋਟੀ", "le beurre": "ਮੱਖਣ", "le fromage": "ਪਨੀਰ (ਚੀਜ਼)", "la viande": "ਮਾਸ", "le poulet": "ਮੁਰਗਾ, ਚਿਕਨ", "le poisson": "ਮੱਛੀ",
+  "les légumes (m)": "ਸਬਜ਼ੀਆਂ", "les fruits (m)": "ਫਲ", "une pomme": "ਸੇਬ", "une banane": "ਕੇਲਾ", "le riz": "ਚੌਲ", "les pâtes (f)": "ਪਾਸਤਾ",
+  "le lait": "ਦੁੱਧ", "le thé": "ਚਾਹ", "le sucre": "ਖੰਡ", "le sel": "ਲੂਣ", "un œuf": "ਆਂਡਾ", "la confiture": "ਜੈਮ", "un verre": "ਗਲਾਸ",
+  "une bouteille": "ਬੋਤਲ", "l'addition (f)": "ਬਿੱਲ",
+  "je bois": "ਮੈਂ ਪੀਂਦਾ/ਪੀਂਦੀ ਹਾਂ", "tu bois": "ਤੂੰ ਪੀਂਦਾ ਹੈਂ", "il boit": "ਉਹ ਪੀਂਦਾ ਹੈ", "nous buvons": "ਅਸੀਂ ਪੀਂਦੇ ਹਾਂ", "vous buvez": "ਤੁਸੀਂ ਪੀਂਦੇ ਹੋ", "ils boivent": "ਉਹ ਪੀਂਦੇ ਹਨ",
+  "Je voudrais un café, s'il vous plaît.": "ਮੈਨੂੰ ਇੱਕ ਕੌਫ਼ੀ ਚਾਹੀਦੀ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ।", "Pour moi, un jus d'orange.": "ਮੇਰੇ ਲਈ ਸੰਤਰੇ ਦਾ ਜੂਸ।",
+  "L'addition, s'il vous plaît.": "ਬਿੱਲ ਦੇ ਦਿਓ, ਕਿਰਪਾ ਕਰਕੇ।", "Je bois du thé le matin.": "ਮੈਂ ਸਵੇਰੇ ਚਾਹ ਪੀਂਦਾ/ਪੀਂਦੀ ਹਾਂ।",
+  "Elle ne mange pas de viande.": "ਉਹ ਮਾਸ ਨਹੀਂ ਖਾਂਦੀ।", "Nous achetons un kilo de pommes.": "ਅਸੀਂ ਇੱਕ ਕਿੱਲੋ ਸੇਬ ਖ਼ਰੀਦਦੇ ਹਾਂ।",
+  "Je voudrais de l'eau, s'il vous plaît.": "ਮੈਨੂੰ ਪਾਣੀ ਚਾਹੀਦਾ ਹੈ, ਕਿਰਪਾ ਕਰਕੇ।", "Il y a beaucoup de fruits sur la table.": "ਮੇਜ਼ ਉੱਤੇ ਬਹੁਤ ਸਾਰੇ ਫਲ ਹਨ।"
+});
+
+/* ---------- Unit 11 ---------- */
+PAN({
+  "11-0": "finir (ਖ਼ਤਮ ਕਰਨਾ) ਵਰਗੀਆਂ -ir ਕਿਰਿਆਵਾਂ: je finis, tu finis, il finit, nous finissons, vous finissez, ils finissent। ਧਿਆਨ: partir, sortir, dormir ਵੱਖਰੀਆਂ ਹਨ — je pars, nous partons।",
+  "11-1": "vendre (ਵੇਚਣਾ) ਵਰਗੀਆਂ -re ਕਿਰਿਆਵਾਂ: je vends, tu vends, il vend (ਕੋਈ ਅੰਤ ਨਹੀਂ), nous vendons, vous vendez, ils vendent। ਇਸੇ ਤਰ੍ਹਾਂ attendre, répondre, perdre।",
+  "11-2": "prendre = ਲੈਣਾ: je prends, nous prenons, ils prennent (ਦੋ n)। ਇਸੇ ਤਰ੍ਹਾਂ apprendre (ਸਿੱਖਣਾ) ਅਤੇ comprendre (ਸਮਝਣਾ)।",
+  "11-3": "vouloir = ਚਾਹੁਣਾ, pouvoir = ਸਕਣਾ, devoir = ਚਾਹੀਦਾ ਹੋਣਾ। ਇਹਨਾਂ ਤੋਂ ਬਾਅਦ ਕਿਰਿਆ ਦਾ ਮੂਲ ਰੂਪ ਆਉਂਦਾ ਹੈ: Je veux partir (ਮੈਂ ਜਾਣਾ ਚਾਹੁੰਦਾ ਹਾਂ)। Je voudrais = ਆਦਰ ਨਾਲ “ਮੈਨੂੰ ਚਾਹੀਦਾ ਹੈ”।",
+  "11-4": "ਦੋਵਾਂ ਦਾ ਅਰਥ “ਜਾਣਨਾ” ਹੈ: savoir = ਕੋਈ ਗੱਲ ਜਾਂ ਕੰਮ ਕਰਨਾ ਜਾਣਨਾ (Je sais nager — ਮੈਨੂੰ ਤੈਰਨਾ ਆਉਂਦਾ ਹੈ); connaître = ਕਿਸੇ ਵਿਅਕਤੀ ਜਾਂ ਥਾਂ ਨੂੰ ਜਾਣਨਾ (Je connais Paris)।"
+});
+PAW({
+  "finir": "ਖ਼ਤਮ ਕਰਨਾ", "choisir": "ਚੁਣਨਾ", "réussir": "ਕਾਮਯਾਬ ਹੋਣਾ, ਪਾਸ ਹੋਣਾ", "partir": "ਚਲੇ ਜਾਣਾ, ਰਵਾਨਾ ਹੋਣਾ", "sortir": "ਬਾਹਰ ਜਾਣਾ", "dormir": "ਸੌਣਾ",
+  "vendre": "ਵੇਚਣਾ", "attendre": "ਉਡੀਕ ਕਰਨਾ", "entendre": "ਸੁਣਨਾ (ਆਵਾਜ਼ ਸੁਣਾਈ ਦੇਣਾ)", "répondre": "ਜਵਾਬ ਦੇਣਾ", "perdre": "ਗੁਆਉਣਾ, ਹਾਰਨਾ",
+  "prendre": "ਲੈਣਾ", "apprendre": "ਸਿੱਖਣਾ", "comprendre": "ਸਮਝਣਾ", "vouloir": "ਚਾਹੁਣਾ", "pouvoir": "ਸਕਣਾ", "devoir": "ਚਾਹੀਦਾ ਹੋਣਾ, ਪੈਣਾ",
+  "savoir": "ਜਾਣਨਾ (ਕੋਈ ਗੱਲ)", "connaître": "ਜਾਣਨਾ (ਕੋਈ ਵਿਅਕਤੀ, ਥਾਂ)",
+  "je finis": "ਮੈਂ ਖ਼ਤਮ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ", "tu finis": "ਤੂੰ ਖ਼ਤਮ ਕਰਦਾ ਹੈਂ", "il finit": "ਉਹ ਖ਼ਤਮ ਕਰਦਾ ਹੈ", "nous finissons": "ਅਸੀਂ ਖ਼ਤਮ ਕਰਦੇ ਹਾਂ",
+  "vous finissez": "ਤੁਸੀਂ ਖ਼ਤਮ ਕਰਦੇ ਹੋ", "ils finissent": "ਉਹ ਖ਼ਤਮ ਕਰਦੇ ਹਨ",
+  "je vends": "ਮੈਂ ਵੇਚਦਾ/ਵੇਚਦੀ ਹਾਂ", "tu vends": "ਤੂੰ ਵੇਚਦਾ ਹੈਂ", "il vend": "ਉਹ ਵੇਚਦਾ ਹੈ", "nous vendons": "ਅਸੀਂ ਵੇਚਦੇ ਹਾਂ", "vous vendez": "ਤੁਸੀਂ ਵੇਚਦੇ ਹੋ", "ils vendent": "ਉਹ ਵੇਚਦੇ ਹਨ",
+  "je prends": "ਮੈਂ ਲੈਂਦਾ/ਲੈਂਦੀ ਹਾਂ", "tu prends": "ਤੂੰ ਲੈਂਦਾ ਹੈਂ", "il prend": "ਉਹ ਲੈਂਦਾ ਹੈ", "nous prenons": "ਅਸੀਂ ਲੈਂਦੇ ਹਾਂ", "vous prenez": "ਤੁਸੀਂ ਲੈਂਦੇ ਹੋ", "ils prennent": "ਉਹ ਲੈਂਦੇ ਹਨ",
+  "Je veux apprendre le français.": "ਮੈਂ ਫ਼ਰਾਂਸੀਸੀ ਸਿੱਖਣਾ ਚਾਹੁੰਦਾ/ਚਾਹੁੰਦੀ ਹਾਂ।", "Nous prenons le bus pour aller à l'école.": "ਅਸੀਂ ਸਕੂਲ ਜਾਣ ਲਈ ਬੱਸ ਲੈਂਦੇ ਹਾਂ।",
+  "Est-ce que tu peux m'aider ?": "ਕੀ ਤੂੰ ਮੇਰੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈਂ?", "Ils finissent le travail à six heures.": "ਉਹ ਛੇ ਵਜੇ ਕੰਮ ਖ਼ਤਮ ਕਰਦੇ ਹਨ।",
+  "Vous devez attendre ici.": "ਤੁਹਾਨੂੰ ਇੱਥੇ ਉਡੀਕ ਕਰਨੀ ਪਵੇਗੀ।"
+});
+
+/* ---------- Unit 12 ---------- */
+PAN({
+  "12-0": "ਆਪਣੇ-ਆਪ ਉੱਤੇ ਕੀਤੀ ਜਾਣ ਵਾਲੀ ਕਿਰਿਆ ਨਾਲ me, te, se, nous, vous, se ਲੱਗਦਾ ਹੈ: je me lève (ਮੈਂ ਉੱਠਦਾ ਹਾਂ), je me lave (ਮੈਂ ਨਹਾਉਂਦਾ ਹਾਂ)। ਨਾਂਹ: Je ne me lève pas।",
+  "12-1": "ਨੇੜਲਾ ਭਵਿੱਖ = aller + ਕਿਰਿਆ ਦਾ ਮੂਲ ਰੂਪ, ਜਿਵੇਂ ਪੰਜਾਬੀ ਵਿੱਚ “ਕਰਨ ਜਾ ਰਿਹਾ ਹਾਂ”: Je vais manger (ਮੈਂ ਖਾਣ ਲੱਗਾ ਹਾਂ / ਖਾਵਾਂਗਾ)।",
+  "12-2": "ਹੁਣੇ-ਹੁਣੇ ਹੋਈ ਗੱਲ = venir de + ਮੂਲ ਰੂਪ: Je viens de manger (ਮੈਂ ਹੁਣੇ ਖਾਧਾ ਹੈ)।",
+  "12-3": "être en train de = ਇਸ ਵੇਲੇ ਕੁਝ ਕਰ ਰਿਹਾ ਹੋਣਾ: Je suis en train de lire (ਮੈਂ ਇਸ ਵੇਲੇ ਪੜ੍ਹ ਰਿਹਾ ਹਾਂ)।"
+});
+PAW({
+  "se réveiller": "ਜਾਗਣਾ", "se lever": "ਉੱਠਣਾ", "se laver": "ਨਹਾਉਣਾ, ਹੱਥ-ਮੂੰਹ ਧੋਣਾ", "se doucher": "ਸ਼ਾਵਰ ਲੈਣਾ", "s'habiller": "ਕੱਪੜੇ ਪਾਉਣਾ",
+  "se brosser les dents": "ਦੰਦ ਸਾਫ਼ ਕਰਨਾ", "se coucher": "ਸੌਣ ਜਾਣਾ", "se reposer": "ਆਰਾਮ ਕਰਨਾ", "se promener": "ਸੈਰ ਕਰਨਾ",
+  "le petit-déjeuner": "ਨਾਸ਼ਤਾ", "le déjeuner": "ਦੁਪਹਿਰ ਦਾ ਖਾਣਾ", "le dîner": "ਰਾਤ ਦਾ ਖਾਣਾ", "tôt": "ਜਲਦੀ, ਸਵੱਖਤੇ", "tard": "ਦੇਰ ਨਾਲ",
+  "d'abord": "ਪਹਿਲਾਂ", "ensuite": "ਫਿਰ, ਉਸ ਤੋਂ ਬਾਅਦ", "enfin": "ਅਖ਼ੀਰ ਵਿੱਚ", "d'habitude": "ਆਮ ਤੌਰ ’ਤੇ",
+  "je me lève": "ਮੈਂ ਉੱਠਦਾ/ਉੱਠਦੀ ਹਾਂ", "tu te lèves": "ਤੂੰ ਉੱਠਦਾ ਹੈਂ", "il se lève": "ਉਹ ਉੱਠਦਾ ਹੈ", "nous nous levons": "ਅਸੀਂ ਉੱਠਦੇ ਹਾਂ",
+  "vous vous levez": "ਤੁਸੀਂ ਉੱਠਦੇ ਹੋ", "ils se lèvent": "ਉਹ ਉੱਠਦੇ ਹਨ",
+  "Je vais regarder un film ce soir.": "ਮੈਂ ਅੱਜ ਸ਼ਾਮ ਇੱਕ ਫ਼ਿਲਮ ਦੇਖਾਂਗਾ/ਦੇਖਾਂਗੀ।", "Il vient de partir.": "ਉਹ ਹੁਣੇ ਗਿਆ ਹੈ।",
+  "Nous nous levons à six heures.": "ਅਸੀਂ ਛੇ ਵਜੇ ਉੱਠਦੇ ਹਾਂ।", "Elle se brosse les dents.": "ਉਹ ਦੰਦ ਸਾਫ਼ ਕਰਦੀ ਹੈ।",
+  "Tu vas te coucher tard ?": "ਕੀ ਤੂੰ ਦੇਰ ਨਾਲ ਸੌਵੇਂਗਾ?"
+});
+
+/* ---------- Unit 13 ---------- */
+PAN({
+  "13-0": "ਬੀਤੀ ਗੱਲ ਲਈ: avoir (ਵਰਤਮਾਨ) + ਭੂਤਕਾਲ ਰੂਪ। -er → -é (parlé), -ir → -i (fini), -re → -u (vendu)। J'ai mangé = ਮੈਂ ਖਾਧਾ / ਮੈਂ ਖਾ ਲਿਆ ਹੈ।",
+  "13-1": "ਕੁਝ ਆਮ ਕਿਰਿਆਵਾਂ ਦੇ ਭੂਤਕਾਲ ਰੂਪ ਬੇਨਿਯਮ ਹਨ ਅਤੇ ਯਾਦ ਕਰਨੇ ਪੈਂਦੇ ਹਨ: fait (ਕੀਤਾ), pris (ਲਿਆ), vu (ਦੇਖਿਆ), bu (ਪੀਤਾ), eu (ਸੀ ਕੋਲ), été (ਰਿਹਾ)।",
+  "13-2": "ਨਾਂਹ ਵਿੱਚ ne … pas avoir ਦੇ ਦੁਆਲੇ ਲੱਗਦਾ ਹੈ: Je n'ai pas mangé (ਮੈਂ ਨਹੀਂ ਖਾਧਾ)। ਸਮੇਂ ਵਾਲੇ ਸ਼ਬਦ: hier (ਕੱਲ੍ਹ), la semaine dernière (ਪਿਛਲੇ ਹਫ਼ਤੇ), il y a deux jours (ਦੋ ਦਿਨ ਪਹਿਲਾਂ)।"
+});
+PAW({
+  "avant-hier": "ਪਰਸੋਂ (ਬੀਤਿਆ)", "ce matin": "ਅੱਜ ਸਵੇਰੇ", "la semaine dernière": "ਪਿਛਲੇ ਹਫ਼ਤੇ", "l'année dernière": "ਪਿਛਲੇ ਸਾਲ",
+  "il y a deux jours": "ਦੋ ਦਿਨ ਪਹਿਲਾਂ", "déjà": "ਪਹਿਲਾਂ ਹੀ", "eu (avoir)": "ਕੋਲ ਸੀ / ਹੋਇਆ", "été (être)": "ਰਿਹਾ / ਸੀ",
+  "fait (faire)": "ਕੀਤਾ, ਬਣਾਇਆ", "pris (prendre)": "ਲਿਆ", "mis (mettre)": "ਰੱਖਿਆ, ਪਾਇਆ", "dit (dire)": "ਕਿਹਾ", "écrit (écrire)": "ਲਿਖਿਆ",
+  "vu (voir)": "ਦੇਖਿਆ", "lu (lire)": "ਪੜ੍ਹਿਆ", "bu (boire)": "ਪੀਤਾ",
+  "Hier, j'ai mangé au restaurant.": "ਕੱਲ੍ਹ ਮੈਂ ਰੈਸਟੋਰੈਂਟ ਵਿੱਚ ਖਾਣਾ ਖਾਧਾ।", "Nous avons visité Paris l'année dernière.": "ਅਸੀਂ ਪਿਛਲੇ ਸਾਲ ਪੈਰਿਸ ਘੁੰਮਿਆ।",
+  "Elle n'a pas fini ses devoirs.": "ਉਸਨੇ ਆਪਣਾ ਹੋਮਵਰਕ ਖ਼ਤਮ ਨਹੀਂ ਕੀਤਾ।", "Ils ont pris le train de huit heures.": "ਉਹਨਾਂ ਨੇ ਅੱਠ ਵਜੇ ਵਾਲੀ ਰੇਲ ਫੜੀ।",
+  "Tu as vu ce film ?": "ਕੀ ਤੂੰ ਇਹ ਫ਼ਿਲਮ ਦੇਖੀ ਹੈ?"
+});
+
+// Punjabi translations — part 3 (units 14–20)
+
+/* ---------- Unit 14 ---------- */
+PAN({
+  "14-0": "ਲਗਭਗ 17 ਕਿਰਿਆਵਾਂ (ਆਉਣਾ-ਜਾਣਾ, ਜੰਮਣਾ-ਮਰਨਾ, ਰਹਿਣਾ, ਡਿੱਗਣਾ ਆਦਿ) ਭੂਤਕਾਲ ਵਿੱਚ avoir ਦੀ ਥਾਂ être ਲੈਂਦੀਆਂ ਹਨ: Je suis allé (ਮੈਂ ਗਿਆ)। ਯਾਦ ਰੱਖਣ ਲਈ: DR & MRS VANDERTRAMP।",
+  "14-1": "être ਨਾਲ ਭੂਤਕਾਲ ਰੂਪ ਕਰਤਾ ਨਾਲ ਬਦਲਦਾ ਹੈ, ਜਿਵੇਂ ਪੰਜਾਬੀ ਵਿੱਚ “ਉਹ ਗਿਆ / ਉਹ ਗਈ / ਉਹ ਗਏ”: il est allé, elle est allée, ils sont allés, elles sont allées।",
+  "14-2": "ਆਪਣੇ-ਆਪ ਵਾਲੀਆਂ ਸਾਰੀਆਂ ਕਿਰਿਆਵਾਂ (se lever, se laver…) ਭੂਤਕਾਲ ਵਿੱਚ être ਲੈਂਦੀਆਂ ਹਨ: Je me suis levé (ਮੁੰਡਾ) / Je me suis levée (ਕੁੜੀ) = ਮੈਂ ਉੱਠਿਆ / ਉੱਠੀ।",
+  "14-3": "monter, descendre, sortir ਵਰਗੀਆਂ ਕਿਰਿਆਵਾਂ ਨਾਲ ਜੇ ਕੋਈ ਚੀਜ਼ (ਕਰਮ) ਹੋਵੇ ਤਾਂ avoir ਲੱਗਦਾ ਹੈ: J'ai monté les valises (ਮੈਂ ਅਟੈਚੀਆਂ ਉੱਪਰ ਲੈ ਗਿਆ)। ਇਹ A2 ਵਿੱਚ ਪੜ੍ਹਾਂਗੇ।"
+});
+PAW({
+  "aller → allé": "ਜਾਣਾ → ਗਿਆ", "venir → venu": "ਆਉਣਾ → ਆਇਆ", "arriver → arrivé": "ਪਹੁੰਚਣਾ → ਪਹੁੰਚਿਆ", "partir → parti": "ਚਲੇ ਜਾਣਾ → ਚਲਾ ਗਿਆ",
+  "entrer → entré": "ਅੰਦਰ ਆਉਣਾ → ਅੰਦਰ ਆਇਆ", "sortir → sorti": "ਬਾਹਰ ਜਾਣਾ → ਬਾਹਰ ਗਿਆ", "monter → monté": "ਉੱਪਰ ਚੜ੍ਹਨਾ → ਚੜ੍ਹਿਆ",
+  "descendre → descendu": "ਹੇਠਾਂ ਉਤਰਨਾ → ਉਤਰਿਆ", "naître → né": "ਜੰਮਣਾ → ਜੰਮਿਆ", "mourir → mort": "ਮਰਨਾ → ਮਰ ਗਿਆ", "rester → resté": "ਰਹਿਣਾ, ਰੁਕਣਾ → ਰੁਕਿਆ",
+  "tomber → tombé": "ਡਿੱਗਣਾ → ਡਿੱਗਿਆ", "rentrer → rentré": "ਘਰ ਵਾਪਸ ਆਉਣਾ → ਵਾਪਸ ਆਇਆ", "devenir → devenu": "ਬਣਨਾ → ਬਣ ਗਿਆ", "les vacances (f)": "ਛੁੱਟੀਆਂ",
+  "Il est allé au marché.": "ਉਹ ਬਾਜ਼ਾਰ ਗਿਆ।", "Elle est allée au marché.": "ਉਹ ਬਾਜ਼ਾਰ ਗਈ।", "Ils sont partis.": "ਉਹ ਚਲੇ ਗਏ।", "Elles sont arrivées.": "ਉਹ (ਕੁੜੀਆਂ) ਪਹੁੰਚ ਗਈਆਂ।",
+  "Elle est arrivée à Paris hier.": "ਉਹ ਕੱਲ੍ਹ ਪੈਰਿਸ ਪਹੁੰਚੀ।", "Nous sommes allés au cinéma.": "ਅਸੀਂ ਸਿਨੇਮਾ ਗਏ।", "Je me suis levé à sept heures.": "ਮੈਂ ਸੱਤ ਵਜੇ ਉੱਠਿਆ।",
+  "Ils ne sont pas venus.": "ਉਹ ਨਹੀਂ ਆਏ।", "Mes amis sont partis en vacances.": "ਮੇਰੇ ਦੋਸਤ ਛੁੱਟੀਆਂ ’ਤੇ ਗਏ ਹਨ।"
+});
+
+/* ---------- Unit 15 ---------- */
+PAN({
+  "15-0": "ਹੁਕਮ ਜਾਂ ਬੇਨਤੀ ਲਈ tu, nous, vous ਵਾਲਾ ਰੂਪ ਬਿਨਾਂ ਕਰਤਾ ਦੇ: Écoute ! (ਸੁਣ!), Écoutons ! (ਆਓ ਸੁਣੀਏ!), Écoutez ! (ਸੁਣੋ!)। -er ਕਿਰਿਆਵਾਂ ਦੇ tu ਰੂਪ ਤੋਂ -s ਹਟਾਓ: Parle !, Va !",
+  "15-1": "ਨਾਂਹ ਵਾਲਾ ਹੁਕਮ: Ne parle pas ! (ਨਾ ਬੋਲ!)। ਆਪਣੇ-ਆਪ ਵਾਲੀ ਕਿਰਿਆ ਵਿੱਚ toi / vous ਪਿੱਛੇ ਲੱਗਦਾ ਹੈ: Lève-toi ! (ਉੱਠ!), Asseyez-vous ! (ਬੈਠੋ!)।",
+  "15-2": "Il faut + ਮੂਲ ਰੂਪ = ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ / ਕਰਨਾ ਪਵੇਗਾ: Il faut apprendre les verbes। Il ne faut pas = ਨਹੀਂ ਕਰਨਾ ਚਾਹੀਦਾ: Il ne faut pas fumer ici (ਇੱਥੇ ਸਿਗਰਟ ਨਹੀਂ ਪੀਣੀ)।",
+  "15-3": "ਥਾਂ ਦੱਸਣ ਵਾਲੇ ਸ਼ਬਦ: sur (ਉੱਤੇ), sous (ਹੇਠਾਂ), devant (ਅੱਗੇ), derrière (ਪਿੱਛੇ), entre (ਵਿਚਕਾਰ), à côté de (ਨਾਲ), en face de (ਸਾਹਮਣੇ)। de + le = du: à côté du parc।",
+  "15-4": "ਰਸਤਾ ਦੱਸਣਾ: Allez tout droit (ਸਿੱਧੇ ਜਾਓ), Tournez à gauche / à droite (ਖੱਬੇ / ਸੱਜੇ ਮੁੜੋ), Prenez la première rue (ਪਹਿਲੀ ਗਲੀ ਲਓ), Traversez (ਪਾਰ ਕਰੋ)।"
+});
+PAW({
+  "à gauche": "ਖੱਬੇ ਪਾਸੇ", "à droite": "ਸੱਜੇ ਪਾਸੇ", "tout droit": "ਸਿੱਧਾ", "tourner": "ਮੁੜਨਾ", "traverser": "ਪਾਰ ਕਰਨਾ", "la rue": "ਗਲੀ, ਸੜਕ",
+  "la place": "ਚੌਂਕ", "le pont": "ਪੁਲ", "le feu": "ਬੱਤੀ (ਟ੍ਰੈਫ਼ਿਕ ਲਾਈਟ)", "le carrefour": "ਚੌਰਾਹਾ", "la pharmacie": "ਦਵਾਈਆਂ ਦੀ ਦੁਕਾਨ",
+  "sur": "ਉੱਤੇ", "sous": "ਹੇਠਾਂ", "devant": "ਅੱਗੇ, ਸਾਹਮਣੇ", "derrière": "ਪਿੱਛੇ", "entre": "ਵਿਚਕਾਰ", "à côté de": "ਨਾਲ, ਬਗਲ ਵਿੱਚ",
+  "en face de": "ਸਾਹਮਣੇ", "près de": "ਨੇੜੇ", "loin de": "ਦੂਰ",
+  "Allez tout droit.": "ਸਿੱਧੇ ਜਾਓ।", "Tournez à gauche.": "ਖੱਬੇ ਮੁੜੋ।", "Tournez à droite.": "ਸੱਜੇ ਮੁੜੋ।", "Prenez la première rue à droite.": "ਸੱਜੇ ਪਾਸੇ ਪਹਿਲੀ ਗਲੀ ਲਓ।",
+  "Traversez la place.": "ਚੌਂਕ ਪਾਰ ਕਰੋ।", "Ne parle pas en classe.": "ਜਮਾਤ ਵਿੱਚ ਗੱਲਾਂ ਨਾ ਕਰ।", "Il faut apprendre les verbes.": "ਕਿਰਿਆਵਾਂ ਯਾਦ ਕਰਨੀਆਂ ਚਾਹੀਦੀਆਂ ਹਨ।",
+  "La gare est en face du parc.": "ਸਟੇਸ਼ਨ ਪਾਰਕ ਦੇ ਸਾਹਮਣੇ ਹੈ।", "Allez tout droit jusqu'au pont.": "ਪੁਲ ਤੱਕ ਸਿੱਧੇ ਜਾਓ।"
+});
+
+/* ---------- Unit 16 ---------- */
+PAN({
+  "16-0": "ਇਹ / ਉਹ: ce (ਪੁ.), cet (ਸਵਰ ਤੋਂ ਪਹਿਲਾਂ ਪੁ.), cette (ਇ.), ces (ਬਹੁ.)। ਇੱਕੋ ਸ਼ਬਦ ਦਾ ਅਰਥ “ਇਹ” ਵੀ ਹੈ ਅਤੇ “ਉਹ” ਵੀ। ce soir = ਅੱਜ ਸ਼ਾਮ, cette semaine = ਇਸ ਹਫ਼ਤੇ।",
+  "16-1": "moi, toi, lui, elle, nous, vous, eux, elles ਵਰਤੋ: ਸੰਬੰਧਕ ਤੋਂ ਬਾਅਦ (avec moi = ਮੇਰੇ ਨਾਲ, chez toi = ਤੇਰੇ ਘਰ), ਇਕੱਲਾ ਜਵਾਬ (Moi !), ਜ਼ੋਰ ਦੇਣ ਲਈ, ਅਤੇ Moi aussi (ਮੈਂ ਵੀ) / Moi non plus (ਮੈਂ ਵੀ ਨਹੀਂ)।",
+  "16-2": "C'est + ਆਰਟੀਕਲ/ਨਾਂ (C'est un médecin, C'est Paul) ਅਤੇ ਆਮ ਟਿੱਪਣੀ (C'est facile !)। Il/Elle est + ਕਿਸੇ ਖ਼ਾਸ ਵਿਅਕਤੀ ਬਾਰੇ ਵਿਸ਼ੇਸ਼ਣ (Il est grand) ਜਾਂ ਬਿਨਾਂ ਆਰਟੀਕਲ ਕਿੱਤਾ (Il est médecin)।"
+});
+PAW({
+  "ce livre": "ਇਹ / ਉਹ ਕਿਤਾਬ", "cet ami": "ਇਹ / ਉਹ ਦੋਸਤ", "cette maison": "ਇਹ / ਉਹ ਘਰ", "ces enfants": "ਇਹ / ਉਹ ਬੱਚੇ",
+  "cet après-midi": "ਅੱਜ ਦੁਪਹਿਰ", "ce soir": "ਅੱਜ ਸ਼ਾਮ", "cette semaine": "ਇਸ ਹਫ਼ਤੇ", "cette année": "ਇਸ ਸਾਲ",
+  "toi": "ਤੂੰ / ਤੈਨੂੰ", "lui": "ਉਹ / ਉਸਨੂੰ (ਮਰਦ)", "elle": "ਉਹ / ਉਸਨੂੰ (ਔਰਤ)", "eux": "ਉਹ / ਉਹਨਾਂ ਨੂੰ (ਮਰਦ)", "elles": "ਉਹ / ਉਹਨਾਂ ਨੂੰ (ਔਰਤਾਂ)",
+  "avec moi": "ਮੇਰੇ ਨਾਲ", "chez moi": "ਮੇਰੇ ਘਰ", "chez toi": "ਤੇਰੇ ਘਰ", "pour lui": "ਉਸਦੇ ਲਈ", "sans eux": "ਉਹਨਾਂ ਤੋਂ ਬਿਨਾਂ",
+  "Moi aussi.": "ਮੈਂ ਵੀ।", "Moi non plus.": "ਮੈਂ ਵੀ ਨਹੀਂ।", "C'est moi.": "ਮੈਂ ਹਾਂ।", "Et toi ?": "ਤੇ ਤੂੰ?", "chez le médecin": "ਡਾਕਟਰ ਕੋਲ",
+  "sympa": "ਮਿਲਣਸਾਰ, ਚੰਗਾ", "facile": "ਸੌਖਾ", "difficile": "ਔਖਾ", "un ingénieur / une ingénieure": "ਇੰਜੀਨੀਅਰ",
+  "Cette maison est très grande.": "ਇਹ ਘਰ ਬਹੁਤ ਵੱਡਾ ਹੈ।", "Tu viens avec moi au cinéma ?": "ਕੀ ਤੂੰ ਮੇਰੇ ਨਾਲ ਸਿਨੇਮਾ ਚੱਲੇਂਗਾ?",
+  "C'est mon professeur de français.": "ਇਹ ਮੇਰੇ ਫ਼ਰਾਂਸੀਸੀ ਦੇ ਅਧਿਆਪਕ ਹਨ।", "Moi, je préfère ce restaurant.": "ਮੈਨੂੰ ਤਾਂ ਇਹ ਰੈਸਟੋਰੈਂਟ ਵੱਧ ਪਸੰਦ ਹੈ।",
+  "Il est ingénieur à Mohali.": "ਉਹ ਮੋਹਾਲੀ ਵਿੱਚ ਇੰਜੀਨੀਅਰ ਹੈ।"
+});
+
+/* ---------- Unit 17 ---------- */
+PAN({
+  "17-0": "ਫ਼ਰਾਂਸੀਸੀ ਵਿੱਚ ਰਿਸ਼ਤਿਆਂ ਦੇ ਨਾਂ ਪੰਜਾਬੀ ਨਾਲੋਂ ਘੱਟ ਹਨ: l'oncle = ਚਾਚਾ, ਤਾਇਆ, ਮਾਮਾ, ਮਾਸੜ, ਫੁੱਫੜ — ਸਭ ਲਈ ਇੱਕੋ ਸ਼ਬਦ। la tante = ਚਾਚੀ, ਮਾਸੀ, ਭੂਆ, ਮਾਮੀ। le cousin / la cousine = ਹਰ ਤਰ੍ਹਾਂ ਦਾ ਭਰਾ/ਭੈਣ (ਚਚੇਰਾ, ਮਮੇਰਾ…)। fils ਬੋਲਦੇ ਸਮੇਂ s ਬੋਲੋ, l ਨਹੀਂ: “ਫ਼ੀਸ”।",
+  "17-1": "ਵਾਲ ਅਤੇ ਅੱਖਾਂ ਲਈ avoir + les: Elle a les yeux bleus (ਉਸਦੀਆਂ ਅੱਖਾਂ ਨੀਲੀਆਂ ਹਨ)। ਕੱਦ-ਕਾਠ ਲਈ être: Il est grand (ਉਹ ਲੰਬਾ ਹੈ)। Il porte des lunettes = ਉਹ ਐਨਕ ਲਾਉਂਦਾ ਹੈ।",
+  "17-2": "ਸਰੀਰ ਦੇ ਅੰਗਾਂ ਦੇ ਨਾਂ ਉਹਨਾਂ ਦੇ ਆਰਟੀਕਲ ਨਾਲ ਯਾਦ ਕਰੋ। les cheveux (ਵਾਲ) ਹਮੇਸ਼ਾ ਬਹੁਵਚਨ ਵਿੱਚ। un œil = ਇੱਕ ਅੱਖ, les yeux = ਅੱਖਾਂ।",
+  "17-3": "ਦਰਦ ਦੱਸਣ ਲਈ avoir mal à: J'ai mal à la tête (ਮੇਰੇ ਸਿਰ ਵਿੱਚ ਦਰਦ ਹੈ), au dos (ਪਿੱਠ ਵਿੱਚ), aux dents (ਦੰਦਾਂ ਵਿੱਚ)। ਡਾਕਟਰ ਪੁੱਛੇਗਾ: Où avez-vous mal ? (ਕਿੱਥੇ ਦਰਦ ਹੈ?)।"
+});
+PAW({
+  "le père": "ਪਿਤਾ", "la mère": "ਮਾਤਾ", "le mari": "ਪਤੀ", "la femme": "ਪਤਨੀ, ਔਰਤ", "le fils": "ਪੁੱਤਰ", "la fille": "ਧੀ, ਕੁੜੀ",
+  "le grand-père": "ਦਾਦਾ / ਨਾਨਾ", "la grand-mère": "ਦਾਦੀ / ਨਾਨੀ", "les grands-parents": "ਦਾਦਾ-ਦਾਦੀ / ਨਾਨਾ-ਨਾਨੀ", "l'oncle (m)": "ਚਾਚਾ, ਤਾਇਆ, ਮਾਮਾ, ਮਾਸੜ, ਫੁੱਫੜ",
+  "la tante": "ਚਾਚੀ, ਤਾਈ, ਮਾਮੀ, ਮਾਸੀ, ਭੂਆ", "le cousin / la cousine": "ਚਚੇਰਾ/ਮਮੇਰਾ ਭਰਾ / ਭੈਣ", "le neveu": "ਭਤੀਜਾ / ਭਾਣਜਾ", "la nièce": "ਭਤੀਜੀ / ਭਾਣਜੀ",
+  "marié / mariée": "ਵਿਆਹਿਆ / ਵਿਆਹੀ", "célibataire": "ਕੁਆਰਾ / ਕੁਆਰੀ", "la tête": "ਸਿਰ", "les cheveux (m)": "ਵਾਲ", "les yeux (m)": "ਅੱਖਾਂ",
+  "le nez": "ਨੱਕ", "la bouche": "ਮੂੰਹ", "l'oreille (f)": "ਕੰਨ", "les dents (f)": "ਦੰਦ", "la gorge": "ਗਲਾ", "le bras": "ਬਾਂਹ", "la main": "ਹੱਥ",
+  "le doigt": "ਉਂਗਲ", "le dos": "ਪਿੱਠ", "le ventre": "ਢਿੱਡ", "la jambe": "ਲੱਤ", "le pied": "ਪੈਰ", "avoir mal à": "… ਵਿੱਚ ਦਰਦ ਹੋਣਾ",
+  "malade": "ਬਿਮਾਰ", "la fièvre": "ਬੁਖ਼ਾਰ", "tousser": "ਖੰਘਣਾ", "un rhume": "ਜ਼ੁਕਾਮ", "un médicament": "ਦਵਾਈ", "une ordonnance": "ਡਾਕਟਰ ਦੀ ਪਰਚੀ",
+  "mince": "ਪਤਲਾ / ਪਤਲੀ", "les lunettes (f)": "ਐਨਕ", "une barbe": "ਦਾੜ੍ਹੀ",
+  "Qu'est-ce qui ne va pas ?": "ਕੀ ਤਕਲੀਫ਼ ਹੈ?", "Où avez-vous mal ?": "ਤੁਹਾਨੂੰ ਕਿੱਥੇ ਦਰਦ ਹੈ?", "J'ai de la fièvre.": "ਮੈਨੂੰ ਬੁਖ਼ਾਰ ਹੈ।",
+  "Je tousse.": "ਮੈਨੂੰ ਖੰਘ ਹੈ।", "J'ai un rhume.": "ਮੈਨੂੰ ਜ਼ੁਕਾਮ ਹੈ।", "Je suis malade.": "ਮੈਂ ਬਿਮਾਰ ਹਾਂ।",
+  "Ma sœur a les yeux verts.": "ਮੇਰੀ ਭੈਣ ਦੀਆਂ ਅੱਖਾਂ ਹਰੀਆਂ ਹਨ।", "J'ai mal à la gorge depuis hier.": "ਕੱਲ੍ਹ ਤੋਂ ਮੇਰਾ ਗਲਾ ਖ਼ਰਾਬ ਹੈ।",
+  "Mon grand-père habite chez nous.": "ਮੇਰੇ ਦਾਦਾ ਜੀ ਸਾਡੇ ਨਾਲ ਰਹਿੰਦੇ ਹਨ।", "Il faut aller chez le médecin.": "ਡਾਕਟਰ ਕੋਲ ਜਾਣਾ ਚਾਹੀਦਾ ਹੈ।",
+  "Mes cousins habitent au Canada.": "ਮੇਰੇ ਚਚੇਰੇ-ਮਮੇਰੇ ਭਰਾ ਕੈਨੇਡਾ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ।"
+});
+
+/* ---------- Unit 18 ---------- */
+PAN({
+  "18-0": "porter = ਪਹਿਨਣਾ (ਪਾਇਆ ਹੋਣਾ): Il porte une chemise blanche। mettre = ਪਾਉਣਾ (ਕੱਪੜਾ ਪਾਉਣ ਦੀ ਕਿਰਿਆ): je mets, tu mets, il met, nous mettons, vous mettez, ils mettent।",
+  "18-1": "ਦੁਕਾਨ ਵਿੱਚ ਕੰਮ ਆਉਣ ਵਾਲੇ ਵਾਕ ਸੁਣੋ ਅਤੇ ਦੁਹਰਾਓ। ਕੀਮਤ ਵਿੱਚ ਦਸ਼ਮਲਵ ਲਈ ਕੌਮਾ: 15,50 € = quinze euros cinquante। ਕਾਰਡ ਨਾਲ = par carte, ਨਕਦ = en espèces।",
+  "18-2": "ਤੁਲਨਾ: plus … que (ਨਾਲੋਂ ਵੱਧ), moins … que (ਨਾਲੋਂ ਘੱਟ), aussi … que (ਜਿੰਨਾ)। ਬਿਹਤਰ = meilleur (ਨਾਂਵ ਨਾਲ) ਜਾਂ mieux (ਕਿਰਿਆ ਨਾਲ) — “plus bon” ਕਦੇ ਨਹੀਂ। ਸਭ ਤੋਂ = le/la/les plus।"
+});
+PAW({
+  "une chemise": "ਕਮੀਜ਼", "un pantalon": "ਪੈਂਟ", "un jean": "ਜੀਨ", "une jupe": "ਸਕਰਟ", "une robe": "ਫ਼ਰਾਕ, ਡਰੈੱਸ", "un t-shirt": "ਟੀ-ਸ਼ਰਟ",
+  "un pull": "ਸਵੈਟਰ", "une veste": "ਜੈਕਟ", "un manteau": "ਕੋਟ", "des chaussures (f)": "ਜੁੱਤੀਆਂ", "des chaussettes (f)": "ਜੁਰਾਬਾਂ",
+  "des baskets (f)": "ਬੂਟ (ਸਪੋਰਟਸ ਸ਼ੂਜ਼)", "un chapeau": "ਟੋਪੀ, ਹੈਟ", "une écharpe": "ਮਫ਼ਲਰ", "des gants (m)": "ਦਸਤਾਨੇ", "une ceinture": "ਬੈਲਟ, ਪੇਟੀ",
+  "un sac à main": "ਹੈਂਡਬੈਗ", "la taille": "ਸਾਈਜ਼ (ਕੱਪੜੇ)", "la pointure": "ਜੁੱਤੀ ਦਾ ਨੰਬਰ", "cher / chère": "ਮਹਿੰਗਾ / ਮਹਿੰਗੀ", "bon marché": "ਸਸਤਾ",
+  "les soldes (m)": "ਸੇਲ", "porter": "ਪਹਿਨਣਾ", "mettre": "ਪਾਉਣਾ, ਰੱਖਣਾ", "essayer": "ਪਾ ਕੇ ਦੇਖਣਾ, ਕੋਸ਼ਿਸ਼ ਕਰਨਾ", "payer": "ਪੈਸੇ ਦੇਣਾ",
+  "la caisse": "ਕਾਊਂਟਰ (ਪੈਸੇ ਦੇਣ ਵਾਲਾ)", "par carte": "ਕਾਰਡ ਨਾਲ", "en espèces": "ਨਕਦ", "plus … que": "… ਨਾਲੋਂ ਵੱਧ", "moins … que": "… ਨਾਲੋਂ ਘੱਟ",
+  "aussi … que": "… ਜਿੰਨਾ", "meilleur": "ਬਿਹਤਰ (ਚੀਜ਼)", "mieux": "ਬਿਹਤਰ (ਢੰਗ ਨਾਲ)", "le magasin de vêtements": "ਕੱਪੜਿਆਂ ਦੀ ਦੁਕਾਨ", "le supermarché": "ਸੁਪਰਮਾਰਕੀਟ",
+  "je mets": "ਮੈਂ ਪਾਉਂਦਾ/ਪਾਉਂਦੀ ਹਾਂ", "tu mets": "ਤੂੰ ਪਾਉਂਦਾ ਹੈਂ", "il met": "ਉਹ ਪਾਉਂਦਾ ਹੈ", "nous mettons": "ਅਸੀਂ ਪਾਉਂਦੇ ਹਾਂ", "vous mettez": "ਤੁਸੀਂ ਪਾਉਂਦੇ ਹੋ", "ils mettent": "ਉਹ ਪਾਉਂਦੇ ਹਨ",
+  "Je peux vous aider ?": "ਕੀ ਮੈਂ ਤੁਹਾਡੀ ਮਦਦ ਕਰ ਸਕਦਾ ਹਾਂ?", "Je cherche une veste.": "ਮੈਨੂੰ ਇੱਕ ਜੈਕਟ ਚਾਹੀਦੀ ਹੈ।", "Vous faites quelle taille ?": "ਤੁਹਾਡਾ ਸਾਈਜ਼ ਕੀ ਹੈ?",
+  "Quelle est votre pointure ?": "ਤੁਹਾਡੀ ਜੁੱਤੀ ਦਾ ਨੰਬਰ ਕੀ ਹੈ?", "Je peux l'essayer ?": "ਕੀ ਮੈਂ ਇਸਨੂੰ ਪਾ ਕੇ ਦੇਖ ਸਕਦਾ ਹਾਂ?", "C'est combien ?": "ਇਹ ਕਿੰਨੇ ਦਾ ਹੈ?",
+  "C'est trop cher.": "ਇਹ ਬਹੁਤ ਮਹਿੰਗਾ ਹੈ।", "Je le prends.": "ਮੈਂ ਇਹ ਲੈ ਲੈਂਦਾ ਹਾਂ।", "Vous payez comment ? — Par carte.": "ਪੈਸੇ ਕਿਵੇਂ ਦਿਓਗੇ? — ਕਾਰਡ ਨਾਲ।",
+  "Je cherche une chemise blanche.": "ਮੈਨੂੰ ਇੱਕ ਚਿੱਟੀ ਕਮੀਜ਼ ਚਾਹੀਦੀ ਹੈ।", "Est-ce que je peux essayer ce pantalon ?": "ਕੀ ਮੈਂ ਇਹ ਪੈਂਟ ਪਾ ਕੇ ਦੇਖ ਸਕਦਾ ਹਾਂ?",
+  "Cette veste est moins chère que l'autre.": "ਇਹ ਜੈਕਟ ਦੂਜੀ ਨਾਲੋਂ ਸਸਤੀ ਹੈ।", "Je voudrais payer par carte.": "ਮੈਂ ਕਾਰਡ ਨਾਲ ਪੈਸੇ ਦੇਣਾ ਚਾਹੁੰਦਾ ਹਾਂ।",
+  "Elle porte une robe rouge et des baskets.": "ਉਸਨੇ ਲਾਲ ਡਰੈੱਸ ਅਤੇ ਸਪੋਰਟਸ ਸ਼ੂਜ਼ ਪਾਏ ਹੋਏ ਹਨ।"
+});
+
+/* ---------- Unit 19 ---------- */
+PAN({
+  "19-0": "le rez-de-chaussée = ਹੇਠਲੀ ਮੰਜ਼ਿਲ (ਗਰਾਊਂਡ ਫ਼ਲੋਰ), le premier étage = ਪਹਿਲੀ ਮੰਜ਼ਿਲ (ਉੱਪਰ ਵਾਲੀ), ਬਿਲਕੁਲ ਸਾਡੇ ਵਾਂਗ। J'habite au deuxième étage = ਮੈਂ ਦੂਜੀ ਮੰਜ਼ਿਲ ’ਤੇ ਰਹਿੰਦਾ ਹਾਂ।",
+  "19-1": "ਮੌਸਮ ਤਿੰਨ ਤਰੀਕਿਆਂ ਨਾਲ: il fait + ਵਿਸ਼ੇਸ਼ਣ (il fait chaud = ਗਰਮੀ ਹੈ), il y a du / des + ਨਾਂਵ (il y a du vent = ਹਵਾ ਚੱਲ ਰਹੀ ਹੈ), ਅਤੇ il pleut (ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ), il neige (ਬਰਫ਼ ਪੈ ਰਹੀ ਹੈ)।",
+  "19-2": "ਕਿੰਨੀ ਵਾਰ: toujours (ਹਮੇਸ਼ਾ), souvent (ਅਕਸਰ), parfois (ਕਦੇ-ਕਦੇ), rarement (ਘੱਟ ਹੀ), ne … jamais (ਕਦੇ ਨਹੀਂ) — ਕਿਰਿਆ ਤੋਂ ਬਾਅਦ ਆਉਂਦੇ ਹਨ। très = ਬਹੁਤ (ਵਿਸ਼ੇਸ਼ਣ ਨਾਲ), beaucoup = ਬਹੁਤ (ਕਿਰਿਆ ਨਾਲ)।"
+});
+PAW({
+  "un appartement": "ਫ਼ਲੈਟ", "un immeuble": "ਬਹੁ-ਮੰਜ਼ਿਲੀ ਇਮਾਰਤ", "l'étage (m)": "ਮੰਜ਼ਿਲ", "le rez-de-chaussée": "ਹੇਠਲੀ ਮੰਜ਼ਿਲ", "la cuisine": "ਰਸੋਈ",
+  "le salon": "ਬੈਠਕ", "la salle à manger": "ਖਾਣੇ ਵਾਲਾ ਕਮਰਾ", "la chambre": "ਸੌਣ ਵਾਲਾ ਕਮਰਾ", "la salle de bains": "ਗ਼ੁਸਲਖ਼ਾਨਾ", "les toilettes (f)": "ਪਖ਼ਾਨਾ, ਟਾਇਲਟ",
+  "le jardin": "ਬਗ਼ੀਚਾ", "le balcon": "ਬਾਲਕੋਨੀ", "l'escalier (m)": "ਪੌੜੀਆਂ", "le lit": "ਬਿਸਤਰਾ, ਮੰਜਾ", "l'armoire (f)": "ਅਲਮਾਰੀ", "le canapé": "ਸੋਫ਼ਾ",
+  "le frigo": "ਫ਼ਰਿੱਜ", "la douche": "ਸ਼ਾਵਰ", "la clé": "ਚਾਬੀ", "Quel temps fait-il ?": "ਮੌਸਮ ਕਿਹੋ ਜਿਹਾ ਹੈ?", "il fait mauvais": "ਮੌਸਮ ਖ਼ਰਾਬ ਹੈ",
+  "il pleut": "ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ", "il neige": "ਬਰਫ਼ ਪੈ ਰਹੀ ਹੈ", "le vent": "ਹਵਾ", "le soleil": "ਸੂਰਜ, ਧੁੱਪ", "un nuage": "ਬੱਦਲ", "la pluie": "ਮੀਂਹ",
+  "la neige": "ਬਰਫ਼", "un orage": "ਤੂਫ਼ਾਨ, ਹਨੇਰੀ-ਝੱਖੜ", "la météo": "ਮੌਸਮ ਦਾ ਹਾਲ", "toujours": "ਹਮੇਸ਼ਾ", "souvent": "ਅਕਸਰ", "parfois": "ਕਦੇ-ਕਦੇ",
+  "rarement": "ਘੱਟ ਹੀ", "très": "ਬਹੁਤ", "beaucoup": "ਬਹੁਤ, ਬਹੁਤ ਸਾਰਾ",
+  "Il fait beau.": "ਮੌਸਮ ਵਧੀਆ ਹੈ।", "Il fait mauvais.": "ਮੌਸਮ ਖ਼ਰਾਬ ਹੈ।", "Il fait chaud / froid.": "ਗਰਮੀ ਹੈ / ਠੰਢ ਹੈ।", "Il fait trente degrés.": "ਤੀਹ ਡਿਗਰੀ ਤਾਪਮਾਨ ਹੈ।",
+  "Il pleut.": "ਮੀਂਹ ਪੈ ਰਿਹਾ ਹੈ।", "Il neige.": "ਬਰਫ਼ ਪੈ ਰਹੀ ਹੈ।", "Il y a du vent.": "ਹਵਾ ਚੱਲ ਰਹੀ ਹੈ।", "Il y a du soleil.": "ਧੁੱਪ ਨਿਕਲੀ ਹੋਈ ਹੈ।",
+  "Il y a des nuages.": "ਬੱਦਲ ਛਾਏ ਹੋਏ ਹਨ।", "Il fait très chaud en mai.": "ਮਈ ਵਿੱਚ ਬਹੁਤ ਗਰਮੀ ਹੁੰਦੀ ਹੈ।", "Notre appartement a trois chambres.": "ਸਾਡੇ ਫ਼ਲੈਟ ਵਿੱਚ ਤਿੰਨ ਕਮਰੇ ਹਨ।",
+  "La salle de bains est à côté de la cuisine.": "ਗ਼ੁਸਲਖ਼ਾਨਾ ਰਸੋਈ ਦੇ ਨਾਲ ਹੈ।", "Je vais souvent au marché le dimanche.": "ਮੈਂ ਅਕਸਰ ਐਤਵਾਰ ਨੂੰ ਬਾਜ਼ਾਰ ਜਾਂਦਾ ਹਾਂ।",
+  "Il ne neige jamais à Morinda.": "ਮੋਰਿੰਡਾ ਵਿੱਚ ਕਦੇ ਬਰਫ਼ ਨਹੀਂ ਪੈਂਦੀ।"
+});
+
+/* ---------- Unit 20 ---------- */
+PAN({
+  "20-0": "ਸ਼ੌਕ ਦੱਸਣ ਲਈ: faire du / de la + ਸਰਗਰਮੀ (faire du yoga), jouer à + ਖੇਡ (jouer au cricket), jouer de + ਸਾਜ਼ (jouer de la guitare), ਅਤੇ aimer + ਕਿਰਿਆ (J'aime lire = ਮੈਨੂੰ ਪੜ੍ਹਨਾ ਪਸੰਦ ਹੈ)।",
+  "20-1": "ਜਿਸ ਵਾਹਨ ਦੇ ਅੰਦਰ ਬੈਠਦੇ ਹੋ ਉਸ ਨਾਲ en: en bus, en voiture, en train, en avion। ਜਿਸ ਉੱਤੇ ਬੈਠਦੇ ਹੋ ਜਾਂ ਪੈਦਲ ਨਾਲ à: à vélo, à moto, à pied।",
+  "20-2": "ਕਿੱਤਿਆਂ ਦੇ ਇਸਤਰੀ-ਲਿੰਗ ਰੂਪ: -eur → -euse (serveuse), -teur → -trice (actrice), -ier → -ière (infirmière), -ien → -ienne (mécanicienne)। ਪੁੱਛਣਾ: Qu'est-ce que vous faites dans la vie ? (ਤੁਸੀਂ ਕੀ ਕੰਮ ਕਰਦੇ ਹੋ?)"
+});
+PAW({
+  "faire de la natation": "ਤੈਰਾਕੀ ਕਰਨਾ", "faire du yoga": "ਯੋਗਾ ਕਰਨਾ", "faire de la randonnée": "ਪਹਾੜਾਂ ’ਤੇ ਪੈਦਲ ਘੁੰਮਣਾ", "jouer au cricket": "ਕ੍ਰਿਕਟ ਖੇਡਣਾ",
+  "jouer aux échecs": "ਸ਼ਤਰੰਜ ਖੇਡਣਾ", "jouer aux cartes": "ਤਾਸ਼ ਖੇਡਣਾ", "jouer de la guitare": "ਗਿਟਾਰ ਵਜਾਉਣਾ", "lire": "ਪੜ੍ਹਨਾ", "dessiner": "ਚਿੱਤਰ ਬਣਾਉਣਾ",
+  "cuisiner": "ਖਾਣਾ ਬਣਾਉਣਾ", "une série": "ਟੀਵੀ ਲੜੀਵਾਰ", "le week-end": "ਹਫ਼ਤੇ ਦੇ ਅੰਤ (ਸ਼ਨਿੱਚਰ-ਐਤਵਾਰ)", "en voiture": "ਕਾਰ ਰਾਹੀਂ", "en train": "ਰੇਲ ਰਾਹੀਂ",
+  "en avion": "ਹਵਾਈ ਜਹਾਜ਼ ਰਾਹੀਂ", "en métro": "ਮੈਟਰੋ ਰਾਹੀਂ", "à vélo": "ਸਾਈਕਲ ’ਤੇ", "un vendeur / une vendeuse": "ਦੁਕਾਨ ’ਤੇ ਵੇਚਣ ਵਾਲਾ / ਵਾਲੀ",
+  "un serveur / une serveuse": "ਵੇਟਰ (ਮੁੰਡਾ / ਕੁੜੀ)", "un acteur / une actrice": "ਅਦਾਕਾਰ / ਅਦਾਕਾਰਾ", "un infirmier / une infirmière": "ਨਰਸ (ਮਰਦ / ਔਰਤ)",
+  "un mécanicien / une mécanicienne": "ਮਿਸਤਰੀ (ਮਕੈਨਿਕ)", "un agriculteur / une agricultrice": "ਕਿਸਾਨ", "un médecin": "ਡਾਕਟਰ", "un avocat / une avocate": "ਵਕੀਲ",
+  "un cuisinier / une cuisinière": "ਰਸੋਈਆ", "un bureau": "ਦਫ਼ਤਰ, ਮੇਜ਼", "une usine": "ਫ਼ੈਕਟਰੀ, ਕਾਰਖ਼ਾਨਾ", "à la retraite": "ਸੇਵਾ-ਮੁਕਤ (ਰਿਟਾਇਰ)", "le travail": "ਕੰਮ, ਨੌਕਰੀ",
+  "Qu'est-ce que vous faites dans la vie ?": "ਤੁਸੀਂ ਕੀ ਕੰਮ ਕਰਦੇ ਹੋ?", "Je suis infirmière.": "ਮੈਂ ਨਰਸ ਹਾਂ।", "Je travaille dans un bureau.": "ਮੈਂ ਇੱਕ ਦਫ਼ਤਰ ਵਿੱਚ ਕੰਮ ਕਰਦਾ ਹਾਂ।",
+  "Il travaille dans une usine.": "ਉਹ ਇੱਕ ਫ਼ੈਕਟਰੀ ਵਿੱਚ ਕੰਮ ਕਰਦਾ ਹੈ।", "Elle est à la retraite.": "ਉਹ ਰਿਟਾਇਰ ਹੋ ਚੁੱਕੀ ਹੈ।", "Je cherche du travail.": "ਮੈਂ ਕੰਮ ਲੱਭ ਰਿਹਾ ਹਾਂ।",
+  "Le week-end, je fais du vélo.": "ਸ਼ਨਿੱਚਰ-ਐਤਵਾਰ ਮੈਂ ਸਾਈਕਲ ਚਲਾਉਂਦਾ ਹਾਂ।", "Ma sœur est ingénieure à Mohali.": "ਮੇਰੀ ਭੈਣ ਮੋਹਾਲੀ ਵਿੱਚ ਇੰਜੀਨੀਅਰ ਹੈ।",
+  "Nous allons à Paris en avion.": "ਅਸੀਂ ਹਵਾਈ ਜਹਾਜ਼ ਰਾਹੀਂ ਪੈਰਿਸ ਜਾ ਰਹੇ ਹਾਂ।", "J'aime écouter de la musique.": "ਮੈਨੂੰ ਸੰਗੀਤ ਸੁਣਨਾ ਪਸੰਦ ਹੈ।"
+});
+
 
 </script>
 <script>
@@ -1599,7 +2070,7 @@ function sayQueue(list){if(!HAS_TTS||!list.length)return;
   function run(){try{speechSynthesis.resume();}catch(e){}list.forEach(function(u){try{speechSynthesis.speak(u);}catch(e){}});}
   var busy=false;try{busy=speechSynthesis.speaking||speechSynthesis.pending;}catch(e){}
   if(busy){try{speechSynthesis.cancel();}catch(e){}setTimeout(run,120);}else run();}
-function sayText(t){return String(t).replace(/\(.*?\)/g,"").replace(/\s*→\s*/g,", ").replace(/\s\/\s/g,", ").replace(/…/g,"").trim();}
+function sayText(t){return String(t).replace(/\(.*?\)/g,"").replace(/\s*→\s*/g,", ").replace(/\s\/\s/g,", ").replace(/\s[·—–]\s/g,", ").replace(/…/g,"").replace(/\s+,/g,",").replace(/^[,\s]+|[,\s]+$/g,"").trim();}
 function speak(t){if(!HAS_TTS)return;var x=sayText(t);if(!x)return;try{sayQueue([utter(x)]);}catch(e){}}
 document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b){e.preventDefault();speak(b.getAttribute("data-say"));}});
 
@@ -1608,8 +2079,10 @@ var view={name:"home"};
 function go(v){view=v;render();window.scrollTo(0,0);}
 function bar(){
   var done=UNITS.filter(function(u){return unitPct(u)>=80;}).length;
-  return '<header class="bar"><button class="brand" data-go="home"><span class="badge">Fr</span><span><b>Pioneer French · A1</b><span>Pioneer Education, Morinda</span></span></button>'+
-   '<div class="stats"><span class="chip acc">'+S.xp+' XP</span><span class="chip">'+S.streak+'-day streak</span><span class="chip ok">'+done+' / '+UNITS.length+' units</span></div></header>';
+  var t=S.tr||{en:true,pa:true};
+  return '<header class="bar"><button class="menu-btn" data-go="menu" aria-label="Open the list of units" aria-expanded="false"><span></span><span></span><span></span></button><button class="brand" data-go="home"><span class="badge">Fr</span><span><b>Pioneer French · A1</b><span>Pioneer Education, Morinda</span></span></button>'+
+   '<div class="stats"><span class="chip acc">'+S.xp+' XP</span><span class="chip">'+S.streak+'-day streak</span><span class="chip ok">'+done+' / '+UNITS.length+' units</span></div>'+
+   '<div class="langbar" role="group" aria-label="Translations"><span class="lb-l">Show</span><button class="trbtn'+(t.en!==false?" on":"")+'" data-go="tr" data-l="en" aria-pressed="'+(t.en!==false)+'">English</button><button class="trbtn'+(t.pa!==false?" on":"")+'" data-go="tr" data-l="pa" aria-pressed="'+(t.pa!==false)+'" lang="pa">ਪੰਜਾਬੀ</button></div></header>'+menuHTML();
 }
 var POST=[];
 function remember(){
@@ -1629,7 +2102,7 @@ function resumeSession(){var s=S.sess;if(!s||!UNITS[s.u]){S.sess=null;save();ren
 function resumeLabel(){var s=S.sess;if(!s||!UNITS[s.u])return "";var t=TYPES.filter(function(x){return x.id===s.type;})[0];
   return 'Resume: Unité '+s.u+' · '+(t?t.name:"")+' · '+(Math.min(s.i+(s.answered?2:1),s.items.length))+' / '+s.items.length;}
 function render(){
-  POST=[];remember();
+  POST=[];remember();applyTr();
   var h=bar();
   if(view.name==="home")h+=home();
   else if(view.name==="unit")h+=unitView();
@@ -1646,6 +2119,10 @@ function render(){
 app.addEventListener("click",function(e){
   var g=e.target.closest("[data-go]");if(!g)return;
   var k=g.getAttribute("data-go");
+  if(k==="menu"){openMenu(!document.body.classList.contains("menu-open"));return;}
+  if(k==="menuclose"){openMenu(false);return;}
+  if(k==="tr"){var l=g.getAttribute("data-l");S.tr=S.tr||{en:true,pa:true};S.tr[l]=S.tr[l]===false;save();render();return;}
+  document.body.classList.remove("menu-open");
   if(k==="home")go({name:"home"});
   else if(k==="unit")go({name:"unit",u:+g.getAttribute("data-u"),tab:g.getAttribute("data-tab")||"lesson"});
   else if(k==="tab"){view.tab=g.getAttribute("data-tab");render();}
@@ -1670,14 +2147,14 @@ function home(){
    (S.place?'<p class="muted">Placement result: '+S.place.score+' / '+S.place.total+' — suggested start, Unité '+S.place.start+'.</p>':'')+
    '</section><div class="units">';
   UNITS.forEach(function(u){var p=unitPct(u);
-    h+='<button class="ucard" data-go="unit" data-u="'+u.id+'"><span class="num">Unité '+u.id+'</span><h3>'+fr(u.fr)+'</h3><span class="en">'+esc(u.en)+'</span>'+
+    h+='<button class="ucard" data-go="unit" data-u="'+u.id+'"><span class="num">Unité '+u.id+'</span><h3>'+fr(u.fr)+'</h3><span class="en">'+esc(u.en)+'</span>'+trPa(PA.u[u.id])+
       '<span class="meter'+(p>=80?" done":"")+'" aria-label="'+p+'% complete"><i style="width:'+p+'%"></i></span><span class="en">'+(p>=80?"Complete · ":"")+p+'%</span></button>';});
   return h+'</div>'+skillsHome();
 }
 
 function unitView(){
   var u=UNITS[view.u];
-  var h='<button class="btn ghost" data-go="home">← All units</button><div class="uhead"><p class="eyebrow">Unité '+u.id+'</p><h2>'+fr(u.fr)+'</h2><p class="muted">'+esc(u.en)+'</p></div>';
+  var h='<button class="btn ghost" data-go="home">← All units</button><div class="uhead"><p class="eyebrow">Unité '+u.id+'</p><h2>'+fr(u.fr)+'</h2><p class="muted">'+esc(u.en)+'</p>'+(PA.u[u.id]?'<p class="tr tr-pa uh-pa" lang="pa">'+esc(PA.u[u.id])+'</p>':'')+'</div>';
   var tabs=[["lesson","Leçon · Lesson"],["vocab","Vocabulaire · Words"],["practice","Pratique · Practice"]];
   h+='<div class="tabs" role="tablist">'+tabs.map(function(t){return '<button class="tab" role="tab" data-go="tab" data-tab="'+t[0]+'" aria-selected="'+(view.tab===t[0])+'">'+t[1]+'</button>';}).join("")+'</div>';
   if(view.tab==="lesson")h+=lesson(u);
@@ -1687,24 +2164,56 @@ function unitView(){
   return h+nav;
 }
 function table(t){
-  var hasHead=t.head.some(function(x){return x;});
+  var hasHead=t.head.some(function(x){return x;}),say=t.say||[];
   return '<div class="tbl"><table>'+(hasHead?'<thead><tr>'+t.head.map(function(x){return '<th>'+esc(x)+'</th>';}).join("")+'</tr></thead>':'')+
-    '<tbody>'+t.rows.map(function(r){return '<tr>'+r.map(function(c){return '<td>'+ipa(fr(c))+'</td>';}).join("")+'</tr>';}).join("")+'</tbody></table></div>';
+    '<tbody>'+t.rows.map(function(r){return '<tr>'+r.map(function(c,ci){
+      var spoken=say.indexOf(ci)>=0?String(c).replace(/^\d+\s+/,"").trim():"";
+      return '<td>'+(spoken?'<div class="cellsay">'+playBtn(spoken)+'<span>'+ipa(fr(c))+'</span></div>':ipa(fr(c)))+'</td>';}).join("")+'</tr>';}).join("")+'</tbody></table></div>';
 }
+function alphaGrid(rows){
+  return '<div class="alpha">'+rows.map(function(a){return '<div class="al"><button class="al-l" data-say="'+esc(a[2])+'" aria-label="Hear the letter '+esc(a[0])+'"><b>'+esc(a[0].toUpperCase())+' '+esc(a[0])+'</b><span class="ipa">'+esc(a[1])+'</span></button>'+
+    '<div class="al-w">'+playBtn(a[3])+'<span><b>'+esc(a[3])+'</b><br><span class="muted small">'+esc(a[4])+'</span></span></div></div>';}).join("")+'</div>';
+}
+/* Translations: English and Punjabi lines sit beside the French; the two buttons
+   at the top show or hide each language (remembered per student). */
+function paOf(fr){return (typeof PA!=="undefined"&&PA.w[fr])||"";}
+function trEn(t){return t?'<span class="tr tr-en">'+esc(t)+'</span>':'';}
+function trPa(t){return t?'<span class="tr tr-pa" lang="pa">'+esc(t)+'</span>':'';}
+function applyTr(){var t=S.tr||{en:true,pa:true};document.body.classList.toggle("t-en",t.en!==false);document.body.classList.toggle("t-pa",t.pa!==false);}
+var GROUPS=[["A1.1","Premiers pas","ਪਹਿਲੇ ਕਦਮ",[0,1,2,3,4]],["A1.2","Les bases","ਬੁਨਿਆਦੀ ਵਿਆਕਰਨ",[5,6,7,8,9,10]],["A1.3","Au quotidien","ਰੋਜ਼ਾਨਾ ਜ਼ਿੰਦਗੀ",[11,12,13,14,15]],["A1.4","Ma vie","ਮੇਰੀ ਜ਼ਿੰਦਗੀ",[16,17,18,19,20]]];
+function menuHTML(){
+  var curU=view.name==="unit"||view.name==="session"?view.u:-1;
+  var h='<div class="scrim" data-go="menuclose"></div><nav class="drawer" id="drawer" aria-label="All units"><div class="dr-head"><b>Units · <span lang="pa">ਪਾਠ</span></b><button class="dr-x" data-go="menuclose" aria-label="Close">✕</button></div>'+
+    '<button class="dr-row" data-go="home"><span class="dr-n">⌂</span><span class="dr-t">Home</span></button>';
+  GROUPS.forEach(function(g){
+    h+='<p class="dr-g">'+g[0]+' · '+esc(g[1])+' <span lang="pa">· '+esc(g[2])+'</span></p>';
+    g[3].forEach(function(id){var u=UNITS[id];if(!u)return;var p=unitPct(u);
+      h+='<button class="dr-row'+(id===curU?" cur":"")+'" data-go="unit" data-u="'+id+'"'+(id===curU?' aria-current="page"':'')+'><span class="dr-n">'+id+'</span><span class="dr-t">'+fr(u.fr)+'<small>'+esc(u.en)+'</small></span><span class="dr-p'+(p>=80?" ok":"")+'">'+(p>=80?"✓":p+"%")+'</span></button>';});});
+  h+='<p class="dr-g">DELF A1 · <span lang="pa">ਪ੍ਰੀਖਿਆ ਦੀ ਤਿਆਰੀ</span></p>';
+  [["listening","Listening","ਸੁਣਨਾ"],["reading","Reading","ਪੜ੍ਹਨਾ"],["writing","Writing","ਲਿਖਣਾ"],["speaking","Speaking","ਬੋਲਣਾ"]].forEach(function(k){
+    h+='<button class="dr-row'+(view.k===k[0]&&(view.name==="skill"||view.name==="task")?" cur":"")+'" data-go="skill" data-k="'+k[0]+'"><span class="dr-n">◆</span><span class="dr-t">'+k[1]+'<small lang="pa">'+k[2]+'</small></span></button>';});
+  h+='<button class="dr-row'+(view.name==="exam"?" cur":"")+'" data-go="exam"><span class="dr-n">★</span><span class="dr-t">Mock exam<small lang="pa">ਨਮੂਨਾ ਪ੍ਰੀਖਿਆ</small></span></button>'+
+     '<button class="dr-row" data-go="place"><span class="dr-n">?</span><span class="dr-t">Placement test<small lang="pa">ਪੱਧਰ ਜਾਂਚ</small></span></button></nav>';
+  return h;
+}
+function openMenu(on){document.body.classList.toggle("menu-open",on);var b=document.querySelector(".menu-btn");if(b)b.setAttribute("aria-expanded",on?"true":"false");if(on){var c=document.querySelector(".dr-row.cur")||document.querySelector(".dr-x");if(c)c.focus({preventScroll:true});}}
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&document.body.classList.contains("menu-open"))openMenu(false);});
 function ipa(s){return s.replace(/\[[^\]]+\]/g,function(m){return '<span class="ipa">'+m+'</span>';});}
 function lesson(u){
-  return u.notes.map(function(n){
+  return u.notes.map(function(n,ni){
     var h='<section class="note"><h3>'+esc(n.h)+'</h3>';
-    if(n.conj){h+='<div class="tbl conj"><table><tbody>'+n.conj.map(function(r,i){return '<tr><td>'+esc(r[0])+'</td><td><div class="ex"><b>'+esc(r[1])+'</b>'+playBtn(n.say[i])+'</div></td></tr>';}).join("")+'</tbody></table></div>';}
+    var pn=PA.n[u.id+"-"+ni];if(pn)h+='<p class="tr tr-pa pa-note" lang="pa">'+esc(pn)+'</p>';
+    if(n.conj){h+='<div class="tbl conj"><table><tbody>'+n.conj.map(function(r,i){return '<tr><td>'+esc(r[0])+'</td><td><div class="ex"><b>'+esc(r[1])+'</b>'+playBtn(n.say[i])+'</div></td><td class="tr tr-pa" lang="pa">'+esc(paOf(n.say[i]))+'</td></tr>';}).join("")+'</tbody></table></div>';}
     if(n.html)h+='<div>'+ipa(n.html)+'</div>';
+    if(n.alpha)h+=alphaGrid(n.alpha);
     if(n.table)h+=table(n.table);
     if(n.sounds)h+='<div class="sounds">'+n.sounds.map(function(s){return '<div class="snd"><span class="g">'+esc(s[0])+'</span><span class="p ipa">'+esc(s[1])+'</span><span class="w">'+playBtn(s[2])+'<b>'+esc(s[2])+'</b> <span class="muted">'+esc(s[3])+'</span></span><span class="t">'+ipa(esc(s[4]))+'</span></div>';}).join("")+'</div>';
-    if(n.ex)h+='<div class="exlist">'+n.ex.map(function(e){return '<div class="ex">'+playBtn(e[0])+'<div><div class="fr">'+fr(e[0])+'</div><div class="en">'+esc(e[1])+'</div></div></div>';}).join("")+'</div>';
+    if(n.ex)h+='<div class="exlist">'+n.ex.map(function(e){return '<div class="ex">'+playBtn(e[0])+'<div><div class="fr">'+fr(e[0])+'</div>'+trEn(e[1])+trPa(paOf(e[0]))+'</div></div>';}).join("")+'</div>';
     return h+'</section>';
   }).join("")+tutorBox(u)+'<div class="row"><button class="btn primary" data-go="tab" data-tab="practice">Practise this unit</button></div>';
 }
 function vocabList(u){
-  return '<div class="vocab">'+u.vocab.map(function(v){return '<div class="vrow">'+playBtn(v[0])+'<div><b>'+fr(v[0])+'</b><span>'+esc(v[1])+'</span></div></div>';}).join("")+'</div>'+
+  return '<div class="vocab">'+u.vocab.map(function(v){return '<div class="vrow">'+playBtn(v[0])+'<div><b>'+fr(v[0])+'</b>'+trEn(v[1])+trPa(paOf(v[0]))+'</div></div>';}).join("")+'</div>'+
    '<div class="row" style="margin-top:16px"><button class="btn primary" data-go="start" data-u="'+u.id+'" data-type="flash">Study with flashcards</button></div>';
 }
 function practice(u){
@@ -1807,14 +2316,14 @@ var RENDER={
     document.getElementById("chk").onclick=function(){view.state="done";var ans=picked.map(function(p){return p.t;}).join(" "),ok=ans===body;mark(ok);
       document.getElementById("chk").disabled=true;document.querySelectorAll(".tile").forEach(function(b){b.disabled=true;});feedback(ok,fr(it.fr),"");speak(it.fr);};
   };
-  return '<p class="eyebrow">Build the sentence</p><div class="qtext">'+esc(it.en)+'</div><div class="line" id="line" aria-label="Your sentence"></div><div class="tiles" id="pool"></div><div class="row"><button class="btn primary" id="chk" disabled>Check</button></div>';
+  return '<p class="eyebrow">Build the sentence</p><div class="qtext">'+esc(it.en)+(paOf(it.fr)?'<span class="tr-pa q-pa" lang="pa">'+esc(paOf(it.fr))+'</span>':'')+'</div><div class="line" id="line" aria-label="Your sentence"></div><div class="tiles" id="pool"></div><div class="row"><button class="btn primary" id="chk" disabled>Check</button></div>';
  },
  flash:function(it){
   view.after=function(){var c=document.getElementById("card");speak(it.fr);
     c.onclick=function(e){if(e.target.closest("[data-say]"))return;document.getElementById("back").hidden=false;document.getElementById("acts").hidden=false;};
     document.getElementById("knew").onclick=function(){nextQ();};
     document.getElementById("again").onclick=function(){view.items.push(it);nextQ();};};
-  return '<p class="eyebrow">Flashcards · tap the card to see the meaning</p><div class="flash" id="card" role="button" tabindex="0"><div><div class="fr">'+fr(it.fr)+'</div></div>'+playBtn(it.fr)+'<p id="back" hidden class="muted" style="font-size:1.15rem">'+esc(it.en)+'</p></div>'+
+  return '<p class="eyebrow">Flashcards · tap the card to see the meaning</p><div class="flash" id="card" role="button" tabindex="0"><div><div class="fr">'+fr(it.fr)+'</div></div>'+playBtn(it.fr)+'<p id="back" hidden class="muted" style="font-size:1.15rem">'+esc(it.en)+(paOf(it.fr)?'<span class="q-pa" lang="pa">'+esc(paOf(it.fr))+'</span>':'')+'</p></div>'+
     '<div class="row" id="acts" hidden><button class="btn primary" id="knew">I knew it</button><button class="btn" id="again">Show again later</button></div>';
  },
  match:function(it){
