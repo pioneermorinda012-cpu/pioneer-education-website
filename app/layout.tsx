@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description:
     "Pioneer Education Center, Prem Nagar, Morinda, Punjab — IELTS, PTE, Spoken English & German coaching since 2017, led by Narinder Singh. Rated 5.0 stars from 125+ students. Practice with our Pioneer Education app and real test simulations.",
   metadataBase: new URL("https://pioneermorinda.com"),
+  // home-screen icon and name (the web app manifest is app/manifest.ts)
+  icons: { apple: "/icons/apple-touch-icon.png" },
+  appleWebApp: { capable: true, title: "Pioneer", statusBarStyle: "default" },
   openGraph: {
     title: "Pioneer Education — IELTS, PTE, Spoken English & German",
     description:

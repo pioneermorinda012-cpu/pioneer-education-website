@@ -58,6 +58,10 @@ export default function TeacherPage() {
   const [check, setCheck] = useState<Check | null>(null);
   const [mailTo, setMailTo] = useState("");
   const [mailResult, setMailResult] = useState("");
+  type PushInfo = { ready: boolean; missing: string[]; devices?: number; students?: number; byGroup?: Record<string, number>; error?: string };
+  const [push, setPush] = useState<PushInfo | null>(null);
+  const [pushForm, setPushForm] = useState({ group: "all", title: "", body: "", url: "" });
+  const [pushResult, setPushResult] = useState("");
   const [group, setGroup] = useState<Group>("all");
   const [q, setQ] = useState("");
   const [until, setUntilMap] = useState<Record<string, Record<string, string>>>({});
@@ -140,6 +144,25 @@ export default function TeacherPage() {
     setCheck(d);
     if (!mailTo && d.owner) setMailTo(d.owner);
   }
+
+  async function loadPush() {
+    const res = await fetch("/api/practice/teacher?push=1", { cache: "no-store" });
+    setPush(await res.json().catch(() => null));
+  }
+
+  async function sendPush(e: React.FormEvent) {
+    e.preventDefault();
+    const n = push?.byGroup?.[pushForm.group] ?? 0;
+    if (!confirm(`Send this notification to ${n} student${n === 1 ? "" : "s"}?`)) return;
+    setPushResult("Sending…");
+    const d = await post({ action: "push", ...pushForm });
+    if (!d) { setPushResult(""); return; }
+    setPushResult(`Sent to ${d.students} student${d.students === 1 ? "" : "s"} (${d.sent} device${d.sent === 1 ? "" : "s"})` +
+      (d.removed ? `; ${d.removed} switched-off device${d.removed === 1 ? "" : "s"} removed` : "") +
+      (d.failed ? `; ${d.failed} failed` : "") + ".");
+    setPushForm({ ...pushForm, title: "", body: "" });
+  }
+  useEffect(() => { if (tab === "people" && state === "in" && !push) loadPush(); }, [tab, state, push]);
 
   async function testMail() {
     setMailResult("Sending…");
@@ -642,6 +665,58 @@ export default function TeacherPage() {
                 )}
                 {mailResult && <div style={{ marginTop: 8, fontWeight: 600 }}>{mailResult}</div>}
               </div>
+            )}
+          </section>
+
+          <section className="pr-set">
+            <h2>Practice reminders</h2>
+            {!push ? (
+              <div className="pr-note" style={{ marginTop: 0 }}>Loading…</div>
+            ) : !push.ready ? (
+              <div className="pr-note" style={{ marginTop: 0 }}>
+                <b>Not set up yet.</b> Add these in Vercel → Settings → Environment Variables, then redeploy: {push.missing.join(", ")}.
+              </div>
+            ) : (
+              <>
+                <div className="pr-note" style={{ marginTop: 0 }}>
+                  <b>{push.students ?? 0} student{push.students === 1 ? "" : "s"}</b> {push.students === 1 ? "has" : "have"} reminders on ({push.devices ?? 0} device{push.devices === 1 ? "" : "s"}).
+                  Automatic: a word of the day about 8 am, and about 7 pm a reminder to students who haven&apos;t practised that day.
+                  {push.missing.includes("CRON_SECRET") && <> <b>CRON_SECRET is missing, so the automatic ones won&apos;t send.</b></>}
+                  {push.error && <> Could not count: {push.error}</>}
+                </div>
+                <form className="pr-form" onSubmit={sendPush}>
+                  <div style={{ gridColumn: "1 / -1" }}>
+                    <label>Send to</label>
+                    <div className="pr-chips">
+                      {[["all", "All students"], ["ielts", "IELTS"], ["pte", "PTE"], ["english", "English"], ["german", "German"]].map(([k, l]) => (
+                        <button key={k} type="button" className={pushForm.group === k ? "on" : undefined}
+                                onClick={() => setPushForm({ ...pushForm, group: k })}>
+                          {l} <b>{push.byGroup?.[k] ?? 0}</b>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div style={{ gridColumn: "1 / -1" }}>
+                    <label htmlFor="p-title">Title</label>
+                    <input id="p-title" maxLength={80} value={pushForm.title} placeholder="Mock test this Saturday"
+                           onChange={(e) => setPushForm({ ...pushForm, title: e.target.value })} />
+                  </div>
+                  <div style={{ gridColumn: "1 / -1" }}>
+                    <label htmlFor="p-body">Message</label>
+                    <input id="p-body" maxLength={240} value={pushForm.body} placeholder="Full IELTS mock at 10 am. Do Reading Test 3 before then."
+                           onChange={(e) => setPushForm({ ...pushForm, body: e.target.value })} />
+                  </div>
+                  <div style={{ gridColumn: "1 / -1" }}>
+                    <label htmlFor="p-url">Opens (optional)</label>
+                    <input id="p-url" value={pushForm.url} placeholder="/practice/writing?task=2 — empty opens each student's own course"
+                           onChange={(e) => setPushForm({ ...pushForm, url: e.target.value })} />
+                  </div>
+                  <div className="pr-form-go">
+                    <button className="btn" type="submit" disabled={busy || !pushForm.title.trim() || !pushForm.body.trim()}>Send notification</button>
+                  </div>
+                </form>
+                {pushResult && <div style={{ marginTop: 8, fontWeight: 600 }}>{pushResult}</div>}
+              </>
             )}
           </section>
 

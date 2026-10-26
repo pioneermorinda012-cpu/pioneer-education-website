@@ -7,6 +7,7 @@ import { getCatalogue } from "@/lib/catalogue";
 import { allAccess, cleanAreas, setAccess } from "@/lib/access";
 import { paymentsMissing } from "@/lib/razorpay";
 import { letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
+import { audience, pushReady, sendEach } from "@/lib/push";
 import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
@@ -15,6 +16,21 @@ import {
 export const runtime = "nodejs";
 
 const TEACHER_HOURS = 4;
+
+/* Courses a teacher's notification can go to — the same groups as the student
+   list. A student with no modules set opens everything, so is in every group. */
+const PUSH_GROUPS = [
+  { key: "all", areas: [] as string[] },
+  { key: "ielts", areas: ["academic", "gt"] },
+  { key: "pte", areas: ["pte"] },
+  { key: "english", areas: ["english"] },
+  { key: "german", areas: ["german"] },
+];
+function inGroup(areas: string[] | null, group: string): boolean {
+  const g = PUSH_GROUPS.find((x) => x.key === group);
+  if (!g || g.key === "all" || areas === null) return true;
+  return areas.some((a) => g.areas.includes(a));
+}
 
 function conf() {
   return {
@@ -44,6 +60,21 @@ export async function GET(req: NextRequest) {
     });
   }
   if (!(await signedIn(req))) return NextResponse.json({ configured: true, authed: false });
+
+  /* ?push=1: are practice reminders set up, and how many students have them on? */
+  if (req.nextUrl.searchParams.get("push")) {
+    const missing = ["VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY", "CRON_SECRET"].filter((k) => !process.env[k]);
+    if (!pushReady()) return NextResponse.json({ configured: true, authed: true, ready: false, missing });
+    try {
+      const { subs, people } = await audience();
+      const on = new Set(subs.map((s) => s.student_id));
+      const byGroup: Record<string, number> = {};
+      for (const g of PUSH_GROUPS) byGroup[g.key] = [...on].filter((id) => inGroup(people.get(id)?.areas ?? null, g.key)).length;
+      return NextResponse.json({ configured: true, authed: true, ready: true, missing, devices: subs.length, students: on.size, byGroup });
+    } catch (e) {
+      return NextResponse.json({ configured: true, authed: true, ready: true, missing, error: String((e as Error).message).slice(0, 200) });
+    }
+  }
 
   /* ?check=1: is online payment fully set up? Names only, never the values. */
   if (req.nextUrl.searchParams.get("check")) {
@@ -194,6 +225,27 @@ export async function POST(req: NextRequest) {
       // `clear`: modules whose online end date the teacher removed
       await setAccess(String(body.id ?? ""), access, cleanAreas(body.clear));
       return NextResponse.json({ ok: true, access });
+    }
+
+    if (action === "push") {
+      // the teacher's own notification, to everyone or to one course
+      if (!pushReady()) return NextResponse.json({ error: "Practice reminders are not set up yet (VAPID keys missing in Vercel)." }, { status: 503 });
+      const title = String(body.title ?? "").trim().slice(0, 80);
+      const text = String(body.body ?? "").trim().slice(0, 240);
+      const group = PUSH_GROUPS.some((g) => g.key === body.group) ? String(body.group) : "all";
+      let url = String(body.url ?? "").trim();
+      if (!title || !text) return NextResponse.json({ error: "Write a title and a message." }, { status: 400 });
+      // only pages on this site — a notification must never send a student elsewhere
+      if (url && !/^\/(?!\/)[\w\-./?=&%#]*$/.test(url)) {
+        return NextResponse.json({ error: "The link must be a page on this site, starting with /, e.g. /practice/english" }, { status: 400 });
+      }
+      const { subs, people } = await audience();
+      const result = await sendEach(subs, (id) => {
+        const p = people.get(id);
+        if (!p || !inGroup(p.areas, group)) return null;
+        return { title, body: text, url: url || p.home, tag: "pioneer-teacher-" + Date.now() };
+      });
+      return NextResponse.json({ ok: true, ...result });
     }
 
     if (action === "testMail") {

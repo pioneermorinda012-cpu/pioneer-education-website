@@ -84,7 +84,10 @@ async function rest(path: string, init: RequestInit = {}) {
     cache: "no-store",
   });
   if (!res.ok) throw new Error(`Supabase ${res.status}: ${(await res.text()).slice(0, 300)}`);
-  return res.status === 204 ? null : res.json();
+  /* A save that asks for no reply ("return=minimal") gets an empty 201 back;
+     reading that as JSON would throw after the save had already worked. */
+  const text = await res.text();
+  return text ? JSON.parse(text) : null;
 }
 
 /* What the row keeps in `answers`:

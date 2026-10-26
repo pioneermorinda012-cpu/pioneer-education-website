@@ -538,3 +538,6 @@ mark.ev-near .ev-badge { opacity: 0.85; }
 .ln-video summary::-webkit-details-marker { display: none; }
 .ln-video[open] summary .btn { opacity: .7; }
 .ln-video .ln-frame { margin-top: 12px; max-width: 760px; }
+/* practice reminders (push notifications) */
+.pu-box { margin-top: 14px; margin-bottom: 0; }
+.pu-go { display: flex; flex-wrap: wrap; gap: 8px; }

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import { readSession, COOKIE } from "@/lib/session";
 import SignOut from "@/components/practice/SignOut";
+import PushOptIn from "@/components/practice/PushOptIn";
+import { pushReady, vapidPublicKey } from "@/lib/push";
 import "./practice.css";
 
 export const metadata: Metadata = {
@@ -47,6 +49,9 @@ export default async function PracticeLayout({ children }: { children: React.Rea
           )}
         </div>
       </div>
+
+      {/* practice reminders: offered to a signed-in student once the keys are set */}
+      {session?.role === "student" && pushReady() && <PushOptIn publicKey={vapidPublicKey()} />}
 
       {children}
 
