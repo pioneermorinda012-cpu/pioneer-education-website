@@ -491,7 +491,66 @@
   ],
   "minutes": 20,
   "minWords": 150,
-  "chartType": "Map / plan"
+  "chartType": "Map / plan",
+  "check": {
+   "bullets": [
+    {
+     "label": "1950: houses, farmland, school and playground",
+     "kw": [
+      "1950",
+      "\\bhouses?\\b",
+      "farm",
+      "playground"
+     ]
+    },
+    {
+     "label": "1980: car park, science block and sports field",
+     "kw": [
+      "1980",
+      "car park|parking",
+      "science",
+      "sports field|sports ground|playing field",
+      "demolish|replac|knock"
+     ]
+    },
+    {
+     "label": "2010: car park enlarged, sports field reduced",
+     "kw": [
+      "2010",
+      "expand|enlarg|extend|bigger|larger|grew",
+      "reduc|smaller|shr[aiu]nk|narrow",
+      "sports? field"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "map": true,
+   "prompt": "The diagrams below show the changes that have taken place at West Park Secondary School since its construction in 1950. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "school",
+    "site",
+    "1950",
+    "1980",
+    "2010",
+    "park",
+    "car",
+    "field"
+   ]
+  },
+  "phrases": [
+   "The three plans show how … changed between 1950 … and 2010.",
+   "Overall, … while the playground remained unchanged throughout.",
+   "…with a row of houses to its west",
+   "By 1980, the houses had been demolished and replaced by…",
+   "The farmland had been converted into…",
+   "…taking over most of the sports field, which was reduced to a narrow strip"
+  ],
+  "sampleText": "The three plans show how West Park Secondary School and its site changed between 1950, when the school was built, and 2010.\n\nOverall, the school grew with the addition of a science block, and an increasing amount of space was given to car parking, while the area for sport first appeared and then shrank considerably. The playground remained unchanged throughout.\n\nIn 1950, the school building stood beside the main road, with a row of houses to its west and a playground behind it to the south. The south-western part of the site was farmland.\n\nBy 1980, the houses had been demolished and replaced by a car park and a science block, which was built next to the main school building. The farmland had been converted into a sports field. Between 1980 and 2010, the car park was greatly expanded southwards, taking over most of the sports field, which was reduced to a narrow strip between the car park and the playground. The school, the science block and the playground stayed the same.\n\n(About 170 words. It describes the three dates in order and uses the past perfect passive for changes completed by 1980.)"
  },
  {
   "id": "w1-59",
@@ -3283,5 +3342,295 @@
    "…it is the meal with the smallest or joint-smallest share."
   ],
   "sampleText": "The pie charts show the average proportions of sodium, saturated fat and added sugar consumed at breakfast, lunch, dinner and in snacks in the USA.\n\nOverall, dinner provides the largest share of both sodium and saturated fat, whereas most added sugar comes from snacks. Breakfast contributes the smallest (or joint-smallest) proportion of all three nutrients.\n\nDinner accounts for 43% of daily sodium intake and 37% of saturated fat, making it the main source of both. Lunch is the second biggest source, providing 29% of sodium and 26% of saturated fat. Snacks contribute 14% of sodium but a higher 21% of saturated fat, while breakfast makes up 14% and 16% respectively.\n\nAdded sugar follows a very different pattern. Snacks are by far the largest source, at 42%, which is three times their share of sodium. Dinner provides 23%, lunch 19% and breakfast 16%. Interestingly, breakfast contributes the same proportion of saturated fat and added sugar (16%), and in all three charts it is the meal with the smallest or joint-smallest share.\n\n(About 170 words. It groups sodium and saturated fat together (similar pattern) and contrasts them with added sugar.)"
+ },
+ {
+  "id": "w1-103",
+  "title": "The chart below gives information on the percentage of British people giving money to charity by age range for the years 1990 and 2010.",
+  "images": [
+   "t1-charitygivingbyage.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Younger groups (under 50) gave less in 2010",
+     "kw": [
+      "\\bfell\\b|\\bfall|drop|declin|decreas|less likely",
+      "(?<![\\d.])17(?![\\d]|\\.\\d)",
+      "(?<![\\d.])7\\s*%(?![\\d]|\\.\\d)",
+      "18\\s*(?:-|–|to)\\s*25",
+      "26\\s*(?:-|–|to)\\s*35",
+      "(?<![\\d.])24(?![\\d]|\\.\\d)",
+      "halv|half"
+     ]
+    },
+    {
+     "label": "36–50 were the most generous in 1990",
+     "kw": [
+      "36\\s*(?:-|–|to)\\s*50",
+      "(?<![\\d.])42(?![\\d]|\\.\\d)",
+      "most generous|highest|largest|biggest|most likely"
+     ]
+    },
+    {
+     "label": "Older groups (51–65, over 65) gave more",
+     "kw": [
+      "51\\s*(?:-|–|to)\\s*65",
+      "over[- ]?65|older than 65|above 65|65 and over",
+      "(?<![\\d.])39(?![\\d]|\\.\\d)",
+      "(?<![\\d.])34(?![\\d]|\\.\\d)",
+      "\\brose\\b|\\brise|increas|grew|more likely"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The chart below gives information on the percentage of British people giving money to charity by age range for the years 1990 and 2010. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "charity",
+    "people",
+    "age",
+    "group",
+    "groups",
+    "giving",
+    "money",
+    "percentage",
+    "proportion",
+    "gave"
+   ]
+  },
+  "phrases": [
+   "The bar chart compares the proportions of … who …",
+   "Overall, … fell among …, but rose among …",
+   "…were the most generous, with 42% giving to charity",
+   "…whose share more than halved, to 7%",
+   "…declined by seven percentage points each",
+   "In contrast, the proportion of … increased to …"
+  ],
+  "sampleText": "The bar chart compares the proportions of British people in five age groups who gave money to charity in 1990 and 2010.\n\nOverall, charitable giving fell among people under 50 over the twenty-year period, but rose among the two oldest groups. In both years, the youngest adults were the least likely to donate.\n\nIn 1990, people aged 36–50 were the most generous, with 42% giving to charity, followed by 51- to 65-year-olds at 35%. Just over 30% of those aged 26–35 and of those over 65 made donations, while the figure for 18- to 25-year-olds was only 17%.\n\nBy 2010, the percentage of donors had dropped in all three younger groups. The fall was sharpest among 18- to 25-year-olds, whose share more than halved, to 7%, while the figures for the 26–35 and 36–50 age groups declined by seven percentage points each, to 24% and 35%. In contrast, the proportion of people aged 51–65 who gave money increased to 39%, making them the most generous group, and the figure for the over-65s rose slightly to 34%.\n\n(About 180 words. It groups the three younger age ranges (falling) against the two older ones (rising) and names the group that was most generous in each year.)"
+ },
+ {
+  "id": "w1-104",
+  "title": "The graph and table below show the average monthly temperatures and the average number of hours of sunshine per year in three major cities.",
+  "images": [
+   "t1-temperaturessunshine.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Two charts (mixed)",
+  "check": {
+   "bullets": [
+    {
+     "label": "London and New York: warm mid-year, cold winters",
+     "kw": [
+      "new york",
+      "london",
+      "(?<![\\d.])29(?![\\d]|\\.\\d)",
+      "(?<![\\d.])23(?![\\d]|\\.\\d)",
+      "\\bjuly\\b|\\bjul\\b",
+      "summer|peak|highest|warmest"
+     ]
+    },
+    {
+     "label": "Sydney: the opposite pattern",
+     "kw": [
+      "sydney",
+      "opposite|reverse|by contrast|in contrast|whereas",
+      "(?<![\\d.])16(?![\\d]|\\.\\d)",
+      "(?<![\\d.])2[56](?![\\d]|\\.\\d)",
+      "december|january|february"
+     ]
+    },
+    {
+     "label": "Sunshine: New York and Sydney about twice London",
+     "kw": [
+      "sunshine",
+      "2,?535",
+      "2,?473",
+      "1,?180",
+      "twice|double|half"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The graph and table below show the average monthly temperatures and the average number of hours of sunshine per year in three major cities. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "temperature",
+    "temperatures",
+    "city",
+    "cities",
+    "london",
+    "york",
+    "sydney",
+    "sunshine",
+    "hours",
+    "month",
+    "months",
+    "new"
+   ]
+  },
+  "phrases": [
+   "The line graph shows…, and the table gives…",
+   "Overall, London and New York follow a similar pattern, whereas Sydney has the opposite pattern.",
+   "…climb steeply to a peak of around 29°C in July",
+   "…follows the same pattern, but less extremely",
+   "As for sunshine,…",
+   "…less than half the figure for either of the other cities"
+  ],
+  "sampleText": "The line graph shows the average monthly temperatures in London, New York and Sydney, and the table gives the total number of hours of sunshine each city receives in a year.\n\nOverall, London and New York follow a similar pattern, with warm summers in the middle of the year and cold winters, whereas Sydney has the opposite pattern. New York and Sydney enjoy roughly twice as much sunshine as London.\n\nNew York has the greatest range of temperatures. It is the coldest of the three cities in January, at about 4°C, but temperatures climb steeply to a peak of around 29°C in July before falling back to under 5°C in December. London follows the same pattern, but less extremely: its temperatures rise from about 8°C in January to a high of 23°C in July and August, then fall to around 8°C again by December.\n\nIn Sydney, by contrast, the warmest months are December to February, at 25–26°C, while the coolest is July, at about 16°C. As for sunshine, New York has the most hours per year (2,535), slightly more than Sydney (2,473), while London has only 1,180 hours, less than half the figure for either of the other cities.\n\n(About 210 words. Line values are approximate. It groups the two cities with the same pattern, contrasts Sydney, and gives the table its own sentences with a comparison (“less than half”).)"
+ },
+ {
+  "id": "w1-105",
+  "title": "The chart below gives information about Southland’s main exports in 2000, 20.. (the current year) and future projections for 2025.",
+  "images": [
+   "t1-southlandexports.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Bar chart",
+  "check": {
+   "bullets": [
+    {
+     "label": "Tourism: steady rise, the top export by 2025",
+     "kw": [
+      "tourism",
+      "(?<![\\d.])8(?![\\d]|\\.\\d)",
+      "(?<![\\d.])9(?![\\d.])",
+      "(?<![\\d.])10(?![\\d]|\\.\\d)",
+      "overtak|largest|most valuable|highest|biggest"
+     ]
+    },
+    {
+     "label": "Dairy: the biggest rise, then a slight fall",
+     "kw": [
+      "dairy",
+      "(?<![\\d.])7(?![\\d]|\\.\\d)",
+      "(?<![\\d.])10(?![\\d]|\\.\\d)",
+      "9\\.5",
+      "slight"
+     ]
+    },
+    {
+     "label": "Meat: falling throughout",
+     "kw": [
+      "meat",
+      "(?<![\\d.])6(?![\\d]|\\.\\d)",
+      "5\\.5",
+      "(?<![\\d.])5(?![\\d.])",
+      "\\bfall|\\bfell\\b|declin|decreas|drop"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "prompt": "The chart below gives information about Southland’s main exports in 2000, 20.. (the current year) and future projections for 2025. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "export",
+    "exports",
+    "southland",
+    "billion",
+    "tourism",
+    "dairy",
+    "meat",
+    "products",
+    "2025",
+    "year"
+   ]
+  },
+  "phrases": [
+   "…together with projections for 2025",
+   "…is expected to remain much higher than…",
+   "…are predicted to fall further",
+   "…were worth £7 billion and £6 billion respectively",
+   "…is forecast to continue growing, reaching…",
+   "…overtaking dairy products, whose value is expected to fall slightly"
+  ],
+  "sampleText": "The bar chart shows the value of Southland’s three main exports – international tourism, dairy products and meat products – in 2000 and this year, together with projections for 2025.\n\nOverall, income from international tourism and dairy products has increased since 2000 and is expected to remain much higher than the value of meat exports, which have fallen and are predicted to fall further. By 2025, tourism is expected to be the country’s most valuable export.\n\nIn 2000, international tourism earned Southland £8 billion, while dairy products and meat products were worth £7 billion and £6 billion respectively. Since then, dairy exports have grown the fastest, rising by £3 billion to £10 billion, which makes them the largest export this year. Tourism has also increased, to £9 billion.\n\nLooking ahead to 2025, tourism is forecast to continue growing, reaching £10 billion and overtaking dairy products, whose value is expected to fall slightly to £9.5 billion. Meat exports, by contrast, have already declined to £5.5 billion and are projected to drop to £5 billion, a sixth less than in 2000.\n\n(About 180 words. It uses the present perfect for 2000 → now and future forms (is expected to, is forecast to, is projected to) for 2025.)"
+ },
+ {
+  "id": "w1-106",
+  "title": "The maps below show the village of Stokeford in 1930 and in 2010.",
+  "images": [
+   "t1-stokefordvillage.png"
+  ],
+  "minutes": 20,
+  "minWords": 150,
+  "chartType": "Map / plan",
+  "check": {
+   "bullets": [
+    {
+     "label": "Farmland replaced by housing",
+     "kw": [
+      "farm",
+      "houses|housing|homes|residential",
+      "built|construct|develop|\\bnew\\b"
+     ]
+    },
+    {
+     "label": "New roads and houses; shops gone, post office stays",
+     "kw": [
+      "\\broads?\\b",
+      "\\bshops?\\b",
+      "\\bwest",
+      "\\beast",
+      "\\bsouth",
+      "post office"
+     ]
+    },
+    {
+     "label": "School extended; large house now a retirement home",
+     "kw": [
+      "school",
+      "extend|enlarg|expand|bigger|larger",
+      "retirement",
+      "large house",
+      "garden"
+     ]
+    }
+   ],
+   "greetRe": "",
+   "greetShow": "",
+   "closeRe": "",
+   "closeShow": "",
+   "tone": "formal",
+   "academic": true,
+   "map": true,
+   "prompt": "The maps below show the village of Stokeford in 1930 and in 2010. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.",
+   "topic": [
+    "village",
+    "stokeford",
+    "houses",
+    "house",
+    "road",
+    "roads",
+    "river",
+    "1930",
+    "2010"
+   ]
+  },
+  "phrases": [
+   "The maps show how the village of Stokeford… changed between 1930 and 2010.",
+   "Overall, Stokeford developed from a small farming village into…",
+   "There were two shops and a post office on the western side of the road",
+   "To the south-east of the school stood…",
+   "By 2010, the farmland had disappeared.",
+   "…had been extended / had been converted into…"
+  ],
+  "sampleText": "The maps show how the village of Stokeford, which lies on the east bank of the River Stoke, changed between 1930 and 2010.\n\nOverall, Stokeford developed from a small farming village into a much larger residential area. Almost all the farmland was replaced by housing, and the large house became a retirement home.\n\nIn 1930, the village consisted of a small number of houses along the main road, which ran south from a bridge over the river. There were two shops and a post office on the western side of the road and a primary school to the east. To the south-east of the school stood a large house surrounded by gardens, and the rest of the area was farmland.\n\nBy 2010, the farmland had disappeared. Many new houses had been built along the main road, especially to the south, and new side roads lined with houses had been added to the west and east, including a loop road to the west. The shops had gone, although the post office remained. The primary school had been extended, and the large house had been enlarged and converted into a retirement home, with smaller grounds, as housing had taken over the western part of the gardens.\n\n(About 200 words. It uses the past perfect passive (had been built, had been converted) for changes completed by 2010, and compass directions for locations.)"
  }
 ]

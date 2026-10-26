@@ -422,7 +422,8 @@
   "prompts": [
    "Some people think one should stay all their life in the same job, whereas others advocate changing jobs from time to time. Discuss both views and give your own opinion.",
    "Some people think that a person should change a career at least once, while others think that it is better to stay in one job for a lifetime. What is your opinion?",
-   "Some people believe that employees should stay in the same job for the rest of their lives. Others think they should switch jobs at least once during their work life."
+   "Some people believe that employees should stay in the same job for the rest of their lives. Others think they should switch jobs at least once during their work life.",
+   "Some people work for the same organisation all their working life. Others think that it is better to work for different organisations. Discuss both these views and give your own opinion."
   ],
   "minutes": 40,
   "minWords": 250,
@@ -431,6 +432,7 @@
    "Adding more skills. this improves employability. in future if a person try to be self employed, it will be easier to run a business due to having grab on more abilities. This can create more successful personalities. For instance, when a wildlife photographer changes his job and joins an advertising agency, not only his skills get enhanced, he is also considered as more dynamic and versatile."
   ],
   "types": [
+   "discuss",
    "discuss",
    "discuss",
    "discuss"
@@ -746,6 +748,54 @@
   "minWords": 250,
   "types": [
    "discuss"
+  ]
+ },
+ {
+  "id": "w2-61",
+  "topic": "Life Expectancy",
+  "prompts": [
+   "One of the consequences of improved medical care is that people are living longer and life expectancy is increasing. Do you think the advantages of this development outweigh the disadvantages?"
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "adv"
+  ]
+ },
+ {
+  "id": "w2-62",
+  "topic": "Traffic and Car Use",
+  "prompts": [
+   "Car ownership has increased so rapidly over the past thirty years that many cities in the world are now ‘one big traffic jam’. How true do you think this statement is? What measures can governments take to discourage people from using their cars?"
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "problem"
+  ]
+ },
+ {
+  "id": "w2-63",
+  "topic": "Fast Food and Tax",
+  "prompts": [
+   "In some countries an increasing number of people are suffering from health problems as a result of eating too much fast food. It is therefore necessary for governments to impose a higher tax on this kind of food. To what extent do you agree or disagree with this opinion?"
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "agree"
+  ]
+ },
+ {
+  "id": "w2-64",
+  "topic": "Population Growth",
+  "prompts": [
+   "The continued rise in the world’s population is the greatest problem faced by humanity at the present time. What are the causes of this continued rise? Do you agree that it is the greatest problem faced by humanity?"
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "two"
   ]
  }
 ]
