@@ -9,10 +9,14 @@ const buyable = (p: Plan) => typeof p.price === "number" && p.price > 0 && !p.co
  * German), then the three plans for that choice. Every price is still in the
  * page source, so nothing depends on a click to be found. */
 
+/* 3 months first, and chosen when the page opens: it is the better buy. */
 const TERMS: { key: Term; label: string }[] = [
-  { key: "1m", label: "1 month" },
   { key: "3m", label: "3 months" },
+  { key: "1m", label: "1 month" },
 ];
+
+/* What a 3-month plan comes to per month, rounded to the rupee. */
+const perMonth = (p: Plan) => (p.price === null ? null : p.term === "3m" ? Math.round(p.price / 3) : p.price);
 
 export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
   plans: Plan[]; wa: string; course: string; courseName: string; canPay: boolean;
@@ -20,7 +24,7 @@ export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
   const [buying, setBuying] = useState<Plan | null>(null);
   const levels = [...new Set(plans.map((p) => p.level).filter((l): l is string => Boolean(l)))];
   const [level, setLevel] = useState(levels[0]);
-  const [term, setTerm] = useState<Term>("1m");
+  const [term, setTerm] = useState<Term>("3m");
 
   const ofLevel = plans.filter((p) => !levels.length || p.level === level);
   const shown = ofLevel.filter((p) => p.term === term);
@@ -67,14 +71,14 @@ export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
                   <span style={{ fontSize: "1.1rem", color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}>{plan.comingSoon ? "Coming soon" : "Fee on request"}</span>
                 ) : (
                   <>
-                    ₹{plan.price.toLocaleString("en-IN")}
-                    <span style={plan.featured ? { color: "rgba(255,255,255,0.7)" } : undefined}>{plan.period}</span>
+                    ₹{perMonth(plan)!.toLocaleString("en-IN")}
+                    <span style={plan.featured ? { color: "rgba(255,255,255,0.7)" } : undefined}>/month</span>
                   </>
                 )}
               </div>
-              {save > 0 && plan.price && (
+              {plan.term === "3m" && plan.price !== null && (
                 <div className="pc-save" style={plan.featured ? { color: "#fff" } : undefined}>
-                  ₹{Math.round(plan.price / 3).toLocaleString("en-IN")}/month · save {save}%
+                  ₹{plan.price.toLocaleString("en-IN")} for 3 months{save > 0 ? ` · save ${save}%` : ""}
                 </div>
               )}
               <ul className="course-feats" style={light}>

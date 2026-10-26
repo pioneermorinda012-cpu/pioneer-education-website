@@ -236,7 +236,7 @@ export const COURSES: Course[] = [
     ],
     duration: "A1 in about 2–3 months; A2 and B1 to follow",
     plans: [
-      ...plans([null, null, null], [null, null, null], "A1"),
+      ...plans([999, null, null], [1999, null, null], "A1"),
       ...plans(["soon", "soon", "soon"], ["soon", "soon", "soon"], "A2"),
       ...plans(["soon", "soon", "soon"], ["soon", "soon", "soon"], "B1"),
     ],

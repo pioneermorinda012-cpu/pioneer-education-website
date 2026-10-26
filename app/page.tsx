@@ -331,7 +331,7 @@ export default function Home() {
     </div>
     <div className="courses-grid">
       {COURSES.map((c) => {
-        const priced = c.plans.filter((p) => p.term === "1m").map((p) => p.price).filter((v): v is number => v !== null);
+        const priced = c.plans.map((p) => (p.price === null ? null : p.term === "3m" ? Math.round(p.price / 3) : p.price)).filter((v): v is number => v !== null);
         const from = priced.length ? Math.min(...priced) : null;
         const tint =
           c.slug === "pte"
