@@ -8,7 +8,7 @@ import { COURSES } from "../data/courses";
 // lead-capture sheet, so a wrong field here can never break that one.
 // See claude/admission-form-setup.md for the exact Apps Script code and the
 // steps to get this URL — paste it in once the sheet is set up.
-const SHEET_URL = "PASTE_YOUR_ADMISSION_SHEET_WEB_APP_URL_HERE";
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbyCsbI0ci_TJEitjK9wNNXlmDe4Eii-4jMHqq94T4CnGYrQSPVO7e9worcsSFl9SWn1OA/exec";
 
 const HEARD_FROM = ["Walk-in / Just passing by", "Instagram", "Facebook", "WhatsApp", "Friend or family referral", "Google Search", "Other"];
 const TIMINGS = ["Morning", "Afternoon", "Evening", "No preference"];
