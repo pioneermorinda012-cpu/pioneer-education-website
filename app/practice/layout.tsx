@@ -43,6 +43,8 @@ export default async function PracticeLayout({ children }: { children: React.Rea
                 <br />
                 <span className="cd">{session.code}</span>
               </span>
+              {/* reminders and messages, once the keys are set */}
+              {session.role === "student" && pushReady() && <PushOptIn publicKey={vapidPublicKey()} />}
               <Link href="/practice/results" className="pr-mine">My results</Link>
               <SignOut />
             </div>
@@ -50,8 +52,8 @@ export default async function PracticeLayout({ children }: { children: React.Rea
         </div>
       </div>
 
-      {/* practice reminders: offered to a signed-in student once the keys are set */}
-      {session?.role === "student" && pushReady() && <PushOptIn publicKey={vapidPublicKey()} />}
+      {/* the reminders card and a tapped message appear here (components/practice/PushOptIn.tsx) */}
+      <div id="pu-slot" />
 
       {children}
 
