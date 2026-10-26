@@ -92,7 +92,7 @@ export default function Chatbot() {
             <div style={{ width: 36, height: 36, borderRadius: "50%", background: GOLD, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>🎓</div>
             <div>
               <div style={{ color: "#fff", fontWeight: 700, fontSize: 13 }}>Pioneer Education Assistant</div>
-              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 11 }}>IELTS - PTE - English - German</div>
+              <div style={{ color: "rgba(255,255,255,0.7)", fontSize: 11 }}>IELTS - PTE - English - German - French</div>
             </div>
             <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 5 }}>
               <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#a0f0c0" }} />
@@ -106,7 +106,7 @@ export default function Chatbot() {
               <input placeholder="Your Name *" value={name} onChange={e => setName(e.target.value)} style={{ width: "100%", padding: "9px 12px", borderRadius: 8, border: "1px solid #ddd", fontSize: 13, marginBottom: 10, boxSizing: "border-box" }} />
               <input placeholder="Mobile Number *" value={phone} onChange={e => setPhone(e.target.value.replace(/\D/, ""))} maxLength={10} style={{ width: "100%", padding: "9px 12px", borderRadius: 8, border: "1px solid #ddd", fontSize: 13, marginBottom: 10, boxSizing: "border-box" }} />
               <select value={course} onChange={e => setCourse(e.target.value)} style={{ width: "100%", padding: "9px 12px", borderRadius: 8, border: "1px solid #ddd", fontSize: 13, marginBottom: 10, boxSizing: "border-box", background: "#fff" }}>
-                <option>IELTS</option><option>PTE</option><option>Spoken English</option><option>German A1-B1</option><option>Not decided yet</option>
+                <option>IELTS</option><option>PTE</option><option>Spoken English</option><option>German A1-B1</option><option>French A1-B1</option><option>Not decided yet</option>
               </select>
               {err && <div style={{ color: "red", fontSize: 12, marginBottom: 8 }}>{err}</div>}
               <button onClick={submitForm} style={{ width: "100%", background: G, color: "#fff", border: "none", borderRadius: 8, padding: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Start Chat</button>

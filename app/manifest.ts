@@ -6,7 +6,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Pioneer Education — Practice",
     short_name: "Pioneer",
-    description: "IELTS, PTE, English and German practice for Pioneer Education students.",
+    description: "IELTS, PTE, English, German and French practice for Pioneer Education students.",
     start_url: "/practice",
     scope: "/",
     display: "standalone",

@@ -132,7 +132,8 @@
   .section-head p{color:var(--grey);font-size:1.05rem;margin-top:14px;}
 
   /* ── COURSES ── */
-  .courses-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  .courses-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  @media (max-width:1180px){ .courses-grid{grid-template-columns:repeat(3,1fr);} }
   @media (max-width:960px){ .courses-grid{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:560px){ .courses-grid{grid-template-columns:1fr;} }
   .course-card{background:var(--paper);border-radius:18px;padding:28px 24px;border:1px solid rgba(17,17,17,0.08);transition:transform 0.25s, box-shadow 0.25s;position:relative;overflow:hidden;}

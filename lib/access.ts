@@ -20,7 +20,7 @@
 import type { Session } from "@/lib/session";
 import type { SkillCode } from "@/lib/catalogue";
 
-export type Area = "academic" | "gt" | "english" | "pte" | "german";
+export type Area = "academic" | "gt" | "english" | "pte" | "german" | "french";
 
 export const AREAS: { key: Area; label: string; home: string }[] = [
   { key: "academic", label: "IELTS Academic", home: "/practice?skill=AR" },
@@ -28,6 +28,7 @@ export const AREAS: { key: Area; label: string; home: string }[] = [
   { key: "english", label: "English", home: "/practice/english" },
   { key: "pte", label: "PTE", home: "/practice/pte" },
   { key: "german", label: "German", home: "/practice/german" },
+  { key: "french", label: "French", home: "/practice/french" },
 ];
 
 /** Listening is the same paper for Academic and GT, so both open it. */
@@ -235,6 +236,7 @@ export async function saveAccessRow(studentId: string, row: AccessRow): Promise<
 export function areasForCourse(slug: string): Area[] {
   if (/pte/i.test(slug)) return ["pte"];
   if (/german|deutsch/i.test(slug)) return ["german"];
+  if (/french|fran[cç]ais/i.test(slug)) return ["french"];
   if (/english|spoken/i.test(slug)) return ["english"];
   if (/ielts/i.test(slug)) return ["academic", "gt"];
   return [];

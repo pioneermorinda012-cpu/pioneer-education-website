@@ -22,6 +22,7 @@ const AREAS = [
   { key: "english", label: "English" },
   { key: "pte", label: "PTE" },
   { key: "german", label: "German" },
+  { key: "french", label: "French" },
 ] as const;
 const areaLabel = (k: string) => AREAS.find((a) => a.key === k)?.label ?? k;
 /* Students by course, for the filter above both student lists. A student on
@@ -32,6 +33,7 @@ const GROUPS = [
   { key: "pte", label: "PTE", areas: ["pte"] },
   { key: "english", label: "English", areas: ["english"] },
   { key: "german", label: "German", areas: ["german"] },
+  { key: "french", label: "French", areas: ["french"] },
 ] as const;
 type Group = "all" | "none" | (typeof GROUPS)[number]["key"];
 
@@ -688,7 +690,7 @@ export default function TeacherPage() {
                   <div style={{ gridColumn: "1 / -1" }}>
                     <label>Send to</label>
                     <div className="pr-chips">
-                      {[["all", "All students"], ["ielts", "IELTS"], ["pte", "PTE"], ["english", "English"], ["german", "German"]].map(([k, l]) => (
+                      {[["all", "All students"], ["ielts", "IELTS"], ["pte", "PTE"], ["english", "English"], ["german", "German"], ["french", "French"]].map(([k, l]) => (
                         <button key={k} type="button" className={pushForm.group === k ? "on" : undefined}
                                 onClick={() => setPushForm({ ...pushForm, group: k })}>
                           {l} <b>{push.byGroup?.[k] ?? 0}</b>

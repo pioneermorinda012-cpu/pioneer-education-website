@@ -6,7 +6,7 @@ export type Plan = {
   name: string;
   tier: "self" | "group" | "one";
   term: Term;
-  /** German is priced per level (A1, A2, B1); other courses leave this out. */
+  /** German and French are priced per level (A1, A2, B1); other courses leave this out. */
   level?: string;
   /**
    * The fee in rupees for the whole term. A number shows the price; null
@@ -214,6 +214,36 @@ export const COURSES: Course[] = [
       { q: "Do I need any German background to start?", a: "No, the A1 track starts from absolute zero." },
       { q: "Is B1 enough for a German visa?", a: "B1 is the most commonly required level for study and work visas — we'll confirm the exact requirement for your specific visa type." },
       { q: "How is this taught differently from generic German apps?", a: "Grammar explanations in Punjabi where it helps, plus real classroom speaking practice — not just app drilling." },
+    ],
+  },
+  {
+    slug: "french",
+    name: "French A1–B1",
+    icon: "🇫🇷",
+    tagline: "French from the very first sound — DELF A1 now, A2 and B1 coming.",
+    description:
+      "A complete French course for students heading to Canada, France or Europe, built the same way as our German course: every sound, grammar point and answer cross-checked, with explanations for Punjabi and Hindi speakers. Students practise online in the Pioneer French trainer — 21 units with audio, DELF-style listening, reading, writing and speaking, an AI tutor that corrects their French, and a full mock DELF exam — and their progress is saved to their account.",
+    modules: [
+      { title: "Sounds & Foundations", desc: "The French sound system with IPA, accents, liaison and élision, then être, avoir, articles, numbers and everyday phrases." },
+      { title: "A1 Grammar & Vocabulary", desc: "Present tense, questions, adjectives, the partitive, near future, passé composé, and 500 words and phrases with audio." },
+      { title: "DELF Skills", desc: "Listening, reading, writing and speaking practice in the DELF A1 format, with an AI tutor for writing and role-plays." },
+      { title: "Mock DELF Exam", desc: "A full examen blanc marked out of 100 like the real one: 25 points per skill, pass with 50." },
+    ],
+    forWhom: [
+      "Students applying to Canada, where French adds points for Express Entry",
+      "Those planning study or work in France, Belgium or Switzerland",
+      "Complete beginners — no French needed to start",
+    ],
+    duration: "A1 in about 2–3 months; A2 and B1 to follow",
+    plans: [
+      ...plans([null, null, null], [null, null, null], "A1"),
+      ...plans(["soon", "soon", "soon"], ["soon", "soon", "soon"], "A2"),
+      ...plans(["soon", "soon", "soon"], ["soon", "soon", "soon"], "B1"),
+    ],
+    faqs: [
+      { q: "Do I need any French background to start?", a: "No. A1 starts from the French sounds and the alphabet." },
+      { q: "Which exam does this prepare for?", a: "The DELF (Diplôme d'études en langue française). The trainer includes a full DELF A1 mock exam." },
+      { q: "Does French help for Canada?", a: "Yes — French language ability can add points in Canada's Express Entry system. We'll confirm what applies to your profile." },
     ],
   },
 ];

@@ -13,6 +13,7 @@
  */
 import { ENGLISH } from "@/lib/english";
 import { GERMAN } from "@/lib/german";
+import { FRENCH } from "@/lib/french";
 import { PTE } from "@/lib/pte";
 import { LABS } from "@/lib/labs";
 import { getProgress, progressReady, type Saved } from "@/lib/progress";
@@ -22,6 +23,7 @@ import type { Session } from "@/lib/session";
 export const TRAINERS = new Set<string>([
   ...ENGLISH.map((x) => `english/${x.id}`),
   ...GERMAN.map((x) => `german/${x.id}`),
+  ...FRENCH.map((x) => `french/${x.id}`),
   ...PTE.map((x) => `pte/${x.id}`),
   ...LABS.map((x) => `lab/${x.id}`),
 ]);

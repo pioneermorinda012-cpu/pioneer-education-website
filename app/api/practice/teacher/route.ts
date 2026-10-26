@@ -25,6 +25,7 @@ const PUSH_GROUPS = [
   { key: "pte", areas: ["pte"] },
   { key: "english", areas: ["english"] },
   { key: "german", areas: ["german"] },
+  { key: "french", areas: ["french"] },
 ];
 function inGroup(areas: string[] | null, group: string): boolean {
   const g = PUSH_GROUPS.find((x) => x.key === group);

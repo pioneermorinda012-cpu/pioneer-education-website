@@ -49,7 +49,7 @@ export default function AboutPage() {
               Narinder Singh founded Pioneer Education in 2017 as a TEFL-certified instructor, building a teaching
               approach rooted in pattern recognition — identifying exactly where each student&apos;s English breaks down,
               and fixing that specific gap rather than teaching generically. Today he leads a team of instructors
-              delivering the same method across all four courses.
+              delivering the same method across all five courses.
             </p>
             <div className="cred-row">
               <div className="cred"><div className="cred-icon">🎓</div><span>TEFL Certified</span></div>

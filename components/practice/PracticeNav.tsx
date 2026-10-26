@@ -35,6 +35,7 @@ export default function PracticeNav({ active, session }: { active: string; sessi
     { href: "/practice/pte", code: "PTE", label: "PTE", need: ["pte"] as Area[] },
     { href: "/practice/english", code: "ENGLISH", label: "English", need: ["english"] as Area[] },
     { href: "/practice/german", code: "GERMAN", label: "German", need: ["german"] as Area[] },
+    { href: "/practice/french", code: "FRENCH", label: "French", need: ["french"] as Area[] },
   ].filter((m) => can(m.need));
 
   // one module only and nothing to switch to: no menu at all

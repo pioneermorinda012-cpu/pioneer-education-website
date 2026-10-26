@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
     "/practice/english/**": ["./content/english/*.html"],
     // The German trainers, the same way (app/practice/german/[id]/route.ts).
     "/practice/german/**": ["./content/german/*.html"],
+    // The French trainers, the same way (app/practice/french/[id]/route.ts).
+    "/practice/french/**": ["./content/french/*.html"],
     // The IELTS skill labs, the same way (app/practice/lab/[id]/route.ts).
     "/practice/lab/**": ["./content/labs/*.html"],
     // The Writing Task 1 lessons (app/practice/learn/[id]/route.ts); the lesson

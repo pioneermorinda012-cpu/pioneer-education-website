@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
    and where to renew. */
 
 const COURSE_OF: Record<Area, string> = {
-  academic: "ielts", gt: "ielts", english: "spoken-english", pte: "pte", german: "german",
+  academic: "ielts", gt: "ielts", english: "spoken-english", pte: "pte", german: "german", french: "french",
 };
 
 const day = (iso: string) =>
@@ -49,7 +49,7 @@ export default async function Locked() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
             {renew.map((slug) => (
               <Link key={slug} className="btn btn-coral" href={`/courses/${slug}#fees`}>
-                Renew {slug === "ielts" ? "IELTS" : slug === "pte" ? "PTE" : slug === "german" ? "German" : "English"}
+                Renew {slug === "ielts" ? "IELTS" : slug === "pte" ? "PTE" : slug === "german" ? "German" : slug === "french" ? "French" : "English"}
               </Link>
             ))}
           </div>

@@ -80,7 +80,7 @@ export default function Home() {
     <div>
       <div className="eyebrow">Prem Nagar, Morinda · Since 2017</div>
       <h1>Your next stop is <em>Band 7.5</em>, not another classroom.</h1>
-      <p className="lede">IELTS, PTE, Spoken English &amp; German coaching built on nine years of watching exactly where Punjabi students lose marks — and fixing it before test day.</p>
+      <p className="lede">IELTS, PTE, Spoken English, German &amp; French coaching built on nine years of watching exactly where Punjabi students lose marks — and fixing it before test day.</p>
       <div className="hero-ctas">
         <a href="#demo" className="btn btn-coral">Book a Free Demo Class</a>
         <a href="#app" className="btn btn-outline">Try the Pioneer Education App</a>
@@ -135,7 +135,7 @@ export default function Home() {
   <div className="wrap">
     <div className="section-head">
       <div className="section-eyebrow">What We Teach</div>
-      <h2>Four courses. One goal — get you where you're going.</h2>
+      <h2>Five courses. One goal — get you where you're going.</h2>
       <p>Every course pairs in-person coaching with practice on the Pioneer Education app, so what you learn in class gets reinforced every single day, not just once a week.</p>
     </div>
     <div className="courses-grid">
@@ -190,6 +190,19 @@ export default function Home() {
           <li>Exam preparation</li>
         </ul>
         <span className="go">Explore German →</span>
+      </Link>
+      <Link href="/courses/french" className="course-card">
+        <div className="stamp-num mono">05</div>
+        <div className="course-icon" style={{background: 'var(--teal-light)', color: 'var(--teal)'}}>🇫🇷</div>
+        <h3>French A1–B1</h3>
+        <p>French from the first sound, built for the DELF exam — with audio, an AI tutor and a full mock exam online.</p>
+        <ul className="course-feats">
+          <li>Every sound with audio</li>
+          <li>DELF A1 skills practice</li>
+          <li>AI writing feedback</li>
+          <li>Mock DELF exam</li>
+        </ul>
+        <span className="go">Explore French →</span>
       </Link>
     </div>
   </div>
@@ -327,6 +340,8 @@ export default function Home() {
             ? { background: 'var(--gold-light)', color: 'var(--coral-dark)' }
             : c.slug === "german"
             ? { background: 'var(--navy)', color: '#fff' }
+            : c.slug === "french"
+            ? { background: 'var(--teal-light)', color: 'var(--teal)' }
             : { background: 'var(--coral-light)', color: 'var(--coral-dark)' };
         return (
           <Link key={c.slug} href={`/courses/${c.slug}#fees`} className="course-card">
@@ -377,7 +392,7 @@ export default function Home() {
         <div className="stat"><div className="num">9+</div><div className="lbl">Years teaching IELTS &amp; PTE</div></div>
         <div className="stat"><div className="num">47</div><div className="lbl">Structured app lessons</div></div>
         <div className="stat"><div className="num">1,434+</div><div className="lbl">App quiz questions</div></div>
-        <div className="stat"><div className="num">4</div><div className="lbl">Courses — IELTS to German</div></div>
+        <div className="stat"><div className="num">5</div><div className="lbl">Courses — IELTS to French</div></div>
       </div>
     </div>
   </div>
@@ -425,7 +440,7 @@ export default function Home() {
       <div className="role">Meet Your Instructor</div>
       <div className="name">Narinder Singh</div>
       <blockquote>"Every mistake a student makes has been made by someone before them. My job is to make sure you don't repeat it."</blockquote>
-      <p className="bio">Narinder Singh founded Pioneer Education in 2017 as a TEFL-certified instructor, and has built a teaching approach rooted in pattern recognition — identifying exactly where each student's English breaks down, and fixing that specific gap rather than teaching generically. Today he leads a team of instructors delivering the same method across all four courses.</p>
+      <p className="bio">Narinder Singh founded Pioneer Education in 2017 as a TEFL-certified instructor, and has built a teaching approach rooted in pattern recognition — identifying exactly where each student's English breaks down, and fixing that specific gap rather than teaching generically. Today he leads a team of instructors delivering the same method across all five courses.</p>
       <div className="cred-row">
         <div className="cred"><div className="cred-icon">🎓</div><span>TEFL Certified</span></div>
         <div className="cred"><div className="cred-icon">⭐</div><span>5.0★ Google Rating</span></div>
@@ -503,6 +518,7 @@ export default function Home() {
             <option>PTE</option>
             <option>Spoken English</option>
             <option>German A1–B1</option>
+            <option>French A1–B1</option>
             <option>Not sure yet</option>
           </select>
         </div>
@@ -597,6 +613,7 @@ export default function Home() {
         <a href="#courses">PTE</a>
         <a href="#courses">Spoken English</a>
         <a href="#courses">German A1–B1</a>
+        <a href="#courses">French A1–B1</a>
       </div>
       <div>
         <h5>Company</h5>

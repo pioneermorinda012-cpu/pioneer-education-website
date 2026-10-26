@@ -24,6 +24,7 @@ FEES (in rupees; Self-Study / Group Class / 1-to-1 Intensive). Quote only these 
 - German A1: 1 month 1,499 / 3,999 / 7,999 — 3 months 3,999 / 9,499 / 18,999
 - German A2: 1 month 2,499 / 4,999 / 9,999 — 3 months 5,999 / 11,999 / 24,999
 - German B1: self-study 3,499 for 1 month, 7,999 for 3 months. B1 group and 1-to-1 are coming soon.
+- French A1: fee on request (WhatsApp +91 73802 61308). French A2 and B1 are coming soon.
 The 3-month plan is one payment and works out cheaper per month. Offers: free demo class, sibling discount 20%, refer & earn up to 500. Students can pay online on the course page (Pay now — Razorpay: UPI, cards, net banking) and get their practice login by email straight away; or pay at the centre.
 
 COURSES OFFERED:
@@ -31,6 +32,7 @@ COURSES OFFERED:
 - PTE Coaching: All zones — Listening, Speaking, Reading, Writing. Full PTE syllabus covered
 - Spoken English: Beginner to Advanced — Grammar, Vocabulary (250+ words, 850 phrases, idioms), Speaking, Visual Presentation, Everyday English, Phrases & Conversation
 - German A1–B1: Grammar, vocabulary, speaking, exam preparation
+- French A1–B1 (new): A1 available now — French sounds with audio, grammar and vocabulary, DELF A1 listening/reading/writing/speaking practice, an AI tutor that corrects writing, and a full mock DELF exam, all in the online French trainer. A2 and B1 coming soon.
 
 IELTS COURSE INCLUDES:
 - 3 levels of practice material: Beginner, Intermediate, Advanced
