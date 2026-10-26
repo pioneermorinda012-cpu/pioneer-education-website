@@ -1,0 +1,819 @@
+<title>Pioneer Speaking Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: an app shell. Skill meters on top, track tabs, then unit rows.
+   Every passage, script and sentence sits on a dotted notebook sheet in a serif face. */
+:root{
+  --bg:#f5f2f3; --card:#ffffff; --sunk:#ece6e8; --ink:#25181c; --muted:#6c5d62; --line:#e2d8db;
+  --brand:#8a1c32; --brand-ink:#ffffff; --brand-soft:#f4dfe4;
+  --c0:#8a1c32; --c1:#0f6e6a; --c2:#9a5b00; --c3:#3d4fa8;
+  --c0-soft:#f4dfe4; --c1-soft:#d9efed; --c2-soft:#f6e7cf; --c3-soft:#e1e5f7;
+  --good:#1d7449; --good-soft:#dff1e6; --bad:#b0281f; --bad-soft:#fae2df;
+  --dot:rgba(110,80,90,.15); --mark:#ffe19c; --mark-on:#ffc94d;
+  --f-display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --f-ui:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-letter:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-num:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --c0:#e5788d; --c1:#5cc6bf; --c2:#e8ab4f; --c3:#97a6f0;
+  --c0-soft:#3b1c24; --c1-soft:#12302e; --c2-soft:#33250f; --c3-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --c0:#e5788d; --c1:#5cc6bf; --c2:#e8ab4f; --c3:#97a6f0;
+  --c0-soft:#3b1c24; --c1-soft:#12302e; --c2-soft:#33250f; --c3-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.15}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,5vw,34px);letter-spacing:-.01em}
+h2{font-family:var(--f-display);font-weight:600;font-size:22px}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.logo{width:34px;height:34px;flex:none;border-radius:8px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:18px;border:0;cursor:pointer}
+.brand{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand b{font-family:var(--f-display);font-size:17px}
+.brand span{font-size:12px;color:var(--muted)}
+.save{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+.save i{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.save.ok i{background:var(--good)}.save.warn i{background:var(--bad)}
+.btn{font-weight:600;font-size:15px;padding:11px 18px;border-radius:8px;border:1.5px solid var(--brand);background:var(--brand);color:var(--brand-ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn.quiet{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.link{background:none;border:0;padding:0;color:var(--brand);font-weight:600;cursor:pointer}
+.hello{display:flex;flex-direction:column;gap:6px;padding-top:6px}
+.meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.meter{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.meter .n{font-family:var(--f-num);font-size:24px;font-weight:700;line-height:1}
+.meter small{font-size:12px;color:var(--muted);line-height:1.3}
+.track{height:6px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px;transition:width .4s}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.stats b{color:var(--ink);font-family:var(--f-num)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.tab{flex:none;padding:9px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;font-size:14px;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.trackhead{display:flex;flex-direction:column;gap:2px}
+.units{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.unit{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border:0;border-top:1px solid var(--line);background:none;text-align:left;cursor:pointer;width:100%}
+.unit:first-child{border-top:0}
+.unit:hover{background:var(--sunk)}
+.code{font-family:var(--f-num);font-weight:700;font-size:13px;color:var(--muted)}
+.ut{display:flex;flex-direction:column;gap:5px;min-width:0}
+.ut b{font-size:16px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{font-family:var(--f-num);font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;align-self:flex-start}
+.chip.c0{color:var(--c0);background:var(--c0-soft)}.chip.c1{color:var(--c1);background:var(--c1-soft)}
+.chip.c2{color:var(--c2);background:var(--c2-soft)}.chip.c3{color:var(--c3);background:var(--c3-soft)}
+.chip.n{color:var(--muted);background:var(--sunk);font-family:var(--f-ui);font-weight:600}
+.ring{width:46px;height:46px;position:relative;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-num);font-size:11px;font-weight:700}
+.ring .bg{stroke:var(--sunk)}.ring .fg{transition:stroke-dashoffset .5s}
+.models{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.model{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+.model:hover{border-color:var(--brand)}
+.model small{color:var(--muted);font-size:13px}
+.seen{font-size:12px;color:var(--good);font-weight:600}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 20px;
+  background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:18px 18px;background-position:9px 9px}
+.letter{font-family:var(--f-letter);font-size:20px;line-height:1.55}
+.passage{font-family:var(--f-letter);font-size:17px;line-height:1.65;white-space:pre-line}
+.passage .lbl{display:block;font-family:var(--f-ui);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.blank{display:inline-block;min-width:84px;border-bottom:2px solid var(--brand);margin:0 4px;transform:translateY(-3px)}
+.tipbox{border-left:4px solid var(--brand);background:var(--card);border-radius:0 10px 10px 0;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tipbox b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
+.bank{display:flex;flex-direction:column}
+.bank div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 12px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
+.bank div:first-child{border-top:0;padding-top:0}
+.bank .ph{font-family:var(--f-letter);font-size:17px}
+.bank .use{grid-column:2;font-size:13px;color:var(--muted)}
+.tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:5px;justify-self:start;background:var(--sunk);color:var(--muted)}
+.tag.F{background:var(--c3-soft);color:var(--c3)}.tag.S{background:var(--c1-soft);color:var(--c1)}
+.tag.I{background:var(--c2-soft);color:var(--c2)}.tag.A{background:var(--c0-soft);color:var(--c0)}
+.tag.X{background:var(--bad-soft);color:var(--bad)}
+.bank .X .ph{text-decoration:line-through;text-decoration-color:var(--bad)}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--sunk)}
+.dots i.ok{background:var(--good)}.dots i.no{background:var(--bad)}.dots i.cur{outline:2px solid var(--brand);outline-offset:1px}
+.prompt{font-size:14px;font-weight:600;color:var(--muted)}
+.b5{font-size:12px;font-weight:700;color:var(--bad);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px;font-family:var(--f-ui)}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{font-family:var(--f-letter);font-size:18px;text-align:left;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--brand)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.fixed{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px}
+.fixed .opt{font-family:var(--f-ui);font-weight:600;font-size:16px;text-align:center}
+.gapin{display:flex;gap:10px;flex-wrap:wrap}
+.gapin input{flex:1 1 200px;min-width:0;font-family:var(--f-letter);font-size:19px;padding:11px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.gapin input.right{border-color:var(--good);background:var(--good-soft)}.gapin input.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.line{min-height:56px;border-bottom:2px dashed var(--line);display:flex;flex-wrap:wrap;gap:8px;padding:8px 0;align-items:center}
+.line.ok{border-color:var(--good)}.line.no{border-color:var(--bad)}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+.tile{font-family:var(--f-letter);font-size:17px;padding:7px 12px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);cursor:pointer}
+.tile.placed{background:var(--brand-soft);border-color:var(--brand)}
+.tile.used{visibility:hidden}
+.ord{display:flex;flex-direction:column;gap:8px}
+.ord .tile,.ordline .tile{text-align:left;line-height:1.4;display:flex;gap:10px;align-items:flex-start;width:100%}
+.tile .no{font-family:var(--f-num);font-size:13px;font-weight:700;color:var(--brand);padding-top:3px;flex:none;width:18px}
+.ordline{display:flex;flex-direction:column;gap:8px;min-height:20px}
+.fb{border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fb.ok{background:var(--good-soft)}.fb.no{background:var(--bad-soft)}
+.fb b{font-size:15px}.fb.ok b{color:var(--good)}.fb.no b{color:var(--bad)}
+.fb .fix{font-family:var(--f-letter);font-size:17px}
+.audio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.play{width:52px;height:52px;border-radius:50%;border:0;background:var(--brand);color:var(--brand-ink);cursor:pointer;display:grid;place-items:center;flex:none}
+.play svg{width:20px;height:20px}
+.audio .meta{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 160px}
+.audio .meta b{font-size:15px}
+.audio .meta span{font-size:13px;color:var(--muted)}
+.speed{display:flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+.speed button{border:0;background:var(--card);padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer}
+.speed button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.script{font-family:var(--f-letter);font-size:16px;line-height:1.6;white-space:pre-line;border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+.big{font-family:var(--f-num);font-size:52px;font-weight:700;line-height:1}
+.review{display:flex;flex-direction:column;gap:10px}
+.review article{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--card);display:flex;flex-direction:column;gap:5px}
+.review .y{color:var(--bad);font-family:var(--f-letter)}.review .c{color:var(--good);font-family:var(--f-letter)}
+.review small{color:var(--muted);font-size:13px}
+.toast{font-size:14px;color:var(--good);min-height:20px}
+.taskbox{background:var(--sunk);border-radius:10px;padding:14px 16px;font-size:15px;white-space:pre-line}
+.model-text{white-space:pre-wrap;font-family:var(--f-letter);font-size:18px;line-height:1.7}
+.hl{background:var(--mark);border-radius:3px;padding:0 2px;cursor:pointer;border:0;font:inherit;color:inherit;line-height:inherit;text-align:left}
+.hl sup{font-family:var(--f-num);font-size:10px;font-weight:700;color:var(--brand);margin-left:2px}
+.hl.on{background:var(--mark-on)}
+.notes{display:flex;flex-direction:column;gap:6px;padding:0;margin:0}
+.notes li{list-style:none;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:8px;font-size:15px}
+.notes li.on{background:var(--brand-soft)}
+.notes li span:first-child{font-family:var(--f-num);font-weight:700;color:var(--brand);font-size:13px;padding-top:2px}
+.notes q{font-family:var(--f-letter);quotes:none}
+.cue{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.cue b{font-family:var(--f-letter);font-size:19px}
+.cue ul{margin:0;padding-left:20px;font-family:var(--f-letter);font-size:17px}
+.clock{font-family:var(--f-num);font-size:64px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.phase{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.checks input{width:18px;height:18px;margin-top:2px;accent-color:var(--brand)}
+.tablebox{overflow-x:auto}
+table.words{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+table.words th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:6px 8px;border-bottom:1px solid var(--line)}
+table.words td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.words td:first-child{font-weight:700}
+table.words td:nth-child(3){font-family:var(--f-letter)}
+table.words td:last-child{font-style:italic;color:var(--muted)}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+input[type=text],textarea{font:inherit;font-size:15px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+textarea{min-height:84px;resize:vertical}
+textarea.code{font-family:var(--f-num);font-size:12px;word-break:break-all}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.danger{color:var(--bad);border-color:var(--bad)}
+@media (max-width:560px){
+  .meters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .letter{font-size:18px}
+  .unit{grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:12px}
+  .bank div{grid-template-columns:1fr}.bank .use{grid-column:1}
+  .save .lbl{display:none}
+  .clock{font-size:52px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <button class="logo" id="home" aria-label="Home">P</button>
+    <div class="brand"><b id="appName"></b><span id="appSub"></span></div>
+    <button class="save" id="save" aria-label="Progress and backup"><i></i><span class="lbl" id="saveLbl">Saved on this device</span></button>
+  </header>
+  <main id="app" class="wrap" aria-live="polite"></main>
+</div>
+
+<script>
+const APP={key:"pioneer-speaking-lab-v1",doc:"speakinglab",code:"PSL1",name:"Speaking Lab",sub:"Pioneer Education · IELTS Band 7+",speakModels:true,
+ eyebrow:"IELTS Speaking · Academic and General Training",hero:"Train for Band 7 in Speaking",
+ intro:"The examiner marks four criteria equally. Drill the language here, read the Band 8 answers, then practise Part 2 cue cards with the timer and say your answers aloud.",
+ crit:{FC:["Fluency and Coherence"],LR:["Lexical Resource"],GRA:["Grammar"],P:["Pronunciation"]},
+ tags:{G:"Pattern",I:"Natural phrase",X:"Avoid"},bankTitle:"Speaking bank",modelsEyebrow:"Listen and read",modelsTitle:"Band 8 sample answers",wordsTitle:"Natural expressions with German"};
+
+const M=(q,o,why,x={})=>({t:"mc",q,o,why,...x});
+const U=(q,o,why)=>({t:"up",q,o,why,ask:"Choose the Band 7 answer."});
+const F=(q,c,a,why,x={})=>({t:"fx",q,c,a,why,...x});
+const G=(q,a,why)=>({t:"gap",q,a,why});
+const B=(s,why)=>({t:"build",s,why});
+const O=(s,why)=>({t:"order",s,why});
+const H=(word,c,a,why)=>F("",c,a,why,{say:word,ask:"Listen. Which word did you hear?"});
+
+const TRACKS=[
+{id:"p1",code:"P1",name:"Part 1",short:"4–5 minutes · familiar topics",blurb:"Short answers, extended naturally"},
+{id:"p2",code:"P2",name:"Part 2",short:"1 minute to prepare · 2 minutes to speak",blurb:"The long turn: structure and storytelling"},
+{id:"p3",code:"P3",name:"Part 3",short:"4–5 minutes · abstract discussion",blurb:"Opinions, comparisons and the future"},
+{id:"sk",code:"SK",name:"Language skills",short:"All parts",blurb:"Fluency, vocabulary, grammar and pronunciation"}
+];
+
+const UNITS=[
+{id:"s1",track:"p1",title:"Extending short answers",crit:["FC","LR"],
+ tip:"Answer, then add a reason and a detail: two or three sentences for each question. One-word replies and memorised speeches both hold your score down.",
+ bank:[["G","Answer + Reason + Example","Yes, I do, mainly because … For example, …"],
+       ["I","To be honest, …","A natural opener"],
+       ["I","It depends, really. …","When the answer is not simple"],
+       ["I","I used to …, but these days …","Past vs now"],
+       ["X","Yes. / No.","Too short"],
+       ["X","My hobby is reading. Reading is my hobby.","Memorised and repetitive"]],
+ items:[
+  U("Do you like cooking?  → “Yes.”",["Yes, I do, especially at weekends. I find it relaxing, and I usually make simple dishes like dal and roti.","Yes, I like it. Cooking is my hobby. My hobby is cooking.","Yes, cooking is good for health and very nice.","Yes, I am liking to cook very much."],"Answer + reason + detail, accurate grammar."),
+  M("Which is the best answer to “Where do you live?”",["I live in Morinda, a small town near Chandigarh. It's quite peaceful, but there isn't much to do in the evenings.","I live in Morinda.","My native place is Morinda and my hometown is Morinda.","Morinda is a city of Punjab state of India country."],"Answer plus two natural details."),
+  M("How long should a Part 1 answer usually be?",["two or three sentences","one word","two minutes","as long as possible"],"Part 1 is short and conversational."),
+  G("It ___, really. On weekdays I'm busy, but on Sundays I relax.",["depends"],"It depends, really."),
+  M("Which sounds most natural?",["I'm not really into sports, to be honest.","I am not into sports in honest.","Sports is not my cup of the tea.","I don't like sports, it is my hobby."],"be into = like; to be honest."),
+  M("When I was a child, I ___ play in the fields every evening.",["used to","use to","was used to","am used to"],"used to + verb for past habits."),
+  O(["To be honest, I don't watch much TV these days.","I used to watch cricket every evening,","but now I mostly watch short videos on my phone","because it's more convenient when I'm travelling."],"Answer → past → present → reason.")
+ ]},
+{id:"s2",track:"p2",title:"Structuring the long turn",crit:["FC","GRA"],
+ tip:"Use the minute to write one or two keywords for each point. Then tell it as a story, keep your past tenses accurate, and keep going until the examiner stops you.",
+ bank:[["G","I'd like to talk about …","Opening"],
+       ["G","It happened about two years ago, when …","Setting the scene"],
+       ["G","What made it special was …","The highlight"],
+       ["G","Looking back, I realise …","Reflection to finish"],
+       ["G","Notes: one keyword per point, not sentences","Preparation"],
+       ["X","Reading the cue card points aloud as your answer","Sounds mechanical"]],
+ items:[
+  M("What should you write during the one-minute preparation?",["a few keywords for each point","a full script","nothing at all","only your first sentence"],"Keywords keep you on track without reading."),
+  M("How long should you keep speaking in Part 2?",["until the examiner stops you, at up to 2 minutes","30 seconds","exactly 1 minute","5 minutes"],"Aim for the full 2 minutes."),
+  O(["I'd like to talk about a time I helped a stranger.","It happened last winter, when I was waiting for a bus in Chandigarh.","An elderly man had dropped his bag, and his papers were blowing across the road.","Looking back, I realise how much a small action can mean to someone."],"Topic → setting → event → reflection."),
+  M("While I ___ for the bus, I noticed an old man.",["was waiting","waited","am waiting","have waited"],"Past continuous for the background action."),
+  M("He ___ his bag just before I saw him.",["had dropped","has dropped","drops","was drop"],"Past perfect for the earlier action."),
+  G("What made it ___ was that he turned out to be my teacher's father.",["special","memorable"],"What made it special was …"),
+  U("I am going to describe a person. Who is this person. How I know this person.",["I'd like to talk about my uncle, who has had a big influence on my life.","I am going to describe a person who is this person how I know.","Person I describe is my uncle, he is good person.","My topic is a person and the person is my uncle."],"A natural opening, not the cue card read aloud."),
+  M("You run out of ideas after 80 seconds. What is the best thing to do?",["Add a detail, a feeling, or what you learned","Stop and wait","Read the cue card again aloud","Start a new topic"],"Feelings and reflection extend a story naturally.")
+ ]},
+{id:"s3",track:"p3",title:"Opinions, comparisons and the future",crit:["FC","GRA"],
+ tip:"Part 3 tests abstract ideas. Give a clear view, explain it, compare it with the past or other places, and speculate about the future.",
+ bank:[["G","I'd say that …, mainly because …","Opinion + reason"],
+       ["G","Compared with my parents' generation, …","Comparison"],
+       ["G","It's quite likely that in the future …","Speculation"],
+       ["G","On the one hand … On the other hand …","Balance"],
+       ["I","That's an interesting question. I've never really thought about it, but …","Thinking time"],
+       ["X","Yes, it is good.","No development"]],
+ items:[
+  M("“Why do young people move to cities?” Which answer is Band 7?",["I'd say it's mainly about opportunities. Cities offer better-paid jobs and universities, so many young people from small towns feel they have little choice.","Because city is good.","Young people move to cities. Cities are big.","It is their wish, what can we say."],"Opinion + reason + example."),
+  M("Which phrase is best for speculating about the future?",["It's quite likely that …","It was that …","Yesterday it …","I have done …"],"Modal language for the future."),
+  G("___ with my parents' generation, young people today have far more choice.",["compared"],"Compared with …"),
+  M("Which buys thinking time naturally?",["That's an interesting question. Let me think…","Repeat the question please, I am not understand.","Next question.","Umm… umm… umm…"],"Natural and fluent."),
+  U("Technology is good and bad.",["Technology has clearly made life more convenient, but it has also made many people more isolated.","Technology is very good and also very bad thing.","Good and bad both is technology.","Technology has good, bad, and very good."],"A balanced, precise answer."),
+  M("If the government ___ public transport cheaper, fewer people would drive.",["made","makes","will make","would make"],"Second conditional: if + past, would + verb."),
+  M("Which shows a balanced view?",["On the one hand, online classes are flexible; on the other hand, students can lose motivation.","Online classes are best, no doubt.","Online classes is good and offline is good.","I don't know about online classes."],"Two sides, clearly linked.")
+ ]},
+{id:"s4",track:"sk",title:"Fluency and recovery",crit:["FC"],
+ tip:"Fluency is not speed. Band 7 speakers keep going without long pauses and correct themselves smoothly. When you don't know a word, explain it.",
+ bank:[["I","Well, … · Let me think …","Natural fillers"],
+       ["I","What I mean is …","Clarifying"],
+       ["I","It's a kind of … that you use for …","Explaining a missing word"],
+       ["I","Sorry, I mean …","Self-correction"],
+       ["X","Long silences · “means … means …”","Breaks fluency"],
+       ["X","Actually actually · basically basically","Repeated fillers"]],
+ items:[
+  M("You forget the word “pressure cooker”. What is the best strategy?",["It's a kind of pot with a tight lid that cooks food quickly using steam.","Stop speaking and wait.","Say the word in Punjabi.","Change the topic completely."],"Paraphrase the word and keep going."),
+  M("You say “Yesterday I go to the market.” What is the best repair?",["Yesterday I go… sorry, I went to the market.","Start the whole answer again.","Ignore it and stop speaking.","Ask the examiner for the right word."],"Quick, natural self-correction."),
+  G("What I ___ is that it's not just about money.",["mean"],"What I mean is …"),
+  M("Which filler sounds natural?",["Well, I suppose…","Means…","Actually actually actually…","Basically basically…"],"“Means…” is an Indian-English filler to drop."),
+  M("Do a few natural fillers lower your score?",["No; long silences and repetition are the problem","Yes, any filler gives Band 4","Only in Part 1","Only if you smile"],"Natural hesitation is normal."),
+  U("It is… umm… the thing… umm… for clothes… umm…",["It's what you use to make clothes smooth after washing. I think it's called an iron.","It is thing for clothes, thing, thing.","Umm… I don't know.","Clothes machine, clothes machine."],"Explain the function, then guess the word."),
+  M("Which linker keeps an answer moving?",["Another thing is that …","Full stop.","The end.","Next."],"Adds a new point smoothly.")
+ ]},
+{id:"s5",track:"sk",title:"Natural vocabulary and idioms",crit:["LR"],
+ tip:"Band 7 uses some less common words and idiomatic language naturally. One well-placed idiom is better than five memorised ones.",
+ bank:[["I","I'm really into … (= I like)","Hobbies"],
+       ["I","It's not really my cup of tea. (= I don't like it)","Polite dislike"],
+       ["I","I was over the moon. (= very happy)","Feelings"],
+       ["I","It costs an arm and a leg. (= very expensive)","Prices"],
+       ["I","I'm snowed under with work. (= very busy)","Work and study"],
+       ["X","It's raining cats and dogs.","Sounds memorised and dated"]],
+ items:[
+  M("“I was over the moon” means …",["very happy","very tired","confused","travelling"],"An idiom for great happiness."),
+  M("Choose the natural sentence.",["Horror films aren't really my cup of tea.","Horror films are not my cup of the tea.","Horror films are my tea cup.","I am cup of tea for horror films."],"The fixed form: not my cup of tea."),
+  G("I'm really ___ photography at the moment.",["into"],"be into something = like it."),
+  M("Which collocation is natural?",["a hectic schedule","a busy-busy schedule","a crowded schedule time","a full-full timetable"],"hectic schedule."),
+  M("Which word is a better choice than “very good” for food?",["delicious","very much good","goodly","best-good"],"A precise adjective."),
+  U("My village is very very good and very very peaceful.",["My village is incredibly peaceful, and the people are really welcoming.","My village is very very good and peaceful very.","My village is too much good and too much peaceful.","Village of mine is very good peaceful."],"Varied intensifiers and precise words."),
+  M("When is an idiom a bad idea?",["when it does not fit the topic or sounds memorised","when it fits the topic naturally","when you use it once","when the examiner smiles"],"Accuracy and fit matter more than quantity.")
+ ]},
+{id:"s6",track:"sk",title:"Grammar range for speaking",crit:["GRA"],
+ tip:"Band 7 speakers use a mix of simple and complex structures, and many of their sentences are error-free.",
+ bank:[["G","I've been to … / I've never …","Experience"],
+       ["G","I used to … / My grandmother would …","Past habits"],
+       ["G","If I had more time, I'd …","Imagined situations"],
+       ["G","What I love about … is …","Emphasis"],
+       ["G","The thing that surprised me most was …","Emphasis"],
+       ["X","I am knowing · I am having a car","State verbs in -ing"]],
+ items:[
+  M("Have you ever ___ to the mountains?",["been","gone","went","go"],"been = visited and came back."),
+  M("If I ___ more free time, I'd learn to play the guitar.",["had","have","will have","would have"],"if + past, would + verb."),
+  G("What I love ___ my hometown is the food.",["about"],"What I love about X is …"),
+  M("Which is correct?",["I've lived here since 2015.","I am living here since 2015.","I live here since 2015.","I lived here since 2015."],"since → present perfect."),
+  M("Which is correct?",["I know him very well.","I am knowing him very well.","I am know him very well.","I knowing him very well."],"know is a state verb."),
+  B("The thing that surprised me most was the weather.","The thing that + clause + was …"),
+  M("When I was young, my grandmother ___ tell us stories every night.",["would","will","was","is"],"would for repeated past actions.")
+ ]},
+{id:"s7",track:"sk",title:"Pronunciation: sounds and stress",crit:["P"],
+ tip:"Pronunciation Band 7 needs clear individual sounds, correct word stress and natural rhythm. Listen, choose, then say each word aloud three times.",
+ bank:[["G","ship /ɪ/ (short) · sheep /iː/ (long)","Vowel length"],
+       ["G","v (teeth on lip) · w (round lips): vine, wine","A common Punjabi confusion"],
+       ["G","PHOtograph · phoTOgraphy · photoGRAPHic","Stress moves"],
+       ["G","worked /t/ · played /d/ · wanted /ɪd/","-ed endings"],
+       ["G","COMfortable: three syllables, COMF-ta-ble","Common reduced word"],
+       ["X","Adding a vowel: “is-school”, “is-tation”","Start directly with s"]],
+ items:[
+  H("sheep",["ship","sheep"],1,"Long /iː/."),
+  H("vine",["wine","vine"],1,"v: top teeth touch the bottom lip."),
+  H("full",["full","fool"],0,"Short /ʊ/."),
+  H("west",["vest","west"],1,"w: round your lips; teeth do not touch."),
+  M("Where is the stress in “photography”?",["pho-TOG-ra-phy","PHO-to-gra-phy","pho-to-GRA-phy","pho-to-gra-PHY"],"Stress moves to the second syllable."),
+  M("How is the -ed in “wanted” pronounced?",["/ɪd/, an extra syllable","/t/","/d/","it is silent"],"After t or d, -ed adds a syllable."),
+  M("How is the -ed in “worked” pronounced?",["/t/","/ɪd/","/d/","like “bed”"],"After k, p, s, sh, ch, f → /t/."),
+  M("Many Punjabi speakers say “is-school”. What is the fix?",["start directly with the s sound","add an e: e-school","say “sakool”","stress the last letter"],"No vowel before s + consonant.")
+ ]}
+];
+
+const MODELS=[
+{id:"m1",track:"p1",title:"Part 1: home and free time",taskLabel:"Questions",task:"Where do you live? · Do you enjoy cooking? · How do you usually spend your weekends?",
+ text:"Examiner: Where do you live?\nCandidate: I live in Morinda, which is a small town about forty minutes from Chandigarh. It's fairly quiet, which I like, although there isn't a great deal to do in the evenings.\n\nExaminer: Do you enjoy cooking?\nCandidate: To be honest, I didn't use to, but I've really got into it over the past year. I find it quite relaxing after a long day, and I've learned to make a few dishes my mother makes, like rajma and parathas.\n\nExaminer: How do you usually spend your weekends?\nCandidate: It depends, really. If I have exams coming up, I spend most of Saturday studying. But on Sundays I try to switch off completely, so I usually catch up with friends or go for a long walk by the canal.",
+ marks:[["which is a small town about forty minutes from Chandigarh","Relative clause adds detail (GRA)"],["although there isn't a great deal to do","Contrast inside one sentence (FC, GRA)"],["To be honest, I didn't use to,","Natural opener and past habit (FC, GRA)"],["I've really got into it","Idiomatic phrasal verb (LR)"],["It depends, really.","Natural way to start a balanced answer (FC)"],["If I have exams coming up,","First conditional (GRA)"],["switch off completely","Natural collocation for relaxing (LR)"],["catch up with friends","Phrasal verb (LR)"]]},
+{id:"m2",track:"p2",title:"Part 2: a place to go back to",cue:0,taskLabel:"Cue card",task:"Describe a place you visited that you would like to go back to.\nYou should say: where it is · when you went there · what you did there · and explain why you would like to go back.",
+ text:"I'd like to talk about Dharamshala, a hill town in Himachal Pradesh that I visited with my cousins about three years ago, just after my twelfth-class exams.\n\nWe took an overnight bus from Chandigarh, and I still remember waking up as the bus was climbing through the mountains. The air was so fresh that it felt like a different country.\n\nWe stayed for five days. Most mornings we went trekking, and one day we hiked up to Triund, which took about four hours. It was exhausting, to be honest, but the view from the top was absolutely breathtaking, with snow-covered peaks on one side and the whole valley on the other. In the evenings we wandered around the small cafés in McLeod Ganj and tried Tibetan food for the first time.\n\nWhat made the trip special, though, was that it was the first time I'd travelled without my parents. I felt independent, and I got to know my cousins much better.\n\nThe main reason I'd love to go back is that I was in such a hurry last time that I missed a lot. If I went again, I'd spend more time in the monasteries and maybe take a short course in meditation. And now that I'm preparing for IELTS and life feels quite hectic, a few quiet days in the mountains sound like exactly what I need.",
+ marks:[["I'd like to talk about","Clear opening (FC)"],["I still remember waking up as the bus was climbing","Past continuous for the background (GRA)"],["It was exhausting, to be honest, but","Natural contrast with a feeling (FC)"],["absolutely breathtaking","Strong, less common collocation (LR)"],["What made the trip special, though, was","Emphasis structure (GRA, FC)"],["the first time I'd travelled","Past perfect after “the first time” (GRA)"],["If I went again, I'd spend","Second conditional (GRA)"],["life feels quite hectic","Natural collocation (LR)"]]},
+{id:"m3",track:"p3",title:"Part 3: cities and young people",taskLabel:"Questions",task:"Why do many young people move to big cities? · Will this trend continue in the future?",
+ text:"Examiner: Why do many young people move to big cities?\nCandidate: I'd say it's mainly about opportunity. In a town like mine, the choice of jobs is quite limited, whereas a city like Chandigarh or Delhi offers far better-paid work and a wider range of universities. There's also a social side to it: a lot of young people want more independence than they'd have living with their families.\n\nExaminer: Will this trend continue in the future?\nCandidate: That's an interesting question. In the short term, I think it probably will, because the gap between urban and rural salaries is still huge. On the other hand, now that so many people can work remotely, it's quite likely that some will choose to stay in smaller towns, where living costs are much lower. So I suspect the pattern might become more mixed over the next twenty years or so.",
+ marks:[["I'd say it's mainly about opportunity.","Clear opinion first (FC)"],["whereas","Comparison inside one sentence (GRA)"],["There's also a social side to it:","Adds a second reason (FC)"],["That's an interesting question.","Natural thinking time (FC)"],["In the short term,","Time framing (LR)"],["On the other hand,","Balance (FC)"],["it's quite likely that","Speculation (GRA)"],["I suspect the pattern might become more mixed","Hedged prediction (LR, GRA)"]]}
+];
+
+const CUES=[
+{track:"p2",title:"Describe a place you visited that you would like to go back to.",points:["where it is","when you went there","what you did there"],explain:"and explain why you would like to go back."},
+{track:"p2",title:"Describe a person who has had a positive influence on you.",points:["who the person is","how you know them","what they have done"],explain:"and explain why they have influenced you."},
+{track:"p2",title:"Describe a skill you would like to learn.",points:["what the skill is","how you would learn it","how long it would take"],explain:"and explain why you want to learn it."},
+{track:"p2",title:"Describe a time you helped someone.",points:["who you helped","when it happened","how you helped them"],explain:"and explain how you felt about it."},
+{track:"p2",title:"Describe a book or film that made you think.",points:["what it was","when you read or saw it","what it was about"],explain:"and explain why it made you think."},
+{track:"p2",title:"Describe an important decision you made.",points:["what the decision was","when you made it","who helped you decide"],explain:"and explain why it was important."}
+];
+
+const WORDS=[
+ ["be into something","to like something a lot","I'm really into photography.","sich für etwas begeistern"],
+ ["switch off","to relax completely","On Sundays I switch off.","abschalten"],
+ ["catch up with","to meet and share news","I catch up with friends.","sich austauschen"],
+ ["breathtaking","extremely beautiful","The view was breathtaking.","atemberaubend"],
+ ["hectic","very busy","Life feels hectic.","hektisch"],
+ ["over the moon","very happy","I was over the moon.","überglücklich"],
+ ["snowed under","having too much work","I'm snowed under at the moment.","überlastet"],
+ ["get the hang of","to learn how to do something","I soon got the hang of it.","den Dreh raushaben"]
+];
+
+</script>
+<script>
+(function(){
+const KEY=APP.key;
+const CK=Object.keys(APP.crit);                       // criterion keys in display order
+const CRIT=Object.fromEntries(CK.map(k=>[k,APP.crit[k]]));
+const cc=k=>"c"+CK.indexOf(k);
+const TAGS=APP.tags;
+const TYPE_PROMPT={mc:"Choose the correct answer.",up:"Choose the Band 7 version.",reg:"Which register is this?",fx:"Choose the answer.",gap:"Type the answer.",build:"Tap the words in the right order.",order:"Tap them in a logical order."};
+const MODELS_=typeof MODELS!=="undefined"?MODELS:[], WORDS_=typeof WORDS!=="undefined"?WORDS:[], CUES_=typeof CUES!=="undefined"?CUES:[];
+const app=document.getElementById("app");
+document.getElementById("appName").textContent=APP.name;
+document.getElementById("appSub").textContent=APP.sub;
+const U_BY=Object.fromEntries(UNITS.map(u=>[u.id,u]));
+const M_BY=Object.fromEntries(MODELS_.map(m=>[m.id,m]));
+
+// ---------------- persistence: device + account + backup code ----------------
+function blank(){return {v:1,name:"",best:{},tries:{},mistakes:{},models:{},cues:{},last:"",updated:0};}
+let S=blank(), localOK=true, cloudRef=null, saveTimer=null;
+function merge(a,b){
+  const o=blank(), newer=(b.updated||0)>(a.updated||0)?b:a;
+  o.name=newer.name||a.name||b.name||""; o.last=newer.last||a.last||b.last||"";
+  for(const f of ["best","tries","cues"]) for(const k of new Set([...Object.keys(a[f]||{}),...Object.keys(b[f]||{})])) o[f][k]=Math.max(a[f]?.[k]??0,b[f]?.[k]??0);
+  o.models={...(a.models||{}),...(b.models||{})};
+  o.mistakes={...(newer.mistakes||{})};
+  o.updated=Math.max(a.updated||0,b.updated||0);
+  return o;
+}
+function loadLocal(){try{const r=localStorage.getItem(KEY);if(r) S=merge(blank(),JSON.parse(r));}catch(e){localOK=false;}}
+function persist(){
+  S.updated=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S));localOK=true;}catch(e){localOK=false;}
+  if(cloudRef){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{cloudRef.set(JSON.parse(JSON.stringify(S))).then(status).catch(()=>{cloudRef=null;status();});},600);}
+  status();
+}
+function status(){
+  const b=document.getElementById("save"),l=document.getElementById("saveLbl");
+  b.classList.remove("ok","warn");
+  if(cloudRef){b.classList.add("ok");l.textContent="Saved to your account";}
+  else if(localOK){b.classList.add("ok");l.textContent="Saved on this device";}
+  else{b.classList.add("warn");l.textContent="Not saved: use a backup code";}
+}
+async function connectCloud(){
+  try{
+    if(!window.claude||!claude.use) return;
+    const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!db||!user) return;
+    const id=await user.id(); if(!id) return;
+    const ref=db.doc("data/users/"+id+"/"+APP.doc);
+    const snap=await ref.get();
+    if(snap.exists){S=merge(S,snap.data());try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+    cloudRef=ref; await ref.set(JSON.parse(JSON.stringify(S)));
+    status(); if(!document.querySelector("[data-busy]")) route();
+  }catch(e){cloudRef=null;status();}
+}
+const exportCode=()=>APP.code+"-"+btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+function importCode(c){c=c.trim();if(!c.startsWith(APP.code+"-")) throw 0;S=merge(S,JSON.parse(decodeURIComponent(escape(atob(c.slice(APP.code.length+1))))));persist();}
+
+// ---------------- speech (Listening and pronunciation) ----------------
+const TTS="speechSynthesis" in window && typeof SpeechSynthesisUtterance!=="undefined";
+let rate=1, voices=[];
+function loadVoices(){ if(!TTS) return; const all=speechSynthesis.getVoices();
+  const en=all.filter(v=>/^en[-_]/i.test(v.lang));
+  const gb=en.filter(v=>/GB|UK/i.test(v.lang)), au=en.filter(v=>/AU/i.test(v.lang)), rest=en.filter(v=>!gb.includes(v)&&!au.includes(v));
+  voices=[...gb,...au,...rest]; }
+if(TTS){loadVoices(); speechSynthesis.onvoiceschanged=loadVoices;}
+const lines=say=>say.split("\n").map(l=>{const m=l.match(/^([A-Z][a-z]*):\s*(.*)$/);return m?{who:m[1],text:m[2]}:{who:"",text:l};}).filter(l=>l.text);
+function speak(say,onEnd){
+  if(!TTS) return false;
+  speechSynthesis.cancel();
+  const ls=lines(say), who=[...new Set(ls.map(l=>l.who))];
+  ls.forEach((l,k)=>{const u=new SpeechSynthesisUtterance(l.text);
+    const w=who.indexOf(l.who); const v=voices.length?voices[Math.min(w,voices.length-1)]||voices[0]:null;
+    if(v){u.voice=v;u.lang=v.lang;}else u.lang="en-GB";
+    u.rate=rate; u.pitch=w===1&&voices.length<2?1.25:1;
+    if(k===ls.length-1&&onEnd) u.onend=onEnd;
+    speechSynthesis.speak(u);});
+  return true;
+}
+const stopSpeech=()=>{if(TTS) speechSynthesis.cancel();};
+
+// ---------------- helpers ----------------
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const blanks=q=>esc(q).replace("___",'<span class="blank" aria-label="blank"></span>');
+const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[£$€]/g,"").replace(/[.,!?;]+$/,"").replace(/[\s-]+/g,"").trim();
+const chips=c=>c.map(k=>`<span class="chip ${cc(k)}" title="${esc(CRIT[k][0])}">${k}</span>`).join("");
+const trackOf=u=>TRACKS.find(t=>t.id===u.track);
+const unitCode=u=>(trackOf(u).code||u.track.toUpperCase())+"·"+(UNITS.filter(x=>x.track===u.track).indexOf(u)+1);
+function ring(p){const r=19,c=2*Math.PI*r,col=p>=85?"var(--good)":p>=60?"var(--brand)":p>0?"var(--bad)":"var(--sunk)";
+  return `<div class="ring" aria-label="${p?p+'% best score':'Not started'}"><svg viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="${r}" fill="none" stroke-width="5"/><circle class="fg" cx="23" cy="23" r="${r}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p/100)}"/></svg><span>${p?p+"%":"–"}</span></div>`;}
+const critScore=k=>{const us=UNITS.filter(u=>u.crit.includes(k));return us.length?Math.round(us.reduce((n,u)=>n+(S.best[u.id]||0),0)/us.length):0;};
+function correctText(it){
+  if(it.t==="mc"||it.t==="up") return it.o[0];
+  if(it.t==="reg") return TAGS[it.a]||it.a;
+  if(it.t==="fx") return it.c[it.a];
+  if(it.t==="gap") return it.a[0];
+  if(it.t==="build") return it.s;
+  if(it.t==="order") return it.s.map((s,k)=>(k+1)+". "+s).join("\n");
+}
+const itemLabel=it=>it.t==="build"?"Build: "+it.s:it.t==="order"?"Put in order: "+it.s[0]:(it.say&&!it.q?"Listening question":it.q);
+const ICON_PLAY='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3l12 7-12 7z" fill="currentColor"/></svg>';
+const ICON_STOP='<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="4" width="12" height="12" rx="2" fill="currentColor"/></svg>';
+let tab=(()=>{try{return localStorage.getItem(KEY+"-tab")||TRACKS[0].id;}catch(e){return TRACKS[0].id;}})();
+
+// ---------------- routing ----------------
+function go(h){ if(location.hash.slice(1)===h) route(); else location.hash=h; }
+window.addEventListener("hashchange",route);
+document.getElementById("home").onclick=()=>go("");
+document.getElementById("save").onclick=()=>go("progress");
+let cueTimer=null;
+function route(){
+  stopSpeech(); clearInterval(cueTimer);
+  const h=location.hash.slice(1); window.scrollTo(0,0);
+  if(U_BY[h]) return unitView(U_BY[h]);
+  if(M_BY[h]) return modelView(M_BY[h]);
+  if(h.startsWith("cue")&&CUES_[+h.slice(3)]) return cueView(+h.slice(3));
+  if(h==="progress") return progressView();
+  if(h==="check") return startDrill({kind:"check"});
+  if(h==="mistakes") return startDrill({kind:"mistakes"});
+  home();
+}
+
+// ---------------- home ----------------
+function home(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  const nm=Object.keys(S.mistakes).filter(k=>findItem(k)).length;
+  const last=U_BY[S.last];
+  const t=TRACKS.find(x=>x.id===tab)||TRACKS[0];
+  const units=UNITS.filter(u=>u.track===t.id), models=MODELS_.filter(m=>m.track===t.id), cues=CUES_.map((c,k)=>({c,k})).filter(x=>x.c.track===t.id);
+  app.innerHTML=`
+  <section class="hello">
+    <span class="eyebrow">${esc(APP.eyebrow)}</span>
+    <h1>${S.name?"Welcome back, "+esc(S.name.split(" ")[0])+".":esc(APP.hero)}</h1>
+    <p class="muted">${esc(APP.intro)} Your best score in every unit is kept on this device${cloudRef?" and in your account":""}.</p>
+  </section>
+  <section class="meters" aria-label="Readiness by skill">
+    ${CK.map(k=>{const p=critScore(k);return `<div class="meter"><span class="chip ${cc(k)}">${k}</span><span class="n">${p}%</span><div class="track"><i style="width:${p}%;background:var(--${cc(k)})"></i></div><small>${esc(CRIT[k][0])}</small></div>`;}).join("")}
+  </section>
+  <div class="stats"><span><b>${done}</b>/${UNITS.length} units done</span><span><b>${nm}</b> mistakes to review</span>${MODELS_.length?`<span><b>${Object.keys(S.models).length}</b>/${MODELS_.length} model answers read</span>`:""}${CUES_.length?`<span><b>${Object.keys(S.cues).length}</b>/${CUES_.length} cue cards practised</span>`:""}</div>
+  <div class="row">
+    ${last?`<button class="btn" id="resume">Continue: ${esc(last.title)}</button>`:`<button class="btn" id="qc">Take the 2-minute quick check</button>`}
+    ${last?`<button class="btn quiet" id="qc">Quick check</button>`:""}
+    <button class="btn quiet" id="mk" ${nm?"":"disabled"}>Practise my mistakes${nm?" ("+nm+")":""}</button>
+  </div>
+  ${APP.audio&&!TTS?`<div class="tipbox"><b>Audio is not available in this browser</b><p>You can still practise: each question lets you read the script instead. For audio, open the Lab in Chrome or Safari.</p></div>`:""}
+  ${S.name?"":`<label class="f" for="nm">Your name (shown on shared results)<input type="text" id="nm" autocomplete="name" placeholder="e.g. Mehtab Singh"></label>`}
+  <div class="tabs" role="tablist">${TRACKS.map(x=>`<button class="tab" role="tab" aria-selected="${x.id===t.id}" data-t="${x.id}">${esc(x.name)}</button>`).join("")}</div>
+  <div class="trackhead"><span class="eyebrow">${esc(t.short)}</span><h2>${esc(t.blurb)}</h2></div>
+  ${units.length?`<div class="units">${units.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}<span class="chip n">${u.items.length} questions</span></span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>`:""}
+  ${models.length?`<div class="trackhead"><span class="eyebrow">${esc(APP.modelsEyebrow||"Read like an examiner")}</span><h2>${esc(APP.modelsTitle||"Band 8 model answers")}</h2></div>
+  <div class="models">${models.map(m=>`<button class="model" data-m="${m.id}"><b>${esc(m.title)}</b><small>${esc(m.task.split("\n")[0])}</small>${S.models[m.id]?'<span class="seen">✓ Read</span>':""}</button>`).join("")}</div>`:""}
+  ${cues.length?`<div class="trackhead"><span class="eyebrow">Timed practice</span><h2>Cue cards: 1 minute to prepare, 2 minutes to speak</h2></div>
+  <div class="models">${cues.map(x=>`<button class="model" data-c="${x.k}"><b>${esc(x.c.title)}</b><small>${esc(x.c.points.join(" · "))}</small>${S.cues[x.k]?`<span class="seen">✓ Practised ${S.cues[x.k]}×</span>`:""}</button>`).join("")}</div>`:""}
+  ${WORDS_.length?`<div class="trackhead"><span class="eyebrow">Word bank</span><h2>${esc(APP.wordsTitle||"Band 7 words with German")}</h2></div>
+  <div class="sheet tablebox"><table class="words"><thead><tr><th>Word</th><th>Meaning</th><th>Example</th><th>German</th></tr></thead><tbody>${WORDS_.map(w=>`<tr><td>${esc(w[0])}</td><td>${esc(w[1])}</td><td>${esc(w[2])}</td><td>${esc(w[3])}</td></tr>`).join("")}</tbody></table></div>`:""}`;
+  app.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.t;try{localStorage.setItem(KEY+"-tab",tab);}catch(e){}home();});
+  app.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  app.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>go(b.dataset.m));
+  app.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>go("cue"+b.dataset.c));
+  const r=document.getElementById("resume"); if(r) r.onclick=()=>go(last.id);
+  document.getElementById("qc").onclick=()=>go("check");
+  document.getElementById("mk").onclick=()=>go("mistakes");
+  const n=document.getElementById("nm"); if(n) n.onchange=()=>{S.name=n.value.trim();persist();};
+}
+
+function unitView(u){
+  const p=S.best[u.id]||0;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <div class="row" style="justify-content:space-between;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 300px">
+      <span class="eyebrow">${unitCode(u)} · ${esc(trackOf(u).short)}</span>
+      <h1>${esc(u.title)}</h1>
+      <div class="chips">${u.crit.map(k=>`<span class="chip ${cc(k)}">${k} · ${esc(CRIT[k][0])}</span>`).join("")}</div>
+    </div>${ring(p)}
+  </div>
+  <div class="tipbox"><b>Band 7 target</b><p>${esc(u.tip)}</p></div>
+  <h2>${esc(APP.bankTitle||"Language bank")}</h2>
+  <div class="sheet bank">${u.bank.map(b=>`<div class="${b[0]}"><span class="tag ${b[0]}">${esc(TAGS[b[0]]||b[0])}</span><span class="ph">${esc(b[1])}</span><span class="use">${esc(b[2])}</span></div>`).join("")}</div>
+  <div class="row"><button class="btn" id="start">${p?"Practise again":"Start the drill"} · ${u.items.length} questions</button>${S.tries[u.id]?`<span class="muted">Best ${p}% · ${S.tries[u.id]} attempt${S.tries[u.id]>1?"s":""}</span>`:""}</div>`;
+  document.getElementById("back").onclick=()=>{tab=u.track;go("");};
+  document.getElementById("start").onclick=()=>startDrill({kind:"unit",unit:u});
+  S.last=u.id; persist();
+}
+
+// ---------------- drills ----------------
+function findItem(key){const [u,i]=key.split(":");return U_BY[u]?.items[+i]?{u:U_BY[u],i:+i,it:U_BY[u].items[+i]}:null;}
+function startDrill(cfg){
+  let list=[];
+  if(cfg.kind==="unit") list=cfg.unit.items.map((it,i)=>({u:cfg.unit,i,it}));
+  else if(cfg.kind==="mistakes") list=shuffle(Object.keys(S.mistakes).map(findItem).filter(Boolean)).slice(0,15);
+  else for(const t of TRACKS){const pool=[];UNITS.filter(u=>u.track===t.id).forEach(u=>u.items.forEach((it,i)=>pool.push({u,i,it})));list.push(...shuffle(pool).slice(0,Math.max(2,Math.ceil(10/TRACKS.length))));}
+  if(!list.length) return go("");
+  ask({cfg,list,pos:0,res:[],t0:Date.now()});
+}
+const dotsHTML=D=>D.list.map((_,k)=>`<i class="${D.res[k]?(D.res[k].ok?"ok":"no"):""} ${k===D.pos?"cur":""}"></i>`).join("");
+function dhead(D){
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  return `<div><button class="link" id="quit">← Leave drill</button></div>
+  <div class="dhead"><span class="eyebrow">${D.cfg.kind==="unit"?unitCode(D.cfg.unit):"Mixed"} · ${esc(title)}</span><span class="num muted" style="font-size:13px">${D.pos+1} / ${D.list.length}</span></div>
+  <div class="dots" aria-hidden="true">${dotsHTML(D)}</div>`;
+}
+function audioBox(it){
+  return `<div class="audio" id="ab"><button class="play" id="play" aria-label="Play the recording">${ICON_PLAY}</button>
+  <div class="meta"><b id="pstate">${TTS?"Press play and listen":"Audio is not available here"}</b><span id="pcount">${TTS?(it.once?"Exam mode: listen once":"You can replay as often as you need"):"Read the script instead"}</span></div>
+  ${TTS?`<div class="speed" role="group" aria-label="Speed"><button data-r="1" aria-pressed="${rate===1}">Normal</button><button data-r="0.8" aria-pressed="${rate!==1}">Slower</button></div>`:`<button class="btn quiet" id="showscript">Show the script</button>`}</div>
+  <div id="noscript"></div>`;
+}
+function wireAudio(it){
+  let plays=0,playing=false;
+  const pb=document.getElementById("play"), st=document.getElementById("pstate"), ct=document.getElementById("pcount");
+  if(!TTS){pb.disabled=true;document.getElementById("showscript").onclick=e=>{document.getElementById("noscript").innerHTML=`<div class="sheet passage"><span class="lbl">Script</span>${esc(it.say)}</div>`;e.target.remove();};return;}
+  const end=()=>{playing=false;pb.innerHTML=ICON_PLAY;st.textContent="Finished";if(it.once&&plays>=1){pb.disabled=true;}};
+  pb.onclick=()=>{
+    if(playing){stopSpeech();end();return;}
+    if(it.once&&plays>=1) return;
+    plays++;playing=true;pb.innerHTML=ICON_STOP;st.textContent="Playing…";
+    ct.textContent=it.once?"Exam mode: listen once":"Played "+plays+"×";
+    speak(it.say,end);
+  };
+  document.querySelectorAll(".speed button").forEach(b=>b.onclick=()=>{rate=+b.dataset.r;document.querySelectorAll(".speed button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));});
+}
+function ask(D){
+  const {u,it}=D.list[D.pos];
+  const ctx=D.cfg.kind==="unit"?"":`<span class="chips"><span class="chip n">${esc(u.title)}</span></span>`;
+  const pass=it.p?`<div class="sheet passage"><span class="lbl">${esc(it.pl||"Read the text")}</span>${esc(it.p)}</div>`:"";
+  const aud=it.say?audioBox(it):"";
+  const qtext=it.q||"";
+  let body="";
+  if(it.t==="mc"||it.t==="up"){
+    D.opts=shuffle(it.o);
+    body=`${qtext?`<div class="sheet letter">${it.t==="up"?'<span class="b5">Band 5 answer</span>'+esc(qtext):blanks(qtext)}</div>`:""}
+      <div class="opts">${D.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div>`;
+  } else if(it.t==="reg"||it.t==="fx"){
+    const ch=it.t==="reg"?Object.keys(TAGS).filter(k=>["F","S","I"].includes(k)):it.c.map((_,k)=>k);
+    body=`${qtext?`<div class="sheet letter">${blanks(qtext)}</div>`:""}<div class="fixed">${ch.map(r=>`<button class="opt" data-r="${r}">${esc(it.t==="reg"?TAGS[r]:it.c[r])}</button>`).join("")}</div>`;
+  } else if(it.t==="gap"){
+    body=`<div class="sheet letter">${blanks(qtext)}</div>${it.lim?`<span class="prompt">${esc(it.lim)}</span>`:""}<form class="gapin" id="gf"><input id="gi" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer"><button class="btn" id="gb">Check</button></form>`;
+  } else if(it.t==="build"){
+    body=`<div class="sheet"><div class="line letter" id="line"></div></div><div class="tiles" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  } else if(it.t==="order"){
+    body=`${qtext?`<p>${esc(qtext)}</p>`:""}<div class="sheet"><div class="ordline" id="line"></div></div><div class="ord" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  }
+  app.innerHTML=`${dhead(D)}<div style="display:flex;flex-direction:column;gap:6px">${ctx}<span class="prompt">${esc(it.ask||TYPE_PROMPT[it.t])}</span></div>${pass}${aud}${body}<div id="fb" style="display:flex;flex-direction:column;gap:12px"></div>`;
+  app.firstElementChild.setAttribute("data-busy","1");
+  document.getElementById("quit").onclick=()=>{stopSpeech();D.cfg.kind==="unit"?go(D.cfg.unit.id):go("");};
+  if(it.say) wireAudio(it);
+  const done=(ok,yours)=>answer(D,ok,yours);
+  if(it.t==="mc"||it.t==="up"){
+    const bs=[...app.querySelectorAll(".opt")];
+    bs.forEach(b=>b.onclick=()=>{const pick=D.opts[+b.dataset.k],ok=pick===it.o[0];
+      bs.forEach(x=>{x.disabled=true;if(D.opts[+x.dataset.k]===it.o[0])x.classList.add("right");});
+      if(!ok)b.classList.add("wrong");done(ok,pick);});
+  } else if(it.t==="reg"||it.t==="fx"){
+    const bs=[...app.querySelectorAll(".fixed .opt")];
+    const right=String(it.a);
+    bs.forEach(b=>b.onclick=()=>{const ok=b.dataset.r===right;
+      bs.forEach(x=>{x.disabled=true;if(x.dataset.r===right)x.classList.add("right");});
+      if(!ok)b.classList.add("wrong");done(ok,b.textContent);});
+  } else if(it.t==="gap"){
+    const inp=document.getElementById("gi"); if(!it.say) inp.focus();
+    document.getElementById("gf").onsubmit=e=>{e.preventDefault();if(!inp.value.trim())return;
+      const ok=it.a.some(a=>norm(a)===norm(inp.value));
+      inp.disabled=true;document.getElementById("gb").disabled=true;inp.classList.add(ok?"right":"wrong");done(ok,inp.value.trim());};
+  } else {
+    const isOrder=it.t==="order", target=isOrder?it.s:it.s.split(" ");
+    let pool=shuffle(target.map((w,k)=>({w,k}))); if(pool.every((p,k)=>p.k===k)) pool.reverse();
+    let placed=[],locked=false;
+    const line=document.getElementById("line"),pe=document.getElementById("pool"),chk=document.getElementById("chk");
+    const tile=(p,k,cls)=>isOrder?`<button class="tile ${cls}" data-k="${k}"><span class="no">${cls==="placed"?k+1:"·"}</span><span>${esc(p.w)}</span></button>`:`<button class="tile ${cls}" data-k="${k}">${esc(p.w)}</button>`;
+    const draw=()=>{
+      line.innerHTML=placed.map((p,k)=>tile(p,k,"placed")).join("");
+      pe.innerHTML=pool.map((p,k)=>placed.includes(p)?(isOrder?"":`<button class="tile used" tabindex="-1" aria-hidden="true">${esc(p.w)}</button>`):tile(p,k,"")).join("");
+      chk.disabled=locked||placed.length!==pool.length;
+      if(locked) return;
+      line.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{placed.splice(+b.dataset.k,1);draw();});
+      pe.querySelectorAll(".tile:not(.used)").forEach(b=>b.onclick=()=>{placed.push(pool[+b.dataset.k]);draw();});
+    };
+    draw();
+    document.getElementById("clr").onclick=()=>{if(!locked){placed=[];draw();}};
+    chk.onclick=()=>{const ok=placed.every((p,k)=>p.w===target[k]);locked=true;draw();line.classList.add(ok?"ok":"no");document.getElementById("clr").disabled=true;done(ok,placed.map(p=>p.w).join(" "));};
+  }
+}
+function answer(D,ok,yours){
+  const {u,i,it}=D.list[D.pos], key=u.id+":"+i;
+  D.res[D.pos]={ok,yours,u,i,it};
+  if(ok) delete S.mistakes[key]; else S.mistakes[key]=Date.now();
+  persist();
+  const last=D.pos===D.list.length-1;
+  document.getElementById("fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite."}</b>${ok?"":`<span class="fix" style="white-space:pre-line">${esc(correctText(it))}</span>`}<span>${esc(it.why)}</span>${it.say?`<div class="script"><b style="font-family:var(--f-ui);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Script</b>\n${esc(it.say)}</div>`:""}</div>
+    <div class="row"><button class="btn" id="next">${last?"See my results":"Next question"}</button></div>`;
+  const ns=document.getElementById("noscript"); if(ns) ns.innerHTML="";
+  document.querySelector(".dots").innerHTML=dotsHTML(D);
+  const n=document.getElementById("next"); n.focus({preventScroll:true}); n.scrollIntoView({block:"nearest"});
+  n.onclick=()=>{stopSpeech();if(last) results(D); else {D.pos++;ask(D);window.scrollTo(0,0);}};
+}
+function results(D){
+  const right=D.res.filter(r=>r.ok).length,total=D.list.length,pct=Math.round(right/total*100);
+  const secs=Math.round((Date.now()-D.t0)/1000), time=Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+  let prev=0;
+  if(D.cfg.kind==="unit"){const id=D.cfg.unit.id;prev=S.best[id]||0;S.best[id]=Math.max(prev,pct);S.tries[id]=(S.tries[id]||0)+1;persist();}
+  const wrong=D.res.filter(r=>!r.ok);
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  const verdict=pct>=85?"Band 7 control. Move on to the next unit.":pct>=60?"Close. Read the bank again and repeat the drill.":"Read the strategy first, then repeat the drill tomorrow.";
+  let recs="";
+  if(D.cfg.kind==="check"){const weak=[...new Set(wrong.map(r=>r.u.id))].map(id=>U_BY[id]);
+    recs=weak.length?`<h2>Start with these units</h2><div class="units">${weak.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}</span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>`:`<p>No weak areas found. Work through the units in order.</p>`;}
+  const share=`Pioneer ${APP.name}\nName: ${S.name||"Student"}\n${title}: ${right}/${total} (${pct}%)\nTime: ${time}`+(D.cfg.kind==="unit"?`\nBest so far: ${S.best[D.cfg.unit.id]}%`:"");
+  const sib=D.cfg.kind==="unit"?UNITS.filter(u=>u.track===D.cfg.unit.track):[], nextU=D.cfg.kind==="unit"?sib[sib.indexOf(D.cfg.unit)+1]:null;
+  app.innerHTML=`
+  <span class="eyebrow">Results${S.name?" · "+esc(S.name):""}</span>
+  <h1>${esc(title)}</h1>
+  <div class="row" style="align-items:flex-end;gap:16px"><span class="big">${right}<span class="muted" style="font-size:26px">/${total}</span></span><span class="muted">${pct}% · ${time}${D.cfg.kind==="unit"&&pct>prev&&prev?" · new best (was "+prev+"%)":""}</span></div>
+  <p>${verdict}</p>
+  <div class="row">
+    ${nextU?`<button class="btn" id="nu">Next unit: ${esc(nextU.title)}</button>`:""}
+    <button class="btn ${nextU?"quiet":""}" id="again">${D.cfg.kind==="unit"?"Repeat this unit":"Back to all units"}</button>
+    <a class="btn quiet" href="https://wa.me/?text=${encodeURIComponent(share)}" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <button class="btn quiet" id="cp">Copy result</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  ${recs}
+  ${wrong.length?`<h2>Review your mistakes</h2><p class="muted">These stay in “Practise my mistakes” until you answer them correctly.</p><div class="review">${wrong.map(r=>`<article><small>${esc(r.u.title)}</small><span>${esc(itemLabel(r.it))}</span><span class="y">✗ ${esc(r.yours)}</span><span class="c" style="white-space:pre-line">✓ ${esc(correctText(r.it))}</span><small>${esc(r.it.why)}</small></article>`).join("")}</div>`:""}`;
+  app.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  const nu=document.getElementById("nu"); if(nu) nu.onclick=()=>go(nextU.id);
+  document.getElementById("again").onclick=()=>D.cfg.kind==="unit"?startDrill(D.cfg):go("");
+  document.getElementById("cp").onclick=()=>{const t=document.getElementById("toast");
+    navigator.clipboard.writeText(share).then(()=>t.textContent="Result copied.").catch(()=>t.textContent=share.replace(/\n/g," · "));};
+}
+
+// ---------------- model answers ----------------
+function modelView(m){
+  let html=esc(m.text);
+  m.marks.forEach((mk,k)=>{const e=esc(mk[0]),idx=html.indexOf(e);if(idx<0)return;
+    html=html.slice(0,idx)+`<button class="hl" data-k="${k}">${e}<sup>${k+1}</sup></button>`+html.slice(idx+e.length);});
+  const words=m.text.split(/\s+/).filter(w=>/[A-Za-z0-9]/.test(w)).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Model answer · ${esc(TRACKS.find(t=>t.id===m.track).short)} · ${words} words</span>
+  <h1>${esc(m.title)}</h1>
+  <div class="taskbox"><b>${esc(m.taskLabel||"Task")}.</b> ${esc(m.task)}</div>
+  <div class="row">${TTS&&APP.speakModels?`<button class="btn quiet" id="listen">${ICON_PLAY} Listen to this answer</button>`:""}${m.cue!=null?`<button class="btn" id="try">Try this cue card with the timer</button>`:""}</div>
+  <p class="muted">Tap a highlighted phrase to see why it earns marks.</p>
+  <div class="sheet model-text">${html}</div>
+  <h2>What the examiner notices</h2>
+  <ol class="notes">${m.marks.map((mk,k)=>`<li data-k="${k}"><span>${k+1}</span><span><q>${esc(mk[0])}</q> ${esc(mk[1])}</span></li>`).join("")}</ol>`;
+  document.getElementById("back").onclick=()=>{stopSpeech();tab=m.track;go("");};
+  const l=document.getElementById("listen"); if(l){let on=false;l.onclick=()=>{if(on){stopSpeech();on=false;l.innerHTML=ICON_PLAY+" Listen to this answer";return;}
+    on=true;l.innerHTML=ICON_STOP+" Stop";speak(m.text,()=>{on=false;l.innerHTML=ICON_PLAY+" Listen to this answer";});};}
+  const tr=document.getElementById("try"); if(tr) tr.onclick=()=>go("cue"+m.cue);
+  const hs=[...app.querySelectorAll(".hl")],ns=[...app.querySelectorAll(".notes li")];
+  hs.forEach(h=>h.onclick=()=>{const k=h.dataset.k;hs.forEach(x=>x.classList.toggle("on",x.dataset.k===k));ns.forEach(x=>x.classList.toggle("on",x.dataset.k===k));
+    ns[k].scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+  S.models[m.id]=true; persist();
+}
+
+// ---------------- cue card timer (Speaking Part 2) ----------------
+function cueView(k){
+  const c=CUES_[k];
+  const card=`<div class="cue"><b>${esc(c.title)}</b><span class="muted" style="font-size:14px">You should say:</span><ul>${c.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>${c.explain?`<span style="font-family:var(--f-letter);font-size:17px">${esc(c.explain)}</span>`:""}</div>`;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Part 2 · Cue card practice</span>
+  <h1>Prepare for 1 minute, then speak for 2</h1>
+  ${card}
+  <div class="panel" id="stage" style="align-items:flex-start">
+    <span class="phase muted" id="ph">Ready</span>
+    <span class="clock" id="clk">1:00</span>
+    <div class="row"><button class="btn" id="go">Start preparation</button><button class="btn quiet" id="skip" hidden>Start speaking now</button></div>
+  </div>
+  <label class="f" for="notes">Your notes (one or two keywords per point)<textarea id="notes" placeholder="where · when · what · why"></textarea></label>
+  <div class="panel" id="after" hidden>
+    <h3>Check yourself</h3>
+    <div class="checks">${["I spoke until the timer ended.","I covered every point on the card.","I kept my past tenses accurate.","I used at least two less common words or phrases.","I gave a reason or feeling, not only facts.","I did not stop for long silences."].map((t,i)=>`<label><input type="checkbox" id="ck${i}"> ${esc(t)}</label>`).join("")}</div>
+    <p class="muted">Practise again with the same card until you can tick every line. Record yourself on your phone to check pronunciation.</p>
+    <div class="row"><button class="btn" id="again">Practise again</button></div>
+  </div>`;
+  document.getElementById("back").onclick=()=>{clearInterval(cueTimer);tab=c.track;go("");};
+  const clk=document.getElementById("clk"),ph=document.getElementById("ph"),gob=document.getElementById("go"),sk=document.getElementById("skip");
+  const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+  function run(secs,label,color,next){clearInterval(cueTimer);let left=secs;ph.textContent=label;ph.style.color=color;clk.textContent=fmt(left);
+    cueTimer=setInterval(()=>{left--;clk.textContent=fmt(Math.max(left,0));if(left<=0){clearInterval(cueTimer);next();}},1000);}
+  function speakPhase(){sk.hidden=true;gob.hidden=true;run(120,"Speak now","var(--good)",()=>{ph.textContent="Time is up";ph.style.color="var(--brand)";S.cues[k]=(S.cues[k]||0)+1;persist();document.getElementById("after").hidden=false;});}
+  gob.onclick=()=>{gob.hidden=true;sk.hidden=false;run(60,"Preparation","var(--brand)",speakPhase);document.getElementById("notes").focus();};
+  sk.onclick=speakPhase;
+  document.getElementById("again").onclick=()=>cueView(k);
+}
+
+// ---------------- progress panel ----------------
+function progressView(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Your progress</span>
+  <h1>Keep your progress safe</h1>
+  <div class="panel">
+    <h3>Where it is saved</h3>
+    <p>${cloudRef?"Your progress is saved to your claude.ai account and on this device. It loads automatically when you open the Lab signed in.":localOK?"Your progress is saved in this browser on this device. It stays when you close and reopen the page. To move to another phone or browser, use a backup code.":"This browser is not allowing the page to save. Copy a backup code before you leave, and paste it back next time."}</p>
+    <p class="muted">${done} of ${UNITS.length} units done · ${Object.keys(S.mistakes).length} mistakes saved</p>
+    <label class="f" for="pn">Your name<input type="text" id="pn" autocomplete="name" value="${esc(S.name)}"></label>
+  </div>
+  <div class="panel">
+    <h3>Backup code</h3>
+    <p class="muted">Copy this code and keep it in WhatsApp or Notes. Paste it on any device to restore your scores.</p>
+    <textarea class="code" id="code" readonly aria-label="Your backup code">${esc(exportCode())}</textarea>
+    <div class="row"><button class="btn" id="cpc">Copy backup code</button></div>
+    <label class="f" for="rc">Restore from a code<textarea class="code" id="rc" placeholder="Paste a code that starts with ${APP.code}-"></textarea></label>
+    <div class="row"><button class="btn quiet" id="rst">Restore progress</button></div>
+    <div class="toast" id="toast"></div>
+  </div>
+  <div class="panel">
+    <h3>Start again</h3>
+    <p class="muted">Clears every score and mistake on this device${cloudRef?" and in your account":""}. Copy your backup code first.</p>
+    <div class="row"><button class="btn quiet danger" id="clear">Clear my progress</button><span id="confirm"></span></div>
+  </div>`;
+  const t=document.getElementById("toast");
+  document.getElementById("back").onclick=()=>go("");
+  document.getElementById("pn").onchange=e=>{S.name=e.target.value.trim();persist();document.getElementById("code").value=exportCode();};
+  document.getElementById("cpc").onclick=()=>{const c=document.getElementById("code");
+    navigator.clipboard.writeText(c.value).then(()=>t.textContent="Backup code copied.").catch(()=>{c.select();t.textContent="Code selected. Copy it with your keyboard or long-press.";});};
+  document.getElementById("rst").onclick=()=>{try{importCode(document.getElementById("rc").value);t.style.color="var(--good)";t.textContent="Progress restored.";document.getElementById("code").value=exportCode();}
+    catch(e){t.style.color="var(--bad)";t.textContent="That code is not valid. Paste the whole code, starting with "+APP.code+"-.";}};
+  document.getElementById("clear").onclick=()=>{document.getElementById("confirm").innerHTML='<button class="btn danger" id="yes">Yes, clear everything</button>';
+    document.getElementById("yes").onclick=()=>{const nm=S.name;S=blank();S.name=nm;persist();progressView();};};
+}
+
+loadLocal(); status(); route(); connectCloud();
+})();
+</script>

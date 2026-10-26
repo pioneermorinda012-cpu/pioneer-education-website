@@ -1,0 +1,1085 @@
+<title>Pioneer Writing Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: an app shell. Dashboard of band-criterion meters on top, track tabs, then unit rows.
+   Every sentence students work on sits on a dotted notebook sheet in a serif "handwritten-letter" face. */
+:root{
+  --bg:#f5f2f3; --card:#ffffff; --sunk:#ece6e8; --ink:#25181c; --muted:#6c5d62; --line:#e2d8db;
+  --brand:#8a1c32; --brand-ink:#ffffff; --brand-soft:#f4dfe4;
+  --ta:#8a1c32; --cc:#0f6e6a; --lr:#9a5b00; --gra:#3d4fa8;
+  --ta-soft:#f4dfe4; --cc-soft:#d9efed; --lr-soft:#f6e7cf; --gra-soft:#e1e5f7;
+  --good:#1d7449; --good-soft:#dff1e6; --bad:#b0281f; --bad-soft:#fae2df;
+  --dot:rgba(110,80,90,.15); --mark:#ffe19c; --mark-on:#ffc94d;
+  --f-display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --f-ui:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-letter:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-num:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --ta:#e5788d; --cc:#5cc6bf; --lr:#e8ab4f; --gra:#97a6f0;
+  --ta-soft:#3b1c24; --cc-soft:#12302e; --lr-soft:#33250f; --gra-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --ta:#e5788d; --cc:#5cc6bf; --lr:#e8ab4f; --gra:#97a6f0;
+  --ta-soft:#3b1c24; --cc-soft:#12302e; --lr-soft:#33250f; --gra-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.15}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,5vw,34px);letter-spacing:-.01em}
+h2{font-family:var(--f-display);font-weight:600;font-size:22px}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.logo{width:34px;height:34px;flex:none;border-radius:8px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:18px;border:0;cursor:pointer}
+.brand{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand b{font-family:var(--f-display);font-size:17px}
+.brand span{font-size:12px;color:var(--muted)}
+.save{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+.save i{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.save.ok i{background:var(--good)}.save.warn i{background:var(--bad)}
+
+/* buttons */
+.btn{font-weight:600;font-size:15px;padding:11px 18px;border-radius:8px;border:1.5px solid var(--brand);background:var(--brand);color:var(--brand-ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn.quiet{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.link{background:none;border:0;padding:0;color:var(--brand);font-weight:600;cursor:pointer}
+
+/* dashboard */
+.hello{display:flex;flex-direction:column;gap:6px;padding-top:6px}
+.meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.meter{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.meter .k{font-family:var(--f-num);font-size:12px;font-weight:700}
+.meter .n{font-family:var(--f-num);font-size:24px;font-weight:700;line-height:1}
+.meter small{font-size:12px;color:var(--muted);line-height:1.3}
+.track{height:6px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px;transition:width .4s}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.stats b{color:var(--ink);font-family:var(--f-num)}
+
+/* tabs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.tab{flex:none;padding:9px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;font-size:14px;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.trackhead{display:flex;flex-direction:column;gap:2px}
+
+/* unit rows */
+.units{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.unit{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border:0;border-top:1px solid var(--line);background:none;text-align:left;cursor:pointer;width:100%}
+.unit:first-child{border-top:0}
+.unit:hover{background:var(--sunk)}
+.code{font-family:var(--f-num);font-weight:700;font-size:13px;color:var(--muted)}
+.ut{display:flex;flex-direction:column;gap:5px;min-width:0}
+.ut b{font-size:16px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{font-family:var(--f-num);font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px}
+.chip.TA{color:var(--ta);background:var(--ta-soft)}.chip.CC{color:var(--cc);background:var(--cc-soft)}
+.chip.LR{color:var(--lr);background:var(--lr-soft)}.chip.GRA{color:var(--gra);background:var(--gra-soft)}
+.chip.n{color:var(--muted);background:var(--sunk);font-family:var(--f-ui);font-weight:600}
+.ring{width:46px;height:46px;position:relative;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-num);font-size:11px;font-weight:700}
+.ring .bg{stroke:var(--sunk)}.ring .fg{transition:stroke-dashoffset .5s}
+.models{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.model{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+.model:hover{border-color:var(--brand)}
+.model small{color:var(--muted);font-size:13px}
+.seen{font-size:12px;color:var(--good);font-weight:600}
+
+/* sheets */
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 20px;
+  background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:18px 18px;background-position:9px 9px}
+.letter{font-family:var(--f-letter);font-size:20px;line-height:1.55}
+.blank{display:inline-block;min-width:84px;border-bottom:2px solid var(--brand);margin:0 4px;transform:translateY(-3px)}
+.tipbox{border-left:4px solid var(--brand);background:var(--card);border-radius:0 10px 10px 0;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tipbox b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
+.bank{display:flex;flex-direction:column}
+.bank div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 12px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
+.bank div:first-child{border-top:0;padding-top:0}
+.bank .ph{font-family:var(--f-letter);font-size:17px}
+.bank .use{grid-column:2;font-size:13px;color:var(--muted)}
+.tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:5px;justify-self:start;background:var(--sunk);color:var(--muted)}
+.tag.F{background:var(--gra-soft);color:var(--gra)}.tag.S{background:var(--cc-soft);color:var(--cc)}
+.tag.I{background:var(--lr-soft);color:var(--lr)}.tag.A{background:var(--ta-soft);color:var(--ta)}
+.tag.X{background:var(--bad-soft);color:var(--bad)}
+.bank .X .ph{text-decoration:line-through;text-decoration-color:var(--bad)}
+
+/* drill */
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--sunk)}
+.dots i.ok{background:var(--good)}.dots i.no{background:var(--bad)}.dots i.cur{outline:2px solid var(--brand);outline-offset:1px}
+.prompt{font-size:14px;font-weight:600;color:var(--muted)}
+.b5{font-size:12px;font-weight:700;color:var(--bad);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px;font-family:var(--f-ui)}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{font-family:var(--f-letter);font-size:18px;text-align:left;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--brand)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.regs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.regs .opt{font-family:var(--f-ui);font-weight:600;font-size:16px;text-align:center}
+.gapin{display:flex;gap:10px;flex-wrap:wrap}
+.gapin input{flex:1 1 200px;min-width:0;font-family:var(--f-letter);font-size:19px;padding:11px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.gapin input.right{border-color:var(--good);background:var(--good-soft)}.gapin input.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.line{min-height:56px;border-bottom:2px dashed var(--line);display:flex;flex-wrap:wrap;gap:8px;padding:8px 0;align-items:center}
+.line.ok{border-color:var(--good)}.line.no{border-color:var(--bad)}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+.tile{font-family:var(--f-letter);font-size:17px;padding:7px 12px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);cursor:pointer}
+.tile.placed{background:var(--brand-soft);border-color:var(--brand)}
+.tile.used{visibility:hidden}
+.ord{display:flex;flex-direction:column;gap:8px}
+.ord .tile{text-align:left;line-height:1.4;display:flex;gap:10px;align-items:flex-start;width:100%}
+.ord .tile .no{font-family:var(--f-num);font-size:13px;font-weight:700;color:var(--brand);padding-top:3px;flex:none;width:18px}
+.ordline{display:flex;flex-direction:column;gap:8px;min-height:20px}
+.fb{border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fb.ok{background:var(--good-soft)}.fb.no{background:var(--bad-soft)}
+.fb b{font-size:15px}.fb.ok b{color:var(--good)}.fb.no b{color:var(--bad)}
+.fb .fix{font-family:var(--f-letter);font-size:17px}
+
+/* results */
+.big{font-family:var(--f-num);font-size:52px;font-weight:700;line-height:1}
+.review{display:flex;flex-direction:column;gap:10px}
+.review article{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--card);display:flex;flex-direction:column;gap:5px}
+.review .y{color:var(--bad);font-family:var(--f-letter)}.review .c{color:var(--good);font-family:var(--f-letter)}
+.review small{color:var(--muted);font-size:13px}
+.toast{font-size:14px;color:var(--good);min-height:20px}
+.recs{display:flex;flex-direction:column;gap:8px}
+
+/* model answers */
+.taskbox{background:var(--sunk);border-radius:10px;padding:14px 16px;font-size:15px}
+.model-text{white-space:pre-wrap;font-family:var(--f-letter);font-size:18px;line-height:1.7}
+.hl{background:var(--mark);border-radius:3px;padding:0 2px;cursor:pointer;border:0;font:inherit;color:inherit;line-height:inherit;text-align:left}
+.hl sup{font-family:var(--f-num);font-size:10px;font-weight:700;color:var(--brand);margin-left:2px}
+.hl.on{background:var(--mark-on)}
+.notes{display:flex;flex-direction:column;gap:6px;counter-reset:n}
+.notes li{list-style:none;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:8px;font-size:15px}
+.notes li.on{background:var(--brand-soft)}
+.notes li span:first-child{font-family:var(--f-num);font-weight:700;color:var(--brand);font-size:13px;padding-top:2px}
+.notes q{font-family:var(--f-letter);quotes:none}
+
+/* words + progress panel */
+.tablebox{overflow-x:auto}
+table.words{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+table.words th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:6px 8px;border-bottom:1px solid var(--line)}
+table.words td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.words td:first-child{font-weight:700}
+table.words td:nth-child(3){font-family:var(--f-letter)}
+table.words td:last-child{font-style:italic;color:var(--muted)}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+input[type=text],textarea{font:inherit;font-size:15px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+textarea{font-family:var(--f-num);font-size:12px;min-height:84px;resize:vertical;word-break:break-all}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.danger{color:var(--bad);border-color:var(--bad)}
+
+@media (max-width:560px){
+  .meters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .letter{font-size:18px}
+  .unit{grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:12px}
+  .bank div{grid-template-columns:1fr}.bank .use{grid-column:1}
+  .regs{grid-template-columns:1fr}
+  .save .lbl{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <button class="logo" id="home" aria-label="Writing Lab home">P</button>
+    <div class="brand"><b>Writing Lab</b><span>Pioneer Education · IELTS Band 7+</span></div>
+    <button class="save" id="save" aria-label="Progress and backup"><i></i><span class="lbl" id="saveLbl">Saved on this device</span></button>
+  </header>
+  <main id="app" class="wrap" aria-live="polite"></main>
+</div>
+
+<script>
+// Item helpers. First option is always the correct one; the page shuffles.
+const M=(q,o,why)=>({t:"mc",q,o,why});           // multiple choice
+const U=(q,o,why)=>({t:"up",q,o,why});           // upgrade a Band 5 sentence
+const R=(q,a,why)=>({t:"reg",q,a,why});          // register: F / S / I
+const G=(q,a,why)=>({t:"gap",q,a,why});          // typed gap, a = accepted answers
+const B=(s,why)=>({t:"build",s,why});            // word order
+const O=(s,why)=>({t:"order",s,why});            // sentence order
+
+const TRACKS=[
+{id:"gt",name:"GT Letters",short:"GT Task 1",blurb:"Formal, semi-formal and informal letters"},
+{id:"ac",name:"Academic Report",short:"Academic Task 1",blurb:"Graphs, tables, processes and maps"},
+{id:"t2",name:"Essay",short:"Task 2 · both modules",blurb:"Thesis, paragraphs, cohesion and tone"},
+{id:"gr",name:"Grammar for Band 7",short:"All writing tasks",blurb:"The errors that keep GRA below 7"},
+{id:"vo",name:"Vocabulary",short:"All writing tasks",blurb:"Register, upgrades and habits to drop"}
+];
+
+// crit: which band-descriptor criteria the unit trains. TA = Task Achievement / Response
+const UNITS=[
+// ---------------- GT LETTERS ----------------
+{id:"gt1",track:"gt",title:"Register and format",crit:["TA"],
+ tip:"Band 7 needs a tone that is consistent and appropriate. Choose the register from the person you write to, then keep it for the whole letter.",
+ bank:[["F","Dear Sir or Madam, … Yours faithfully,","You do not know the person's name"],
+       ["S","Dear Mr Sharma, … Yours sincerely,","You know the surname: a landlord, manager or neighbour"],
+       ["I","Dear Aman, … Best wishes, / Take care,","A friend or relative"],
+       ["F","I would be grateful if you could …","Formal request"],
+       ["I","Could you do me a favour and …?","Informal request"],
+       ["X","I'm, can't, gonna in a formal letter","Use full forms in formal letters"]],
+ items:[
+  R("I would be grateful if you could send me the details.","F","“Would be grateful if you could” is a formal request."),
+  R("Can't wait to see you next month!","I","Contraction, exclamation and no subject: informal."),
+  R("I was wondering if you could let me know when the repairs will be finished.","S","Polite and indirect, but personal: semi-formal, e.g. to a landlord."),
+  R("Thanks a million for having me over last weekend.","I","“Thanks a million” and “have someone over” are informal."),
+  R("Please accept my apologies for any inconvenience caused.","F","A fixed formal apology phrase."),
+  M("The letter begins “Dear Sir or Madam,”. How should it end?",["Yours faithfully,","Yours sincerely,","Best wishes,","Your loving,"],"No name → Yours faithfully."),
+  M("The letter begins “Dear Mrs Kaur,”. How should it end?",["Yours sincerely,","Yours faithfully,","Lots of love,","Cheers,"],"A known surname → Yours sincerely."),
+  M("Which sentence is NOT acceptable in a formal letter?",["I'm writing about the job ad.","I am writing with regard to the position advertised.","I would appreciate a prompt reply.","I look forward to hearing from you."],"A contraction (I'm) and an informal word (ad)."),
+  M("You are writing to a friend. Which opening is best?",["Hi Simran, it's been ages since I last heard from you!","Dear Madam, I am writing to inform you of my news.","To whom it may concern,","Respected Simran,"],"Warm and natural. “Respected” is Indian English and not used in IELTS letters.")
+ ]},
+{id:"gt2",track:"gt",title:"Openings and purpose",crit:["TA","CC"],
+ tip:"Your first sentence should state the purpose. An examiner who reads only the first line should know why you are writing.",
+ bank:[["F","I am writing to complain about / to enquire about / to apply for …","Purpose in one line"],
+       ["F","I am writing with regard to …","Formal topic opener"],
+       ["S","I am writing to let you know that …","Landlord, neighbour, colleague"],
+       ["I","I'm just writing to tell you about …","Friend"],
+       ["I","Sorry I haven't been in touch for so long.","Friend, after a long gap"],
+       ["X","My name is … and I am writing this letter to …","Wastes words; drop the name and “this letter”"]],
+ items:[
+  M("Which is the best opening for a complaint to a restaurant manager?",["I am writing to complain about the poor service I received at your restaurant on 12 May.","My name is Harpreet and I live in Morinda.","I want to tell you something about your restaurant.","Hope you are fine."],"Purpose, detail and date in one sentence."),
+  U("I am writing this letter to tell you about a problem.",["I am writing to inform you of a problem with my recent order.","I am writing this letter to telling you about a problem.","This letter is for telling you a problem.","I write you to tell about problem."],"Drop “this letter”, use “inform you of”, and name the problem."),
+  G("I am writing ___ regard to the advertisement in yesterday's newspaper.",["with"],"with regard to = about (formal)."),
+  G("I am writing to enquire ___ the evening courses you offer.",["about"],"enquire about something."),
+  M("Which opening suits an informal letter?",["I'm just writing to tell you my big news!","I am writing to inform you of my news.","With reference to my news,","I hereby inform you of my news."],"Contraction and a friendly tone."),
+  R("With reference to your letter of 3 March, I would like to confirm my booking.","F","“With reference to” is formal."),
+  B("I am writing to apply for the position of receptionist.","I am writing + to-infinitive + the purpose."),
+  M("Which greeting should you avoid in IELTS?",["Respected Sir,","Dear Sir or Madam,","Dear Mr Gill,","Dear Neha,"],"“Respected Sir” is Indian English; use “Dear Sir or Madam”.")
+ ]},
+{id:"gt3",track:"gt",title:"Complaint letters",crit:["TA","GRA"],
+ tip:"State the problem, give exact details (dates, order numbers), explain the effect on you, and make one clear, polite request.",
+ bank:[["F","Unfortunately, the item was damaged on arrival.","State the problem"],
+       ["F","To make matters worse, …","Add a second problem"],
+       ["F","This has caused me considerable inconvenience.","Effect on you"],
+       ["F","I would like you to either replace … or issue a full refund.","Clear request"],
+       ["F","No action has been taken so far.","Still not solved"],
+       ["X","I want refund. / I want it should be fixed.","Too blunt and ungrammatical"]],
+ items:[
+  M("I would like you ___ the faulty item.",["to replace","replace","that you replace","should replace"],"would like + person + to + verb."),
+  M("I ___ your shop last week, but nobody helped me.",["visited","have visited","have been to","was visit"],"“last week” is finished time → past simple."),
+  M("No action ___ on my complaint so far.",["has been taken","is taken","has taken","was took"],"“so far” + passive → has been taken."),
+  U("The heater is not working and I want it should be fixed.",["The heater has stopped working, and I would like it to be repaired as soon as possible.","The heater not working and I want fixing.","The heater is not work and it should be fix.","Heater is not working so fix it."],"would like + it + to be repaired, plus a time frame."),
+  G("This has caused me considerable ___ .",["inconvenience"],"cause someone inconvenience."),
+  G("To make ___ worse, the delivery driver was rude.",["matters"],"Fixed phrase: to make matters worse."),
+  M("Which linker adds a second, worse problem?",["To make matters worse,","As a result,","In contrast,","For instance,"],"It adds a worse point."),
+  O(["I am writing to complain about a washing machine I bought from your store on 5 May.","Although it was delivered on time, it stopped working after only two days.","I have contacted your helpline twice, but nobody has called me back.","I would therefore like you to replace the machine within the next week."],"Purpose → problem → action taken → request.")
+ ]},
+{id:"gt4",track:"gt",title:"Requests and enquiries",crit:["GRA","TA"],
+ tip:"Band 7 letters use indirect questions. After “Could you tell me …” the word order is like a statement: subject before verb.",
+ bank:[["F","Could you please tell me when the course starts?","Indirect question"],
+       ["F","I would be grateful if you could let me know whether …","Yes/no enquiry"],
+       ["F","I was wondering if it would be possible to …","Very polite request"],
+       ["S","Would you mind if I …?","Asking permission"],
+       ["X","Could you tell me when does the course start?","Question order inside a question"]],
+ items:[
+  M("Could you tell me when ___?",["the course starts","does the course start","starts the course","the course does start"],"Indirect question: subject + verb."),
+  M("I would like to know how much ___.",["the fees are","are the fees","the fees is","is the fees"],"Statement order, and fees are plural."),
+  M("I would be grateful if you ___ me a brochure.",["could send","can send","will send","send to"],"would be grateful if you could …"),
+  G("I was ___ if it would be possible to change my booking.",["wondering"],"I was wondering if … is a polite opener."),
+  U("Tell me the timings of the class.",["Could you please let me know what time the classes take place?","Please tell me what is the timing of class.","Tell me timings of the class please.","What are the timings of class, tell me."],"Indirect, polite and grammatical."),
+  B("Could you tell me whether parking is available?","whether + subject + verb."),
+  M("Which is correct?",["Do you know if the hotel has a swimming pool?","Do you know does the hotel have a swimming pool?","Do you know has the hotel a swimming pool?","Do you know if has the hotel a swimming pool?"],"if + statement order."),
+  M("Would you mind ___ the form to me again?",["sending","to send","send","sent"],"would you mind + -ing.")
+ ]},
+{id:"gt5",track:"gt",title:"Informal letters",crit:["LR","TA"],
+ tip:"Informal does not mean careless. Band 7 informal letters use natural phrasal verbs and idioms, but the grammar must still be accurate.",
+ bank:[["I","It was great to hear from you.","Opening"],
+       ["I","I'm really sorry I couldn't make it to your party.","Apology"],
+       ["I","Guess what? I've just got a new job!","News"],
+       ["I","Why don't you come and stay with us?","Invitation"],
+       ["I","Anyway, I'd better go now.","Moving to the end"],
+       ["I","Can't wait to see you! / Take care,","Closing"]],
+ items:[
+  U("I am writing to apologise for not attending your party. (to a friend)",["I'm so sorry I couldn't make it to your party.","I hereby apologise for my absence at your party.","Please accept my apologies for not attending your function.","Sorry for not came to your party."],"Friendly register, correct grammar."),
+  M("Which closing suits a letter to a close friend?",["Take care, and write back soon!","Yours faithfully,","I look forward to your prompt reply.","Kindly revert at the earliest."],"Warm and informal."),
+  G("I'm looking forward ___ seeing you next month.",["to"],"look forward to + -ing."),
+  M("Why ___ you come and stay with us in December?",["don't","not","won't you","didn't"],"Why don't you …? is a friendly suggestion."),
+  G("I can't wait to catch ___ with you and hear all your news.",["up"],"catch up with someone."),
+  R("Anyway, I'd better go now. Write back soon!","I","Contractions and a chatty close."),
+  M("Which phrasal verb means “visit someone briefly”?",["drop by","drop out","put off","turn down"],"drop by = visit for a short time."),
+  O(["It was lovely to hear from you last week.","You asked about my new flat, so let me tell you about it.","It's small but bright, and it's only five minutes from my office.","Why don't you come and see it when you're next in town?"],"Greeting → link to their letter → details → invitation.")
+ ]},
+{id:"gt6",track:"gt",title:"Closings and polite endings",crit:["TA","LR"],
+ tip:"End with a clear expectation of action. A short, polite closing line shows that you can control the tone.",
+ bank:[["F","I look forward to hearing from you.","Standard formal close"],
+       ["F","I would appreciate a reply at your earliest convenience.","Asking for a reply"],
+       ["F","Should you require any further information, please do not hesitate to contact me.","Offering help"],
+       ["S","Thank you for your understanding.","Landlord, manager"],
+       ["I","Write back soon!","Friend"],
+       ["X","Kindly do the needful.","Indian English; sounds unnatural to examiners"]],
+ items:[
+  M("I look forward to ___ from you.",["hearing","hear","heard","be hearing"],"look forward to + -ing."),
+  M("___ you require any further information, please contact me.",["Should","Would","If will","Unless"],"Should you … = If you … (formal)."),
+  U("Please do the needful and reply fast.",["I would appreciate it if you could reply at your earliest convenience.","Kindly do needful and revert back.","Reply fast please do the needful.","Do the needful as soon as."],"Natural, polite, formal."),
+  G("Please do not ___ to contact me if you have any questions.",["hesitate"],"do not hesitate to …"),
+  M("Which sentence is wrong?",["I am looking forward to hear from you.","I look forward to hearing from you.","I am looking forward to hearing from you.","I look forward to your reply."],"“to” here is a preposition, so it takes -ing."),
+  R("Give my love to your parents!","I","A personal, informal close."),
+  G("Thank you in advance for your ___ in this matter.",["assistance","help","cooperation","co-operation"],"A formal thank-you phrase."),
+  M("Which is better than “Please revert back to me”?",["Please get back to me.","Please revert me.","Kindly revert at the earliest.","Revert back soon."],"“Revert back” is Indian English. Use “get back to me” or “reply”.")
+ ]},
+
+// ---------------- ACADEMIC TASK 1 ----------------
+{id:"ac1",track:"ac",title:"Introduction and overview",crit:["TA","CC"],
+ tip:"Band 7 Task Achievement needs a clear overview of the main trends or differences. Give it its own short paragraph, without numbers.",
+ bank:[["A","The line graph illustrates changes in … between 2000 and 2020.","Introduction"],
+       ["A","The bar chart compares the number of … in five countries.","Introduction"],
+       ["A","Overall, it is clear that …","Overview"],
+       ["A","The most striking feature is that …","Overview"],
+       ["X","The graph shows the data about …","Vague; name what is measured"],
+       ["X","In conclusion, … (in Task 1)","Use “Overall”; Task 1 needs no opinion"]],
+ items:[
+  U("The graph shows information about people who use internet.",["The line graph illustrates the proportion of people who used the internet in three countries between 2000 and 2020.","The graph is showing information about internet people.","The given graph shows datas about internet users.","This graph tell about the people using internet."],"Name the chart, the measure, the places and the time."),
+  M("Which sentence is the best overview?",["Overall, internet use rose in all three countries, with Canada remaining the highest throughout.","Overall, in 2000 Canada was 50% and Mexico was 10%.","In conclusion, I think the internet is very useful.","To sum up, the graph has three lines."],"Main trend and main comparison, with no numbers."),
+  M("Where does the overview usually go?",["After the introduction, in its own paragraph","Only in the last sentence","Before the introduction","Nowhere; it is optional"],"Examiners look for it early. Without it, TA is capped at 5."),
+  G("The pie charts ___ the proportion of energy produced from different sources in 1990 and 2010.",["compare","illustrate","show"],"A present simple reporting verb."),
+  M("Which is correct?",["The table gives information about university enrolment.","The table gives informations about university enrolment.","The table gives an information about university enrolment.","The table give information about university enrolment."],"information is uncountable."),
+  U("In conclusion, the graph shows that sales was up.",["Overall, it is clear that sales increased steadily over the period.","In conclusion, sales was going upside.","To conclude, sales is up in the graph.","In conclusion sales were upped."],"“Overall”, a past trend verb, and plural agreement."),
+  B("Overall, it is clear that car ownership increased over the period.","Overall, it is clear that + trend.")
+ ]},
+{id:"ac2",track:"ac",title:"Describing trends",crit:["LR","GRA"],
+ tip:"Use both verb and noun forms (“rose sharply” and “a sharp rise”), and the right preposition: by for the change, to for the final figure.",
+ bank:[["A","rose / increased / climbed → a rise / an increase","Up"],
+       ["A","fell / declined / dropped → a fall / a decline","Down"],
+       ["A","peaked at 80% / reached a peak of 80%","Highest point"],
+       ["A","fluctuated between 20 and 30","Up and down"],
+       ["A","levelled off / remained stable at …","No change"],
+       ["A","rose by 10% (the change) / rose to 50% (the final figure)","Prepositions"]],
+ items:[
+  M("Sales rose from 20 million ___ 35 million.",["to","by","at","until"],"from … to … gives the final figure."),
+  M("Sales rose ___ 15 million. (the size of the change)",["by","to","at","of"],"by = the amount of change."),
+  M("There was a sharp ___ in unemployment in 2009.",["rise","rose","risen","raise"],"Noun form after “a sharp”."),
+  M("Unemployment ___ sharply in 2009.",["rose","raised","was risen","has risen"],"Past time → past simple. “Raise” needs an object."),
+  G("The number of visitors reached a ___ of 2 million in 2015.",["peak","high"],"reach a peak of."),
+  G("Prices fluctuated ___ $40 and $60 per barrel.",["between"],"fluctuate between A and B."),
+  U("The number go up very much and then come down little.",["The figure rose dramatically before falling slightly.","The number goes up much and then comes down little.","The number was going very up and then little down.","Number increase very much then decrease little."],"Precise verbs, adverbs and past tense."),
+  M("Which describes a line that stays at the same level?",["remained stable","fluctuated","plummeted","soared"],"No change = remained stable."),
+  B("There was a gradual decline in the use of coal.","There was + adjective + noun + in.")
+ ]},
+{id:"ac3",track:"ac",title:"Comparing and numbers",crit:["TA","LR"],
+ tip:"Group and compare the data. Band 7 reports use comparatives, superlatives and approximations instead of listing every number.",
+ bank:[["A","twice as many … as …","Multiples"],
+       ["A","the highest proportion of …","Superlative"],
+       ["A","just under a quarter (24%)","Approximation"],
+       ["A","whereas / while","Contrast in one sentence"],
+       ["A","compared with …","Comparison"],
+       ["A","the figure for men was double that for women","Avoid repeating the noun"]],
+ items:[
+  M("48% is roughly ___.",["just under half","just over half","nearly a third","a quarter"],"48 is a little less than 50."),
+  M("26% is roughly ___.",["just over a quarter","just under a quarter","about a third","nearly half"],"26 is a little more than 25."),
+  M("Germany produced ___ cars as France.",["twice as many","two times more many","double many","twice more"],"twice as many + noun + as."),
+  G("The figure for women was much higher ___ that for men.",["than"],"higher than."),
+  M("Choose the correct sentence.",["Japan had the highest percentage of elderly people.","Japan had the most highest percentage of elderly people.","Japan had highest percentage of elderly people.","Japan had the higher percentage among all."],"the + superlative, never “most highest”."),
+  M("Which linker shows contrast between two figures in one sentence?",["whereas","moreover","therefore","for example"],"A whereas B."),
+  U("In UK 30% people use bus and in USA 10% people use bus.",["Bus use was three times higher in the UK (30%) than in the USA (10%).","In UK 30% peoples use bus while USA 10%.","UK people use bus 30% and USA people 10%.","The bus is used in the UK by 30% and in the USA is 10%."],"One comparison, articles, numbers in brackets."),
+  G("The number of students was considerably ___ in 2020 than in 2010.",["higher","larger","greater"],"number takes higher/larger, not “more”."),
+  B("The figure for men was double that for women.","“that for” replaces “the figure for”.")
+ ]},
+{id:"ac4",track:"ac",title:"Processes and maps",crit:["GRA","CC"],
+ tip:"Processes are usually described in the passive with sequencers. Maps need past passive forms and location phrases.",
+ bank:[["A","First, … Next, … After that, … Finally, …","Sequencers"],
+       ["A","The beans are harvested and then dried.","Present passive"],
+       ["A","Once the mixture has cooled, it is poured into moulds.","Once + present perfect"],
+       ["A","The forest was cleared to make way for a car park.","Map change"],
+       ["A","The factory was converted into apartments.","Map change"],
+       ["A","to the north of / next to / opposite","Location"]],
+ items:[
+  M("In the first stage, the clay ___ from the ground.",["is dug","digs","is dig","dug"],"Present passive: is + past participle."),
+  M("Once the bottles ___, they are taken to a factory.",["have been collected","have collected","are collect","collected them"],"Once + present perfect passive."),
+  G("The leaves are ___ dried in the sun for two days.",["then"],"then shows the next stage."),
+  M("Between 1990 and 2010, the old school ___ into a hospital.",["was converted","converted","has been convert","is converted"],"Past time + passive."),
+  M("Which phrase describes a location correctly?",["to the north of the river","in north of the river","at north side to river","north from river side"],"to the north of …"),
+  U("Then they cut trees and they made park.",["The trees were then cut down to make way for a park.","Then trees were cutted and park made.","Then they are cutting trees for making park.","Trees cut and park was make."],"Passive, phrasal verb and “make way for”."),
+  G("The forest was cleared to make ___ for a new housing estate.",["way"],"make way for something."),
+  O(["First, the cocoa beans are picked from the trees.","Next, they are left to dry in the sun for several days.","After that, the dried beans are roasted at a high temperature.","Finally, they are ground into a fine powder."],"First → Next → After that → Finally.")
+ ]},
+
+// ---------------- TASK 2 ----------------
+{id:"t21",track:"t2",title:"Question types and thesis",crit:["TA"],
+ tip:"Task Response band 7 needs a clear position throughout. Identify the question type, answer every part, and state your view in the introduction.",
+ bank:[["A","Opinion: I strongly believe that …","To what extent do you agree?"],
+       ["A","Both views: While some argue …, I believe …","Discuss both views"],
+       ["A","Although …, I believe the benefits outweigh the drawbacks.","Advantages outweigh?"],
+       ["A","This essay will examine the causes … and suggest …","Problem and solution"],
+       ["A","…, and I will explain why this is the case.","Two-part question"],
+       ["X","Nowadays, in this modern era, …","Memorised filler; examiners ignore it"]],
+ items:[
+  M("“To what extent do you agree or disagree?” is which type?",["Opinion","Discuss both views","Problem and solution","Advantages and disadvantages"],"It asks for your position."),
+  M("“Discuss both views and give your own opinion.” What must you include?",["Both views and your own view","Only your view","Only the two views","Only advantages"],"Miss one part and TA drops."),
+  M("Which thesis is clearest for an opinion essay?",["I completely agree that cities should invest more in public transport than in new roads.","There are many views on this topic and all are important.","This essay will talk about transport.","Nowadays transport is a very hot topic in this modern era."],"A clear, specific position."),
+  U("Nowadays, in this modern era, technology is very important for everyone.",["Technology now plays a central role in most aspects of daily life.","In today's modern era of nowadays, technology is very much important.","Nowadays in this modern world technology is too important for all.","In this era technology is very important nowadays for everyone."],"No filler, a precise collocation (play a central role)."),
+  M("“Do the advantages outweigh the disadvantages?” Which thesis answers the question?",["I believe the advantages of remote working clearly outweigh its disadvantages.","Remote working has advantages and disadvantages.","There are many advantages of remote working.","Remote working is popular nowadays."],"It answers yes or no directly."),
+  G("While some people argue that exams are necessary, I believe that continuous assessment is a fairer ___ of measuring progress.",["way","method","means"],"a way / method / means of + -ing."),
+  B("This essay will examine the causes of this problem and suggest some solutions.","A problem-solution thesis.")
+ ]},
+{id:"t22",track:"t2",title:"Topic sentences and paragraphs",crit:["CC","TA"],
+ tip:"Band 7 Coherence needs one clear central topic in each paragraph: topic sentence, explanation, example, then a link back.",
+ bank:[["A","One major advantage of … is that …","Topic sentence"],
+       ["A","Another reason why … is …","Second body paragraph"],
+       ["A","For example, / For instance, …","Example"],
+       ["A","As a result, …","Result"],
+       ["A","This means that …","Explanation"],
+       ["X","Firstly … Secondly … Thirdly … on every line","Mechanical linking"]],
+ items:[
+  O(["One major benefit of studying abroad is that students become more independent.","Living away from their families, they must manage their own money and solve everyday problems.","For example, many international students in Canada work part-time to cover their living costs.","As a result, they return home with practical skills that employers value."],"Topic → explanation → example → result."),
+  O(["Another reason why governments should tax sugary drinks is to reduce health costs.","Obesity-related illnesses place a heavy burden on public hospitals.","If a tax made these drinks less attractive, fewer people would consume them regularly.","This, in turn, would save public money in the long term."],"Topic → problem → mechanism → long-term result."),
+  M("Which is the best topic sentence for a paragraph about the drawbacks of social media for teenagers?",["A key drawback of social media is its negative effect on teenagers' concentration.","Social media is used by millions of people every day.","Facebook was founded in 2004.","There are many things to say about social media."],"It names the paragraph's single idea."),
+  M("Which sentence does NOT belong in a paragraph about the benefits of cycling to work?",["My cousin bought a new car last month.","Cycling improves fitness without extra time at the gym.","It also reduces traffic congestion in city centres.","For example, Amsterdam has low levels of traffic pollution."],"Irrelevant personal detail breaks coherence."),
+  M("What usually follows the explanation in a body paragraph?",["A specific example","A new, unrelated idea","The conclusion of the essay","A question to the reader"],"Explain, then support with an example."),
+  G("This, ___ turn, leads to higher levels of stress.",["in"],"in turn = as a further result.")
+ ]},
+{id:"t23",track:"t2",title:"Linking and cohesion",crit:["CC","GRA"],
+ tip:"Band 7 uses a range of linkers naturally. Overusing “Moreover” and “Furthermore” lowers the score; referencing words (this, these, such) help too.",
+ bank:[["A","However, … (starts a new sentence)","Contrast"],
+       ["A","Although / Even though + clause","Contrast"],
+       ["A","Despite / In spite of + noun or -ing","Contrast"],
+       ["A","As a result, / Consequently, …","Result"],
+       ["A","This trend … / Such policies …","Referencing"],
+       ["X","On the other side, …","Use “On the other hand”"]],
+ items:[
+  M("___ the rain, the match continued.",["Despite","Although","However","Even though"],"Despite + noun."),
+  M("___ it was raining, the match continued.",["Although","Despite","In spite of","However"],"Although + clause."),
+  M("Online learning is flexible. ___, it requires strong self-discipline.",["However","Although","Despite","Whereas"],"However starts a new sentence, followed by a comma."),
+  G("Despite ___ hard, he failed the exam.",["studying","working"],"Despite + -ing."),
+  M("Which sentence is correct?",["On the other hand, cities offer more job opportunities.","On the other side, cities offer more job opportunities.","In other hand, cities offer more job opportunities.","By the other hand, cities offer more job opportunities."],"The fixed phrase is “on the other hand”."),
+  U("Many people move to cities. Many people move to cities because of jobs. Many people in cities face high rents.",["Many people move to cities in search of work; however, this often means facing high rents.","Many people move to cities, many people move for jobs, many people face rents.","Many people moves to cities and because jobs and rent is high.","Many people move to cities. Moreover, furthermore, they face high rents."],"Combine ideas and refer back with “this”."),
+  M("“Governments should invest in renewable energy. ___ investment would create jobs.” Which word fits?",["Such","This's","That one","Those"],"Such + noun refers back to the idea."),
+  G("Fuel prices rose sharply. As a ___, many families started using public transport.",["result","consequence"],"As a result, …")
+ ]},
+{id:"t24",track:"t2",title:"Academic tone and hedging",crit:["LR","TA"],
+ tip:"Band 7 writing is precise and cautious. Avoid informal words and absolute claims; hedge where the evidence is not certain.",
+ bank:[["A","It could be argued that …","Hedging"],
+       ["A","This tends to / is likely to …","Hedging"],
+       ["A","a considerable number of / a significant proportion of","Academic quantity"],
+       ["A","children (not kids), many (not lots of)","Academic word choice"],
+       ["X","Everyone knows that …","Over-generalisation"],
+       ["X","gonna, wanna, stuff, things","Informal"]],
+ items:[
+  U("Everyone knows that kids get lots of bad stuff from the internet.",["It is widely recognised that children may be exposed to a considerable amount of harmful content online.","Everybody know kids get many bad things from internet.","Kids are getting lots of bad stuffs from internet as all knows.","All people knows children get lot of bad stuff online."],"Impersonal, hedged, precise."),
+  M("Which is the most academic?",["A significant proportion of young people are unemployed.","Loads of young people have no job.","A lot of youngsters are jobless and stuff.","Tons of young guys don't work."],"Formal quantity phrase."),
+  M("Which sentence uses hedging?",["Social media is likely to affect sleep patterns.","Social media destroys every teenager's sleep.","Social media always ruins sleep.","Everyone loses sleep because of social media."],"“is likely to” softens the claim."),
+  G("It could be ___ that tourism damages local cultures.",["argued"],"It could be argued that …"),
+  M("Which word is too informal for Task 2?",["kids","children","young people","adolescents"],"Use children."),
+  U("I think that government should do something about pollution.",["Governments should take decisive action to reduce pollution.","I am thinking government should do some things about pollution.","In my opinion government should do thing for pollution.","Government must do something about the pollution things."],"A strong collocation (take decisive action) instead of “do something”."),
+  G("This policy ___ to benefit wealthy families more than poorer ones.",["tends"],"tends to = usually happens.")
+ ]},
+{id:"t25",track:"t2",title:"Topic collocations",crit:["LR"],
+ tip:"Lexical Resource band 7 rewards less common words used in natural collocations. Learn words in pairs, not alone.",
+ bank:[["A","acquire skills · academic performance","Education"],
+       ["A","carbon emissions · renewable energy","Environment"],
+       ["A","rely heavily on · digital literacy","Technology"],
+       ["A","a sedentary lifestyle · a balanced diet","Health"],
+       ["A","deter crime · turn to crime","Crime"],
+       ["A","job satisfaction · work-life balance","Work"]],
+ items:[
+  G("Many young people lead a ___ lifestyle, spending hours sitting at screens.",["sedentary"],"lead a sedentary lifestyle."),
+  G("Governments should invest in ___ energy such as wind and solar power.",["renewable","clean","green"],"renewable energy."),
+  G("Strict punishments may not ___ crime effectively.",["deter","prevent","reduce"],"deter crime."),
+  M("Which collocation is natural?",["make a decision","do a decision","say a decision","put a decision"],"make a decision."),
+  M("Which collocation is natural?",["a heavy reliance on technology","a strong reliance in technology","a big relying on technology","a high relies of technology"],"a heavy reliance on."),
+  G("Flexible hours can help employees achieve a better work-life ___.",["balance"],"work-life balance."),
+  M("Which is natural?",["reduce carbon emissions","decrease carbon smokes","lessen carbon pollutions","cut carbon outputs of smoke"],"reduce / cut carbon emissions."),
+  G("Students who read regularly tend to have better academic ___.",["performance","results","achievement"],"academic performance."),
+  U("Many people are doing crime because they have no money.",["Many people turn to crime as a result of poverty.","Many peoples do crimes due to no money.","Many people are making crime because of money less.","Crime is done by many people for having no money."],"turn to crime + as a result of poverty.")
+ ]},
+
+// ---------------- GRAMMAR ----------------
+{id:"gr1",track:"gr",title:"Articles: a, an, the",crit:["GRA"],
+ tip:"Article errors are the most common grammar error for Punjabi and Hindi speakers, because these languages have no a/the. Band 7 needs most sentences error-free.",
+ bank:[["G","a/an: first mention, singular countable","I bought a sofa."],
+       ["G","the: already known or unique","The sofa I ordered … / the government"],
+       ["G","No article: general plural or uncountable","Children need education."],
+       ["G","the + superlative","the highest"],
+       ["G","the UK, the USA, the Ganges","Countries with “states/kingdom”, rivers"],
+       ["X","I want refund. / He is engineer.","Missing article"]],
+ items:[
+  M("He works as ___ engineer in Mohali.",["an","a","the","(no article)"],"Jobs take a/an; “engineer” starts with a vowel sound."),
+  M("___ education is important for everyone.",["(no article)","The","An","A"],"General uncountable noun."),
+  M("I would like ___ full refund.",["a","the","an","(no article)"],"Singular countable, first mention."),
+  M("Bus use was highest in ___ UK.",["the","a","(no article)","an"],"the UK."),
+  G("I bought a sofa from your shop. Unfortunately, ___ sofa arrived damaged.",["the"],"Second mention → the."),
+  M("Which sentence is correct?",["Unemployment is a serious problem in many countries.","The unemployment is serious problem in many countries.","An unemployment is a serious problem in many countries.","Unemployment is serious problem in the many countries."],"General noun, then “a serious problem”."),
+  G("This was ___ most difficult decision I have ever made.",["the"],"the + superlative."),
+  M("She plays ___ piano and speaks ___ German.",["the / (no article)","a / the","(no article) / the","the / the"],"Instruments take the; languages take no article.")
+ ]},
+{id:"gr2",track:"gr",title:"Agreement and uncountable nouns",crit:["GRA"],
+ tip:"Check every subject and verb, and watch the uncountable nouns that Indian English often makes plural.",
+ bank:[["G","information, advice, furniture, equipment, luggage, news, research, evidence","Never add -s"],
+       ["G","The number of cars is rising.","Singular"],
+       ["G","A number of people are …","Plural"],
+       ["G","Everyone / Each student has …","Singular"],
+       ["G","One of my friends lives …","Singular verb"],
+       ["X","furnitures, informations, advices","Wrong plurals"]],
+ items:[
+  M("The ___ in my room is old.",["furniture","furnitures","furnitures are","furniture are"],"furniture is uncountable."),
+  M("Can you give me some ___?",["advice","advices","an advice","advises"],"advice is uncountable; advise is the verb."),
+  M("The number of students ___ increased.",["has","have","are","were"],"The number … is singular."),
+  M("A large number of people ___ online every day.",["shop","shops","is shopping","has shopped"],"A number of … is plural."),
+  M("One of my friends ___ in Canada.",["lives","live","are living","have lived"],"The subject is “one”."),
+  G("Each of the rooms ___ its own bathroom.",["has"],"Each → singular."),
+  M("Which is correct?",["The news is very worrying.","The news are very worrying.","The newses are worrying.","A news is very worrying."],"news is singular and uncountable."),
+  U("People is spending much times on phones and gets many informations.",["People spend a great deal of time on their phones and receive a lot of information.","People are spending much times on phones and get many informations.","People spends many time on phone and get informations.","Peoples are spending much time on phones and get much informations."],"people are, time and information are uncountable.")
+ ]},
+{id:"gr3",track:"gr",title:"Relative clauses",crit:["GRA"],
+ tip:"Complex sentences with who, which and whose are a key band 7 feature. Use commas when the clause adds extra information.",
+ bank:[["G","who (people) · which (things) · whose (possession)","Choose the pronoun"],
+       ["G","The sofa that I ordered was damaged.","Defining: no commas"],
+       ["G","My brother, who lives in Canada, …","Extra information: commas"],
+       ["G","Prices rose, which affected …","which refers to the whole idea"],
+       ["X","The man which I met …","which is for things"],
+       ["X",", that …","never use “that” after a comma"]],
+ items:[
+  M("The delivery driver, ___ was very rude, refused to help.",["who","which","that","whose"],"Person + commas → who."),
+  M("Students ___ parents read to them tend to do better.",["whose","who","which","who's"],"Possession → whose."),
+  M("Fuel prices rose sharply, ___ led to higher bus fares.",["which","that","what","who"],"Refers to the whole idea, after a comma."),
+  M("Which is correct?",["My laptop, which I bought last year, has stopped working.","My laptop, that I bought last year, has stopped working.","My laptop which, I bought last year has stopped working.","My laptop, what I bought last year, has stopped working."],"Commas + which for extra information."),
+  B("The course that I booked has been cancelled.","A defining clause has no commas."),
+  U("I have a friend. My friend lives in Toronto. He works in IT.",["A friend of mine who lives in Toronto works in IT.","I have a friend he lives in Toronto he works in IT.","I have friend which lives in Toronto and works IT.","My friend, that lives in Toronto, works in IT."],"Three short sentences become one complex sentence."),
+  G("The city ___ I grew up has changed a lot.",["where","in which"],"Place → where."),
+  M("Choose the sentence that adds extra information correctly.",["Amritsar, which is famous for the Golden Temple, attracts millions of visitors.","Amritsar which is famous for the Golden Temple attracts, millions of visitors.","Amritsar, that is famous for the Golden Temple, attracts millions of visitors.","Amritsar, who is famous for the Golden Temple, attracts millions of visitors."],"A place → which, with two commas.")
+ ]},
+{id:"gr4",track:"gr",title:"Conditionals",crit:["GRA"],
+ tip:"Conditionals let you argue and suggest solutions in Task 2 and make polite requests in letters.",
+ bank:[["G","If governments invest more, pollution will fall.","Real future"],
+       ["G","If cars were banned, cities would be quieter.","Imagined present or future"],
+       ["G","If I had known, I would have called.","Imagined past"],
+       ["G","Unless the problem is solved, …","unless = if … not"],
+       ["G","Should you need further help, please …","Formal inversion"],
+       ["X","If I will see him, I will tell him.","No “will” after if"]],
+ items:[
+  M("If the government ___ taxes on cars, more people would use buses.",["raised","raises","will raise","would raise"],"would → past simple after if."),
+  M("If you ___ the item by Friday, I will contact my bank.",["do not replace","will not replace","would not replace","not replace"],"Present simple after if."),
+  M("___ the problem is solved, I will take legal action.",["Unless","If","Except","Without"],"Unless = if it is not."),
+  M("If I ___ about the delay, I would have booked another company.",["had known","knew","have known","would know"],"Past condition → had + past participle."),
+  G("If more people cycled, there ___ be less traffic.",["would"],"Second conditional."),
+  U("If I will get band 7, I will go to Canada.",["If I get band 7, I will move to Canada.","If I will get band 7, I would go Canada.","If I would get band 7, I go to Canada.","If I got band 7, I will go to Canada."],"No will after if; tenses must match."),
+  M("Which is a formal way to write “If you need more information”?",["Should you require further information","If you are wanting more information","In case of needing informations","When you will need information"],"Should you … (inversion).")
+ ]},
+{id:"gr5",track:"gr",title:"Passives and impersonal structures",crit:["GRA"],
+ tip:"Passive forms make writing objective. Band 7 writers use them accurately in Task 1 and for impersonal statements in Task 2.",
+ bank:[["G","It is widely believed that …","Impersonal"],
+       ["G","It has been suggested that …","Impersonal"],
+       ["G","Smoking is said to cause …","Reporting passive"],
+       ["G","The data was collected in 2020.","Past passive"],
+       ["G","Measures should be taken to …","Modal passive"],
+       ["X","It is believe that …","Missing -d"]],
+ items:[
+  G("It is widely ___ that exercise improves mental health.",["believed","accepted","thought","recognised","recognized"],"It is + past participle + that."),
+  M("Stricter laws should ___ to protect wildlife.",["be introduced","introduced","be introduce","introduce"],"should be + past participle."),
+  M("Which is correct?",["It has been suggested that working hours should be reduced.","It has suggested that working hours should reduce.","It is suggest that working hours should be reduced.","It has been suggest that working hours reduced."],"has been + suggested; should be reduced."),
+  M("Over 2 million tonnes of rice ___ in 2019.",["were exported","exported","was export","has exported"],"Past time + passive; tonnes is plural."),
+  U("People say that fast food causes obesity.",["Fast food is often said to contribute to obesity.","It says fast food causes obesity.","Fast food is said cause obesity.","People are said that fast food causes obesity."],"is said to + verb."),
+  G("Measures must be ___ to reduce air pollution.",["taken"],"take measures → measures are taken."),
+  M("My complaint ___ yet.",["has not been answered","has not answered","is not answer","did not answered"],"yet + passive → has not been answered.")
+ ]},
+{id:"gr6",track:"gr",title:"Tenses and request patterns",crit:["GRA"],
+ tip:"Two patterns cost Punjabi-medium learners the most marks in letters: “want + object + to” and past simple with finished time.",
+ bank:[["G","I would like you to replace the sofa.","would like + person + to"],
+       ["G","I visited your shop last week.","Finished time → past simple"],
+       ["G","I have called three times since Monday.","since / so far → present perfect"],
+       ["G","No action has been taken.","Present perfect passive"],
+       ["X","I want it should be fixed.","Punjabi word order"],
+       ["X","I have been to your shop last week.","Present perfect + finished time"]],
+ items:[
+  M("Which sentence is correct?",["I want it to be fixed.","I want it should be fixed.","I want that it fixed.","I want it be fixed."],"want + it + to be + past participle."),
+  M("I expect your company ___ the extra delivery charge.",["to refund","refund","that refunds","should refund"],"expect + person + to + verb."),
+  M("I ___ the sofa from your store two weeks ago.",["ordered","have ordered","had order","was ordered"],"ago → past simple."),
+  M("I ___ to your shop twice since the delivery.",["have been","went","was","go"],"since → present perfect."),
+  M("So far, nobody from your company ___ me.",["has contacted","contacted","is contacting","had contact"],"So far → present perfect."),
+  M("However, it ___ on that day.",["did not arrive","did not arrived","has not arrived","not arrived"],"did not + base verb."),
+  B("I would like you to replace the sofa.","would like + you + to replace."),
+  B("No action has been taken on my complaint.","has been + taken.")
+ ]},
+{id:"gr7",track:"gr",title:"Prepositions",crit:["GRA","LR"],
+ tip:"Dependent prepositions are learned with the word. Some verbs take no preposition at all.",
+ bank:[["G","responsible for · interested in · aware of · depend on","Learn them together"],
+       ["G","discuss the problem","no “about”"],
+       ["G","emphasise the point","no “on”"],
+       ["G","on Monday · in May · at 6 pm","Time"],
+       ["G","reply to a letter","reply takes to"],
+       ["X","return back · revert back · discuss about","Extra words"]],
+ items:[
+  M("We need to discuss ___ the problem.",["(no preposition)","about","on","regarding about"],"discuss + object."),
+  M("Parents are responsible ___ their children's safety.",["for","of","to","about"],"responsible for."),
+  M("The article emphasises ___ the need for change.",["(no preposition)","on","about","upon"],"emphasise + object (but: put emphasis on)."),
+  G("Success often depends ___ hard work.",["on","upon"],"depend on."),
+  M("The course starts ___ 15 January.",["on","in","at","from"],"on + date."),
+  G("Many students are not aware ___ the risks of borrowing money.",["of"],"aware of."),
+  M("I am interested ___ the evening course.",["in","on","for","about"],"interested in."),
+  G("Please reply ___ this letter within seven days.",["to"],"reply to.")
+ ]},
+{id:"gr8",track:"gr",title:"Punctuation and sentence control",crit:["GRA","CC"],
+ tip:"Comma splices and run-on sentences are among the most common reasons for a grammar score below 7.",
+ bank:[["G","Two full sentences: use a full stop or a semicolon","not a comma"],
+       ["G","…; however, …","however between two clauses"],
+       ["G","Although …, …","comma after the clause"],
+       ["G","In my opinion, …","comma after an introductory phrase"],
+       ["X","It was late, however it arrived.","Comma splice"],
+       ["X","Although …, but …","Two contrast words"]],
+ items:[
+  M("Choose the correctly punctuated sentence.",["The sofa was late; however, it was not damaged.","The sofa was late, however it was not damaged.","The sofa was late however, it was not damaged.","The sofa was late however it was not damaged."],"; however,"),
+  M("Which sentence has an error (a comma splice)?",["Cars pollute the air, they also cause traffic jams.","Cars pollute the air and cause traffic jams.","Cars pollute the air; they also cause traffic jams.","Not only do cars pollute the air, but they also cause traffic jams."],"Two full sentences joined only by a comma."),
+  M("Choose the correct sentence.",["Although the course was expensive, it was worth it.","Although the course was expensive but it was worth it.","Although, the course was expensive it was worth it.","The course although was expensive, but worth it."],"Although …, … with no “but”."),
+  M("Choose the correct sentence.",["In my opinion, governments should fund public libraries.","In my opinion governments, should fund public libraries.","In my opinion; governments should fund public libraries.","In, my opinion governments should fund public libraries."],"Comma after the introductory phrase."),
+  U("I booked the hotel I paid in advance when I arrived the room was not ready.",["I booked the hotel and paid in advance; however, when I arrived, the room was not ready.","I booked the hotel, I paid in advance, when I arrived, the room was not ready.","I booked the hotel I paid, in advance when I arrived the room, was not ready.","I booked the hotel. I paid in advance when. I arrived the room was not ready."],"One controlled sentence with clear clause boundaries."),
+  B("Although it was raining, we decided to go out.","Although + clause + comma + main clause.")
+ ]},
+
+// ---------------- VOCABULARY ----------------
+{id:"vo1",track:"vo",title:"Formal and informal words",crit:["LR","TA"],
+ tip:"Switching register is a Task Achievement skill in GT letters. Learn each everyday word with its formal partner.",
+ bank:[["F","get → receive","erhalten"],["F","ask for → request","anfordern"],["F","tell → inform","informieren"],
+       ["F","need → require","benötigen"],["F","buy → purchase","kaufen, erwerben"],["F","help → assist","unterstützen"],
+       ["F","say sorry → apologise","sich entschuldigen"],["F","enough → sufficient","ausreichend"],["F","fix → repair, rectify","reparieren, beheben"]],
+ items:[
+  G("I have not yet ___ a reply to my email. (formal for “got”)",["received"],"get → receive."),
+  G("I would like to ___ a refund. (formal for “ask for”)",["request"],"ask for → request."),
+  G("I am writing to ___ you that I will be leaving the company. (formal for “tell”)",["inform"],"tell → inform."),
+  M("Choose the formal version of “I need some help with the forms.”",["I require some assistance with the forms.","I want some helps with forms.","Gimme a hand with the forms.","I am needing help in forms."],"need → require, help → assistance."),
+  M("Which word is informal?",["buy","purchase","acquire","obtain"],"buy is neutral or informal; purchase is formal."),
+  R("Can you sort it out for me?","I","A phrasal verb in a direct question."),
+  R("I would appreciate your assistance in resolving this matter.","F","assistance, resolve, matter: formal."),
+  G("The deposit is not ___ to cover the damage. (formal for “enough”)",["sufficient","adequate"],"enough → sufficient.")
+ ]},
+{id:"vo2",track:"vo",title:"Academic word upgrades",crit:["LR"],
+ tip:"Band 7 uses some less common vocabulary with awareness of style and collocation. Replace the basic word only when you know the partner words.",
+ bank:[["A","big → significant, substantial","erheblich"],["A","show → illustrate, demonstrate","veranschaulichen"],
+       ["A","good → beneficial (for)","vorteilhaft"],["A","bad → detrimental (to), harmful","schädlich"],
+       ["A","important → crucial, vital","entscheidend"],["A","problem → issue, challenge","das Problem, die Herausforderung"]],
+ items:[
+  U("Smoking is very bad for health.",["Smoking is extremely detrimental to health.","Smoking is very much bad for the health.","Smoking is too bad for health.","Smoking is badly for health."],"detrimental to."),
+  G("Regular exercise is highly ___ for mental health. (= good)",["beneficial"],"beneficial for."),
+  M("Choose the best word: “There was a ___ increase in prices.”",["substantial","big big","very much","lot of"],"a substantial increase."),
+  M("“Detrimental” is followed by which preposition?",["to","for","on","with"],"detrimental to."),
+  G("The results ___ that the new method works. (academic for “show”)",["demonstrate","indicate","suggest","show"],"Results demonstrate / indicate that …"),
+  U("This is a very important problem for the government.",["This is a crucial issue for the government.","This is very much important problem for government.","This problem is so important for the government.","It is very important problem of government."],"crucial issue."),
+  M("Which is a natural collocation?",["play a vital role","do a vital role","make a vital role","give a vital role"],"play a role.")
+ ]},
+{id:"vo3",track:"vo",title:"Indian-English habits to drop",crit:["LR"],
+ tip:"These phrases are normal in India but sound unnatural to an IELTS examiner. Replacing them is a quick Lexical Resource gain.",
+ bank:[["X","Do the needful","Please take the necessary action"],["X","Revert back","Reply / get back to me"],
+       ["X","Prepone","Bring forward"],["X","Cousin brother","Cousin"],
+       ["X","I am having two brothers","I have two brothers"],["X","Out of station","Away / out of town"],
+       ["X","Pass out (from college)","Graduate"]],
+ items:[
+  M("Which replaces “Please do the needful”?",["Please take the necessary action.","Please do needful immediately.","Kindly do necessary.","Please do the needed."],"A natural formal request."),
+  M("Can we ___ the meeting to Monday? (move it earlier)",["bring forward","prepone","pre-pone","advance back"],"bring something forward."),
+  M("Which is correct?",["I have two brothers.","I am having two brothers.","I am have two brothers.","I having two brothers."],"have (possession) is not used in the continuous."),
+  M("Which is natural British English?",["I will be away next week.","I will be out of station next week.","I will be station out next week.","I will out of station next week."],"be away."),
+  G("I ___ from Punjabi University in 2018. (not “passed out”)",["graduated"],"graduate from a university."),
+  M("Which is correct?",["My cousin is visiting me.","My cousin brother is visiting me.","My brother cousin is visiting me.","My cousin-sister is visiting me."],"cousin is enough."),
+  M("Please ___ by Friday.",["reply","revert back","revert me back","do revert back"],"reply / get back to me."),
+  M("Which sentence sounds natural?",["Could you explain this to me?","Kindly explain me this.","Please explain me.","Explain me this thing."],"explain something to someone.")
+ ]}
+];
+
+// Model answers. Highlights: [phrase, note] — phrase must appear exactly once in the text.
+const MODELS=[
+{id:"m1",track:"gt",title:"Formal complaint",task:"You ordered a sofa and paid for delivery on a particular day. It arrived a week late and was damaged. Write to the shop.",
+ text:"Dear Sir or Madam,\n\nI am writing to complain about a sofa I purchased from your shop two weeks ago (order number A295), which was delivered late and in a damaged condition.\n\nWhen I placed the order, I paid an extra charge to have the sofa delivered on a specific date. However, it did not arrive that day; instead, it was delivered a full week later. To make matters worse, the sofa was not what I had ordered. I had requested a customised design in red and green, but the one I received is entirely red, and there are noticeable scratches along one side.\n\nI pointed this out to your delivery driver at the time, but he does not appear to have reported the matter. I also visited your shop last week, yet no action has been taken so far.\n\nI would therefore like you to either replace the sofa with the correct design or issue a full refund, including the delivery charge. I would appreciate a response within seven days.\n\nYours faithfully,\nMehtab Singh",
+ marks:[["I am writing to complain about","Purpose in the first line (TA, CC)"],["(order number A295)","Exact detail answers bullet 1 (TA)"],["However, it did not arrive that day; instead,","Semicolon and linker control a complex sentence (GRA)"],["To make matters worse,","Adds a second problem naturally (CC)"],["I had requested","Past perfect for the earlier action (GRA)"],["no action has been taken so far","Present perfect passive (GRA)"],["I would therefore like you to either replace","would like + you + to: a clear request (TA, GRA)"],["Yours faithfully,","Matches “Dear Sir or Madam” (TA)"]]},
+{id:"m2",track:"gt",title:"Semi-formal request",task:"Your neighbour's dog barks late at night. Write to your neighbour.",
+ text:"Dear Mr Bedi,\n\nI hope you and your family are well. I am writing about something that has been affecting my family for the past few weeks, and I hope we can sort it out together.\n\nAs you may know, I work early shifts at the hospital and usually go to bed by ten. Recently, however, your dog has been barking for long periods after eleven o'clock, which has made it very difficult for me to get enough sleep. My young son has also been woken up several times.\n\nI understand that dogs sometimes bark when they are left alone, so I was wondering if it would be possible to keep him indoors after ten, or perhaps leave a light on for him. I would be happy to talk about any other ideas you might have.\n\nThank you for your understanding. I am sure we can find a solution that works for both of us.\n\nYours sincerely,\nHarpreet Kaur",
+ marks:[["I hope you and your family are well.","Polite, personal opening for a known person (TA)"],["has been affecting","Present perfect continuous for an ongoing problem (GRA)"],["Recently, however,","“however” placed mid-sentence with commas (GRA, CC)"],["which has made it very difficult","Relative clause referring to the whole idea (GRA)"],["I was wondering if it would be possible to","Very polite indirect request (LR)"],["Thank you for your understanding.","Semi-formal close (TA)"],["Yours sincerely,","Matches “Dear Mr Bedi” (TA)"]]},
+{id:"m3",track:"gt",title:"Informal letter",task:"A friend has invited you to their wedding, but you cannot go. Write to your friend.",
+ text:"Dear Rajan,\n\nThanks so much for the wedding invitation. It arrived yesterday, and I couldn't stop smiling when I opened it. I'm so happy for you and Simran!\n\nUnfortunately, I've got some bad news. I'm afraid I won't be able to make it, because my final exams start on the same weekend. I've already asked my university if I could move them, but they've said it isn't possible. I'm really gutted, as I'd been looking forward to seeing everyone again.\n\nI'd love to celebrate with you both as soon as my exams are over, though. Why don't I take you out for dinner when you're back from your honeymoon? It'll be my treat.\n\nGive my love to Simran, and send me lots of photos!\n\nTake care,\nAman",
+ marks:[["Thanks so much for","Warm informal opening (TA)"],["I'm afraid I won't be able to make it,","Softened bad news with an informal phrase (LR)"],["I've already asked my university if I could move them,","Indirect question in an informal register (GRA)"],["I'm really gutted,","Natural informal idiom (LR)"],["I'd been looking forward to","Past perfect continuous (GRA)"],["Why don't I take you out for dinner","Friendly suggestion (LR)"],["Take care,","Informal close (TA)"]]},
+{id:"m4",track:"ac",title:"Line graph report",task:"The graph shows the percentage of households with internet access in Canada, India and Brazil, 2000–2020.",
+ text:"The line graph illustrates the proportion of households with internet access in Canada, India and Brazil between 2000 and 2020.\n\nOverall, internet access rose in all three countries over the period. Canada had the highest figure throughout, while India saw the most dramatic growth.\n\nIn 2000, just over half of Canadian households (52%) were online, compared with around 10% in Brazil and only 2% in India. Over the next two decades, the Canadian figure climbed steadily, reaching 94% by 2020.\n\nBrazil followed a similar but lower path, rising gradually to roughly a third of households in 2010 before increasing more sharply to 74% at the end of the period. India, by contrast, remained below 10% until 2010. After that, access soared, and by 2020 just under half of Indian households (47%) were connected, a figure almost 24 times higher than in 2000.",
+ marks:[["The line graph illustrates the proportion of","Paraphrased introduction (TA)"],["Overall,","Overview with no numbers (TA)"],["just over half","Approximation (LR)"],["compared with","Comparison within one sentence (CC)"],["climbed steadily, reaching 94%","Verb + adverb + participle clause (GRA, LR)"],["India, by contrast,","Linker placed mid-sentence (CC)"],["soared","Precise trend verb (LR)"],["almost 24 times higher than","Calculated comparison (TA)"]]},
+{id:"m5",track:"t2",title:"Opinion essay",task:"Some people think that governments should spend more on public transport than on building new roads. To what extent do you agree or disagree?",
+ text:"In many growing cities, traffic congestion has become a serious daily problem. While new roads may seem the obvious solution, I strongly believe that governments should prioritise investment in public transport.\n\nThe main reason is that new roads tend to attract more cars rather than reduce traffic. When a highway is widened, journeys initially become faster, which encourages more people to drive. Within a few years, the new lanes are often as crowded as the old ones. Public transport, on the other hand, can move far larger numbers of people using the same space. A single metro train, for example, can carry over a thousand passengers, whereas the same people travelling by car would fill several kilometres of road.\n\nIn addition, well-funded public transport brings environmental and social benefits. Buses and trains produce significantly lower carbon emissions per passenger than private vehicles, which is crucial as cities struggle with air pollution. Affordable transport also gives low-income workers access to jobs across the city, something that a new road does little to provide.\n\nIt could be argued that some areas, particularly rural ones, still need better roads, since public transport is rarely economical there. This is a fair point, and road maintenance should not be ignored. However, in densely populated cities, where the problem is most severe, spending on roads offers only a short-term solution.\n\nIn conclusion, although roads remain necessary in certain places, I am convinced that public transport is a far more effective long-term investment for modern cities.",
+ marks:[["I strongly believe that governments should prioritise","Clear position in the introduction (TA)"],["tend to attract","Hedging (LR)"],["which encourages more people to drive","Relative clause for cause and effect (GRA)"],["on the other hand,","Contrast within the paragraph (CC)"],["whereas","Contrast in one sentence (CC)"],["significantly lower carbon emissions","Topic collocation (LR)"],["It could be argued that","Counter-argument introduced (TA)"],["This is a fair point,","Referencing and concession (CC)"],["In conclusion, although","Conclusion restates the position (TA)"]]}
+];
+
+const WORDS=[
+ ["rectify","to put something right","Please rectify the problem promptly.","beheben"],
+ ["reimburse","to pay money back","I expect you to reimburse the delivery charge.","erstatten"],
+ ["outweigh","to be greater or more important than","The benefits outweigh the drawbacks.","überwiegen"],
+ ["exacerbate","to make a problem worse","Cheap fuel exacerbates traffic congestion.","verschärfen"],
+ ["mitigate","to make something less serious","Trees mitigate the effects of heat.","abmildern"],
+ ["substantial","large in amount","There was a substantial rise in prices.","beträchtlich"],
+ ["plummet","to fall very quickly","Sales plummeted in 2020.","abstürzen"],
+ ["detrimental","causing harm","Noise is detrimental to sleep.","schädlich"]
+];
+
+</script>
+<script>
+(function(){
+const KEY="pioneer-writing-lab-v1";
+const CRIT={TA:"Task Achievement",CC:"Coherence & Cohesion",LR:"Lexical Resource",GRA:"Grammar"};
+const CRIT_SHORT={TA:"Task",CC:"Coherence",LR:"Vocabulary",GRA:"Grammar"};
+const TAGS={F:"Formal",S:"Semi-formal",I:"Informal",A:"Academic",G:"Rule",X:"Avoid"};
+const TYPE_PROMPT={mc:"Choose the correct answer.",up:"Choose the Band 7 version.",reg:"Which register is this?",gap:"Type the missing word.",build:"Tap the words in the right order.",order:"Tap the sentences in a logical order."};
+const app=document.getElementById("app");
+const U_BY=Object.fromEntries(UNITS.map(u=>[u.id,u]));
+const M_BY=Object.fromEntries(MODELS.map(m=>[m.id,m]));
+
+// ---------------- persistence ----------------
+function blank(){return {v:1,name:"",best:{},tries:{},mistakes:{},models:{},last:"",updated:0};}
+let S=blank(), localOK=true, cloud=null, cloudRef=null, saveTimer=null;
+function merge(a,b){ // keep the best of both copies
+  const o=blank();
+  const newer=(b.updated||0)>(a.updated||0)?b:a;
+  o.name=newer.name||a.name||b.name||"";
+  o.last=newer.last||a.last||b.last||"";
+  for(const k of new Set([...Object.keys(a.best||{}),...Object.keys(b.best||{})])) o.best[k]=Math.max(a.best?.[k]??0,b.best?.[k]??0);
+  for(const k of new Set([...Object.keys(a.tries||{}),...Object.keys(b.tries||{})])) o.tries[k]=Math.max(a.tries?.[k]??0,b.tries?.[k]??0);
+  o.models={...(a.models||{}),...(b.models||{})};
+  o.mistakes={...(newer.mistakes||{})};
+  o.updated=Math.max(a.updated||0,b.updated||0);
+  return o;
+}
+function loadLocal(){try{const r=localStorage.getItem(KEY);if(r) S=merge(blank(),JSON.parse(r));}catch(e){localOK=false;}}
+function persist(){
+  S.updated=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S));localOK=true;}catch(e){localOK=false;}
+  if(cloudRef){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{cloudRef.set(JSON.parse(JSON.stringify(S))).then(()=>status()).catch(()=>{cloudRef=null;status();});},600);}
+  status();
+}
+function status(){
+  const b=document.getElementById("save"),l=document.getElementById("saveLbl");
+  b.classList.remove("ok","warn");
+  if(cloudRef){b.classList.add("ok");l.textContent="Saved to your account";}
+  else if(localOK){b.classList.add("ok");l.textContent="Saved on this device";}
+  else{b.classList.add("warn");l.textContent="Not saved: use a backup code";}
+}
+async function connectCloud(){
+  try{
+    if(!window.claude||!claude.use) return;
+    const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!db||!user) return;
+    const id=await user.id(); if(!id) return;
+    const ref=db.doc("data/users/"+id+"/writinglab");
+    const snap=await ref.get();
+    if(snap.exists){S=merge(S,snap.data());try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+    cloudRef=ref;
+    await ref.set(JSON.parse(JSON.stringify(S)));
+    status(); route();
+  }catch(e){cloudRef=null;status();}
+}
+function exportCode(){return "PWL1-"+btoa(unescape(encodeURIComponent(JSON.stringify(S))));}
+function importCode(c){
+  c=c.trim(); if(!c.startsWith("PWL1-")) throw new Error("bad");
+  const d=JSON.parse(decodeURIComponent(escape(atob(c.slice(5)))));
+  S=merge(S,d); persist();
+}
+
+// ---------------- helpers ----------------
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const blanks=q=>esc(q).replace("___",'<span class="blank" aria-label="blank"></span>');
+const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[.,!?;]+$/,"").replace(/\s+/g," ").trim();
+const chips=c=>c.map(k=>`<span class="chip ${k}" title="${CRIT[k]}">${k}</span>`).join("");
+const unitCode=u=>u.track.toUpperCase().replace("T2","T2")+"·"+(UNITS.filter(x=>x.track===u.track).indexOf(u)+1);
+function ring(p){const r=19,c=2*Math.PI*r,col=p>=85?"var(--good)":p>=60?"var(--brand)":p>0?"var(--bad)":"var(--sunk)";
+  return `<div class="ring" aria-label="${p?p+'% best score':'Not started'}"><svg viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="${r}" fill="none" stroke-width="5"/><circle class="fg" cx="23" cy="23" r="${r}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p/100)}"/></svg><span>${p?p+"%":"–"}</span></div>`;}
+function critScore(k){
+  const us=UNITS.filter(u=>u.crit.includes(k));
+  const sum=us.reduce((n,u)=>n+(S.best[u.id]||0),0);
+  return Math.round(sum/us.length);
+}
+function correctText(it){
+  if(it.t==="mc"||it.t==="up") return it.o[0];
+  if(it.t==="reg") return TAGS[it.a];
+  if(it.t==="gap") return it.a[0];
+  if(it.t==="build") return it.s;
+  if(it.t==="order") return it.s.join(" ");
+}
+function itemLabel(it){
+  if(it.t==="build") return "Build: "+it.s;
+  if(it.t==="order") return "Order the sentences: "+it.s[0];
+  return it.q;
+}
+let tab=(()=>{try{return localStorage.getItem(KEY+"-tab")||"gt";}catch(e){return "gt";}})();
+
+// ---------------- screens ----------------
+function go(h){ if(location.hash.slice(1)===h) route(); else location.hash=h; }
+window.addEventListener("hashchange",route);
+document.getElementById("home").onclick=()=>go("");
+document.getElementById("save").onclick=()=>go("progress");
+
+function route(){
+  const h=location.hash.slice(1);
+  window.scrollTo(0,0);
+  if(U_BY[h]) return unitView(U_BY[h]);
+  if(M_BY[h]) return modelView(M_BY[h]);
+  if(h==="progress") return progressView();
+  if(h==="check") return startDrill({kind:"check"});
+  if(h==="mistakes") return startDrill({kind:"mistakes"});
+  home();
+}
+
+function home(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  const nm=Object.keys(S.mistakes).filter(k=>findItem(k)).length;
+  const last=U_BY[S.last];
+  const t=TRACKS.find(x=>x.id===tab)||TRACKS[0];
+  const units=UNITS.filter(u=>u.track===t.id), models=MODELS.filter(m=>m.track===t.id);
+  app.innerHTML=`
+  <section class="hello">
+    <span class="eyebrow">IELTS Writing · Academic and General Training</span>
+    <h1>${S.name?"Welcome back, "+esc(S.name.split(" ")[0])+".":"Train for Band 7 in Writing"}</h1>
+    <p class="muted">Each unit trains one or more of the four marking criteria. Your best score in every unit is kept on this device${cloudRef?" and in your account":""}.</p>
+  </section>
+  <section class="meters" aria-label="Band 7 readiness by criterion">
+    ${Object.keys(CRIT).map(k=>{const p=critScore(k);return `<div class="meter"><span class="k chip ${k}" style="align-self:flex-start">${k}</span><span class="n">${p}%</span><div class="track"><i style="width:${p}%;background:var(--${k.toLowerCase()})"></i></div><small>${CRIT[k]}</small></div>`;}).join("")}
+  </section>
+  <div class="stats"><span><b>${done}</b>/${UNITS.length} units done</span><span><b>${nm}</b> mistakes to review</span><span><b>${Object.keys(S.models).length}</b>/${MODELS.length} model answers read</span></div>
+  <div class="row">
+    ${last?`<button class="btn" id="resume">Continue: ${esc(last.title)}</button>`:`<button class="btn" id="qc">Take the 2-minute quick check</button>`}
+    ${last?`<button class="btn quiet" id="qc">Quick check</button>`:""}
+    <button class="btn quiet" id="mk" ${nm?"":"disabled"}>Practise my mistakes${nm?" ("+nm+")":""}</button>
+  </div>
+  ${S.name?"":`<label class="f" for="nm">Your name (shown on shared results)<input type="text" id="nm" autocomplete="name" placeholder="e.g. Mehtab Singh"></label>`}
+  <div class="tabs" role="tablist">${TRACKS.map(x=>`<button class="tab" role="tab" aria-selected="${x.id===t.id}" data-t="${x.id}">${x.name}</button>`).join("")}</div>
+  <div class="trackhead"><span class="eyebrow">${t.short}</span><h2>${t.blurb}</h2></div>
+  <div class="units">${units.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}<span class="chip n">${u.items.length} questions</span></span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>
+  ${models.length?`<div class="trackhead"><span class="eyebrow">Read like an examiner</span><h2>Band 8 model answers</h2></div>
+  <div class="models">${models.map(m=>`<button class="model" data-m="${m.id}"><b>${esc(m.title)}</b><small>${esc(m.task)}</small>${S.models[m.id]?'<span class="seen">✓ Read</span>':""}</button>`).join("")}</div>`:""}
+  <div class="trackhead"><span class="eyebrow">Word bank</span><h2>Band 7 words with German</h2></div>
+  <div class="sheet tablebox"><table class="words"><thead><tr><th>Word</th><th>Meaning</th><th>Example</th><th>German</th></tr></thead><tbody>${WORDS.map(w=>`<tr><td>${w[0]}</td><td>${w[1]}</td><td>${w[2]}</td><td>${w[3]}</td></tr>`).join("")}</tbody></table></div>`;
+  app.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.t;try{localStorage.setItem(KEY+"-tab",tab);}catch(e){}home();});
+  app.querySelectorAll(".unit").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  app.querySelectorAll(".model").forEach(b=>b.onclick=()=>go(b.dataset.m));
+  const r=document.getElementById("resume"); if(r) r.onclick=()=>go(last.id);
+  document.getElementById("qc").onclick=()=>go("check");
+  document.getElementById("mk").onclick=()=>go("mistakes");
+  const n=document.getElementById("nm"); if(n) n.onchange=()=>{S.name=n.value.trim();persist();};
+}
+
+function unitView(u){
+  const p=S.best[u.id]||0;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <div class="row" style="justify-content:space-between;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 300px">
+      <span class="eyebrow">${unitCode(u)} · ${TRACKS.find(t=>t.id===u.track).short}</span>
+      <h1>${esc(u.title)}</h1>
+      <div class="chips">${u.crit.map(k=>`<span class="chip ${k}">${k} · ${CRIT[k]}</span>`).join("")}</div>
+    </div>${ring(p)}
+  </div>
+  <div class="tipbox"><b>Band 7 target</b><p>${esc(u.tip)}</p></div>
+  <h2>Language bank</h2>
+  <div class="sheet bank">${u.bank.map(b=>`<div class="${b[0]}"><span class="tag ${b[0]}">${TAGS[b[0]]}</span><span class="ph">${esc(b[1])}</span><span class="use">${esc(b[2])}</span></div>`).join("")}</div>
+  <div class="row"><button class="btn" id="start">${p?"Practise again":"Start the drill"} · ${u.items.length} questions</button>${S.tries[u.id]?`<span class="muted">Best ${p}% · ${S.tries[u.id]} attempt${S.tries[u.id]>1?"s":""}</span>`:""}</div>`;
+  document.getElementById("back").onclick=()=>{tab=u.track;go("");};
+  document.getElementById("start").onclick=()=>startDrill({kind:"unit",unit:u});
+  S.last=u.id; persist();
+}
+
+function findItem(key){const [u,i]=key.split(":");return U_BY[u]?.items[+i]?{u:U_BY[u],i:+i,it:U_BY[u].items[+i]}:null;}
+
+function startDrill(cfg){
+  let list=[];
+  if(cfg.kind==="unit") list=cfg.unit.items.map((it,i)=>({u:cfg.unit,i,it}));
+  else if(cfg.kind==="mistakes") list=shuffle(Object.keys(S.mistakes).map(findItem).filter(Boolean)).slice(0,15);
+  else { // quick check: 2 random items from each track
+    for(const t of TRACKS){const pool=[];UNITS.filter(u=>u.track===t.id).forEach(u=>u.items.forEach((it,i)=>pool.push({u,i,it})));list.push(...shuffle(pool).slice(0,2));}
+  }
+  if(!list.length) return go("");
+  const D={cfg,list,pos:0,res:[],t0:Date.now()};
+  ask(D);
+}
+
+function dhead(D){
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  return `<div><button class="link" id="quit">← Leave drill</button></div>
+  <div class="dhead"><div><span class="eyebrow">${D.cfg.kind==="unit"?unitCode(D.cfg.unit):"Mixed"} · ${esc(title)}</span></div><span class="num muted" style="font-size:13px">${D.pos+1} / ${D.list.length}</span></div>
+  <div class="dots" aria-hidden="true">${D.list.map((_,k)=>`<i class="${D.res[k]?(D.res[k].ok?"ok":"no"):""} ${k===D.pos?"cur":""}"></i>`).join("")}</div>`;
+}
+
+function ask(D){
+  const {u,it}=D.list[D.pos];
+  const ctx=D.cfg.kind==="unit"?"":`<span class="chips"><span class="chip n">${esc(u.title)}</span></span>`;
+  let body="";
+  if(it.t==="mc"||it.t==="up"){
+    const opts=shuffle(it.o);D.opts=opts;
+    body=`<div class="sheet letter">${it.t==="up"?'<span class="b5">Band 5 sentence</span>'+esc(it.q):blanks(it.q)}</div>
+      <div class="opts">${opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div>`;
+  } else if(it.t==="reg"){
+    body=`<div class="sheet letter">${esc(it.q)}</div><div class="regs">${["F","S","I"].map(r=>`<button class="opt" data-r="${r}">${TAGS[r]}</button>`).join("")}</div>`;
+  } else if(it.t==="gap"){
+    body=`<div class="sheet letter">${blanks(it.q)}</div><form class="gapin" id="gf"><input id="gi" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Missing word"><button class="btn" id="gb">Check</button></form>`;
+  } else if(it.t==="build"){
+    body=`<div class="sheet"><div class="line letter" id="line"></div></div><div class="tiles" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  } else if(it.t==="order"){
+    body=`<div class="sheet"><div class="ordline" id="line"></div></div><div class="ord" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  }
+  app.innerHTML=`${dhead(D)}<div style="display:flex;flex-direction:column;gap:6px">${ctx}<span class="prompt">${TYPE_PROMPT[it.t]}</span></div>${body}<div id="fb" style="display:flex;flex-direction:column;gap:12px"></div>`;
+  document.getElementById("quit").onclick=()=>{if(D.res.length) persist(); D.cfg.kind==="unit"?go(D.cfg.unit.id):go("");};
+  const done=(ok,yours)=>answer(D,ok,yours);
+
+  if(it.t==="mc"||it.t==="up"){
+    const bs=[...app.querySelectorAll(".opt")];
+    bs.forEach(b=>b.onclick=()=>{const pick=D.opts[+b.dataset.k],ok=pick===it.o[0];
+      bs.forEach(x=>{x.disabled=true;if(D.opts[+x.dataset.k]===it.o[0])x.classList.add("right");});
+      if(!ok)b.classList.add("wrong"); done(ok,pick);});
+  } else if(it.t==="reg"){
+    const bs=[...app.querySelectorAll(".opt")];
+    bs.forEach(b=>b.onclick=()=>{const ok=b.dataset.r===it.a;
+      bs.forEach(x=>{x.disabled=true;if(x.dataset.r===it.a)x.classList.add("right");});
+      if(!ok)b.classList.add("wrong"); done(ok,TAGS[b.dataset.r]);});
+  } else if(it.t==="gap"){
+    const inp=document.getElementById("gi"); inp.focus();
+    document.getElementById("gf").onsubmit=e=>{e.preventDefault(); if(!inp.value.trim()) return;
+      const ok=it.a.some(a=>norm(a)===norm(inp.value));
+      inp.disabled=true;document.getElementById("gb").disabled=true;inp.classList.add(ok?"right":"wrong");
+      done(ok,inp.value.trim());};
+  } else {
+    const isOrder=it.t==="order";
+    const target=isOrder?it.s:it.s.split(" ");
+    let pool=target.map((w,k)=>({w,k})); pool=shuffle(pool);
+    if(pool.every((p,k)=>p.k===k)) pool.reverse();
+    let placed=[],locked=false;
+    const line=document.getElementById("line"),pe=document.getElementById("pool"),chk=document.getElementById("chk");
+    const tile=(p,k,cls)=>isOrder?`<button class="tile ${cls}" data-k="${k}"><span class="no">${cls==="placed"?k+1:"·"}</span><span>${esc(p.w)}</span></button>`:`<button class="tile ${cls}" data-k="${k}">${esc(p.w)}</button>`;
+    const draw=()=>{
+      line.innerHTML=placed.map((p,k)=>tile(p,k,"placed")).join("");
+      pe.innerHTML=pool.map((p,k)=>placed.includes(p)?(isOrder?"":`<button class="tile used" tabindex="-1" aria-hidden="true">${esc(p.w)}</button>`):tile(p,k,"")).join("");
+      chk.disabled=locked||placed.length!==pool.length;
+      if(locked) return;
+      line.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{placed.splice(+b.dataset.k,1);draw();});
+      pe.querySelectorAll(".tile:not(.used)").forEach(b=>b.onclick=()=>{placed.push(pool[+b.dataset.k]);draw();});
+    };
+    draw();
+    document.getElementById("clr").onclick=()=>{if(!locked){placed=[];draw();}};
+    chk.onclick=()=>{const ok=placed.every((p,k)=>p.w===target[k]);locked=true;draw();
+      line.classList.add(ok?"ok":"no");document.getElementById("clr").disabled=true;
+      done(ok,placed.map(p=>p.w).join(" "));};
+  }
+}
+
+function answer(D,ok,yours){
+  const {u,i,it}=D.list[D.pos], key=u.id+":"+i;
+  D.res[D.pos]={ok,yours,u,i,it};
+  if(ok){ if(S.mistakes[key]) delete S.mistakes[key]; }
+  else S.mistakes[key]=Date.now();
+  persist();
+  const last=D.pos===D.list.length-1;
+  const corr=it.t==="order"?it.s.map((s,k)=>(k+1)+". "+s).join("\n"):correctText(it);
+  document.getElementById("fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite."}</b>${ok?"":`<span class="fix" style="white-space:pre-line">${esc(corr)}</span>`}<span>${esc(it.why)}</span></div>
+    <div class="row"><button class="btn" id="next">${last?"See my results":"Next question"}</button></div>`;
+  document.querySelector(".dots").innerHTML=D.list.map((_,k)=>`<i class="${D.res[k]?(D.res[k].ok?"ok":"no"):""} ${k===D.pos?"cur":""}"></i>`).join("");
+  const n=document.getElementById("next");n.focus();
+  n.onclick=()=>{if(last) results(D); else {D.pos++;ask(D);}};
+}
+
+function results(D){
+  const right=D.res.filter(r=>r.ok).length,total=D.list.length,pct=Math.round(right/total*100);
+  const secs=Math.round((Date.now()-D.t0)/1000), time=Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+  let prev=0;
+  if(D.cfg.kind==="unit"){const id=D.cfg.unit.id;prev=S.best[id]||0;S.best[id]=Math.max(prev,pct);S.tries[id]=(S.tries[id]||0)+1;persist();}
+  const wrong=D.res.filter(r=>!r.ok);
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  const verdict=pct>=85?"Band 7 control. Move on to the next unit.":pct>=60?"Close. Read the language bank again and repeat the drill.":"Read the rules first, then repeat the drill tomorrow.";
+  let recs="";
+  if(D.cfg.kind==="check"){
+    const weak=[...new Set(wrong.map(r=>r.u.id))].map(id=>U_BY[id]);
+    recs=weak.length?`<h2>Start with these units</h2><div class="units">${weak.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}</span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>`:`<p>No weak areas found. Work through the units in order to build a full Band 7 score.</p>`;
+  }
+  const share=`Pioneer Writing Lab\nName: ${S.name||"Student"}\n${title}: ${right}/${total} (${pct}%)\nTime: ${time}`+(D.cfg.kind==="unit"?`\nBest so far: ${S.best[D.cfg.unit.id]}%`:"");
+  const nextU=D.cfg.kind==="unit"?UNITS.filter(u=>u.track===D.cfg.unit.track)[UNITS.filter(u=>u.track===D.cfg.unit.track).indexOf(D.cfg.unit)+1]:null;
+  app.innerHTML=`
+  <span class="eyebrow">Results${S.name?" · "+esc(S.name):""}</span>
+  <h1>${esc(title)}</h1>
+  <div class="row" style="align-items:flex-end;gap:16px"><span class="big">${right}<span class="muted" style="font-size:26px">/${total}</span></span><span class="muted">${pct}% · ${time}${D.cfg.kind==="unit"&&pct>prev&&prev?" · new best (was "+prev+"%)":""}</span></div>
+  <p>${verdict}</p>
+  <div class="row">
+    ${nextU?`<button class="btn" id="nu">Next unit: ${esc(nextU.title)}</button>`:""}
+    <button class="btn ${nextU?"quiet":""}" id="again">${D.cfg.kind==="unit"?"Repeat this unit":"Back to all units"}</button>
+    <a class="btn quiet" href="https://wa.me/?text=${encodeURIComponent(share)}" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <button class="btn quiet" id="cp">Copy result</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  ${recs}
+  ${wrong.length?`<h2>Review your mistakes</h2><p class="muted">These are saved to “Practise my mistakes” until you answer them correctly.</p><div class="review">${wrong.map(r=>`<article><small>${esc(r.u.title)}</small><span>${esc(itemLabel(r.it))}</span><span class="y">✗ ${esc(r.yours)}</span><span class="c" style="white-space:pre-line">✓ ${esc(r.it.t==="order"?r.it.s.map((s,k)=>(k+1)+". "+s).join("\n"):correctText(r.it))}</span><small>${esc(r.it.why)}</small></article>`).join("")}</div>`:""}`;
+  app.querySelectorAll(".unit").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  const nu=document.getElementById("nu"); if(nu) nu.onclick=()=>go(nextU.id);
+  document.getElementById("again").onclick=()=>D.cfg.kind==="unit"?startDrill(D.cfg):go("");
+  document.getElementById("cp").onclick=()=>{const t=document.getElementById("toast");
+    navigator.clipboard.writeText(share).then(()=>t.textContent="Result copied.").catch(()=>t.textContent=share.replace(/\n/g," · "));};
+}
+
+function modelView(m){
+  let html=esc(m.text);
+  m.marks.forEach((mk,k)=>{const e=esc(mk[0]);const idx=html.indexOf(e);if(idx<0)return;
+    html=html.slice(0,idx)+`<button class="hl" data-k="${k}">${e}<sup>${k+1}</sup></button>`+html.slice(idx+e.length);});
+  const words=m.text.split(/\s+/).filter(w=>/[A-Za-z0-9]/.test(w)).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Model answer · ${TRACKS.find(t=>t.id===m.track).short} · ${words} words</span>
+  <h1>${esc(m.title)}</h1>
+  <div class="taskbox"><b>Task.</b> ${esc(m.task)}</div>
+  <p class="muted">Tap a highlighted phrase to see why it earns marks.</p>
+  <div class="sheet model-text">${html}</div>
+  <h2>What the examiner notices</h2>
+  <ol class="notes">${m.marks.map((mk,k)=>`<li data-k="${k}"><span>${k+1}</span><span><q>${esc(mk[0])}</q> ${esc(mk[1])}</span></li>`).join("")}</ol>`;
+  document.getElementById("back").onclick=()=>{tab=m.track;go("");};
+  const hs=[...app.querySelectorAll(".hl")],ns=[...app.querySelectorAll(".notes li")];
+  hs.forEach(h=>h.onclick=()=>{const k=h.dataset.k;hs.forEach(x=>x.classList.toggle("on",x.dataset.k===k));ns.forEach(x=>x.classList.toggle("on",x.dataset.k===k));
+    ns[k].scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+  S.models[m.id]=true; persist();
+}
+
+function progressView(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Your progress</span>
+  <h1>Keep your progress safe</h1>
+  <div class="panel">
+    <h3>Where it is saved</h3>
+    <p>${cloudRef?"Your progress is saved to your claude.ai account and on this device. It loads automatically when you open the Lab signed in.":localOK?"Your progress is saved in this browser on this device. It stays when you close and reopen the page. To move to another phone or browser, use a backup code.":"This browser is not allowing the page to save. Copy a backup code before you leave, and paste it back next time."}</p>
+    <p class="muted">${done} of ${UNITS.length} units done · ${Object.keys(S.mistakes).length} mistakes saved</p>
+    <label class="f" for="pn">Your name<input type="text" id="pn" autocomplete="name" value="${esc(S.name)}"></label>
+  </div>
+  <div class="panel">
+    <h3>Backup code</h3>
+    <p class="muted">Copy this code and keep it in WhatsApp or Notes. Paste it on any device to restore your scores.</p>
+    <textarea id="code" readonly aria-label="Your backup code">${esc(exportCode())}</textarea>
+    <div class="row"><button class="btn" id="cpc">Copy backup code</button></div>
+    <label class="f" for="rc">Restore from a code<textarea id="rc" placeholder="Paste a code that starts with PWL1-"></textarea></label>
+    <div class="row"><button class="btn quiet" id="rst">Restore progress</button></div>
+    <div class="toast" id="toast"></div>
+  </div>
+  <div class="panel">
+    <h3>Start again</h3>
+    <p class="muted">Clears every score and mistake on this device${cloudRef?" and in your account":""}. Copy your backup code first.</p>
+    <div class="row"><button class="btn quiet danger" id="clear">Clear my progress</button><span id="confirm"></span></div>
+  </div>`;
+  const t=document.getElementById("toast");
+  document.getElementById("back").onclick=()=>go("");
+  document.getElementById("pn").onchange=e=>{S.name=e.target.value.trim();persist();document.getElementById("code").value=exportCode();};
+  document.getElementById("cpc").onclick=()=>{const c=document.getElementById("code");
+    navigator.clipboard.writeText(c.value).then(()=>t.textContent="Backup code copied.").catch(()=>{c.select();t.textContent="Code selected. Copy it with your keyboard or long-press.";});};
+  document.getElementById("rst").onclick=()=>{try{importCode(document.getElementById("rc").value);t.style.color="var(--good)";t.textContent="Progress restored.";document.getElementById("code").value=exportCode();}
+    catch(e){t.style.color="var(--bad)";t.textContent="That code is not valid. Paste the whole code, starting with PWL1-.";}};
+  document.getElementById("clear").onclick=()=>{document.getElementById("confirm").innerHTML='<button class="btn danger" id="yes">Yes, clear everything</button>';
+    document.getElementById("yes").onclick=()=>{const nm=S.name;S=blank();S.name=nm;persist();t.style.color="var(--good)";t.textContent="Progress cleared.";progressView();};};
+}
+
+loadLocal(); status(); route(); connectCloud();
+})();
+</script>

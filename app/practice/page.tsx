@@ -6,6 +6,7 @@ import { requireStudent } from "@/lib/guard";
 import { allows, homeFor, SKILL_AREAS } from "@/lib/access";
 import { redirect } from "next/navigation";
 import PracticeNav from "@/components/practice/PracticeNav";
+import { labItem } from "@/lib/labs";
 
 export const dynamic = "force-dynamic";
 
@@ -73,6 +74,17 @@ export default async function PracticeHome({
           {ready < mine.length ? ` · ${ready} ready to mark` : ""}
         </span>
       </div>
+
+      {/* Skills first: the lab for this section (Listening, or Reading for both modules) */}
+      {(() => {
+        const lab = labItem(active === "AL" || active === "GL" ? "listening" : "reading");
+        return lab && (
+          <div className="ln-first">
+            <div><b>{lab.title}:</b> {lab.blurb}</div>
+            <Link className="btn btn-coral" href={`/practice/lab/${lab.id}`} prefetch={false}>Open the {lab.title}</Link>
+          </div>
+        );
+      })()}
 
       {mine.length === 0 && (
         <div className="pr-note">

@@ -108,6 +108,11 @@ export default async function WritingLibrary({
 
       <div className="pr-note">{page.note}</div>
 
+      <div className="ln-first">
+        <div><b>Writing Lab:</b> GT letters, Academic reports and essays, grammar and vocabulary for Band 7 — unit by unit, with model answers.</div>
+        <Link className="btn btn-outline" href="/practice/lab/writing" prefetch={false}>Open the Writing Lab</Link>
+      </div>
+
       {/* Learn first: the lesson and video for this chart type, or all of them */}
       {kind === "task1" && (() => {
         const l = lessonForType(picked);

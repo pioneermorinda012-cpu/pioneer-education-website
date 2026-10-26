@@ -1,0 +1,786 @@
+<title>Pioneer Listening Lab</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: an app shell. Skill meters on top, track tabs, then unit rows.
+   Every passage, script and sentence sits on a dotted notebook sheet in a serif face. */
+:root{
+  --bg:#f5f2f3; --card:#ffffff; --sunk:#ece6e8; --ink:#25181c; --muted:#6c5d62; --line:#e2d8db;
+  --brand:#8a1c32; --brand-ink:#ffffff; --brand-soft:#f4dfe4;
+  --c0:#8a1c32; --c1:#0f6e6a; --c2:#9a5b00; --c3:#3d4fa8;
+  --c0-soft:#f4dfe4; --c1-soft:#d9efed; --c2-soft:#f6e7cf; --c3-soft:#e1e5f7;
+  --good:#1d7449; --good-soft:#dff1e6; --bad:#b0281f; --bad-soft:#fae2df;
+  --dot:rgba(110,80,90,.15); --mark:#ffe19c; --mark-on:#ffc94d;
+  --f-display:"Bricolage Grotesque","Figtree",system-ui,sans-serif;
+  --f-ui:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-letter:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-num:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --c0:#e5788d; --c1:#5cc6bf; --c2:#e8ab4f; --c3:#97a6f0;
+  --c0-soft:#3b1c24; --c1-soft:#12302e; --c2-soft:#33250f; --c3-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141012; --card:#1e181a; --sunk:#271f22; --ink:#f1e9eb; --muted:#b0a2a6; --line:#382d31;
+  --brand:#e5788d; --brand-ink:#1a0c10; --brand-soft:#3b1c24;
+  --c0:#e5788d; --c1:#5cc6bf; --c2:#e8ab4f; --c3:#97a6f0;
+  --c0-soft:#3b1c24; --c1-soft:#12302e; --c2-soft:#33250f; --c3-soft:#1f2442;
+  --good:#62c895; --good-soft:#14301f; --bad:#f08b81; --bad-soft:#391b19;
+  --dot:rgba(235,205,215,.09); --mark:#5a4313; --mark-on:#8a6418; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:16px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+h1,h2,h3{margin:0;text-wrap:balance;line-height:1.15}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(26px,5vw,34px);letter-spacing:-.01em}
+h2{font-family:var(--f-display);font-weight:600;font-size:22px}
+h3{font-size:16px;font-weight:700}
+p{margin:0}
+.muted{color:var(--muted)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--brand)}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;align-items:center;gap:12px;padding-block:14px;border-bottom:1px solid var(--line)}
+.logo{width:34px;height:34px;flex:none;border-radius:8px;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-family:var(--f-display);font-weight:800;font-size:18px;border:0;cursor:pointer}
+.brand{display:flex;flex-direction:column;line-height:1.15;min-width:0}
+.brand b{font-family:var(--f-display);font-size:17px}
+.brand span{font-size:12px;color:var(--muted)}
+.save{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);background:none;border:1px solid var(--line);border-radius:99px;padding:5px 10px;cursor:pointer;white-space:nowrap}
+.save i{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.save.ok i{background:var(--good)}.save.warn i{background:var(--bad)}
+.btn{font-weight:600;font-size:15px;padding:11px 18px;border-radius:8px;border:1.5px solid var(--brand);background:var(--brand);color:var(--brand-ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.ghost{background:transparent;color:var(--brand)}
+.btn.quiet{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.link{background:none;border:0;padding:0;color:var(--brand);font-weight:600;cursor:pointer}
+.hello{display:flex;flex-direction:column;gap:6px;padding-top:6px}
+.meters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.meter{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.meter .n{font-family:var(--f-num);font-size:24px;font-weight:700;line-height:1}
+.meter small{font-size:12px;color:var(--muted);line-height:1.3}
+.track{height:6px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.track i{display:block;height:100%;border-radius:99px;transition:width .4s}
+.stats{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.stats b{color:var(--ink);font-family:var(--f-num)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.tab{flex:none;padding:9px 14px;border-radius:99px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;font-weight:600;font-size:14px;white-space:nowrap}
+.tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.trackhead{display:flex;flex-direction:column;gap:2px}
+.units{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden}
+.unit{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 16px;border:0;border-top:1px solid var(--line);background:none;text-align:left;cursor:pointer;width:100%}
+.unit:first-child{border-top:0}
+.unit:hover{background:var(--sunk)}
+.code{font-family:var(--f-num);font-weight:700;font-size:13px;color:var(--muted)}
+.ut{display:flex;flex-direction:column;gap:5px;min-width:0}
+.ut b{font-size:16px}
+.chips{display:flex;gap:5px;flex-wrap:wrap}
+.chip{font-family:var(--f-num);font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;align-self:flex-start}
+.chip.c0{color:var(--c0);background:var(--c0-soft)}.chip.c1{color:var(--c1);background:var(--c1-soft)}
+.chip.c2{color:var(--c2);background:var(--c2-soft)}.chip.c3{color:var(--c3);background:var(--c3-soft)}
+.chip.n{color:var(--muted);background:var(--sunk);font-family:var(--f-ui);font-weight:600}
+.ring{width:46px;height:46px;position:relative;flex:none}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-num);font-size:11px;font-weight:700}
+.ring .bg{stroke:var(--sunk)}.ring .fg{transition:stroke-dashoffset .5s}
+.models{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+.model{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:14px;text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:4px;min-width:0}
+.model:hover{border-color:var(--brand)}
+.model small{color:var(--muted);font-size:13px}
+.seen{font-size:12px;color:var(--good);font-weight:600}
+.sheet{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px 20px;
+  background-image:radial-gradient(var(--dot) 1.2px,transparent 1.3px);background-size:18px 18px;background-position:9px 9px}
+.letter{font-family:var(--f-letter);font-size:20px;line-height:1.55}
+.passage{font-family:var(--f-letter);font-size:17px;line-height:1.65;white-space:pre-line}
+.passage .lbl{display:block;font-family:var(--f-ui);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.blank{display:inline-block;min-width:84px;border-bottom:2px solid var(--brand);margin:0 4px;transform:translateY(-3px)}
+.tipbox{border-left:4px solid var(--brand);background:var(--card);border-radius:0 10px 10px 0;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tipbox b{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--brand)}
+.bank{display:flex;flex-direction:column}
+.bank div{display:grid;grid-template-columns:104px minmax(0,1fr);gap:4px 12px;padding:10px 0;border-top:1px solid var(--line);align-items:baseline}
+.bank div:first-child{border-top:0;padding-top:0}
+.bank .ph{font-family:var(--f-letter);font-size:17px}
+.bank .use{grid-column:2;font-size:13px;color:var(--muted)}
+.tag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 7px;border-radius:5px;justify-self:start;background:var(--sunk);color:var(--muted)}
+.tag.F{background:var(--c3-soft);color:var(--c3)}.tag.S{background:var(--c1-soft);color:var(--c1)}
+.tag.I{background:var(--c2-soft);color:var(--c2)}.tag.A{background:var(--c0-soft);color:var(--c0)}
+.tag.X{background:var(--bad-soft);color:var(--bad)}
+.bank .X .ph{text-decoration:line-through;text-decoration-color:var(--bad)}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dots{display:flex;gap:4px;flex-wrap:wrap}
+.dots i{width:9px;height:9px;border-radius:50%;background:var(--sunk)}
+.dots i.ok{background:var(--good)}.dots i.no{background:var(--bad)}.dots i.cur{outline:2px solid var(--brand);outline-offset:1px}
+.prompt{font-size:14px;font-weight:600;color:var(--muted)}
+.b5{font-size:12px;font-weight:700;color:var(--bad);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:6px;font-family:var(--f-ui)}
+.opts{display:flex;flex-direction:column;gap:9px}
+.opt{font-family:var(--f-letter);font-size:18px;text-align:left;padding:12px 14px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);cursor:pointer;line-height:1.4}
+.opt:hover:not(:disabled){border-color:var(--brand)}
+.opt.right{border-color:var(--good);background:var(--good-soft)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.fixed{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px}
+.fixed .opt{font-family:var(--f-ui);font-weight:600;font-size:16px;text-align:center}
+.gapin{display:flex;gap:10px;flex-wrap:wrap}
+.gapin input{flex:1 1 200px;min-width:0;font-family:var(--f-letter);font-size:19px;padding:11px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.gapin input.right{border-color:var(--good);background:var(--good-soft)}.gapin input.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.line{min-height:56px;border-bottom:2px dashed var(--line);display:flex;flex-wrap:wrap;gap:8px;padding:8px 0;align-items:center}
+.line.ok{border-color:var(--good)}.line.no{border-color:var(--bad)}
+.tiles{display:flex;flex-wrap:wrap;gap:8px}
+.tile{font-family:var(--f-letter);font-size:17px;padding:7px 12px;border-radius:6px;border:1.5px solid var(--line);background:var(--card);cursor:pointer}
+.tile.placed{background:var(--brand-soft);border-color:var(--brand)}
+.tile.used{visibility:hidden}
+.ord{display:flex;flex-direction:column;gap:8px}
+.ord .tile,.ordline .tile{text-align:left;line-height:1.4;display:flex;gap:10px;align-items:flex-start;width:100%}
+.tile .no{font-family:var(--f-num);font-size:13px;font-weight:700;color:var(--brand);padding-top:3px;flex:none;width:18px}
+.ordline{display:flex;flex-direction:column;gap:8px;min-height:20px}
+.fb{border-radius:8px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.fb.ok{background:var(--good-soft)}.fb.no{background:var(--bad-soft)}
+.fb b{font-size:15px}.fb.ok b{color:var(--good)}.fb.no b{color:var(--bad)}
+.fb .fix{font-family:var(--f-letter);font-size:17px}
+.audio{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.play{width:52px;height:52px;border-radius:50%;border:0;background:var(--brand);color:var(--brand-ink);cursor:pointer;display:grid;place-items:center;flex:none}
+.play svg{width:20px;height:20px}
+.audio .meta{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 160px}
+.audio .meta b{font-size:15px}
+.audio .meta span{font-size:13px;color:var(--muted)}
+.speed{display:flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+.speed button{border:0;background:var(--card);padding:7px 11px;font-size:13px;font-weight:600;cursor:pointer}
+.speed button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.script{font-family:var(--f-letter);font-size:16px;line-height:1.6;white-space:pre-line;border-top:1px solid var(--line);padding-top:8px;margin-top:4px}
+.big{font-family:var(--f-num);font-size:52px;font-weight:700;line-height:1}
+.review{display:flex;flex-direction:column;gap:10px}
+.review article{border:1px solid var(--line);border-radius:8px;padding:14px;background:var(--card);display:flex;flex-direction:column;gap:5px}
+.review .y{color:var(--bad);font-family:var(--f-letter)}.review .c{color:var(--good);font-family:var(--f-letter)}
+.review small{color:var(--muted);font-size:13px}
+.toast{font-size:14px;color:var(--good);min-height:20px}
+.taskbox{background:var(--sunk);border-radius:10px;padding:14px 16px;font-size:15px;white-space:pre-line}
+.model-text{white-space:pre-wrap;font-family:var(--f-letter);font-size:18px;line-height:1.7}
+.hl{background:var(--mark);border-radius:3px;padding:0 2px;cursor:pointer;border:0;font:inherit;color:inherit;line-height:inherit;text-align:left}
+.hl sup{font-family:var(--f-num);font-size:10px;font-weight:700;color:var(--brand);margin-left:2px}
+.hl.on{background:var(--mark-on)}
+.notes{display:flex;flex-direction:column;gap:6px;padding:0;margin:0}
+.notes li{list-style:none;display:grid;grid-template-columns:24px minmax(0,1fr);gap:8px;padding:8px 10px;border-radius:8px;font-size:15px}
+.notes li.on{background:var(--brand-soft)}
+.notes li span:first-child{font-family:var(--f-num);font-weight:700;color:var(--brand);font-size:13px;padding-top:2px}
+.notes q{font-family:var(--f-letter);quotes:none}
+.cue{background:var(--card);border:2px solid var(--ink);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:8px}
+.cue b{font-family:var(--f-letter);font-size:19px}
+.cue ul{margin:0;padding-left:20px;font-family:var(--f-letter);font-size:17px}
+.clock{font-family:var(--f-num);font-size:64px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.phase{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.checks{display:flex;flex-direction:column;gap:8px}
+.checks label{display:flex;gap:10px;align-items:flex-start;font-size:15px}
+.checks input{width:18px;height:18px;margin-top:2px;accent-color:var(--brand)}
+.tablebox{overflow-x:auto}
+table.words{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+table.words th{text-align:left;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;padding:6px 8px;border-bottom:1px solid var(--line)}
+table.words td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.words td:first-child{font-weight:700}
+table.words td:nth-child(3){font-family:var(--f-letter)}
+table.words td:last-child{font-style:italic;color:var(--muted)}
+label.f{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:14px}
+input[type=text],textarea{font:inherit;font-size:15px;padding:10px 12px;border-radius:8px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);width:100%}
+textarea{min-height:84px;resize:vertical}
+textarea.code{font-family:var(--f-num);font-size:12px;word-break:break-all}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+.danger{color:var(--bad);border-color:var(--bad)}
+@media (max-width:560px){
+  .meters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .letter{font-size:18px}
+  .unit{grid-template-columns:42px minmax(0,1fr) auto;gap:10px;padding:12px}
+  .bank div{grid-template-columns:1fr}.bank .use{grid-column:1}
+  .save .lbl{display:none}
+  .clock{font-size:52px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="bar">
+    <button class="logo" id="home" aria-label="Home">P</button>
+    <div class="brand"><b id="appName"></b><span id="appSub"></span></div>
+    <button class="save" id="save" aria-label="Progress and backup"><i></i><span class="lbl" id="saveLbl">Saved on this device</span></button>
+  </header>
+  <main id="app" class="wrap" aria-live="polite"></main>
+</div>
+
+<script>
+const APP={key:"pioneer-listening-lab-v1",doc:"listeninglab",code:"PLL1",name:"Listening Lab",sub:"Pioneer Education · IELTS Band 7+",audio:true,
+ eyebrow:"IELTS Listening · Academic and General Training",hero:"Train for Band 7 in Listening",
+ intro:"Band 7 needs about 30 of 40 correct. Press play on each question: the audio is read aloud by your browser, and the script appears after you answer.",
+ crit:{SPELL:["Spelling and numbers"],DIST:["Distractors"],PARA:["Paraphrase"],STRUCT:["Structure and maps"]},
+ tags:{G:"Strategy",A:"Signal",X:"Trap"},bankTitle:"Strategy bank",wordsTitle:"Words students often misspell, with German"};
+
+const M=(q,o,why,x={})=>({t:"mc",q,o,why,...x});
+const F=(q,c,a,why,x={})=>({t:"fx",q,c,a,why,...x});
+const G=(q,a,why,x={})=>({t:"gap",q,a,why,...x});
+const L=(say,q,a,why,lim)=>G(q,a,why,{say,lim:lim||"Write ONE WORD AND/OR A NUMBER",ask:"Listen and complete the note."});
+const LM=(say,q,o,why)=>M(q,o,why,{say,ask:"Listen and choose the answer."});
+
+const TRACKS=[
+{id:"p1",code:"P1",name:"Parts 1–2",short:"Everyday situations",blurb:"Forms, numbers, spelling and changes of mind"},
+{id:"p3",code:"P3",name:"Parts 3–4",short:"Study and lectures",blurb:"Discussions, paraphrase and lecture signposts"},
+{id:"rules",code:"RULE",name:"Exam rules",short:"Answer sheet accuracy",blurb:"Word limits, plurals and spelling that cost easy marks"}
+];
+
+const UNITS=[
+{id:"l1",track:"p1",title:"Numbers, dates and spelling",crit:["SPELL"],
+ tip:"Part 1 is where Band 7 students collect easy marks. Know how British speakers say numbers (oh, double), letters and dates, and write them exactly.",
+ bank:[["A","“oh” = 0 in phone numbers","oh seven seven …"],
+       ["A","“double L” = LL · “triple four” = 444","Repeated letters and digits"],
+       ["A","the fourteenth of March = 14 March","Dates"],
+       ["A","thirteen (stress on -TEEN) vs THIRty","Stress tells them apart"],
+       ["A","at = @ · dot = . · underscore = _","Email addresses"],
+       ["X","Writing the first number you hear","Wait: speakers often correct themselves"]],
+ items:[
+  L("Woman: Can I take your surname, please?\nMan: Yes, it's Dhillon. That's D, H, I, double L, O, N.","Surname: ___",["Dhillon"],"double L = LL.","Write ONE WORD"),
+  L("Woman: And a contact number?\nMan: It's oh seven seven double four, nine three one, two six eight.","Phone: ___",["07744931268"],"oh = 0, double four = 44."),
+  L("Man: When does the course start?\nWoman: On the fourteenth of March.","Start date: ___ March",["14","14th","fourteenth"],"the fourteenth = 14."),
+  L("Woman: What's your postcode?\nMan: It's M, one, four, six, T, J.","Postcode: ___",["M146TJ"],"Letters and numbers exactly as spelt."),
+  L("Man: My email is raj dot kumar at mail dot com.","Email: ___",["raj.kumar@mail.com"],"dot = . and at = @.","Write the email address"),
+  L("Woman: How many students are in the group?\nMan: Thirty, so we'll need a bigger room.","Number of students: ___",["30","thirty"],"THIRty (stress at the start) = 30. Thir-TEEN would be 13."),
+  L("Man: The bus leaves at thirteen minutes past nine.","Bus leaves at 9:___",["13"],"thir-TEEN (stress at the end) = 13."),
+  M("In IELTS Listening, “double L” means …",["LL","L in two different places","W","a capital L"],"double = the same letter twice, together.")
+ ]},
+{id:"l2",track:"p1",title:"Distractors and corrections",crit:["DIST"],
+ tip:"Speakers change their minds, correct mistakes and reject options. The first answer you hear is often wrong. Wait for the final decision.",
+ bank:[["A","actually · sorry · I mean · no, wait","The answer is about to change"],
+       ["A","I'm afraid that's full / not available","An option is being rejected"],
+       ["A","it went up · it's now …","An old price is a trap"],
+       ["G","Write lightly in your head; confirm at the end of the speaker's turn","Do not commit too early"],
+       ["X","Two numbers heard close together","Usually one is the trap"]],
+ items:[
+  L("Man: I'd like to book for Tuesday.\nWoman: I'm afraid Tuesday's fully booked. How about Thursday?\nMan: Thursday's fine.","Appointment day: ___",["Thursday"],"Tuesday is rejected.","Write ONE WORD"),
+  L("Woman: The fee was one hundred and fifty pounds, but it went up last month. It's now one hundred and seventy-five.","Fee: £___",["175"],"went up = the old price is a trap."),
+  L("Man: Let's meet at the main entrance. Actually, no, that's being repaired, so let's meet at the side gate.","Meeting point: the ___ gate",["side"],"Actually signals the change.","Write ONE WORD"),
+  LM("Woman: Shall we take the train?\nMan: It's quick, but it's far too expensive. Let's get the coach.\nWoman: OK, the coach it is.","How will they travel?",["by coach","by train","by car","on foot"],"The train is rejected because of the price."),
+  L("Man: My date of birth is the twelfth, no sorry, the twenty-first of June.","Date of birth: ___ June",["21","21st","twenty-first"],"sorry = correction."),
+  M("Which words often signal that an answer is about to change?",["actually, sorry, I mean","firstly, secondly","for example","in conclusion"],"Correction signals."),
+  LM("Woman: The room has a desk and a wardrobe. It used to have a sofa, but we took that out last year.","Which item is NOT in the room now?",["a sofa","a desk","a wardrobe","a bed"],"used to have … took that out = no longer there.")
+ ]},
+{id:"l3",track:"p1",title:"Maps and plans",crit:["STRUCT"],
+ tip:"Before the audio starts, find where you are on the map and the direction you face. Then follow the speaker's route step by step.",
+ bank:[["A","straight ahead · on your left · on your right","Basic directions"],
+       ["A","opposite · next to · adjacent to · between","Position"],
+       ["A","diagonally opposite = across and to one side","Common in Part 2"],
+       ["A","at the far end · just past · before you reach","Distance along a route"],
+       ["G","Mark the entrance with an X before listening","Your starting point"]],
+ items:[
+  LM("Man: As you come in through the main entrance, reception is straight ahead. The café is on your left, just past the lifts.","Where is the café?",["on the left, past the lifts","straight ahead","opposite the entrance","on the right, before the lifts"],"left + just past the lifts."),
+  LM("Man: The library is opposite the café, so it's on your right as you walk in.","Where is the library?",["on the right, opposite the café","next to reception","to the left of the lifts","behind the main entrance"],"opposite the café = across from it."),
+  L("Woman: Go along the corridor and take the second turning on the right. The computer room is at the end, facing you.","The computer room is at the ___ of the corridor.",["end"],"at the end, facing you.","Write ONE WORD"),
+  LM("Woman: The car park is to the north of the sports hall, between the hall and the river.","Where is the car park?",["between the sports hall and the river","south of the sports hall","across the river","inside the sports hall"],"between the hall and the river."),
+  M("“Adjacent to” means …",["next to","opposite","far from","above"],"adjacent = beside."),
+  M("“Diagonally opposite” means …",["across and to one side","directly across","beside","behind"],"Across a space, but not straight across.")
+ ]},
+{id:"l4",track:"p3",title:"Paraphrase in discussions",crit:["PARA","DIST"],
+ tip:"In Part 3 the correct option uses different words from the audio. Listen for the meaning, and notice when a speaker disagrees or adds a condition.",
+ bank:[["A","to be honest · actually · the thing is","An opinion is coming"],
+       ["A","I'm not sure about that · I see your point, but","Disagreement"],
+       ["A","out of date = not current · over budget = cost more than planned","Common paraphrases"],
+       ["X","An option that uses the exact words you heard","Often a trap in Part 3"],
+       ["G","Read the options before the audio and underline key ideas","Know what to listen for"]],
+ items:[
+  LM("Woman: What did you think of the reading list?\nMan: Honestly, most of it was out of date. I ended up using journal articles instead.","What does the man say about the reading list?",["Much of it was not current.","It was too long.","It was too difficult.","It was excellent."],"out of date = not current."),
+  LM("Man: How did the survey go?\nWoman: People were happy to take part, but the questions took far longer to answer than we'd planned.","What problem did they have with the survey?",["It took more time than expected.","People refused to take part.","The questions were too simple.","They lost the results."],"took far longer than planned."),
+  LM("Woman: Should we present the data as a table?\nMan: I think a chart would make the trend much clearer for the audience.","Why does the man prefer a chart?",["It shows the pattern more clearly.","It is quicker to make.","The tutor asked for one.","Tables are not allowed."],"trend clearer = pattern more clearly."),
+  LM("Man: The project was a bit over budget, but the results were worth it.","What does the man say about the project?",["It cost more than planned.","It was cheap.","It finished early.","It was cancelled."],"over budget = cost more than planned."),
+  LM("Woman: I couldn't have managed without my tutor's feedback.","What does the woman say about her tutor?",["The feedback was essential.","The tutor was unhelpful.","She had no tutor.","The tutor managed the project."],"couldn't have managed without = essential."),
+  LM("Man: I thought the lecture would be boring, but it turned out to be really useful.\nWoman: Same here.","How did they feel about the lecture?",["It was more useful than they expected.","It was boring, as they expected.","They did not attend it.","It was too short."],"thought … but it turned out = expectation changed.")
+ ]},
+{id:"l5",track:"p3",title:"Lecture signposts",crit:["STRUCT","PARA"],
+ tip:"Part 4 is a lecture with no break. Signpost phrases tell you where the speaker is in the talk, so you never lose your place on the question sheet.",
+ bank:[["A","Today I'll look at … · First of all …","The plan"],
+       ["A","Turning now to … · Moving on …","A new section"],
+       ["A","To put it another way … · In other words …","A paraphrase follows"],
+       ["A","What really matters here is … · The key point is …","The main idea"],
+       ["A","However, the more significant factor …","The answer often follows a contrast"],
+       ["X","Stopping to think about one missed answer","Move on and follow the signposts"]],
+ items:[
+  M("A lecturer says “Turning now to …”. What is happening?",["A new topic is starting","The lecture is ending","An example is coming","The speaker is repeating"],"A section change."),
+  M("“To put it another way …” signals …",["a paraphrase of the last point","a new topic","a contrast","a conclusion"],"Same idea, different words."),
+  LM("Lecturer: Today I'll look at why cities flood. The most obvious cause is heavy rainfall. However, the more significant factor in recent decades has been the loss of green space, because concrete stops water from soaking into the ground.","According to the speaker, what has been the main recent cause?",["the loss of green space","heavy rainfall","rising sea levels","old drainage pipes"],"However, the more significant factor …"),
+  L("Lecturer: Concrete stops water from soaking into the ground.","Concrete prevents water from ___ into the ground.",["soaking"],"Same word as the audio; check the spelling.","Write ONE WORD"),
+  M("Which phrase signals the most important point?",["What really matters here is …","By the way …","As I said …","Another minor point is …"],"A key-point signal."),
+  {t:"order",ask:"Listen, then put the lecture plan in order.",say:"Lecturer: Today I'd like to talk about the history of paper money. Let's begin with its origins in China more than a thousand years ago. Moving on, I'll explain how the idea spread to Europe. Finally, I'll consider whether cash will survive in a digital age.",
+   s:["Introduce the topic: the history of paper money","Origins in China","How the idea spread to Europe","The future of cash in a digital age"],why:"Today → Let's begin → Moving on → Finally."}
+ ]},
+{id:"l6",track:"rules",title:"Word limits and plurals",crit:["SPELL"],
+ tip:"Correct answers lose the mark if they break the word limit or miss a plural -s. Check every answer against the instruction before you transfer it.",
+ bank:[["G","ONE WORD AND/OR A NUMBER: “3 bedrooms” is allowed","A number plus one word"],
+       ["G","Capital letters do not matter; spelling does","Write clearly"],
+       ["G","Plural -s matters: photographs, not photograph","Listen for the ending"],
+       ["G","Use the word you hear; do not change its form","Grammar must fit the gap"],
+       ["X","Adding extra words: “a big kitchen” for one word","Over the limit = wrong"]],
+ items:[
+  M("The instruction says ONE WORD AND/OR A NUMBER. Which answer is acceptable?",["3 bedrooms","three large bedrooms","bedrooms with a view","a big bedroom"],"A number plus one word."),
+  L("Woman: You'll need to bring two passport photographs.","Bring: two passport ___",["photographs"],"two → plural. Write the word you hear.","Write ONE WORD"),
+  L("Man: The museum is closed on Mondays.","Closed on: ___",["Mondays","Monday"],"Either form fits; the day must be spelt correctly.","Write ONE WORD"),
+  M("Do capital letters matter on the IELTS Listening answer sheet?",["No, but spelling does","Yes, always","Only for names","Only in Part 4"],"Capitals are not marked; spelling is."),
+  M("The gap is “Length of course: ___”. You hear “two weeks”. Which answer is correct?",["two weeks","two week","2 weak","to weeks"],"Plural and correct spelling."),
+  L("Woman: The office can also help you find accommodation.","Help with: ___",["accommodation"],"Double c, double m.","Write ONE WORD")
+ ]},
+{id:"l7",track:"rules",title:"Spelling under pressure",crit:["SPELL"],
+ tip:"These words appear in IELTS Listening again and again. Learn their spelling until you can write them without thinking.",
+ bank:[["A","accommodation · environment · government","Double letters and silent letters"],
+       ["A","necessary · business · Wednesday","Common misspellings"],
+       ["A","February · library · restaurant","Letters people skip"],
+       ["A","temperature · questionnaire · equipment","Long words"],
+       ["G","Say the word slowly in syllables while you write","en-vi-ron-ment"]],
+ items:[
+  M("Which spelling is correct?",["accommodation","accomodation","acommodation","accommadation"],"double c, double m."),
+  M("Which spelling is correct?",["environment","enviroment","envirnment","enviornment"],"en-vi-ron-ment: the n before m."),
+  M("Which spelling is correct?",["questionnaire","questionaire","questionnair","questionare"],"double n, then -aire."),
+  L("Man: Please bring your own equipment.","Bring your own ___",["equipment"],"Uncountable: no -s.","Write ONE WORD"),
+  L("Woman: The meeting is on Wednesday afternoon.","Day: ___",["Wednesday"],"Wed-nes-day: the silent d.","Write ONE WORD"),
+  L("Man: You'll need to check the temperature every hour.","Check the ___ every hour.",["temperature"],"tem-per-a-ture.","Write ONE WORD"),
+  M("Which spelling is correct?",["necessary","neccessary","necesary","neccesary"],"one c, double s.")
+ ]}
+];
+
+const WORDS=[
+ ["accommodation","a place to live or stay","The office helps with accommodation.","die Unterkunft"],
+ ["questionnaire","a list of questions","Please fill in the questionnaire.","der Fragebogen"],
+ ["equipment","tools for an activity","Bring your own equipment.","die Ausrüstung"],
+ ["environment","the natural world","Protect the environment.","die Umwelt"],
+ ["temperature","how hot or cold something is","Check the temperature.","die Temperatur"],
+ ["government","the group that rules a country","The government funds it.","die Regierung"],
+ ["necessary","needed","A visa is necessary.","notwendig"],
+ ["Wednesday","the day after Tuesday","The class is on Wednesday.","Mittwoch"]
+];
+
+</script>
+<script>
+(function(){
+const KEY=APP.key;
+const CK=Object.keys(APP.crit);                       // criterion keys in display order
+const CRIT=Object.fromEntries(CK.map(k=>[k,APP.crit[k]]));
+const cc=k=>"c"+CK.indexOf(k);
+const TAGS=APP.tags;
+const TYPE_PROMPT={mc:"Choose the correct answer.",up:"Choose the Band 7 version.",reg:"Which register is this?",fx:"Choose the answer.",gap:"Type the answer.",build:"Tap the words in the right order.",order:"Tap them in a logical order."};
+const MODELS_=typeof MODELS!=="undefined"?MODELS:[], WORDS_=typeof WORDS!=="undefined"?WORDS:[], CUES_=typeof CUES!=="undefined"?CUES:[];
+const app=document.getElementById("app");
+document.getElementById("appName").textContent=APP.name;
+document.getElementById("appSub").textContent=APP.sub;
+const U_BY=Object.fromEntries(UNITS.map(u=>[u.id,u]));
+const M_BY=Object.fromEntries(MODELS_.map(m=>[m.id,m]));
+
+// ---------------- persistence: device + account + backup code ----------------
+function blank(){return {v:1,name:"",best:{},tries:{},mistakes:{},models:{},cues:{},last:"",updated:0};}
+let S=blank(), localOK=true, cloudRef=null, saveTimer=null;
+function merge(a,b){
+  const o=blank(), newer=(b.updated||0)>(a.updated||0)?b:a;
+  o.name=newer.name||a.name||b.name||""; o.last=newer.last||a.last||b.last||"";
+  for(const f of ["best","tries","cues"]) for(const k of new Set([...Object.keys(a[f]||{}),...Object.keys(b[f]||{})])) o[f][k]=Math.max(a[f]?.[k]??0,b[f]?.[k]??0);
+  o.models={...(a.models||{}),...(b.models||{})};
+  o.mistakes={...(newer.mistakes||{})};
+  o.updated=Math.max(a.updated||0,b.updated||0);
+  return o;
+}
+function loadLocal(){try{const r=localStorage.getItem(KEY);if(r) S=merge(blank(),JSON.parse(r));}catch(e){localOK=false;}}
+function persist(){
+  S.updated=Date.now();
+  try{localStorage.setItem(KEY,JSON.stringify(S));localOK=true;}catch(e){localOK=false;}
+  if(cloudRef){clearTimeout(saveTimer);saveTimer=setTimeout(()=>{cloudRef.set(JSON.parse(JSON.stringify(S))).then(status).catch(()=>{cloudRef=null;status();});},600);}
+  status();
+}
+function status(){
+  const b=document.getElementById("save"),l=document.getElementById("saveLbl");
+  b.classList.remove("ok","warn");
+  if(cloudRef){b.classList.add("ok");l.textContent="Saved to your account";}
+  else if(localOK){b.classList.add("ok");l.textContent="Saved on this device";}
+  else{b.classList.add("warn");l.textContent="Not saved: use a backup code";}
+}
+async function connectCloud(){
+  try{
+    if(!window.claude||!claude.use) return;
+    const [db,user]=await Promise.all([claude.use("db"),claude.use("user")]);
+    if(!db||!user) return;
+    const id=await user.id(); if(!id) return;
+    const ref=db.doc("data/users/"+id+"/"+APP.doc);
+    const snap=await ref.get();
+    if(snap.exists){S=merge(S,snap.data());try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+    cloudRef=ref; await ref.set(JSON.parse(JSON.stringify(S)));
+    status(); if(!document.querySelector("[data-busy]")) route();
+  }catch(e){cloudRef=null;status();}
+}
+const exportCode=()=>APP.code+"-"+btoa(unescape(encodeURIComponent(JSON.stringify(S))));
+function importCode(c){c=c.trim();if(!c.startsWith(APP.code+"-")) throw 0;S=merge(S,JSON.parse(decodeURIComponent(escape(atob(c.slice(APP.code.length+1))))));persist();}
+
+// ---------------- speech (Listening and pronunciation) ----------------
+const TTS="speechSynthesis" in window && typeof SpeechSynthesisUtterance!=="undefined";
+let rate=1, voices=[];
+function loadVoices(){ if(!TTS) return; const all=speechSynthesis.getVoices();
+  const en=all.filter(v=>/^en[-_]/i.test(v.lang));
+  const gb=en.filter(v=>/GB|UK/i.test(v.lang)), au=en.filter(v=>/AU/i.test(v.lang)), rest=en.filter(v=>!gb.includes(v)&&!au.includes(v));
+  voices=[...gb,...au,...rest]; }
+if(TTS){loadVoices(); speechSynthesis.onvoiceschanged=loadVoices;}
+const lines=say=>say.split("\n").map(l=>{const m=l.match(/^([A-Z][a-z]*):\s*(.*)$/);return m?{who:m[1],text:m[2]}:{who:"",text:l};}).filter(l=>l.text);
+function speak(say,onEnd){
+  if(!TTS) return false;
+  speechSynthesis.cancel();
+  const ls=lines(say), who=[...new Set(ls.map(l=>l.who))];
+  ls.forEach((l,k)=>{const u=new SpeechSynthesisUtterance(l.text);
+    const w=who.indexOf(l.who); const v=voices.length?voices[Math.min(w,voices.length-1)]||voices[0]:null;
+    if(v){u.voice=v;u.lang=v.lang;}else u.lang="en-GB";
+    u.rate=rate; u.pitch=w===1&&voices.length<2?1.25:1;
+    if(k===ls.length-1&&onEnd) u.onend=onEnd;
+    speechSynthesis.speak(u);});
+  return true;
+}
+const stopSpeech=()=>{if(TTS) speechSynthesis.cancel();};
+
+// ---------------- helpers ----------------
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const blanks=q=>esc(q).replace("___",'<span class="blank" aria-label="blank"></span>');
+const norm=s=>s.toLowerCase().replace(/[’]/g,"'").replace(/[£$€]/g,"").replace(/[.,!?;]+$/,"").replace(/[\s-]+/g,"").trim();
+const chips=c=>c.map(k=>`<span class="chip ${cc(k)}" title="${esc(CRIT[k][0])}">${k}</span>`).join("");
+const trackOf=u=>TRACKS.find(t=>t.id===u.track);
+const unitCode=u=>(trackOf(u).code||u.track.toUpperCase())+"·"+(UNITS.filter(x=>x.track===u.track).indexOf(u)+1);
+function ring(p){const r=19,c=2*Math.PI*r,col=p>=85?"var(--good)":p>=60?"var(--brand)":p>0?"var(--bad)":"var(--sunk)";
+  return `<div class="ring" aria-label="${p?p+'% best score':'Not started'}"><svg viewBox="0 0 46 46"><circle class="bg" cx="23" cy="23" r="${r}" fill="none" stroke-width="5"/><circle class="fg" cx="23" cy="23" r="${r}" fill="none" stroke="${col}" stroke-width="5" stroke-linecap="round" stroke-dasharray="${c}" stroke-dashoffset="${c*(1-p/100)}"/></svg><span>${p?p+"%":"–"}</span></div>`;}
+const critScore=k=>{const us=UNITS.filter(u=>u.crit.includes(k));return us.length?Math.round(us.reduce((n,u)=>n+(S.best[u.id]||0),0)/us.length):0;};
+function correctText(it){
+  if(it.t==="mc"||it.t==="up") return it.o[0];
+  if(it.t==="reg") return TAGS[it.a]||it.a;
+  if(it.t==="fx") return it.c[it.a];
+  if(it.t==="gap") return it.a[0];
+  if(it.t==="build") return it.s;
+  if(it.t==="order") return it.s.map((s,k)=>(k+1)+". "+s).join("\n");
+}
+const itemLabel=it=>it.t==="build"?"Build: "+it.s:it.t==="order"?"Put in order: "+it.s[0]:(it.say&&!it.q?"Listening question":it.q);
+const ICON_PLAY='<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3l12 7-12 7z" fill="currentColor"/></svg>';
+const ICON_STOP='<svg viewBox="0 0 20 20" aria-hidden="true"><rect x="4" y="4" width="12" height="12" rx="2" fill="currentColor"/></svg>';
+let tab=(()=>{try{return localStorage.getItem(KEY+"-tab")||TRACKS[0].id;}catch(e){return TRACKS[0].id;}})();
+
+// ---------------- routing ----------------
+function go(h){ if(location.hash.slice(1)===h) route(); else location.hash=h; }
+window.addEventListener("hashchange",route);
+document.getElementById("home").onclick=()=>go("");
+document.getElementById("save").onclick=()=>go("progress");
+let cueTimer=null;
+function route(){
+  stopSpeech(); clearInterval(cueTimer);
+  const h=location.hash.slice(1); window.scrollTo(0,0);
+  if(U_BY[h]) return unitView(U_BY[h]);
+  if(M_BY[h]) return modelView(M_BY[h]);
+  if(h.startsWith("cue")&&CUES_[+h.slice(3)]) return cueView(+h.slice(3));
+  if(h==="progress") return progressView();
+  if(h==="check") return startDrill({kind:"check"});
+  if(h==="mistakes") return startDrill({kind:"mistakes"});
+  home();
+}
+
+// ---------------- home ----------------
+function home(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  const nm=Object.keys(S.mistakes).filter(k=>findItem(k)).length;
+  const last=U_BY[S.last];
+  const t=TRACKS.find(x=>x.id===tab)||TRACKS[0];
+  const units=UNITS.filter(u=>u.track===t.id), models=MODELS_.filter(m=>m.track===t.id), cues=CUES_.map((c,k)=>({c,k})).filter(x=>x.c.track===t.id);
+  app.innerHTML=`
+  <section class="hello">
+    <span class="eyebrow">${esc(APP.eyebrow)}</span>
+    <h1>${S.name?"Welcome back, "+esc(S.name.split(" ")[0])+".":esc(APP.hero)}</h1>
+    <p class="muted">${esc(APP.intro)} Your best score in every unit is kept on this device${cloudRef?" and in your account":""}.</p>
+  </section>
+  <section class="meters" aria-label="Readiness by skill">
+    ${CK.map(k=>{const p=critScore(k);return `<div class="meter"><span class="chip ${cc(k)}">${k}</span><span class="n">${p}%</span><div class="track"><i style="width:${p}%;background:var(--${cc(k)})"></i></div><small>${esc(CRIT[k][0])}</small></div>`;}).join("")}
+  </section>
+  <div class="stats"><span><b>${done}</b>/${UNITS.length} units done</span><span><b>${nm}</b> mistakes to review</span>${MODELS_.length?`<span><b>${Object.keys(S.models).length}</b>/${MODELS_.length} model answers read</span>`:""}${CUES_.length?`<span><b>${Object.keys(S.cues).length}</b>/${CUES_.length} cue cards practised</span>`:""}</div>
+  <div class="row">
+    ${last?`<button class="btn" id="resume">Continue: ${esc(last.title)}</button>`:`<button class="btn" id="qc">Take the 2-minute quick check</button>`}
+    ${last?`<button class="btn quiet" id="qc">Quick check</button>`:""}
+    <button class="btn quiet" id="mk" ${nm?"":"disabled"}>Practise my mistakes${nm?" ("+nm+")":""}</button>
+  </div>
+  ${APP.audio&&!TTS?`<div class="tipbox"><b>Audio is not available in this browser</b><p>You can still practise: each question lets you read the script instead. For audio, open the Lab in Chrome or Safari.</p></div>`:""}
+  ${S.name?"":`<label class="f" for="nm">Your name (shown on shared results)<input type="text" id="nm" autocomplete="name" placeholder="e.g. Mehtab Singh"></label>`}
+  <div class="tabs" role="tablist">${TRACKS.map(x=>`<button class="tab" role="tab" aria-selected="${x.id===t.id}" data-t="${x.id}">${esc(x.name)}</button>`).join("")}</div>
+  <div class="trackhead"><span class="eyebrow">${esc(t.short)}</span><h2>${esc(t.blurb)}</h2></div>
+  ${units.length?`<div class="units">${units.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}<span class="chip n">${u.items.length} questions</span></span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>`:""}
+  ${models.length?`<div class="trackhead"><span class="eyebrow">${esc(APP.modelsEyebrow||"Read like an examiner")}</span><h2>${esc(APP.modelsTitle||"Band 8 model answers")}</h2></div>
+  <div class="models">${models.map(m=>`<button class="model" data-m="${m.id}"><b>${esc(m.title)}</b><small>${esc(m.task.split("\n")[0])}</small>${S.models[m.id]?'<span class="seen">✓ Read</span>':""}</button>`).join("")}</div>`:""}
+  ${cues.length?`<div class="trackhead"><span class="eyebrow">Timed practice</span><h2>Cue cards: 1 minute to prepare, 2 minutes to speak</h2></div>
+  <div class="models">${cues.map(x=>`<button class="model" data-c="${x.k}"><b>${esc(x.c.title)}</b><small>${esc(x.c.points.join(" · "))}</small>${S.cues[x.k]?`<span class="seen">✓ Practised ${S.cues[x.k]}×</span>`:""}</button>`).join("")}</div>`:""}
+  ${WORDS_.length?`<div class="trackhead"><span class="eyebrow">Word bank</span><h2>${esc(APP.wordsTitle||"Band 7 words with German")}</h2></div>
+  <div class="sheet tablebox"><table class="words"><thead><tr><th>Word</th><th>Meaning</th><th>Example</th><th>German</th></tr></thead><tbody>${WORDS_.map(w=>`<tr><td>${esc(w[0])}</td><td>${esc(w[1])}</td><td>${esc(w[2])}</td><td>${esc(w[3])}</td></tr>`).join("")}</tbody></table></div>`:""}`;
+  app.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.t;try{localStorage.setItem(KEY+"-tab",tab);}catch(e){}home();});
+  app.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  app.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>go(b.dataset.m));
+  app.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>go("cue"+b.dataset.c));
+  const r=document.getElementById("resume"); if(r) r.onclick=()=>go(last.id);
+  document.getElementById("qc").onclick=()=>go("check");
+  document.getElementById("mk").onclick=()=>go("mistakes");
+  const n=document.getElementById("nm"); if(n) n.onchange=()=>{S.name=n.value.trim();persist();};
+}
+
+function unitView(u){
+  const p=S.best[u.id]||0;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <div class="row" style="justify-content:space-between;align-items:flex-start">
+    <div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 300px">
+      <span class="eyebrow">${unitCode(u)} · ${esc(trackOf(u).short)}</span>
+      <h1>${esc(u.title)}</h1>
+      <div class="chips">${u.crit.map(k=>`<span class="chip ${cc(k)}">${k} · ${esc(CRIT[k][0])}</span>`).join("")}</div>
+    </div>${ring(p)}
+  </div>
+  <div class="tipbox"><b>Band 7 target</b><p>${esc(u.tip)}</p></div>
+  <h2>${esc(APP.bankTitle||"Language bank")}</h2>
+  <div class="sheet bank">${u.bank.map(b=>`<div class="${b[0]}"><span class="tag ${b[0]}">${esc(TAGS[b[0]]||b[0])}</span><span class="ph">${esc(b[1])}</span><span class="use">${esc(b[2])}</span></div>`).join("")}</div>
+  <div class="row"><button class="btn" id="start">${p?"Practise again":"Start the drill"} · ${u.items.length} questions</button>${S.tries[u.id]?`<span class="muted">Best ${p}% · ${S.tries[u.id]} attempt${S.tries[u.id]>1?"s":""}</span>`:""}</div>`;
+  document.getElementById("back").onclick=()=>{tab=u.track;go("");};
+  document.getElementById("start").onclick=()=>startDrill({kind:"unit",unit:u});
+  S.last=u.id; persist();
+}
+
+// ---------------- drills ----------------
+function findItem(key){const [u,i]=key.split(":");return U_BY[u]?.items[+i]?{u:U_BY[u],i:+i,it:U_BY[u].items[+i]}:null;}
+function startDrill(cfg){
+  let list=[];
+  if(cfg.kind==="unit") list=cfg.unit.items.map((it,i)=>({u:cfg.unit,i,it}));
+  else if(cfg.kind==="mistakes") list=shuffle(Object.keys(S.mistakes).map(findItem).filter(Boolean)).slice(0,15);
+  else for(const t of TRACKS){const pool=[];UNITS.filter(u=>u.track===t.id).forEach(u=>u.items.forEach((it,i)=>pool.push({u,i,it})));list.push(...shuffle(pool).slice(0,Math.max(2,Math.ceil(10/TRACKS.length))));}
+  if(!list.length) return go("");
+  ask({cfg,list,pos:0,res:[],t0:Date.now()});
+}
+const dotsHTML=D=>D.list.map((_,k)=>`<i class="${D.res[k]?(D.res[k].ok?"ok":"no"):""} ${k===D.pos?"cur":""}"></i>`).join("");
+function dhead(D){
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  return `<div><button class="link" id="quit">← Leave drill</button></div>
+  <div class="dhead"><span class="eyebrow">${D.cfg.kind==="unit"?unitCode(D.cfg.unit):"Mixed"} · ${esc(title)}</span><span class="num muted" style="font-size:13px">${D.pos+1} / ${D.list.length}</span></div>
+  <div class="dots" aria-hidden="true">${dotsHTML(D)}</div>`;
+}
+function audioBox(it){
+  return `<div class="audio" id="ab"><button class="play" id="play" aria-label="Play the recording">${ICON_PLAY}</button>
+  <div class="meta"><b id="pstate">${TTS?"Press play and listen":"Audio is not available here"}</b><span id="pcount">${TTS?(it.once?"Exam mode: listen once":"You can replay as often as you need"):"Read the script instead"}</span></div>
+  ${TTS?`<div class="speed" role="group" aria-label="Speed"><button data-r="1" aria-pressed="${rate===1}">Normal</button><button data-r="0.8" aria-pressed="${rate!==1}">Slower</button></div>`:`<button class="btn quiet" id="showscript">Show the script</button>`}</div>
+  <div id="noscript"></div>`;
+}
+function wireAudio(it){
+  let plays=0,playing=false;
+  const pb=document.getElementById("play"), st=document.getElementById("pstate"), ct=document.getElementById("pcount");
+  if(!TTS){pb.disabled=true;document.getElementById("showscript").onclick=e=>{document.getElementById("noscript").innerHTML=`<div class="sheet passage"><span class="lbl">Script</span>${esc(it.say)}</div>`;e.target.remove();};return;}
+  const end=()=>{playing=false;pb.innerHTML=ICON_PLAY;st.textContent="Finished";if(it.once&&plays>=1){pb.disabled=true;}};
+  pb.onclick=()=>{
+    if(playing){stopSpeech();end();return;}
+    if(it.once&&plays>=1) return;
+    plays++;playing=true;pb.innerHTML=ICON_STOP;st.textContent="Playing…";
+    ct.textContent=it.once?"Exam mode: listen once":"Played "+plays+"×";
+    speak(it.say,end);
+  };
+  document.querySelectorAll(".speed button").forEach(b=>b.onclick=()=>{rate=+b.dataset.r;document.querySelectorAll(".speed button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));});
+}
+function ask(D){
+  const {u,it}=D.list[D.pos];
+  const ctx=D.cfg.kind==="unit"?"":`<span class="chips"><span class="chip n">${esc(u.title)}</span></span>`;
+  const pass=it.p?`<div class="sheet passage"><span class="lbl">${esc(it.pl||"Read the text")}</span>${esc(it.p)}</div>`:"";
+  const aud=it.say?audioBox(it):"";
+  const qtext=it.q||"";
+  let body="";
+  if(it.t==="mc"||it.t==="up"){
+    D.opts=shuffle(it.o);
+    body=`${qtext?`<div class="sheet letter">${it.t==="up"?'<span class="b5">Band 5 answer</span>'+esc(qtext):blanks(qtext)}</div>`:""}
+      <div class="opts">${D.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div>`;
+  } else if(it.t==="reg"||it.t==="fx"){
+    const ch=it.t==="reg"?Object.keys(TAGS).filter(k=>["F","S","I"].includes(k)):it.c.map((_,k)=>k);
+    body=`${qtext?`<div class="sheet letter">${blanks(qtext)}</div>`:""}<div class="fixed">${ch.map(r=>`<button class="opt" data-r="${r}">${esc(it.t==="reg"?TAGS[r]:it.c[r])}</button>`).join("")}</div>`;
+  } else if(it.t==="gap"){
+    body=`<div class="sheet letter">${blanks(qtext)}</div>${it.lim?`<span class="prompt">${esc(it.lim)}</span>`:""}<form class="gapin" id="gf"><input id="gi" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Your answer"><button class="btn" id="gb">Check</button></form>`;
+  } else if(it.t==="build"){
+    body=`<div class="sheet"><div class="line letter" id="line"></div></div><div class="tiles" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  } else if(it.t==="order"){
+    body=`${qtext?`<p>${esc(qtext)}</p>`:""}<div class="sheet"><div class="ordline" id="line"></div></div><div class="ord" id="pool"></div><div class="row"><button class="btn" id="chk" disabled>Check</button><button class="btn quiet" id="clr">Clear</button></div>`;
+  }
+  app.innerHTML=`${dhead(D)}<div style="display:flex;flex-direction:column;gap:6px">${ctx}<span class="prompt">${esc(it.ask||TYPE_PROMPT[it.t])}</span></div>${pass}${aud}${body}<div id="fb" style="display:flex;flex-direction:column;gap:12px"></div>`;
+  app.firstElementChild.setAttribute("data-busy","1");
+  document.getElementById("quit").onclick=()=>{stopSpeech();D.cfg.kind==="unit"?go(D.cfg.unit.id):go("");};
+  if(it.say) wireAudio(it);
+  const done=(ok,yours)=>answer(D,ok,yours);
+  if(it.t==="mc"||it.t==="up"){
+    const bs=[...app.querySelectorAll(".opt")];
+    bs.forEach(b=>b.onclick=()=>{const pick=D.opts[+b.dataset.k],ok=pick===it.o[0];
+      bs.forEach(x=>{x.disabled=true;if(D.opts[+x.dataset.k]===it.o[0])x.classList.add("right");});
+      if(!ok)b.classList.add("wrong");done(ok,pick);});
+  } else if(it.t==="reg"||it.t==="fx"){
+    const bs=[...app.querySelectorAll(".fixed .opt")];
+    const right=String(it.a);
+    bs.forEach(b=>b.onclick=()=>{const ok=b.dataset.r===right;
+      bs.forEach(x=>{x.disabled=true;if(x.dataset.r===right)x.classList.add("right");});
+      if(!ok)b.classList.add("wrong");done(ok,b.textContent);});
+  } else if(it.t==="gap"){
+    const inp=document.getElementById("gi"); if(!it.say) inp.focus();
+    document.getElementById("gf").onsubmit=e=>{e.preventDefault();if(!inp.value.trim())return;
+      const ok=it.a.some(a=>norm(a)===norm(inp.value));
+      inp.disabled=true;document.getElementById("gb").disabled=true;inp.classList.add(ok?"right":"wrong");done(ok,inp.value.trim());};
+  } else {
+    const isOrder=it.t==="order", target=isOrder?it.s:it.s.split(" ");
+    let pool=shuffle(target.map((w,k)=>({w,k}))); if(pool.every((p,k)=>p.k===k)) pool.reverse();
+    let placed=[],locked=false;
+    const line=document.getElementById("line"),pe=document.getElementById("pool"),chk=document.getElementById("chk");
+    const tile=(p,k,cls)=>isOrder?`<button class="tile ${cls}" data-k="${k}"><span class="no">${cls==="placed"?k+1:"·"}</span><span>${esc(p.w)}</span></button>`:`<button class="tile ${cls}" data-k="${k}">${esc(p.w)}</button>`;
+    const draw=()=>{
+      line.innerHTML=placed.map((p,k)=>tile(p,k,"placed")).join("");
+      pe.innerHTML=pool.map((p,k)=>placed.includes(p)?(isOrder?"":`<button class="tile used" tabindex="-1" aria-hidden="true">${esc(p.w)}</button>`):tile(p,k,"")).join("");
+      chk.disabled=locked||placed.length!==pool.length;
+      if(locked) return;
+      line.querySelectorAll(".tile").forEach(b=>b.onclick=()=>{placed.splice(+b.dataset.k,1);draw();});
+      pe.querySelectorAll(".tile:not(.used)").forEach(b=>b.onclick=()=>{placed.push(pool[+b.dataset.k]);draw();});
+    };
+    draw();
+    document.getElementById("clr").onclick=()=>{if(!locked){placed=[];draw();}};
+    chk.onclick=()=>{const ok=placed.every((p,k)=>p.w===target[k]);locked=true;draw();line.classList.add(ok?"ok":"no");document.getElementById("clr").disabled=true;done(ok,placed.map(p=>p.w).join(" "));};
+  }
+}
+function answer(D,ok,yours){
+  const {u,i,it}=D.list[D.pos], key=u.id+":"+i;
+  D.res[D.pos]={ok,yours,u,i,it};
+  if(ok) delete S.mistakes[key]; else S.mistakes[key]=Date.now();
+  persist();
+  const last=D.pos===D.list.length-1;
+  document.getElementById("fb").innerHTML=`<div class="fb ${ok?"ok":"no"}"><b>${ok?"Correct.":"Not quite."}</b>${ok?"":`<span class="fix" style="white-space:pre-line">${esc(correctText(it))}</span>`}<span>${esc(it.why)}</span>${it.say?`<div class="script"><b style="font-family:var(--f-ui);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)">Script</b>\n${esc(it.say)}</div>`:""}</div>
+    <div class="row"><button class="btn" id="next">${last?"See my results":"Next question"}</button></div>`;
+  const ns=document.getElementById("noscript"); if(ns) ns.innerHTML="";
+  document.querySelector(".dots").innerHTML=dotsHTML(D);
+  const n=document.getElementById("next"); n.focus({preventScroll:true}); n.scrollIntoView({block:"nearest"});
+  n.onclick=()=>{stopSpeech();if(last) results(D); else {D.pos++;ask(D);window.scrollTo(0,0);}};
+}
+function results(D){
+  const right=D.res.filter(r=>r.ok).length,total=D.list.length,pct=Math.round(right/total*100);
+  const secs=Math.round((Date.now()-D.t0)/1000), time=Math.floor(secs/60)+":"+String(secs%60).padStart(2,"0");
+  let prev=0;
+  if(D.cfg.kind==="unit"){const id=D.cfg.unit.id;prev=S.best[id]||0;S.best[id]=Math.max(prev,pct);S.tries[id]=(S.tries[id]||0)+1;persist();}
+  const wrong=D.res.filter(r=>!r.ok);
+  const title=D.cfg.kind==="unit"?D.cfg.unit.title:D.cfg.kind==="check"?"Quick check":"My mistakes";
+  const verdict=pct>=85?"Band 7 control. Move on to the next unit.":pct>=60?"Close. Read the bank again and repeat the drill.":"Read the strategy first, then repeat the drill tomorrow.";
+  let recs="";
+  if(D.cfg.kind==="check"){const weak=[...new Set(wrong.map(r=>r.u.id))].map(id=>U_BY[id]);
+    recs=weak.length?`<h2>Start with these units</h2><div class="units">${weak.map(u=>`<button class="unit" data-u="${u.id}"><span class="code">${unitCode(u)}</span><span class="ut"><b>${esc(u.title)}</b><span class="chips">${chips(u.crit)}</span></span>${ring(S.best[u.id]||0)}</button>`).join("")}</div>`:`<p>No weak areas found. Work through the units in order.</p>`;}
+  const share=`Pioneer ${APP.name}\nName: ${S.name||"Student"}\n${title}: ${right}/${total} (${pct}%)\nTime: ${time}`+(D.cfg.kind==="unit"?`\nBest so far: ${S.best[D.cfg.unit.id]}%`:"");
+  const sib=D.cfg.kind==="unit"?UNITS.filter(u=>u.track===D.cfg.unit.track):[], nextU=D.cfg.kind==="unit"?sib[sib.indexOf(D.cfg.unit)+1]:null;
+  app.innerHTML=`
+  <span class="eyebrow">Results${S.name?" · "+esc(S.name):""}</span>
+  <h1>${esc(title)}</h1>
+  <div class="row" style="align-items:flex-end;gap:16px"><span class="big">${right}<span class="muted" style="font-size:26px">/${total}</span></span><span class="muted">${pct}% · ${time}${D.cfg.kind==="unit"&&pct>prev&&prev?" · new best (was "+prev+"%)":""}</span></div>
+  <p>${verdict}</p>
+  <div class="row">
+    ${nextU?`<button class="btn" id="nu">Next unit: ${esc(nextU.title)}</button>`:""}
+    <button class="btn ${nextU?"quiet":""}" id="again">${D.cfg.kind==="unit"?"Repeat this unit":"Back to all units"}</button>
+    <a class="btn quiet" href="https://wa.me/?text=${encodeURIComponent(share)}" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <button class="btn quiet" id="cp">Copy result</button>
+  </div>
+  <div class="toast" id="toast"></div>
+  ${recs}
+  ${wrong.length?`<h2>Review your mistakes</h2><p class="muted">These stay in “Practise my mistakes” until you answer them correctly.</p><div class="review">${wrong.map(r=>`<article><small>${esc(r.u.title)}</small><span>${esc(itemLabel(r.it))}</span><span class="y">✗ ${esc(r.yours)}</span><span class="c" style="white-space:pre-line">✓ ${esc(correctText(r.it))}</span><small>${esc(r.it.why)}</small></article>`).join("")}</div>`:""}`;
+  app.querySelectorAll("[data-u]").forEach(b=>b.onclick=()=>go(b.dataset.u));
+  const nu=document.getElementById("nu"); if(nu) nu.onclick=()=>go(nextU.id);
+  document.getElementById("again").onclick=()=>D.cfg.kind==="unit"?startDrill(D.cfg):go("");
+  document.getElementById("cp").onclick=()=>{const t=document.getElementById("toast");
+    navigator.clipboard.writeText(share).then(()=>t.textContent="Result copied.").catch(()=>t.textContent=share.replace(/\n/g," · "));};
+}
+
+// ---------------- model answers ----------------
+function modelView(m){
+  let html=esc(m.text);
+  m.marks.forEach((mk,k)=>{const e=esc(mk[0]),idx=html.indexOf(e);if(idx<0)return;
+    html=html.slice(0,idx)+`<button class="hl" data-k="${k}">${e}<sup>${k+1}</sup></button>`+html.slice(idx+e.length);});
+  const words=m.text.split(/\s+/).filter(w=>/[A-Za-z0-9]/.test(w)).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Model answer · ${esc(TRACKS.find(t=>t.id===m.track).short)} · ${words} words</span>
+  <h1>${esc(m.title)}</h1>
+  <div class="taskbox"><b>${esc(m.taskLabel||"Task")}.</b> ${esc(m.task)}</div>
+  <div class="row">${TTS&&APP.speakModels?`<button class="btn quiet" id="listen">${ICON_PLAY} Listen to this answer</button>`:""}${m.cue!=null?`<button class="btn" id="try">Try this cue card with the timer</button>`:""}</div>
+  <p class="muted">Tap a highlighted phrase to see why it earns marks.</p>
+  <div class="sheet model-text">${html}</div>
+  <h2>What the examiner notices</h2>
+  <ol class="notes">${m.marks.map((mk,k)=>`<li data-k="${k}"><span>${k+1}</span><span><q>${esc(mk[0])}</q> ${esc(mk[1])}</span></li>`).join("")}</ol>`;
+  document.getElementById("back").onclick=()=>{stopSpeech();tab=m.track;go("");};
+  const l=document.getElementById("listen"); if(l){let on=false;l.onclick=()=>{if(on){stopSpeech();on=false;l.innerHTML=ICON_PLAY+" Listen to this answer";return;}
+    on=true;l.innerHTML=ICON_STOP+" Stop";speak(m.text,()=>{on=false;l.innerHTML=ICON_PLAY+" Listen to this answer";});};}
+  const tr=document.getElementById("try"); if(tr) tr.onclick=()=>go("cue"+m.cue);
+  const hs=[...app.querySelectorAll(".hl")],ns=[...app.querySelectorAll(".notes li")];
+  hs.forEach(h=>h.onclick=()=>{const k=h.dataset.k;hs.forEach(x=>x.classList.toggle("on",x.dataset.k===k));ns.forEach(x=>x.classList.toggle("on",x.dataset.k===k));
+    ns[k].scrollIntoView({block:"nearest",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});});
+  S.models[m.id]=true; persist();
+}
+
+// ---------------- cue card timer (Speaking Part 2) ----------------
+function cueView(k){
+  const c=CUES_[k];
+  const card=`<div class="cue"><b>${esc(c.title)}</b><span class="muted" style="font-size:14px">You should say:</span><ul>${c.points.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>${c.explain?`<span style="font-family:var(--f-letter);font-size:17px">${esc(c.explain)}</span>`:""}</div>`;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Part 2 · Cue card practice</span>
+  <h1>Prepare for 1 minute, then speak for 2</h1>
+  ${card}
+  <div class="panel" id="stage" style="align-items:flex-start">
+    <span class="phase muted" id="ph">Ready</span>
+    <span class="clock" id="clk">1:00</span>
+    <div class="row"><button class="btn" id="go">Start preparation</button><button class="btn quiet" id="skip" hidden>Start speaking now</button></div>
+  </div>
+  <label class="f" for="notes">Your notes (one or two keywords per point)<textarea id="notes" placeholder="where · when · what · why"></textarea></label>
+  <div class="panel" id="after" hidden>
+    <h3>Check yourself</h3>
+    <div class="checks">${["I spoke until the timer ended.","I covered every point on the card.","I kept my past tenses accurate.","I used at least two less common words or phrases.","I gave a reason or feeling, not only facts.","I did not stop for long silences."].map((t,i)=>`<label><input type="checkbox" id="ck${i}"> ${esc(t)}</label>`).join("")}</div>
+    <p class="muted">Practise again with the same card until you can tick every line. Record yourself on your phone to check pronunciation.</p>
+    <div class="row"><button class="btn" id="again">Practise again</button></div>
+  </div>`;
+  document.getElementById("back").onclick=()=>{clearInterval(cueTimer);tab=c.track;go("");};
+  const clk=document.getElementById("clk"),ph=document.getElementById("ph"),gob=document.getElementById("go"),sk=document.getElementById("skip");
+  const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+  function run(secs,label,color,next){clearInterval(cueTimer);let left=secs;ph.textContent=label;ph.style.color=color;clk.textContent=fmt(left);
+    cueTimer=setInterval(()=>{left--;clk.textContent=fmt(Math.max(left,0));if(left<=0){clearInterval(cueTimer);next();}},1000);}
+  function speakPhase(){sk.hidden=true;gob.hidden=true;run(120,"Speak now","var(--good)",()=>{ph.textContent="Time is up";ph.style.color="var(--brand)";S.cues[k]=(S.cues[k]||0)+1;persist();document.getElementById("after").hidden=false;});}
+  gob.onclick=()=>{gob.hidden=true;sk.hidden=false;run(60,"Preparation","var(--brand)",speakPhase);document.getElementById("notes").focus();};
+  sk.onclick=speakPhase;
+  document.getElementById("again").onclick=()=>cueView(k);
+}
+
+// ---------------- progress panel ----------------
+function progressView(){
+  const done=UNITS.filter(u=>S.best[u.id]).length;
+  app.innerHTML=`
+  <div><button class="link" id="back">← All units</button></div>
+  <span class="eyebrow">Your progress</span>
+  <h1>Keep your progress safe</h1>
+  <div class="panel">
+    <h3>Where it is saved</h3>
+    <p>${cloudRef?"Your progress is saved to your claude.ai account and on this device. It loads automatically when you open the Lab signed in.":localOK?"Your progress is saved in this browser on this device. It stays when you close and reopen the page. To move to another phone or browser, use a backup code.":"This browser is not allowing the page to save. Copy a backup code before you leave, and paste it back next time."}</p>
+    <p class="muted">${done} of ${UNITS.length} units done · ${Object.keys(S.mistakes).length} mistakes saved</p>
+    <label class="f" for="pn">Your name<input type="text" id="pn" autocomplete="name" value="${esc(S.name)}"></label>
+  </div>
+  <div class="panel">
+    <h3>Backup code</h3>
+    <p class="muted">Copy this code and keep it in WhatsApp or Notes. Paste it on any device to restore your scores.</p>
+    <textarea class="code" id="code" readonly aria-label="Your backup code">${esc(exportCode())}</textarea>
+    <div class="row"><button class="btn" id="cpc">Copy backup code</button></div>
+    <label class="f" for="rc">Restore from a code<textarea class="code" id="rc" placeholder="Paste a code that starts with ${APP.code}-"></textarea></label>
+    <div class="row"><button class="btn quiet" id="rst">Restore progress</button></div>
+    <div class="toast" id="toast"></div>
+  </div>
+  <div class="panel">
+    <h3>Start again</h3>
+    <p class="muted">Clears every score and mistake on this device${cloudRef?" and in your account":""}. Copy your backup code first.</p>
+    <div class="row"><button class="btn quiet danger" id="clear">Clear my progress</button><span id="confirm"></span></div>
+  </div>`;
+  const t=document.getElementById("toast");
+  document.getElementById("back").onclick=()=>go("");
+  document.getElementById("pn").onchange=e=>{S.name=e.target.value.trim();persist();document.getElementById("code").value=exportCode();};
+  document.getElementById("cpc").onclick=()=>{const c=document.getElementById("code");
+    navigator.clipboard.writeText(c.value).then(()=>t.textContent="Backup code copied.").catch(()=>{c.select();t.textContent="Code selected. Copy it with your keyboard or long-press.";});};
+  document.getElementById("rst").onclick=()=>{try{importCode(document.getElementById("rc").value);t.style.color="var(--good)";t.textContent="Progress restored.";document.getElementById("code").value=exportCode();}
+    catch(e){t.style.color="var(--bad)";t.textContent="That code is not valid. Paste the whole code, starting with "+APP.code+"-.";}};
+  document.getElementById("clear").onclick=()=>{document.getElementById("confirm").innerHTML='<button class="btn danger" id="yes">Yes, clear everything</button>';
+    document.getElementById("yes").onclick=()=>{const nm=S.name;S=blank();S.name=nm;persist();progressView();};};
+}
+
+loadLocal(); status(); route(); connectCloud();
+})();
+</script>
