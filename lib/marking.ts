@@ -30,10 +30,36 @@ export function normalise(v: unknown): string {
   return String(v ?? "").toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
+/* Numbers written as words count the same as figures, as in the real exam:
+ * "eight to fourteen-year-olds" = "8-14 year-olds", "twenty-five" = "25",
+ * "two thousand" stays as typed (a year or a big number is written in
+ * figures in the keys). Applied to the key and the answer alike. */
+const UNITS: Record<string, number> = {
+  zero: 0, one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8, nine: 9,
+  ten: 10, eleven: 11, twelve: 12, thirteen: 13, fourteen: 14, fifteen: 15, sixteen: 16,
+  seventeen: 17, eighteen: 18, nineteen: 19,
+};
+const TENS: Record<string, number> = {
+  twenty: 20, thirty: 30, forty: 40, fifty: 50, sixty: 60, seventy: 70, eighty: 80, ninety: 90,
+};
+export function numberWords(v: unknown): string {
+  let t = String(v ?? "").toLowerCase();
+  const tens = Object.keys(TENS).join("|"), units = Object.keys(UNITS).filter((u) => UNITS[u] > 0 && UNITS[u] < 10).join("|");
+  // "twenty-five", "twenty five" → 25
+  t = t.replace(new RegExp(`\\b(${tens})[\\s-]+(${units})\\b`, "g"), (_, a: string, b: string) => String(TENS[a] + UNITS[b]));
+  t = t.replace(new RegExp(`\\b(${tens})\\b`, "g"), (w: string) => String(TENS[w]));
+  t = t.replace(new RegExp(`\\b(${Object.keys(UNITS).join("|")})\\b`, "g"), (w: string) => String(UNITS[w]));
+  // a range: "8 to 14", "8 – 14" → "8-14"
+  t = t.replace(/(\d)\s*(?:to|–|—|-)\s*(\d)/g, "$1-$2");
+  return t;
+}
+const canon = (v: unknown) => normalise(numberWords(v));
+
 function markSingle(key: SingleKey, id: string, all: StudentAnswers): boolean {
   const mine = normalise(all[id]);
   const ok = key.accept.map(normalise);
-  if (!mine || !ok.includes(mine)) return false;
+  const right = !!mine && (ok.includes(mine) || key.accept.map(canon).includes(canon(all[id])));
+  if (!right) return false;
   if (!key.pool) return true;
   // an answer repeated in an earlier box of the same pool has already scored
   // "the entrances" and "entrances" — or "a signature" and "signature" — are the
@@ -42,7 +68,9 @@ function markSingle(key: SingleKey, id: string, all: StudentAnswers): boolean {
   const me = same(all[id]);
   for (const other of key.pool) {
     if (other === id) break;
-    if (ok.includes(normalise(all[other])) && same(all[other]) === me) return false;
+    const theirs = normalise(all[other]);
+    const scored = !!theirs && (ok.includes(theirs) || key.accept.map(canon).includes(canon(all[other])));
+    if (scored && (same(all[other]) === me || canon(all[other]) === canon(all[id]))) return false;
   }
   return true;
 }
