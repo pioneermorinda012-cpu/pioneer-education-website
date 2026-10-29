@@ -61,6 +61,7 @@ export default async function CoursePage({ params }: { params: ParamsPromise }) 
           <div className="hero-ctas" style={{ marginBottom: "32px" }}>
             <a href={wa} target="_blank" rel="noopener noreferrer" className="btn btn-coral">Book a Free Demo Class</a>
             <a href="#fees" className="btn btn-outline">See Pricing</a>
+            <Link href={`/admission?course=${course.slug}`} className="btn btn-outline">Apply for Admission</Link>
           </div>
         </div>
       </section>

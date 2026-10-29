@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import SiteNav from "../../components/SiteNav";
 import { COURSES } from "../data/courses";
 
@@ -14,7 +15,11 @@ const HEARD_FROM = ["Walk-in / Just passing by", "Instagram", "Facebook", "Whats
 const TIMINGS = ["Morning", "Afternoon", "Evening", "No preference"];
 const PLANS = ["Online Self-Study", "Group Class", "1-to-1 Coaching", "Not decided yet"];
 
-export default function AdmissionPage() {
+function AdmissionForm() {
+  const searchParams = useSearchParams();
+  const courseParam = searchParams.get("course");
+  const matchedCourse = COURSES.find((c) => c.slug === courseParam);
+
   const nameRef = useRef<HTMLInputElement>(null);
   const guardianRef = useRef<HTMLInputElement>(null);
   const dobRef = useRef<HTMLInputElement>(null);
@@ -169,7 +174,7 @@ export default function AdmissionPage() {
 
               <div>
                 <label htmlFor="adm-course">Course Joining *</label>
-                <select id="adm-course" ref={courseRef} defaultValue="" required>
+                <select id="adm-course" ref={courseRef} defaultValue={matchedCourse?.name || ""} required>
                   <option value="">Select a course</option>
                   {COURSES.map((c) => (
                     <option key={c.slug} value={c.name}>{c.name}</option>
@@ -228,5 +233,13 @@ export default function AdmissionPage() {
         </div>
       </section>
     </>
+  );
+}
+
+export default function AdmissionPage() {
+  return (
+    <Suspense fallback={null}>
+      <AdmissionForm />
+    </Suspense>
   );
 }
