@@ -595,18 +595,44 @@ mark.ev-near .ev-badge { opacity: 0.85; }
 .tv-col { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .tv-col li { background: var(--coral-light); color: var(--coral-dark); border-radius: 100px; padding: 5px 12px; font-size: .86rem; font-weight: 600; }
 /* English course map */
-.cm-top { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px; padding: 14px 16px; margin: 16px 0; display: grid; gap: 10px; }
+/* The progress panel. Laid out as a row so the bar and the count sit
+   together on the left and the Continue button sits on the right —
+   stacked, the button floated in a wide empty panel with nothing
+   beside it, which is why it read as unfinished. */
+.cm-top { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 16px;
+  padding: 14px 18px; margin: 16px 0; display: flex; flex-wrap: wrap;
+  align-items: center; gap: 12px 18px; }
+.cm-top > div:first-child, .cm-top .cm-bar { flex: 1 1 240px; min-width: 200px; }
+.cm-top .cm-count { flex: 0 0 auto; }
 .cm-bar { height: 10px; background: var(--grey-light); border-radius: 10px; overflow: hidden; }
 .cm-bar span { display: block; height: 100%; background: var(--coral); border-radius: 10px; }
 .cm-count { font-size: .9rem; color: var(--grey); }
 .cm-top .btn { justify-self: start; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.cm-stage { margin: 26px 0; padding: 0; }
+/* More air above a stage than between its cards, so the eye reads
+   stages as sections rather than as one continuous wall of boxes. */
+.cm-stage { margin: 38px 0 0; padding: 0; scroll-margin-top: 84px; }
 .cm-stage h2 { font-family: 'Fraunces', serif; color: var(--navy); font-size: 1.25rem; margin: 0 0 10px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
 .cm-lvl { font-family: 'JetBrains Mono', monospace; font-size: .72rem; background: var(--coral-light); color: var(--coral-dark); padding: 3px 8px; border-radius: 100px; }
 .cm-sd { font-size: .8rem; color: var(--grey); font-family: inherit; font-weight: 600; }
-.cm-units { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
-.cm-unit { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 14px; padding: 12px 14px; min-width: 0; scroll-margin-top: 12px; }
-.cm-unit h3 { margin: 0 0 6px; font-size: 1rem; color: var(--navy); }
+/* ⚠️  align-items:start IS THE WHOLE FIX FOR THE EMPTY WHITE BOXES.
+   A grid stretches every item to the height of the tallest in its row.
+   "Has / Have" has two lessons and sat next to "Articles" with eight,
+   so it was rendered eight lessons tall with six lessons of blank
+   paper inside it. Three of those on a screen is what made the page
+   look unfinished rather than sparse.
+   With start, each card is as tall as its own contents.
+   grid-auto-rows:min-content stops the ROW reserving the tall height
+   as well, which would otherwise leave the same gap between rows. */
+.cm-units { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px; align-items: start; grid-auto-rows: min-content; }
+/* scroll-margin-top clears the sticky .pr-bar (top:0, ~64px tall).
+   At 12px, jumping to a unit put its heading underneath the nav. */
+.cm-unit { background: var(--paper); border: 1px solid var(--grey-light); border-radius: 14px;
+  padding: 14px 16px; min-width: 0; scroll-margin-top: 84px; }
+/* A rule under the card heading separates "what this unit is" from
+   "the lessons in it" — the two were the same weight and ran together. */
+.cm-unit h3 { margin: 0 0 8px; padding-bottom: 8px; font-size: 1rem; color: var(--navy);
+  border-bottom: 1px solid var(--grey-light); }
 .cm-unit ol { list-style: none; margin: 0; padding: 0; }
 .cm-unit li a { display: flex; align-items: center; gap: 9px; padding: 7px 6px; border-radius: 8px; text-decoration: none; color: inherit; }
 .cm-unit li a:hover { background: #fff7ee; }
