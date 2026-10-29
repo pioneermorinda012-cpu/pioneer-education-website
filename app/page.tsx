@@ -7,6 +7,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { COURSES } from "./data/courses";
 
+/* The Android app on Google Play. iPhone: not published yet — the button says "coming soon". */
+const PLAY_URL = "https://play.google.com/store/apps/details?id=com.pioneereducation.lexio";
+
 function Barcode() {
   // Purely decorative — generated client-side only, after mount, so the
   // random heights don't cause a server/client hydration mismatch.
@@ -411,7 +414,17 @@ export default function Home() {
           <div>📚 &nbsp;47 structured lessons, Beginner to IELTS</div>
           <div>🎯 &nbsp;1,434+ practice questions with Punjabi explanations</div>
         </div>
-        <div style={{marginTop: '28px', display: 'flex', gap: '14px'}}>
+        <div className="app-get">
+          <a href={PLAY_URL} target="_blank" rel="noopener noreferrer" className="app-store" aria-label="Get the Pioneer Education app on Google Play">
+            <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#00D7FE" d="M3.6 2.2 13.4 12 3.6 21.8c-.4-.2-.6-.6-.6-1.1V3.3c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M16.7 8.7 13.4 12 3.6 2.2c.1 0 .3-.1.4-.1.3 0 .5.1.8.2l11.9 6.4z"/><path fill="#FF3A44" d="m16.7 15.3-11.9 6.5c-.3.1-.5.2-.8.2-.1 0-.3 0-.4-.1l9.8-9.9 3.3 3.3z"/><path fill="#FFD109" d="m20.3 13.4-3.6 1.9-3.3-3.3 3.3-3.3 3.6 1.9c.6.3.9.8.9 1.4s-.3 1.1-.9 1.4z"/></svg>
+            <span><small>GET IT ON</small><b>Google Play</b></span>
+          </a>
+          <span className="app-store app-soon" aria-label="iPhone app coming soon">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.5 2-3.7 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.8.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.2 2.5-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9 0 0-2.7-1-2.9-4.2zM13.9 5.2c.7-.8 1.2-2 1-3.2-1 .1-2.3.7-3 1.5-.7.8-1.2 2-1.1 3.1 1.2.1 2.4-.6 3.1-1.4z"/></svg>
+            <span><small>iPHONE APP</small><b>Coming soon</b></span>
+          </span>
+        </div>
+        <div style={{marginTop: '16px', display: 'flex', flexWrap: 'wrap', gap: '14px'}}>
           <a href="https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I'd%20like%20to%20know%20more%20about%20the%20Pioneer%20Education%20app." target="_blank" rel="noopener noreferrer" className="btn" style={{background: '#fff', color: 'var(--coral-dark)'}}>Ask About the App</a>
           <a href="#contact" className="btn btn-ghost-light">Book a Demo</a>
         </div>
@@ -621,6 +634,7 @@ export default function Home() {
         <a href="#instructor">Instructor</a>
         <a href="#reviews">Reviews</a>
         <a href="#app">Pioneer Education App</a>
+        <a href={PLAY_URL} target="_blank" rel="noopener noreferrer">Android app on Google Play</a>
       </div>
       <div>
         <h5>Contact</h5>
