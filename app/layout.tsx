@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import MetaPixel from "../components/MetaPixel";
 
 export const metadata: Metadata = {
   title: "Pioneer Education — IELTS, PTE, Spoken English, German & French | Morinda, Punjab",
@@ -83,7 +84,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <MetaPixel />
+        {children}
+      </body>
     </html>
   );
 }

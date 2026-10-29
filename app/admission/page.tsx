@@ -4,6 +4,7 @@ import { useRef, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import SiteNav from "../../components/SiteNav";
 import { COURSES } from "../data/courses";
+import { trackEvent } from "@/lib/meta-pixel";
 
 // A fresh Google Sheet + Apps Script, separate from the homepage/chatbot
 // lead-capture sheet, so a wrong field here can never break that one.
@@ -77,6 +78,9 @@ function AdmissionForm() {
     }
     setSubmitting(false);
     setSubmitted({ name, course });
+    // Tells Meta someone actually completed the admission form — the
+    // signal that drives retargeting and, later, a Conversions campaign.
+    trackEvent("Lead", { content_name: course });
   }
 
   const wa = "https://wa.me/917380261308?text=" + encodeURIComponent("Hi Pioneer Education, I just filled the admission form.");
