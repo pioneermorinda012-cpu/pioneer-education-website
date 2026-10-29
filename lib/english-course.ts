@@ -781,6 +781,15 @@ export const COURSE: CourseStage[] = [
 
 /** YouTube link per lesson id. Empty: the lesson shows no video. */
 export const VIDEOS: Record<string, string> = {
+  "articles-1": "https://youtu.be/QN1dnhJxu1s", // HOW TO USE ARTICLES IN ENGLISH AND IELTS
+  "plural-1": "https://youtu.be/0ZQ0-pCTOo8", // How to use singular plural
+  "pronouns-1": "https://youtu.be/mJY9Ip3vcKs", // HOW TO USE PRONOUNS IN ENGLISH
+  "adverbs-1": "https://youtu.be/CAHuUXpyF3Q", // Using adverbs of manner in English
+  "prep-1": "https://youtu.be/1PGEIFwHcio", // How to use prepositions
+  "prep-3": "https://youtu.be/UjAZS6q7p5U", // LEARN HOW TO ASK AND GIVE DIRECTIONS
+  "quant-3": "https://youtu.be/4nuhuE5SCG8", // How to use some and any in English
+  "adj-1": "https://youtu.be/bUgF4opXeuY", // How to use adjectives in English
+  "adj-4": "https://youtu.be/-3n7qRvQhCU", // How to use suffix in English
 };
 
 /** Every lesson in learning order, with where it sits. */
