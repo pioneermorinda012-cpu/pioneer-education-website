@@ -7,6 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
     { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    // Free video lessons. Weekly, because the page reads the YouTube
+    // feed and changes whenever a new video is posted — telling Google
+    // "monthly" would have it crawling long after the page had moved on.
+    { url: `${BASE_URL}/videos`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/writing-analyzer`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/writing-analyzer/academic`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/writing-analyzer/academic/task1`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },

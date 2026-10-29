@@ -630,6 +630,7 @@ export default function Home() {
       </div>
       <div>
         <h5>Company</h5>
+        <a href="/videos">Free video lessons</a>
         <a href="#why">Why Pioneer</a>
         <a href="#instructor">Instructor</a>
         <a href="#reviews">Reviews</a>
