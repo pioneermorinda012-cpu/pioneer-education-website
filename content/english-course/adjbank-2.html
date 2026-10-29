@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adjectives for Personality · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 2, "total": 3, "title": "Adjectives for Personality", "sub": "ਸੁਭਾਅ ਦੱਸਣ ਵਾਲੇ ਸ਼ਬਦ", "test": false, "unit": "Adjective Word Bank", "chip": null, "share": null, "video": true, "js": "\ndocument.querySelectorAll('.vsearch').forEach(function(inp){\n  inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim();\n    inp.closest('section').querySelectorAll('tbody tr').forEach(function(tr){tr.style.display=!q||tr.textContent.toLowerCase().indexOf(q)>-1?'':'none';});});\n});\n", "learn": ["<section class=\"card\"><h3>Word list · 52 words</h3><input class=\"vsearch fi\" style=\"width:100%;margin:0 0 10px\" placeholder=\"🔍 Search English or ਪੰਜਾਬੀ…\"><div class=\"tw\"><table><thead><tr><th>#</th><th>English (tap to hear)</th><th>ਪੰਜਾਬੀ</th></tr></thead><tbody><tr><td class='num'>1</td><td><span class='say'>kind</span></td><td lang='pa' class='pa'>ਦਿਆਲੂ</td></tr><tr><td class='num'>2</td><td><span class='say'>honest</span></td><td lang='pa' class='pa'>ਇਮਾਨਦਾਰ</td></tr><tr><td class='num'>3</td><td><span class='say'>hard-working</span></td><td lang='pa' class='pa'>ਮਿਹਨਤੀ</td></tr><tr><td class='num'>4</td><td><span class='say'>helpful</span></td><td lang='pa' class='pa'>ਮਦਦਗਾਰ</td></tr><tr><td class='num'>5</td><td><span class='say'>friendly</span></td><td lang='pa' class='pa'>ਮਿਲਣਸਾਰ</td></tr><tr><td class='num'>6</td><td><span class='say'>sociable</span></td><td lang='pa' class='pa'>ਲੋਕਾਂ ਵਿੱਚ ਘੁਲਣ-ਮਿਲਣ ਵਾਲਾ</td></tr><tr><td class='num'>7</td><td><span class='say'>cheerful</span></td><td lang='pa' class='pa'>ਹੱਸਮੁੱਖ</td></tr><tr><td class='num'>8</td><td><span class='say'>generous</span></td><td lang='pa' class='pa'>ਖੁੱਲ੍ਹੇ ਦਿਲ ਵਾਲਾ</td></tr><tr><td class='num'>9</td><td><span class='say'>gentle</span></td><td lang='pa' class='pa'>ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ</td></tr><tr><td class='num'>10</td><td><span class='say'>patient</span></td><td lang='pa' class='pa'>ਧੀਰਜ ਵਾਲਾ</td></tr><tr><td class='num'>11</td><td><span class='say'>brave / courageous</span></td><td lang='pa' class='pa'>ਬਹਾਦਰ</td></tr><tr><td class='num'>12</td><td><span class='say'>ambitious</span></td><td lang='pa' class='pa'>ਉੱਚੇ ਟੀਚਿਆਂ ਵਾਲਾ</td></tr><tr><td class='num'>13</td><td><span class='say'>adaptable</span></td><td lang='pa' class='pa'>ਹਾਲਾਤ ਅਨੁਸਾਰ ਢਲ ਜਾਣ ਵਾਲਾ</td></tr><tr><td class='num'>14</td><td><span class='say'>capable</span></td><td lang='pa' class='pa'>ਕਾਬਲ</td></tr><tr><td class='num'>15</td><td><span class='say'>efficient</span></td><td lang='pa' class='pa'>ਕੁਸ਼ਲ</td></tr><tr><td class='num'>16</td><td><span class='say'>talented</span></td><td lang='pa' class='pa'>ਪ੍ਰਤਿਭਾਸ਼ਾਲੀ</td></tr><tr><td class='num'>17</td><td><span class='say'>reliable</span></td><td lang='pa' class='pa'>ਭਰੋਸੇਮੰਦ</td></tr><tr><td class='num'>18</td><td><span class='say'>trustworthy</span></td><td lang='pa' class='pa'>ਵਿਸ਼ਵਾਸ ਦੇ ਲਾਇਕ</td></tr><tr><td class='num'>19</td><td><span class='say'>loyal / faithful</span></td><td lang='pa' class='pa'>ਵਫ਼ਾਦਾਰ</td></tr><tr><td class='num'>20</td><td><span class='say'>responsible</span></td><td lang='pa' class='pa'>ਜ਼ਿੰਮੇਵਾਰ</td></tr><tr><td class='num'>21</td><td><span class='say'>punctual</span></td><td lang='pa' class='pa'>ਸਮੇਂ ਦਾ ਪਾਬੰਦ</td></tr><tr><td class='num'>22</td><td><span class='say'>mature</span></td><td lang='pa' class='pa'>ਸਿਆਣਾ (ਪਰਪੱਕ)</td></tr><tr><td class='num'>23</td><td><span class='say'>sensible</span></td><td lang='pa' class='pa'>ਸਮਝਦਾਰ</td></tr><tr><td class='num'>24</td><td><span class='say'>thoughtful</span></td><td lang='pa' class='pa'>ਦੂਜਿਆਂ ਦਾ ਖ਼ਿਆਲ ਰੱਖਣ ਵਾਲਾ</td></tr><tr><td class='num'>25</td><td><span class='say'>obedient</span></td><td lang='pa' class='pa'>ਆਗਿਆਕਾਰੀ</td></tr><tr><td class='num'>26</td><td><span class='say'>frank</span></td><td lang='pa' class='pa'>ਸਾਫ਼-ਸਾਫ਼ ਬੋਲਣ ਵਾਲਾ</td></tr><tr><td class='num'>27</td><td><span class='say'>witty</span></td><td lang='pa' class='pa'>ਹਾਜ਼ਰ-ਜਵਾਬ</td></tr><tr><td class='num'>28</td><td><span class='say'>modest</span></td><td lang='pa' class='pa'>ਨਿਮਰ</td></tr><tr><td class='num'>29</td><td><span class='say'>lazy</span></td><td lang='pa' class='pa'>ਆਲਸੀ</td></tr><tr><td class='num'>30</td><td><span class='say'>careless</span></td><td lang='pa' class='pa'>ਲਾਪਰਵਾਹ</td></tr><tr><td class='num'>31</td><td><span class='say'>rude</span></td><td lang='pa' class='pa'>ਬਦਤਮੀਜ਼</td></tr><tr><td class='num'>32</td><td><span class='say'>arrogant</span></td><td lang='pa' class='pa'>ਘਮੰਡੀ</td></tr><tr><td class='num'>33</td><td><span class='say'>selfish</span></td><td lang='pa' class='pa'>ਸੁਆਰਥੀ</td></tr><tr><td class='num'>34</td><td><span class='say'>greedy</span></td><td lang='pa' class='pa'>ਲਾਲਚੀ</td></tr><tr><td class='num'>35</td><td><span class='say'>stingy / mean</span></td><td lang='pa' class='pa'>ਕੰਜੂਸ</td></tr><tr><td class='num'>36</td><td><span class='say'>jealous</span></td><td lang='pa' class='pa'>ਈਰਖਾਲੂ</td></tr><tr><td class='num'>37</td><td><span class='say'>stubborn</span></td><td lang='pa' class='pa'>ਜ਼ਿੱਦੀ</td></tr><tr><td class='num'>38</td><td><span class='say'>impatient</span></td><td lang='pa' class='pa'>ਬੇਸਬਰਾ</td></tr><tr><td class='num'>39</td><td><span class='say'>dishonest</span></td><td lang='pa' class='pa'>ਬੇਈਮਾਨ</td></tr><tr><td class='num'>40</td><td><span class='say'>irresponsible</span></td><td lang='pa' class='pa'>ਗ਼ੈਰ-ਜ਼ਿੰਮੇਵਾਰ</td></tr><tr><td class='num'>41</td><td><span class='say'>cowardly</span></td><td lang='pa' class='pa'>ਡਰਪੋਕ</td></tr><tr><td class='num'>42</td><td><span class='say'>cruel</span></td><td lang='pa' class='pa'>ਜ਼ਾਲਮ</td></tr><tr><td class='num'>43</td><td><span class='say'>forgetful</span></td><td lang='pa' class='pa'>ਭੁਲੱਕੜ</td></tr><tr><td class='num'>44</td><td><span class='say'>grumpy</span></td><td lang='pa' class='pa'>ਚਿੜਚਿੜਾ</td></tr><tr><td class='num'>45</td><td><span class='say'>clumsy</span></td><td lang='pa' class='pa'>ਬੇਢੰਗਾ (ਚੀਜ਼ਾਂ ਡੇਗਣ ਵਾਲਾ)</td></tr><tr><td class='num'>46</td><td><span class='say'>naive</span></td><td lang='pa' class='pa'>ਭੋਲਾ-ਭਾਲਾ</td></tr><tr><td class='num'>47</td><td><span class='say'>shy</span></td><td lang='pa' class='pa'>ਸੰਗਾਊ / ਸ਼ਰਮੀਲਾ</td></tr><tr><td class='num'>48</td><td><span class='say'>aggressive</span></td><td lang='pa' class='pa'>ਲੜਾਕਾ</td></tr><tr><td class='num'>49</td><td><span class='say'>bossy / domineering</span></td><td lang='pa' class='pa'>ਹੁਕਮ ਚਲਾਉਣ ਵਾਲਾ</td></tr><tr><td class='num'>50</td><td><span class='say'>snobbish</span></td><td lang='pa' class='pa'>ਆਪਣੇ ਆਪ ਨੂੰ ਉੱਚਾ ਸਮਝਣ ਵਾਲਾ</td></tr><tr><td class='num'>51</td><td><span class='say'>secretive</span></td><td lang='pa' class='pa'>ਗੱਲਾਂ ਲੁਕਾਉਣ ਵਾਲਾ</td></tr><tr><td class='num'>52</td><td><span class='say'>thoughtless</span></td><td lang='pa' class='pa'>ਬਿਨਾਂ ਸੋਚੇ ਬੋਲਣ/ਕਰਨ ਵਾਲਾ</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>Useful sentences</h3><ul class=\"exl\"><li><span class=\"say\">My best friend is very reliable — she never lets me down.</span></li><li><span class=\"say\">My father is strict but generous.</span></li><li><span class=\"say\">He's a bit stubborn; he never changes his mind.</span></li><li><span class=\"say\">Our teacher is patient and encouraging.</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">ਕਿਸੇ ਦੇ ਸੁਭਾਅ ਬਾਰੇ ਗੱਲ ਕਰਦੇ ਸਮੇਂ ਨਕਾਰਾਤਮਕ ਸ਼ਬਦ ਨਰਮੀ ਨਾਲ ਵਰਤੋ: “He is lazy” ਦੀ ਥਾਂ “He can be <b>a bit</b> lazy sometimes”।</p></section>", "<section class=\"card mist\"><h3>Common mistakes</h3><div class=\"mk\"><div class=\"bad\">✗ He is very hard-worker.</div><div class=\"good\">✓ He is very hard-working. / He is a hard worker.</div></div><div class=\"mk\"><div class=\"bad\">✗ She is very mean person.</div><div class=\"good\">✓ She is a very mean person.</div></div></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>For <i>“Describe a person you admire”</i>, use 2–3 personality adjectives and give an example for each: <i>“She's incredibly <b>generous</b> — she once…”</i></p></section>"], "sets": [{"title": "A · English → ਪੰਜਾਬੀ", "instr": "Choose the Punjabi meaning.", "items": [{"t": "mcq", "q": "What is “talented” in Punjabi?", "o": ["ਜ਼ਿੰਮੇਵਾਰ", "ਪ੍ਰਤਿਭਾਸ਼ਾਲੀ", "ਭੋਲਾ-ਭਾਲਾ", "ਦਿਆਲੂ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “jealous” in Punjabi?", "o": ["ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ", "ਸਿਆਣਾ (ਪਰਪੱਕ)", "ਸਮਝਦਾਰ", "ਈਰਖਾਲੂ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “irresponsible” in Punjabi?", "o": ["ਆਗਿਆਕਾਰੀ", "ਗ਼ੈਰ-ਜ਼ਿੰਮੇਵਾਰ", "ਮਦਦਗਾਰ", "ਉੱਚੇ ਟੀਚਿਆਂ ਵਾਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “punctual” in Punjabi?", "o": ["ਜ਼ਿੰਮੇਵਾਰ", "ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ", "ਸਮੇਂ ਦਾ ਪਾਬੰਦ", "ਭੁਲੱਕੜ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “careless” in Punjabi?", "o": ["ਉੱਚੇ ਟੀਚਿਆਂ ਵਾਲਾ", "ਜ਼ਿੱਦੀ", "ਲਾਪਰਵਾਹ", "ਸਮਝਦਾਰ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “honest” in Punjabi?", "o": ["ਲੋਕਾਂ ਵਿੱਚ ਘੁਲਣ-ਮਿਲਣ ਵਾਲਾ", "ਮਿਹਨਤੀ", "ਹਾਜ਼ਰ-ਜਵਾਬ", "ਇਮਾਨਦਾਰ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “shy” in Punjabi?", "o": ["ਈਰਖਾਲੂ", "ਬੇਢੰਗਾ (ਚੀਜ਼ਾਂ ਡੇਗਣ ਵਾਲਾ)", "ਧੀਰਜ ਵਾਲਾ", "ਸੰਗਾਊ / ਸ਼ਰਮੀਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “snobbish” in Punjabi?", "o": ["ਉੱਚੇ ਟੀਚਿਆਂ ਵਾਲਾ", "ਆਪਣੇ ਆਪ ਨੂੰ ਉੱਚਾ ਸਮਝਣ ਵਾਲਾ", "ਭੋਲਾ-ਭਾਲਾ", "ਭਰੋਸੇਮੰਦ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “stubborn” in Punjabi?", "o": ["ਡਰਪੋਕ", "ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ", "ਜ਼ਿੱਦੀ", "ਸੁਆਰਥੀ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “efficient” in Punjabi?", "o": ["ਜ਼ਾਲਮ", "ਮਿਹਨਤੀ", "ਵਫ਼ਾਦਾਰ", "ਕੁਸ਼ਲ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “gentle” in Punjabi?", "o": ["ਸੁਆਰਥੀ", "ਹੱਸਮੁੱਖ", "ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ", "ਬਿਨਾਂ ਸੋਚੇ ਬੋਲਣ/ਕਰਨ ਵਾਲਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “frank” in Punjabi?", "o": ["ਡਰਪੋਕ", "ਭਰੋਸੇਮੰਦ", "ਸਮਝਦਾਰ", "ਸਾਫ਼-ਸਾਫ਼ ਬੋਲਣ ਵਾਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “trustworthy” in Punjabi?", "o": ["ਚਿੜਚਿੜਾ", "ਭੋਲਾ-ਭਾਲਾ", "ਵਿਸ਼ਵਾਸ ਦੇ ਲਾਇਕ", "ਲਾਲਚੀ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “adaptable” in Punjabi?", "o": ["ਬਦਤਮੀਜ਼", "ਜ਼ਾਲਮ", "ਹਾਲਾਤ ਅਨੁਸਾਰ ਢਲ ਜਾਣ ਵਾਲਾ", "ਦਿਆਲੂ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “reliable” in Punjabi?", "o": ["ਨਿਮਰ", "ਕੰਜੂਸ", "ਗੱਲਾਂ ਲੁਕਾਉਣ ਵਾਲਾ", "ਭਰੋਸੇਮੰਦ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “friendly” in Punjabi?", "o": ["ਚਿੜਚਿੜਾ", "ਖੁੱਲ੍ਹੇ ਦਿਲ ਵਾਲਾ", "ਮਿਲਣਸਾਰ", "ਹੱਸਮੁੱਖ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “aggressive” in Punjabi?", "o": ["ਬੇਈਮਾਨ", "ਲੜਾਕਾ", "ਸੁਆਰਥੀ", "ਇਮਾਨਦਾਰ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “obedient” in Punjabi?", "o": ["ਸੰਗਾਊ / ਸ਼ਰਮੀਲਾ", "ਆਗਿਆਕਾਰੀ", "ਚਿੜਚਿੜਾ", "ਜ਼ਿੰਮੇਵਾਰ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “impatient” in Punjabi?", "o": ["ਭੁਲੱਕੜ", "ਕਾਬਲ", "ਖੁੱਲ੍ਹੇ ਦਿਲ ਵਾਲਾ", "ਬੇਸਬਰਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “bossy / domineering” in Punjabi?", "o": ["ਚਿੜਚਿੜਾ", "ਹੱਸਮੁੱਖ", "ਹੁਕਮ ਚਲਾਉਣ ਵਾਲਾ", "ਈਰਖਾਲੂ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “cruel” in Punjabi?", "o": ["ਹੁਕਮ ਚਲਾਉਣ ਵਾਲਾ", "ਜ਼ਾਲਮ", "ਘਮੰਡੀ", "ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “thoughtful” in Punjabi?", "o": ["ਸੁਆਰਥੀ", "ਦੂਜਿਆਂ ਦਾ ਖ਼ਿਆਲ ਰੱਖਣ ਵਾਲਾ", "ਕਾਬਲ", "ਸਮਝਦਾਰ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “clumsy” in Punjabi?", "o": ["ਸੰਗਾਊ / ਸ਼ਰਮੀਲਾ", "ਲਾਲਚੀ", "ਬੇਢੰਗਾ (ਚੀਜ਼ਾਂ ਡੇਗਣ ਵਾਲਾ)", "ਭੋਲਾ-ਭਾਲਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “cheerful” in Punjabi?", "o": ["ਇਮਾਨਦਾਰ", "ਭੋਲਾ-ਭਾਲਾ", "ਜ਼ਿੰਮੇਵਾਰ", "ਹੱਸਮੁੱਖ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “forgetful” in Punjabi?", "o": ["ਕੰਜੂਸ", "ਨਰਮ ਸੁਭਾਅ ਵਾਲਾ", "ਵਿਸ਼ਵਾਸ ਦੇ ਲਾਇਕ", "ਭੁਲੱਕੜ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “mature” in Punjabi?", "o": ["ਲੋਕਾਂ ਵਿੱਚ ਘੁਲਣ-ਮਿਲਣ ਵਾਲਾ", "ਭਰੋਸੇਮੰਦ", "ਬਦਤਮੀਜ਼", "ਸਿਆਣਾ (ਪਰਪੱਕ)"], "a": 3, "e": ""}]}, {"title": "B · ਪੰਜਾਬੀ → English", "instr": "Choose the English word.", "items": [{"t": "mcq", "q": "What is “ਭੋਲਾ-ਭਾਲਾ” in English?", "o": ["impatient", "grumpy", "naive", "dishonest"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਲੋਕਾਂ ਵਿੱਚ ਘੁਲਣ-ਮਿਲਣ ਵਾਲਾ” in English?", "o": ["secretive", "ambitious", "frank", "sociable"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਮਿਹਨਤੀ” in English?", "o": ["frank", "capable", "bossy / domineering", "hard-working"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਕੰਜੂਸ” in English?", "o": ["gentle", "grumpy", "stingy / mean", "careless"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਸੁਆਰਥੀ” in English?", "o": ["thoughtful", "selfish", "cheerful", "hard-working"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਖੁੱਲ੍ਹੇ ਦਿਲ ਵਾਲਾ” in English?", "o": ["shy", "generous", "responsible", "greedy"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਧੀਰਜ ਵਾਲਾ” in English?", "o": ["trustworthy", "patient", "punctual", "stubborn"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਗੱਲਾਂ ਲੁਕਾਉਣ ਵਾਲਾ” in English?", "o": ["thoughtful", "secretive", "stubborn", "thoughtless"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਡਰਪੋਕ” in English?", "o": ["talented", "witty", "cowardly", "punctual"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਉੱਚੇ ਟੀਚਿਆਂ ਵਾਲਾ” in English?", "o": ["mature", "punctual", "greedy", "ambitious"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਘਮੰਡੀ” in English?", "o": ["kind", "arrogant", "cruel", "generous"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਬੇਈਮਾਨ” in English?", "o": ["capable", "dishonest", "modest", "sensible"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਆਲਸੀ” in English?", "o": ["aggressive", "careless", "helpful", "lazy"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਬਹਾਦਰ” in English?", "o": ["cheerful", "kind", "reliable", "brave / courageous"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਲਾਲਚੀ” in English?", "o": ["snobbish", "punctual", "greedy", "lazy"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਦਿਆਲੂ” in English?", "o": ["rude", "kind", "stingy / mean", "obedient"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਸਮਝਦਾਰ” in English?", "o": ["loyal / faithful", "greedy", "clumsy", "sensible"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਵਫ਼ਾਦਾਰ” in English?", "o": ["cruel", "dishonest", "loyal / faithful", "frank"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਬਿਨਾਂ ਸੋਚੇ ਬੋਲਣ/ਕਰਨ ਵਾਲਾ” in English?", "o": ["cruel", "trustworthy", "thoughtless", "brave / courageous"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਨਿਮਰ” in English?", "o": ["obedient", "modest", "aggressive", "mature"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਮਦਦਗਾਰ” in English?", "o": ["irresponsible", "stubborn", "patient", "helpful"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਕਾਬਲ” in English?", "o": ["helpful", "capable", "careless", "frank"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਚਿੜਚਿੜਾ” in English?", "o": ["capable", "impatient", "grumpy", "aggressive"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਹਾਜ਼ਰ-ਜਵਾਬ” in English?", "o": ["shy", "secretive", "witty", "aggressive"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਬਦਤਮੀਜ਼” in English?", "o": ["sociable", "jealous", "rude", "selfish"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਜ਼ਿੰਮੇਵਾਰ” in English?", "o": ["stingy / mean", "responsible", "loyal / faithful", "patient"], "a": 1, "e": ""}]}, {"title": "C · Spell it", "instr": "Type the English word. Spelling counts — just like in IELTS Listening!", "items": [{"t": "fill", "q": "ਪ੍ਰਤਿਭਾਸ਼ਾਲੀ → ___", "a": [["talented"]], "e": "talented"}, {"t": "fill", "q": "ਈਰਖਾਲੂ → ___", "a": [["jealous"]], "e": "jealous"}, {"t": "fill", "q": "ਗ਼ੈਰ-ਜ਼ਿੰਮੇਵਾਰ → ___", "a": [["irresponsible"]], "e": "irresponsible"}, {"t": "fill", "q": "ਸਮੇਂ ਦਾ ਪਾਬੰਦ → ___", "a": [["punctual"]], "e": "punctual"}, {"t": "fill", "q": "ਲਾਪਰਵਾਹ → ___", "a": [["careless"]], "e": "careless"}, {"t": "fill", "q": "ਇਮਾਨਦਾਰ → ___", "a": [["honest"]], "e": "honest"}, {"t": "fill", "q": "ਸੰਗਾਊ / ਸ਼ਰਮੀਲਾ → ___", "a": [["shy"]], "e": "shy"}, {"t": "fill", "q": "ਆਪਣੇ ਆਪ ਨੂੰ ਉੱਚਾ ਸਮਝਣ ਵਾਲਾ → ___", "a": [["snobbish"]], "e": "snobbish"}, {"t": "fill", "q": "ਜ਼ਿੱਦੀ → ___", "a": [["stubborn"]], "e": "stubborn"}, {"t": "fill", "q": "ਕੁਸ਼ਲ → ___", "a": [["efficient"]], "e": "efficient"}]}, {"title": "D · Use it in a sentence", "instr": "Choose the best word.", "items": [{"t": "mcq", "q": "He always arrives on time. He's very ___.", "o": ["naive", "punctual", "stubborn", "clumsy"], "a": 1, "e": ""}, {"t": "mcq", "q": "She never shares anything. She's so ___.", "o": ["generous", "witty", "modest", "selfish"], "a": 3, "e": ""}, {"t": "mcq", "q": "He keeps dropping things. He's really ___.", "o": ["punctual", "clumsy", "loyal", "frank"], "a": 1, "e": ""}, {"t": "mcq", "q": "She thinks she is better than everyone. She's ___.", "o": ["shy", "arrogant", "gentle", "modest"], "a": 1, "e": ""}]}], "next": "Lesson 3 — Describing Things"};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"; P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Strong Adjectives · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 6, "total": 6, "title": "Strong Adjectives", "sub": "very good → absolutely fantastic", "test": false, "unit": "Adjectives", "chip": null, "share": null, "video": true, "js": null, "learn": ["<section class=\"card \"><h3>Normal vs strong adjectives</h3><div class=\"tw\"><table class=\"two\"><thead><tr><th>Normal (very …)</th><th>Strong (absolutely …)</th></tr></thead><tbody><tr><td>good</td><td>fantastic, excellent, wonderful</td></tr><tr><td>bad</td><td>awful, terrible, dreadful</td></tr><tr><td>angry</td><td>furious</td></tr><tr><td>dirty</td><td>filthy</td></tr><tr><td>pretty / beautiful</td><td>gorgeous, stunning</td></tr><tr><td>big</td><td>enormous, huge, gigantic</td></tr><tr><td>small</td><td>tiny</td></tr><tr><td>tired</td><td>exhausted</td></tr><tr><td>hungry</td><td>starving</td></tr><tr><td>cold</td><td>freezing</td></tr><tr><td>hot</td><td>boiling</td></tr><tr><td>scared</td><td>terrified</td></tr><tr><td>surprised</td><td>astonished, amazed</td></tr><tr><td>sad</td><td>devastated, heartbroken</td></tr><tr><td>loud</td><td>deafening</td></tr><tr><td>interesting</td><td>fascinating</td></tr><tr><td>funny</td><td>hilarious</td></tr><tr><td>clean</td><td>spotless</td></tr><tr><td>tasty</td><td>delicious</td></tr><tr><td>difficult</td><td>impossible</td></tr><tr><td>unpleasant</td><td>disgusting</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>Which intensifier?</h3><ul><li><b>very / extremely</b> + normal adjective: <i>very good, extremely cold</i></li><li><b>absolutely / completely / utterly</b> + strong adjective: <i>absolutely fantastic, utterly devastated</i></li><li><b>really</b> works with both: <i>really good, really fantastic</i></li></ul><p class='note'>❌ <i>very fantastic</i> · ❌ <i>absolutely good</i></p></section>", "<section class=\"card \"><h3>Adverb + adjective / verb collocations</h3><ul class=\"exl\"><li><span class=\"say\">He had badly cut his hand. It was bleeding profusely.</span></li><li><span class=\"say\">They are seriously concerned about security.</span></li><li><span class=\"say\">They gave a truly magnificent performance.</span></li><li><span class=\"say\">Simon apologised profusely for his mistake.</span></li><li><span class=\"say\">The explosion completely destroyed the building.</span></li><li><span class=\"say\">It is not clear exactly how the accident happened.</span></li><li><span class=\"say\">He was obviously upset — you could see it on his face.</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">ਆਮ adjective ਨਾਲ <b>very</b> (very good), ਤੇਜ਼/ਤਗੜੇ adjective ਨਾਲ <b>absolutely</b> (absolutely fantastic)। <b>really</b> ਦੋਹਾਂ ਨਾਲ ਲੱਗ ਸਕਦਾ ਹੈ। Strong adjective ਦੇ ਅੰਦਰ ਹੀ “very” ਦਾ ਮਤਲਬ ਹੁੰਦਾ ਹੈ — furious = very angry।</p></section>", "<section class=\"card mist\"><h3>Common mistakes</h3><div class=\"mk\"><div class=\"bad\">✗ The food was very delicious.</div><div class=\"good\">✓ The food was absolutely delicious. / really delicious.</div></div><div class=\"mk\"><div class=\"bad\">✗ I am very starving.</div><div class=\"good\">✓ I am starving. / I'm absolutely starving.</div></div><div class=\"mk\"><div class=\"bad\">✗ It was absolutely cold.</div><div class=\"good\">✓ It was very cold. / absolutely freezing.</div></div></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>Strong adjectives make IELTS Speaking answers lively: <i>“The view from the hill was absolutely <b>breathtaking</b>.”</i> Use one or two per answer — not every sentence. Avoid slang like <i>knackered</i> (very tired) in Writing; it's informal British English.</p></section>"], "sets": [{"title": "A · very or absolutely?", "instr": "Choose the correct intensifier.", "items": [{"t": "mcq", "q": "The film was ___ fantastic.", "o": ["absolutely", "very"], "a": 0, "e": ""}, {"t": "mcq", "q": "It's ___ cold today.", "o": ["absolutely", "very"], "a": 1, "e": ""}, {"t": "mcq", "q": "I'm ___ exhausted after the journey.", "o": ["absolutely", "very"], "a": 0, "e": ""}, {"t": "mcq", "q": "The test was ___ difficult.", "o": ["absolutely", "very"], "a": 1, "e": ""}, {"t": "mcq", "q": "Your house is ___ spotless!", "o": ["absolutely", "very"], "a": 0, "e": ""}, {"t": "mcq", "q": "This curry is ___ tasty.", "o": ["absolutely", "very"], "a": 1, "e": ""}, {"t": "mcq", "q": "We were ___ terrified.", "o": ["absolutely", "very"], "a": 0, "e": ""}, {"t": "mcq", "q": "She is ___ angry with you.", "o": ["absolutely", "very"], "a": 1, "e": ""}]}, {"title": "B · Choose the strong adjective", "instr": "Choose the word that means “very ___”.", "items": [{"t": "mcq", "q": "This man is more than angry. He is ___.", "o": ["freezing", "furious", "filthy", "tiny"], "a": 1, "e": ""}, {"t": "mcq", "q": "This room is disgusting. I've never seen so much dirt. It is absolutely ___.", "o": ["hilarious", "gorgeous", "boiling", "filthy"], "a": 3, "e": ""}, {"t": "mcq", "q": "When our team lost the final, we were utterly ___.", "o": ["delighted", "spotless", "devastated", "starving"], "a": 2, "e": ""}, {"t": "mcq", "q": "The noise of the machine was so loud — it was ___.", "o": ["fascinating", "tiny", "deafening", "delicious"], "a": 2, "e": ""}, {"t": "mcq", "q": "I was ___ after a nine-hour trip. I slept heavily all night.", "o": ["terrified", "furious", "exhausted", "enormous"], "a": 2, "e": ""}, {"t": "mcq", "q": "I can't stand the way they treat their staff. It is ___.", "o": ["gorgeous", "fantastic", "fascinating", "dreadful"], "a": 3, "e": ""}, {"t": "mcq", "q": "I haven't eaten all day. I'm ___!", "o": ["boiling", "tiny", "filthy", "starving"], "a": 3, "e": ""}, {"t": "mcq", "q": "The joke was so funny — absolutely ___!", "o": ["devastated", "awful", "freezing", "hilarious"], "a": 3, "e": ""}, {"t": "mcq", "q": "There was a small man, a big man and an ___ man.", "o": ["disgusting", "enormous", "tiny", "gorgeous"], "a": 1, "e": ""}, {"t": "mcq", "q": "The biggest man said the food was absolutely ___ and he would never eat there again.", "o": ["huge", "gorgeous", "fascinating", "disgusting"], "a": 3, "e": ""}, {"t": "mcq", "q": "The boy said to the second girl: “Wow! You're ___!”", "o": ["furious", "filthy", "gorgeous", "starving"], "a": 2, "e": ""}, {"t": "mcq", "q": "“It was the scariest film I've ever seen. I was really ___ near the end.”", "o": ["delighted", "terrified", "exhausted", "hilarious"], "a": 1, "e": ""}]}, {"title": "C · Adverb collocations", "instr": "Choose the adverb that goes naturally.", "items": [{"t": "mcq", "q": "He had badly cut his hand. It was bleeding ___.", "o": ["properly", "obviously", "precisely", "profusely"], "a": 3, "e": ""}, {"t": "mcq", "q": "They are ___ concerned about the safety of people.", "o": ["profusely", "seriously", "hardly", "properly"], "a": 1, "e": ""}, {"t": "mcq", "q": "They gave a ___ magnificent performance.", "o": ["profusely", "badly", "hardly", "truly"], "a": 3, "e": ""}, {"t": "mcq", "q": "How much money do we need to do the job ___?", "o": ["seriously", "profusely", "properly", "utterly"], "a": 2, "e": ""}, {"t": "mcq", "q": "Simon apologised ___ for his mistake, but I won't forgive him.", "o": ["precisely", "completely", "seriously", "profusely"], "a": 3, "e": ""}, {"t": "mcq", "q": "The explosion ___ destroyed the building.", "o": ["properly", "profusely", "completely", "truly"], "a": 2, "e": ""}, {"t": "mcq", "q": "It is not clear ___ how the accident happened.", "o": ["badly", "profusely", "utterly", "exactly"], "a": 3, "e": ""}, {"t": "mcq", "q": "He was ___ upset — we could see it on his face.", "o": ["profusely", "properly", "obviously", "precisely"], "a": 2, "e": ""}]}], "next": "Final Test — Adjectives — Final Test"};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"; P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

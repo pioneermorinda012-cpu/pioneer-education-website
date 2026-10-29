@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
     // The PTE trainers are whole HTML pages served by app/practice/pte/[id]/route.ts.
     "/practice/pte/**": ["./content/pte/*.html"],
     // The English trainers are whole HTML pages served by app/practice/english/[id]/route.ts.
-    "/practice/english/**": ["./content/english/*.html"],
+    "/practice/english/**": ["./content/english/*.html", "./content/english-course/*.html"],
     // The German trainers, the same way (app/practice/german/[id]/route.ts).
     "/practice/german/**": ["./content/german/*.html"],
     // The French trainers, the same way (app/practice/french/[id]/route.ts).

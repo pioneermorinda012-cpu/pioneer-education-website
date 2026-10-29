@@ -4,7 +4,8 @@ import WritingDesk from "@/components/practice/WritingDesk";
 import Link from "next/link";
 import { lessonForType, TASK2_STRUCTURE_VIDEO } from "@/lib/learn";
 import VideoNote from "@/components/practice/VideoNote";
-import { getWritingTask, forStudent } from "@/lib/writing";
+import TopicVocab from "@/components/practice/TopicVocab";
+import { getWritingTask, forStudent, topicVocab } from "@/lib/writing";
 import { requireStudent } from "@/lib/guard";
 import { allows, WRITING_AREAS } from "@/lib/access";
 import { redirect } from "next/navigation";
@@ -44,6 +45,7 @@ export default async function WritingTaskPage({ params, searchParams }: {
   // Task 1: the lesson and video for this chart type, one tap away
   const learn = task.kind === "task1" ? lessonForType(task.chartType) : null;
   // Task 2: this topic's own video lesson, if it has one, and the essay structure
+  const vocab = await topicVocab(task);
   const topicVideo = task.kind === "task2" ? task.links?.find((u) => /youtu\.?be/i.test(u)) : undefined;
 
   return (
@@ -64,6 +66,7 @@ export default async function WritingTaskPage({ params, searchParams }: {
           <b>Essay structure:</b> introduction, two body paragraphs, conclusion — how to plan it in 40 minutes.
         </VideoNote>
       )}
+      {vocab && <TopicVocab title={task.title} v={vocab} />}
       <WritingDesk task={isTeacher ? task : forStudent(task)}
         start={q !== undefined && Number(q) >= 0 && Number(q) < (task.prompts?.length ?? 0) ? Math.floor(Number(q)) : undefined} />
 

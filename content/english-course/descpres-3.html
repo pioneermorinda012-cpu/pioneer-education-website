@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Describing People & Places · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+textarea.fi{font:500 16px system-ui,sans-serif;line-height:1.5}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 3, "total": 3, "title": "Describing People & Places", "sub": "Word bank + writing task", "test": false, "unit": "Descriptive Present", "chip": null, "share": null, "video": true, "js": "\ndocument.querySelectorAll('.vsearch').forEach(function(inp){\n  inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim();\n    inp.closest('section').querySelectorAll('tbody tr').forEach(function(tr){tr.style.display=!q||tr.textContent.toLowerCase().indexOf(q)>-1?'':'none';});});\n});\n\nvar ta=document.getElementById('cw_text'); if(!ta) return;\nfunction count(){ var n=(ta.value.trim().match(/\\S+/g)||[]).length; var el=document.getElementById('cw_n');\n  el.textContent=n+' / 120 words'; el.style.color=n>=120?'var(--ok)':'var(--accent)'; }\nta.addEventListener('input',count); count();\ndocument.getElementById('cw_model').onclick=function(){document.getElementById('cw_m').classList.toggle('hide');};\ndocument.getElementById('cw_copy').onclick=function(){var b=this;try{navigator.clipboard.writeText(ta.value).then(function(){b.textContent='✓ Copied'});}catch(e){}};\ndocument.getElementById('cw_wa').onclick=function(){window.open('https://wa.me/?text='+encodeURIComponent(ta.value),'_blank');};\n", "learn": ["<section class=\"card\"><h3>Describing words · 49 words</h3><input class=\"vsearch fi\" style=\"width:100%;margin:0 0 10px\" placeholder=\"🔍 Search English or ਪੰਜਾਬੀ…\"><div class=\"tw\"><table><thead><tr><th>#</th><th>English (tap to hear)</th><th>ਪੰਜਾਬੀ</th></tr></thead><tbody><tr><td class='num'>1</td><td><span class='say'>tall</span></td><td lang='pa' class='pa'>ਲੰਮਾ / ਉੱਚਾ</td></tr><tr><td class='num'>2</td><td><span class='say'>short</span></td><td lang='pa' class='pa'>ਛੋਟੇ ਕੱਦ ਦਾ</td></tr><tr><td class='num'>3</td><td><span class='say'>of medium height</span></td><td lang='pa' class='pa'>ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ</td></tr><tr><td class='num'>4</td><td><span class='say'>slim</span></td><td lang='pa' class='pa'>ਪਤਲਾ (ਸੋਹਣਾ)</td></tr><tr><td class='num'>5</td><td><span class='say'>thin</span></td><td lang='pa' class='pa'>ਪਤਲਾ</td></tr><tr><td class='num'>6</td><td><span class='say'>well-built</span></td><td lang='pa' class='pa'>ਤਗੜੇ ਸਰੀਰ ਵਾਲਾ</td></tr><tr><td class='num'>7</td><td><span class='say'>muscular</span></td><td lang='pa' class='pa'>ਡੌਲਿਆਂ ਵਾਲਾ (ਮਜ਼ਬੂਤ)</td></tr><tr><td class='num'>8</td><td><span class='say'>chubby</span></td><td lang='pa' class='pa'>ਗੋਲ-ਮਟੋਲ</td></tr><tr><td class='num'>9</td><td><span class='say'>overweight</span></td><td lang='pa' class='pa'>ਵੱਧ ਭਾਰ ਵਾਲਾ</td></tr><tr><td class='num'>10</td><td><span class='say'>young</span></td><td lang='pa' class='pa'>ਜਵਾਨ</td></tr><tr><td class='num'>11</td><td><span class='say'>middle-aged</span></td><td lang='pa' class='pa'>ਅੱਧਖੜ ਉਮਰ ਦਾ</td></tr><tr><td class='num'>12</td><td><span class='say'>elderly</span></td><td lang='pa' class='pa'>ਬਜ਼ੁਰਗ</td></tr><tr><td class='num'>13</td><td><span class='say'>in his twenties</span></td><td lang='pa' class='pa'>ਵੀਹਾਂ-ਪੱਚੀਆਂ ਸਾਲਾਂ ਦਾ</td></tr><tr><td class='num'>14</td><td><span class='say'>curly hair</span></td><td lang='pa' class='pa'>ਘੁੰਗਰਾਲੇ ਵਾਲ</td></tr><tr><td class='num'>15</td><td><span class='say'>straight hair</span></td><td lang='pa' class='pa'>ਸਿੱਧੇ ਵਾਲ</td></tr><tr><td class='num'>16</td><td><span class='say'>wavy hair</span></td><td lang='pa' class='pa'>ਲਹਿਰਦਾਰ ਵਾਲ</td></tr><tr><td class='num'>17</td><td><span class='say'>grey hair</span></td><td lang='pa' class='pa'>ਚਿੱਟੇ / ਸਲੇਟੀ ਵਾਲ</td></tr><tr><td class='num'>18</td><td><span class='say'>bald</span></td><td lang='pa' class='pa'>ਗੰਜਾ</td></tr><tr><td class='num'>19</td><td><span class='say'>beard</span></td><td lang='pa' class='pa'>ਦਾੜ੍ਹੀ</td></tr><tr><td class='num'>20</td><td><span class='say'>moustache</span></td><td lang='pa' class='pa'>ਮੁੱਛਾਂ</td></tr><tr><td class='num'>21</td><td><span class='say'>fair</span></td><td lang='pa' class='pa'>ਗੋਰਾ</td></tr><tr><td class='num'>22</td><td><span class='say'>dark</span></td><td lang='pa' class='pa'>ਸਾਂਵਲਾ</td></tr><tr><td class='num'>23</td><td><span class='say'>pale</span></td><td lang='pa' class='pa'>ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)</td></tr><tr><td class='num'>24</td><td><span class='say'>rosy cheeks</span></td><td lang='pa' class='pa'>ਗੁਲਾਬੀ ਗੱਲ੍ਹਾਂ</td></tr><tr><td class='num'>25</td><td><span class='say'>brown-eyed</span></td><td lang='pa' class='pa'>ਭੂਰੀਆਂ ਅੱਖਾਂ ਵਾਲਾ</td></tr><tr><td class='num'>26</td><td><span class='say'>round face</span></td><td lang='pa' class='pa'>ਗੋਲ ਚਿਹਰਾ</td></tr><tr><td class='num'>27</td><td><span class='say'>attractive</span></td><td lang='pa' class='pa'>ਖਿੱਚ ਪਾਉਣ ਵਾਲਾ</td></tr><tr><td class='num'>28</td><td><span class='say'>good-looking</span></td><td lang='pa' class='pa'>ਸੋਹਣਾ-ਸੁਨੱਖਾ</td></tr><tr><td class='num'>29</td><td><span class='say'>cute</span></td><td lang='pa' class='pa'>ਪਿਆਰਾ</td></tr><tr><td class='num'>30</td><td><span class='say'>well-dressed</span></td><td lang='pa' class='pa'>ਸੋਹਣੇ ਕੱਪੜੇ ਪਾਉਣ ਵਾਲਾ</td></tr><tr><td class='num'>31</td><td><span class='say'>fashionable</span></td><td lang='pa' class='pa'>ਫ਼ੈਸ਼ਨ ਵਾਲਾ</td></tr><tr><td class='num'>32</td><td><span class='say'>scruffy</span></td><td lang='pa' class='pa'>ਬੇਤਰਤੀਬ ਕੱਪੜਿਆਂ ਵਾਲਾ</td></tr><tr><td class='num'>33</td><td><span class='say'>tattooed</span></td><td lang='pa' class='pa'>ਟੈਟੂ ਵਾਲਾ</td></tr><tr><td class='num'>34</td><td><span class='say'>scarred</span></td><td lang='pa' class='pa'>ਜ਼ਖ਼ਮ ਦੇ ਨਿਸ਼ਾਨ ਵਾਲਾ</td></tr><tr><td class='num'>35</td><td><span class='say'>moody</span></td><td lang='pa' class='pa'>ਮੂਡੀ (ਛੇਤੀ ਮੂਡ ਬਦਲਣ ਵਾਲਾ)</td></tr><tr><td class='num'>36</td><td><span class='say'>grumpy</span></td><td lang='pa' class='pa'>ਚਿੜਚਿੜਾ</td></tr><tr><td class='num'>37</td><td><span class='say'>cheerful</span></td><td lang='pa' class='pa'>ਹੱਸਮੁੱਖ</td></tr><tr><td class='num'>38</td><td><span class='say'>intelligent</span></td><td lang='pa' class='pa'>ਬੁੱਧੀਮਾਨ</td></tr><tr><td class='num'>39</td><td><span class='say'>naughty</span></td><td lang='pa' class='pa'>ਸ਼ਰਾਰਤੀ</td></tr><tr><td class='num'>40</td><td><span class='say'>busy</span></td><td lang='pa' class='pa'>ਰੁੱਝਿਆ ਹੋਇਆ (ਵਿਅਸਤ)</td></tr><tr><td class='num'>41</td><td><span class='say'>peaceful</span></td><td lang='pa' class='pa'>ਸ਼ਾਂਤ</td></tr><tr><td class='num'>42</td><td><span class='say'>tranquil</span></td><td lang='pa' class='pa'>ਸ਼ਾਂਤਮਈ (ਥਾਂ)</td></tr><tr><td class='num'>43</td><td><span class='say'>crowded</span></td><td lang='pa' class='pa'>ਭੀੜ ਵਾਲਾ</td></tr><tr><td class='num'>44</td><td><span class='say'>messy</span></td><td lang='pa' class='pa'>ਖਿੱਲਰਿਆ ਹੋਇਆ</td></tr><tr><td class='num'>45</td><td><span class='say'>organised</span></td><td lang='pa' class='pa'>ਤਰਤੀਬ ਵਾਲਾ</td></tr><tr><td class='num'>46</td><td><span class='say'>rusty</span></td><td lang='pa' class='pa'>ਜੰਗਾਲ ਲੱਗਿਆ</td></tr><tr><td class='num'>47</td><td><span class='say'>colourful</span></td><td lang='pa' class='pa'>ਰੰਗ-ਬਿਰੰਗਾ</td></tr><tr><td class='num'>48</td><td><span class='say'>unique</span></td><td lang='pa' class='pa'>ਵਿਲੱਖਣ</td></tr><tr><td class='num'>49</td><td><span class='say'>historic</span></td><td lang='pa' class='pa'>ਇਤਿਹਾਸਕ</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>Describing a person — the order</h3><ul class=\"exl\"><li><span class=\"say\">Age & build: She's in her twenties, tall and slim.</span></li><li><span class=\"say\">Face & hair: She has long, straight black hair and brown eyes.</span></li><li><span class=\"say\">Clothes: She's usually well-dressed.</span></li><li><span class=\"say\">Personality: She's cheerful and very intelligent.</span></li></ul></section>", "<section class=\"card \"><h3>Feeling words (from your class poster)</h3><ul class=\"exl\"><li><span class=\"say\">Confident – I believe that I can do something.</span></li><li><span class=\"say\">Satisfied – I am satisfied with my grade.</span></li><li><span class=\"say\">Fortunate – I am fortunate to have a good family.</span></li><li><span class=\"say\">Proud – I am proud of myself because I passed Level 2.</span></li><li><span class=\"say\">Confused – I felt confused on my first day of class.</span></li><li><span class=\"say\">Frustrated – I feel frustrated when I can't remember new words.</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">ਕਿਸੇ ਵਿਅਕਤੀ ਦਾ ਵਰਣਨ: ਉਮਰ ਤੇ ਕੱਦ → ਚਿਹਰਾ ਤੇ ਵਾਲ → ਕੱਪੜੇ → ਸੁਭਾਅ। ਨੋਟ: ਕਿਸੇ ਦੇ ਰੰਗ ਜਾਂ ਨਸਲ ਬਾਰੇ ਗੱਲ ਕਰਨ ਤੋਂ ਬਚੋ — ਇਹ ਅਕਸਰ ਬੇਅਦਬੀ ਲੱਗਦਾ ਹੈ।</p></section>", "<section class=\"card\"><h3>✍️ Describe the city and state you live in</h3>\n<p class=\"instr\">Answer these questions in your head first, then join the answers into one continuous paragraph of <b>at least 120 words</b>.</p>\n<ul>\n<li>What is the name of your city or village, and which district is it in?</li><li>Which state do you live in, and what is its capital?</li>\n<li>Which school or college do you attend?</li><li>What is the best place to visit in your city?</li><li>Why do you think your city is great?</li>\n<li>What is your favourite restaurant or food place?</li><li>Which is the prettiest street or area?</li><li>Who is a famous person from your state?</li>\n<li>What is one thing you would change about your city?</li></ul>\n<textarea id=\"cw_text\" class=\"fi\" rows=\"9\" style=\"width:100%\" placeholder=\"I live in …\"></textarea>\n<p id=\"cw_n\" style=\"font-weight:700\">0 / 120 words</p>\n<div class=\"btns\"><button class=\"btn\" id=\"cw_model\">👁 Show model answer</button><button class=\"btn\" id=\"cw_copy\">📋 Copy</button><button class=\"btn wa\" id=\"cw_wa\">Send to teacher</button></div>\n<div id=\"cw_m\" class=\"hide\" style=\"background:var(--bg);border-radius:12px;padding:14px;margin-top:12px;line-height:1.7\">\n<b>Model answer (about 150 words):</b><br>\nI live in Morinda, a small but lively city in Ropar district of Punjab. The capital of our state is Chandigarh, which is only about forty kilometres away, so it is easy to travel there for shopping or work. I study at a college in Morinda, and most of my classmates come from nearby villages. The best place to visit in my city is the historic gurdwara, which is peaceful and beautifully lit in the evening. I think my city is great because people are friendly and helpful, and life is much less stressful than in big cities. My favourite food place is a small dhaba near the bus stand that serves delicious parathas. The prettiest area is the green road lined with trees on the way to the fields. If I could change one thing, I would build a large public library and a park for young people.</div></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>For <i>“Describe a city you know well”</i> in Speaking Part 2, cover: <b>where</b> it is, <b>what</b> it's known for, <b>what you like</b>, and <b>what could be better</b>.</p></section>"], "sets": [{"title": "A · English → ਪੰਜਾਬੀ", "instr": "Choose the Punjabi meaning.", "items": [{"t": "mcq", "q": "What is “in his twenties” in Punjabi?", "o": ["ਸੋਹਣਾ-ਸੁਨੱਖਾ", "ਚਿੜਚਿੜਾ", "ਵੀਹਾਂ-ਪੱਚੀਆਂ ਸਾਲਾਂ ਦਾ", "ਹੱਸਮੁੱਖ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “brown-eyed” in Punjabi?", "o": ["ਬੁੱਧੀਮਾਨ", "ਭੂਰੀਆਂ ਅੱਖਾਂ ਵਾਲਾ", "ਘੁੰਗਰਾਲੇ ਵਾਲ", "ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “straight hair” in Punjabi?", "o": ["ਪਤਲਾ (ਸੋਹਣਾ)", "ਸੋਹਣੇ ਕੱਪੜੇ ਪਾਉਣ ਵਾਲਾ", "ਡੌਲਿਆਂ ਵਾਲਾ (ਮਜ਼ਬੂਤ)", "ਸਿੱਧੇ ਵਾਲ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “rosy cheeks” in Punjabi?", "o": ["ਜਵਾਨ", "ਗੁਲਾਬੀ ਗੱਲ੍ਹਾਂ", "ਚਿੱਟੇ / ਸਲੇਟੀ ਵਾਲ", "ਵੱਧ ਭਾਰ ਵਾਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “scruffy” in Punjabi?", "o": ["ਬਜ਼ੁਰਗ", "ਬੇਤਰਤੀਬ ਕੱਪੜਿਆਂ ਵਾਲਾ", "ਗੋਰਾ", "ਖਿੱਲਰਿਆ ਹੋਇਆ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “well-dressed” in Punjabi?", "o": ["ਤਗੜੇ ਸਰੀਰ ਵਾਲਾ", "ਸੋਹਣੇ ਕੱਪੜੇ ਪਾਉਣ ਵਾਲਾ", "ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)", "ਬਜ਼ੁਰਗ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “moustache” in Punjabi?", "o": ["ਰੁੱਝਿਆ ਹੋਇਆ (ਵਿਅਸਤ)", "ਵੀਹਾਂ-ਪੱਚੀਆਂ ਸਾਲਾਂ ਦਾ", "ਖਿੱਚ ਪਾਉਣ ਵਾਲਾ", "ਮੁੱਛਾਂ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “dark” in Punjabi?", "o": ["ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)", "ਛੋਟੇ ਕੱਦ ਦਾ", "ਟੈਟੂ ਵਾਲਾ", "ਸਾਂਵਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “young” in Punjabi?", "o": ["ਗੰਜਾ", "ਸ਼ਾਂਤਮਈ (ਥਾਂ)", "ਵੀਹਾਂ-ਪੱਚੀਆਂ ਸਾਲਾਂ ਦਾ", "ਜਵਾਨ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “scarred” in Punjabi?", "o": ["ਵੱਧ ਭਾਰ ਵਾਲਾ", "ਜ਼ਖ਼ਮ ਦੇ ਨਿਸ਼ਾਨ ਵਾਲਾ", "ਦਾੜ੍ਹੀ", "ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “curly hair” in Punjabi?", "o": ["ਚਿੜਚਿੜਾ", "ਜ਼ਖ਼ਮ ਦੇ ਨਿਸ਼ਾਨ ਵਾਲਾ", "ਘੁੰਗਰਾਲੇ ਵਾਲ", "ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “overweight” in Punjabi?", "o": ["ਤਗੜੇ ਸਰੀਰ ਵਾਲਾ", "ਮੁੱਛਾਂ", "ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)", "ਵੱਧ ਭਾਰ ਵਾਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “unique” in Punjabi?", "o": ["ਡੌਲਿਆਂ ਵਾਲਾ (ਮਜ਼ਬੂਤ)", "ਵਿਲੱਖਣ", "ਪਤਲਾ", "ਗੁਲਾਬੀ ਗੱਲ੍ਹਾਂ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “fair” in Punjabi?", "o": ["ਲਹਿਰਦਾਰ ਵਾਲ", "ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ", "ਗੋਰਾ", "ਸੋਹਣਾ-ਸੁਨੱਖਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “grey hair” in Punjabi?", "o": ["ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ", "ਦਾੜ੍ਹੀ", "ਗੰਜਾ", "ਚਿੱਟੇ / ਸਲੇਟੀ ਵਾਲ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “good-looking” in Punjabi?", "o": ["ਡੌਲਿਆਂ ਵਾਲਾ (ਮਜ਼ਬੂਤ)", "ਮੂਡੀ (ਛੇਤੀ ਮੂਡ ਬਦਲਣ ਵਾਲਾ)", "ਸੋਹਣਾ-ਸੁਨੱਖਾ", "ਸ਼ਰਾਰਤੀ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “grumpy” in Punjabi?", "o": ["ਪਤਲਾ", "ਜੰਗਾਲ ਲੱਗਿਆ", "ਚਿੜਚਿੜਾ", "ਭੀੜ ਵਾਲਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “thin” in Punjabi?", "o": ["ਅੱਧਖੜ ਉਮਰ ਦਾ", "ਪਤਲਾ", "ਰੰਗ-ਬਿਰੰਗਾ", "ਭੂਰੀਆਂ ਅੱਖਾਂ ਵਾਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “muscular” in Punjabi?", "o": ["ਮੂਡੀ (ਛੇਤੀ ਮੂਡ ਬਦਲਣ ਵਾਲਾ)", "ਭੀੜ ਵਾਲਾ", "ਡੌਲਿਆਂ ਵਾਲਾ (ਮਜ਼ਬੂਤ)", "ਵਿਲੱਖਣ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “historic” in Punjabi?", "o": ["ਛੋਟੇ ਕੱਦ ਦਾ", "ਇਤਿਹਾਸਕ", "ਗੋਲ ਚਿਹਰਾ", "ਵਿਲੱਖਣ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “tranquil” in Punjabi?", "o": ["ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ", "ਸ਼ਾਂਤਮਈ (ਥਾਂ)", "ਛੋਟੇ ਕੱਦ ਦਾ", "ਬਜ਼ੁਰਗ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “slim” in Punjabi?", "o": ["ਤਗੜੇ ਸਰੀਰ ਵਾਲਾ", "ਮੁੱਛਾਂ", "ਫ਼ੈਸ਼ਨ ਵਾਲਾ", "ਪਤਲਾ (ਸੋਹਣਾ)"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “intelligent” in Punjabi?", "o": ["ਬੇਤਰਤੀਬ ਕੱਪੜਿਆਂ ਵਾਲਾ", "ਸ਼ਾਂਤਮਈ (ਥਾਂ)", "ਬੁੱਧੀਮਾਨ", "ਪਤਲਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “attractive” in Punjabi?", "o": ["ਸ਼ਾਂਤਮਈ (ਥਾਂ)", "ਖਿੱਚ ਪਾਉਣ ਵਾਲਾ", "ਸੋਹਣੇ ਕੱਪੜੇ ਪਾਉਣ ਵਾਲਾ", "ਲੰਮਾ / ਉੱਚਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “bald” in Punjabi?", "o": ["ਵਿਲੱਖਣ", "ਗੰਜਾ", "ਗੋਲ-ਮਟੋਲ", "ਰੰਗ-ਬਿਰੰਗਾ"], "a": 1, "e": ""}]}, {"title": "B · ਪੰਜਾਬੀ → English", "instr": "Choose the English word.", "items": [{"t": "mcq", "q": "What is “ਟੈਟੂ ਵਾਲਾ” in English?", "o": ["tall", "wavy hair", "tattooed", "straight hair"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਦਰਮਿਆਨੇ ਕੱਦ ਦਾ” in English?", "o": ["scarred", "colourful", "of medium height", "bald"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਜੰਗਾਲ ਲੱਗਿਆ” in English?", "o": ["scruffy", "busy", "rusty", "dark"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਰੰਗ-ਬਿਰੰਗਾ” in English?", "o": ["thin", "colourful", "scruffy", "pale"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਸ਼ਾਂਤ” in English?", "o": ["organised", "tattooed", "crowded", "peaceful"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਫ਼ੈਸ਼ਨ ਵਾਲਾ” in English?", "o": ["moustache", "naughty", "crowded", "fashionable"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਦਾੜ੍ਹੀ” in English?", "o": ["crowded", "thin", "busy", "beard"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਪੀਲਾ-ਫਿੱਕਾ (ਚਿਹਰਾ)” in English?", "o": ["naughty", "scruffy", "wavy hair", "pale"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਸ਼ਰਾਰਤੀ” in English?", "o": ["muscular", "naughty", "fashionable", "well-dressed"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਗੋਲ ਚਿਹਰਾ” in English?", "o": ["wavy hair", "overweight", "organised", "round face"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਬਜ਼ੁਰਗ” in English?", "o": ["round face", "dark", "elderly", "busy"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਖਿੱਲਰਿਆ ਹੋਇਆ” in English?", "o": ["historic", "fashionable", "peaceful", "messy"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਭੀੜ ਵਾਲਾ” in English?", "o": ["straight hair", "young", "grey hair", "crowded"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਲਹਿਰਦਾਰ ਵਾਲ” in English?", "o": ["moustache", "tattooed", "attractive", "wavy hair"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਤਰਤੀਬ ਵਾਲਾ” in English?", "o": ["cute", "attractive", "round face", "organised"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਗੋਲ-ਮਟੋਲ” in English?", "o": ["colourful", "chubby", "wavy hair", "moody"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਤਗੜੇ ਸਰੀਰ ਵਾਲਾ” in English?", "o": ["organised", "tall", "bald", "well-built"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਹੱਸਮੁੱਖ” in English?", "o": ["pale", "scruffy", "messy", "cheerful"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਛੋਟੇ ਕੱਦ ਦਾ” in English?", "o": ["bald", "short", "rosy cheeks", "pale"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਅੱਧਖੜ ਉਮਰ ਦਾ” in English?", "o": ["moody", "grey hair", "moustache", "middle-aged"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਪਿਆਰਾ” in English?", "o": ["fashionable", "unique", "cute", "organised"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਮੂਡੀ (ਛੇਤੀ ਮੂਡ ਬਦਲਣ ਵਾਲਾ)” in English?", "o": ["fashionable", "moody", "young", "beard"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਲੰਮਾ / ਉੱਚਾ” in English?", "o": ["attractive", "tall", "young", "overweight"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਰੁੱਝਿਆ ਹੋਇਆ (ਵਿਅਸਤ)” in English?", "o": ["tattooed", "muscular", "good-looking", "busy"], "a": 3, "e": ""}]}, {"title": "C · Spell it", "instr": "Type the English word. Spelling counts — just like in IELTS Listening!", "items": [{"t": "fill", "q": "ਭੂਰੀਆਂ ਅੱਖਾਂ ਵਾਲਾ → ___", "a": [["brown-eyed"]], "e": "brown-eyed"}, {"t": "fill", "q": "ਬੇਤਰਤੀਬ ਕੱਪੜਿਆਂ ਵਾਲਾ → ___", "a": [["scruffy"]], "e": "scruffy"}, {"t": "fill", "q": "ਸੋਹਣੇ ਕੱਪੜੇ ਪਾਉਣ ਵਾਲਾ → ___", "a": [["well-dressed"]], "e": "well-dressed"}, {"t": "fill", "q": "ਮੁੱਛਾਂ → ___", "a": [["moustache"]], "e": "moustache"}, {"t": "fill", "q": "ਸਾਂਵਲਾ → ___", "a": [["dark"]], "e": "dark"}, {"t": "fill", "q": "ਜਵਾਨ → ___", "a": [["young"]], "e": "young"}, {"t": "fill", "q": "ਜ਼ਖ਼ਮ ਦੇ ਨਿਸ਼ਾਨ ਵਾਲਾ → ___", "a": [["scarred"]], "e": "scarred"}, {"t": "fill", "q": "ਵੱਧ ਭਾਰ ਵਾਲਾ → ___", "a": [["overweight"]], "e": "overweight"}, {"t": "fill", "q": "ਵਿਲੱਖਣ → ___", "a": [["unique"]], "e": "unique"}, {"t": "fill", "q": "ਗੋਰਾ → ___", "a": [["fair"]], "e": "fair"}]}, {"title": "D · Use it in a sentence", "instr": "Choose the best word.", "items": [{"t": "mcq", "q": "My grandfather has no hair. He is ___.", "o": ["pale", "chubby", "curly", "bald"], "a": 3, "e": ""}, {"t": "mcq", "q": "The market is full of people. It's very ___.", "o": ["bald", "tranquil", "rusty", "crowded"], "a": 3, "e": ""}, {"t": "mcq", "q": "She always wears nice, clean clothes. She's ___.", "o": ["grumpy", "well-dressed", "scruffy", "messy"], "a": 1, "e": ""}, {"t": "mcq", "q": "My uncle is about 50. He is ___.", "o": ["in his twenties", "young", "middle-aged", "elderly"], "a": 2, "e": ""}]}], "next": null};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"+(s.intro||""); P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else if(it.t==="reveal"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span><span lang="pa" class="pa">'+esc(it.q)+'</span></p>'
+            +'<textarea class="fi" rows="2" style="width:100%" placeholder="Write your English sentence here (optional)…"></textarea>'
+            +'<button class="chk">Show answer</button><div class="fb"></div><div class="opts hide" style="margin-top:8px"><button class="opt sg">✓ I got it</button><button class="opt sb">✗ Not yet</button></div>';
+          var rb=q.querySelector(".chk"), rf=q.querySelector(".fb"), ro=q.querySelector(".opts");
+          rb.onclick=function(){ rb.disabled=true; rf.className="fb show ok"; rf.style.background="var(--bg)"; rf.style.color="var(--ink)";
+            rf.innerHTML="<b>Model answer:</b> <span class='say'>"+esc(it.a)+"</span>"+(it.e?'<span class="ex2">'+it.e+'</span>':""); ro.classList.remove("hide"); };
+          function grade(ok){ if(q.dataset.state)return; q.dataset.state=ok?"ok":"no"; done++; if(ok)score++;
+            ro.querySelectorAll(".opt").forEach(function(x){x.disabled=true;}); (ok?ro.querySelector(".sg"):ro.querySelector(".sb")).classList.add(ok?"right":"wrong"); upd(); }
+          ro.querySelector(".sg").onclick=function(){grade(true)}; ro.querySelector(".sb").onclick=function(){grade(false)};
+          q.addEventListener("click",function(e){var sy=e.target.closest(".say");if(sy)speak(sy.textContent);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

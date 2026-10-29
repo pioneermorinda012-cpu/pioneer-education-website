@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Reflexive Pronouns · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · Pronouns unit</footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 4, "total": 9, "title": "Reflexive Pronouns", "sub": "myself · by myself · each other", "test": false, "video": false, "learn": ["<section class=\"card \"><h3>The -self / -selves words</h3><div class=\"tw\"><table class=\"two\"><thead><tr><th>Subject</th><th>Reflexive</th></tr></thead><tbody><tr><td>I</td><td>myself</td></tr><tr><td>you (one)</td><td>yourself</td></tr><tr><td>he</td><td>himself</td></tr><tr><td>she</td><td>herself</td></tr><tr><td>it</td><td>itself</td></tr><tr><td>we</td><td>ourselves</td></tr><tr><td>you (many)</td><td>yourselves</td></tr><tr><td>they</td><td>themselves</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>Three uses</h3><p><b>1. Same person does and receives the action</b></p><ul class=\"exl\"><li><span class=\"say\">I cut <b>myself</b> while cooking.</span></li><li><span class=\"say\">She looked at <b>herself</b> in the mirror.</span></li></ul><p><b>2. Emphasis — “personally, nobody else”</b></p><ul class=\"exl\"><li><span class=\"say\">I washed the dishes <b>myself</b>.</span></li><li><span class=\"say\">The principal <b>himself</b> came to meet us.</span></li></ul><p><b>3. by + reflexive = alone / without help</b></p><ul class=\"exl\"><li><span class=\"say\">I cleaned the house <b>by myself</b>. (I was alone.)</span></li><li><span class=\"say\">She lives <b>by herself</b>.</span></li></ul></section>", "<section class=\"card \"><h3>Reflexive or each other?</h3><p><b>-selves</b>: each person does the action to himself/herself. <b>each other</b>: people do it to one another.</p><ul class=\"exl\"><li><span class=\"say\">They blamed <b>themselves</b>. (each blamed himself)</span></li><li><span class=\"say\">They blamed <b>each other</b>. (A blamed B, B blamed A)</span></li></ul><p class='note'>We usually <b>don't</b> use reflexives with <i>wash, shave, dress, feel, relax</i>: <i>I shaved and got dressed.</i> (not <s>shaved myself</s>)</p></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">Reflexive pronoun ਉਦੋਂ ਵਰਤੋ ਜਦੋਂ ਕੰਮ ਕਰਨ ਵਾਲਾ ਅਤੇ ਜਿਸ ਉੱਤੇ ਕੰਮ ਹੋਇਆ, ਦੋਵੇਂ <b>ਇੱਕੋ</b> ਹੋਣ — “ਆਪਣੇ ਆਪ ਨੂੰ”। <b>by myself</b> = ਇਕੱਲਿਆਂ / ਬਿਨਾਂ ਮਦਦ ਤੋਂ। <b>each other</b> = ਇੱਕ ਦੂਜੇ ਨੂੰ। ਆਪਣੀ ਜਾਣ-ਪਛਾਣ ਵਿੱਚ “Myself Narinder” ਨਾ ਕਹੋ — “I am Narinder” ਜਾਂ “My name is Narinder” ਕਹੋ।</p></section>", "<section class=\"card mist\"><h3>Common mistakes</h3><div class=\"mk\"><div class=\"bad\">✗ Myself Harjot Singh, from Morinda.</div><div class=\"good\">✓ I am Harjot Singh, from Morinda.</div><div class=\"why\">“Myself” can never be the subject.</div></div><div class=\"mk\"><div class=\"bad\">✗ Myself and Aman will attend.</div><div class=\"good\">✓ Aman and I will attend.</div></div><div class=\"mk\"><div class=\"bad\">✗ He hurt hisself.</div><div class=\"good\">✓ He hurt himself.</div><div class=\"why\">hisself / theirselves are not standard English.</div></div><div class=\"mk\"><div class=\"bad\">✗ Ram and Sita love themselves.</div><div class=\"good\">✓ Ram and Sita love each other.</div><div class=\"why\">They love one another → each other.</div></div></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>In IELTS Speaking Part 1, begin with <i>“My name is…”</i> or <i>“I'm…”</i>. Starting with <i>“Myself…”</i> is a common Indian-English error that examiners notice immediately.</p></section>"], "sets": [{"title": "A · Choose the correct answer", "instr": "Choose the correct reflexive pronoun.", "items": [{"t": "mcq", "q": "My mother does the housework ___.", "o": ["herself", "himself"], "a": 0, "e": ""}, {"t": "mcq", "q": "I prepared this work ___.", "o": ["ourselves", "myself"], "a": 1, "e": ""}, {"t": "mcq", "q": "She made this cake ___.", "o": ["herself", "myself"], "a": 0, "e": ""}, {"t": "mcq", "q": "My mother and I do the shopping ___.", "o": ["ourselves", "myself"], "a": 0, "e": "My mother and I = we → ourselves."}, {"t": "mcq", "q": "Kerem cuts his hair ___.", "o": ["itself", "himself"], "a": 1, "e": ""}, {"t": "mcq", "q": "Seher and Yaşar prepare the dinner ___.", "o": ["ourselves", "themselves"], "a": 1, "e": ""}, {"t": "mcq", "q": "I introduced ___ to the tourists.", "o": ["ourselves", "myself"], "a": 1, "e": ""}]}, {"title": "B · Fill in the reflexive pronoun", "instr": "Write the reflexive pronoun.", "items": [{"t": "fill", "q": "Our friends and we go to school ___.", "a": [["ourselves"]], "e": ""}, {"t": "fill", "q": "My father does his work ___.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "Serkan cut the trees ___.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "My mother and father decorate the house ___.", "a": [["themselves"]], "e": ""}, {"t": "fill", "q": "Kerem and I did the project ___.", "a": [["ourselves"]], "e": ""}, {"t": "fill", "q": "My grandparents planned their holiday ___.", "a": [["themselves"]], "e": ""}, {"t": "fill", "q": "Fidan cooked this delicious meal ___.", "a": [["herself"]], "e": ""}, {"t": "fill", "q": "Our teacher (Mr Sharma) plans the lesson ___.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "Our cat drinks the milk ___.", "a": [["itself"]], "e": ""}, {"t": "fill", "q": "Hakan does the shopping ___.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "Su and Selim went on holiday by ___.", "a": [["themselves"]], "e": ""}, {"t": "fill", "q": "Vedat walked in the darkness by ___.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "I stayed at home last night by ___.", "a": [["myself"]], "e": ""}]}, {"title": "C · Who is the subject?", "instr": "Write the subject pronoun that matches the reflexive.", "items": [{"t": "fill", "q": "___ washed the dishes myself.", "a": [["I"]], "e": ""}, {"t": "fill", "q": "___ played outside themselves.", "a": [["They"]], "e": ""}, {"t": "fill", "q": "___ eats her meal herself.", "a": [["She"]], "e": ""}, {"t": "fill", "q": "___ goes to the sports centre himself.", "a": [["He"]], "e": ""}, {"t": "fill", "q": "___ do my homework myself.", "a": [["I"]], "e": ""}, {"t": "fill", "q": "___ watched the film ourselves.", "a": [["We"]], "e": ""}, {"t": "fill", "q": "___ sleeps in its bed itself.", "a": [["It"]], "e": ""}, {"t": "fill", "q": "___ takes care of the baby herself.", "a": [["She"]], "e": ""}, {"t": "fill", "q": "___ drives to work himself.", "a": [["He"]], "e": ""}]}, {"title": "D · Alone, or just emphasis?", "instr": "“by + myself” = alone. Without “by” = emphasis (did it personally).", "items": [{"t": "mcq", "q": "I went out last night by myself.", "o": ["Alone", "Emphasis"], "a": 0, "e": ""}, {"t": "mcq", "q": "She decorated her room herself.", "o": ["Alone", "Emphasis"], "a": 1, "e": ""}, {"t": "mcq", "q": "We had a picnic with our children ourselves.", "o": ["Alone", "Emphasis"], "a": 1, "e": ""}, {"t": "mcq", "q": "My mother goes to work by herself.", "o": ["Alone", "Emphasis"], "a": 0, "e": ""}, {"t": "mcq", "q": "I sewed that dress by myself.", "o": ["Alone", "Emphasis"], "a": 0, "e": ""}, {"t": "mcq", "q": "Serdar watched TV at home himself.", "o": ["Alone", "Emphasis"], "a": 1, "e": ""}, {"t": "mcq", "q": "Sevgi lives in this house by herself.", "o": ["Alone", "Emphasis"], "a": 0, "e": ""}, {"t": "mcq", "q": "I went to the museum by myself.", "o": ["Alone", "Emphasis"], "a": 0, "e": ""}]}, {"title": "E · Reflexive or each other? (Pro)", "instr": "Write “each other” or a reflexive pronoun.", "items": [{"t": "fill", "q": "Why are you talking to ___? Don't you think it's a bit weird?", "a": [["yourself"]], "e": ""}, {"t": "fill", "q": "He cut ___ while he was shaving.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "Mary and I are best friends and we trust ___ completely.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "Did you enjoy ___ at the party last night?", "a": [["yourself", "yourselves"]], "e": ""}, {"t": "fill", "q": "Lucy always remembers my birthday and I remember hers. We always send ___ birthday cards.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "Look at ___! You're soaking wet.", "a": [["yourself", "yourselves"]], "e": ""}, {"t": "fill", "q": "We have been friends for years. We know ___ very well.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "We haven't seen ___ for ages.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "I've made the cake ___. I hope you'll enjoy it.", "a": [["myself"]], "e": ""}, {"t": "fill", "q": "You should be proud of ___. You've done a good job.", "a": [["yourself", "yourselves"]], "e": ""}, {"t": "fill", "q": "Friends can always rely on ___.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "She blames ___ for the mistake.", "a": [["herself"]], "e": ""}, {"t": "fill", "q": "Adam only thinks of ___. He is so selfish.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "I sometimes talk to ___. I know it's a bit weird.", "a": [["myself"]], "e": ""}, {"t": "fill", "q": "John is proud of ___ because his business has grown.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "We are angry with ___ because we lied to our parents.", "a": [["ourselves"]], "e": ""}, {"t": "fill", "q": "Sue looked at ___ in the mirror.", "a": [["herself"]], "e": ""}, {"t": "fill", "q": "My parents love ___ and they always show ___ a lot of affection.", "a": [["each other"], ["each other"]], "e": ""}, {"t": "fill", "q": "Our town should promote ___ as a tourist resort.", "a": [["itself"]], "e": ""}, {"t": "fill", "q": "Katya and Andy aren't seeing ___ anymore. They broke up last week.", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "She kept repeating to ___, 'You can make it.'", "a": [["herself"]], "e": ""}, {"t": "fill", "q": "Do we know ___? Have we met before?", "a": [["each other"]], "e": ""}, {"t": "fill", "q": "Stop panicking! Pull ___ together, guys!", "a": [["yourselves"]], "e": ""}]}, {"title": "F · Advanced reflexives (Pro)", "instr": "Write myself, yourself, himself, herself, itself, ourselves, yourselves or themselves.", "items": [{"t": "fill", "q": "We wrote these poems ___ in the English lesson.", "a": [["ourselves"]], "e": ""}, {"t": "fill", "q": "At first Marianne found the party boring, but after she met Tommy she began to enjoy ___.", "a": [["herself"]], "e": ""}, {"t": "fill", "q": "Why don't you go to the party and see for ___ how she is?", "a": [["yourself"]], "e": ""}, {"t": "fill", "q": "Romeo and Juliet sacrificed ___ because their parents were against their love.", "a": [["themselves"]], "e": ""}, {"t": "fill", "q": "What's the matter with Peter? — I think he cut ___ with a knife.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "We often ask ___ why we didn't win the match.", "a": [["ourselves"]], "e": ""}, {"t": "fill", "q": "Be careful, children, or you will hurt ___.", "a": [["yourselves"]], "e": ""}, {"t": "fill", "q": "This machine will switch ___ off in ten minutes.", "a": [["itself"]], "e": ""}, {"t": "fill", "q": "John was so angry that he threw ___ on the ground.", "a": [["himself"]], "e": ""}, {"t": "fill", "q": "My friends enjoyed ___ very much at the birthday party.", "a": [["themselves"]], "e": ""}, {"t": "fill", "q": "Tom, control ___. You can't shout here.", "a": [["yourself"]], "e": ""}, {"t": "fill", "q": "If I were a magician, I would turn ___ into a bird.", "a": [["myself"]], "e": ""}, {"t": "fill", "q": "Don't worry, Mum. We can look after ___ when you are away.", "a": [["ourselves"]], "e": ""}]}], "next": "Lesson 5 — This, That, These, Those"};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"; P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.test?"the Pronouns Final Test":"Pronouns Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

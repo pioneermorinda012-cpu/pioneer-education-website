@@ -1,0 +1,3152 @@
+{
+ "w2-01": {
+  "words": [
+   {
+    "w": "genetically modified (GM)",
+    "m": "changed in a laboratory by altering its genes"
+   },
+   {
+    "w": "yield",
+    "m": "the amount of crop a farm produces"
+   },
+   {
+    "w": "pest-resistant",
+    "m": "not easily damaged by insects"
+   },
+   {
+    "w": "food security",
+    "m": "everyone having reliable access to enough food"
+   },
+   {
+    "w": "long-term effects",
+    "m": "results that appear only after many years"
+   },
+   {
+    "w": "biodiversity",
+    "m": "the variety of plant and animal life"
+   },
+   {
+    "w": "consumer",
+    "m": "a person who buys and uses products"
+   },
+   {
+    "w": "regulation",
+    "m": "official rules that control something"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "GM food is good because it makes more food.",
+    "better": "GM crops can significantly increase yields, helping to ensure food security for growing populations."
+   },
+   {
+    "basic": "Some people are scared of GM food.",
+    "better": "A considerable proportion of consumers remain sceptical about the safety of genetically modified products."
+   },
+   {
+    "basic": "We don't know if it is bad for health.",
+    "better": "The long-term health effects of these crops have yet to be fully established."
+   },
+   {
+    "basic": "Big companies make a lot of money from it.",
+    "better": "A handful of multinational corporations stand to profit enormously from patented seeds."
+   },
+   {
+    "basic": "It can hurt nature.",
+    "better": "Widespread cultivation could pose a threat to biodiversity."
+   },
+   {
+    "basic": "The government should check it.",
+    "better": "Strict regulation and transparent labelling are essential to protect public health."
+   }
+  ],
+  "collocations": [
+   "boost crop yields",
+   "address food shortages",
+   "pose a health risk",
+   "raise ethical concerns",
+   "clear labelling of products",
+   "rigorous scientific testing"
+  ]
+ },
+ "w2-02": {
+  "words": [
+   {
+    "w": "automation",
+    "m": "using machines to do work that people did"
+   },
+   {
+    "w": "algorithm",
+    "m": "a set of rules a computer follows to solve a problem"
+   },
+   {
+    "w": "obsolete",
+    "m": "no longer needed or used"
+   },
+   {
+    "w": "workforce",
+    "m": "all the people who work in a country or company"
+   },
+   {
+    "w": "efficiency",
+    "m": "doing a task with less time, effort or cost"
+   },
+   {
+    "w": "ethical",
+    "m": "connected with what is morally right"
+   },
+   {
+    "w": "surveillance",
+    "m": "careful watching of people, often by the state"
+   },
+   {
+    "w": "innovation",
+    "m": "a new idea, method or invention"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Robots will take people's jobs.",
+    "better": "Automation is likely to render many routine jobs obsolete."
+   },
+   {
+    "basic": "AI is very useful for doctors.",
+    "better": "AI is already transforming healthcare, for instance by detecting diseases at an earlier stage."
+   },
+   {
+    "basic": "Computers work faster than people.",
+    "better": "Machines can process vast amounts of data far more efficiently than humans."
+   },
+   {
+    "basic": "AI can be dangerous.",
+    "better": "Unregulated AI poses serious risks to privacy and security."
+   },
+   {
+    "basic": "People need to learn new skills.",
+    "better": "Workers will need to retrain and acquire new skills to remain employable."
+   },
+   {
+    "basic": "In the future AI will be everywhere.",
+    "better": "Artificial intelligence is set to become an integral part of everyday life."
+   }
+  ],
+  "collocations": [
+   "replace human workers",
+   "raise productivity",
+   "pose an ethical dilemma",
+   "job displacement",
+   "data privacy",
+   "technological advancement"
+  ]
+ },
+ "w2-03": {
+  "words": [
+   {
+    "w": "exploit",
+    "m": "to use someone or something unfairly for your own benefit"
+   },
+   {
+    "w": "animal welfare",
+    "m": "the health and happiness of animals"
+   },
+   {
+    "w": "cruelty",
+    "m": "behaviour that causes pain or suffering"
+   },
+   {
+    "w": "cosmetics",
+    "m": "products such as make-up and creams"
+   },
+   {
+    "w": "alternative",
+    "m": "another possible choice or method"
+   },
+   {
+    "w": "endangered",
+    "m": "at risk of disappearing completely"
+   },
+   {
+    "w": "captivity",
+    "m": "being kept in a closed space and not free"
+   },
+   {
+    "w": "medical breakthrough",
+    "m": "an important discovery in medicine"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Testing on animals is cruel.",
+    "better": "Subjecting animals to experiments causes unnecessary suffering."
+   },
+   {
+    "basic": "Animals help us find new medicines.",
+    "better": "Animal testing has contributed to numerous medical breakthroughs, including vaccines."
+   },
+   {
+    "basic": "We should not test make-up on animals.",
+    "better": "There is no justification for testing cosmetics on animals when safe alternatives exist."
+   },
+   {
+    "basic": "Zoos keep animals in small places.",
+    "better": "Many animals in zoos are kept in cramped and unnatural conditions."
+   },
+   {
+    "basic": "Some animals are dying out.",
+    "better": "A growing number of species are now on the verge of extinction."
+   },
+   {
+    "basic": "People should treat animals better.",
+    "better": "Society has a moral obligation to protect animal welfare."
+   }
+  ],
+  "collocations": [
+   "conduct experiments on animals",
+   "inflict pain and suffering",
+   "animal rights activists",
+   "a moral obligation",
+   "in captivity",
+   "on the verge of extinction"
+  ]
+ },
+ "w2-36": {
+  "words": [
+   {
+    "w": "graduate",
+    "m": "a person with a university degree"
+   },
+   {
+    "w": "job market",
+    "m": "the supply of jobs and workers in an economy"
+   },
+   {
+    "w": "qualification",
+    "m": "a degree, diploma or certificate"
+   },
+   {
+    "w": "vocational training",
+    "m": "practical training for a specific job"
+   },
+   {
+    "w": "recession",
+    "m": "a period when an economy shrinks"
+   },
+   {
+    "w": "self-employed",
+    "m": "working for yourself, not for an employer"
+   },
+   {
+    "w": "skills gap",
+    "m": "the difference between the skills employers need and the skills workers have"
+   },
+   {
+    "w": "entrepreneur",
+    "m": "a person who starts a business"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Many people with degrees have no job.",
+    "better": "A large number of highly qualified graduates are unable to find suitable employment."
+   },
+   {
+    "basic": "There are not enough jobs.",
+    "better": "The job market is simply unable to absorb the number of graduates entering it each year."
+   },
+   {
+    "basic": "Colleges teach the wrong things.",
+    "better": "There is often a mismatch between what universities teach and the skills employers require."
+   },
+   {
+    "basic": "Having no job makes people sad.",
+    "better": "Long-term unemployment can have a devastating effect on people's self-esteem and mental health."
+   },
+   {
+    "basic": "The government should make jobs.",
+    "better": "Governments should invest in sectors with the potential to create jobs."
+   },
+   {
+    "basic": "Young people should start businesses.",
+    "better": "Encouraging young entrepreneurs could reduce youth unemployment."
+   }
+  ],
+  "collocations": [
+   "the unemployment rate",
+   "job prospects",
+   "bridge the skills gap",
+   "create employment opportunities",
+   "practical work experience",
+   "a competitive job market"
+  ]
+ },
+ "w2-04": {
+  "words": [
+   {
+    "w": "deprivation",
+    "m": "a lack of things needed for a good life"
+   },
+   {
+    "w": "welfare",
+    "m": "money or help given by the state to people in need"
+   },
+   {
+    "w": "inequality",
+    "m": "an unfair difference between groups of people"
+   },
+   {
+    "w": "basic necessities",
+    "m": "food, water, shelter and clothing"
+   },
+   {
+    "w": "cycle of poverty",
+    "m": "when poor families stay poor across generations"
+   },
+   {
+    "w": "charity",
+    "m": "an organisation that helps people in need"
+   },
+   {
+    "w": "dependency",
+    "m": "needing help from others to survive"
+   },
+   {
+    "w": "empower",
+    "m": "to give people the power or ability to improve their lives"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Poor people don't have money for food.",
+    "better": "Many families living in poverty struggle to afford basic necessities."
+   },
+   {
+    "basic": "The government should give them money.",
+    "better": "State welfare can provide a vital safety net for the most vulnerable."
+   },
+   {
+    "basic": "Giving money makes people lazy.",
+    "better": "Unconditional handouts may create long-term dependency."
+   },
+   {
+    "basic": "Education helps poor people.",
+    "better": "Access to quality education is the most effective way to break the cycle of poverty."
+   },
+   {
+    "basic": "The gap between rich and poor is big.",
+    "better": "Income inequality has widened considerably in recent decades."
+   },
+   {
+    "basic": "Poor children have fewer chances.",
+    "better": "Children from deprived backgrounds face far fewer opportunities."
+   }
+  ],
+  "collocations": [
+   "live below the poverty line",
+   "alleviate poverty",
+   "a safety net",
+   "break the cycle of poverty",
+   "social inequality",
+   "access to basic services"
+  ]
+ },
+ "w2-37": {
+  "words": [
+   {
+    "w": "emissions",
+    "m": "gases sent into the air"
+   },
+   {
+    "w": "fossil fuels",
+    "m": "coal, oil and gas"
+   },
+   {
+    "w": "carbon footprint",
+    "m": "the amount of carbon dioxide a person or activity produces"
+   },
+   {
+    "w": "respiratory",
+    "m": "connected with breathing"
+   },
+   {
+    "w": "renewable",
+    "m": "able to be replaced naturally, e.g. solar or wind"
+   },
+   {
+    "w": "smog",
+    "m": "a mix of smoke and fog over a city"
+   },
+   {
+    "w": "restrict",
+    "m": "to limit"
+   },
+   {
+    "w": "sustainable",
+    "m": "able to continue without harming the environment"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Cars and factories make the air dirty.",
+    "better": "Vehicle exhaust and industrial emissions are the main causes of air pollution."
+   },
+   {
+    "basic": "Dirty air makes people ill.",
+    "better": "Exposure to polluted air is linked to serious respiratory illnesses."
+   },
+   {
+    "basic": "We should fly less.",
+    "better": "Restricting air travel would reduce carbon emissions, but it is not the only solution."
+   },
+   {
+    "basic": "We should use clean energy.",
+    "better": "Switching to renewable energy sources is essential to cut emissions."
+   },
+   {
+    "basic": "The government should stop it.",
+    "better": "Governments should impose stricter limits on emissions from factories and vehicles."
+   },
+   {
+    "basic": "Everyone can help.",
+    "better": "Individuals can reduce their carbon footprint by using public transport."
+   }
+  ],
+  "collocations": [
+   "reduce carbon emissions",
+   "air quality",
+   "exhaust fumes",
+   "impose strict regulations",
+   "switch to renewable energy",
+   "a major contributor to pollution"
+  ]
+ },
+ "w2-05": {
+  "words": [
+   {
+    "w": "contaminate",
+    "m": "to make something dirty or poisonous"
+   },
+   {
+    "w": "sewage",
+    "m": "waste water from homes and toilets"
+   },
+   {
+    "w": "industrial waste",
+    "m": "waste from factories"
+   },
+   {
+    "w": "ecosystem",
+    "m": "all the living things in an area and how they affect each other"
+   },
+   {
+    "w": "marine life",
+    "m": "animals and plants that live in the sea"
+   },
+   {
+    "w": "dispose of",
+    "m": "to get rid of"
+   },
+   {
+    "w": "agricultural run-off",
+    "m": "fertilisers and chemicals washed from farms into rivers"
+   },
+   {
+    "w": "purify",
+    "m": "to make something clean"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Factories put dirty water in rivers.",
+    "better": "Factories often discharge untreated waste directly into rivers."
+   },
+   {
+    "basic": "Fish are dying.",
+    "better": "Water pollution is devastating marine life and entire ecosystems."
+   },
+   {
+    "basic": "Dirty water makes people sick.",
+    "better": "Contaminated water is responsible for the spread of diseases such as cholera."
+   },
+   {
+    "basic": "People throw plastic in the sea.",
+    "better": "Millions of tonnes of plastic waste end up in the oceans every year."
+   },
+   {
+    "basic": "Companies should be punished.",
+    "better": "Companies that pollute waterways should face heavy fines."
+   },
+   {
+    "basic": "We should clean the water.",
+    "better": "Investment in water treatment plants is vital to purify drinking water."
+   }
+  ],
+  "collocations": [
+   "discharge waste into rivers",
+   "contaminate water supplies",
+   "marine ecosystems",
+   "untreated sewage",
+   "safe drinking water",
+   "face heavy fines"
+  ]
+ },
+ "w2-06": {
+  "words": [
+   {
+    "w": "traditional",
+    "m": "passed down from the past, typical of a culture"
+   },
+   {
+    "w": "cultural identity",
+    "m": "the feeling of belonging to a culture"
+   },
+   {
+    "w": "globalisation",
+    "m": "the world becoming more connected"
+   },
+   {
+    "w": "genre",
+    "m": "a type or style (e.g. pop, folk, classical)"
+   },
+   {
+    "w": "heritage",
+    "m": "traditions and culture passed down through generations"
+   },
+   {
+    "w": "therapeutic",
+    "m": "helping to relax or heal"
+   },
+   {
+    "w": "mainstream",
+    "m": "popular with most people"
+   },
+   {
+    "w": "preserve",
+    "m": "to keep something from being lost"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Music makes people happy.",
+    "better": "Music has a powerful effect on our mood and emotional well-being."
+   },
+   {
+    "basic": "Old music is being forgotten.",
+    "better": "Traditional music is in danger of disappearing as global pop dominates."
+   },
+   {
+    "basic": "Music is part of our culture.",
+    "better": "Music plays a central role in expressing a nation's cultural identity."
+   },
+   {
+    "basic": "Young people only listen to pop.",
+    "better": "Many young people favour mainstream international music over local genres."
+   },
+   {
+    "basic": "Music helps people relax.",
+    "better": "Listening to music can be highly therapeutic and reduce stress."
+   },
+   {
+    "basic": "We should save traditional music.",
+    "better": "Governments should help preserve traditional music as part of their heritage."
+   }
+  ],
+  "collocations": [
+   "cultural heritage",
+   "a sense of identity",
+   "preserve traditions",
+   "have a therapeutic effect",
+   "the global music industry",
+   "bring people together"
+  ]
+ },
+ "w2-38": {
+  "words": [
+   {
+    "w": "reckless",
+    "m": "careless and dangerous"
+   },
+   {
+    "w": "fatality",
+    "m": "a death caused by an accident"
+   },
+   {
+    "w": "enforce",
+    "m": "to make sure a law is obeyed"
+   },
+   {
+    "w": "penalty",
+    "m": "a punishment such as a fine"
+   },
+   {
+    "w": "speed limit",
+    "m": "the fastest speed allowed on a road"
+   },
+   {
+    "w": "licence",
+    "m": "official permission to drive"
+   },
+   {
+    "w": "infrastructure",
+    "m": "roads, bridges and other basic structures"
+   },
+   {
+    "w": "deterrent",
+    "m": "something that stops people doing something"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Young drivers drive too fast.",
+    "better": "Young drivers are statistically more likely to take risks and drive recklessly."
+   },
+   {
+    "basic": "Many people die on the roads.",
+    "better": "Road accidents claim thousands of lives every year."
+   },
+   {
+    "basic": "Police should give bigger fines.",
+    "better": "Stricter penalties would act as a powerful deterrent."
+   },
+   {
+    "basic": "Roads are in bad condition.",
+    "better": "Poor road infrastructure contributes significantly to accidents."
+   },
+   {
+    "basic": "People should drive carefully.",
+    "better": "Drivers need to obey speed limits and remain alert at all times."
+   },
+   {
+    "basic": "Learning to drive should be harder.",
+    "better": "Driving tests should be made more rigorous before a licence is issued."
+   }
+  ],
+  "collocations": [
+   "road traffic accidents",
+   "enforce traffic laws",
+   "exceed the speed limit",
+   "drink-driving",
+   "a powerful deterrent",
+   "raise awareness of road safety"
+  ]
+ },
+ "w2-08": {
+  "words": [
+   {
+    "w": "workload",
+    "m": "the amount of work a person has to do"
+   },
+   {
+    "w": "pressure",
+    "m": "demands that make a person anxious"
+   },
+   {
+    "w": "burnout",
+    "m": "physical and mental exhaustion from too much work"
+   },
+   {
+    "w": "anxiety",
+    "m": "a feeling of worry and nervousness"
+   },
+   {
+    "w": "work-life balance",
+    "m": "dividing time well between work and personal life"
+   },
+   {
+    "w": "sedentary",
+    "m": "sitting a lot and not moving much"
+   },
+   {
+    "w": "cope with",
+    "m": "to deal successfully with something difficult"
+   },
+   {
+    "w": "well-being",
+    "m": "the state of being healthy and happy"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "People have too much work.",
+    "better": "Many employees face an excessive workload and long working hours."
+   },
+   {
+    "basic": "Stress is bad for health.",
+    "better": "Chronic stress can have serious consequences for both physical and mental health."
+   },
+   {
+    "basic": "Phones make people stressed.",
+    "better": "Constant connection to work through smartphones makes it difficult to switch off."
+   },
+   {
+    "basic": "Life is very expensive now.",
+    "better": "The rising cost of living puts families under considerable financial pressure."
+   },
+   {
+    "basic": "Exercise helps with stress.",
+    "better": "Regular physical activity is one of the most effective ways to cope with stress."
+   },
+   {
+    "basic": "Companies should help workers.",
+    "better": "Employers should promote a healthy work-life balance."
+   }
+  ],
+  "collocations": [
+   "under a lot of pressure",
+   "suffer from burnout",
+   "a healthy work-life balance",
+   "cope with stress",
+   "mental well-being",
+   "the rising cost of living"
+  ]
+ },
+ "w2-39": {
+  "words": [
+   {
+    "w": "developing country",
+    "m": "a country with a less advanced economy"
+   },
+   {
+    "w": "foreign aid",
+    "m": "money or help given by one country to another"
+   },
+   {
+    "w": "infrastructure",
+    "m": "basic systems such as roads, power and water"
+   },
+   {
+    "w": "corruption",
+    "m": "dishonest use of power for personal gain"
+   },
+   {
+    "w": "self-sufficient",
+    "m": "able to provide for itself without help"
+   },
+   {
+    "w": "humanitarian",
+    "m": "concerned with reducing suffering"
+   },
+   {
+    "w": "debt relief",
+    "m": "cancelling or reducing a country's debts"
+   },
+   {
+    "w": "sustainable development",
+    "m": "growth that does not harm the future"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Rich countries should help poor ones.",
+    "better": "Wealthy nations have a moral responsibility to support developing countries."
+   },
+   {
+    "basic": "Money doesn't always reach poor people.",
+    "better": "Due to corruption, aid often fails to reach those most in need."
+   },
+   {
+    "basic": "Poor countries need schools and hospitals.",
+    "better": "Investment in education and healthcare is essential for long-term development."
+   },
+   {
+    "basic": "Giving help makes them depend on it.",
+    "better": "Excessive aid can create dependency rather than encouraging self-sufficiency."
+   },
+   {
+    "basic": "Teach them how to grow more food.",
+    "better": "Sharing agricultural technology would help poorer nations become self-sufficient."
+   },
+   {
+    "basic": "Trade is better than giving money.",
+    "better": "Fair trade agreements can do more for development than direct financial aid."
+   }
+  ],
+  "collocations": [
+   "provide financial assistance",
+   "long-term development",
+   "humanitarian aid",
+   "fair trade",
+   "tackle corruption",
+   "the gap between rich and poor nations"
+  ]
+ },
+ "w2-11": {
+  "words": [
+   {
+    "w": "brain drain",
+    "m": "when skilled people leave their country to work abroad"
+   },
+   {
+    "w": "emigrate",
+    "m": "to leave your country to live in another"
+   },
+   {
+    "w": "remittances",
+    "m": "money sent home by workers abroad"
+   },
+   {
+    "w": "skilled professional",
+    "m": "a trained worker such as a doctor or engineer"
+   },
+   {
+    "w": "incentive",
+    "m": "something that encourages a person to do something"
+   },
+   {
+    "w": "prospects",
+    "m": "chances of success in the future"
+   },
+   {
+    "w": "shortage",
+    "m": "a situation where there is not enough of something"
+   },
+   {
+    "w": "host country",
+    "m": "the country that migrants move to"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Doctors are leaving India.",
+    "better": "A growing number of medical professionals are emigrating in search of better prospects."
+   },
+   {
+    "basic": "They want more money.",
+    "better": "Higher salaries and better working conditions abroad are the main incentives."
+   },
+   {
+    "basic": "Their country loses good workers.",
+    "better": "The brain drain deprives developing countries of the skilled workers they most need."
+   },
+   {
+    "basic": "They send money home.",
+    "better": "Remittances from workers abroad make a significant contribution to their home economy."
+   },
+   {
+    "basic": "Hospitals don't have enough doctors.",
+    "better": "This leads to severe staff shortages in hospitals and schools."
+   },
+   {
+    "basic": "The government should pay them more.",
+    "better": "Governments should offer attractive incentives to encourage professionals to stay."
+   }
+  ],
+  "collocations": [
+   "the brain drain",
+   "better career prospects",
+   "a shortage of skilled workers",
+   "seek opportunities abroad",
+   "offer financial incentives",
+   "the home country's economy"
+  ]
+ },
+ "w2-40": {
+  "words": [
+   {
+    "w": "flexible",
+    "m": "able to change easily to suit needs"
+   },
+   {
+    "w": "self-paced",
+    "m": "done at the speed the learner chooses"
+   },
+   {
+    "w": "accessible",
+    "m": "easy to reach or use"
+   },
+   {
+    "w": "self-discipline",
+    "m": "the ability to make yourself work without supervision"
+   },
+   {
+    "w": "interaction",
+    "m": "communication between people"
+   },
+   {
+    "w": "distraction",
+    "m": "something that takes attention away"
+   },
+   {
+    "w": "cost-effective",
+    "m": "giving good value for the money spent"
+   },
+   {
+    "w": "digital divide",
+    "m": "the gap between people with and without internet access"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "You can study at home.",
+    "better": "Online courses allow learners to study from anywhere, at their own pace."
+   },
+   {
+    "basic": "It is cheaper.",
+    "better": "Online learning is often far more cost-effective than traditional courses."
+   },
+   {
+    "basic": "You don't meet the teacher.",
+    "better": "Students miss out on face-to-face interaction with teachers and classmates."
+   },
+   {
+    "basic": "It is easy to get distracted.",
+    "better": "Studying online requires a high level of self-discipline."
+   },
+   {
+    "basic": "Some people don't have internet.",
+    "better": "The digital divide means that many students cannot access online education."
+   },
+   {
+    "basic": "Working people can study too.",
+    "better": "Online courses are ideal for working adults who need flexibility."
+   }
+  ],
+  "collocations": [
+   "at their own pace",
+   "face-to-face interaction",
+   "a reliable internet connection",
+   "the digital divide",
+   "distance learning",
+   "lifelong learning"
+  ]
+ },
+ "w2-14": {
+  "words": [
+   {
+    "w": "multinational",
+    "m": "a company that operates in many countries"
+   },
+   {
+    "w": "interconnected",
+    "m": "linked closely together"
+   },
+   {
+    "w": "cultural homogenisation",
+    "m": "cultures becoming the same"
+   },
+   {
+    "w": "outsourcing",
+    "m": "sending work to companies in other countries"
+   },
+   {
+    "w": "free trade",
+    "m": "trade without taxes or limits between countries"
+   },
+   {
+    "w": "exploitation",
+    "m": "unfair use of workers or resources"
+   },
+   {
+    "w": "standard of living",
+    "m": "the level of comfort and wealth people have"
+   },
+   {
+    "w": "local industry",
+    "m": "businesses that belong to a particular area"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "The world is more connected.",
+    "better": "Globalisation has made the world more interconnected than ever before."
+   },
+   {
+    "basic": "Big companies are everywhere.",
+    "better": "Multinational corporations now dominate markets across the globe."
+   },
+   {
+    "basic": "All countries are becoming the same.",
+    "better": "There is a risk that local cultures will be replaced by a single global culture."
+   },
+   {
+    "basic": "Jobs move to cheaper countries.",
+    "better": "Many companies outsource manufacturing to countries where labour is cheaper."
+   },
+   {
+    "basic": "Poor countries get richer.",
+    "better": "Globalisation has raised the standard of living in many developing economies."
+   },
+   {
+    "basic": "Small shops close.",
+    "better": "Local businesses often struggle to compete with global brands."
+   }
+  ],
+  "collocations": [
+   "the global economy",
+   "multinational corporations",
+   "cultural diversity",
+   "raise living standards",
+   "outsource production",
+   "compete on a global scale"
+  ]
+ },
+ "w2-41": {
+  "words": [
+   {
+    "w": "solar panel",
+    "m": "a device that turns sunlight into electricity"
+   },
+   {
+    "w": "renewable",
+    "m": "naturally replaced, never running out"
+   },
+   {
+    "w": "initial cost",
+    "m": "the money needed at the start"
+   },
+   {
+    "w": "utility bills",
+    "m": "bills for electricity, gas and water"
+   },
+   {
+    "w": "intermittent",
+    "m": "stopping and starting, not continuous"
+   },
+   {
+    "w": "grid",
+    "m": "the network that delivers electricity"
+   },
+   {
+    "w": "subsidy",
+    "m": "money from the government to reduce a cost"
+   },
+   {
+    "w": "carbon-neutral",
+    "m": "producing no overall carbon emissions"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Solar energy is clean.",
+    "better": "Solar power is a clean, renewable source of energy that produces no emissions."
+   },
+   {
+    "basic": "It saves money.",
+    "better": "Households can make substantial savings on their electricity bills."
+   },
+   {
+    "basic": "Solar panels are expensive.",
+    "better": "The initial cost of installing solar panels remains prohibitively high for many families."
+   },
+   {
+    "basic": "It doesn't work at night.",
+    "better": "Solar power is intermittent, as it depends on weather and daylight."
+   },
+   {
+    "basic": "The government should help.",
+    "better": "Government subsidies could make solar energy affordable for ordinary households."
+   },
+   {
+    "basic": "It is good for the future.",
+    "better": "Wider use of solar energy is vital for a sustainable future."
+   }
+  ],
+  "collocations": [
+   "a renewable energy source",
+   "install solar panels",
+   "reduce dependence on fossil fuels",
+   "the initial investment",
+   "government subsidies",
+   "cut household energy costs"
+  ]
+ },
+ "w2-42": {
+  "words": [
+   {
+    "w": "greenhouse gases",
+    "m": "gases such as CO₂ that trap heat in the atmosphere"
+   },
+   {
+    "w": "deforestation",
+    "m": "cutting down large areas of forest"
+   },
+   {
+    "w": "extreme weather",
+    "m": "floods, droughts and storms that are unusually severe"
+   },
+   {
+    "w": "sea levels",
+    "m": "the average height of the sea"
+   },
+   {
+    "w": "carbon tax",
+    "m": "a tax on producing carbon emissions"
+   },
+   {
+    "w": "mitigate",
+    "m": "to make something less harmful"
+   },
+   {
+    "w": "irreversible",
+    "m": "impossible to change back"
+   },
+   {
+    "w": "climate change",
+    "m": "long-term changes in the world's weather"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "The earth is getting hotter.",
+    "better": "Global temperatures have risen sharply over the past century."
+   },
+   {
+    "basic": "Burning oil and coal causes it.",
+    "better": "The burning of fossil fuels releases vast quantities of greenhouse gases."
+   },
+   {
+    "basic": "Cutting trees makes it worse.",
+    "better": "Deforestation reduces the planet's ability to absorb carbon dioxide."
+   },
+   {
+    "basic": "There are more floods and droughts.",
+    "better": "Global warming has led to more frequent and severe extreme weather events."
+   },
+   {
+    "basic": "Ice is melting.",
+    "better": "Melting polar ice is causing sea levels to rise, threatening coastal cities."
+   },
+   {
+    "basic": "Countries must work together.",
+    "better": "Tackling climate change requires coordinated international action."
+   }
+  ],
+  "collocations": [
+   "greenhouse gas emissions",
+   "rising sea levels",
+   "extreme weather events",
+   "tackle climate change",
+   "carbon footprint",
+   "international cooperation"
+  ]
+ },
+ "w2-17": {
+  "words": [
+   {
+    "w": "instant",
+    "m": "happening immediately"
+   },
+   {
+    "w": "social media",
+    "m": "websites and apps for sharing content and talking"
+   },
+   {
+    "w": "misinformation",
+    "m": "false information spread, often by mistake"
+   },
+   {
+    "w": "isolation",
+    "m": "being alone, without contact with others"
+   },
+   {
+    "w": "cyberbullying",
+    "m": "bullying someone online"
+   },
+   {
+    "w": "privacy",
+    "m": "the right to keep personal information to yourself"
+   },
+   {
+    "w": "superficial",
+    "m": "not deep or real"
+   },
+   {
+    "w": "connectivity",
+    "m": "being connected to the internet or to others"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "We can talk to people far away.",
+    "better": "The internet allows instant communication with people all over the world."
+   },
+   {
+    "basic": "People don't meet face to face.",
+    "better": "Online contact is replacing face-to-face conversation."
+   },
+   {
+    "basic": "There are many fake news.",
+    "better": "Social media has accelerated the spread of misinformation."
+   },
+   {
+    "basic": "Online friends are not real friends.",
+    "better": "Online relationships can be superficial compared with real friendships."
+   },
+   {
+    "basic": "Some people are bullied online.",
+    "better": "Cyberbullying has become a serious problem, particularly among teenagers."
+   },
+   {
+    "basic": "Companies use our data.",
+    "better": "Many users are unaware of how their personal data is collected and used."
+   }
+  ],
+  "collocations": [
+   "instant communication",
+   "keep in touch",
+   "the spread of misinformation",
+   "social isolation",
+   "online privacy",
+   "face-to-face interaction"
+  ]
+ },
+ "w2-18": {
+  "words": [
+   {
+    "w": "sedentary lifestyle",
+    "m": "a way of life with little physical activity"
+   },
+   {
+    "w": "obesity",
+    "m": "being very overweight"
+   },
+   {
+    "w": "processed food",
+    "m": "food changed by industry, often with salt, sugar and fat"
+   },
+   {
+    "w": "preventive",
+    "m": "stopping a problem before it happens"
+   },
+   {
+    "w": "life expectancy",
+    "m": "how long people are expected to live"
+   },
+   {
+    "w": "chronic disease",
+    "m": "a long-lasting illness such as diabetes"
+   },
+   {
+    "w": "balanced diet",
+    "m": "eating the right amounts of different foods"
+   },
+   {
+    "w": "public health",
+    "m": "the health of the population as a whole"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "People eat junk food.",
+    "better": "Many people rely on processed food that is high in sugar and fat."
+   },
+   {
+    "basic": "People don't do exercise.",
+    "better": "Sedentary lifestyles have become the norm, particularly among office workers."
+   },
+   {
+    "basic": "More people are fat.",
+    "better": "Obesity rates have risen dramatically in recent decades."
+   },
+   {
+    "basic": "It is hard to be healthy.",
+    "better": "Busy schedules make it difficult for people to maintain a healthy lifestyle."
+   },
+   {
+    "basic": "Schools should teach about health.",
+    "better": "Schools should educate children about nutrition from an early age."
+   },
+   {
+    "basic": "Prevent illness first.",
+    "better": "Preventive healthcare is more effective and less costly than treatment."
+   }
+  ],
+  "collocations": [
+   "lead a sedentary lifestyle",
+   "a balanced diet",
+   "chronic diseases such as diabetes",
+   "maintain a healthy lifestyle",
+   "preventive healthcare",
+   "public health campaigns"
+  ]
+ },
+ "w2-23": {
+  "words": [
+   {
+    "w": "international trade",
+    "m": "buying and selling goods between countries"
+   },
+   {
+    "w": "import",
+    "m": "to bring goods into a country to sell"
+   },
+   {
+    "w": "export",
+    "m": "to send goods to another country to sell"
+   },
+   {
+    "w": "tariff",
+    "m": "a tax on imported goods"
+   },
+   {
+    "w": "economic growth",
+    "m": "an increase in a country's wealth"
+   },
+   {
+    "w": "competition",
+    "m": "rivalry between companies"
+   },
+   {
+    "w": "protectionism",
+    "m": "protecting local industry by limiting imports"
+   },
+   {
+    "w": "cultural exchange",
+    "m": "sharing ideas and customs between cultures"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Trade makes countries rich.",
+    "better": "International trade is a major driver of economic growth."
+   },
+   {
+    "basic": "We can buy foreign things.",
+    "better": "Consumers enjoy access to a wider range of goods at lower prices."
+   },
+   {
+    "basic": "Local companies can't compete.",
+    "better": "Domestic industries may struggle to compete with cheaper imports."
+   },
+   {
+    "basic": "Countries learn about each other.",
+    "better": "Trade promotes cultural exchange and understanding between nations."
+   },
+   {
+    "basic": "Some workers lose their jobs.",
+    "better": "Workers in less competitive industries may lose their jobs."
+   },
+   {
+    "basic": "Countries become friends.",
+    "better": "Strong trade links encourage peaceful relations between countries."
+   }
+  ],
+  "collocations": [
+   "boost economic growth",
+   "foreign investment",
+   "impose tariffs on imports",
+   "a global marketplace",
+   "promote cultural exchange",
+   "domestic industries"
+  ]
+ },
+ "w2-24": {
+  "words": [
+   {
+    "w": "job security",
+    "m": "the confidence that you will not lose your job"
+   },
+   {
+    "w": "loyalty",
+    "m": "staying faithful to an employer"
+   },
+   {
+    "w": "promotion",
+    "m": "moving to a higher position at work"
+   },
+   {
+    "w": "career progression",
+    "m": "moving forward and upward in a career"
+   },
+   {
+    "w": "versatile",
+    "m": "having many different skills"
+   },
+   {
+    "w": "job satisfaction",
+    "m": "the pleasure you get from your work"
+   },
+   {
+    "w": "stagnate",
+    "m": "to stop developing"
+   },
+   {
+    "w": "employability",
+    "m": "how attractive a worker is to employers"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Staying in one job is safe.",
+    "better": "Remaining with one employer offers greater job security and stability."
+   },
+   {
+    "basic": "Companies like loyal workers.",
+    "better": "Employers value loyalty and often reward it with promotion."
+   },
+   {
+    "basic": "Changing jobs gives more skills.",
+    "better": "Moving between organisations allows workers to acquire a broader range of skills."
+   },
+   {
+    "basic": "You can get more money in a new job.",
+    "better": "Changing jobs is often the quickest way to secure a higher salary."
+   },
+   {
+    "basic": "Doing the same thing is boring.",
+    "better": "Staying in the same role for decades can lead to boredom and stagnation."
+   },
+   {
+    "basic": "Experience in many places looks good.",
+    "better": "Diverse work experience makes candidates more attractive to employers."
+   }
+  ],
+  "collocations": [
+   "job security",
+   "climb the career ladder",
+   "broaden one's skills",
+   "career prospects",
+   "job satisfaction",
+   "a competitive salary"
+  ]
+ },
+ "w2-25": {
+  "words": [
+   {
+    "w": "remote",
+    "m": "far away from towns and people"
+   },
+   {
+    "w": "fragile",
+    "m": "easily damaged"
+   },
+   {
+    "w": "ecotourism",
+    "m": "travel that protects nature and local people"
+   },
+   {
+    "w": "revenue",
+    "m": "money that is earned"
+   },
+   {
+    "w": "mass tourism",
+    "m": "very large numbers of tourists visiting a place"
+   },
+   {
+    "w": "infrastructure",
+    "m": "roads, hotels, airports etc."
+   },
+   {
+    "w": "authentic",
+    "m": "real, genuine"
+   },
+   {
+    "w": "conservation",
+    "m": "protecting nature"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Tourists damage nature.",
+    "better": "Mass tourism can cause irreversible damage to fragile environments."
+   },
+   {
+    "basic": "Tourism brings money.",
+    "better": "Tourism generates significant revenue for local economies."
+   },
+   {
+    "basic": "Tourism makes jobs.",
+    "better": "It creates employment opportunities in hotels, transport and restaurants."
+   },
+   {
+    "basic": "Places become crowded and dirty.",
+    "better": "Popular destinations often suffer from overcrowding and pollution."
+   },
+   {
+    "basic": "Local culture changes.",
+    "better": "Local traditions may lose their authenticity to suit tourists."
+   },
+   {
+    "basic": "We should limit tourists.",
+    "better": "Authorities should limit visitor numbers to protect sensitive sites."
+   }
+  ],
+  "collocations": [
+   "generate revenue",
+   "fragile ecosystems",
+   "ecotourism",
+   "environmental damage",
+   "limit visitor numbers",
+   "preserve local culture"
+  ]
+ },
+ "w2-43": {
+  "words": [
+   {
+    "w": "heritage",
+    "m": "history and traditions from the past"
+   },
+   {
+    "w": "ancestry",
+    "m": "the people a family is descended from"
+   },
+   {
+    "w": "records",
+    "m": "written information kept officially"
+   },
+   {
+    "w": "archive",
+    "m": "a place where historical documents are kept"
+   },
+   {
+    "w": "sense of belonging",
+    "m": "feeling that you are part of a place or group"
+   },
+   {
+    "w": "curiosity",
+    "m": "the desire to know or learn"
+   },
+   {
+    "w": "genealogy",
+    "m": "the study of family history"
+   },
+   {
+    "w": "local history",
+    "m": "the history of a town or area"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "People want to know about the past.",
+    "better": "There is growing curiosity about the history of the places where people live."
+   },
+   {
+    "basic": "It makes people feel connected.",
+    "better": "Learning about a home's history can create a sense of belonging."
+   },
+   {
+    "basic": "TV shows about history are popular.",
+    "better": "Television programmes about family history have fuelled this interest."
+   },
+   {
+    "basic": "They can look on the internet.",
+    "better": "Online archives make it easy to research old records."
+   },
+   {
+    "basic": "Old documents are useful.",
+    "better": "Historical records such as maps and census data reveal who once lived there."
+   },
+   {
+    "basic": "They can ask old neighbours.",
+    "better": "Speaking to older residents is a valuable source of local history."
+   }
+  ],
+  "collocations": [
+   "a sense of belonging",
+   "historical records",
+   "trace the history of",
+   "local history",
+   "online archives",
+   "cultural heritage"
+  ]
+ },
+ "w2-27": {
+  "words": [
+   {
+    "w": "spacious",
+    "m": "having a lot of space"
+   },
+   {
+    "w": "privacy",
+    "m": "being free from other people seeing or hearing you"
+   },
+   {
+    "w": "maintenance",
+    "m": "keeping something in good condition"
+   },
+   {
+    "w": "amenities",
+    "m": "useful facilities such as a gym or pool"
+   },
+   {
+    "w": "security",
+    "m": "protection against crime"
+   },
+   {
+    "w": "communal",
+    "m": "shared by a group of people"
+   },
+   {
+    "w": "suburb",
+    "m": "an area on the edge of a city where people live"
+   },
+   {
+    "w": "commute",
+    "m": "to travel regularly to work"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Houses are bigger.",
+    "better": "Houses tend to be more spacious and often have a private garden."
+   },
+   {
+    "basic": "You can be alone in a house.",
+    "better": "A house offers greater privacy, as there are no shared walls."
+   },
+   {
+    "basic": "Apartments are cheaper.",
+    "better": "Apartments are generally more affordable, particularly in city centres."
+   },
+   {
+    "basic": "Apartments are safer.",
+    "better": "Many apartment buildings have security guards and controlled entry."
+   },
+   {
+    "basic": "A house needs a lot of work.",
+    "better": "A house requires considerably more maintenance and repair work."
+   },
+   {
+    "basic": "Apartments are near the city.",
+    "better": "Apartments are usually closer to workplaces, which shortens the commute."
+   }
+  ],
+  "collocations": [
+   "a spacious house",
+   "affordable housing",
+   "communal facilities",
+   "high maintenance costs",
+   "a sense of community",
+   "a short commute"
+  ]
+ },
+ "w2-44": {
+  "words": [
+   {
+    "w": "urban planning",
+    "m": "designing how a city is organised"
+   },
+   {
+    "w": "regulation",
+    "m": "an official rule"
+   },
+   {
+    "w": "aesthetic",
+    "m": "connected with beauty and appearance"
+   },
+   {
+    "w": "skyline",
+    "m": "the outline of buildings against the sky"
+   },
+   {
+    "w": "architect",
+    "m": "a person who designs buildings"
+   },
+   {
+    "w": "sustainable",
+    "m": "not harming the environment"
+   },
+   {
+    "w": "character",
+    "m": "the special qualities of a place"
+   },
+   {
+    "w": "chaotic",
+    "m": "disordered and confusing"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Builders can make anything.",
+    "better": "Without planning controls, developers are free to build whatever they wish."
+   },
+   {
+    "basic": "Cities look messy.",
+    "better": "The lack of regulation can result in a chaotic and unattractive cityscape."
+   },
+   {
+    "basic": "Old buildings are destroyed.",
+    "better": "Historic buildings may be demolished to make way for modern blocks."
+   },
+   {
+    "basic": "Freedom brings new ideas.",
+    "better": "Fewer restrictions allow architects to experiment with innovative designs."
+   },
+   {
+    "basic": "Buildings can be built faster.",
+    "better": "Fewer regulations speed up construction and reduce costs."
+   },
+   {
+    "basic": "Some buildings are unsafe.",
+    "better": "Poorly regulated construction can compromise safety standards."
+   }
+  ],
+  "collocations": [
+   "urban planning",
+   "strict building regulations",
+   "innovative architectural design",
+   "the character of a city",
+   "safety standards",
+   "historic buildings"
+  ]
+ },
+ "w2-30": {
+  "words": [
+   {
+    "w": "malnutrition",
+    "m": "poor health from not eating enough or the right food"
+   },
+   {
+    "w": "famine",
+    "m": "a severe shortage of food in an area"
+   },
+   {
+    "w": "food waste",
+    "m": "food that is thrown away"
+   },
+   {
+    "w": "distribution",
+    "m": "the way something is shared or delivered"
+   },
+   {
+    "w": "crop failure",
+    "m": "when crops do not grow well"
+   },
+   {
+    "w": "drought",
+    "m": "a long period without rain"
+   },
+   {
+    "w": "subsistence farming",
+    "m": "growing only enough food for one's own family"
+   },
+   {
+    "w": "food security",
+    "m": "reliable access to enough food"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Many people are hungry.",
+    "better": "Millions of people around the world still suffer from chronic hunger."
+   },
+   {
+    "basic": "There is no rain.",
+    "better": "Droughts and crop failures are becoming more frequent as the climate changes."
+   },
+   {
+    "basic": "Rich countries waste food.",
+    "better": "Wealthy nations waste vast amounts of food while others go hungry."
+   },
+   {
+    "basic": "Food doesn't reach poor areas.",
+    "better": "The problem is often unequal distribution rather than a lack of food."
+   },
+   {
+    "basic": "Wars make it worse.",
+    "better": "Conflict disrupts farming and prevents aid from reaching those in need."
+   },
+   {
+    "basic": "Teach farmers new methods.",
+    "better": "Training farmers in modern techniques would increase yields."
+   }
+  ],
+  "collocations": [
+   "chronic hunger",
+   "food shortages",
+   "reduce food waste",
+   "unequal distribution",
+   "crop failure",
+   "improve food security"
+  ]
+ },
+ "w2-35": {
+  "words": [
+   {
+    "w": "consumerism",
+    "m": "the belief that buying things brings happiness"
+   },
+   {
+    "w": "materialistic",
+    "m": "caring too much about money and possessions"
+   },
+   {
+    "w": "persuasive",
+    "m": "able to make people believe or do something"
+   },
+   {
+    "w": "manipulate",
+    "m": "to influence someone unfairly"
+   },
+   {
+    "w": "target audience",
+    "m": "the people an advert is aimed at"
+   },
+   {
+    "w": "brand",
+    "m": "a product name from a particular company"
+   },
+   {
+    "w": "impulse buying",
+    "m": "buying something suddenly without planning"
+   },
+   {
+    "w": "status symbol",
+    "m": "a possession that shows wealth or importance"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Adverts are everywhere.",
+    "better": "Advertising has become an inescapable part of modern life."
+   },
+   {
+    "basic": "Adverts make us buy things.",
+    "better": "Persuasive advertising encourages people to buy products they do not need."
+   },
+   {
+    "basic": "People think money is important.",
+    "better": "Constant advertising promotes a materialistic view of happiness."
+   },
+   {
+    "basic": "Children see many adverts.",
+    "better": "Children are particularly vulnerable to the influence of advertising."
+   },
+   {
+    "basic": "Adverts give information.",
+    "better": "Advertisements provide consumers with useful information about new products."
+   },
+   {
+    "basic": "Brands show you are rich.",
+    "better": "Branded goods are often seen as status symbols."
+   }
+  ],
+  "collocations": [
+   "the influence of advertising",
+   "a consumer society",
+   "impulse buying",
+   "target young people",
+   "promote materialism",
+   "make informed choices"
+  ]
+ },
+ "w2-45": {
+  "words": [
+   {
+    "w": "innate",
+    "m": "existing from birth"
+   },
+   {
+    "w": "aptitude",
+    "m": "a natural ability to do something"
+   },
+   {
+    "w": "nurture",
+    "m": "to help someone develop"
+   },
+   {
+    "w": "dedication",
+    "m": "giving a lot of time and effort"
+   },
+   {
+    "w": "perseverance",
+    "m": "continuing despite difficulties"
+   },
+   {
+    "w": "prodigy",
+    "m": "a young person with exceptional natural ability"
+   },
+   {
+    "w": "acquire",
+    "m": "to gain a skill"
+   },
+   {
+    "w": "potential",
+    "m": "the ability to develop in the future"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Some people are born good at music.",
+    "better": "Some people seem to have an innate talent for music or sport."
+   },
+   {
+    "basic": "Practice is important.",
+    "better": "Consistent practice is essential to develop any skill to a high level."
+   },
+   {
+    "basic": "Anyone can learn.",
+    "better": "With the right training, almost anyone can acquire a skill."
+   },
+   {
+    "basic": "Hard work beats talent.",
+    "better": "Dedication and perseverance often matter more than natural ability."
+   },
+   {
+    "basic": "Teachers help children grow.",
+    "better": "Good teachers can nurture a child's potential."
+   },
+   {
+    "basic": "Famous people worked very hard.",
+    "better": "Most top athletes and musicians have spent thousands of hours training."
+   }
+  ],
+  "collocations": [
+   "natural ability",
+   "innate talent",
+   "fulfil one's potential",
+   "hard work and dedication",
+   "develop a skill",
+   "nature versus nurture"
+  ]
+ },
+ "w2-46": {
+  "words": [
+   {
+    "w": "autonomous",
+    "m": "able to work by itself"
+   },
+   {
+    "w": "human error",
+    "m": "a mistake made by a person"
+   },
+   {
+    "w": "congestion",
+    "m": "too much traffic"
+   },
+   {
+    "w": "liability",
+    "m": "legal responsibility for something"
+   },
+   {
+    "w": "hacking",
+    "m": "illegally getting into a computer system"
+   },
+   {
+    "w": "mobility",
+    "m": "the ability to move or travel"
+   },
+   {
+    "w": "redundant",
+    "m": "no longer needed, especially workers"
+   },
+   {
+    "w": "sensor",
+    "m": "a device that detects things"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Driverless cars are safer.",
+    "better": "Since most accidents are caused by human error, autonomous vehicles could save lives."
+   },
+   {
+    "basic": "Old and disabled people can travel.",
+    "better": "They would greatly improve mobility for the elderly and disabled."
+   },
+   {
+    "basic": "Drivers will lose their jobs.",
+    "better": "Millions of professional drivers could be made redundant."
+   },
+   {
+    "basic": "Hackers can control the car.",
+    "better": "Self-driving vehicles may be vulnerable to hacking."
+   },
+   {
+    "basic": "Who is responsible for accidents?",
+    "better": "It is unclear who would be legally liable in the event of an accident."
+   },
+   {
+    "basic": "Traffic will be better.",
+    "better": "Computer-controlled traffic could ease congestion."
+   }
+  ],
+  "collocations": [
+   "autonomous vehicles",
+   "human error",
+   "ease traffic congestion",
+   "legal liability",
+   "cyber security risks",
+   "job losses"
+  ]
+ },
+ "w2-47": {
+  "words": [
+   {
+    "w": "admission fee",
+    "m": "money paid to enter"
+   },
+   {
+    "w": "maintenance",
+    "m": "keeping something in good condition"
+   },
+   {
+    "w": "accessible",
+    "m": "easy for everyone to use or visit"
+   },
+   {
+    "w": "exhibition",
+    "m": "a public show of objects or art"
+   },
+   {
+    "w": "funding",
+    "m": "money provided for a purpose"
+   },
+   {
+    "w": "cultural heritage",
+    "m": "art and objects from a nation's past"
+   },
+   {
+    "w": "low-income",
+    "m": "earning little money"
+   },
+   {
+    "w": "discourage",
+    "m": "to make someone less likely to do something"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Museums need money.",
+    "better": "Admission fees provide essential funding for the maintenance of collections."
+   },
+   {
+    "basic": "Poor people can't go.",
+    "better": "Charging fees makes museums less accessible to low-income families."
+   },
+   {
+    "basic": "Money helps new exhibitions.",
+    "better": "Ticket revenue allows museums to organise new exhibitions."
+   },
+   {
+    "basic": "Free museums get more visitors.",
+    "better": "Free admission tends to attract far greater visitor numbers."
+   },
+   {
+    "basic": "Museums are for everyone.",
+    "better": "Access to cultural heritage should be a right, not a privilege."
+   },
+   {
+    "basic": "Tourists can pay.",
+    "better": "A fee could be charged to tourists while remaining free for local residents."
+   }
+  ],
+  "collocations": [
+   "admission fees",
+   "free of charge",
+   "public funding",
+   "cultural heritage",
+   "accessible to all",
+   "visitor numbers"
+  ]
+ },
+ "w2-48": {
+  "words": [
+   {
+    "w": "demographic",
+    "m": "connected with the structure of a population"
+   },
+   {
+    "w": "ageing population",
+    "m": "a population with a growing share of old people"
+   },
+   {
+    "w": "workforce",
+    "m": "people available to work"
+   },
+   {
+    "w": "pension",
+    "m": "money paid regularly to retired people"
+   },
+   {
+    "w": "dependency ratio",
+    "m": "the number of non-workers compared with workers"
+   },
+   {
+    "w": "labour shortage",
+    "m": "not enough workers"
+   },
+   {
+    "w": "youthful",
+    "m": "having many young people"
+   },
+   {
+    "w": "burden",
+    "m": "a heavy responsibility or cost"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "There are many young people.",
+    "better": "A large youthful population provides an abundant workforce."
+   },
+   {
+    "basic": "Young people bring new ideas.",
+    "better": "Young adults are often a source of innovation and energy in the economy."
+   },
+   {
+    "basic": "There aren't enough jobs.",
+    "better": "A shortage of jobs may lead to high youth unemployment."
+   },
+   {
+    "basic": "Old people need care.",
+    "better": "An ageing population places a heavy burden on healthcare and pension systems."
+   },
+   {
+    "basic": "Fewer workers pay tax.",
+    "better": "A shrinking workforce means less tax revenue to support retirees."
+   },
+   {
+    "basic": "The country can grow fast.",
+    "better": "Countries with young populations have strong potential for economic growth."
+   }
+  ],
+  "collocations": [
+   "an ageing population",
+   "a youthful workforce",
+   "place a burden on",
+   "pension systems",
+   "economic growth",
+   "youth unemployment"
+  ]
+ },
+ "w2-50": {
+  "words": [
+   {
+    "w": "spoilt",
+    "m": "having too much and expecting to get everything"
+   },
+   {
+    "w": "imagination",
+    "m": "the ability to create pictures and ideas in the mind"
+   },
+   {
+    "w": "creativity",
+    "m": "the ability to produce original ideas"
+   },
+   {
+    "w": "educational",
+    "m": "helping you learn"
+   },
+   {
+    "w": "materialistic",
+    "m": "caring a lot about possessions"
+   },
+   {
+    "w": "appreciate",
+    "m": "to value something"
+   },
+   {
+    "w": "cognitive",
+    "m": "connected with thinking and learning"
+   },
+   {
+    "w": "social skills",
+    "m": "the ability to get on with other people"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Toys help children learn.",
+    "better": "Educational toys can support a child's cognitive development."
+   },
+   {
+    "basic": "Children with many toys are spoilt.",
+    "better": "Having too many toys may make children spoilt and ungrateful."
+   },
+   {
+    "basic": "They don't use their imagination.",
+    "better": "An excess of toys can limit creativity and imaginative play."
+   },
+   {
+    "basic": "Children should play outside.",
+    "better": "Outdoor play is vital for physical health and social skills."
+   },
+   {
+    "basic": "They don't value their things.",
+    "better": "Children with countless toys may not learn to appreciate what they have."
+   },
+   {
+    "basic": "Playing together is good.",
+    "better": "Sharing toys teaches children cooperation."
+   }
+  ],
+  "collocations": [
+   "educational toys",
+   "cognitive development",
+   "imaginative play",
+   "social skills",
+   "become spoilt",
+   "value their possessions"
+  ]
+ },
+ "w2-51": {
+  "words": [
+   {
+    "w": "bilingual",
+    "m": "able to speak two languages"
+   },
+   {
+    "w": "fluency",
+    "m": "the ability to speak easily and well"
+   },
+   {
+    "w": "pronunciation",
+    "m": "the way words are said"
+   },
+   {
+    "w": "curriculum",
+    "m": "the subjects taught at a school"
+   },
+   {
+    "w": "acquire",
+    "m": "to learn, especially naturally"
+   },
+   {
+    "w": "critical period",
+    "m": "the age when learning is easiest"
+   },
+   {
+    "w": "overload",
+    "m": "too much to deal with"
+   },
+   {
+    "w": "mother tongue",
+    "m": "a person's first language"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Children learn languages easily.",
+    "better": "Young children acquire languages more naturally than adults."
+   },
+   {
+    "basic": "They speak with a good accent.",
+    "better": "Early learners are more likely to develop native-like pronunciation."
+   },
+   {
+    "basic": "It helps their brain.",
+    "better": "Learning a second language enhances children's cognitive abilities."
+   },
+   {
+    "basic": "Children have too many subjects.",
+    "better": "Adding a foreign language may overload an already crowded curriculum."
+   },
+   {
+    "basic": "They might forget their own language.",
+    "better": "There is a risk that the mother tongue could be neglected."
+   },
+   {
+    "basic": "It helps with future jobs.",
+    "better": "Bilingual skills are a major advantage in the global job market."
+   }
+  ],
+  "collocations": [
+   "acquire a language",
+   "native-like pronunciation",
+   "a crowded curriculum",
+   "cognitive benefits",
+   "the mother tongue",
+   "bilingual education"
+  ]
+ },
+ "w2-52": {
+  "words": [
+   {
+    "w": "self-belief",
+    "m": "confidence in your own abilities"
+   },
+   {
+    "w": "ambition",
+    "m": "a strong wish to achieve something"
+   },
+   {
+    "w": "realistic",
+    "m": "sensible and possible"
+   },
+   {
+    "w": "disillusioned",
+    "m": "disappointed because something is not as good as you believed"
+   },
+   {
+    "w": "resilience",
+    "m": "the ability to recover from setbacks"
+   },
+   {
+    "w": "motivation",
+    "m": "the reason or wish to do something"
+   },
+   {
+    "w": "unrealistic expectations",
+    "m": "hopes that cannot be met"
+   },
+   {
+    "w": "setback",
+    "m": "a problem that delays progress"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "It makes children confident.",
+    "better": "This message builds children's self-belief and confidence."
+   },
+   {
+    "basic": "Children try harder.",
+    "better": "It motivates children to set ambitious goals and work towards them."
+   },
+   {
+    "basic": "Not everyone can be the best.",
+    "better": "Not every child can realistically achieve every goal."
+   },
+   {
+    "basic": "They feel sad when they fail.",
+    "better": "Unrealistic expectations can leave young people disillusioned when they fail."
+   },
+   {
+    "basic": "Children must learn about failure.",
+    "better": "Children also need to learn resilience in the face of setbacks."
+   },
+   {
+    "basic": "Parents should be honest.",
+    "better": "Parents should balance encouragement with honest guidance."
+   }
+  ],
+  "collocations": [
+   "build self-belief",
+   "set ambitious goals",
+   "unrealistic expectations",
+   "cope with failure",
+   "develop resilience",
+   "reach their full potential"
+  ]
+ },
+ "w2-53": {
+  "words": [
+   {
+    "w": "exploitation",
+    "m": "unfair use of people, especially for work"
+   },
+   {
+    "w": "hazardous",
+    "m": "dangerous"
+   },
+   {
+    "w": "compulsory education",
+    "m": "schooling that children must attend by law"
+   },
+   {
+    "w": "enforce",
+    "m": "to make sure laws are obeyed"
+   },
+   {
+    "w": "impoverished",
+    "m": "very poor"
+   },
+   {
+    "w": "deprive",
+    "m": "to take something away from someone"
+   },
+   {
+    "w": "minimum age",
+    "m": "the youngest age allowed"
+   },
+   {
+    "w": "legislation",
+    "m": "laws"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Poor families make children work.",
+    "better": "Impoverished families often depend on their children's income to survive."
+   },
+   {
+    "basic": "Children work in dangerous jobs.",
+    "better": "Many children work in hazardous conditions in factories and mines."
+   },
+   {
+    "basic": "They don't go to school.",
+    "better": "Child labour deprives children of an education and a childhood."
+   },
+   {
+    "basic": "Companies use cheap child workers.",
+    "better": "Some businesses exploit children as a source of cheap labour."
+   },
+   {
+    "basic": "Laws are not followed.",
+    "better": "Existing child labour laws are often poorly enforced."
+   },
+   {
+    "basic": "Education should be free.",
+    "better": "Free compulsory education would keep children out of the workforce."
+   }
+  ],
+  "collocations": [
+   "child labour",
+   "cheap labour",
+   "hazardous conditions",
+   "enforce the law",
+   "free compulsory education",
+   "deprived of a childhood"
+  ]
+ },
+ "w2-54": {
+  "words": [
+   {
+    "w": "calculated risk",
+    "m": "a risk taken after careful thought"
+   },
+   {
+    "w": "comfort zone",
+    "m": "a situation where you feel safe and relaxed"
+   },
+   {
+    "w": "reward",
+    "m": "something good you receive for effort"
+   },
+   {
+    "w": "reckless",
+    "m": "not thinking about danger"
+   },
+   {
+    "w": "entrepreneurial",
+    "m": "willing to start businesses and take risks"
+   },
+   {
+    "w": "consequence",
+    "m": "a result"
+   },
+   {
+    "w": "setback",
+    "m": "a difficulty that delays progress"
+   },
+   {
+    "w": "growth",
+    "m": "personal development"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Risks help you grow.",
+    "better": "Taking risks pushes people out of their comfort zone and encourages personal growth."
+   },
+   {
+    "basic": "You can get success.",
+    "better": "Many successful entrepreneurs took calculated risks to achieve their goals."
+   },
+   {
+    "basic": "You might lose money.",
+    "better": "Risky decisions can lead to serious financial losses."
+   },
+   {
+    "basic": "Some risks are stupid.",
+    "better": "There is a clear difference between calculated risks and reckless behaviour."
+   },
+   {
+    "basic": "Failing teaches you.",
+    "better": "Even when risks fail, they provide valuable lessons."
+   },
+   {
+    "basic": "Safe people don't improve.",
+    "better": "Avoiding all risk can lead to missed opportunities."
+   }
+  ],
+  "collocations": [
+   "take a calculated risk",
+   "step out of one's comfort zone",
+   "weigh up the consequences",
+   "a missed opportunity",
+   "personal growth",
+   "high risk, high reward"
+  ]
+ },
+ "w2-55": {
+  "words": [
+   {
+    "w": "congestion",
+    "m": "too much traffic"
+   },
+   {
+    "w": "overcrowding",
+    "m": "too many people in a place"
+   },
+   {
+    "w": "cost of living",
+    "m": "how much money you need to live"
+   },
+   {
+    "w": "pollution",
+    "m": "harmful substances in air, water or land"
+   },
+   {
+    "w": "slums",
+    "m": "poor, crowded areas of a city"
+   },
+   {
+    "w": "infrastructure",
+    "m": "basic systems such as roads and water"
+   },
+   {
+    "w": "decentralise",
+    "m": "to move activity away from the centre"
+   },
+   {
+    "w": "urbanisation",
+    "m": "people moving from the countryside to cities"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Cities have too much traffic.",
+    "better": "Traffic congestion is a daily problem for commuters in large cities."
+   },
+   {
+    "basic": "Houses are very expensive.",
+    "better": "Soaring property prices make housing unaffordable for many residents."
+   },
+   {
+    "basic": "The air is dirty.",
+    "better": "Air pollution poses a serious threat to public health."
+   },
+   {
+    "basic": "Too many people live there.",
+    "better": "Rapid urbanisation has led to overcrowding."
+   },
+   {
+    "basic": "Public transport should be better.",
+    "better": "Investing in efficient public transport would ease congestion."
+   },
+   {
+    "basic": "Move offices out of the city.",
+    "better": "Relocating businesses to smaller towns would reduce pressure on major cities."
+   }
+  ],
+  "collocations": [
+   "traffic congestion",
+   "the cost of living",
+   "affordable housing",
+   "rapid urbanisation",
+   "efficient public transport",
+   "ease pressure on"
+  ]
+ },
+ "w2-56": {
+  "words": [
+   {
+    "w": "cultural identity",
+    "m": "the feeling of belonging to a culture"
+   },
+   {
+    "w": "broaden horizons",
+    "m": "to widen experience and knowledge"
+   },
+   {
+    "w": "domestic",
+    "m": "from your own country"
+   },
+   {
+    "w": "influence",
+    "m": "the power to affect how people think"
+   },
+   {
+    "w": "diversity",
+    "m": "a range of different things"
+   },
+   {
+    "w": "film industry",
+    "m": "the business of making films"
+   },
+   {
+    "w": "quota",
+    "m": "a fixed limit on numbers"
+   },
+   {
+    "w": "Westernisation",
+    "m": "adopting Western culture"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Foreign films are interesting.",
+    "better": "Foreign films broaden viewers' horizons by showing them other cultures."
+   },
+   {
+    "basic": "Our culture can be lost.",
+    "better": "Too many imported programmes may weaken a country's cultural identity."
+   },
+   {
+    "basic": "Local films can't compete.",
+    "better": "Domestic film industries struggle to compete with Hollywood."
+   },
+   {
+    "basic": "People learn about the world.",
+    "better": "Watching foreign films promotes understanding between cultures."
+   },
+   {
+    "basic": "Young people copy foreign ways.",
+    "better": "Young people may adopt foreign values and lifestyles."
+   },
+   {
+    "basic": "Limit foreign films.",
+    "better": "Some countries impose quotas to protect their local film industry."
+   }
+  ],
+  "collocations": [
+   "broaden one's horizons",
+   "cultural identity",
+   "the domestic film industry",
+   "cultural diversity",
+   "impose quotas",
+   "promote understanding"
+  ]
+ },
+ "w2-57": {
+  "words": [
+   {
+    "w": "corporate social responsibility",
+    "m": "a company's duty to help society"
+   },
+   {
+    "w": "facilities",
+    "m": "buildings and equipment for a purpose"
+   },
+   {
+    "w": "community",
+    "m": "the people living in an area"
+   },
+   {
+    "w": "reputation",
+    "m": "what people think of a company"
+   },
+   {
+    "w": "profit",
+    "m": "money a company makes"
+   },
+   {
+    "w": "give back",
+    "m": "to help the society that has helped you"
+   },
+   {
+    "w": "well-being",
+    "m": "health and happiness"
+   },
+   {
+    "w": "public relations",
+    "m": "how a company presents itself to the public"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Companies should help people.",
+    "better": "Companies have a social responsibility towards the communities they operate in."
+   },
+   {
+    "basic": "It makes the company look good.",
+    "better": "Providing facilities improves a company's reputation."
+   },
+   {
+    "basic": "Companies only want money.",
+    "better": "Businesses exist primarily to make a profit for shareholders."
+   },
+   {
+    "basic": "It is the government's job.",
+    "better": "Providing public facilities is the responsibility of the government."
+   },
+   {
+    "basic": "People can stay healthy.",
+    "better": "Sports facilities encourage healthier lifestyles in the community."
+   },
+   {
+    "basic": "Workers live there too.",
+    "better": "Investing in the local area also benefits the company's own employees."
+   }
+  ],
+  "collocations": [
+   "corporate social responsibility",
+   "give something back",
+   "improve a company's image",
+   "local communities",
+   "sports and social facilities",
+   "the role of government"
+  ]
+ },
+ "w2-58": {
+  "words": [
+   {
+    "w": "life expectancy",
+    "m": "how long people usually live"
+   },
+   {
+    "w": "standard of living",
+    "m": "how comfortable people's lives are"
+   },
+   {
+    "w": "advances",
+    "m": "progress and improvements"
+   },
+   {
+    "w": "convenience",
+    "m": "being easy and useful"
+   },
+   {
+    "w": "materialism",
+    "m": "caring a lot about possessions"
+   },
+   {
+    "w": "community spirit",
+    "m": "people helping each other in an area"
+   },
+   {
+    "w": "stress",
+    "m": "worry and pressure"
+   },
+   {
+    "w": "hardship",
+    "m": "difficult living conditions"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "People live longer now.",
+    "better": "Advances in medicine have greatly increased life expectancy."
+   },
+   {
+    "basic": "Life is easier now.",
+    "better": "Modern technology has made daily life far more convenient."
+   },
+   {
+    "basic": "People had hard lives before.",
+    "better": "A century ago, most people faced considerable hardship."
+   },
+   {
+    "basic": "People were happier before.",
+    "better": "Some argue that life was simpler and less stressful in the past."
+   },
+   {
+    "basic": "Neighbours helped each other.",
+    "better": "Communities were often closer and more supportive."
+   },
+   {
+    "basic": "Now there is more pollution.",
+    "better": "Modern life has brought new problems, such as pollution and stress."
+   }
+  ],
+  "collocations": [
+   "advances in medicine",
+   "a higher standard of living",
+   "life expectancy",
+   "modern conveniences",
+   "a sense of community",
+   "the pace of modern life"
+  ]
+ },
+ "w2-59": {
+  "words": [
+   {
+    "w": "mass media",
+    "m": "TV, internet, newspapers etc. that reach many people"
+   },
+   {
+    "w": "cultural awareness",
+    "m": "understanding of other cultures"
+   },
+   {
+    "w": "tolerance",
+    "m": "accepting people who are different"
+   },
+   {
+    "w": "stereotype",
+    "m": "a fixed, oversimplified idea of a group"
+   },
+   {
+    "w": "globalisation",
+    "m": "the world becoming connected"
+   },
+   {
+    "w": "open-minded",
+    "m": "willing to accept new ideas"
+   },
+   {
+    "w": "misconception",
+    "m": "a wrong idea"
+   },
+   {
+    "w": "first-hand",
+    "m": "from your own experience"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "We can learn about other countries.",
+    "better": "Travel and the media allow us to learn about other cultures first-hand."
+   },
+   {
+    "basic": "People understand each other more.",
+    "better": "Greater exposure to other cultures promotes tolerance and understanding."
+   },
+   {
+    "basic": "The media shows wrong ideas.",
+    "better": "The media sometimes reinforces stereotypes about other nations."
+   },
+   {
+    "basic": "Travel makes you open-minded.",
+    "better": "Travelling abroad encourages people to become more open-minded."
+   },
+   {
+    "basic": "Cultures become the same.",
+    "better": "Global media may lead to cultures becoming increasingly similar."
+   },
+   {
+    "basic": "Some ideas are wrong.",
+    "better": "Media coverage can create misconceptions about other countries."
+   }
+  ],
+  "collocations": [
+   "cultural awareness",
+   "promote tolerance",
+   "reinforce stereotypes",
+   "first-hand experience",
+   "exposure to other cultures",
+   "the mass media"
+  ]
+ },
+ "w2-60": {
+  "words": [
+   {
+    "w": "e-book",
+    "m": "a book in digital form"
+   },
+   {
+    "w": "obsolete",
+    "m": "no longer used"
+   },
+   {
+    "w": "portable",
+    "m": "easy to carry"
+   },
+   {
+    "w": "screen time",
+    "m": "time spent looking at screens"
+   },
+   {
+    "w": "eye strain",
+    "m": "tiredness of the eyes"
+   },
+   {
+    "w": "tangible",
+    "m": "able to be touched"
+   },
+   {
+    "w": "accessible",
+    "m": "easy to get or use"
+   },
+   {
+    "w": "digital era",
+    "m": "the time of computers and the internet"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Books are not needed now.",
+    "better": "Some believe printed books have become obsolete in the digital era."
+   },
+   {
+    "basic": "E-books are easy to carry.",
+    "better": "A single device can store thousands of books, which makes them highly portable."
+   },
+   {
+    "basic": "Screens hurt your eyes.",
+    "better": "Reading on screens for long periods can cause eye strain."
+   },
+   {
+    "basic": "People like real books.",
+    "better": "Many readers prefer the tangible experience of a printed book."
+   },
+   {
+    "basic": "E-books are cheaper.",
+    "better": "Digital books are usually cheaper and instantly accessible."
+   },
+   {
+    "basic": "Not everyone has a phone or tablet.",
+    "better": "Not everyone has access to digital devices or the internet."
+   }
+  ],
+  "collocations": [
+   "the digital era",
+   "become obsolete",
+   "excessive screen time",
+   "instant access",
+   "a tangible experience",
+   "digital devices"
+  ]
+ },
+ "w2-61": {
+  "words": [
+   {
+    "w": "life expectancy",
+    "m": "the number of years a person is expected to live"
+   },
+   {
+    "w": "medical advances",
+    "m": "improvements in medicine"
+   },
+   {
+    "w": "ageing population",
+    "m": "a population with more old people"
+   },
+   {
+    "w": "pension",
+    "m": "money paid to retired people"
+   },
+   {
+    "w": "retirement",
+    "m": "stopping work because of age"
+   },
+   {
+    "w": "dependent",
+    "m": "needing help from others"
+   },
+   {
+    "w": "quality of life",
+    "m": "how good a person's life is"
+   },
+   {
+    "w": "healthcare system",
+    "m": "the organisation of medical services"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "People live longer now.",
+    "better": "Thanks to medical advances, life expectancy has risen considerably."
+   },
+   {
+    "basic": "Old people can enjoy family.",
+    "better": "Living longer allows people to spend more time with their grandchildren."
+   },
+   {
+    "basic": "Hospitals have too many patients.",
+    "better": "An ageing population puts considerable strain on healthcare systems."
+   },
+   {
+    "basic": "The government pays more pensions.",
+    "better": "Governments face rising pension costs as people live longer."
+   },
+   {
+    "basic": "Old people have skills.",
+    "better": "Older people can continue to contribute their experience and wisdom to society."
+   },
+   {
+    "basic": "Some old people are ill for years.",
+    "better": "A longer life does not always mean a higher quality of life."
+   }
+  ],
+  "collocations": [
+   "rising life expectancy",
+   "put a strain on",
+   "pension costs",
+   "quality of life",
+   "an ageing population",
+   "medical advances"
+  ]
+ },
+ "w2-62": {
+  "words": [
+   {
+    "w": "congestion",
+    "m": "too much traffic"
+   },
+   {
+    "w": "commuter",
+    "m": "a person who travels to work every day"
+   },
+   {
+    "w": "public transport",
+    "m": "buses, trains and metro"
+   },
+   {
+    "w": "congestion charge",
+    "m": "a fee for driving into a city centre"
+   },
+   {
+    "w": "car-sharing",
+    "m": "several people travelling in one car"
+   },
+   {
+    "w": "infrastructure",
+    "m": "roads, railways etc."
+   },
+   {
+    "w": "emissions",
+    "m": "gases released into the air"
+   },
+   {
+    "w": "discourage",
+    "m": "to try to stop people doing something"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "There are too many cars.",
+    "better": "Car ownership has increased dramatically over the past few decades."
+   },
+   {
+    "basic": "Roads are always full.",
+    "better": "Many cities suffer from chronic traffic congestion."
+   },
+   {
+    "basic": "Buses and trains should be better.",
+    "better": "Governments should invest in fast, reliable public transport."
+   },
+   {
+    "basic": "Make people pay to drive in the city.",
+    "better": "A congestion charge would discourage people from driving into city centres."
+   },
+   {
+    "basic": "Cars make the air dirty.",
+    "better": "Vehicle emissions are a major source of urban air pollution."
+   },
+   {
+    "basic": "People should share cars.",
+    "better": "Car-sharing schemes could reduce the number of vehicles on the roads."
+   }
+  ],
+  "collocations": [
+   "traffic congestion",
+   "public transport networks",
+   "introduce a congestion charge",
+   "reduce car dependency",
+   "vehicle emissions",
+   "rush-hour traffic"
+  ]
+ },
+ "w2-63": {
+  "words": [
+   {
+    "w": "obesity",
+    "m": "being very overweight"
+   },
+   {
+    "w": "unhealthy",
+    "m": "bad for your health"
+   },
+   {
+    "w": "tax",
+    "m": "money paid to the government"
+   },
+   {
+    "w": "calorie",
+    "m": "a unit for measuring energy in food"
+   },
+   {
+    "w": "public health",
+    "m": "the health of the whole population"
+   },
+   {
+    "w": "nutritional",
+    "m": "connected with healthy food"
+   },
+   {
+    "w": "deter",
+    "m": "to stop someone from doing something"
+   },
+   {
+    "w": "awareness campaign",
+    "m": "a campaign that gives people information"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Fast food makes people fat.",
+    "better": "Excessive consumption of fast food is a major cause of obesity."
+   },
+   {
+    "basic": "A tax will make people buy less.",
+    "better": "A higher tax would discourage people from buying unhealthy food."
+   },
+   {
+    "basic": "Poor people will pay more.",
+    "better": "Such a tax would disproportionately affect low-income families."
+   },
+   {
+    "basic": "The money can help hospitals.",
+    "better": "Revenue from the tax could be used to fund public health programmes."
+   },
+   {
+    "basic": "People should know what they eat.",
+    "better": "Clear nutritional labelling would help consumers make healthier choices."
+   },
+   {
+    "basic": "Teach people about food.",
+    "better": "Education is more effective than taxation in changing eating habits."
+   }
+  ],
+  "collocations": [
+   "impose a tax on",
+   "unhealthy eating habits",
+   "a major cause of obesity",
+   "public health programmes",
+   "make healthier choices",
+   "nutritional labelling"
+  ]
+ },
+ "w2-64": {
+  "words": [
+   {
+    "w": "overpopulation",
+    "m": "too many people for the resources available"
+   },
+   {
+    "w": "birth rate",
+    "m": "the number of births in a year per 1,000 people"
+   },
+   {
+    "w": "resources",
+    "m": "things such as water, food and land"
+   },
+   {
+    "w": "family planning",
+    "m": "controlling how many children you have"
+   },
+   {
+    "w": "strain",
+    "m": "pressure on something"
+   },
+   {
+    "w": "contraception",
+    "m": "methods of preventing pregnancy"
+   },
+   {
+    "w": "infant mortality",
+    "m": "the death of babies"
+   },
+   {
+    "w": "sustainable",
+    "m": "able to continue in the long term"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "There are too many people.",
+    "better": "The world's population continues to rise at an alarming rate."
+   },
+   {
+    "basic": "People have many children.",
+    "better": "High birth rates persist in many developing countries."
+   },
+   {
+    "basic": "Fewer babies die now.",
+    "better": "Falling infant mortality means more children survive into adulthood."
+   },
+   {
+    "basic": "There is not enough food and water.",
+    "better": "Population growth puts enormous strain on natural resources."
+   },
+   {
+    "basic": "Climate change is a bigger problem.",
+    "better": "Some would argue that climate change poses a greater threat to humanity."
+   },
+   {
+    "basic": "Education helps.",
+    "better": "Educating women and improving access to family planning can slow population growth."
+   }
+  ],
+  "collocations": [
+   "population growth",
+   "high birth rates",
+   "put a strain on resources",
+   "family planning",
+   "infant mortality",
+   "the greatest challenge facing humanity"
+  ]
+ }
+}

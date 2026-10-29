@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Everyday Opposites · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+textarea.fi{font:500 16px system-ui,sans-serif;line-height:1.5}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 1, "total": 4, "title": "Everyday Opposites", "sub": "Basic opposite words (antonyms)", "test": false, "unit": "Opposite Words", "chip": null, "share": null, "video": true, "js": "\ndocument.querySelectorAll('.vsearch').forEach(function(inp){\n  inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim();\n    inp.closest('section').querySelectorAll('tbody tr').forEach(function(tr){tr.style.display=!q||tr.textContent.toLowerCase().indexOf(q)>-1?'':'none';});});\n});\n", "learn": ["<section class=\"card\"><h3>Opposite words · 59 pairs</h3><input class=\"vsearch fi\" style=\"width:100%;margin:0 0 10px\" placeholder=\"🔍 Search…\"><div class=\"tw\"><table><thead><tr><th>Word</th><th>ਪੰਜਾਬੀ</th><th>Opposite</th><th>ਪੰਜਾਬੀ</th></tr></thead><tbody><tr><td><span class='say'>absent</span></td><td lang='pa' class='pa'>ਗ਼ੈਰਹਾਜ਼ਰ</td><td><span class='say'>present</span></td><td lang='pa' class='pa'>ਹਾਜ਼ਰ</td></tr><tr><td><span class='say'>above</span></td><td lang='pa' class='pa'>ਉੱਪਰ</td><td><span class='say'>below</span></td><td lang='pa' class='pa'>ਹੇਠਾਂ</td></tr><tr><td><span class='say'>accept</span></td><td lang='pa' class='pa'>ਸਵੀਕਾਰ ਕਰਨਾ</td><td><span class='say'>reject</span></td><td lang='pa' class='pa'>ਠੁਕਰਾਉਣਾ</td></tr><tr><td><span class='say'>adult</span></td><td lang='pa' class='pa'>ਬਾਲਗ</td><td><span class='say'>child</span></td><td lang='pa' class='pa'>ਬੱਚਾ</td></tr><tr><td><span class='say'>alive</span></td><td lang='pa' class='pa'>ਜਿਊਂਦਾ</td><td><span class='say'>dead</span></td><td lang='pa' class='pa'>ਮਰਿਆ ਹੋਇਆ</td></tr><tr><td><span class='say'>arrive</span></td><td lang='pa' class='pa'>ਪਹੁੰਚਣਾ</td><td><span class='say'>depart</span></td><td lang='pa' class='pa'>ਰਵਾਨਾ ਹੋਣਾ</td></tr><tr><td><span class='say'>asleep</span></td><td lang='pa' class='pa'>ਸੁੱਤਾ ਹੋਇਆ</td><td><span class='say'>awake</span></td><td lang='pa' class='pa'>ਜਾਗਦਾ</td></tr><tr><td><span class='say'>before</span></td><td lang='pa' class='pa'>ਪਹਿਲਾਂ</td><td><span class='say'>after</span></td><td lang='pa' class='pa'>ਬਾਅਦ ਵਿੱਚ</td></tr><tr><td><span class='say'>begin</span></td><td lang='pa' class='pa'>ਸ਼ੁਰੂ ਕਰਨਾ</td><td><span class='say'>end</span></td><td lang='pa' class='pa'>ਖ਼ਤਮ ਕਰਨਾ</td></tr><tr><td><span class='say'>beautiful</span></td><td lang='pa' class='pa'>ਸੁੰਦਰ</td><td><span class='say'>ugly</span></td><td lang='pa' class='pa'>ਬਦਸੂਰਤ</td></tr><tr><td><span class='say'>bitter</span></td><td lang='pa' class='pa'>ਕੌੜਾ</td><td><span class='say'>sweet</span></td><td lang='pa' class='pa'>ਮਿੱਠਾ</td></tr><tr><td><span class='say'>borrow</span></td><td lang='pa' class='pa'>ਉਧਾਰ ਲੈਣਾ</td><td><span class='say'>lend</span></td><td lang='pa' class='pa'>ਉਧਾਰ ਦੇਣਾ</td></tr><tr><td><span class='say'>bright</span></td><td lang='pa' class='pa'>ਚਮਕੀਲਾ</td><td><span class='say'>dull</span></td><td lang='pa' class='pa'>ਫਿੱਕਾ</td></tr><tr><td><span class='say'>broad</span></td><td lang='pa' class='pa'>ਚੌੜਾ</td><td><span class='say'>narrow</span></td><td lang='pa' class='pa'>ਤੰਗ</td></tr><tr><td><span class='say'>buy</span></td><td lang='pa' class='pa'>ਖ਼ਰੀਦਣਾ</td><td><span class='say'>sell</span></td><td lang='pa' class='pa'>ਵੇਚਣਾ</td></tr><tr><td><span class='say'>cheap</span></td><td lang='pa' class='pa'>ਸਸਤਾ</td><td><span class='say'>expensive</span></td><td lang='pa' class='pa'>ਮਹਿੰਗਾ</td></tr><tr><td><span class='say'>clean</span></td><td lang='pa' class='pa'>ਸਾਫ਼</td><td><span class='say'>dirty</span></td><td lang='pa' class='pa'>ਗੰਦਾ</td></tr><tr><td><span class='say'>close</span></td><td lang='pa' class='pa'>ਬੰਦ ਕਰਨਾ</td><td><span class='say'>open</span></td><td lang='pa' class='pa'>ਖੋਲ੍ਹਣਾ</td></tr><tr><td><span class='say'>cold</span></td><td lang='pa' class='pa'>ਠੰਢਾ</td><td><span class='say'>hot</span></td><td lang='pa' class='pa'>ਗਰਮ</td></tr><tr><td><span class='say'>come</span></td><td lang='pa' class='pa'>ਆਉਣਾ</td><td><span class='say'>go</span></td><td lang='pa' class='pa'>ਜਾਣਾ</td></tr><tr><td><span class='say'>day</span></td><td lang='pa' class='pa'>ਦਿਨ</td><td><span class='say'>night</span></td><td lang='pa' class='pa'>ਰਾਤ</td></tr><tr><td><span class='say'>deep</span></td><td lang='pa' class='pa'>ਡੂੰਘਾ</td><td><span class='say'>shallow</span></td><td lang='pa' class='pa'>ਘੱਟ ਡੂੰਘਾ</td></tr><tr><td><span class='say'>dry</span></td><td lang='pa' class='pa'>ਸੁੱਕਾ</td><td><span class='say'>wet</span></td><td lang='pa' class='pa'>ਗਿੱਲਾ</td></tr><tr><td><span class='say'>early</span></td><td lang='pa' class='pa'>ਜਲਦੀ</td><td><span class='say'>late</span></td><td lang='pa' class='pa'>ਦੇਰ ਨਾਲ</td></tr><tr><td><span class='say'>east</span></td><td lang='pa' class='pa'>ਪੂਰਬ</td><td><span class='say'>west</span></td><td lang='pa' class='pa'>ਪੱਛਮ</td></tr><tr><td><span class='say'>north</span></td><td lang='pa' class='pa'>ਉੱਤਰ</td><td><span class='say'>south</span></td><td lang='pa' class='pa'>ਦੱਖਣ</td></tr><tr><td><span class='say'>empty</span></td><td lang='pa' class='pa'>ਖ਼ਾਲੀ</td><td><span class='say'>full</span></td><td lang='pa' class='pa'>ਭਰਿਆ ਹੋਇਆ</td></tr><tr><td><span class='say'>enemy</span></td><td lang='pa' class='pa'>ਦੁਸ਼ਮਣ</td><td><span class='say'>friend</span></td><td lang='pa' class='pa'>ਦੋਸਤ</td></tr><tr><td><span class='say'>entrance</span></td><td lang='pa' class='pa'>ਅੰਦਰ ਜਾਣ ਦਾ ਰਸਤਾ</td><td><span class='say'>exit</span></td><td lang='pa' class='pa'>ਬਾਹਰ ਜਾਣ ਦਾ ਰਸਤਾ</td></tr><tr><td><span class='say'>fat</span></td><td lang='pa' class='pa'>ਮੋਟਾ</td><td><span class='say'>thin</span></td><td lang='pa' class='pa'>ਪਤਲਾ</td></tr><tr><td><span class='say'>first</span></td><td lang='pa' class='pa'>ਪਹਿਲਾ</td><td><span class='say'>last</span></td><td lang='pa' class='pa'>ਆਖ਼ਰੀ</td></tr><tr><td><span class='say'>fresh</span></td><td lang='pa' class='pa'>ਤਾਜ਼ਾ</td><td><span class='say'>stale</span></td><td lang='pa' class='pa'>ਬੇਹਾ</td></tr><tr><td><span class='say'>give</span></td><td lang='pa' class='pa'>ਦੇਣਾ</td><td><span class='say'>take</span></td><td lang='pa' class='pa'>ਲੈਣਾ</td></tr><tr><td><span class='say'>guest</span></td><td lang='pa' class='pa'>ਮਹਿਮਾਨ</td><td><span class='say'>host</span></td><td lang='pa' class='pa'>ਮੇਜ਼ਬਾਨ</td></tr><tr><td><span class='say'>happy</span></td><td lang='pa' class='pa'>ਖ਼ੁਸ਼</td><td><span class='say'>sad</span></td><td lang='pa' class='pa'>ਉਦਾਸ</td></tr><tr><td><span class='say'>hard</span></td><td lang='pa' class='pa'>ਸਖ਼ਤ</td><td><span class='say'>soft</span></td><td lang='pa' class='pa'>ਨਰਮ</td></tr><tr><td><span class='say'>heavy</span></td><td lang='pa' class='pa'>ਭਾਰਾ</td><td><span class='say'>light</span></td><td lang='pa' class='pa'>ਹਲਕਾ</td></tr><tr><td><span class='say'>high</span></td><td lang='pa' class='pa'>ਉੱਚਾ</td><td><span class='say'>low</span></td><td lang='pa' class='pa'>ਨੀਵਾਂ</td></tr><tr><td><span class='say'>inside</span></td><td lang='pa' class='pa'>ਅੰਦਰ</td><td><span class='say'>outside</span></td><td lang='pa' class='pa'>ਬਾਹਰ</td></tr><tr><td><span class='say'>laugh</span></td><td lang='pa' class='pa'>ਹੱਸਣਾ</td><td><span class='say'>cry</span></td><td lang='pa' class='pa'>ਰੋਣਾ</td></tr><tr><td><span class='say'>learn</span></td><td lang='pa' class='pa'>ਸਿੱਖਣਾ</td><td><span class='say'>teach</span></td><td lang='pa' class='pa'>ਸਿਖਾਉਣਾ</td></tr><tr><td><span class='say'>find</span></td><td lang='pa' class='pa'>ਲੱਭਣਾ</td><td><span class='say'>lose</span></td><td lang='pa' class='pa'>ਗੁਆਉਣਾ</td></tr><tr><td><span class='say'>loud</span></td><td lang='pa' class='pa'>ਉੱਚੀ (ਆਵਾਜ਼)</td><td><span class='say'>quiet</span></td><td lang='pa' class='pa'>ਸ਼ਾਂਤ / ਧੀਮਾ</td></tr><tr><td><span class='say'>many</span></td><td lang='pa' class='pa'>ਬਹੁਤ ਸਾਰੇ</td><td><span class='say'>few</span></td><td lang='pa' class='pa'>ਥੋੜ੍ਹੇ</td></tr><tr><td><span class='say'>morning</span></td><td lang='pa' class='pa'>ਸਵੇਰ</td><td><span class='say'>evening</span></td><td lang='pa' class='pa'>ਸ਼ਾਮ</td></tr><tr><td><span class='say'>near</span></td><td lang='pa' class='pa'>ਨੇੜੇ</td><td><span class='say'>far</span></td><td lang='pa' class='pa'>ਦੂਰ</td></tr><tr><td><span class='say'>new</span></td><td lang='pa' class='pa'>ਨਵਾਂ</td><td><span class='say'>old</span></td><td lang='pa' class='pa'>ਪੁਰਾਣਾ</td></tr><tr><td><span class='say'>poor</span></td><td lang='pa' class='pa'>ਗ਼ਰੀਬ</td><td><span class='say'>rich</span></td><td lang='pa' class='pa'>ਅਮੀਰ</td></tr><tr><td><span class='say'>push</span></td><td lang='pa' class='pa'>ਧੱਕਣਾ</td><td><span class='say'>pull</span></td><td lang='pa' class='pa'>ਖਿੱਚਣਾ</td></tr><tr><td><span class='say'>question</span></td><td lang='pa' class='pa'>ਸਵਾਲ</td><td><span class='say'>answer</span></td><td lang='pa' class='pa'>ਜਵਾਬ</td></tr><tr><td><span class='say'>right</span></td><td lang='pa' class='pa'>ਸਹੀ</td><td><span class='say'>wrong</span></td><td lang='pa' class='pa'>ਗ਼ਲਤ</td></tr><tr><td><span class='say'>rise</span></td><td lang='pa' class='pa'>ਚੜ੍ਹਨਾ</td><td><span class='say'>fall</span></td><td lang='pa' class='pa'>ਡਿੱਗਣਾ</td></tr><tr><td><span class='say'>strong</span></td><td lang='pa' class='pa'>ਤਾਕਤਵਰ</td><td><span class='say'>weak</span></td><td lang='pa' class='pa'>ਕਮਜ਼ੋਰ</td></tr><tr><td><span class='say'>summer</span></td><td lang='pa' class='pa'>ਗਰਮੀ</td><td><span class='say'>winter</span></td><td lang='pa' class='pa'>ਸਰਦੀ</td></tr><tr><td><span class='say'>top</span></td><td lang='pa' class='pa'>ਸਿਖਰ</td><td><span class='say'>bottom</span></td><td lang='pa' class='pa'>ਥੱਲਾ</td></tr><tr><td><span class='say'>true</span></td><td lang='pa' class='pa'>ਸੱਚ</td><td><span class='say'>false</span></td><td lang='pa' class='pa'>ਝੂਠ</td></tr><tr><td><span class='say'>win</span></td><td lang='pa' class='pa'>ਜਿੱਤਣਾ</td><td><span class='say'>lose</span></td><td lang='pa' class='pa'>ਹਾਰਨਾ</td></tr><tr><td><span class='say'>war</span></td><td lang='pa' class='pa'>ਜੰਗ</td><td><span class='say'>peace</span></td><td lang='pa' class='pa'>ਸ਼ਾਂਤੀ</td></tr><tr><td><span class='say'>young</span></td><td lang='pa' class='pa'>ਜਵਾਨ</td><td><span class='say'>old</span></td><td lang='pa' class='pa'>ਬੁੱਢਾ (ਬਜ਼ੁਰਗ)</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>What is an opposite (antonym)?</h3><p>An <b>antonym</b> is a word with the opposite meaning: <i>hot ↔ cold</i>. A <b>synonym</b> has the same meaning: <i>big = large</i>.</p><ul class=\"exl\"><li><span class=\"say\">The shop opens early and closes late.</span></li><li><span class=\"say\">I borrowed a book from Aman, and he lent me a pen too.</span></li><li><span class=\"say\">The water is deep in the middle but shallow near the bank.</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\"><b>Borrow</b> = ਉਧਾਰ <b>ਲੈਣਾ</b>, <b>lend</b> = ਉਧਾਰ <b>ਦੇਣਾ</b>। ਆਮ ਗ਼ਲਤੀ: “Can you borrow me your pen?” ❌ → “Can you <b>lend</b> me your pen?” ✓</p></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>Opposites are a quick way to paraphrase in IELTS: <i>“not expensive” → “cheap”</i>, <i>“didn't arrive on time” → “arrived late”</i>.</p></section>"], "sets": [{"title": "A · Choose the opposite", "instr": "", "items": [{"t": "mcq", "q": "The opposite of “above” is…", "o": ["awake", "take", "entrance", "below"], "a": 3, "e": "above = ਉੱਪਰ · below = ਹੇਠਾਂ"}, {"t": "mcq", "q": "The opposite of “come” is…", "o": ["enemy", "alive", "go", "empty"], "a": 2, "e": "come = ਆਉਣਾ · go = ਜਾਣਾ"}, {"t": "mcq", "q": "The opposite of “alive” is…", "o": ["cheap", "arrive", "question", "dead"], "a": 3, "e": "alive = ਜਿਊਂਦਾ · dead = ਮਰਿਆ ਹੋਇਆ"}, {"t": "mcq", "q": "The opposite of “dry” is…", "o": ["poor", "above", "wet", "early"], "a": 2, "e": "dry = ਸੁੱਕਾ · wet = ਗਿੱਲਾ"}, {"t": "mcq", "q": "The opposite of “fat” is…", "o": ["evening", "many", "fresh", "thin"], "a": 3, "e": "fat = ਮੋਟਾ · thin = ਪਤਲਾ"}, {"t": "mcq", "q": "The opposite of “cold” is…", "o": ["light", "hot", "strong", "cry"], "a": 1, "e": "cold = ਠੰਢਾ · hot = ਗਰਮ"}, {"t": "mcq", "q": "The opposite of “near” is…", "o": ["old", "clean", "sad", "far"], "a": 3, "e": "near = ਨੇੜੇ · far = ਦੂਰ"}, {"t": "mcq", "q": "The opposite of “poor” is…", "o": ["guest", "rich", "broad", "cry"], "a": 1, "e": "poor = ਗ਼ਰੀਬ · rich = ਅਮੀਰ"}, {"t": "mcq", "q": "The opposite of “heavy” is…", "o": ["rise", "war", "rich", "light"], "a": 3, "e": "heavy = ਭਾਰਾ · light = ਹਲਕਾ"}, {"t": "mcq", "q": "The opposite of “true” is…", "o": ["alive", "evening", "false", "absent"], "a": 2, "e": "true = ਸੱਚ · false = ਝੂਠ"}, {"t": "mcq", "q": "The opposite of “early” is…", "o": ["north", "fat", "thin", "late"], "a": 3, "e": "early = ਜਲਦੀ · late = ਦੇਰ ਨਾਲ"}, {"t": "mcq", "q": "The opposite of “push” is…", "o": ["true", "false", "fresh", "pull"], "a": 3, "e": "push = ਧੱਕਣਾ · pull = ਖਿੱਚਣਾ"}, {"t": "mcq", "q": "The opposite of “win” is…", "o": ["borrow", "lose", "full", "deep"], "a": 1, "e": "win = ਜਿੱਤਣਾ · lose = ਹਾਰਨਾ"}, {"t": "mcq", "q": "The opposite of “close” is…", "o": ["false", "day", "bright", "open"], "a": 3, "e": "close = ਬੰਦ ਕਰਨਾ · open = ਖੋਲ੍ਹਣਾ"}, {"t": "mcq", "q": "The opposite of “learn” is…", "o": ["exit", "west", "broad", "teach"], "a": 3, "e": "learn = ਸਿੱਖਣਾ · teach = ਸਿਖਾਉਣਾ"}, {"t": "mcq", "q": "The opposite of “clean” is…", "o": ["reject", "dirty", "expensive", "enemy"], "a": 1, "e": "clean = ਸਾਫ਼ · dirty = ਗੰਦਾ"}, {"t": "mcq", "q": "The opposite of “right” is…", "o": ["narrow", "dull", "wrong", "bottom"], "a": 2, "e": "right = ਸਹੀ · wrong = ਗ਼ਲਤ"}, {"t": "mcq", "q": "The opposite of “enemy” is…", "o": ["fat", "empty", "friend", "below"], "a": 2, "e": "enemy = ਦੁਸ਼ਮਣ · friend = ਦੋਸਤ"}, {"t": "mcq", "q": "The opposite of “new” is…", "o": ["laugh", "dull", "old", "morning"], "a": 2, "e": "new = ਨਵਾਂ · old = ਪੁਰਾਣਾ"}, {"t": "mcq", "q": "The opposite of “accept” is…", "o": ["high", "reject", "cheap", "outside"], "a": 1, "e": "accept = ਸਵੀਕਾਰ ਕਰਨਾ · reject = ਠੁਕਰਾਉਣਾ"}, {"t": "mcq", "q": "The opposite of “happy” is…", "o": ["low", "sad", "inside", "depart"], "a": 1, "e": "happy = ਖ਼ੁਸ਼ · sad = ਉਦਾਸ"}, {"t": "mcq", "q": "The opposite of “borrow” is…", "o": ["broad", "push", "lend", "north"], "a": 2, "e": "borrow = ਉਧਾਰ ਲੈਣਾ · lend = ਉਧਾਰ ਦੇਣਾ"}, {"t": "mcq", "q": "The opposite of “empty” is…", "o": ["give", "full", "late", "top"], "a": 1, "e": "empty = ਖ਼ਾਲੀ · full = ਭਰਿਆ ਹੋਇਆ"}, {"t": "mcq", "q": "The opposite of “day” is…", "o": ["morning", "rich", "winter", "night"], "a": 3, "e": "day = ਦਿਨ · night = ਰਾਤ"}, {"t": "mcq", "q": "The opposite of “many” is…", "o": ["enemy", "child", "south", "few"], "a": 3, "e": "many = ਬਹੁਤ ਸਾਰੇ · few = ਥੋੜ੍ਹੇ"}, {"t": "mcq", "q": "The opposite of “give” is…", "o": ["south", "reject", "take", "strong"], "a": 2, "e": "give = ਦੇਣਾ · take = ਲੈਣਾ"}, {"t": "mcq", "q": "The opposite of “buy” is…", "o": ["close", "dirty", "winter", "sell"], "a": 3, "e": "buy = ਖ਼ਰੀਦਣਾ · sell = ਵੇਚਣਾ"}, {"t": "mcq", "q": "The opposite of “asleep” is…", "o": ["present", "bright", "friend", "awake"], "a": 3, "e": "asleep = ਸੁੱਤਾ ਹੋਇਆ · awake = ਜਾਗਦਾ"}, {"t": "mcq", "q": "The opposite of “first” is…", "o": ["sad", "laugh", "inside", "last"], "a": 3, "e": "first = ਪਹਿਲਾ · last = ਆਖ਼ਰੀ"}, {"t": "mcq", "q": "The opposite of “find” is…", "o": ["new", "lose", "right", "deep"], "a": 1, "e": "find = ਲੱਭਣਾ · lose = ਗੁਆਉਣਾ"}]}, {"title": "B · Type the opposite", "instr": "Type the opposite word.", "items": [{"t": "fill", "q": "exit ↔ ___", "a": [["entrance"]], "e": "exit = ਬਾਹਰ ਜਾਣ ਦਾ ਰਸਤਾ · entrance = ਅੰਦਰ ਜਾਣ ਦਾ ਰਸਤਾ"}, {"t": "fill", "q": "cry ↔ ___", "a": [["laugh"]], "e": "cry = ਰੋਣਾ · laugh = ਹੱਸਣਾ"}, {"t": "fill", "q": "dull ↔ ___", "a": [["bright"]], "e": "dull = ਫਿੱਕਾ · bright = ਚਮਕੀਲਾ"}, {"t": "fill", "q": "evening ↔ ___", "a": [["morning"]], "e": "evening = ਸ਼ਾਮ · morning = ਸਵੇਰ"}, {"t": "fill", "q": "south ↔ ___", "a": [["north"]], "e": "south = ਦੱਖਣ · north = ਉੱਤਰ"}, {"t": "fill", "q": "winter ↔ ___", "a": [["summer"]], "e": "winter = ਸਰਦੀ · summer = ਗਰਮੀ"}, {"t": "fill", "q": "peace ↔ ___", "a": [["war"]], "e": "peace = ਸ਼ਾਂਤੀ · war = ਜੰਗ"}, {"t": "fill", "q": "depart ↔ ___", "a": [["arrive"]], "e": "depart = ਰਵਾਨਾ ਹੋਣਾ · arrive = ਪਹੁੰਚਣਾ"}, {"t": "fill", "q": "bottom ↔ ___", "a": [["top"]], "e": "bottom = ਥੱਲਾ · top = ਸਿਖਰ"}, {"t": "fill", "q": "soft ↔ ___", "a": [["hard"]], "e": "soft = ਨਰਮ · hard = ਸਖ਼ਤ"}, {"t": "fill", "q": "quiet ↔ ___", "a": [["loud"]], "e": "quiet = ਸ਼ਾਂਤ / ਧੀਮਾ · loud = ਉੱਚੀ (ਆਵਾਜ਼)"}, {"t": "fill", "q": "old ↔ ___", "a": [["young", "new"]], "e": "old = ਬੁੱਢਾ (ਬਜ਼ੁਰਗ) · young = ਜਵਾਨ"}, {"t": "fill", "q": "stale ↔ ___", "a": [["fresh"]], "e": "stale = ਬੇਹਾ · fresh = ਤਾਜ਼ਾ"}, {"t": "fill", "q": "present ↔ ___", "a": [["absent"]], "e": "present = ਹਾਜ਼ਰ · absent = ਗ਼ੈਰਹਾਜ਼ਰ"}, {"t": "fill", "q": "west ↔ ___", "a": [["east"]], "e": "west = ਪੱਛਮ · east = ਪੂਰਬ"}, {"t": "fill", "q": "after ↔ ___", "a": [["before"]], "e": "after = ਬਾਅਦ ਵਿੱਚ · before = ਪਹਿਲਾਂ"}, {"t": "fill", "q": "weak ↔ ___", "a": [["strong"]], "e": "weak = ਕਮਜ਼ੋਰ · strong = ਤਾਕਤਵਰ"}, {"t": "fill", "q": "outside ↔ ___", "a": [["inside"]], "e": "outside = ਬਾਹਰ · inside = ਅੰਦਰ"}, {"t": "fill", "q": "expensive ↔ ___", "a": [["cheap"]], "e": "expensive = ਮਹਿੰਗਾ · cheap = ਸਸਤਾ"}, {"t": "fill", "q": "ugly ↔ ___", "a": [["beautiful"]], "e": "ugly = ਬਦਸੂਰਤ · beautiful = ਸੁੰਦਰ"}, {"t": "fill", "q": "sweet ↔ ___", "a": [["bitter"]], "e": "sweet = ਮਿੱਠਾ · bitter = ਕੌੜਾ"}, {"t": "fill", "q": "child ↔ ___", "a": [["adult"]], "e": "child = ਬੱਚਾ · adult = ਬਾਲਗ"}, {"t": "fill", "q": "shallow ↔ ___", "a": [["deep"]], "e": "shallow = ਘੱਟ ਡੂੰਘਾ · deep = ਡੂੰਘਾ"}, {"t": "fill", "q": "narrow ↔ ___", "a": [["broad"]], "e": "narrow = ਤੰਗ · broad = ਚੌੜਾ"}, {"t": "fill", "q": "end ↔ ___", "a": [["begin"]], "e": "end = ਖ਼ਤਮ ਕਰਨਾ · begin = ਸ਼ੁਰੂ ਕਰਨਾ"}, {"t": "fill", "q": "low ↔ ___", "a": [["high"]], "e": "low = ਨੀਵਾਂ · high = ਉੱਚਾ"}, {"t": "fill", "q": "answer ↔ ___", "a": [["question"]], "e": "answer = ਜਵਾਬ · question = ਸਵਾਲ"}, {"t": "fill", "q": "host ↔ ___", "a": [["guest"]], "e": "host = ਮੇਜ਼ਬਾਨ · guest = ਮਹਿਮਾਨ"}, {"t": "fill", "q": "fall ↔ ___", "a": [["rise"]], "e": "fall = ਡਿੱਗਣਾ · rise = ਚੜ੍ਹਨਾ"}]}, {"title": "C · Meaning in Punjabi", "instr": "", "items": [{"t": "mcq", "q": "What does “below” mean in Punjabi?", "o": ["ਰਾਤ", "ਹੇਠਾਂ", "ਲੱਭਣਾ", "ਜਵਾਬ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What does “go” mean in Punjabi?", "o": ["ਜਵਾਨ", "ਜਾਣਾ", "ਦੋਸਤ", "ਗ਼ੈਰਹਾਜ਼ਰ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What does “dead” mean in Punjabi?", "o": ["ਸਵਾਲ", "ਥੱਲਾ", "ਗ਼ੈਰਹਾਜ਼ਰ", "ਮਰਿਆ ਹੋਇਆ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What does “wet” mean in Punjabi?", "o": ["ਖੋਲ੍ਹਣਾ", "ਚਮਕੀਲਾ", "ਪਹਿਲਾ", "ਗਿੱਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What does “thin” mean in Punjabi?", "o": ["ਦੋਸਤ", "ਦਿਨ", "ਪਤਲਾ", "ਅੰਦਰ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What does “hot” mean in Punjabi?", "o": ["ਸੁੰਦਰ", "ਗਰਮ", "ਥੱਲਾ", "ਭਾਰਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What does “far” mean in Punjabi?", "o": ["ਜਿਊਂਦਾ", "ਰਵਾਨਾ ਹੋਣਾ", "ਥੋੜ੍ਹੇ", "ਦੂਰ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What does “rich” mean in Punjabi?", "o": ["ਲੱਭਣਾ", "ਅਮੀਰ", "ਹਾਜ਼ਰ", "ਫਿੱਕਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What does “light” mean in Punjabi?", "o": ["ਠੁਕਰਾਉਣਾ", "ਹਲਕਾ", "ਹੇਠਾਂ", "ਜਾਣਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What does “false” mean in Punjabi?", "o": ["ਨਰਮ", "ਝੂਠ", "ਸਵਾਲ", "ਲੈਣਾ"], "a": 1, "e": ""}]}, {"title": "D · Use it in a sentence", "instr": "Choose the word that fits.", "items": [{"t": "mcq", "q": "Can you ___ me your pen, please?", "o": ["borrow", "lend"], "a": 1, "e": ""}, {"t": "mcq", "q": "The bus will ___ at 9 a.m. and reach Delhi at 2 p.m.", "o": ["arrive", "depart"], "a": 1, "e": ""}, {"t": "mcq", "q": "This bread is old — it's ___.", "o": ["fresh", "stale"], "a": 1, "e": ""}, {"t": "mcq", "q": "Please use the ___ door to leave the hall.", "o": ["entrance", "exit"], "a": 1, "e": ""}]}], "next": "Lesson 2 — Opposites with Prefixes"};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"+(s.intro||""); P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else if(it.t==="reveal"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span><span lang="pa" class="pa">'+esc(it.q)+'</span></p>'
+            +'<textarea class="fi" rows="2" style="width:100%" placeholder="Write your English sentence here (optional)…"></textarea>'
+            +'<button class="chk">Show answer</button><div class="fb"></div><div class="opts hide" style="margin-top:8px"><button class="opt sg">✓ I got it</button><button class="opt sb">✗ Not yet</button></div>';
+          var rb=q.querySelector(".chk"), rf=q.querySelector(".fb"), ro=q.querySelector(".opts");
+          rb.onclick=function(){ rb.disabled=true; rf.className="fb show ok"; rf.style.background="var(--bg)"; rf.style.color="var(--ink)";
+            rf.innerHTML="<b>Model answer:</b> <span class='say'>"+esc(it.a)+"</span>"+(it.e?'<span class="ex2">'+it.e+'</span>':""); ro.classList.remove("hide"); };
+          function grade(ok){ if(q.dataset.state)return; q.dataset.state=ok?"ok":"no"; done++; if(ok)score++;
+            ro.querySelectorAll(".opt").forEach(function(x){x.disabled=true;}); (ok?ro.querySelector(".sg"):ro.querySelector(".sb")).classList.add(ok?"right":"wrong"); upd(); }
+          ro.querySelector(".sg").onclick=function(){grade(true)}; ro.querySelector(".sb").onclick=function(){grade(false)};
+          q.addEventListener("click",function(e){var sy=e.target.closest(".say");if(sy)speak(sy.textContent);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

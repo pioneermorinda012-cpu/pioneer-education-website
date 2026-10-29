@@ -40,6 +40,8 @@ export type WritingTask = {
   /** Task 2 only — the notes printed beside the topic, offered as a hint. */
   ideas?: string[];
   links?: string[];
+  /** Task 2: a mock-test question — no topic vocabulary is shown before it. */
+  mock?: boolean;
   /** GT letters: what this letter must contain, for the instant check. */
   check?: LetterCheck;
   /** GT letters: phrases worth borrowing, shown once the student has finished. */
@@ -81,6 +83,27 @@ export async function getWritingTask(id: string): Promise<WritingTask | null> {
 export function forStudent(t: WritingTask): WritingTask {
   const { sampleText: _s, sampleImages: _i, ...rest } = t;
   return rest;
+}
+
+/* ---------- Task 2 topic vocabulary (content/writing/task2-vocab.json) ---------- */
+
+export type TopicVocab = {
+  /** topic words with a short meaning */
+  words: { w: string; m: string }[];
+  /** a basic sentence and its Band 7+ / C1 version */
+  upgrades: { basic: string; better: string }[];
+  collocations: string[];
+};
+
+/** The vocabulary for one Task 2 topic, or null (none written, or a mock test). */
+export async function topicVocab(task: WritingTask): Promise<TopicVocab | null> {
+  if (task.kind !== "task2" || task.mock) return null;
+  try {
+    const all = JSON.parse(await fs.readFile(path.join(CONTENT, "task2-vocab.json"), "utf8")) as Record<string, TopicVocab>;
+    return all[task.id] ?? null;
+  } catch {
+    return null;
+  }
 }
 
 /** Where the Task 1 page images are served from. */

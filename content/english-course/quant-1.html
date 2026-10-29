@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How Much or How Many? · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 1, "total": 1, "title": "How Much or How Many?", "sub": "Countable & uncountable nouns", "chip": "Quantity Questions", "share": "How Much / How Many", "unit": "How much / How many", "learn": ["<section class=\"card \"><h3>The one question to ask: can I count it?</h3><div class=\"tw\"><table class=\"\"><thead><tr><th></th><th>How <b>many</b></th><th>How <b>much</b></th></tr></thead><tbody><tr><td>Used with</td><td><b>countable</b> nouns — you can put a number before them</td><td><b>uncountable</b> nouns — you can't count them one by one</td></tr><tr><td>Noun form</td><td>plural: books, people, days</td><td>singular, no -s: water, money, time</td></tr><tr><td>Examples</td><td><span class='say'>How many books do you have?</span><br><span class='say'>How many people live here?</span></td><td><span class='say'>How much water do you drink?</span><br><span class='say'>How much time do you have?</span></td></tr></tbody></table></div><p class='note'><b>Quick test:</b> Can you say <i>two ___</i>? two books ✓ → <b>many</b>. two waters ✗ → <b>much</b>.</p></section>", "<section class=\"card \"><h3>Uncountable nouns students often get wrong</h3><p>These are <b>uncountable</b> in English — no <i>-s</i>, and they take <b>how much</b>:</p><p><b>money, information, advice, furniture, luggage, baggage, homework, work, news, traffic, bread, rice, sugar, milk, water, time, sleep, fun, weather, knowledge, equipment</b></p><ul class=\"exl\"><li><span class=\"say\">How much <b>information</b> do you need? (not informations)</span></li><li><span class=\"say\">How much <b>homework</b> did you get? (not homeworks)</span></li><li><span class=\"say\">How much <b>luggage</b> are you carrying? (not luggages)</span></li></ul></section>", "<section class=\"card \"><h3>Turning uncountable into countable</h3><p>Put a container or unit in front, and the unit becomes countable → <b>how many</b>.</p><ul class=\"exl\"><li><span class=\"say\">How much coffee? → How many <b>cups</b> of coffee?</span></li><li><span class=\"say\">How much rice? → How many <b>kilos</b> of rice?</span></li><li><span class=\"say\">How much advice? → How many <b>pieces</b> of advice?</span></li><li><span class=\"say\">How much money? → How many <b>rupees</b>?</span></li><li><span class=\"say\">How much time? → How many <b>hours</b>?</span></li></ul></section>", "<section class=\"card \"><h3>Asking the price</h3><p><b>How much</b> is used for price — even with plural things.</p><ul class=\"exl\"><li><span class=\"say\"><b>How much</b> is this shirt?</span></li><li><span class=\"say\"><b>How much</b> are these shoes?</span></li><li><span class=\"say\"><b>How much</b> does a ticket to Delhi cost?</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\"><b>How many = ਕਿੰਨੇ</b> — ਉਹ ਚੀਜ਼ਾਂ ਜੋ ਗਿਣੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ (ਕਿੰਨੇ ਸੇਬ, ਕਿੰਨੇ ਵਿਦਿਆਰਥੀ)। <b>How much = ਕਿੰਨਾ</b> — ਉਹ ਚੀਜ਼ਾਂ ਜੋ ਗਿਣੀਆਂ ਨਹੀਂ ਜਾ ਸਕਦੀਆਂ, ਸਿਰਫ਼ ਮਾਪੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ (ਕਿੰਨਾ ਪਾਣੀ, ਕਿੰਨਾ ਸਮਾਂ, ਕਿੰਨੇ ਪੈਸੇ = how much money)। ਧਿਆਨ ਦਿਓ: ਪੰਜਾਬੀ ਵਿੱਚ “ਪੈਸੇ” ਬਹੁਵਚਨ ਲੱਗਦਾ ਹੈ, ਪਰ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ <b>money</b> uncountable ਹੈ — How much money, ਨਾ ਕਿ How many money। ਕੀਮਤ ਪੁੱਛਣ ਲਈ ਹਮੇਸ਼ਾ <b>How much</b>।</p></section>", "<section class=\"card mist\"><h3>Common mistakes</h3><div class=\"mk\"><div class=\"bad\">✗ How many money do you have?</div><div class=\"good\">✓ How much money do you have?</div><div class=\"why\">money is uncountable.</div></div><div class=\"mk\"><div class=\"bad\">✗ I need some informations.</div><div class=\"good\">✓ I need some information.</div><div class=\"why\">No -s on uncountable nouns.</div></div><div class=\"mk\"><div class=\"bad\">✗ He gave me many advices.</div><div class=\"good\">✓ He gave me a lot of advice. / some pieces of advice.</div></div><div class=\"mk\"><div class=\"bad\">✗ How much students are in your class?</div><div class=\"good\">✓ How many students are in your class?</div><div class=\"why\">students can be counted.</div></div><div class=\"mk\"><div class=\"bad\">✗ How many is this watch?</div><div class=\"good\">✓ How much is this watch?</div><div class=\"why\">Price → how much.</div></div></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>In IELTS Writing Task 1, use <b>the number of</b> for countable nouns and <b>the amount of</b> for uncountable nouns: <i>“<b>the number of</b> tourists rose…”, “<b>the amount of</b> electricity used fell…”</i>. Likewise <b>fewer</b> people (countable) but <b>less</b> water (uncountable). Examiners check this for Lexical Resource and Grammar.</p></section>"], "sets": [{"title": "A · Countable or uncountable?", "instr": "Can you put a number in front of it?", "items": [{"t": "mcq", "q": "“water” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": ""}, {"t": "mcq", "q": "“chair” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}, {"t": "mcq", "q": "“advice” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": "Say “a piece of advice”, not “an advice”."}, {"t": "mcq", "q": "“rupee” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}, {"t": "mcq", "q": "“information” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": ""}, {"t": "mcq", "q": "“student” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}, {"t": "mcq", "q": "“furniture” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": "chairs and tables are countable; furniture is not."}, {"t": "mcq", "q": "“minute” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}, {"t": "mcq", "q": "“luggage” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": ""}, {"t": "mcq", "q": "“suitcase” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}, {"t": "mcq", "q": "“news” is…", "o": ["Countable", "Uncountable"], "a": 1, "e": "News looks plural but takes a singular verb: The news is good."}, {"t": "mcq", "q": "“idea” is…", "o": ["Countable", "Uncountable"], "a": 0, "e": ""}]}, {"title": "B · How much or how many?", "instr": "Choose the correct question word.", "items": [{"t": "mcq", "q": "___ books do you have in your bag?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ TV do you watch?", "o": ["How much", "How many"], "a": 0, "e": "TV here means watching time — uncountable."}, {"t": "mcq", "q": "___ languages are there in the world?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ calories are in 100 grams of butter?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "Do you know ___ millionaires live in Tokyo?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ cake can you eat?", "o": ["How much", "How many"], "a": 0, "e": "cake as a food amount is uncountable (but: how many cakes did you bake?)."}, {"t": "mcq", "q": "___ concerts did you go to last year?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ instruments do you know how to play?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ time do you spend on Facebook?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ money do you have in your pockets right now?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ coffee do you drink every day?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ sleep did you get last night?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ clocks do you have in your house?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ juice did you buy?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ hot dogs do you sell a day?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "I don't know ___ cousins Tom has.", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "I think we should ask Tom ___ sugar we need to make cookies.", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "We don't care ___ water you use.", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ hours of sleep do you get every night?", "o": ["How much", "How many"], "a": 1, "e": "hours can be counted (compare: how much sleep)."}, {"t": "mcq", "q": "___ different kinds of pizzas are on the menu?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ hotels do you think there are in Delhi?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ days do you want to stay in Bangalore?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ work do you have?", "o": ["How much", "How many"], "a": 0, "e": "work (uncountable) — but: how many jobs?"}, {"t": "mcq", "q": "___ years does it take to become a doctor?", "o": ["How much", "How many"], "a": 1, "e": ""}, {"t": "mcq", "q": "___ coffee do you think Tom drinks every day?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ cash do you usually have on you?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "___ cups of coffee do you drink every day?", "o": ["How much", "How many"], "a": 1, "e": "cups can be counted."}, {"t": "mcq", "q": "___ people do you know who are named Frank?", "o": ["How much", "How many"], "a": 1, "e": "people = plural of person."}, {"t": "mcq", "q": "___ food should I be feeding my dog?", "o": ["How much", "How many"], "a": 0, "e": ""}, {"t": "mcq", "q": "Did you tell Tom ___ fun you had?", "o": ["How much", "How many"], "a": 0, "e": ""}]}, {"title": "C · Write the question", "instr": "Write How much or How many.", "items": [{"t": "fill", "q": "___ brothers do you have? — I have three brothers.", "a": [["How many"]], "e": ""}, {"t": "fill", "q": "___ is this jacket? — It's ₹1,500.", "a": [["How much"]], "e": "Price → how much."}, {"t": "fill", "q": "___ are these mangoes? — ₹80 a kilo.", "a": [["How much"]], "e": "Price → how much, even with a plural noun."}, {"t": "fill", "q": "___ students are there in your class? — Thirty.", "a": [["How many"]], "e": ""}, {"t": "fill", "q": "___ petrol does your bike use in a week?", "a": [["How much"]], "e": ""}, {"t": "fill", "q": "___ homework did the teacher give you?", "a": [["How much"]], "e": ""}, {"t": "fill", "q": "___ litres of milk do we need?", "a": [["How many"]], "e": ""}, {"t": "fill", "q": "___ luggage are you taking to Canada?", "a": [["How much"]], "e": ""}, {"t": "fill", "q": "___ bags are you taking to Canada?", "a": [["How many"]], "e": ""}, {"t": "fill", "q": "___ information do you need for the visa form?", "a": [["How much"]], "e": ""}]}, {"title": "D · Spot the correct sentence (Pro)", "instr": "Choose the correct sentence.", "items": [{"t": "mcq", "q": "Choose the correct sentence.", "o": ["How many money did you spend?", "How much money did you spend?"], "a": 1, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence.", "o": ["Can you give me some informations?", "Can you give me some information?"], "a": 1, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence.", "o": ["My teacher gave me a useful advice.", "My teacher gave me a useful piece of advice."], "a": 1, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence.", "o": ["We bought new furniture.", "We bought new furnitures."], "a": 0, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence (IELTS Task 1).", "o": ["The number of students increased.", "The amount of students increased."], "a": 0, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence.", "o": ["There were less people this year.", "There were fewer people this year."], "a": 1, "e": ""}, {"t": "mcq", "q": "Choose the correct sentence.", "o": ["The news is very good.", "The news are very good."], "a": 0, "e": ""}]}], "next": null};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"; P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?"the Pronouns Final Test":"Pronouns Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

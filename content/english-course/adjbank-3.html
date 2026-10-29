@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Describing Things · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 3, "total": 3, "title": "Describing Things", "sub": "ਆਕਾਰ, ਸ਼ਕਲ, ਆਵਾਜ਼, ਸੁਆਦ ਤੇ ਛੋਹ", "test": false, "unit": "Adjective Word Bank", "chip": null, "share": null, "video": true, "js": "\ndocument.querySelectorAll('.vsearch').forEach(function(inp){\n  inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim();\n    inp.closest('section').querySelectorAll('tbody tr').forEach(function(tr){tr.style.display=!q||tr.textContent.toLowerCase().indexOf(q)>-1?'':'none';});});\n});\n", "learn": ["<section class=\"card\"><h3>Word list · 74 words</h3><input class=\"vsearch fi\" style=\"width:100%;margin:0 0 10px\" placeholder=\"🔍 Search English or ਪੰਜਾਬੀ…\"><div class=\"tw\"><table><thead><tr><th>#</th><th>English (tap to hear)</th><th>ਪੰਜਾਬੀ</th></tr></thead><tbody><tr><td class='num'>1</td><td><span class='say'>tiny</span></td><td lang='pa' class='pa'>ਬਹੁਤ ਛੋਟਾ</td></tr><tr><td class='num'>2</td><td><span class='say'>huge</span></td><td lang='pa' class='pa'>ਬਹੁਤ ਵੱਡਾ</td></tr><tr><td class='num'>3</td><td><span class='say'>gigantic</span></td><td lang='pa' class='pa'>ਦਿਓ-ਕੱਦ (ਅਤਿ ਵੱਡਾ)</td></tr><tr><td class='num'>4</td><td><span class='say'>miniature</span></td><td lang='pa' class='pa'>ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ</td></tr><tr><td class='num'>5</td><td><span class='say'>petite</span></td><td lang='pa' class='pa'>ਛੋਟੇ ਕੱਦ-ਕਾਠ ਵਾਲੀ</td></tr><tr><td class='num'>6</td><td><span class='say'>scrawny</span></td><td lang='pa' class='pa'>ਸੁੱਕਾ-ਪਤਲਾ</td></tr><tr><td class='num'>7</td><td><span class='say'>round</span></td><td lang='pa' class='pa'>ਗੋਲ</td></tr><tr><td class='num'>8</td><td><span class='say'>square</span></td><td lang='pa' class='pa'>ਚੌਰਸ</td></tr><tr><td class='num'>9</td><td><span class='say'>triangular</span></td><td lang='pa' class='pa'>ਤਿਕੋਣਾ</td></tr><tr><td class='num'>10</td><td><span class='say'>oval</span></td><td lang='pa' class='pa'>ਅੰਡਾਕਾਰ</td></tr><tr><td class='num'>11</td><td><span class='say'>flat</span></td><td lang='pa' class='pa'>ਪੱਧਰਾ</td></tr><tr><td class='num'>12</td><td><span class='say'>curved</span></td><td lang='pa' class='pa'>ਗੋਲਾਈਦਾਰ (ਮੁੜਿਆ ਹੋਇਆ)</td></tr><tr><td class='num'>13</td><td><span class='say'>straight</span></td><td lang='pa' class='pa'>ਸਿੱਧਾ</td></tr><tr><td class='num'>14</td><td><span class='say'>crooked</span></td><td lang='pa' class='pa'>ਟੇਢਾ</td></tr><tr><td class='num'>15</td><td><span class='say'>hollow</span></td><td lang='pa' class='pa'>ਖੋਖਲਾ</td></tr><tr><td class='num'>16</td><td><span class='say'>narrow</span></td><td lang='pa' class='pa'>ਤੰਗ</td></tr><tr><td class='num'>17</td><td><span class='say'>wide / broad</span></td><td lang='pa' class='pa'>ਚੌੜਾ</td></tr><tr><td class='num'>18</td><td><span class='say'>deep</span></td><td lang='pa' class='pa'>ਡੂੰਘਾ</td></tr><tr><td class='num'>19</td><td><span class='say'>shallow</span></td><td lang='pa' class='pa'>ਘੱਟ ਡੂੰਘਾ</td></tr><tr><td class='num'>20</td><td><span class='say'>steep</span></td><td lang='pa' class='pa'>ਸਿੱਧੀ ਚੜ੍ਹਾਈ ਵਾਲਾ</td></tr><tr><td class='num'>21</td><td><span class='say'>loud</span></td><td lang='pa' class='pa'>ਉੱਚੀ ਆਵਾਜ਼ ਵਾਲਾ</td></tr><tr><td class='num'>22</td><td><span class='say'>quiet</span></td><td lang='pa' class='pa'>ਧੀਮਾ / ਸ਼ਾਂਤ</td></tr><tr><td class='num'>23</td><td><span class='say'>noisy</span></td><td lang='pa' class='pa'>ਰੌਲੇ-ਰੱਪੇ ਵਾਲਾ</td></tr><tr><td class='num'>24</td><td><span class='say'>silent</span></td><td lang='pa' class='pa'>ਬਿਲਕੁਲ ਚੁੱਪ</td></tr><tr><td class='num'>25</td><td><span class='say'>deafening</span></td><td lang='pa' class='pa'>ਕੰਨ-ਪਾੜਵਾਂ</td></tr><tr><td class='num'>26</td><td><span class='say'>shrill</span></td><td lang='pa' class='pa'>ਤਿੱਖੀ ਚੀਕਵੀਂ (ਆਵਾਜ਼)</td></tr><tr><td class='num'>27</td><td><span class='say'>melodious</span></td><td lang='pa' class='pa'>ਸੁਰੀਲਾ</td></tr><tr><td class='num'>28</td><td><span class='say'>hoarse</span></td><td lang='pa' class='pa'>ਬੈਠੀ ਹੋਈ (ਆਵਾਜ਼)</td></tr><tr><td class='num'>29</td><td><span class='say'>faint</span></td><td lang='pa' class='pa'>ਮੱਧਮ (ਬਹੁਤ ਹੌਲੀ)</td></tr><tr><td class='num'>30</td><td><span class='say'>thundering</span></td><td lang='pa' class='pa'>ਗਰਜਦਾ</td></tr><tr><td class='num'>31</td><td><span class='say'>chirping</span></td><td lang='pa' class='pa'>ਚਹਿਚਹਾਉਂਦਾ</td></tr><tr><td class='num'>32</td><td><span class='say'>hissing</span></td><td lang='pa' class='pa'>ਸ਼ੂਕਦਾ</td></tr><tr><td class='num'>33</td><td><span class='say'>sweet</span></td><td lang='pa' class='pa'>ਮਿੱਠਾ</td></tr><tr><td class='num'>34</td><td><span class='say'>bitter</span></td><td lang='pa' class='pa'>ਕੌੜਾ</td></tr><tr><td class='num'>35</td><td><span class='say'>sour</span></td><td lang='pa' class='pa'>ਖੱਟਾ</td></tr><tr><td class='num'>36</td><td><span class='say'>salty</span></td><td lang='pa' class='pa'>ਨਮਕੀਨ</td></tr><tr><td class='num'>37</td><td><span class='say'>spicy</span></td><td lang='pa' class='pa'>ਮਸਾਲੇਦਾਰ (ਤਿੱਖਾ)</td></tr><tr><td class='num'>38</td><td><span class='say'>tasteless</span></td><td lang='pa' class='pa'>ਬੇਸੁਆਦਾ</td></tr><tr><td class='num'>39</td><td><span class='say'>delicious</span></td><td lang='pa' class='pa'>ਸੁਆਦੀ</td></tr><tr><td class='num'>40</td><td><span class='say'>juicy</span></td><td lang='pa' class='pa'>ਰਸੀਲਾ</td></tr><tr><td class='num'>41</td><td><span class='say'>fresh</span></td><td lang='pa' class='pa'>ਤਾਜ਼ਾ</td></tr><tr><td class='num'>42</td><td><span class='say'>stale</span></td><td lang='pa' class='pa'>ਬੇਹਾ</td></tr><tr><td class='num'>43</td><td><span class='say'>rough</span></td><td lang='pa' class='pa'>ਖੁਰਦਰਾ</td></tr><tr><td class='num'>44</td><td><span class='say'>smooth</span></td><td lang='pa' class='pa'>ਮੁਲਾਇਮ</td></tr><tr><td class='num'>45</td><td><span class='say'>soft</span></td><td lang='pa' class='pa'>ਨਰਮ</td></tr><tr><td class='num'>46</td><td><span class='say'>hard</span></td><td lang='pa' class='pa'>ਸਖ਼ਤ</td></tr><tr><td class='num'>47</td><td><span class='say'>sticky</span></td><td lang='pa' class='pa'>ਚਿਪਚਿਪਾ</td></tr><tr><td class='num'>48</td><td><span class='say'>slippery</span></td><td lang='pa' class='pa'>ਤਿਲਕਵਾਂ</td></tr><tr><td class='num'>49</td><td><span class='say'>wet</span></td><td lang='pa' class='pa'>ਗਿੱਲਾ</td></tr><tr><td class='num'>50</td><td><span class='say'>damp</span></td><td lang='pa' class='pa'>ਸਿੱਲ੍ਹਾ</td></tr><tr><td class='num'>51</td><td><span class='say'>dry</span></td><td lang='pa' class='pa'>ਸੁੱਕਾ</td></tr><tr><td class='num'>52</td><td><span class='say'>fluffy</span></td><td lang='pa' class='pa'>ਰੂੰ ਵਰਗਾ ਨਰਮ</td></tr><tr><td class='num'>53</td><td><span class='say'>bumpy</span></td><td lang='pa' class='pa'>ਉੱਚਾ-ਨੀਵਾਂ (ਝਟਕਿਆਂ ਵਾਲਾ)</td></tr><tr><td class='num'>54</td><td><span class='say'>dusty</span></td><td lang='pa' class='pa'>ਧੂੜ ਨਾਲ ਭਰਿਆ</td></tr><tr><td class='num'>55</td><td><span class='say'>chilly</span></td><td lang='pa' class='pa'>ਕਕਰੀਲਾ ਠੰਢਾ</td></tr><tr><td class='num'>56</td><td><span class='say'>freezing</span></td><td lang='pa' class='pa'>ਬਰਫ਼ ਵਰਗਾ ਠੰਢਾ</td></tr><tr><td class='num'>57</td><td><span class='say'>boiling</span></td><td lang='pa' class='pa'>ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)</td></tr><tr><td class='num'>58</td><td><span class='say'>ancient</span></td><td lang='pa' class='pa'>ਪ੍ਰਾਚੀਨ</td></tr><tr><td class='num'>59</td><td><span class='say'>modern</span></td><td lang='pa' class='pa'>ਆਧੁਨਿਕ</td></tr><tr><td class='num'>60</td><td><span class='say'>annual</span></td><td lang='pa' class='pa'>ਸਲਾਨਾ</td></tr><tr><td class='num'>61</td><td><span class='say'>brief</span></td><td lang='pa' class='pa'>ਸੰਖੇਪ (ਥੋੜ੍ਹੇ ਸਮੇਂ ਦਾ)</td></tr><tr><td class='num'>62</td><td><span class='say'>rapid / swift</span></td><td lang='pa' class='pa'>ਤੇਜ਼</td></tr><tr><td class='num'>63</td><td><span class='say'>abundant</span></td><td lang='pa' class='pa'>ਭਰਪੂਰ</td></tr><tr><td class='num'>64</td><td><span class='say'>numerous</span></td><td lang='pa' class='pa'>ਅਨੇਕਾਂ</td></tr><tr><td class='num'>65</td><td><span class='say'>scarce</span></td><td lang='pa' class='pa'>ਘਾਟ ਵਾਲਾ (ਦੁਰਲੱਭ)</td></tr><tr><td class='num'>66</td><td><span class='say'>empty</span></td><td lang='pa' class='pa'>ਖ਼ਾਲੀ</td></tr><tr><td class='num'>67</td><td><span class='say'>elegant</span></td><td lang='pa' class='pa'>ਸਲੀਕੇਦਾਰ</td></tr><tr><td class='num'>68</td><td><span class='say'>glamorous</span></td><td lang='pa' class='pa'>ਚਮਕ-ਦਮਕ ਵਾਲਾ</td></tr><tr><td class='num'>69</td><td><span class='say'>magnificent</span></td><td lang='pa' class='pa'>ਭਵਯ (ਬਹੁਤ ਸ਼ਾਨਦਾਰ)</td></tr><tr><td class='num'>70</td><td><span class='say'>plain</span></td><td lang='pa' class='pa'>ਸਾਦਾ</td></tr><tr><td class='num'>71</td><td><span class='say'>drab</span></td><td lang='pa' class='pa'>ਫਿੱਕਾ (ਬੇਰੌਣਕ)</td></tr><tr><td class='num'>72</td><td><span class='say'>sparkling</span></td><td lang='pa' class='pa'>ਚਮਕਦਾ-ਦਮਕਦਾ</td></tr><tr><td class='num'>73</td><td><span class='say'>old-fashioned</span></td><td lang='pa' class='pa'>ਪੁਰਾਣੇ ਢੰਗ ਦਾ</td></tr><tr><td class='num'>74</td><td><span class='say'>quaint</span></td><td lang='pa' class='pa'>ਪੁਰਾਣਾ ਪਰ ਪਿਆਰਾ</td></tr></tbody></table></div></section>", "<section class=\"card \"><h3>Groups</h3><p><b>Size:</b> tiny → huge · <b>Shape:</b> round, square, crooked · <b>Sound:</b> quiet → deafening · <b>Taste:</b> sweet, sour, bitter · <b>Touch:</b> rough, smooth, sticky · <b>Time:</b> ancient, modern, annual · <b>Quantity:</b> abundant, scarce · <b>Appearance:</b> elegant, plain</p><ul class=\"exl\"><li><span class=\"say\">a crooked old tree</span></li><li><span class=\"say\">a narrow, bumpy road</span></li><li><span class=\"say\">a shrill whistle</span></li><li><span class=\"say\">a sour green mango</span></li><li><span class=\"say\">a smooth marble floor</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">ਚੀਜ਼ਾਂ ਦਾ ਵਰਣਨ ਕਰਨ ਲਈ ਪੰਜ ਇੰਦਰੀਆਂ ਵਰਤੋ: ਵੇਖਣਾ (ਆਕਾਰ, ਰੰਗ), ਸੁਣਨਾ (ਆਵਾਜ਼), ਚੱਖਣਾ (ਸੁਆਦ), ਛੂਹਣਾ (ਨਰਮ/ਖੁਰਦਰਾ), ਸੁੰਘਣਾ।</p></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>In Speaking Part 2, describing a place with the senses makes your answer vivid: <i>“The market is <b>noisy</b> and <b>crowded</b>, the air smells of <b>spicy</b> food, and the roads are <b>narrow</b>.”</i></p></section>"], "sets": [{"title": "A · English → ਪੰਜਾਬੀ", "instr": "Choose the Punjabi meaning.", "items": [{"t": "mcq", "q": "What is “thundering” in Punjabi?", "o": ["ਸਿੱਧਾ", "ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ", "ਗਰਜਦਾ", "ਭਰਪੂਰ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “sour” in Punjabi?", "o": ["ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ", "ਖੱਟਾ", "ਬਹੁਤ ਛੋਟਾ", "ਫਿੱਕਾ (ਬੇਰੌਣਕ)"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “dry” in Punjabi?", "o": ["ਪੁਰਾਣਾ ਪਰ ਪਿਆਰਾ", "ਬੇਸੁਆਦਾ", "ਕਕਰੀਲਾ ਠੰਢਾ", "ਸੁੱਕਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “soft” in Punjabi?", "o": ["ਉੱਚਾ-ਨੀਵਾਂ (ਝਟਕਿਆਂ ਵਾਲਾ)", "ਨਰਮ", "ਡੂੰਘਾ", "ਕੰਨ-ਪਾੜਵਾਂ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “huge” in Punjabi?", "o": ["ਮਸਾਲੇਦਾਰ (ਤਿੱਖਾ)", "ਬਹੁਤ ਵੱਡਾ", "ਦਿਓ-ਕੱਦ (ਅਤਿ ਵੱਡਾ)", "ਗੋਲ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “steep” in Punjabi?", "o": ["ਬਰਫ਼ ਵਰਗਾ ਠੰਢਾ", "ਸਿੱਧੀ ਚੜ੍ਹਾਈ ਵਾਲਾ", "ਤਾਜ਼ਾ", "ਚਮਕਦਾ-ਦਮਕਦਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “plain” in Punjabi?", "o": ["ਬਰਫ਼ ਵਰਗਾ ਠੰਢਾ", "ਖ਼ਾਲੀ", "ਗੋਲ", "ਸਾਦਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “rough” in Punjabi?", "o": ["ਘੱਟ ਡੂੰਘਾ", "ਪੁਰਾਣਾ ਪਰ ਪਿਆਰਾ", "ਸਿੱਧੀ ਚੜ੍ਹਾਈ ਵਾਲਾ", "ਖੁਰਦਰਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “scrawny” in Punjabi?", "o": ["ਸੁਰੀਲਾ", "ਤੰਗ", "ਮੱਧਮ (ਬਹੁਤ ਹੌਲੀ)", "ਸੁੱਕਾ-ਪਤਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “shrill” in Punjabi?", "o": ["ਦਿਓ-ਕੱਦ (ਅਤਿ ਵੱਡਾ)", "ਤਿੱਖੀ ਚੀਕਵੀਂ (ਆਵਾਜ਼)", "ਆਧੁਨਿਕ", "ਤਾਜ਼ਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “damp” in Punjabi?", "o": ["ਤਿੱਖੀ ਚੀਕਵੀਂ (ਆਵਾਜ਼)", "ਬੇਹਾ", "ਸਿੱਲ੍ਹਾ", "ਚਮਕਦਾ-ਦਮਕਦਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “hollow” in Punjabi?", "o": ["ਬਰਫ਼ ਵਰਗਾ ਠੰਢਾ", "ਸੁੱਕਾ", "ਡੂੰਘਾ", "ਖੋਖਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “hoarse” in Punjabi?", "o": ["ਪੁਰਾਣਾ ਪਰ ਪਿਆਰਾ", "ਬੈਠੀ ਹੋਈ (ਆਵਾਜ਼)", "ਸਲੀਕੇਦਾਰ", "ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “hard” in Punjabi?", "o": ["ਪੁਰਾਣੇ ਢੰਗ ਦਾ", "ਮੁਲਾਇਮ", "ਸਖ਼ਤ", "ਸੁੱਕਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “shallow” in Punjabi?", "o": ["ਘਾਟ ਵਾਲਾ (ਦੁਰਲੱਭ)", "ਮਸਾਲੇਦਾਰ (ਤਿੱਖਾ)", "ਸੰਖੇਪ (ਥੋੜ੍ਹੇ ਸਮੇਂ ਦਾ)", "ਘੱਟ ਡੂੰਘਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “fluffy” in Punjabi?", "o": ["ਸਲੀਕੇਦਾਰ", "ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ", "ਰੂੰ ਵਰਗਾ ਨਰਮ", "ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “hissing” in Punjabi?", "o": ["ਨਮਕੀਨ", "ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)", "ਸ਼ੂਕਦਾ", "ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “stale” in Punjabi?", "o": ["ਕੌੜਾ", "ਬੇਹਾ", "ਤਿੱਖੀ ਚੀਕਵੀਂ (ਆਵਾਜ਼)", "ਧੀਮਾ / ਸ਼ਾਂਤ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “magnificent” in Punjabi?", "o": ["ਉੱਚੀ ਆਵਾਜ਼ ਵਾਲਾ", "ਮਿੱਠਾ", "ਭਵਯ (ਬਹੁਤ ਸ਼ਾਨਦਾਰ)", "ਨਮਕੀਨ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “sparkling” in Punjabi?", "o": ["ਪੁਰਾਣੇ ਢੰਗ ਦਾ", "ਚਮਕਦਾ-ਦਮਕਦਾ", "ਦਿਓ-ਕੱਦ (ਅਤਿ ਵੱਡਾ)", "ਸੁਰੀਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “triangular” in Punjabi?", "o": ["ਸਿੱਧਾ", "ਤਿਕੋਣਾ", "ਬੈਠੀ ਹੋਈ (ਆਵਾਜ਼)", "ਸੰਖੇਪ (ਥੋੜ੍ਹੇ ਸਮੇਂ ਦਾ)"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “abundant” in Punjabi?", "o": ["ਪੱਧਰਾ", "ਅਨੇਕਾਂ", "ਤਾਜ਼ਾ", "ਭਰਪੂਰ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “curved” in Punjabi?", "o": ["ਅੰਡਾਕਾਰ", "ਬਹੁਤ ਵੱਡਾ", "ਗੋਲਾਈਦਾਰ (ਮੁੜਿਆ ਹੋਇਆ)", "ਘੱਟ ਡੂੰਘਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “rapid / swift” in Punjabi?", "o": ["ਚਮਕ-ਦਮਕ ਵਾਲਾ", "ਤੇਜ਼", "ਸਾਦਾ", "ਪ੍ਰਾਚੀਨ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “elegant” in Punjabi?", "o": ["ਰਸੀਲਾ", "ਸਲੀਕੇਦਾਰ", "ਤੇਜ਼", "ਤਿਲਕਵਾਂ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “straight” in Punjabi?", "o": ["ਸੁਆਦੀ", "ਸਲਾਨਾ", "ਸਿੱਧਾ", "ਖੱਟਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ancient” in Punjabi?", "o": ["ਨਰਮ", "ਸਿੱਧਾ", "ਪ੍ਰਾਚੀਨ", "ਮਸਾਲੇਦਾਰ (ਤਿੱਖਾ)"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “boiling” in Punjabi?", "o": ["ਸਿੱਲ੍ਹਾ", "ਮੁਲਾਇਮ", "ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)", "ਮੱਧਮ (ਬਹੁਤ ਹੌਲੀ)"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “noisy” in Punjabi?", "o": ["ਮੱਧਮ (ਬਹੁਤ ਹੌਲੀ)", "ਰੌਲੇ-ਰੱਪੇ ਵਾਲਾ", "ਕਕਰੀਲਾ ਠੰਢਾ", "ਕੌੜਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “empty” in Punjabi?", "o": ["ਤਿਕੋਣਾ", "ਉਬਲਦਾ (ਬਹੁਤ ਗਰਮ)", "ਕੰਨ-ਪਾੜਵਾਂ", "ਖ਼ਾਲੀ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “round” in Punjabi?", "o": ["ਗੋਲਾਈਦਾਰ (ਮੁੜਿਆ ਹੋਇਆ)", "ਖੱਟਾ", "ਸੁਰੀਲਾ", "ਗੋਲ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “wet” in Punjabi?", "o": ["ਬਿਲਕੁਲ ਚੁੱਪ", "ਤੰਗ", "ਚਿਪਚਿਪਾ", "ਗਿੱਲਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “old-fashioned” in Punjabi?", "o": ["ਸਖ਼ਤ", "ਖ਼ਾਲੀ", "ਸਲਾਨਾ", "ਪੁਰਾਣੇ ਢੰਗ ਦਾ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “loud” in Punjabi?", "o": ["ਆਧੁਨਿਕ", "ਉੱਚੀ ਆਵਾਜ਼ ਵਾਲਾ", "ਸਲੀਕੇਦਾਰ", "ਸੁਰੀਲਾ"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “deafening” in Punjabi?", "o": ["ਸਿੱਧਾ", "ਤੇਜ਼", "ਸੁੱਕਾ-ਪਤਲਾ", "ਕੰਨ-ਪਾੜਵਾਂ"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “quiet” in Punjabi?", "o": ["ਫਿੱਕਾ (ਬੇਰੌਣਕ)", "ਗਰਜਦਾ", "ਧੀਮਾ / ਸ਼ਾਂਤ", "ਖੱਟਾ"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “flat” in Punjabi?", "o": ["ਫਿੱਕਾ (ਬੇਰੌਣਕ)", "ਖੁਰਦਰਾ", "ਕੰਨ-ਪਾੜਵਾਂ", "ਪੱਧਰਾ"], "a": 3, "e": ""}]}, {"title": "B · ਪੰਜਾਬੀ → English", "instr": "Choose the English word.", "items": [{"t": "mcq", "q": "What is “ਅੰਡਾਕਾਰ” in English?", "o": ["bitter", "tiny", "soft", "oval"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਰਸੀਲਾ” in English?", "o": ["annual", "freezing", "wet", "juicy"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਤਿਲਕਵਾਂ” in English?", "o": ["curved", "spicy", "petite", "slippery"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਮੱਧਮ (ਬਹੁਤ ਹੌਲੀ)” in English?", "o": ["deafening", "faint", "scrawny", "slippery"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਤਾਜ਼ਾ” in English?", "o": ["shallow", "freezing", "dusty", "fresh"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਕੌੜਾ” in English?", "o": ["sweet", "elegant", "old-fashioned", "bitter"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਫਿੱਕਾ (ਬੇਰੌਣਕ)” in English?", "o": ["noisy", "drab", "rapid / swift", "gigantic"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਕਕਰੀਲਾ ਠੰਢਾ” in English?", "o": ["empty", "hollow", "dry", "chilly"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਛੋਟੇ ਕੱਦ-ਕਾਠ ਵਾਲੀ” in English?", "o": ["glamorous", "fresh", "petite", "stale"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਸਲਾਨਾ” in English?", "o": ["damp", "annual", "abundant", "oval"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਨਮਕੀਨ” in English?", "o": ["plain", "salty", "loud", "freezing"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਸੰਖੇਪ (ਥੋੜ੍ਹੇ ਸਮੇਂ ਦਾ)” in English?", "o": ["faint", "straight", "abundant", "brief"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਤੰਗ” in English?", "o": ["chirping", "stale", "salty", "narrow"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਚੌਰਸ” in English?", "o": ["soft", "steep", "spicy", "square"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਬਰਫ਼ ਵਰਗਾ ਠੰਢਾ” in English?", "o": ["triangular", "freezing", "shrill", "rapid / swift"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਆਧੁਨਿਕ” in English?", "o": ["melodious", "petite", "modern", "thundering"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਬਹੁਤ ਛੋਟਾ” in English?", "o": ["spicy", "tiny", "loud", "quaint"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਉੱਚਾ-ਨੀਵਾਂ (ਝਟਕਿਆਂ ਵਾਲਾ)” in English?", "o": ["curved", "loud", "wide / broad", "bumpy"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਚੌੜਾ” in English?", "o": ["salty", "wide / broad", "flat", "drab"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਸੁਆਦੀ” in English?", "o": ["narrow", "hoarse", "hard", "delicious"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਬੇਸੁਆਦਾ” in English?", "o": ["hard", "tasteless", "bitter", "petite"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਘਾਟ ਵਾਲਾ (ਦੁਰਲੱਭ)” in English?", "o": ["oval", "sweet", "noisy", "scarce"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਸੁਰੀਲਾ” in English?", "o": ["dry", "noisy", "bumpy", "melodious"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਅਨੇਕਾਂ” in English?", "o": ["deep", "square", "numerous", "huge"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਪੁਰਾਣਾ ਪਰ ਪਿਆਰਾ” in English?", "o": ["scarce", "quaint", "boiling", "annual"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਬਿਲਕੁਲ ਚੁੱਪ” in English?", "o": ["huge", "silent", "smooth", "deep"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਮੁਲਾਇਮ” in English?", "o": ["square", "miniature", "glamorous", "smooth"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਧੂੜ ਨਾਲ ਭਰਿਆ” in English?", "o": ["round", "annual", "soft", "dusty"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਚਮਕ-ਦਮਕ ਵਾਲਾ” in English?", "o": ["oval", "miniature", "glamorous", "annual"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਚਹਿਚਹਾਉਂਦਾ” in English?", "o": ["triangular", "deep", "noisy", "chirping"], "a": 3, "e": ""}, {"t": "mcq", "q": "What is “ਦਿਓ-ਕੱਦ (ਅਤਿ ਵੱਡਾ)” in English?", "o": ["modern", "crooked", "gigantic", "sweet"], "a": 2, "e": ""}, {"t": "mcq", "q": "What is “ਡੂੰਘਾ” in English?", "o": ["fluffy", "deep", "plain", "elegant"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਟੇਢਾ” in English?", "o": ["melodious", "crooked", "sour", "miniature"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਛੋਟੇ ਆਕਾਰ ਦਾ ਨਮੂਨਾ” in English?", "o": ["hoarse", "miniature", "drab", "petite"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਮਿੱਠਾ” in English?", "o": ["deafening", "sweet", "curved", "loud"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਮਸਾਲੇਦਾਰ (ਤਿੱਖਾ)” in English?", "o": ["chilly", "spicy", "loud", "flat"], "a": 1, "e": ""}, {"t": "mcq", "q": "What is “ਚਿਪਚਿਪਾ” in English?", "o": ["sweet", "plain", "quaint", "sticky"], "a": 3, "e": ""}]}, {"title": "C · Spell it", "instr": "Type the English word. Spelling counts — just like in IELTS Listening!", "items": [{"t": "fill", "q": "ਗਰਜਦਾ → ___", "a": [["thundering"]], "e": "thundering"}, {"t": "fill", "q": "ਖੱਟਾ → ___", "a": [["sour"]], "e": "sour"}, {"t": "fill", "q": "ਸੁੱਕਾ → ___", "a": [["dry"]], "e": "dry"}, {"t": "fill", "q": "ਨਰਮ → ___", "a": [["soft"]], "e": "soft"}, {"t": "fill", "q": "ਬਹੁਤ ਵੱਡਾ → ___", "a": [["huge"]], "e": "huge"}, {"t": "fill", "q": "ਸਿੱਧੀ ਚੜ੍ਹਾਈ ਵਾਲਾ → ___", "a": [["steep"]], "e": "steep"}, {"t": "fill", "q": "ਸਾਦਾ → ___", "a": [["plain"]], "e": "plain"}, {"t": "fill", "q": "ਖੁਰਦਰਾ → ___", "a": [["rough"]], "e": "rough"}, {"t": "fill", "q": "ਸੁੱਕਾ-ਪਤਲਾ → ___", "a": [["scrawny"]], "e": "scrawny"}, {"t": "fill", "q": "ਤਿੱਖੀ ਚੀਕਵੀਂ (ਆਵਾਜ਼) → ___", "a": [["shrill"]], "e": "shrill"}]}, {"title": "D · Use it in a sentence", "instr": "Choose the best word.", "items": [{"t": "mcq", "q": "Be careful — the floor is wet and ___.", "o": ["hollow", "faint", "slippery", "ancient"], "a": 2, "e": ""}, {"t": "mcq", "q": "This bread is three days old. It's ___.", "o": ["fluffy", "juicy", "fresh", "stale"], "a": 3, "e": ""}, {"t": "mcq", "q": "Water is ___ in the desert.", "o": ["abundant", "sticky", "scarce", "numerous"], "a": 2, "e": ""}, {"t": "mcq", "q": "The village road is full of holes. It's very ___.", "o": ["melodious", "elegant", "smooth", "bumpy"], "a": 3, "e": ""}]}], "next": null};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"; P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

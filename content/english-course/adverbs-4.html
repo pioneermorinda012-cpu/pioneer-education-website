@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Degree, Place & Time · already, still, yet · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+textarea.fi{font:500 16px system-ui,sans-serif;line-height:1.5}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 4, "total": 6, "title": "Degree, Place & Time · already, still, yet", "sub": "very · quite · hardly · here · upstairs · tomorrow", "test": false, "unit": "Adverbs", "chip": null, "share": null, "video": true, "js": null, "learn": ["<section class=\"card \"><h3>Five kinds of adverbs</h3><div class=\"tw\"><table class=\"\"><thead><tr><th>Kind</th><th>Question</th><th>Examples</th><th>Usual position</th></tr></thead><tbody><tr><td>Manner</td><td>how?</td><td>carefully, well, fast</td><td>after the verb / object</td></tr><tr><td>Place</td><td>where?</td><td>here, there, outside, upstairs, everywhere, abroad</td><td>after the verb / object</td></tr><tr><td>Time</td><td>when? how long?</td><td>now, today, tomorrow, yesterday, for two weeks</td><td>end of the sentence</td></tr><tr><td>Frequency</td><td>how often?</td><td>always, often, never</td><td>before the main verb, after be</td></tr><tr><td>Degree</td><td>how much?</td><td>very, extremely, quite, rather, too, almost, nearly, completely, hardly, just, enough</td><td>before the adjective / adverb / verb</td></tr></tbody></table></div><p>Order at the end of a sentence: <b>manner → place → time</b> — <i>She sang beautifully at the concert last night.</i></p></section>", "<section class=\"card \"><h3>Adverbs of degree</h3><ul class=\"exl\"><li><span class=\"say\">The day was extremely hot.</span></li><li><span class=\"say\">I'm quite tired.</span></li><li><span class=\"say\">This tea is too sweet.</span></li><li><span class=\"say\">I have almost finished.</span></li><li><span class=\"say\">He is tall enough.</span></li><li><span class=\"say\">I can hardly hear you.</span></li></ul><p><b>enough</b> comes <b>after</b> an adjective or adverb: <i>old enough, fast enough</i>.</p></section>", "<section class=\"card \"><h3>already, still, yet</h3><div class=\"tw\"><table class=\"\"><thead><tr><th>Word</th><th>Meaning</th><th>Use</th><th>Example</th></tr></thead><tbody><tr><td><b>already</b></td><td>sooner than expected</td><td>positive sentences, before the main verb</td><td>I have <b>already</b> bought the gift.</td></tr><tr><td><b>yet</b></td><td>up to now</td><td>questions and negatives, at the end</td><td>Have you sent the email <b>yet</b>? I haven't finished <b>yet</b>.</td></tr><tr><td><b>still</b></td><td>continuing — not finished</td><td>before the main verb, after be</td><td>I <b>still</b> need to go shopping. I'm <b>still</b> waiting.</td></tr></tbody></table></div></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\"><b>already</b> = ਪਹਿਲਾਂ ਹੀ, <b>yet</b> = ਹਾਲੇ ਤੱਕ (ਸਵਾਲ/ਨਾਂਹ ਵਿੱਚ, ਵਾਕ ਦੇ ਅੰਤ ਤੇ), <b>still</b> = ਹਾਲੇ ਵੀ (ਜਾਰੀ ਹੈ)। Degree: very = ਬਹੁਤ, quite = ਕਾਫ਼ੀ, too = ਲੋੜ ਤੋਂ ਵੱਧ, almost = ਲਗਭਗ, hardly = ਮਸਾਂ।</p></section>", "<section class=\"card mist\"><h3>Common mistakes</h3><div class=\"mk\"><div class=\"bad\">✗ We went yesterday to the movies.</div><div class=\"good\">✓ We went to the movies yesterday.</div><div class=\"why\">time at the end.</div></div><div class=\"mk\"><div class=\"bad\">✗ He away went.</div><div class=\"good\">✓ He went away.</div></div><div class=\"mk\"><div class=\"bad\">✗ Have you already finished yet?</div><div class=\"good\">✓ Have you finished yet? / Have you already finished?</div></div><div class=\"mk\"><div class=\"bad\">✗ He is enough tall.</div><div class=\"good\">✓ He is tall enough.</div></div></section>"], "sets": [{"title": "A · What kind of adverb?", "instr": "Choose the category.", "items": [{"t": "mcq", "q": "“never”", "o": ["frequency (how often?)", "degree (how much?)", "manner (how?)", "place (where?)", "time (when?)"], "a": 0, "e": ""}, {"t": "mcq", "q": "“today”", "o": ["degree (how much?)", "time (when?)", "manner (how?)", "place (where?)", "frequency (how often?)"], "a": 1, "e": ""}, {"t": "mcq", "q": "“here”", "o": ["place (where?)", "degree (how much?)", "frequency (how often?)", "time (when?)", "manner (how?)"], "a": 0, "e": ""}, {"t": "mcq", "q": "“elegantly”", "o": ["frequency (how often?)", "place (where?)", "manner (how?)", "degree (how much?)", "time (when?)"], "a": 2, "e": ""}, {"t": "mcq", "q": "“downstairs”", "o": ["manner (how?)", "frequency (how often?)", "place (where?)", "time (when?)", "degree (how much?)"], "a": 2, "e": ""}, {"t": "mcq", "q": "“very”", "o": ["manner (how?)", "time (when?)", "place (where?)", "degree (how much?)", "frequency (how often?)"], "a": 3, "e": ""}, {"t": "mcq", "q": "“outside”", "o": ["manner (how?)", "time (when?)", "degree (how much?)", "frequency (how often?)", "place (where?)"], "a": 4, "e": ""}, {"t": "mcq", "q": "“yesterday”", "o": ["manner (how?)", "place (where?)", "degree (how much?)", "time (when?)", "frequency (how often?)"], "a": 3, "e": ""}, {"t": "mcq", "q": "“rarely”", "o": ["degree (how much?)", "time (when?)", "frequency (how often?)", "place (where?)", "manner (how?)"], "a": 2, "e": ""}, {"t": "mcq", "q": "“safely”", "o": ["place (where?)", "manner (how?)", "degree (how much?)", "frequency (how often?)", "time (when?)"], "a": 1, "e": ""}, {"t": "mcq", "q": "“extremely”", "o": ["manner (how?)", "time (when?)", "degree (how much?)", "place (where?)", "frequency (how often?)"], "a": 2, "e": ""}, {"t": "mcq", "q": "“tomorrow”", "o": ["manner (how?)", "place (where?)", "frequency (how often?)", "time (when?)", "degree (how much?)"], "a": 3, "e": ""}, {"t": "mcq", "q": "“almost”", "o": ["manner (how?)", "place (where?)", "degree (how much?)", "time (when?)", "frequency (how often?)"], "a": 2, "e": ""}, {"t": "mcq", "q": "“abroad”", "o": ["time (when?)", "degree (how much?)", "manner (how?)", "frequency (how often?)", "place (where?)"], "a": 4, "e": ""}]}, {"title": "B · already, still or yet?", "instr": "", "items": [{"t": "mcq", "q": "Have you seen the teacher ___?", "o": ["still", "yet", "already"], "a": 1, "e": ""}, {"t": "mcq", "q": "I have ___ bought the gift.", "o": ["still", "already", "yet"], "a": 1, "e": ""}, {"t": "mcq", "q": "I ___ think about travelling abroad.", "o": ["yet", "already", "still"], "a": 2, "e": ""}, {"t": "mcq", "q": "Have you sent the email ___?", "o": ["yet", "already", "still"], "a": 0, "e": ""}, {"t": "mcq", "q": "I have ___ told him about my plans.", "o": ["yet", "still", "already"], "a": 2, "e": ""}, {"t": "mcq", "q": "I ___ need to go shopping.", "o": ["already", "yet", "still"], "a": 2, "e": ""}, {"t": "mcq", "q": "Have you read this book ___?", "o": ["yet", "already", "still"], "a": 0, "e": ""}, {"t": "mcq", "q": "I ___ attend maths classes.", "o": ["still", "yet", "already"], "a": 0, "e": ""}, {"t": "mcq", "q": "Have you received the flowers ___?", "o": ["already", "yet", "still"], "a": 1, "e": ""}, {"t": "mcq", "q": "I have ___ watched this movie.", "o": ["yet", "still", "already"], "a": 2, "e": ""}, {"t": "mcq", "q": "I am ___ waiting for your call.", "o": ["still", "already", "yet"], "a": 0, "e": ""}, {"t": "mcq", "q": "I have ___ finished my tasks.", "o": ["still", "yet", "already"], "a": 2, "e": ""}, {"t": "mcq", "q": "I ___ collect stamps.", "o": ["yet", "already", "still"], "a": 2, "e": "still = I collected them before, and I continue now."}]}, {"title": "C · Correct or incorrect?", "instr": "Choose the correct version.", "items": [{"t": "mcq", "q": "Which is correct?", "o": ["We went yesterday to the movies.", "We went to the movies yesterday."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["He away went without saying goodbye.", "He went away without saying goodbye."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["He well speaks French.", "He speaks French well."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["We don't eat often out.", "We don't often eat out."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["She dresses usually elegantly.", "She usually dresses elegantly."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["I haven't for two weeks seen him.", "I haven't seen him for two weeks."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["The bathroom upstairs is.", "The bathroom is upstairs."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["I can't anywhere find my glasses.", "I can't find my glasses anywhere."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["Smoking is dangerous extremely for your health.", "Smoking is extremely dangerous for your health."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["We go usually to the gurdwara on Sundays.", "We usually go to the gurdwara on Sundays."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["Answer honestly all the questions.", "Answer all the questions honestly."], "a": 1, "e": ""}, {"t": "mcq", "q": "Which is correct?", "o": ["Peter has been for three weeks in hospital.", "Peter has been in hospital for three weeks."], "a": 1, "e": ""}]}, {"title": "D · Adverbs of degree", "instr": "Unscramble the word.", "items": [{"t": "fill", "q": "amslot → ___", "a": [["almost"]], "e": ""}, {"t": "fill", "q": "colelpetmy → ___", "a": [["completely"]], "e": ""}, {"t": "fill", "q": "ttolaly → ___", "a": [["totally"]], "e": ""}, {"t": "fill", "q": "vrey → ___", "a": [["very"]], "e": ""}, {"t": "fill", "q": "rethar → ___", "a": [["rather"]], "e": ""}, {"t": "fill", "q": "hdraly → ___", "a": [["hardly"]], "e": ""}, {"t": "fill", "q": "qtuie → ___", "a": [["quite"]], "e": ""}, {"t": "fill", "q": "rllaey → ___", "a": [["really"]], "e": ""}, {"t": "fill", "q": "tblrirey → ___", "a": [["terribly"]], "e": ""}, {"t": "fill", "q": "paticrclaly → ___", "a": [["practically"]], "e": ""}]}], "next": "Lesson 5 — Opinion Adverbs & Strong Adjectives"};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"+(s.intro||""); P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else if(it.t==="reveal"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span><span lang="pa" class="pa">'+esc(it.q)+'</span></p>'
+            +'<textarea class="fi" rows="2" style="width:100%" placeholder="Write your English sentence here (optional)…"></textarea>'
+            +'<button class="chk">Show answer</button><div class="fb"></div><div class="opts hide" style="margin-top:8px"><button class="opt sg">✓ I got it</button><button class="opt sb">✗ Not yet</button></div>';
+          var rb=q.querySelector(".chk"), rf=q.querySelector(".fb"), ro=q.querySelector(".opts");
+          rb.onclick=function(){ rb.disabled=true; rf.className="fb show ok"; rf.style.background="var(--bg)"; rf.style.color="var(--ink)";
+            rf.innerHTML="<b>Model answer:</b> <span class='say'>"+esc(it.a)+"</span>"+(it.e?'<span class="ex2">'+it.e+'</span>':""); ro.classList.remove("hide"); };
+          function grade(ok){ if(q.dataset.state)return; q.dataset.state=ok?"ok":"no"; done++; if(ok)score++;
+            ro.querySelectorAll(".opt").forEach(function(x){x.disabled=true;}); (ok?ro.querySelector(".sg"):ro.querySelector(".sb")).classList.add(ok?"right":"wrong"); upd(); }
+          ro.querySelector(".sg").onclick=function(){grade(true)}; ro.querySelector(".sb").onclick=function(){grade(false)};
+          q.addEventListener("click",function(e){var sy=e.target.closest(".say");if(sy)speak(sy.textContent);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>

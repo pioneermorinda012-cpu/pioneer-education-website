@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Speaking Part 1: Week 3 Topics · Pioneer Education</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#ffffff; --ink:#152033; --muted:#5b6678; --line:#e3e8f0;
+  --brand:#1f3f93; --brand-2:#2f5bd3; --accent:#f28c28; --accent-soft:#fff3e6;
+  --ok:#16803c; --ok-soft:#e7f6ec; --bad:#c62828; --bad-soft:#fdecec;
+  --pun:#6d3fb8; --pun-soft:#f3edfc; --exam:#0f766e; --exam-soft:#e6f6f4;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.06);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --card:#171e2d; --ink:#e7ecf5; --muted:#9aa6ba; --line:#2a3447;
+  --brand:#8fb0ff; --brand-2:#6f93f5; --accent:#ffa94d; --accent-soft:#3a2a17;
+  --ok:#4ade80; --ok-soft:#133221; --bad:#f87171; --bad-soft:#3a1717;
+  --pun:#c4a5ff; --pun-soft:#2a2140; --exam:#5eead4; --exam-soft:#12302d; --shadow:none;}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans","Noto Sans Gurmukhi",sans-serif;-webkit-text-size-adjust:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 48px}
+header.hero{background:linear-gradient(135deg,#1f3f93,#2f5bd3);color:#fff;padding:20px 16px 26px}
+header.hero .wrap{padding-bottom:0}
+.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.chip{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:600;margin-top:10px}
+h1{font-size:26px;line-height:1.2;margin:8px 0 4px}
+.sub{opacity:.9;margin:0}
+.bar{position:sticky;top:0;z-index:5;background:var(--card);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
+.prog{flex:1;height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.prog i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.stat{font-size:13px;font-weight:600;color:var(--muted);white-space:nowrap}
+.tabs{display:flex;gap:8px;margin:18px 0 8px}
+.tabs button{flex:1;padding:10px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer}
+.tabs button.on{background:var(--brand);border-color:var(--brand);color:#fff}
+:root[data-theme="dark"] .tabs button.on{color:#0f1420}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button.on{color:#0f1420}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:14px 0;box-shadow:var(--shadow)}
+.card h3{margin:0 0 8px;font-size:17px;color:var(--brand)}
+.card p{margin:8px 0}
+.card.pun{background:var(--pun-soft);border-color:transparent}.card.pun h3{color:var(--pun)}
+.pa{font-size:16.5px;line-height:1.8}
+.card.exam{background:var(--exam-soft);border-color:transparent}.card.exam h3{color:var(--exam)}
+.card.mist h3{color:var(--bad)}
+.mk{border-top:1px dashed var(--line);padding:8px 0}.mk:first-of-type{border-top:0}
+.bad{color:var(--bad)}.good{color:var(--ok);font-weight:600}.why{font-size:14px;color:var(--muted)}
+.note{background:var(--accent-soft);border-radius:10px;padding:8px 12px;font-size:15px}
+.exl{list-style:none;padding:0;margin:8px 0}
+.exl li{padding:6px 0;border-bottom:1px solid var(--line)}.exl li:last-child{border-bottom:0}
+.say{cursor:pointer}
+.say::after{content:" 🔊";font-size:13px;opacity:.55}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--bg);font-size:13px;color:var(--muted)}
+table.two td{width:50%}table.grid td{text-align:center;font-size:17px}
+.video{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.video iframe,.video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.set h2{font-size:19px;margin:26px 0 2px}
+.instr{color:var(--muted);margin:0 0 6px;font-size:15px}
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 0}
+.qt{margin:0 0 10px;font-weight:500}
+.qn{display:inline-block;min-width:26px;height:26px;line-height:26px;text-align:center;border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px;font-weight:700;margin-right:6px}
+.blank{display:inline-block;min-width:54px;border-bottom:2px solid var(--muted);margin:0 3px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opt{padding:9px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);font:500 15px system-ui,sans-serif;cursor:pointer;text-align:left}
+.opt:hover:not(:disabled){border-color:var(--brand-2)}
+.opt.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:700}
+.opt.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.opt:disabled{cursor:default}
+textarea.fi{font:500 16px system-ui,sans-serif;line-height:1.5}
+input.fi{font:500 16px system-ui,sans-serif;padding:6px 8px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);width:9.5em;max-width:100%;margin:2px 3px}
+input.fi.right{border-color:var(--ok);background:var(--ok-soft);color:var(--ok);font-weight:700}
+input.fi.wrong{border-color:var(--bad);background:var(--bad-soft);color:var(--bad)}
+.chk{margin-top:10px;padding:8px 18px;border-radius:10px;border:0;background:var(--brand);color:#fff;font:600 15px system-ui,sans-serif;cursor:pointer}
+.chk:disabled{opacity:.4;cursor:default}
+.fb{margin-top:10px;padding:9px 12px;border-radius:10px;font-size:15px;display:none}
+.fb.show{display:block}.fb.ok{background:var(--ok-soft);color:var(--ok)}.fb.no{background:var(--bad-soft);color:var(--bad)}
+.fb .ex2{display:block;color:var(--ink);margin-top:3px;font-size:14px}
+.result{text-align:center;padding:24px 16px}
+.big{font-size:52px;font-weight:800;color:var(--brand);line-height:1}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:16px}
+.btn{padding:11px 18px;border-radius:12px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui,sans-serif;cursor:pointer;text-decoration:none}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:#1b1206}
+.btn.wa{background:#25d366;border-color:#25d366;color:#062b14}
+.next{color:var(--muted);font-size:14px;margin-top:14px}
+footer{color:var(--muted);font-size:12px;text-align:center;margin-top:26px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand">Pioneer Education · English Grammar</div>
+  <span class="chip" id="chip"></span>
+  <h1 id="ttl"></h1>
+  <p class="sub" id="sub"></p>
+</div></header>
+<div class="bar"><div class="wrap">
+  <div class="prog"><i id="pbar"></i></div>
+  <div class="stat" id="stat">0 / 0</div>
+</div></div>
+<main class="wrap">
+  <div class="tabs"><button id="tLearn" class="on">📘 Learn</button><button id="tPractice">✍️ Practice</button></div>
+  <div id="learn"></div>
+  <div id="practice" class="hide"></div>
+  <div id="result" class="card result hide"></div>
+  <footer>© Pioneer Education, Prem Nagar, Morinda · <span id="unit"></span></footer>
+</main>
+<script>
+/* Optional: paste your YouTube link or a video URL for this lesson here. Leave "" to hide the video. */
+var VIDEO_URL = "";
+var D = {"n": 1, "total": 1, "title": "Speaking Part 1: Week 3 Topics", "sub": "Fruits · pop stars · magazines · internet · transport · phones · hats", "test": false, "unit": "IELTS Speaking", "chip": "IELTS Speaking", "share": "Speaking Part 1 — Week 3 topics", "video": true, "js": "\ndocument.querySelectorAll('.vsearch').forEach(function(inp){inp.addEventListener('input',function(){var q=inp.value.toLowerCase().trim();\n inp.closest('section').querySelectorAll('details').forEach(function(d){var hit=!q||d.textContent.toLowerCase().indexOf(q)>-1;d.style.display=hit?'':'none';if(q&&hit)d.open=true;});});});\n\nvar Q=[[\"Fruits and vegetables\", \"Do you like fruits and vegetables?\"], [\"Fruits and vegetables\", \"How often do you eat fruits and vegetables?\"], [\"Fruits and vegetables\", \"Why do you think fruits and vegetables are important for us?\"], [\"Fruits and vegetables\", \"What kind of fruit do you prefer?\"], [\"Fruits and vegetables\", \"Which fruits or vegetables do you especially like to eat?\"], [\"Pop stars\", \"Who's your favourite pop star?\"], [\"Pop stars\", \"Do you want to be a pop star?\"], [\"Pop stars\", \"Do you like to go to concerts?\"], [\"Pop stars\", \"Do you prefer live music or recorded music?\"], [\"Magazines\", \"Do you read magazines?\"], [\"Magazines\", \"Who prefers to read magazines – younger or older people?\"], [\"Magazines\", \"Have you ever read online magazines?\"], [\"Magazines\", \"Did you read magazines when you were young?\"], [\"Magazines\", \"What kinds of magazines are popular in your country?\"], [\"The internet\", \"Do you use the internet much?\"], [\"The internet\", \"When was the first time you used the internet?\"], [\"The internet\", \"Is the internet important to you?\"], [\"The internet\", \"Could you live without the internet?\"], [\"Bus or taxi\", \"How often do you take the bus?\"], [\"Bus or taxi\", \"When was the last time you took a taxi?\"], [\"Bus or taxi\", \"What are the advantages of taking a taxi compared with a bus?\"], [\"Bus or taxi\", \"Is it convenient to take a bus or taxi in your city?\"], [\"Mobile phones\", \"How often do you use your mobile phone?\"], [\"Mobile phones\", \"Can you describe your mobile phone?\"], [\"Mobile phones\", \"Do you think people use their phones too much?\"], [\"Mobile phones\", \"What would you do without your phone?\"], [\"Hats\", \"Do you like to wear hats?\"], [\"Hats\", \"What kinds of hats do you have?\"], [\"Hats\", \"Where do you like to buy hats?\"], [\"Hats\", \"Is wearing hats popular in your country?\"]]; var box=document.getElementById('pq'); if(!box) return;\nvar t=null, left=0;\nfunction pick(){ var r=Q[Math.floor(Math.random()*Q.length)]; document.getElementById('pq_topic').textContent=r[0]; document.getElementById('pq_q').textContent=r[1];\n clearInterval(t); left=30; tick(); say(r[1]); t=setInterval(function(){left--; tick(); if(left<=0){clearInterval(t);}},1000); }\nfunction tick(){ var el=document.getElementById('pq_t'); el.textContent=left>0?('⏱ '+left+'s — answer now: Answer + Reason + Example'):'⏹ Time! Did you give a reason and an example?'; }\nfunction say(s){try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(s);u.lang='en-GB';u.rate=.9;speechSynthesis.speak(u);}catch(e){}}\ndocument.getElementById('pq_go').onclick=pick;\ndocument.getElementById('pq_again').onclick=function(){say(document.getElementById('pq_q').textContent)};\n", "learn": ["<section class=\"card\" id=\"pq\"><h3>🎤 Practice mode</h3>\n<p class=\"instr\">Tap the button. The examiner's question is read aloud. Answer out loud in about 20–30 seconds.</p>\n<div class=\"intro\" style=\"background:var(--bg);border-radius:12px;padding:14px\"><div id=\"pq_topic\" style=\"color:var(--muted);font-size:13px\">Topic</div>\n<div id=\"pq_q\" style=\"font-size:18px;font-weight:600;margin:6px 0\">Tap “New question” to start.</div><div id=\"pq_t\" style=\"color:var(--accent);font-weight:600\"></div></div>\n<div class=\"btns\"><button class=\"btn pri\" id=\"pq_go\">🎲 New question</button><button class=\"btn\" id=\"pq_again\">🔊 Repeat</button></div></section>", "<section class=\"card\"><h3>7 topics with model answers</h3><input class=\"vsearch fi\" style=\"width:100%;margin:0 0 10px\" placeholder=\"🔍 Search a topic or word…\"><details><summary><b>1. Fruits and vegetables</b> <span class='cnt'>(5 questions)</span> <span class='badge'>5 model</span></summary><ol><li><span class='say'>Do you like fruits and vegetables?</span><div class='model'><b>Model answer:</b> Yes, I do. Fresh fruit and vegetables are a big part of my daily diet, mainly because my mother makes sure we eat healthily.</div></li><li><span class='say'>How often do you eat fruits and vegetables?</span><div class='model'><b>Model answer:</b> Almost every day. We usually have a vegetable curry with lunch and dinner, and I try to eat at least one piece of fruit in the morning.</div></li><li><span class='say'>Why do you think fruits and vegetables are important for us?</span><div class='model'><b>Model answer:</b> Because they&#x27;re full of vitamins, minerals and fibre. They keep us healthy and help protect us from many diseases.</div></li><li><span class='say'>What kind of fruit do you prefer?</span><div class='model'><b>Model answer:</b> I prefer seasonal fruit, because it&#x27;s fresher, tastier and cheaper. In summer, nothing beats a cold slice of watermelon.</div></li><li><span class='say'>Which fruits or vegetables do you especially like to eat?</span><div class='model'><b>Model answer:</b> Among vegetables, I really like okra and spinach, and my favourite fruits are mangoes and guavas — especially the guavas from our village.</div></li></ol></details><details><summary><b>2. Pop stars</b> <span class='cnt'>(4 questions)</span> <span class='badge'>4 model</span></summary><ol><li><span class='say'>Who&#x27;s your favourite pop star?</span><div class='model'><b>Model answer:</b> I&#x27;d say Diljit Dosanjh. He&#x27;s a brilliant singer and performer, and I admire how he has taken Punjabi music to audiences all over the world.</div></li><li><span class='say'>Do you want to be a pop star?</span><div class='model'><b>Model answer:</b> Not really. I don&#x27;t think I have the talent, and honestly, I wouldn&#x27;t enjoy having no privacy.</div></li><li><span class='say'>Do you like to go to concerts?</span><div class='model'><b>Model answer:</b> Yes, I love them. A live performance has a special energy, and it&#x27;s fun to be surrounded by people who share the same interest.</div></li><li><span class='say'>Do you prefer live music or recorded music?</span><div class='model'><b>Model answer:</b> I enjoy both, for different reasons. Live music is exciting, but recorded music is convenient — I can listen to it anywhere, like on the bus.</div></li></ol></details><details><summary><b>3. Magazines</b> <span class='cnt'>(5 questions)</span> <span class='badge'>5 model</span></summary><ol><li><span class='say'>Do you read magazines?</span><div class='model'><b>Model answer:</b> Sometimes. I occasionally read a general-knowledge magazine, mostly when I&#x27;m preparing for exams.</div></li><li><span class='say'>Who prefers to read magazines – younger or older people?</span><div class='model'><b>Model answer:</b> I think older people prefer printed magazines, while young people usually read the same kind of content online or on social media.</div></li><li><span class='say'>Have you ever read online magazines?</span><div class='model'><b>Model answer:</b> Yes, I have. They&#x27;re convenient and often free, but I still prefer turning real pages — it&#x27;s easier on the eyes.</div></li><li><span class='say'>Did you read magazines when you were young?</span><div class='model'><b>Model answer:</b> Not really. As a child I mostly read comics and storybooks. I only started reading magazines as a teenager.</div></li><li><span class='say'>What kinds of magazines are popular in your country?</span><div class='model'><b>Model answer:</b> There&#x27;s a huge variety — fashion, sports, film, competitive-exam and car magazines are all quite popular in India.</div></li></ol></details><details><summary><b>4. The internet</b> <span class='cnt'>(4 questions)</span> <span class='badge'>4 model</span></summary><ol><li><span class='say'>Do you use the internet much?</span><div class='model'><b>Model answer:</b> Yes, a lot — mainly for my studies, but also for chatting with friends and watching videos in my free time.</div></li><li><span class='say'>When was the first time you used the internet?</span><div class='model'><b>Model answer:</b> I think I was about ten or eleven. My father got a smartphone and I used it to search for cartoon videos.</div></li><li><span class='say'>Is the internet important to you?</span><div class='model'><b>Model answer:</b> Very important. I use it for research, online classes and staying in touch with relatives abroad.</div></li><li><span class='say'>Could you live without the internet?</span><div class='model'><b>Model answer:</b> For a day or two, maybe, but not for long. So much of my study material and communication depends on it.</div></li></ol></details><details><summary><b>5. Bus or taxi</b> <span class='cnt'>(4 questions)</span> <span class='badge'>4 model</span></summary><ol><li><span class='say'>How often do you take the bus?</span><div class='model'><b>Model answer:</b> Quite often — I take the bus to college almost every day because it&#x27;s cheap and stops close to my house.</div></li><li><span class='say'>When was the last time you took a taxi?</span><div class='model'><b>Model answer:</b> About two months ago. I went to Delhi to visit relatives and took a cab from the railway station to their home.</div></li><li><span class='say'>What are the advantages of taking a taxi compared with a bus?</span><div class='model'><b>Model answer:</b> A taxi is faster and more comfortable, you don&#x27;t have to wait, and it takes you right to your door. A bus, on the other hand, only drops you at the stop.</div></li><li><span class='say'>Is it convenient to take a bus or taxi in your city?</span><div class='model'><b>Model answer:</b> Buses are frequent and affordable here. Taxis are available too, through apps, but I only use them when I&#x27;m in a hurry because they&#x27;re expensive.</div></li></ol></details><details><summary><b>6. Mobile phones</b> <span class='cnt'>(4 questions)</span> <span class='badge'>4 model</span></summary><ol><li><span class='say'>How often do you use your mobile phone?</span><div class='model'><b>Model answer:</b> Every day, probably too often! I use it for calls, messages, online classes and checking the news.</div></li><li><span class='say'>Can you describe your mobile phone?</span><div class='model'><b>Model answer:</b> It&#x27;s a mid-range Android phone with a large screen, two cameras and plenty of storage. It&#x27;s like a mini computer in my pocket.</div></li><li><span class='say'>Do you think people use their phones too much?</span><div class='model'><b>Model answer:</b> Yes, I think so. You often see families sitting together but everyone is looking at a screen instead of talking.</div></li><li><span class='say'>What would you do without your phone?</span><div class='model'><b>Model answer:</b> I&#x27;d probably read more and talk to people face to face — though I&#x27;d definitely miss video-calling my cousins in Canada.</div></li></ol></details><details><summary><b>7. Hats</b> <span class='cnt'>(4 questions)</span> <span class='badge'>4 model</span></summary><ol><li><span class='say'>Do you like to wear hats?</span><div class='model'><b>Model answer:</b> Not really — I find them a bit uncomfortable. But I do wear a cap in summer when I&#x27;m out in the sun.</div></li><li><span class='say'>What kinds of hats do you have?</span><div class='model'><b>Model answer:</b> Just a couple of baseball caps and a woollen cap for the winter.</div></li><li><span class='say'>Where do you like to buy hats?</span><div class='model'><b>Model answer:</b> Usually from a local market, but I&#x27;ve also bought one online because there was more choice.</div></li><li><span class='say'>Is wearing hats popular in your country?</span><div class='model'><b>Model answer:</b> Caps are popular with young people as a fashion accessory. Traditional headwear is also important in India — for example, turbans in Punjab carry great cultural and religious meaning.</div></li></ol></details></section><style>details{border-top:1px solid var(--line);padding:8px 0}details:first-of-type{border-top:0}summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}summary::before{content:'▸ ';color:var(--muted)}details[open] summary::before{content:'▾ '}.cnt{color:var(--muted);font-size:13px}.badge{background:var(--ok-soft);color:var(--ok);font-size:12px;border-radius:99px;padding:1px 8px;margin-left:4px}.model{background:var(--bg);border-left:3px solid var(--accent);padding:8px 10px;margin:6px 0 10px;border-radius:6px;font-size:15px}details ol{padding-left:22px}details li{margin:6px 0}</style>", "<section class=\"card \"><h3>Useful language for these topics</h3><ul class=\"exl\"><li><span class=\"say\">I'm (not) really into…</span></li><li><span class=\"say\">It's a big part of my daily routine.</span></li><li><span class=\"say\">For me, the main advantage is that…</span></li><li><span class=\"say\">On the other hand, …</span></li><li><span class=\"say\">I'd say it depends on…</span></li><li><span class=\"say\">Honestly, I could(n't) live without it.</span></li></ul></section>", "<section class=\"card pun\"><h3>ਪੰਜਾਬੀ ਵਿੱਚ ਸਮਝੋ</h3><p lang=\"pa\" class=\"pa\">ਮਾਡਲ ਜਵਾਬ ਰਟਣ ਲਈ ਨਹੀਂ ਹਨ — ਇਹਨਾਂ ਵਿੱਚੋਂ ਚੰਗੇ ਸ਼ਬਦ ਤੇ ਵਾਕ-ਢਾਂਚੇ ਚੁਣੋ ਅਤੇ ਆਪਣੀ ਸੱਚੀ ਜਾਣਕਾਰੀ ਨਾਲ ਆਪਣਾ ਜਵਾਬ ਬਣਾਓ। ਹਰ ਜਵਾਬ: <b>ਜਵਾਬ + ਕਾਰਨ + ਉਦਾਹਰਨ</b>।</p></section>", "<section class=\"card exam\"><h3>IELTS / Exam tip</h3><p>Notice how each model answer gives a <b>reason</b> or an <b>example</b>. That's what moves an answer from Band 5 to Band 6–7.</p></section>"], "sets": [{"title": "A · Choose the better answer", "instr": "Which answer would score higher?", "items": [{"t": "mcq", "q": "“Do you like fruits and vegetables?”", "o": ["Yes, I do. They're part of my daily diet, mainly because my mother makes sure we eat healthily.", "Yes."], "a": 0, "e": ""}, {"t": "mcq", "q": "“When was the last time you took a taxi?”", "o": ["About two months ago — I took a cab from the railway station to my relatives' home in Delhi.", "I take a taxi to Delhi."], "a": 0, "e": "Past question → past tense."}, {"t": "mcq", "q": "“Could you live without the internet?”", "o": ["No. Internet is very important in today's modern era of science and technology.", "For a day or two maybe, but not for long, because my study material depends on it."], "a": 1, "e": "Avoid memorised clichés like “in today's modern era”."}, {"t": "mcq", "q": "“Do you prefer live or recorded music?”", "o": ["Live music.", "I enjoy both. Live music is exciting, but recorded music is convenient because I can listen anywhere."], "a": 1, "e": ""}]}, {"title": "B · Which tense?", "instr": "Choose the best tense for your answer.", "items": [{"t": "mcq", "q": "“Did you read magazines when you were young?”", "o": ["present simple", "past simple / used to", "future"], "a": 1, "e": ""}, {"t": "mcq", "q": "“How often do you take the bus?”", "o": ["past simple", "present perfect", "present simple"], "a": 2, "e": ""}, {"t": "mcq", "q": "“Have you ever read online magazines?”", "o": ["future", "present perfect", "past simple"], "a": 1, "e": ""}, {"t": "mcq", "q": "“What would you do without your phone?”", "o": ["present simple", "past simple", "would / conditional"], "a": 2, "e": ""}]}], "next": null};
+(function(){
+  var $ = function(id){return document.getElementById(id)};
+  document.title = D.title + " · Pioneer Education";
+  $("chip").textContent = D.chip ? D.chip : D.test ? "Final Test" : ("Lesson " + D.n + " of " + D.total);
+  $("unit").textContent = D.unit || "Pronouns unit"; $("ttl").textContent = D.title; $("sub").textContent = D.sub;
+
+  function speak(t){try{if(!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="en-GB";u.rate=0.9;speechSynthesis.speak(u);}catch(e){}}
+  function videoHTML(u){
+    var m=u.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    if(m) return '<div class="video"><iframe src="https://www.youtube.com/embed/'+m[1]+'" allowfullscreen allow="encrypted-media; picture-in-picture"></iframe></div>';
+    return '<div class="video"><video src="'+u+'" controls playsinline preload="metadata"></video></div>';
+  }
+  var L = $("learn");
+  if(D.video && VIDEO_URL) L.insertAdjacentHTML("beforeend",'<section class="card"><h3>🎬 Watch the video lesson</h3>'+videoHTML(VIDEO_URL)+'</section>');
+  L.insertAdjacentHTML("beforeend", D.learn.join(""));
+  if(D.js){try{new Function(D.js)();}catch(e){console.error(e)}}
+  L.insertAdjacentHTML("beforeend",'<div class="btns"><button class="btn pri" id="goP">Start practice →</button></div>');
+  L.addEventListener("click",function(e){var s=e.target.closest(".say");if(s)speak(s.textContent.replace(/\(.*?\)/g,""));});
+
+  function tab(p){ $("learn").classList.toggle("hide",p); $("practice").classList.toggle("hide",!p);
+    $("tLearn").classList.toggle("on",!p); $("tPractice").classList.toggle("on",p);
+    if(!p) $("result").classList.add("hide"); else if(done===total) $("result").classList.remove("hide");
+    window.scrollTo(0,0);}
+  $("tLearn").onclick=function(){tab(false)}; $("tPractice").onclick=function(){tab(true)};
+  $("goP").onclick=function(){tab(true)};
+
+  var total=0, done=0, score=0;
+  D.sets.forEach(function(s){total+=s.items.length});
+  function norm(x){return String(x).toLowerCase().replace(/[’‘`´]/g,"'").replace(/\s+/g," ").replace(/[.!?,]+$/,"").trim();}
+  function esc(x){return String(x).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+  function upd(){ $("pbar").style.width=(total?done/total*100:0)+"%"; $("stat").textContent="✓ "+score+" · "+done+"/"+total;
+    if(done===total) showResult(); }
+  function fb(el,ok,correct,exp){ el.className="fb show "+(ok?"ok":"no");
+    el.innerHTML=(ok?"✔ Correct!":"✘ Correct answer: <b>"+esc(correct)+"</b>")+(exp?'<span class="ex2">'+exp+'</span>':""); }
+
+  function build(){
+    var P=$("practice"); P.innerHTML=""; done=0; score=0; var n=0;
+    D.sets.forEach(function(s){
+      var sec=document.createElement("div"); sec.className="set";
+      sec.innerHTML="<h2>"+s.title+"</h2><p class='instr'>"+s.instr+"</p>"+(s.intro||""); P.appendChild(sec);
+      s.items.forEach(function(it){
+        n++; var q=document.createElement("div"); q.className="q"; q.dataset.state="";
+        if(it.t==="mcq"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span>'+esc(it.q).replace(/___/g,'<span class="blank"></span>')+'</p><div class="opts"></div><div class="fb"></div>';
+          var box=q.querySelector(".opts");
+          it.o.forEach(function(o,i){var b=document.createElement("button");b.className="opt";b.textContent=o;
+            b.onclick=function(){ if(q.dataset.state)return; var ok=i===it.a; q.dataset.state=ok?"ok":"no";
+              box.querySelectorAll(".opt").forEach(function(x,j){x.disabled=true; if(j===it.a)x.classList.add("right"); else if(j===i)x.classList.add("wrong");});
+              done++; if(ok)score++; fb(q.querySelector(".fb"),ok,it.o[it.a],it.e); upd(); };
+            box.appendChild(b);});
+        } else if(it.t==="reveal"){
+          q.innerHTML='<p class="qt"><span class="qn">'+n+'</span><span lang="pa" class="pa">'+esc(it.q)+'</span></p>'
+            +'<textarea class="fi" rows="2" style="width:100%" placeholder="Write your English sentence here (optional)…"></textarea>'
+            +'<button class="chk">Show answer</button><div class="fb"></div><div class="opts hide" style="margin-top:8px"><button class="opt sg">✓ I got it</button><button class="opt sb">✗ Not yet</button></div>';
+          var rb=q.querySelector(".chk"), rf=q.querySelector(".fb"), ro=q.querySelector(".opts");
+          rb.onclick=function(){ rb.disabled=true; rf.className="fb show ok"; rf.style.background="var(--bg)"; rf.style.color="var(--ink)";
+            rf.innerHTML="<b>Model answer:</b> <span class='say'>"+esc(it.a)+"</span>"+(it.e?'<span class="ex2">'+it.e+'</span>':""); ro.classList.remove("hide"); };
+          function grade(ok){ if(q.dataset.state)return; q.dataset.state=ok?"ok":"no"; done++; if(ok)score++;
+            ro.querySelectorAll(".opt").forEach(function(x){x.disabled=true;}); (ok?ro.querySelector(".sg"):ro.querySelector(".sb")).classList.add(ok?"right":"wrong"); upd(); }
+          ro.querySelector(".sg").onclick=function(){grade(true)}; ro.querySelector(".sb").onclick=function(){grade(false)};
+          q.addEventListener("click",function(e){var sy=e.target.closest(".say");if(sy)speak(sy.textContent);});
+        } else {
+          var parts=it.q.split("___"), h='<p class="qt"><span class="qn">'+n+'</span>';
+          parts.forEach(function(p,i){ h+=esc(p); if(i<parts.length-1) h+='<input class="fi"'+(it.a[i][0].length>18?' style="width:100%;display:block;margin-top:8px"':'')+' autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="answer '+(i+1)+'">'; });
+          h+='</p><button class="chk">Check</button><div class="fb"></div>'; q.innerHTML=h;
+          var ins=q.querySelectorAll("input.fi"), btn=q.querySelector(".chk");
+          function check(){ if(q.dataset.state)return; var all=true, empty=false;
+            ins.forEach(function(x){if(!x.value.trim())empty=true;}); if(empty){ins.forEach(function(x){if(!x.value.trim())x.focus();});return;}
+            ins.forEach(function(x,i){ var acc=it.a[i].map(norm); var ok=acc.indexOf(norm(x.value))>-1; x.classList.add(ok?"right":"wrong"); x.disabled=true; if(!ok)all=false; });
+            q.dataset.state=all?"ok":"no"; btn.disabled=true; done++; if(all)score++;
+            fb(q.querySelector(".fb"),all,it.a.map(function(a){return a[0]}).join(" / "),it.e); upd(); }
+          btn.onclick=check; ins.forEach(function(x){x.addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();check();}});});
+        }
+        sec.appendChild(q);
+      });
+    });
+    $("result").classList.add("hide"); upd();
+  }
+  function showResult(){
+    var pct=Math.round(score/total*100), R=$("result");
+    var msg = pct>=90?"Outstanding! 🏆": pct>=80?"Excellent work! 🌟": pct>=60?"Good — review the red answers and try again. 💪":"Keep practising — reread the Learn section, then try again. 📘";
+    var share="I scored "+score+"/"+total+" ("+pct+"%) in "+(D.share?D.share:D.test?(D.unit||"Pronouns")+" Final Test":(D.unit||"Pronouns")+" Lesson "+D.n+": "+D.title)+" — Pioneer Education, Morinda";
+    R.innerHTML='<div class="big">'+pct+'%</div><p><b>'+score+' / '+total+'</b> correct</p><p>'+msg+'</p>'
+      +'<div class="btns"><button class="btn" id="rv">Review mistakes</button><button class="btn pri" id="ag">Try again</button>'
+      +'<a class="btn wa" target="_blank" rel="noopener" href="https://wa.me/?text='+encodeURIComponent(share)+'">Share on WhatsApp</a></div>'
+      +(D.next?'<p class="next">Next: '+D.next+'</p>':'');
+    R.classList.remove("hide");
+    $("ag").onclick=function(){build();window.scrollTo(0,0);};
+    $("rv").onclick=function(){var w=document.querySelector('.q[data-state="no"]'); if(w)w.scrollIntoView({behavior:"smooth",block:"center"}); else this.textContent="No mistakes 🎉";};
+  }
+  build();
+})();
+</script>
+</body>
+</html>
