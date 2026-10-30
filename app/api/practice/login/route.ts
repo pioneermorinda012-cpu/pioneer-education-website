@@ -2,6 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { findStudentForLogin, supabaseReady } from "@/lib/students";
 import { verifyPin, signSession, COOKIE, SESSION_HOURS, type Session } from "@/lib/session";
 import { getAccess, homeFor } from "@/lib/access";
+import { clear, hit, peek, visitor, wait } from "@/lib/ratelimit";
+
+/* Wrong passwords: 5 per student code in 15 minutes, then that code waits out
+ * the 15 minutes; 30 per device in an hour across all codes, against someone
+ * trying one PIN on many codes. Counted by the code as typed, so the answer is
+ * the same for a code that does not exist — the lock cannot reveal which
+ * codes are real. A correct password clears the count. */
+const PER_CODE = { limit: 5, windowSec: 15 * 60 };
+const PER_DEVICE = { limit: 30, windowSec: 60 * 60 };
 
 export const runtime = "nodejs";
 
@@ -32,6 +41,27 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Enter your student code (or email) and password." }, { status: 400 });
   }
 
+  const codeKey = "login:" + code.trim().toLowerCase();
+  const deviceKey = "login-ip:" + visitor(req);
+  const [byCode, byDevice] = await Promise.all([
+    peek(codeKey, PER_CODE.windowSec, PER_CODE.limit),
+    peek(deviceKey, PER_DEVICE.windowSec, PER_DEVICE.limit),
+  ]);
+  if (!byCode.allowed || !byDevice.allowed) {
+    const after = Math.max(byCode.retryAfterSec, byDevice.retryAfterSec);
+    return NextResponse.json(
+      { error: `Too many wrong passwords. For safety, wait ${wait(after)} and try again — or tap "Forgot password".` },
+      { status: 429, headers: { "Retry-After": String(after) } },
+    );
+  }
+  const failed = async () => {
+    await Promise.all([
+      hit(codeKey, PER_CODE.windowSec, PER_CODE.limit),
+      hit(deviceKey, PER_DEVICE.windowSec, PER_DEVICE.limit),
+    ]);
+    return NextResponse.json({ error: "That code (or email) and password do not match." }, { status: 401 });
+  };
+
   let student;
   try {
     student = await findStudentForLogin(code);
@@ -41,9 +71,9 @@ export async function POST(req: NextRequest) {
 
   // Same message whether the code is unknown or the PIN is wrong, so nobody can
   // use the error to work out which student codes exist.
-  const bad = NextResponse.json({ error: "That code (or email) and password do not match." }, { status: 401 });
-  if (!student) return bad;
-  if (!(await verifyPin(pin, student.pin_hash))) return bad;
+  if (!student) return failed();
+  if (!(await verifyPin(pin, student.pin_hash))) return failed();
+  await clear(codeKey);
 
   // Which modules this login opens, and until when. If it cannot be read the
   // student is asked to try again: signing them in without it would open

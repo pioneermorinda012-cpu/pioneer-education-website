@@ -3,6 +3,7 @@ import { randomBytes } from "node:crypto";
 import { getCourse, planKey, planTitle, buyable, TERM_MONTHS } from "@/app/data/courses";
 import { createPaymentLink, paymentsMissing } from "@/lib/razorpay";
 import { siteUrl } from "@/lib/mail";
+import { hit, visitor } from "@/lib/ratelimit";
 
 export const runtime = "nodejs";
 
@@ -41,6 +42,11 @@ export async function POST(req: NextRequest) {
 
   let b: Record<string, unknown> = {};
   try { b = await req.json(); } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
+  // 10 payment links per device an hour: plenty for a real student, and stops a
+  // bot filling the Razorpay dashboard with links
+  if (!(await hit("pay:" + visitor(req), 3600, 10)).allowed) {
+    return NextResponse.json({ error: "Too many tries from this device. Please WhatsApp us at +91 73802 61308." }, { status: 429 });
+  }
 
   const course = getCourse(String(b.course ?? ""));
   const plan = course?.plans.find((p) =>

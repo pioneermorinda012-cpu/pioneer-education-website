@@ -3,6 +3,7 @@ import { findStudentByPayment, setStudentPin, supabaseReady } from "@/lib/studen
 import { signSession, hashPin, COOKIE, SESSION_HOURS, type Session } from "@/lib/session";
 import { activeAreas, getAccessRow, homeFor } from "@/lib/access";
 import { verifyPaymentLinkSignature } from "@/lib/link-signature";
+import { hit, visitor } from "@/lib/ratelimit";
 
 export const runtime = "nodejs";
 
@@ -24,6 +25,9 @@ export async function POST(req: NextRequest) {
 
   let b: Record<string, unknown> = {};
   try { b = await req.json(); } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
+  if (!(await hit("claim:" + visitor(req), 3600, 20)).allowed) {
+    return NextResponse.json({ error: "Too many tries from this device. Please WhatsApp us at +91 73802 61308." }, { status: 429 });
+  }
   const paymentId = String(b.paymentId ?? "");
   const linkId = String(b.linkId ?? "");
   const referenceId = String(b.referenceId ?? "");

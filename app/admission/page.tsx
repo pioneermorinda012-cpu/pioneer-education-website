@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import SiteNav from "../../components/SiteNav";
 import { COURSES } from "../data/courses";
 import { trackEvent } from "@/lib/meta-pixel";
+import Turnstile, { sendLead, TURNSTILE_SITE_KEY } from "../../components/Turnstile";
 
 // A fresh Google Sheet + Apps Script, separate from the homepage/chatbot
 // lead-capture sheet, so a wrong field here can never break that one.
@@ -38,6 +39,8 @@ function AdmissionForm() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<{ name: string; course: string } | null>(null);
   const [error, setError] = useState("");
+  const [tsToken, setTsToken] = useState("");
+  const [hp, setHp] = useState("");   // hidden field: only bots fill it in
 
   async function submitAdmission() {
     const name = nameRef.current?.value.trim() || "";
@@ -60,23 +63,17 @@ function AdmissionForm() {
     if (!course) return setError("Please choose the course being joined.");
     if (!agreed) return setError("Please tick the confirmation box at the bottom before submitting.");
 
+    if (TURNSTILE_SITE_KEY && !tsToken) return setError("Please wait a moment for the quick security check above the button, then try again.");
+
     setSubmitting(true);
-    try {
-      await fetch(SHEET_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: "Admission Form",
-          submittedAt: new Date().toISOString(),
-          name, guardian, dob, gender, phone, email, address,
-          course, plan, timing, qualification, heardFrom,
-        }),
-      });
-    } catch (e) {
-      console.log("Admission sheet save error:", e);
-    }
+    const problem = await sendLead("admission", {
+      source: "Admission Form",
+      submittedAt: new Date().toISOString(),
+      name, guardian, dob, gender, phone, email, address,
+      course, plan, timing, qualification, heardFrom,
+    }, tsToken, hp, SHEET_URL);
     setSubmitting(false);
+    if (problem) return setError(problem);
     setSubmitted({ name, course });
     // Tells Meta someone actually completed the admission form — the
     // signal that drives retargeting and, later, a Conversions campaign.
@@ -223,6 +220,8 @@ function AdmissionForm() {
               </label>
 
               {error && <div style={{ color: "#c0392b", fontSize: "0.9rem", fontWeight: 600 }}>{error}</div>}
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={hp} onChange={(e) => setHp(e.target.value)} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+              <Turnstile onToken={setTsToken} />
 
               <button
                 type="button" className="btn btn-coral"

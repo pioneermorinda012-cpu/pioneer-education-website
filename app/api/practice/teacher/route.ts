@@ -6,8 +6,10 @@ import { recentAttempts, attemptsForStudent } from "@/lib/attempts";
 import { getCatalogue } from "@/lib/catalogue";
 import { allAccess, cleanAreas, setAccess } from "@/lib/access";
 import { paymentsMissing } from "@/lib/razorpay";
-import { letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
+import { esc, letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
 import { audience, pushReady, sendEach } from "@/lib/push";
+import crypto from "node:crypto";
+import { hit, peek, visitor, wait } from "@/lib/ratelimit";
 import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
@@ -16,6 +18,36 @@ import {
 export const runtime = "nodejs";
 
 const TEACHER_HOURS = 4;
+
+/* The teacher code opens every student's details, so guessing it is stopped:
+ * 10 wrong codes from one device in an hour, or 30 from everywhere together,
+ * and sign-in waits out the hour. The owner is emailed the first time either
+ * limit is reached, and on every successful teacher sign-in, so a stranger
+ * getting in would not go unnoticed. */
+const TEACHER_DEVICE = { limit: 10, windowSec: 3600 };
+const TEACHER_ALL = { limit: 30, windowSec: 3600 };
+/** Shorter than this, the Teacher area shows a warning to change it. */
+const TEACHER_CODE_MIN = 12;
+
+function sameCode(a: string, b: string): boolean {
+  // compared in constant time, so the answer time gives nothing away
+  const x = crypto.createHash("sha256").update(a).digest(), y = crypto.createHash("sha256").update(b).digest();
+  return crypto.timingSafeEqual(x, y);
+}
+
+async function tellOwner(subject: string, html: string, text: string) {
+  const owner = process.env.OWNER_EMAIL ?? "";
+  if (!owner || !mailReady()) return;
+  await sendMail(owner, subject, letter(subject, html), text).catch((e) => console.error("teacher alert mail", e));
+}
+
+function where(req: NextRequest): string {
+  const ip = (req.headers.get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  const place = [req.headers.get("x-vercel-ip-city"), req.headers.get("x-vercel-ip-country")].filter(Boolean)
+    .map((x) => decodeURIComponent(String(x))).join(", ");
+  const ua = (req.headers.get("user-agent") ?? "").slice(0, 160);
+  return `${ip}${place ? ` (${place})` : ""} — ${ua}`;
+}
 
 /* Courses a teacher's notification can go to — the same groups as the student
    list. A student with no modules set opens everything, so is in every group. */
@@ -61,6 +93,7 @@ export async function GET(req: NextRequest) {
     });
   }
   if (!(await signedIn(req))) return NextResponse.json({ configured: true, authed: false });
+  const weakCode = teacherCode.length < TEACHER_CODE_MIN;
 
   /* ?push=1: are practice reminders set up, and how many students have them on? */
   if (req.nextUrl.searchParams.get("push")) {
@@ -144,7 +177,7 @@ export async function GET(req: NextRequest) {
     }
     return NextResponse.json({
       configured: true, authed: true, students, attempts, names, wbands,
-      access: accessMap, until: untilMap,
+      access: accessMap, until: untilMap, weakCode,
     });
   } catch (e) {
     return NextResponse.json(
@@ -168,8 +201,38 @@ export async function POST(req: NextRequest) {
   /* ---- sign in ---- */
   if (action === "login") {
     const given = String(body.teacherCode ?? "");
-    if (given !== teacherCode) {
+    const deviceKey = "teacher-ip:" + visitor(req);
+    const [dev, all] = await Promise.all([
+      peek(deviceKey, TEACHER_DEVICE.windowSec, TEACHER_DEVICE.limit),
+      peek("teacher-all", TEACHER_ALL.windowSec, TEACHER_ALL.limit),
+    ]);
+    if (!dev.allowed || !all.allowed) {
+      const after = Math.max(dev.retryAfterSec, all.retryAfterSec);
+      return NextResponse.json({ error: `Too many wrong codes. Teacher sign-in is paused for ${wait(after)}.` },
+        { status: 429, headers: { "Retry-After": String(after) } });
+    }
+    if (!sameCode(given, teacherCode)) {
+      const [d, a] = await Promise.all([
+        hit(deviceKey, TEACHER_DEVICE.windowSec, TEACHER_DEVICE.limit),
+        hit("teacher-all", TEACHER_ALL.windowSec, TEACHER_ALL.limit),
+      ]);
+      if (d.first || a.first) {
+        const who = where(req);
+        await tellOwner("Warning: many wrong teacher codes on pioneermorinda.com",
+          `<p>Someone has typed the wrong Teacher-area code ${d.first ? `${d.count} times from one device` : `${a.count} times in the last hour`}. Teacher sign-in is now paused for an hour.</p>
+<p>Last attempt from: <b>${esc(who)}</b></p>
+<p>If this was not you or your staff, change <b>TEACHER_CODE</b> in Vercel (Settings → Environment Variables) to a new code of at least ${TEACHER_CODE_MIN} characters, then redeploy.</p>`,
+          `Many wrong teacher codes on pioneermorinda.com. Last from ${who}. If not you, change TEACHER_CODE in Vercel.`);
+      }
       return NextResponse.json({ error: "That code is not right." }, { status: 401 });
+    }
+    {
+      const who = where(req);
+      const when = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata", dateStyle: "medium", timeStyle: "short" });
+      await tellOwner("Teacher area sign-in on pioneermorinda.com",
+        `<p>Someone signed in to the Teacher area at <b>${esc(when)}</b>.</p><p>From: <b>${esc(who)}</b></p>
+<p>If this was you or your staff, there is nothing to do. If not, change <b>TEACHER_CODE</b> in Vercel straight away and redeploy.</p>`,
+        `Teacher area sign-in at ${when} from ${who}. If not you, change TEACHER_CODE in Vercel.`);
     }
     const session: Session = {
       sid: "teacher", code: "TEACHER", name: "Teacher", role: "teacher",

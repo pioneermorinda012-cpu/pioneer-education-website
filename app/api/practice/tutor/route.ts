@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 import { allows } from "@/lib/access";
+import { hit } from "@/lib/ratelimit";
 
 /**
  * The AI tutor inside the French trainer (content/french/*.html): writing
@@ -37,6 +38,18 @@ export async function POST(req: NextRequest) {
 
   const key = process.env.ANTHROPIC_API_KEY ?? "";
   if (!key) return NextResponse.json({ error: "The AI tutor is not switched on yet." }, { status: 503 });
+
+  // Each reply costs money: 15 a minute and 200 a day per student is far more
+  // than real study needs, and stops a shared or stolen login being used up.
+  if (who.role === "student") {
+    const day = new Date().toISOString().slice(0, 10);
+    const [m, d] = await Promise.all([
+      hit("tutor-m:" + who.sid, 60, 15),
+      hit("tutor-d:" + who.sid + ":" + day, 86400, 200),
+    ]);
+    if (!m.allowed) return NextResponse.json({ error: "Slow down a little — wait a minute and try again." }, { status: 429 });
+    if (!d.allowed) return NextResponse.json({ error: "You have used today's AI tutor limit. It resets tomorrow." }, { status: 429 });
+  }
 
   let body: { messages?: unknown; json?: unknown; quick?: unknown };
   try { body = await req.json(); } catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }

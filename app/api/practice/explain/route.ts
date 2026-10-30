@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { getTest, getKey } from "@/lib/catalogue";
 import { contextFor } from "@/lib/qcontext";
 import { cachedExplanation, storeExplanation } from "@/lib/explanations";
+import { hit as countHit } from "@/lib/ratelimit";
 import { readSession, COOKIE, TEACHER_COOKIE } from "@/lib/session";
 
 /**
@@ -177,6 +178,11 @@ export async function POST(req: NextRequest) {
   const teacher = secret ? await readSession(store.get(TEACHER_COOKIE)?.value, secret) : null;
   if (!session && !teacher) {
     return NextResponse.json({ error: "Sign in to see explanations." }, { status: 401 });
+  }
+
+  if (session) {
+    const d = await countHit("explain-d:" + session.sid + ":" + new Date().toISOString().slice(0, 10), 86400, 200);
+    if (!d.allowed) return NextResponse.json({ error: "You have opened today's limit of explanations. It resets tomorrow." }, { status: 429 });
   }
 
   let body: { testId?: string; n?: number };

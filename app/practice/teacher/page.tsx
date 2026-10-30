@@ -60,6 +60,7 @@ export default function TeacherPage() {
   const [check, setCheck] = useState<Check | null>(null);
   const [mailTo, setMailTo] = useState("");
   const [mailResult, setMailResult] = useState("");
+  const [weakCode, setWeakCode] = useState(false);
   type PushInfo = { ready: boolean; missing: string[]; devices?: number; students?: number; byGroup?: Record<string, number>; error?: string };
   const [push, setPush] = useState<PushInfo | null>(null);
   const [pushForm, setPushForm] = useState({ group: "all", title: "", body: "", url: "" });
@@ -95,6 +96,7 @@ export default function TeacherPage() {
     setAccessMap(d.access ?? {});
     setUntilMap(d.until ?? {});
     setWbands(d.wbands ?? []);
+    setWeakCode(Boolean(d.weakCode));
     if (d.error) setErr(d.error);
     setState("in");
   }, []);
@@ -457,6 +459,14 @@ export default function TeacherPage() {
         <h1>Teacher</h1>
         <span className="meta">{live} active · {attempts.length} attempt{attempts.length === 1 ? "" : "s"} recorded</span>
       </div>
+
+      {weakCode && (
+        <div className="pr-note" style={{ borderColor: "#dc2626", background: "#fef2f2" }}>
+          <b>Your teacher code is too short to be safe.</b> It opens every student&apos;s details. In Vercel → Settings →
+          Environment Variables, change <b>TEACHER_CODE</b> to at least 12 characters mixing words and numbers
+          (for example <i>Morinda-Pioneer-2026-Blue</i> — but make up your own), then redeploy.
+        </div>
+      )}
 
       <nav className="pr-skills" aria-label="View">
         <a onClick={() => setTab("results")} aria-current={tab === "results" ? "page" : undefined}

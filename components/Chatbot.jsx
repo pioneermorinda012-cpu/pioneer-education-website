@@ -1,5 +1,6 @@
 "use client";
 import { useState, useRef, useEffect } from "react";
+import Turnstile, { sendLead, TURNSTILE_SITE_KEY } from "./Turnstile";
 
 const SUGGESTIONS = ["Course fees?", "Online classes available?", "IELTS coaching details", "German course info", "Free demo class?", "Batch timings?"];
 const WA = "https://wa.me/917380261308?text=Hi!%20I%20want%20to%20know%20more%20about%20Pioneer%20Education";
@@ -13,6 +14,8 @@ export default function Chatbot() {
   const [phone, setPhone] = useState("");
   const [course, setCourse] = useState("IELTS");
   const [err, setErr] = useState("");
+  const [tsToken, setTsToken] = useState("");
+  const [hp, setHp] = useState("");
   const [msgs, setMsgs] = useState([{ role: "assistant", content: "Hi! I am the Pioneer Education assistant. Ask me anything about our courses, fees, or free demo class!" }]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,14 +31,9 @@ export default function Chatbot() {
   const submitForm = async () => {
     if (!name.trim()) { setErr("Please enter your name."); return; }
     if (!/^[6-9]\d{9}$/.test(phone.trim())) { setErr("Enter valid 10-digit mobile number."); return; }
-    try {
-      await fetch(SHEET_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: name.trim(), phone: phone.trim(), course }),
-      });
-    } catch(e) { console.log("Sheet error:", e); }
+    if (TURNSTILE_SITE_KEY && !tsToken) { setErr("Please wait a moment for the quick security check."); return; }
+    const problem = await sendLead("chat", { name: name.trim(), phone: phone.trim(), course }, tsToken, hp, SHEET_URL);
+    if (problem) { setErr(problem); return; }
     setStep("chat");
   };
 
@@ -109,6 +107,8 @@ export default function Chatbot() {
                 <option>IELTS</option><option>PTE</option><option>Spoken English</option><option>German A1-B1</option><option>French A1-B1</option><option>Not decided yet</option>
               </select>
               {err && <div style={{ color: "red", fontSize: 12, marginBottom: 8 }}>{err}</div>}
+              <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={hp} onChange={e => setHp(e.target.value)} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+              <Turnstile onToken={setTsToken} />
               <button onClick={submitForm} style={{ width: "100%", background: G, color: "#fff", border: "none", borderRadius: 8, padding: 10, fontSize: 13, fontWeight: 700, cursor: "pointer" }}>Start Chat</button>
             </div>
           ) : (

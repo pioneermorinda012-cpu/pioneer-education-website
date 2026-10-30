@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { findStudentByEmail, supabaseReady } from "@/lib/students";
 import { makeResetToken, RESET_HOURS } from "@/lib/reset";
 import { esc, letter, mailReady, sendMail, siteUrl } from "@/lib/mail";
+import { hit, visitor } from "@/lib/ratelimit";
+import { turnstileOk } from "@/lib/turnstile";
 
 export const runtime = "nodejs";
 
@@ -17,12 +19,24 @@ export async function POST(req: NextRequest) {
       { status: 503 },
     );
   }
-  let email = "";
-  try { email = String((await req.json()).email ?? "").trim().toLowerCase(); }
+  let email = "", token = "";
+  try { const b = await req.json(); email = String(b.email ?? "").trim().toLowerCase(); token = String(b.turnstile ?? ""); }
   catch { return NextResponse.json({ error: "Bad request." }, { status: 400 }); }
+  if (!(await turnstileOk(token, req))) {
+    return NextResponse.json({ error: "Please complete the quick check (\"I am human\") and try again." }, { status: 400 });
+  }
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
     return NextResponse.json({ error: "Enter the email address you paid with." }, { status: 400 });
   }
+
+  /* At most 3 reset emails to one address and 10 from one device in an hour,
+   * so the form cannot be used to flood someone's inbox. Over the limit the
+   * answer looks the same, and nothing is sent. */
+  const [byEmail, byDevice] = await Promise.all([
+    hit("forgot:" + email, 3600, 3),
+    hit("forgot-ip:" + visitor(req), 3600, 10),
+  ]);
+  if (!byEmail.allowed || !byDevice.allowed) return NextResponse.json({ ok: true, message: SAME });
 
   try {
     const s = await findStudentByEmail(email);

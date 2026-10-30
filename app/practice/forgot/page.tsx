@@ -2,19 +2,21 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Turnstile, { TURNSTILE_SITE_KEY } from "@/components/Turnstile";
 
 export default function ForgotPage() {
   const [email, setEmail] = useState("");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
   const [done, setDone] = useState("");
+  const [tsToken, setTsToken] = useState("");
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
     setErr(""); setBusy(true);
     try {
       const res = await fetch("/api/practice/forgot", {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email }),
+        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ email, turnstile: tsToken }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) setErr(data.error || "Something went wrong.");
@@ -42,7 +44,8 @@ export default function ForgotPage() {
           <input id="email" type="email" value={email} autoFocus autoComplete="email"
             placeholder="you@example.com" onChange={(e) => setEmail(e.target.value)} />
           {err && <div className="pr-err">{err}</div>}
-          <button className="btn" type="submit" disabled={busy || !email.trim()}>
+          <Turnstile onToken={setTsToken} />
+          <button className="btn" type="submit" disabled={busy || !email.trim() || (!!TURNSTILE_SITE_KEY && !tsToken)}>
             {busy ? "Sending…" : "Email me a reset link"}
           </button>
         </form>

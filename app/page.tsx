@@ -6,6 +6,7 @@ import SiteNav from "../components/SiteNav";
 import Link from "next/link";
 import Image from "next/image";
 import { COURSES } from "./data/courses";
+import Turnstile, { sendLead, TURNSTILE_SITE_KEY } from "../components/Turnstile";
 
 /* The Android app on Google Play. iPhone: not published yet — the button says "coming soon". */
 const PLAY_URL = "https://play.google.com/store/apps/details?id=com.pioneereducation.lexio";
@@ -39,6 +40,8 @@ export default function Home() {
   const tongueRef = useRef<HTMLSelectElement>(null);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState<{ name: string } | null>(null);
+  const [tsToken, setTsToken] = useState("");
+  const [hp, setHp] = useState("");   // hidden field: only bots fill it in
 
   // Saves the lead to the shared Google Sheet (which also emails a
   // notification — see the Apps Script). Shows an inline thank-you state
@@ -59,18 +62,15 @@ export default function Home() {
       alert("Please enter a valid 10-digit mobile number.");
       return;
     }
-    setSubmitting(true);
-    try {
-      await fetch(SHEET_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, course, budget, timing, level, motherTongue, source: "Homepage Demo Form" }),
-      });
-    } catch (e) {
-      console.log("Sheet save error:", e);
+    if (TURNSTILE_SITE_KEY && !tsToken) {
+      alert("Please wait a moment for the quick security check below the form, then try again.");
+      return;
     }
+    setSubmitting(true);
+    const problem = await sendLead("enquiry",
+      { name, phone, course, budget, timing, level, motherTongue, source: "Homepage Demo Form" }, tsToken, hp, SHEET_URL);
     setSubmitting(false);
+    if (problem) { alert(problem); return; }
     setSubmitted({ name });
   }
 
@@ -570,6 +570,8 @@ export default function Home() {
             <option>Other</option>
           </select>
         </div>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={hp} onChange={(e) => setHp(e.target.value)} style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} />
+        <Turnstile onToken={setTsToken} />
         <button type="button" className="btn btn-coral" style={{width: '100%', justifyContent: 'center', marginTop: '6px', opacity: submitting ? 0.6 : 1}} onClick={submitLead} disabled={submitting}>{submitting ? 'Saving...' : 'Request Free Demo Class'}</button>
         <div className="lead-note">We'll only use your number to contact you about classes.</div>
       </div>
