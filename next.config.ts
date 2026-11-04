@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   // functions and every read fails in production while working locally.
   outputFileTracingIncludes: {
     "/practice": ["./content/catalogue.json"],
+    // The free English level test (app/english-grammar-quiz/route.ts).
+    "/english-grammar-quiz": ["./content/free/*.html"],
     "/practice/**": ["./content/catalogue.json", "./content/tests/**/*", "./content/transcripts/**/*"],
     "/api/practice/submit": ["./content/**/*"],
     // The writing library is read the same way, from a path built at runtime.

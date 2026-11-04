@@ -88,6 +88,9 @@ export default function Home() {
         <a href="#demo" className="btn btn-coral">Book a Free Demo Class</a>
         <a href="#app" className="btn btn-outline">Try the Pioneer Education App</a>
       </div>
+      <p style={{ marginTop: "14px", fontSize: "0.95rem" }}>
+        <a href="/english-grammar-quiz" style={{ color: "var(--coral)", fontWeight: 700 }}>Free: check your English level in 5 minutes →</a>
+      </p>
       <div className="trust-row">
         <div className="trust-item"><div className="num">9+</div><div className="lbl">Years Coaching</div></div>
         <div className="trust-item"><div className="num">4</div><div className="lbl">Courses Offered</div></div>
@@ -633,6 +636,7 @@ export default function Home() {
       <div>
         <h5>Company</h5>
         <a href="/videos">Free video lessons</a>
+        <a href="/english-grammar-quiz">Free English level test</a>
         <a href="#why">Why Pioneer</a>
         <a href="#instructor">Instructor</a>
         <a href="#reviews">Reviews</a>

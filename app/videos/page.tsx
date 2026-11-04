@@ -138,6 +138,23 @@ export default async function VideosPage() {
             </a>
           </div>
 
+          <div style={{
+            marginTop: "18px", padding: "22px 20px", borderRadius: "14px",
+            background: "var(--cream, #FAF7F2)", border: "1px solid #E8E2D9",
+          }}>
+            <div className="eyebrow">Free test</div>
+            <h2 style={{ fontFamily: "Fraunces, serif", fontSize: "1.4rem", fontWeight: 600, color: "var(--navy)", margin: "6px 0 8px" }}>
+              English level test &amp; grammar quiz
+            </h2>
+            <p style={{ color: "var(--grey)", margin: "0 0 16px", maxWidth: "620px" }}>
+              Check your English level in 5 minutes, then practise 160 grammar, vocabulary
+              and idiom questions — every answer explained. Free, no sign-up.
+            </p>
+            <a className="btn" href="/english-grammar-quiz">
+              Take the level test
+            </a>
+          </div>
+
           <div style={{ marginTop: "34px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
             <a
               className="btn"
