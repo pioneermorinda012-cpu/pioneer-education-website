@@ -11,6 +11,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // feed and changes whenever a new video is posted — telling Google
     // "monthly" would have it crawling long after the page had moved on.
     { url: `${BASE_URL}/videos`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    // The free IELTS Speaking Part 1 question bank — a static file in
+    // public/, not a route, which is why it carries its own .html.
+    //
+    // ⚠️  IT IS FREE AND PUBLIC DELIBERATELY, AND THE REST IS NOT.
+    // This file holds the questions only: no model answers. The cue
+    // cards, the vocabulary lessons and the 100 personalised topics
+    // stay inside the app, because those are the teaching. Publishing
+    // this one costs nothing — the Part 1 topics are public knowledge
+    // — and it is the page most likely to bring a stranger in from a
+    // search for "IELTS speaking part 1 questions".
+    { url: `${BASE_URL}/ielts-speaking-part-1-questions.html`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE_URL}/writing-analyzer`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/writing-analyzer/academic`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/writing-analyzer/academic/task1`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },

@@ -115,6 +115,29 @@ export default async function VideosPage() {
             </div>
           )}
 
+          {/* ⚠️  THIS LINK IS HOW GOOGLE FINDS THE QUESTION BANK.
+              The bank is a static file in public/, so nothing on the
+              site points at it unless something here does, and a page
+              with no internal links is one Google crawls last and
+              ranks worst. It is NOT in SiteNav on purpose — that file
+              records that a ninth link wraps the bar onto two rows. */}
+          <div style={{
+            marginTop: "34px", padding: "22px 20px", borderRadius: "14px",
+            background: "var(--cream, #FAF7F2)", border: "1px solid #E8E2D9",
+          }}>
+            <div className="eyebrow">Free practice</div>
+            <h2 style={{ fontFamily: "Fraunces, serif", fontSize: "1.4rem", fontWeight: 600, color: "var(--navy)", margin: "6px 0 8px" }}>
+              IELTS Speaking Part 1 — question bank
+            </h2>
+            <p style={{ color: "var(--grey)", margin: "0 0 16px", maxWidth: "620px" }}>
+              257 practice questions across 59 topics. Listen to each one and write
+              your own answer ideas — free, no sign-up.
+            </p>
+            <a className="btn" href="/ielts-speaking-part-1-questions.html">
+              Open the question bank
+            </a>
+          </div>
+
           <div style={{ marginTop: "34px", display: "flex", gap: "12px", flexWrap: "wrap" }}>
             <a
               className="btn"
