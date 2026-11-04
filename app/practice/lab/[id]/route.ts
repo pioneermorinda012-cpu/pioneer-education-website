@@ -33,7 +33,7 @@ export async function GET(
     item.id === "listening" ? { href: "/practice?skill=AL", label: "← Listening tests" } :
     item.id === "reading" ? { href: `/practice?skill=${allows(session, ["academic"]) ? "AR" : "GR"}`, label: "← Reading tests" } :
     item.id === "writing" ? { href: "/practice/writing?task=2", label: "← Writing" } :
-    { href: "/practice", label: "← Practice" };
+    { href: "/practice/speaking", label: "← Speaking" };
 
   /* The labs' main column is a flex item that grows to fit its widest line,
    * which pushed the page wider than a phone screen; let it shrink instead. */

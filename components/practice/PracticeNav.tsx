@@ -51,7 +51,7 @@ export default function PracticeNav({ active, session }: { active: string; sessi
               {s.label}
             </Link>
           ))}
-          <a href="/practice/lab/speaking">Speaking Lab</a>
+          <a href="/practice/speaking" aria-current={here("SPEAKING")}>Speaking</a>
         </div>
       )}
       {writing.length > 0 && (

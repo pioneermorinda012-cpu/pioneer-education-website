@@ -5,7 +5,7 @@ import type { Area } from "@/lib/access";
  * self-contained page (units, word banks, model answers, a quick check) kept
  * whole in content/labs and served by app/practice/lab/[id]/route.ts. Each one
  * is linked from the top of its own section: the Listening tests, the Reading
- * tests, the Writing pages; Speaking has no tests, so it sits in the menu.
+ * tests, the Writing pages; Speaking has no tests, so the Speaking page (app/practice/speaking) lists it with the 31 Speaking Formulas.
  * All four cover Academic and General Training.
  */
 export type LabItem = {
@@ -25,6 +25,8 @@ export const LABS: LabItem[] = [
     blurb: "GT letters, Academic reports and essays, and the grammar and vocabulary for Band 7 — unit by unit, with model answers." },
   { id: "speaking", file: "speaking-lab.html", title: "Speaking Lab", need: ["academic", "gt"],
     blurb: "Parts 1, 2 and 3: extending answers, Band 8 samples to listen to, and Part 2 cue cards with a timer." },
+  { id: "speaking-formulas", file: "speaking-formulas.html", title: "31 Speaking Formulas", need: ["academic", "gt"],
+    blurb: "31 ready-to-use answer patterns for Parts 1, 2 and 3 — each with a model answer to listen to, power phrases, a mistake to avoid and a practice question." },
 ];
 
 export const labItem = (id: string) => LABS.find((l) => l.id === id) ?? null;
