@@ -1782,6 +1782,18 @@
    {
     "w": "status symbol",
     "m": "a possession that shows wealth or importance"
+   },
+   {
+    "w": "prime time",
+    "m": "the hours when most people watch TV"
+   },
+   {
+    "w": "sponsorship",
+    "m": "a company paying for an event in return for advertising"
+   },
+   {
+    "w": "impressionable",
+    "m": "easily influenced, especially said of children"
    }
   ],
   "upgrades": [
@@ -1808,6 +1820,14 @@
    {
     "basic": "Brands show you are rich.",
     "better": "Branded goods are often seen as status symbols."
+   },
+   {
+    "basic": "Fast food adverts are bad for children.",
+    "better": "Advertising for fast food normalises unhealthy eating habits among impressionable young viewers."
+   },
+   {
+    "basic": "Companies pay for sports to show their name.",
+    "better": "Corporate sponsorship gives brands valuable exposure while providing sports with much-needed funding."
    }
   ],
   "collocations": [
@@ -1816,7 +1836,10 @@
    "impulse buying",
    "target young people",
    "promote materialism",
-   "make informed choices"
+   "make informed choices",
+   "ban advertising aimed at children",
+   "pester power",
+   "corporate sponsorship"
   ]
  },
  "w2-45": {
@@ -3147,6 +3170,270 @@
    "family planning",
    "infant mortality",
    "the greatest challenge facing humanity"
+  ]
+ },
+ "w2-65": {
+  "words": [
+   {
+    "w": "holistic development",
+    "m": "growth of the body, mind and social skills together"
+   },
+   {
+    "w": "cognitive skills",
+    "m": "thinking abilities such as memory and problem-solving"
+   },
+   {
+    "w": "sedentary",
+    "m": "involving a lot of sitting and little exercise"
+   },
+   {
+    "w": "teamwork",
+    "m": "working well together with others"
+   },
+   {
+    "w": "screen time",
+    "m": "time spent looking at phones, computers or TV"
+   },
+   {
+    "w": "hand-eye coordination",
+    "m": "using your eyes and hands together quickly"
+   },
+   {
+    "w": "indigenous games",
+    "m": "games that come from a country's own tradition"
+   },
+   {
+    "w": "leisure time",
+    "m": "free time for relaxing or hobbies"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Video games are good for the brain.",
+    "better": "Well-designed digital games can sharpen problem-solving skills and quicken reaction times."
+   },
+   {
+    "basic": "Children play on phones too much.",
+    "better": "Excessive screen time encourages a sedentary lifestyle among the younger generation."
+   },
+   {
+    "basic": "Outdoor games make children strong.",
+    "better": "Traditional outdoor games promote physical fitness and stamina from an early age."
+   },
+   {
+    "basic": "In team games children learn to work together.",
+    "better": "Team sports such as kho-kho instil a spirit of co-operation and leadership."
+   },
+   {
+    "basic": "Children can make a career in sport.",
+    "better": "Dedicated young athletes may turn their passion into a professional career and even represent their country."
+   }
+  ],
+  "collocations": [
+   "foster creativity",
+   "develop social skills",
+   "a sedentary lifestyle",
+   "holistic development",
+   "strike a balance between",
+   "physical and mental well-being"
+  ]
+ },
+ "w2-66": {
+  "words": [
+   {
+    "w": "pet ownership",
+    "m": "keeping an animal as a pet"
+   },
+   {
+    "w": "companionship",
+    "m": "the pleasure of having friendly company"
+   },
+   {
+    "w": "substantive psychological benefits",
+    "m": "real, important benefits for mental health"
+   },
+   {
+    "w": "zoonotic diseases",
+    "m": "illnesses that pass from animals to humans"
+   },
+   {
+    "w": "allergy",
+    "m": "a bad reaction of the body to something such as fur"
+   },
+   {
+    "w": "vaccinated",
+    "m": "given an injection to protect against disease"
+   },
+   {
+    "w": "negligible",
+    "m": "so small that it is not important"
+   },
+   {
+    "w": "exotic pets",
+    "m": "unusual pets such as snakes, spiders or apes"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Pets are good friends for children.",
+    "better": "Pets offer children unconditional companionship and can ease feelings of loneliness."
+   },
+   {
+    "basic": "Children learn to take care of pets.",
+    "better": "Looking after an animal instils a sense of responsibility in children from an early age."
+   },
+   {
+    "basic": "Dogs protect the house.",
+    "better": "Dogs act as loyal guardians, deterring intruders and protecting the household."
+   },
+   {
+    "basic": "Pets can make people ill.",
+    "better": "Animal fur and saliva can trigger allergies and asthma, particularly in young children."
+   },
+   {
+    "basic": "Dogs bark at night and disturb people.",
+    "better": "Persistent barking at night can be a serious source of stress for neighbours."
+   }
+  ],
+  "collocations": [
+   "keep a pet",
+   "a sense of responsibility",
+   "pose a health risk",
+   "unconditional love",
+   "fight anxiety",
+   "statistically rare"
+  ]
+ },
+ "w2-67": {
+  "words": [
+   {
+    "w": "lingua franca",
+    "m": "a common language used by speakers of different languages"
+   },
+   {
+    "w": "linguistic diversity",
+    "m": "the variety of languages in the world"
+   },
+   {
+    "w": "cultural identity",
+    "m": "the feeling of belonging to a culture"
+   },
+   {
+    "w": "endangered language",
+    "m": "a language that may soon have no speakers"
+   },
+   {
+    "w": "nuance",
+    "m": "a small but important difference in meaning"
+   },
+   {
+    "w": "machine translation",
+    "m": "translation done automatically by computers"
+   },
+   {
+    "w": "idiom",
+    "m": "a phrase whose meaning is not clear from its words"
+   },
+   {
+    "w": "bilingual",
+    "m": "able to speak two languages well"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "One language for everyone is easy.",
+    "better": "A single global language would remove barriers to international communication and trade."
+   },
+   {
+    "basic": "Small languages will die.",
+    "better": "Many minority languages would face extinction, and with them a wealth of cultural heritage."
+   },
+   {
+    "basic": "Language shows culture.",
+    "better": "A language carries the values, humour and history of the people who speak it."
+   },
+   {
+    "basic": "Computers cannot translate jokes.",
+    "better": "Machine translation often fails to capture humour, idioms and cultural nuance."
+   },
+   {
+    "basic": "Learning a language is good for the brain.",
+    "better": "Learning a foreign language enhances cognitive flexibility and memory."
+   }
+  ],
+  "collocations": [
+   "a global language",
+   "language barrier",
+   "cultural heritage",
+   "lose something in translation",
+   "broaden your horizons",
+   "native speaker"
+  ]
+ },
+ "w2-68": {
+  "words": [
+   {
+    "w": "the arts",
+    "m": "music, painting, literature, theatre and dance"
+   },
+   {
+    "w": "insight",
+    "m": "a deep understanding of something"
+   },
+   {
+    "w": "empathy",
+    "m": "the ability to share another person's feelings"
+   },
+   {
+    "w": "cultural heritage",
+    "m": "traditions and art passed down from the past"
+   },
+   {
+    "w": "STEM subjects",
+    "m": "science, technology, engineering and maths"
+   },
+   {
+    "w": "innovation",
+    "m": "a new idea, method or invention"
+   },
+   {
+    "w": "curriculum",
+    "m": "the subjects taught at a school"
+   },
+   {
+    "w": "competitive edge",
+    "m": "an advantage over rivals"
+   }
+  ],
+  "upgrades": [
+   {
+    "basic": "Science made our lives better.",
+    "better": "Scientific breakthroughs have transformed virtually every aspect of modern life."
+   },
+   {
+    "basic": "Art shows us feelings.",
+    "better": "The arts give expression to human emotions in a way that data and formulas cannot."
+   },
+   {
+    "basic": "Paintings teach us history.",
+    "better": "Works such as Picasso's Guernica serve as powerful records of historical events."
+   },
+   {
+    "basic": "Countries need scientists to develop.",
+    "better": "A strong foundation in STEM subjects is vital for a nation's economic progress."
+   },
+   {
+    "basic": "Other subjects are also important.",
+    "better": "Neglecting the humanities would produce graduates lacking creativity and cultural awareness."
+   }
+  ],
+  "collocations": [
+   "broaden people's horizons",
+   "a profound impact",
+   "allocate funding to",
+   "a well-rounded education",
+   "gain a competitive edge",
+   "ground-breaking discoveries"
   ]
  }
 }

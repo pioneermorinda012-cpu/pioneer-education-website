@@ -18,6 +18,8 @@ OVERRIDE = {
     ("w2-05", 0): "problem",  # causes and effects of water pollution
     ("w2-11", 1): "problem",  # reasons for immigration and its consequences
     ("w2-64", 0): "two",      # causes + "do you agree": a two-part question, not agree/disagree
+    ("w2-35", 2): "agree",    # "should not be allowed ... What is your opinion?" - one statement
+    ("w2-35", 4): "adv",      # positive and negative effects of consumerism
 }
 
 def kind(p):

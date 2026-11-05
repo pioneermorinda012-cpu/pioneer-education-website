@@ -423,7 +423,8 @@
    "Some people think one should stay all their life in the same job, whereas others advocate changing jobs from time to time. Discuss both views and give your own opinion.",
    "Some people think that a person should change a career at least once, while others think that it is better to stay in one job for a lifetime. What is your opinion?",
    "Some people believe that employees should stay in the same job for the rest of their lives. Others think they should switch jobs at least once during their work life.",
-   "Some people work for the same organisation all their working life. Others think that it is better to work for different organisations. Discuss both these views and give your own opinion."
+   "Some people work for the same organisation all their working life. Others think that it is better to work for different organisations. Discuss both these views and give your own opinion.",
+   "Some people think that work is the most important thing in people's lives, and that without a successful career, life becomes meaningless. To what extent do you agree or disagree?"
   ],
   "minutes": 40,
   "minWords": 250,
@@ -435,8 +436,10 @@
    "discuss",
    "discuss",
    "discuss",
-   "discuss"
-  ]
+   "discuss",
+   "agree"
+  ],
+  "sampleText": "SAMPLE ANSWER — \"Work is the most important thing in people's lives\" (agree / disagree)\n\nWhile it is argued that a distinguished career is the most pivotal thing in a person's life, I strongly believe that there are other factors which can make people's lives meaningful.\n\nOn the one hand, it cannot be denied that work plays an important role in one's life. According to a survey carried out in the UK, a person spends about 25 to 30 years in their occupation, so working time accounts for nearly one third of a person's life. If people obtain a worthwhile job that flourishes, their lives are likely to be filled with well-being. Additionally, being stuck in an unsuccessful career might have a destructive influence on people's spirits. Those with a turbulent career or experience of job dissatisfaction could suffer from chronic stress and discouragement, which adversely affects their mental and physical health, as well as giving them a negative outlook on life.\n\nOn the other hand, I contend that there are more desirable goals than a successful career to attain in our lives. A vast majority of people perceive a meaningful life as one spent helping others living in poor and underprivileged conditions, and they devote much of their lives to charity work. Furthermore, there are other people who do not enter the workforce but seem satisfied with their lives. In some Asian countries such as Japan, dual-income families are not as common as they are in Western nations. Take Japan as a telling example: men are often the breadwinners, while women stay at home and take over household chores and childcare, which, as a well-established tradition, makes them feel content.\n\nIn conclusion, while people can undoubtedly benefit enormously from a glittering career, there are still many significant factors which might enable them to lead a happy life."
  },
  {
   "id": "w2-25",
@@ -526,12 +529,22 @@
   "id": "w2-35",
   "topic": "Advertising",
   "prompts": [
-   "People's lives are now surrounded by advertisements. This affects what people consider important and has a negative impact on people's lives. Do you agree or disagree?"
+   "People's lives are now surrounded by advertisements. This affects what people consider important and has a negative impact on people's lives. Do you agree or disagree?",
+   "Many people think that fast food companies should not be allowed to advertise, while others believe that all companies should have the right to advertise. What is your opinion?",
+   "One of the prime times for advertising on TV is when children get back from school. Some people think that advertisements aimed at children should not be allowed. What is your opinion?",
+   "Some people believe that what children watch on television influences their behaviour. Others say that the amount of time spent watching television influences their behaviour. Discuss both views and give your opinion.",
+   "Companies spend millions each year on advertising online, in magazines and on billboards. These adverts can encourage people to buy goods that they do not really need. What are the positive and negative effects of consumerism?",
+   "Some companies sponsor sports as a way to advertise themselves. Some people think it is good, while others think there are disadvantages to this. Discuss both views and give your opinion."
   ],
   "minutes": 40,
   "minWords": 250,
   "types": [
-   "agree"
+   "agree",
+   "discuss",
+   "agree",
+   "discuss",
+   "adv",
+   "discuss"
   ]
  },
  {
@@ -799,6 +812,73 @@
   "minWords": 250,
   "types": [
    "two"
+  ]
+ },
+ {
+  "id": "w2-65",
+  "topic": "Traditional and Modern Games",
+  "prompts": [
+   "Some people think that modern games can help children develop a wide range of skills, but others argue that traditional games can be much better for developing such skills. What is your opinion?"
+  ],
+  "ideas": [
+   "MODERN GAMES — Good use of leisure time. Children today have less time for outdoor play, so well-designed indoor games refresh the mind and also support learning. Example: Scrabble and other word games build English language skills. Result: they help the overall development of children.",
+   "TRADITIONAL GAMES — Holistic growth. Most are outdoor team games, which build leadership and co-operation and need quick thinking as well as physical effort. Example: kho-kho, football and hockey keep children active and bring a wide range of health benefits. Result: physical and mental skills develop together.",
+   "TRADITIONAL GAMES — Career opportunities. A young person who trains hard at a traditional sport can make a career of it. Example: a school hockey player who practises with dedication may go on to represent the country, and governments often offer such players jobs."
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "discuss"
+  ]
+ },
+ {
+  "id": "w2-66",
+  "topic": "Pets",
+  "prompts": [
+   "Some people think that keeping pets is good for children, while others think it is dangerous and unhealthy. Which opinion do you agree with? Discuss both views and give examples.",
+   "Many people keep dogs and cats as companions. Discuss the advantages and disadvantages of pet ownership for the animals involved and for the community as a whole."
+  ],
+  "ideas": [
+   "FIRST VIEW (good for children) — 1. A best friend: pets keep lonely people company and give children someone to share their feelings with; animals help fight anxiety and inactivity and encourage exercise and play. 2. Loyal protectors: dogs guard the house and family against intruders (for example, they can prevent thefts), which helps households with children or elderly people. 3. Happiness: caring for a pet keeps children busy and gives them love and affection, which increases their overall happiness.",
+   "SECOND VIEW (dangerous and unhealthy) — 1. Disease: the hair, fur and saliva of dogs and cats can cause allergies and asthma. 2. Unvaccinated animals: a bite from a dog that has not been properly vaccinated can cause life-threatening diseases such as rabies. 3. Disturbance to neighbours: many people report that dogs barking and howling at night is a serious source of stress.",
+   "Useful words: pet ownership, companion, substantive psychological benefits, pet-related injuries, statistically rare, negligible, non-lethal, exotic pets (snakes, spiders, apes), undeniable, the aforementioned pets."
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "discuss",
+   "adv"
+  ]
+ },
+ {
+  "id": "w2-67",
+  "topic": "Language",
+  "prompts": [
+   "Scientists predict that all people will choose to speak the same global language in the future. Do you think this is a positive or negative development?",
+   "Some people think that a person can never understand the culture of a country unless they speak its language. Do you agree or disagree with this opinion?",
+   "As computers can translate quickly and accurately, learning foreign languages is a waste of time. To what extent do you agree or disagree?"
+  ],
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "adv",
+   "agree",
+   "agree"
+  ]
+ },
+ {
+  "id": "w2-68",
+  "topic": "Arts and Science",
+  "prompts": [
+   "In today's world of advanced science and technology, we still greatly value our artists, such as musicians, painters and writers. What can the arts tell us about life that science and technology cannot?",
+   "The government should invest more money in teaching science than in other subjects for a country's development and progress. To what extent do you agree or disagree?"
+  ],
+  "sampleText": "SAMPLE ANSWER 1 — \"What can the arts tell us about life that science and technology cannot?\"\n\nIt is undeniable that technological and scientific developments have tremendously benefited people's lives in various ways. However, the arts still deserve credit for filling us with insights and values that science has failed to provide.\n\nIt is incontrovertible that science has had a profound impact on all aspects of life by introducing humankind to constant ground-breaking discoveries and inventions. In other words, science serves as an indispensable means of explaining how the world operates, with its branches ranging from physics, chemistry and biology to astronomy. However, this field of study does not seem to fully satisfy people's boundless curiosity about other domains, such as social matters or cultural and traditional values, while the arts convey such ideas effectively.\n\nThe arts reflect and inform us about the cultural and traditional traits of a certain region. Journey to the West, one of the four great classical novels of Chinese literature, is a remarkable example when it comes to conveying long-established Taoist and Buddhist philosophy as well as Chinese religious beliefs. These matters can hardly be discussed within the realm of science.\n\nIn addition, artworks can be used as historical evidence to teach history. Through their paintings, artists can represent major historical periods and leave strong impressions of certain events on art admirers. For instance, Guernica, probably the most famous work by Pablo Picasso, succeeded in depicting the tragedy of war and the suffering people had to endure after the Nazi bombing of Guernica during the Spanish Civil War.\n\nIn conclusion, the arts are of great significance when it comes to broadening people's horizons in various subjects, something which science and technology mostly fail to do.\n\n\nSAMPLE ANSWER 2 — \"The government should invest more money in teaching science\" (Band 8.5)\n\nThere are different views about whether governments should focus only on the teaching of science subjects to help their countries develop. While I accept that concentrating on these subjects brings benefits, I would argue that it is better not to neglect other subjects.\n\nFor a variety of reasons, I agree that a focus on teaching science-related subjects helps a country progress. Firstly, many scientific breakthroughs rely heavily on in-depth knowledge of mathematics, physics and chemistry. For example, in the field of medicine, scientists need a great knowledge of chemistry to do research and invent new drugs. The teaching quality of these subjects should therefore be continuously improved. Secondly, when students study science subjects, they need to find solutions to a wide range of different problems, which can encourage their creativity and imagination. Such capabilities play an important role in coming up with technological innovations, and these advances help a country gain a competitive edge over other nations.\n\nDespite the above arguments, it seems to me that students should also pay attention to other subjects. In the era of globalisation, international trade contributes significantly to the development of a country. It is nearly impossible to engage in trading activities with other countries if language barriers exist. This means that the government needs to invest in the teaching of foreign languages. In Singapore, for instance, most people can speak English fluently because the school curriculum focuses largely on this subject. Since Singaporean people are able to work with people from abroad, the country attracts a great deal of investment from other parts of the world.\n\nIn conclusion, while I agree that government spending on teaching science subjects helps a country progress, I believe that teaching subjects such as foreign languages is also necessary.",
+  "minutes": 40,
+  "minWords": 250,
+  "types": [
+   "two",
+   "agree"
   ]
  }
 ]
