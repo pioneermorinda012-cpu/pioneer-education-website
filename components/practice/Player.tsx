@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { coverageIn, rangeLabel } from "@/lib/coverage";
 import ReviewPanel, { Leaderboard, type Transcript } from "./Review";
@@ -104,6 +104,14 @@ export default function Player(
   const [warned, setWarned] = useState(false);   // told once about blank answers
   const [view, setView] = useState<"s" | "p" | "q">("s");   // reading split state
   const [held, setHeld] = useState<string | null>(null);     // a heading picked up by a tap
+  /* The student's own marks: highlights per passage and one notes box for the
+   * paper. They last until the test is handed in, whatever view or passage
+   * the student moves to. */
+  const [hls, setHls] = useState<Record<number, HL[]>>({});
+  const [notes, setNotes] = useState<Note[]>([]);
+  const [notesOpen, setNotesOpen] = useState(false);
+  const [focusNote, setFocusNote] = useState<number | null>(null);
+  const noteSeq = useRef(1);
   const audioRef = useRef<HTMLAudioElement>(null);
   const isReading = test.mode === "reading";
 
@@ -328,6 +336,38 @@ export default function Player(
           side and each scrolls on its own, like the computer-delivered exam, so
           a student can read down the passage without losing the question they
           are on. `key` remounts both panes on a new passage, back at the top. */}
+      {isReading && section.passage && (
+        <div className="pr-study">
+          <span className="pr-study-tip">Select words in the passage to <b>highlight</b> them or make a <b>note</b>.</span>
+          <button type="button" className={notesOpen ? "on" : undefined} onClick={() => setNotesOpen((o) => !o)}>
+            📝 Notes{notes.length ? ` (${notes.length})` : ""}
+          </button>
+          {(hls[current]?.length ?? 0) > 0 && (
+            <button type="button" onClick={() => setHls((h) => ({ ...h, [current]: (h[current] ?? []).filter((x) => x.note) }))}>
+              Clear highlights
+            </button>
+          )}
+        </div>
+      )}
+      {notesOpen && isReading && (
+        <NotesPanel
+          notes={notes} sections={test.sections} focus={focusNote}
+          onClose={() => setNotesOpen(false)}
+          onChange={(id, text) => setNotes((ns) => ns.map((n) => (n.id === id ? { ...n, text } : n)))}
+          onDelete={(id) => {
+            setNotes((ns) => ns.filter((n) => n.id !== id));
+            // its highlight goes with it, as in the exam
+            setHls((h) => Object.fromEntries(Object.entries(h).map(([k, v]) => [k, v.filter((x) => x.note !== id)])));
+          }}
+          onAdd={() => {
+            const id = noteSeq.current++;
+            setNotes((ns) => [...ns, { id, sec: current, quote: "", text: "" }]);
+            setFocusNote(id);
+          }}
+          onOpen={(n) => { if (n.sec !== current) { setCurrent(n.sec); setHeld(null); } }}
+        />
+      )}
+
       {held && (
         <div className="pr-held" role="status">
           <span>Now tap the dotted box for the right paragraph to place heading <b>{held}</b>.</span>
@@ -343,7 +383,19 @@ export default function Player(
         {isReading && section.passage && view !== "q" && (
           <div className="pr-pane" aria-label="Reading passage" tabIndex={-1}>
             <Passage passage={section.passage} media={test.mediaUrls}
-              drops={drop ? { ...drop, answers, held, setHeld, place, set, showBank: view === "p" } : undefined} />
+              drops={drop ? { ...drop, answers, held, setHeld, place, set, showBank: view === "p" } : undefined}
+              study={{
+                hl: hls[current] ?? NO_HL,
+                setHl: (f) => setHls((h) => ({ ...h, [current]: f(h[current] ?? []) })),
+                addNote: (quote, letter, ranges) => {
+                  const id = noteSeq.current++;
+                  setNotes((ns) => [...ns, { id, sec: current, quote, letter, text: "" }]);
+                  setHls((h) => ({ ...h, [current]: [...(h[current] ?? []), ...ranges.map((r) => ({ ...r, note: id }))] }));
+                  setNotesOpen(true);
+                  setFocusNote(id);
+                },
+                openNote: (id) => { setNotesOpen(true); setFocusNote(id); },
+              }} />
           </div>
         )}
         {(!isReading || !section.passage || view !== "p") && (
@@ -734,6 +786,102 @@ function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean
   return { html: out, hit: true };
 }
 
+/** A highlight: paragraph index, then start and end in that paragraph's text. */
+type HL = { p: number; s: number; e: number; note?: number };
+const NO_HL: HL[] = [];
+/** A note card: the words it was made from (if any) and the student's point. */
+type Note = { id: number; sec: number; quote: string; letter?: string; text: string };
+type Study = {
+  hl: HL[];
+  setHl: (f: (h: HL[]) => HL[]) => void;
+  addNote: (quote: string, letter: string | undefined, ranges: HL[]) => void;
+  openNote: (id: number) => void;
+};
+
+/* A paragraph's text. Memoised on its HTML: React 19 resets innerHTML on
+ * every render of dangerouslySetInnerHTML, and the test clock renders every
+ * second, which wiped highlights and any selection the student was making. */
+const ParaText = memo(function ParaText({ html, pi }: { html: string; pi?: number }) {
+  return <span data-pi={pi} dangerouslySetInnerHTML={{ __html: html }} />;
+});
+
+/* ---- the notes panel, like the computer-delivered exam ---- */
+function NotesPanel({
+  notes, sections, focus, onClose, onChange, onDelete, onAdd, onOpen,
+}: {
+  notes: Note[]; sections: Section[]; focus: number | null;
+  onClose: () => void; onChange: (id: number, text: string) => void;
+  onDelete: (id: number) => void; onAdd: () => void; onOpen: (n: Note) => void;
+}) {
+  const box = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (focus == null) return;
+    const ta = box.current?.querySelector<HTMLTextAreaElement>(`textarea[data-note="${focus}"]`);
+    if (ta) { ta.scrollIntoView({ block: "nearest" }); ta.focus(); }
+  }, [focus, notes.length]);
+  return (
+    <aside className="pr-notes" aria-label="Notes">
+      <div className="pr-notes-head">
+        <b>Notes</b>
+        <span>Kept until you submit · not marked</span>
+        <button type="button" aria-label="Close notes" onClick={onClose}>✕</button>
+      </div>
+      <div className="pr-notes-list" ref={box}>
+        {!notes.length && (
+          <p className="pr-notes-empty">
+            Select words in the passage and choose <b>Notes</b> — the words appear here and you can write your own point
+            under them. Or add a note of your own below.
+          </p>
+        )}
+        {notes.map((n) => (
+          <div key={n.id} className={`pr-note${focus === n.id ? " on" : ""}`}>
+            <button type="button" className="pr-note-src" onClick={() => onOpen(n)}>
+              <b>{sections[n.sec]?.label ?? ""}{n.letter ? ` · Para ${n.letter}` : ""}</b>
+              {n.quote && <i> {n.quote}</i>}
+            </button>
+            <textarea data-note={n.id} value={n.text} rows={2}
+              placeholder={n.quote ? "Your point about these words…" : "Your note…"}
+              onChange={(e) => onChange(n.id, e.target.value)} />
+            <button type="button" className="pr-note-del" onClick={() => onDelete(n.id)}>Delete</button>
+          </div>
+        ))}
+      </div>
+      <button type="button" className="pr-notes-add" onClick={onAdd}>+ Add a note</button>
+    </aside>
+  );
+}
+
+/* Wrap characters [s, e) of an element's text in <mark>, across tags. */
+function wrapRange(root: HTMLElement, s: number, e: number, idx: number, note?: number) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes: Text[] = [];
+  for (let n = walker.nextNode(); n; n = walker.nextNode()) nodes.push(n as Text);
+  let pos = 0;
+  for (const node of nodes) {
+    const len = node.data.length;
+    const a = Math.max(s, pos), b = Math.min(e, pos + len);
+    if (a < b) {
+      let target = node;
+      if (a > pos) target = target.splitText(a - pos);
+      if (b < pos + len) target.splitText(b - a);
+      const m = document.createElement("mark");
+      m.className = note ? "pr-hl pr-hl-note" : "pr-hl";
+      m.dataset.hl = String(idx);
+      target.parentNode!.insertBefore(m, target);
+      m.appendChild(target);
+    }
+    pos += len;
+  }
+}
+
+/** Characters from the start of `root` to a point inside it. */
+function offsetIn(root: HTMLElement, node: Node, off: number): number {
+  const r = document.createRange();
+  r.setStart(root, 0);
+  r.setEnd(node, off);
+  return r.toString().length;
+}
+
 type Drops = HeadingDrop & {
   answers: Answers; held: string | null; setHeld: (r: string | null) => void;
   place: (n: number, r: string, ns: number[]) => void;
@@ -743,8 +891,10 @@ type Drops = HeadingDrop & {
 };
 
 export function Passage({
-  passage, media, highlights, paraMarks, evidence, drops,
+  passage, media, highlights, paraMarks, evidence, drops, study,
 }: {
+  /** a test in progress: the student's own highlights and notes */
+  study?: Study;
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
   /** a test in progress: dotted boxes for "list of headings" questions */
   drops?: Drops;
@@ -808,6 +958,100 @@ export function Passage({
    * not on the page at all. So it asks rather than scrolls: the review hears
    * the request, shows every question if it has to, and then scrolls. */
   const article = useRef<HTMLElement>(null);
+
+  /* ---- the student's highlights ----
+   * Painted straight onto the paragraphs after React has drawn them: each
+   * paragraph is reset to its own text and the marks are wrapped round the
+   * saved character ranges, so they survive a change of view or passage. */
+  const htmlOf = (i: number) => {
+    const p = passage.paras[i];
+    return marked(typeof p === "object" ? p.t : p);
+  };
+  useLayoutEffect(() => {
+    const root = article.current;
+    if (!root || !study) return;
+    root.querySelectorAll<HTMLElement>("[data-pi]").forEach((el) => {
+      const i = Number(el.dataset.pi);
+      el.innerHTML = htmlOf(i);
+      study.hl.forEach((h, idx) => { if (h.p === i) wrapRange(el, h.s, h.e, idx, h.note); });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [study?.hl, passage]);
+
+  // The newest study callbacks, without re-subscribing every second of the clock.
+  const opened = useRef(0);
+  const studyRef = useRef(study);
+  studyRef.current = study;
+  const [menu, setMenu] = useState<null | { x: number; y: number; ranges: HL[]; quote: string; letter?: string; hit?: number; note?: number }>(null);
+  useEffect(() => {
+    const root = article.current;
+    if (!root || !studyRef.current) return;
+    let t: ReturnType<typeof setTimeout> | undefined;
+    const read = () => {
+      const sel = window.getSelection();
+      if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+      const range = sel.getRangeAt(0);
+      if (!root.contains(range.commonAncestorContainer)) return;
+      const ranges: HL[] = [];
+      root.querySelectorAll<HTMLElement>("[data-pi]").forEach((el) => {
+        if (!range.intersectsNode(el)) return;
+        const len = (el.textContent ?? "").length;
+        const s0 = el.contains(range.startContainer) ? offsetIn(el, range.startContainer, range.startOffset) : 0;
+        const e0 = el.contains(range.endContainer) ? offsetIn(el, range.endContainer, range.endOffset) : len;
+        if (e0 > s0) ranges.push({ p: Number(el.dataset.pi), s: s0, e: e0 });
+      });
+      const quote = sel.toString().replace(/\s+/g, " ").trim();
+      if (!ranges.length || !quote) return;
+      const rect = range.getBoundingClientRect();
+      const first = passage.paras[ranges[0].p];
+      setMenu({ x: rect.left + rect.width / 2, y: rect.bottom, ranges, quote: quote.slice(0, 400),
+        letter: first !== undefined ? paraLetter(first) : undefined });
+    };
+    const onSel = () => { clearTimeout(t); t = setTimeout(read, 250); };
+    const onClick = (e: MouseEvent) => {
+      const m = (e.target as HTMLElement | null)?.closest?.("mark.pr-hl") as HTMLElement | null;
+      const sel = window.getSelection();
+      if (!m || (sel && !sel.isCollapsed)) return;
+      const r = m.getBoundingClientRect();
+      const idx = Number(m.dataset.hl);
+      const h = studyRef.current?.hl[idx];
+      const el = m.closest("[data-pi]") as HTMLElement | null;
+      const quote = h && el ? (el.textContent ?? "").slice(h.s, h.e).replace(/\s+/g, " ").trim() : m.textContent ?? "";
+      const para = h ? passage.paras[h.p] : undefined;
+      setMenu({ x: r.left + r.width / 2, y: r.bottom, ranges: [], quote, hit: idx, note: h?.note,
+        letter: para !== undefined ? paraLetter(para) : undefined });
+    };
+    // A scroll closes the menu, but not the one that happens as it opens.
+    const hide = () => { if (Date.now() - opened.current > 400) setMenu(null); };
+    document.addEventListener("selectionchange", onSel);
+    root.addEventListener("click", onClick);
+    window.addEventListener("scroll", hide, true);
+    return () => {
+      clearTimeout(t);
+      document.removeEventListener("selectionchange", onSel);
+      root.removeEventListener("click", onClick);
+      window.removeEventListener("scroll", hide, true);
+    };
+  }, [passage, Boolean(study)]);
+
+  useEffect(() => { if (menu) opened.current = Date.now(); }, [menu]);
+
+  const act = (what: "hl" | "note" | "del" | "open") => {
+    if (!menu || !study) return;
+    if (what === "del" && menu.hit !== undefined) study.setHl((h) => h.filter((_, i) => i !== menu.hit));
+    if (what === "hl") study.setHl((h) => [...h, ...menu.ranges]);
+    if (what === "open" && menu.note) study.openNote(menu.note);
+    if (what === "note") {
+      // a note made from an existing highlight takes over that highlight
+      if (menu.hit !== undefined) {
+        const h = study.hl[menu.hit];
+        study.setHl((all) => all.filter((_, i) => i !== menu.hit));
+        study.addNote(menu.quote, menu.letter, h ? [{ p: h.p, s: h.s, e: h.e }] : []);
+      } else study.addNote(menu.quote, menu.letter, menu.ranges);
+    }
+    window.getSelection()?.removeAllRanges();
+    setMenu(null);
+  };
   useEffect(() => {
     const root = article.current;
     if (!root) return;
@@ -884,10 +1128,33 @@ export function Passage({
                 Q{l}
               </b>
             ))}
-            <span dangerouslySetInnerHTML={{ __html: marked(text) }} />
+            <ParaText pi={study ? i : undefined} html={marked(text)} />
           </p>
         )];
       })}
+      {menu && (
+        <div className="pr-selmenu" role="menu"
+          style={{ left: Math.min(Math.max(menu.x, 120), (typeof window !== "undefined" ? window.innerWidth : 400) - 120),
+            top: menu.y + 10 }}
+          onMouseDown={(e) => e.preventDefault()}>
+          {menu.hit === undefined ? (
+            <>
+              <button type="button" onClick={() => act("hl")}>Highlight</button>
+              <button type="button" onClick={() => act("note")}>Notes</button>
+            </>
+          ) : menu.note ? (
+            <>
+              <button type="button" onClick={() => act("open")}>Open note</button>
+              <button type="button" onClick={() => act("del")}>Clear highlight</button>
+            </>
+          ) : (
+            <>
+              <button type="button" onClick={() => act("note")}>Notes</button>
+              <button type="button" onClick={() => act("del")}>Clear highlight</button>
+            </>
+          )}
+        </div>
+      )}
       {passage.img && media[passage.img] && (
         <figure style={{ textAlign: "center", margin: "14px 0 0" }}>
           <img src={media[passage.img]} alt={passage.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
