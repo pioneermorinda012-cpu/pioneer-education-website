@@ -680,3 +680,7 @@ mark.ev-near .ev-badge { opacity: 0.85; }
   padding:10px 12px;border-radius:10px;background:var(--navy,#1e3a5f);color:#fff;font-size:0.88rem;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 .pr-held span{flex:1}
 .pr-held button{border:1px solid rgba(255,255,255,.5);background:none;color:#fff;border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer}
+.pr-drop.pr-drop-q{margin:8px 0;flex-wrap:wrap}
+.pr-drop-l{font-weight:700;color:var(--navy,#1e3a5f);flex-shrink:0;margin-right:2px}
+.pr-drop-q .pr-drop-t{min-width:150px}
+.pr-drop,.pr-hchip{-webkit-tap-highlight-color:transparent}

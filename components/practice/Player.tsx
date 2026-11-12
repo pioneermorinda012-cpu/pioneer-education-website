@@ -330,7 +330,7 @@ export default function Player(
           are on. `key` remounts both panes on a new passage, back at the top. */}
       {held && (
         <div className="pr-held" role="status">
-          <span>Now tap the dotted box above the right paragraph to place heading <b>{held}</b>.</span>
+          <span>Now tap the dotted box for the right paragraph to place heading <b>{held}</b>.</span>
           <button type="button" onClick={() => setHeld(null)}>Cancel</button>
         </div>
       )}
@@ -352,7 +352,7 @@ export default function Player(
               <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
                 wide={!isReading || !section.passage || view === "q"}
                 cover={covers[current]}
-                drag={drop?.groups[i] && view !== "q" ? { ns: drop.groups[i].ns, held, setHeld } : undefined} />
+                drag={drop?.groups[i] ? { ns: drop.groups[i].ns, held, setHeld, place } : undefined} />
             ))}
           </div>
         )}
@@ -905,7 +905,13 @@ export function Passage({
 /* ---- the dotted box above a paragraph, for "list of headings" ---- */
 const DRAG_TYPE = "application/x-pec-heading";
 
-function DropBox({ n, bank, ns, drops }: { n: number; bank: [string, string][]; ns: number[]; drops: Drops }) {
+type DropCtx = Pick<Drops, "answers" | "held" | "place" | "set">;
+
+function DropBox({ n, bank, ns, drops, label }: {
+  n: number; bank: [string, string][]; ns: number[]; drops: DropCtx;
+  /** the question's own wording ("Paragraph C"), when the box is in the question list */
+  label?: string;
+}) {
   const [over, setOver] = useState(false);
   const v = drops.answers[String(n)];
   const r = typeof v === "string" ? v : "";
@@ -913,7 +919,7 @@ function DropBox({ n, bank, ns, drops }: { n: number; bank: [string, string][]; 
   const take = (roman: string) => drops.place(n, roman.toLowerCase(), ns);
   return (
     <div
-      className={`pr-drop${over ? " over" : ""}${r ? " full" : ""}${drops.held ? " armed" : ""}`}
+      className={`pr-drop${over ? " over" : ""}${r ? " full" : ""}${drops.held ? " armed" : ""}${label ? " pr-drop-q" : ""}`}
       role="button" tabIndex={0}
       aria-label={r ? `Question ${n}: heading ${r} — ${text ?? ""}` : `Question ${n}: drop a heading here`}
       onDragOver={(e) => { if (e.dataTransfer.types.includes(DRAG_TYPE)) { e.preventDefault(); setOver(true); } }}
@@ -925,6 +931,7 @@ function DropBox({ n, bank, ns, drops }: { n: number; bank: [string, string][]; 
       onDragStart={(e) => { if (r) { e.dataTransfer.setData(DRAG_TYPE, r); e.dataTransfer.effectAllowed = "move"; } }}
     >
       <span className="pr-drop-n">{n}</span>
+      {label && <span className="pr-drop-l" dangerouslySetInnerHTML={{ __html: label }} />}
       {r ? (
         <>
           <span className="pr-drop-t"><b>{r}</b> {text}</span>
@@ -933,7 +940,7 @@ function DropBox({ n, bank, ns, drops }: { n: number; bank: [string, string][]; 
         </>
       ) : (
         <span className="pr-drop-t pr-drop-hint">
-          {drops.held ? <>Tap to place heading <b>{drops.held}</b> here</> : "Drag a heading here"}
+          {drops.held ? <>Tap to place heading <b>{drops.held}</b> here</> : label ? "Drag a heading here or onto the passage" : "Drag a heading here"}
         </span>
       )}
     </div>
@@ -976,7 +983,8 @@ function GroupBlock({
 }: {
   group: Group; answers: Answers; cover?: Record<number, number[]>;
   /** a "list of headings" task with boxes in the passage: the bank is draggable */
-  drag?: { ns: number[]; held: string | null; setHeld: (r: string | null) => void };
+  drag?: { ns: number[]; held: string | null; setHeld: (r: string | null) => void;
+    place: (n: number, r: string, ns: number[]) => void };
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
   /** The questions have the width of the page (listening, or reading in
@@ -1096,7 +1104,13 @@ function GroupBlock({
         </div>
       )}
 
-      {group.questions?.map((q) => (
+      {/* A heading task: no i / ii / iii buttons, just each question and the
+          heading chosen for it — the headings go into the boxes in the passage,
+          and these rows take a heading too (Questions view hides the passage). */}
+      {drag && group.bank ? group.questions?.map((q) => (
+        <DropBox key={q.n} n={q.n} bank={group.bank!} ns={drag.ns} label={q.stem}
+          drops={{ answers, set, held: drag.held, place: drag.place }} />
+      )) : group.questions?.map((q) => (
         <QuestionBlock key={q.n} q={q} group={group} answers={answers} set={set} media={media}
           covers={cover?.[q.n] ?? [q.n]} wide={wide} />
       ))}
