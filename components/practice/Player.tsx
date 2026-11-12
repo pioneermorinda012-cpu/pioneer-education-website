@@ -17,6 +17,9 @@ type Group = {
   bankTitle?: string; bank?: [string, string][];
   lines?: Row[]; table?: Cell[][]; questions?: Question[];
   opts?: Opt[]; compact?: boolean; img?: string; imgCap?: string;
+  /** a map or plan answered by dragging: where its letters (or numbered
+   *  places) sit on the picture, in % of its width and height */
+  spots?: { kind: "opts" | "qs"; at: Record<string, [number, number]> };
 };
 type Section = {
   label: string; qs: number[]; groups: Group[];
@@ -1303,6 +1306,118 @@ function HeadingBank({
   );
 }
 
+/* ---- a map or plan: drag each answer onto its place on the picture ----
+ * Two kinds of paper:
+ *   "opts" — the letters A–H are on the map and the questions are places
+ *            ("16 Reception"): drag the place onto its letter.
+ *   "qs"   — the question numbers are on the map ("21 ....") and the options
+ *            are places: drag the place onto its number.
+ * Either way the answer stored is the option letter, exactly as before, so
+ * marking is unchanged. On a phone: tap the card, then tap the spot. */
+const MAP_DRAG = "application/x-pec-map";
+const optList = (g: Group): { l: string; t: string }[] => {
+  const raw = g.bank?.length ? g.bank.map(([l, t]) => ({ l, t }))
+    : (g.questions?.[0]?.opts ?? g.opts ?? []).map((o, i) => typeof o === "object" ? o : { l: LETTERS[i], t: o });
+  return raw;
+};
+
+function MapDrop({ group, answers, set, src }: {
+  group: Group; answers: Answers; src: string;
+  set: (n: number | string, v: string | string[]) => void;
+}) {
+  const kind = group.spots!.kind;
+  const qs = group.questions!;
+  const opts = optList(group);
+  const [held, setHeld] = useState<string | null>(null);   // "q:16" or "o:b"
+  const [over, setOver] = useState<string | null>(null);
+  const val = (n: number) => { const v = answers[String(n)]; return typeof v === "string" ? v : ""; };
+  const optText = (l: string) => opts.find((o) => o.l.toLowerCase() === l)?.t ?? "";
+
+  /* put card `card` on spot `spot`; each letter / place is used once */
+  const place = (card: string, spot: string) => {
+    if (kind === "opts") {
+      const n = Number(card.slice(2)); const l = spot.toLowerCase();
+      for (const q of qs) if (q.n !== n && val(q.n) === l) set(q.n, "");
+      set(n, l);
+    } else {
+      const l = card.slice(2); const n = Number(spot);
+      for (const q of qs) if (q.n !== n && val(q.n) === l) set(q.n, "");
+      set(n, l);
+    }
+    setHeld(null);
+  };
+  /* what sits on a spot now, as a card id, so it can be picked up again */
+  const onSpot = (spot: string): string | null => {
+    if (kind === "opts") { const q = qs.find((x) => val(x.n) === spot.toLowerCase()); return q ? `q:${q.n}` : null; }
+    const v = val(Number(spot)); return v ? `o:${v}` : null;
+  };
+
+  const cards = kind === "opts"
+    ? qs.map((q) => ({ id: `q:${q.n}`, head: String(q.n), text: tagless(q.stem), used: val(q.n) ? val(q.n).toUpperCase() : "" }))
+    : opts.map((o) => {
+        const q = qs.find((x) => val(x.n) === o.l.toLowerCase());
+        return { id: `o:${o.l.toLowerCase()}`, head: o.l, text: o.t, used: q ? `Q${q.n}` : "" };
+      });
+
+  return (
+    <div className="pr-map">
+      <p className="pr-map-help">
+        {kind === "opts" ? "Drag each place onto its letter on the map" : "Drag each place onto its number on the map"}
+        {" "}— or tap a place, then tap the spot.
+      </p>
+      <div className="pr-map-cards">
+        {cards.map((c) => (
+          <button key={c.id} type="button" draggable
+            className={`pr-mcard${held === c.id ? " held" : ""}${c.used ? " used" : ""}`}
+            onDragStart={(e) => { e.dataTransfer.setData(MAP_DRAG, c.id); e.dataTransfer.effectAllowed = "move"; }}
+            onClick={() => setHeld(held === c.id ? null : c.id)}>
+            <b>{c.head}</b> <span>{c.text}</span>{c.used && <em>{c.used}</em>}
+          </button>
+        ))}
+      </div>
+      {held && <p className="pr-map-held">Now tap the right spot on the map.</p>}
+      <div className="pr-map-pic">
+        <img src={src} alt={group.imgCap ?? "Map"} draggable={false} />
+        {Object.entries(group.spots!.at).map(([spot, [x, y]]) => {
+          const card = onSpot(spot);
+          const badge = card ? (kind === "opts" ? card.slice(2) : card.slice(2).toUpperCase()) : "";
+          return (
+            <div key={spot} role="button" tabIndex={0}
+              className={`pr-spot${card ? " full" : ""}${over === spot ? " over" : ""}${held ? " armed" : ""}`}
+              style={{ left: `${x}%`, top: `${y}%` }}
+              aria-label={`${kind === "opts" ? `Letter ${spot}` : `Question ${spot}`}${card ? `: ${badge}` : ", empty"}`}
+              onDragOver={(e) => { if (e.dataTransfer.types.includes(MAP_DRAG)) { e.preventDefault(); setOver(spot); } }}
+              onDragLeave={() => setOver(null)}
+              onDrop={(e) => { e.preventDefault(); setOver(null); const c = e.dataTransfer.getData(MAP_DRAG); if (c) place(c, spot); }}
+              draggable={Boolean(card)}
+              onDragStart={(e) => { if (card) { e.dataTransfer.setData(MAP_DRAG, card); e.dataTransfer.effectAllowed = "move"; } }}
+              onClick={() => { if (held) place(held, spot); else if (card) setHeld(card); }}
+              onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && held) { e.preventDefault(); place(held, spot); } }}>
+              {badge && <span className="pr-spot-b">{badge}</span>}
+            </div>
+          );
+        })}
+      </div>
+      {group.imgCap && <p className="pr-map-cap">{group.imgCap}</p>}
+      <div className="pr-map-rows">
+        {qs.map((q) => {
+          const v = val(q.n);
+          return (
+            <div key={q.n} className={`pr-map-row${v ? " full" : ""}`} data-qn={q.n}>
+              <span className="pr-drop-n">{q.n}</span>
+              <span className="pr-map-q">{kind === "opts" ? tagless(q.stem) : `Place ${q.n}`}</span>
+              <span className="pr-map-a">
+                {v ? (kind === "opts" ? <b>{v.toUpperCase()}</b> : <><b>{v.toUpperCase()}</b> {optText(v)}</>) : <i>not placed</i>}
+              </span>
+              {v && <button type="button" className="pr-drop-x" aria-label={`Clear question ${q.n}`} onClick={() => set(q.n, "")}>✕</button>}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 /* ================= a group of questions ================= */
 function GroupBlock({
   group, answers, set, media, cover, wide = false, drag,
@@ -1317,6 +1432,7 @@ function GroupBlock({
    *  Questions view), so a map or plan can sit beside them. */
   wide?: boolean;
 }) {
+  const mapOn = Boolean(group.spots && group.img && media[group.img] && group.questions?.length);
   const figure = group.img && media[group.img] ? (
     <figure style={{ textAlign: "center", margin: "0 0 14px" }}>
       <img src={media[group.img]} alt={group.imgCap ?? ""} style={{ maxWidth: "100%", borderRadius: 10 }} />
@@ -1352,7 +1468,7 @@ function GroupBlock({
         <HeadingBank bank={group.bank} title={group.bankTitle} ns={drag.ns} answers={answers}
           held={drag.held} setHeld={drag.setHeld} />
       )}
-      {group.bank && !drag && (
+      {group.bank && !drag && !mapOn && (
         <div style={{ background: "var(--coral-light)", borderRadius: 10, padding: "12px 14px",
           fontSize: "0.88rem", marginBottom: 12, lineHeight: 1.85 }}>
           {group.bankTitle && (
@@ -1370,7 +1486,9 @@ function GroupBlock({
       {/* A map, plan or diagram: on a wide screen it sits on the left and stays
           in view while the student works down the questions on the right, so
           the labels and the answer boxes can be read together. */}
-      {figure && wide ? (
+      {mapOn ? (
+        <MapDrop group={group} answers={answers} set={set} src={media[group.img!]} />
+      ) : figure && wide ? (
         <div className="pr-figsplit">
           {figure}
           <div className="pr-figbody">{groupBody()}</div>
