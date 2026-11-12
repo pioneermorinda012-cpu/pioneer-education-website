@@ -87,7 +87,7 @@
 @media (min-width: 900px) {
   .pr-split { grid-template-columns: 1fr 1fr !important; gap: 18px !important;
     /* fits under the section tabs and above the fixed progress bar */
-    height: max(420px, calc(100dvh - 290px)); align-items: stretch !important; }
+    height: max(420px, calc(100dvh - 350px)); align-items: stretch !important; }
   .pr-split > * { min-width: 0; }
   /* Each half scrolls on its own. At the end of the questions the page carries
      on down to the Next button. */
@@ -718,3 +718,28 @@ mark.pr-hl-note{background:#3FE0EE;box-shadow:inset 0 -2px 0 #0b7f8a}
   padding:11px;font:inherit;font-weight:700;cursor:pointer}
 @media (max-width:640px){.pr-notes{top:auto;left:0;width:auto;height:60vh;border-left:0;border-top:1px solid #c9ced6;
   border-radius:14px 14px 0 0;box-shadow:0 -10px 30px rgba(0,0,0,.2)}}
+
+/* ---- the question-number bar at the bottom, like the computer-delivered exam ---- */
+.pr-qnav{gap:10px;overflow-x:auto;scrollbar-width:thin;padding-top:7px;padding-bottom:calc(7px + env(safe-area-inset-bottom))}
+.pr-qnav-cur{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.pr-qnav-cur > b{white-space:nowrap;font-size:0.85rem;color:var(--navy)}
+.pr-qnav-nums{display:flex;gap:3px}
+.pr-qn{min-width:30px;height:32px;padding:0 5px;border:1.5px solid var(--grey-light);border-radius:6px;background:var(--paper);
+  font:inherit;font-size:0.82rem;font-weight:700;color:var(--navy);cursor:pointer;font-variant-numeric:tabular-nums;
+  -webkit-tap-highlight-color:transparent}
+.pr-qn.ans{background:#1a7f4b;border-color:#1a7f4b;color:#fff}
+.pr-qn.on{outline:2px solid var(--navy);outline-offset:1px}
+.pr-qnav-part{flex-shrink:0;border:1.5px solid var(--grey-light);background:var(--paper);border-radius:100px;padding:7px 12px;
+  font:inherit;font-size:0.78rem;font-weight:700;color:var(--navy);cursor:pointer;white-space:nowrap}
+.pr-qnav-part span{color:var(--grey);font-weight:600;margin-left:4px}
+.pr-qnav-total{margin-left:auto;padding-left:6px;flex-shrink:0}
+.pr-flash{animation:pr-flash 1.4s ease-out}
+@keyframes pr-flash{0%,40%{background:#FFF3C4;box-shadow:0 0 0 6px #FFF3C4;border-radius:8px}100%{background:transparent;box-shadow:none}}
+/* ---- one minute left ---- */
+.pr-lastmin{position:fixed;top:0;left:0;right:0;z-index:2400;background:#C62828;color:#fff;text-align:center;
+  padding:11px 16px;font-size:0.92rem;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.25);animation:pr-lastmin 1s ease-in-out 3}
+@keyframes pr-lastmin{50%{background:#E53935}}
+/* Anything scrolled into view (a tapped question number, a focused box) stops
+   clear of the sticky top bar and the question-number bar at the bottom. */
+html:has(.pr-qnav){scroll-padding-top:80px;scroll-padding-bottom:80px}
+.pr-pane{scroll-padding-bottom:24px}

@@ -217,6 +217,36 @@ export default function Player(
     return Math.min(done, s.qs.length);
   };
 
+  /* Which question numbers are answered, for the number bar: a "choose
+   * THREE" task turns as many numbers green as boxes are ticked. */
+  const answeredNums = (si: number): Set<number> => {
+    const out = new Set<number>();
+    for (const [lead, claimed] of Object.entries(covers[si])) {
+      const v = answers[lead];
+      const k = Array.isArray(v) ? Math.min(v.filter(Boolean).length, claimed.length)
+        : v != null && String(v).trim() !== "" ? 1 : 0;
+      claimed.slice(0, k).forEach((n) => out.add(n));
+    }
+    return out;
+  };
+  const [navOn, setNavOn] = useState<number | null>(null);
+  /** Tap a number: go to its part, show the questions, scroll to it. */
+  const jumpTo = (si: number, n: number) => {
+    if (si !== current) { setCurrent(si); setHeld(null); }
+    if (isReading && view === "p") setView("s");
+    setNavOn(n);
+    const lead = Object.entries(covers[si]).find(([, c]) => c.includes(n))?.[0] ?? String(n);
+    setTimeout(() => {
+      const el = document.querySelector<HTMLElement>(`[data-qn="${lead}"]`);
+      if (!el) return;
+      el.scrollIntoView({ block: "center", behavior: "smooth" });
+      el.classList.add("pr-flash");
+      setTimeout(() => el.classList.remove("pr-flash"), 1400);
+      const input = el.matches("input") ? el : el.querySelector<HTMLElement>("input[type=text]");
+      input?.focus({ preventScroll: true });
+    }, 80);
+  };
+
   /* ================= start screen ================= */
   if (!started) {
     return (
@@ -269,6 +299,11 @@ export default function Player(
 
   return (
     <div className="wrap" data-track={track} style={{ paddingBottom: 96 }}>
+      {left <= 60 && left > 0 && (
+        <div className="pr-lastmin" role="alert">
+          ⏰ <b>1 minute left</b> — {mmss(left)}. Fill in any blanks now: a guess can score, an empty box cannot.
+        </div>
+      )}
       {/* timer + tabs */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 18 }}>
         <div className="pr-skills" style={{ paddingTop: 0, flex: 1 }}>
@@ -447,12 +482,36 @@ export default function Player(
           candidate can see their whole answer sheet; on a phone they can see
           about four questions, and without this they have no idea whether they
           have left a dozen behind. */}
-      <div className="pr-progress" role="status" aria-live="polite">
-        <span className="num">{answeredAll} / {test.total} answered</span>
-        <span className="bar">
-          <span className="fill" style={{ width: `${Math.round((answeredAll / test.total) * 100)}%` }} />
+      <div className="pr-progress pr-qnav" role="navigation" aria-label="Questions">
+        {test.sections.map((s, si) => {
+          const done = answeredNums(si);
+          if (si !== current) {
+            return (
+              <button key={s.label} type="button" className="pr-qnav-part"
+                onClick={() => { setCurrent(si); setHeld(null); window.scrollTo(0, 0); }}>
+                {s.label} <span>{done.size} of {s.qs.length}</span>
+              </button>
+            );
+          }
+          return (
+            <div key={s.label} className="pr-qnav-cur">
+              <b>{s.label}</b>
+              <span className="pr-qnav-nums">
+                {s.qs.map((n) => (
+                  <button key={n} type="button"
+                    className={`pr-qn${done.has(n) ? " ans" : ""}${navOn === n ? " on" : ""}`}
+                    aria-label={`Question ${n}${done.has(n) ? ", answered" : ", not answered"}`}
+                    onClick={() => jumpTo(si, n)}>
+                    {n}
+                  </button>
+                ))}
+              </span>
+            </div>
+          );
+        })}
+        <span className="num pr-qnav-total" style={{ color: lowTime ? "#A3251A" : "var(--grey)" }}>
+          {answeredAll}/{test.total} · {mmss(left)}
         </span>
-        <span className="num" style={{ color: lowTime ? "#A3251A" : "var(--grey)" }}>{mmss(left)}</span>
       </div>
     </div>
   );
@@ -1187,7 +1246,7 @@ function DropBox({ n, bank, ns, drops, label }: {
   return (
     <div
       className={`pr-drop${over ? " over" : ""}${r ? " full" : ""}${drops.held ? " armed" : ""}${label ? " pr-drop-q" : ""}`}
-      role="button" tabIndex={0}
+      role="button" tabIndex={0} data-qn={label ? n : undefined}
       aria-label={r ? `Question ${n}: heading ${r} — ${text ?? ""}` : `Question ${n}: drop a heading here`}
       onDragOver={(e) => { if (e.dataTransfer.types.includes(DRAG_TYPE)) { e.preventDefault(); setOver(true); } }}
       onDragLeave={() => setOver(false)}
@@ -1402,7 +1461,7 @@ function Gapped({
         const n = m[1];
         const v = answers[n];
         return (
-          <span key={i} style={{ display: "inline-flex", alignItems: "center", gap: 5, verticalAlign: "middle" }}>
+          <span key={i} data-qn={n} style={{ display: "inline-flex", alignItems: "center", gap: 5, verticalAlign: "middle" }}>
             <span aria-hidden style={{ width: 23, height: 23, borderRadius: "50%", background: "var(--coral-light)",
               color: "var(--coral-dark)", fontWeight: 800, fontSize: "0.7rem", display: "inline-flex",
               alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
@@ -1506,7 +1565,7 @@ function QuestionBlock({
   );
 
   return (
-    <div style={{ margin: "16px 0" }}>
+    <div data-qn={q.n} style={{ margin: "16px 0" }}>
       <div style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
         {/* A task worth several marks shows the whole range it covers, so the
             numbers on screen match the numbers the paper promises. */}
