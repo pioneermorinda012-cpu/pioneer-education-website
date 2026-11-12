@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { coverageIn, rangeLabel } from "@/lib/coverage";
 import ReviewPanel, { Leaderboard, type Transcript } from "./Review";
+import { classify } from "@/lib/qtypes";
 
 
 /* ---------- the shape of an exported test ---------- */
@@ -43,6 +44,47 @@ const mmss = (t: number) =>
   `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
 
 
+/* ---------- matching headings: drag a heading onto its paragraph ----------
+ * In the computer-delivered exam the candidate drags each heading into a box
+ * above its paragraph. Here every "list of headings" question gets a dotted
+ * box above its paragraph in the passage; a heading can be dragged there (a
+ * mouse), or tapped and then the box tapped (a phone, where dragging does not
+ * work). Both fill the same answer as the i / ii / iii buttons, so either way
+ * of answering works and is marked the same. */
+type HeadingDrop = {
+  /** paragraph letter -> its question */
+  byLetter: Record<string, { n: number; bank: [string, string][] }>;
+  /** the groups (by index in the section) whose bank can be dragged */
+  groups: Record<number, { ns: number[] }>;
+};
+
+const tagless = (h: string) => h.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
+
+function headingDrop(section: Section): HeadingDrop | null {
+  if (!section.passage) return null;
+  const out: HeadingDrop = { byLetter: {}, groups: {} };
+  const letters = new Set(section.passage.paras.map(paraLetter).filter(Boolean));
+  section.groups.forEach((g, gi) => {
+    if (!g.bank?.length || !g.questions?.length || classify(g) !== "Matching headings") return;
+    const mapped = g.questions.map((q) => {
+      const m = tagless(q.stem).match(/^(?:Paragraph|Section)\s+([A-Z])$/i);
+      return m && letters.has(m[1].toUpperCase()) ? { n: q.n, l: m[1].toUpperCase() } : null;
+    });
+    // every question must point at a paragraph we can find, or none get boxes
+    if (mapped.some((x) => !x)) return;
+    for (const x of mapped) out.byLetter[x!.l] = { n: x!.n, bank: g.bank };
+    out.groups[gi] = { ns: mapped.map((x) => x!.n) };
+  });
+  return Object.keys(out.groups).length ? out : null;
+}
+
+/** The letter a paragraph starts with: { l: "A" }, "<b>A</b> text" or "<b>Section A</b>". */
+function paraLetter(p: string | { l?: string; t: string }): string | undefined {
+  if (typeof p === "object") return p.l?.toUpperCase();
+  const b = p.match(/^\s*<b>([\s\S]{1,40}?)<\/b>/);
+  return b ? tagless(b[1]).match(/^(?:Section |Paragraph )?([A-Z])$/)?.[1] : undefined;
+}
+
 /* ================================================================= */
 export default function Player(
   { test, student, marked = true }:
@@ -61,11 +103,24 @@ export default function Player(
   const [error, setError] = useState<string | null>(null);
   const [warned, setWarned] = useState(false);   // told once about blank answers
   const [view, setView] = useState<"s" | "p" | "q">("s");   // reading split state
+  const [held, setHeld] = useState<string | null>(null);     // a heading picked up by a tap
   const audioRef = useRef<HTMLAudioElement>(null);
   const isReading = test.mode === "reading";
 
   const set = useCallback((n: number | string, v: string | string[]) => {
     setAnswers((a) => ({ ...a, [String(n)]: v }));
+  }, []);
+
+  /* Put heading `r` on question `n`. A heading is used once, as in the exam:
+   * if it was already on another paragraph of the same task it moves here. */
+  const place = useCallback((n: number, r: string, ns: number[]) => {
+    setAnswers((a) => {
+      const next = { ...a };
+      for (const m of ns) if (m !== n && next[String(m)] === r) next[String(m)] = "";
+      next[String(n)] = r;
+      return next;
+    });
+    setHeld(null);
   }, []);
 
   /* ---- submit ---- */
@@ -200,6 +255,7 @@ export default function Player(
 
   /* ================= the test ================= */
   const section = test.sections[current];
+  const drop = isReading ? headingDrop(section) : null;
   const lowTime = left <= 300;
   const answeredAll = test.sections.reduce((n, s, i) => n + answeredIn(s, i), 0);
 
@@ -210,7 +266,7 @@ export default function Player(
         <div className="pr-skills" style={{ paddingTop: 0, flex: 1 }}>
           {test.sections.map((s, i) => (
             <button
-              key={s.label} type="button" onClick={() => { setCurrent(i); window.scrollTo(0, 0); }}
+              key={s.label} type="button" onClick={() => { setCurrent(i); setHeld(null); window.scrollTo(0, 0); }}
               aria-current={i === current ? "page" : undefined}
               style={{
                 flex: "0 0 auto", padding: "8px 16px", borderRadius: 100, cursor: "pointer",
@@ -272,6 +328,13 @@ export default function Player(
           side and each scrolls on its own, like the computer-delivered exam, so
           a student can read down the passage without losing the question they
           are on. `key` remounts both panes on a new passage, back at the top. */}
+      {held && (
+        <div className="pr-held" role="status">
+          <span>Now tap the dotted box above the right paragraph to place heading <b>{held}</b>.</span>
+          <button type="button" onClick={() => setHeld(null)}>Cancel</button>
+        </div>
+      )}
+
       <div key={current} style={
         isReading && section.passage && view === "s"
           ? { display: "grid", gap: 16, gridTemplateColumns: "1fr", alignItems: "start" }
@@ -279,7 +342,8 @@ export default function Player(
       } className={isReading && section.passage && view === "s" ? "pr-split" : undefined}>
         {isReading && section.passage && view !== "q" && (
           <div className="pr-pane" aria-label="Reading passage" tabIndex={-1}>
-            <Passage passage={section.passage} media={test.mediaUrls} />
+            <Passage passage={section.passage} media={test.mediaUrls}
+              drops={drop ? { ...drop, answers, held, setHeld, place, set, showBank: view === "p" } : undefined} />
           </div>
         )}
         {(!isReading || !section.passage || view !== "p") && (
@@ -287,7 +351,8 @@ export default function Player(
             {section.groups.map((g, i) => (
               <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
                 wide={!isReading || !section.passage || view === "q"}
-                cover={covers[current]} />
+                cover={covers[current]}
+                drag={drop?.groups[i] && view !== "q" ? { ns: drop.groups[i].ns, held, setHeld } : undefined} />
             ))}
           </div>
         )}
@@ -669,10 +734,20 @@ function applyMarks(html: string, marks: EvMark[]): { html: string; hit: boolean
   return { html: out, hit: true };
 }
 
+type Drops = HeadingDrop & {
+  answers: Answers; held: string | null; setHeld: (r: string | null) => void;
+  place: (n: number, r: string, ns: number[]) => void;
+  set: (n: number | string, v: string | string[]) => void;
+  /** Passage view: the questions are hidden, so the headings are shown here. */
+  showBank: boolean;
+};
+
 export function Passage({
-  passage, media, highlights, paraMarks, evidence,
+  passage, media, highlights, paraMarks, evidence, drops,
 }: {
   passage: NonNullable<Section["passage"]>; media: Record<string, string>;
+  /** a test in progress: dotted boxes for "list of headings" questions */
+  drops?: Drops;
   /** every phrase or sentence that answers a question, tagged with its number */
   highlights?: { quote: string; label: string }[];
   /** whole paragraphs that are the answer — "which paragraph mentions…" */
@@ -765,13 +840,32 @@ export function Passage({
           {passage.sub}
         </p>
       )}
+      {drops?.showBank && (() => {
+        const seen = new Set<string>();
+        const banks = Object.values(drops.byLetter).filter((b) => {
+          const k = JSON.stringify(b.bank[0]); if (seen.has(k)) return false; seen.add(k); return true;
+        });
+        return banks.map((b, bi) => {
+          const ns = Object.values(drops.byLetter).filter((x) => x.bank === b.bank).map((x) => x.n);
+          return (
+            <HeadingBank key={bi} bank={b.bank} ns={ns} answers={drops.answers}
+              held={drops.held} setHeld={drops.setHeld} sticky />
+          );
+        });
+      })()}
       {passage.paras.map((p, i) => {
         const letter = typeof p === "object" ? p.l : undefined;
+        const dropFor = drops ? drops.byLetter[paraLetter(p) ?? ""] : undefined;
         const text = typeof p === "object" ? p.t : p;
         // A "which paragraph contains…" answer is the paragraph itself, so the
         // whole thing is tinted rather than one line inside it.
         const owns = letter ? paraMarks?.[letter] : undefined;
-        return (
+        const box = dropFor && drops ? (
+          <DropBox key={`d${i}`} n={dropFor.n} bank={dropFor.bank}
+            ns={Object.values(drops.byLetter).filter((x) => x.bank === dropFor.bank).map((x) => x.n)}
+            drops={drops} />
+        ) : null;
+        return [box, (
           <p key={i} data-hit={owns ? "" : undefined}
             style={{ marginBottom: 13, ...(owns ? {
               background: "#FFF3DF", borderLeft: "4px solid #F3B15E",
@@ -792,7 +886,7 @@ export function Passage({
             ))}
             <span dangerouslySetInnerHTML={{ __html: marked(text) }} />
           </p>
-        );
+        )];
       })}
       {passage.img && media[passage.img] && (
         <figure style={{ textAlign: "center", margin: "14px 0 0" }}>
@@ -808,11 +902,81 @@ export function Passage({
   );
 }
 
+/* ---- the dotted box above a paragraph, for "list of headings" ---- */
+const DRAG_TYPE = "application/x-pec-heading";
+
+function DropBox({ n, bank, ns, drops }: { n: number; bank: [string, string][]; ns: number[]; drops: Drops }) {
+  const [over, setOver] = useState(false);
+  const v = drops.answers[String(n)];
+  const r = typeof v === "string" ? v : "";
+  const text = bank.find(([l]) => l.toLowerCase() === r)?.[1];
+  const take = (roman: string) => drops.place(n, roman.toLowerCase(), ns);
+  return (
+    <div
+      className={`pr-drop${over ? " over" : ""}${r ? " full" : ""}${drops.held ? " armed" : ""}`}
+      role="button" tabIndex={0}
+      aria-label={r ? `Question ${n}: heading ${r} — ${text ?? ""}` : `Question ${n}: drop a heading here`}
+      onDragOver={(e) => { if (e.dataTransfer.types.includes(DRAG_TYPE)) { e.preventDefault(); setOver(true); } }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => { e.preventDefault(); setOver(false); const x = e.dataTransfer.getData(DRAG_TYPE); if (x) take(x); }}
+      onClick={() => { if (drops.held) take(drops.held); }}
+      onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && drops.held) { e.preventDefault(); take(drops.held); } }}
+      draggable={Boolean(r)}
+      onDragStart={(e) => { if (r) { e.dataTransfer.setData(DRAG_TYPE, r); e.dataTransfer.effectAllowed = "move"; } }}
+    >
+      <span className="pr-drop-n">{n}</span>
+      {r ? (
+        <>
+          <span className="pr-drop-t"><b>{r}</b> {text}</span>
+          <button type="button" className="pr-drop-x" aria-label={`Remove heading from question ${n}`}
+            onClick={(e) => { e.stopPropagation(); drops.set(n, ""); }}>✕</button>
+        </>
+      ) : (
+        <span className="pr-drop-t pr-drop-hint">
+          {drops.held ? <>Tap to place heading <b>{drops.held}</b> here</> : "Drag a heading here"}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/* ---- the list of headings, as cards that can be dragged or tapped ---- */
+function HeadingBank({
+  bank, title, ns, answers, held, setHeld, sticky = false,
+}: {
+  bank: [string, string][]; title?: string; ns: number[]; answers: Answers;
+  held: string | null; setHeld: (r: string | null) => void; sticky?: boolean;
+}) {
+  const usedOn = (r: string) => ns.find((m) => answers[String(m)] === r);
+  return (
+    <div className={`pr-hbank${sticky ? " sticky" : ""}`}>
+      <b className="pr-hbank-title">{title ?? "List of Headings"}</b>
+      <span className="pr-hbank-help">Drag a heading onto the dotted box above its paragraph — or tap a heading, then tap the box.</span>
+      {bank.map(([l, t]) => {
+        const r = l.toLowerCase();
+        const used = usedOn(r);
+        return (
+          <button key={l} type="button" draggable
+            className={`pr-hchip${held === r ? " held" : ""}${used ? " used" : ""}`}
+            aria-pressed={held === r}
+            onDragStart={(e) => { e.dataTransfer.setData(DRAG_TYPE, r); e.dataTransfer.effectAllowed = "move"; }}
+            onClick={() => setHeld(held === r ? null : r)}>
+            <b>{l}</b> <span>{t}</span>
+            {used && <em>Q{used}</em>}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 /* ================= a group of questions ================= */
 function GroupBlock({
-  group, answers, set, media, cover, wide = false,
+  group, answers, set, media, cover, wide = false, drag,
 }: {
   group: Group; answers: Answers; cover?: Record<number, number[]>;
+  /** a "list of headings" task with boxes in the passage: the bank is draggable */
+  drag?: { ns: number[]; held: string | null; setHeld: (r: string | null) => void };
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
   /** The questions have the width of the page (listening, or reading in
@@ -850,7 +1014,11 @@ function GroupBlock({
           <b>Example:</b> <span dangerouslySetInnerHTML={{ __html: group.example }} />
         </p>
       )}
-      {group.bank && (
+      {group.bank && drag && (
+        <HeadingBank bank={group.bank} title={group.bankTitle} ns={drag.ns} answers={answers}
+          held={drag.held} setHeld={drag.setHeld} />
+      )}
+      {group.bank && !drag && (
         <div style={{ background: "var(--coral-light)", borderRadius: 10, padding: "12px 14px",
           fontSize: "0.88rem", marginBottom: 12, lineHeight: 1.85 }}>
           {group.bankTitle && (
