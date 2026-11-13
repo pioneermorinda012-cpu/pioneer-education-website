@@ -774,3 +774,15 @@ html:has(.pr-qnav){scroll-padding-top:80px;scroll-padding-bottom:80px}
 .pr-map-a i{color:var(--grey);font-size:0.82rem}
 .pr-map-a b{color:#0F5C45}
 @media (max-width:520px){.pr-spot{width:30px;height:30px}.pr-spot-b{top:-10px;right:-12px}}
+
+/* ---- "which paragraph contains…": statements dropped above a paragraph ---- */
+.pr-ibox{align-items:flex-start}
+.pr-ibox-l{background:var(--navy,#1e3a5f);color:#fff}
+.pr-ibox.full .pr-ibox-l{background:#0F5C45;color:#fff}
+.pr-ibox-items{flex:1;min-width:0;display:flex;flex-direction:column;gap:5px}
+.pr-ibox-item{display:flex;align-items:flex-start;gap:6px;background:#fff;border:1px solid #9fd3b4;border-radius:7px;padding:5px 4px 5px 8px;
+  font-size:0.88rem;line-height:1.4;cursor:grab}
+.pr-ibox-item b{color:#0F5C45;flex-shrink:0}
+.pr-ibox-item button{margin-left:auto;flex-shrink:0;border:0;background:none;color:var(--grey);cursor:pointer;width:26px;height:26px;border-radius:50%}
+.pr-ibox-item button:hover{background:rgba(0,0,0,.06)}
+.pr-icards .pr-hchip b{min-width:26px}

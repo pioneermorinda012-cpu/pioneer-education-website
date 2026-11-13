@@ -59,13 +59,18 @@ type HeadingDrop = {
   byLetter: Record<string, { n: number; bank: [string, string][] }>;
   /** the groups (by index in the section) whose bank can be dragged */
   groups: Record<number, { ns: number[] }>;
+  /** "Which paragraph contains…" / "which paragraph does each heading fit":
+   *  the statements are dragged onto the paragraph (the answer is its letter) */
+  info: Record<number, { n: number; text: string }[]>;
+  /** the paragraph letters those questions can be answered with */
+  infoLetters: string[];
 };
 
 const tagless = (h: string) => h.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 
 function headingDrop(section: Section): HeadingDrop | null {
   if (!section.passage) return null;
-  const out: HeadingDrop = { byLetter: {}, groups: {} };
+  const out: HeadingDrop = { byLetter: {}, groups: {}, info: {}, infoLetters: [] };
   const letters = new Set(section.passage.paras.map(paraLetter).filter(Boolean));
   section.groups.forEach((g, gi) => {
     if (!g.bank?.length || !g.questions?.length || classify(g) !== "Matching headings") return;
@@ -78,7 +83,19 @@ function headingDrop(section: Section): HeadingDrop | null {
     for (const x of mapped) out.byLetter[x!.l] = { n: x!.n, bank: g.bank };
     out.groups[gi] = { ns: mapped.map((x) => x!.n) };
   });
-  return Object.keys(out.groups).length ? out : null;
+  const infoLetters = new Set<string>();
+  section.groups.forEach((g, gi) => {
+    if (out.groups[gi] || !g.questions?.length || g.questions.some((q) => q.multi)) return;
+    const ins = tagless(`${g.instr ?? ""} ${g.heading ?? ""}`).toLowerCase();
+    if (!/\b(paragraph|section)s?\b/.test(ins) || /list of headings|best heading|heading for/.test(ins)) return;
+    if (g.questions.some((q) => /heading for/i.test(tagless(q.stem)))) return;
+    const ls = (g.questions[0].opts ?? g.opts ?? []).map((o) => (typeof o === "object" ? o.l : o));
+    if (!ls.length || !ls.every((l) => /^[A-Z]$/.test(l) && letters.has(l))) return;
+    out.info[gi] = g.questions.map((q) => ({ n: q.n, text: tagless(q.stem) }));
+    ls.forEach((l) => infoLetters.add(l));
+  });
+  out.infoLetters = [...infoLetters];
+  return Object.keys(out.groups).length || Object.keys(out.info).length ? out : null;
 }
 
 /** The letter a paragraph starts with: { l: "A" }, "<b>A</b> text" or "<b>Section A</b>". */
@@ -107,6 +124,7 @@ export default function Player(
   const [warned, setWarned] = useState(false);   // told once about blank answers
   const [view, setView] = useState<"s" | "p" | "q">("s");   // reading split state
   const [held, setHeld] = useState<string | null>(null);     // a heading picked up by a tap
+  const [heldQ, setHeldQ] = useState<number | null>(null);   // a "which paragraph" statement picked up
   /* The student's own marks: highlights per passage and one notes box for the
    * paper. They last until the test is handed in, whatever view or passage
    * the student moves to. */
@@ -312,7 +330,7 @@ export default function Player(
         <div className="pr-skills" style={{ paddingTop: 0, flex: 1 }}>
           {test.sections.map((s, i) => (
             <button
-              key={s.label} type="button" onClick={() => { setCurrent(i); setHeld(null); window.scrollTo(0, 0); }}
+              key={s.label} type="button" onClick={() => { setCurrent(i); setHeld(null); setHeldQ(null); window.scrollTo(0, 0); }}
               aria-current={i === current ? "page" : undefined}
               style={{
                 flex: "0 0 auto", padding: "8px 16px", borderRadius: 100, cursor: "pointer",
@@ -406,6 +424,12 @@ export default function Player(
         />
       )}
 
+      {heldQ != null && (
+        <div className="pr-held" role="status">
+          <span>Now tap the dotted box above the right paragraph for question <b>{heldQ}</b>.</span>
+          <button type="button" onClick={() => setHeldQ(null)}>Cancel</button>
+        </div>
+      )}
       {held && (
         <div className="pr-held" role="status">
           <span>Now tap the dotted box for the right paragraph to place heading <b>{held}</b>.</span>
@@ -421,7 +445,7 @@ export default function Player(
         {isReading && section.passage && view !== "q" && (
           <div className="pr-pane" aria-label="Reading passage" tabIndex={-1}>
             <Passage passage={section.passage} media={test.mediaUrls}
-              drops={drop ? { ...drop, answers, held, setHeld, place, set, showBank: view === "p" } : undefined}
+              drops={drop ? { ...drop, answers, held, setHeld, place, set, showBank: view === "p", heldQ, setHeldQ } : undefined}
               study={{
                 hl: hls[current] ?? NO_HL,
                 setHl: (f) => setHls((h) => ({ ...h, [current]: f(h[current] ?? []) })),
@@ -442,7 +466,8 @@ export default function Player(
               <GroupBlock key={i} group={g} answers={answers} set={set} media={test.mediaUrls}
                 wide={!isReading || !section.passage || view === "q"}
                 cover={covers[current]}
-                drag={drop?.groups[i] ? { ns: drop.groups[i].ns, held, setHeld, place } : undefined} />
+                drag={drop?.groups[i] ? { ns: drop.groups[i].ns, held, setHeld, place } : undefined}
+                info={drop?.info[i] && view !== "q" ? { heldQ, setHeldQ } : undefined} />
             ))}
           </div>
         )}
@@ -950,6 +975,7 @@ type Drops = HeadingDrop & {
   set: (n: number | string, v: string | string[]) => void;
   /** Passage view: the questions are hidden, so the headings are shown here. */
   showBank: boolean;
+  heldQ: number | null; setHeldQ: (n: number | null) => void;
 };
 
 export function Passage({
@@ -1159,9 +1185,17 @@ export function Passage({
           );
         });
       })()}
+      {drops?.showBank && Object.values(drops.info).map((items, k) => (
+        <InfoCards key={`ib${k}`} items={items} answers={drops.answers} heldQ={drops.heldQ}
+          setHeldQ={drops.setHeldQ} sticky />
+      ))}
       {passage.paras.map((p, i) => {
         const letter = typeof p === "object" ? p.l : undefined;
-        const dropFor = drops ? drops.byLetter[paraLetter(p) ?? ""] : undefined;
+        const pl = paraLetter(p) ?? "";
+        const dropFor = drops ? drops.byLetter[pl] : undefined;
+        const infoBox = drops && drops.infoLetters.includes(pl) ? (
+          <InfoBox key={`i${i}`} letter={pl} drops={drops} />
+        ) : null;
         const text = typeof p === "object" ? p.t : p;
         // A "which paragraph contains…" answer is the paragraph itself, so the
         // whole thing is tinted rather than one line inside it.
@@ -1171,7 +1205,7 @@ export function Passage({
             ns={Object.values(drops.byLetter).filter((x) => x.bank === dropFor.bank).map((x) => x.n)}
             drops={drops} />
         ) : null;
-        return [box, (
+        return [box, infoBox, (
           <p key={i} data-hit={owns ? "" : undefined}
             style={{ marginBottom: 13, ...(owns ? {
               background: "#FFF3DF", borderLeft: "4px solid #F3B15E",
@@ -1272,6 +1306,71 @@ function DropBox({ n, bank, ns, drops, label }: {
           {drops.held ? <>Tap to place heading <b>{drops.held}</b> here</> : label ? "Drag a heading here or onto the passage" : "Drag a heading here"}
         </span>
       )}
+    </div>
+  );
+}
+
+/* ---- "which paragraph contains…": statements dragged onto a paragraph ---- */
+const INFO_DRAG = "application/x-pec-info";
+
+function InfoBox({ letter, drops }: { letter: string; drops: Drops }) {
+  const [over, setOver] = useState(false);
+  const l = letter.toLowerCase();
+  const all = Object.values(drops.info).flat();
+  const here = all.filter((x) => drops.answers[String(x.n)] === l);
+  const put = (n: number) => { drops.set(n, l); drops.setHeldQ(null); };
+  return (
+    <div className={`pr-drop pr-ibox${over ? " over" : ""}${here.length ? " full" : ""}${drops.heldQ != null ? " armed" : ""}`}
+      role="button" tabIndex={0}
+      aria-label={`Paragraph ${letter}: ${here.length ? here.map((x) => `question ${x.n}`).join(", ") : "drop a statement here"}`}
+      onDragOver={(e) => { if (e.dataTransfer.types.includes(INFO_DRAG)) { e.preventDefault(); setOver(true); } }}
+      onDragLeave={() => setOver(false)}
+      onDrop={(e) => { e.preventDefault(); setOver(false); const n = Number(e.dataTransfer.getData(INFO_DRAG)); if (n) put(n); }}
+      onClick={() => { if (drops.heldQ != null) put(drops.heldQ); }}
+      onKeyDown={(e) => { if ((e.key === "Enter" || e.key === " ") && drops.heldQ != null) { e.preventDefault(); put(drops.heldQ); } }}>
+      <span className="pr-drop-n pr-ibox-l">{letter}</span>
+      {here.length ? (
+        <span className="pr-ibox-items">
+          {here.map((x) => (
+            <span key={x.n} className="pr-ibox-item" draggable
+              onDragStart={(e) => { e.stopPropagation(); e.dataTransfer.setData(INFO_DRAG, String(x.n)); e.dataTransfer.effectAllowed = "move"; }}>
+              <b>{x.n}</b> {x.text}
+              <button type="button" aria-label={`Remove question ${x.n} from paragraph ${letter}`}
+                onClick={(e) => { e.stopPropagation(); drops.set(x.n, ""); }}>✕</button>
+            </span>
+          ))}
+        </span>
+      ) : (
+        <span className="pr-drop-t pr-drop-hint">
+          {drops.heldQ != null ? <>Tap to put question <b>{drops.heldQ}</b> in paragraph {letter}</> : `Drag a statement here (paragraph ${letter})`}
+        </span>
+      )}
+    </div>
+  );
+}
+
+/** The statements, as cards: drag one onto a paragraph, or tap it then tap the box. */
+function InfoCards({ items, answers, heldQ, setHeldQ, sticky = false }: {
+  items: { n: number; text: string }[]; answers: Answers;
+  heldQ: number | null; setHeldQ: (n: number | null) => void; sticky?: boolean;
+}) {
+  return (
+    <div className={`pr-hbank pr-icards${sticky ? " sticky" : ""}`}>
+      <span className="pr-hbank-help">Drag each statement onto the dotted box above its paragraph — or tap it, then tap the box. A paragraph can take more than one.</span>
+      {items.map((x) => {
+        const v = answers[String(x.n)];
+        const at = typeof v === "string" && v ? v.toUpperCase() : "";
+        return (
+          <button key={x.n} type="button" draggable data-qn={sticky ? undefined : x.n}
+            className={`pr-hchip${heldQ === x.n ? " held" : ""}${at ? " used" : ""}`}
+            aria-pressed={heldQ === x.n}
+            onDragStart={(e) => { e.dataTransfer.setData(INFO_DRAG, String(x.n)); e.dataTransfer.effectAllowed = "move"; }}
+            onClick={() => setHeldQ(heldQ === x.n ? null : x.n)}>
+            <b>{x.n}</b> <span>{x.text}</span>
+            {at && <em>Para {at}</em>}
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -1420,12 +1519,14 @@ function MapDrop({ group, answers, set, src }: {
 
 /* ================= a group of questions ================= */
 function GroupBlock({
-  group, answers, set, media, cover, wide = false, drag,
+  group, answers, set, media, cover, wide = false, drag, info,
 }: {
   group: Group; answers: Answers; cover?: Record<number, number[]>;
   /** a "list of headings" task with boxes in the passage: the bank is draggable */
   drag?: { ns: number[]; held: string | null; setHeld: (r: string | null) => void;
     place: (n: number, r: string, ns: number[]) => void };
+  /** a "which paragraph" task with boxes in the passage: the statements are cards */
+  info?: { heldQ: number | null; setHeldQ: (n: number | null) => void };
   set: (n: number | string, v: string | string[]) => void;
   media: Record<string, string>;
   /** The questions have the width of the page (listening, or reading in
@@ -1551,7 +1652,10 @@ function GroupBlock({
       {/* A heading task: no i / ii / iii buttons, just each question and the
           heading chosen for it — the headings go into the boxes in the passage,
           and these rows take a heading too (Questions view hides the passage). */}
-      {drag && group.bank ? group.questions?.map((q) => (
+      {info && group.questions ? (
+        <InfoCards items={group.questions.map((q) => ({ n: q.n, text: tagless(q.stem) }))} answers={answers}
+          heldQ={info.heldQ} setHeldQ={info.setHeldQ} />
+      ) : drag && group.bank ? group.questions?.map((q) => (
         <DropBox key={q.n} n={q.n} bank={group.bank!} ns={drag.ns} label={q.stem}
           drops={{ answers, set, held: drag.held, place: drag.place }} />
       )) : group.questions?.map((q) => (
