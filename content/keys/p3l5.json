@@ -1,0 +1,246 @@
+{
+ "1": {
+  "accept": [
+   "training"
+  ],
+  "display": "training"
+ },
+ "2": {
+  "accept": [
+   "supermarket"
+  ],
+  "display": "supermarket"
+ },
+ "3": {
+  "accept": [
+   "uniform"
+  ],
+  "display": "uniform"
+ },
+ "4": {
+  "accept": [
+   "furniture"
+  ],
+  "display": "furniture"
+ },
+ "5": {
+  "accept": [
+   "night"
+  ],
+  "display": "night"
+ },
+ "6": {
+  "accept": [
+   "variable"
+  ],
+  "display": "variable"
+ },
+ "7": {
+  "accept": [
+   "reliable"
+  ],
+  "display": "reliable"
+ },
+ "8": {
+  "accept": [
+   "school"
+  ],
+  "display": "school"
+ },
+ "9": {
+  "accept": [
+   "keyboarding"
+  ],
+  "display": "keyboarding"
+ },
+ "10": {
+  "accept": [
+   "transport",
+   "transportation"
+  ],
+  "display": "transport / transportation"
+ },
+ "11": {
+  "accept": [
+   "the lead",
+   "lead"
+  ],
+  "display": "the lead / lead"
+ },
+ "12": {
+  "accept": [
+   "sheet"
+  ],
+  "display": "sheet"
+ },
+ "13": {
+  "accept": [
+   "house"
+  ],
+  "display": "house"
+ },
+ "14": {
+  "accept": [
+   "horsehair",
+   "horse hair"
+  ],
+  "display": "horsehair / horse hair"
+ },
+ "15": {
+  "accept": [
+   "rubber"
+  ],
+  "display": "rubber"
+ },
+ "16": {
+  "accept": [
+   "stopwatch",
+   "stop watch"
+  ],
+  "display": "stopwatch / stop watch"
+ },
+ "17": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "18": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "19": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "20": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "21": {
+  "accept": [
+   "water"
+  ],
+  "display": "water"
+ },
+ "22": {
+  "accept": [
+   "research"
+  ],
+  "display": "research"
+ },
+ "23": {
+  "accept": [
+   "noisy"
+  ],
+  "display": "noisy"
+ },
+ "24": {
+  "accept": [
+   "birds"
+  ],
+  "display": "birds"
+ },
+ "25": {
+  "accept": [
+   "half"
+  ],
+  "display": "half"
+ },
+ "26": {
+  "accept": [
+   "plane"
+  ],
+  "display": "plane"
+ },
+ "27": {
+  "accept": [
+   "Europe"
+  ],
+  "display": "Europe"
+ },
+ "28": {
+  "accept": [
+   "government"
+  ],
+  "display": "government"
+ },
+ "29": {
+  "accept": [
+   "lower"
+  ],
+  "display": "lower"
+ },
+ "30": {
+  "accept": [
+   "timber"
+  ],
+  "display": "timber"
+ },
+ "31": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "32": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "33": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "34": {
+  "accept": [
+   "F"
+  ],
+  "display": "F"
+ },
+ "35": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "36": {
+  "accept": [
+   "winter"
+  ],
+  "display": "winter"
+ },
+ "37": {
+  "accept": [
+   "stems"
+  ],
+  "display": "stems"
+ },
+ "38": {
+  "accept": [
+   "lid"
+  ],
+  "display": "lid"
+ },
+ "39": {
+  "accept": [
+   "gravity"
+  ],
+  "display": "gravity"
+ },
+ "40": {
+  "accept": [
+   "ground"
+  ],
+  "display": "ground"
+ }
+}

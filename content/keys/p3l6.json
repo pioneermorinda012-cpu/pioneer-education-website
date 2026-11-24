@@ -1,0 +1,252 @@
+{
+ "1": {
+  "accept": [
+   "salesman"
+  ],
+  "display": "salesman"
+ },
+ "2": {
+  "accept": [
+   "9",
+   "nine"
+  ],
+  "display": "9 / nine"
+ },
+ "3": {
+  "accept": [
+   "Spring Park"
+  ],
+  "display": "Spring Park"
+ },
+ "4": {
+  "accept": [
+   "apartment"
+  ],
+  "display": "apartment"
+ },
+ "5": {
+  "accept": [
+   "train"
+  ],
+  "display": "train"
+ },
+ "6": {
+  "accept": [
+   "once a month"
+  ],
+  "display": "once a month"
+ },
+ "7": {
+  "accept": [
+   "clubs"
+  ],
+  "display": "clubs"
+ },
+ "8": {
+  "accept": [
+   "cinema"
+  ],
+  "display": "cinema"
+ },
+ "9": {
+  "accept": [
+   "sailing"
+  ],
+  "display": "sailing"
+ },
+ "10": {
+  "accept": [
+   "Japanese"
+  ],
+  "display": "Japanese"
+ },
+ "11": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "12": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "13": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "14": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "15": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "16": {
+  "accept": [
+   "D"
+  ],
+  "display": "D"
+ },
+ "17": {
+  "accept": [
+   "I"
+  ],
+  "display": "I"
+ },
+ "18": {
+  "accept": [
+   "H"
+  ],
+  "display": "H"
+ },
+ "19": {
+  "accept": [
+   "G"
+  ],
+  "display": "G"
+ },
+ "20": {
+  "accept": [
+   "E"
+  ],
+  "display": "E"
+ },
+ "21": {
+  "accept": [
+   "watching time"
+  ],
+  "display": "watching time"
+ },
+ "22": {
+  "accept": [
+   "calm"
+  ],
+  "display": "calm"
+ },
+ "23": {
+  "accept": [
+   "weather"
+  ],
+  "display": "weather"
+ },
+ "24": {
+  "accept": [
+   "100 metres",
+   "100 meters",
+   "100m"
+  ],
+  "display": "100 metres / 100 meters"
+ },
+ "25": {
+  "accept": [
+   "fishing boats"
+  ],
+  "display": "fishing boats"
+ },
+ "26": {
+  "accept": [
+   "behaviour",
+   "behaviours",
+   "behavior",
+   "behaviors",
+   "individual behaviour",
+   "individual behaviours",
+   "individual behavior",
+   "individual behaviors"
+  ],
+  "display": "behaviour / behaviours"
+ },
+ "27": {
+  "accept": [
+   "group size"
+  ],
+  "display": "group size"
+ },
+ "28": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "29": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "30": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "31": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "32": {
+  "accept": [
+   "A"
+  ],
+  "display": "A"
+ },
+ "33": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "34": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "35": {
+  "accept": [
+   "C"
+  ],
+  "display": "C"
+ },
+ "36": {
+  "accept": [
+   "B"
+  ],
+  "display": "B"
+ },
+ "37": {
+  "accept": [
+   "radio"
+  ],
+  "display": "radio"
+ },
+ "38": {
+  "accept": [
+   "Newspapers"
+  ],
+  "display": "Newspapers"
+ },
+ "39": {
+  "accept": [
+   "speed"
+  ],
+  "display": "speed"
+ },
+ "40": {
+  "accept": [
+   "hotels"
+  ],
+  "display": "hotels"
+ }
+}
