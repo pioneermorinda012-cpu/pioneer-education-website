@@ -13,7 +13,7 @@ import Turnstile, { sendLead, TURNSTILE_SITE_KEY } from "../../components/Turnst
 // steps to get this URL — paste it in once the sheet is set up.
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbyCsbI0ci_TJEitjK9wNNXlmDe4Eii-4jMHqq94T4CnGYrQSPVO7e9worcsSFl9SWn1OA/exec";
 
-const HEARD_FROM = ["Walk-in / Just passing by", "Instagram", "Facebook", "WhatsApp", "Friend or family referral", "Google Search", "Other"];
+const HEARD_FROM = ["Walk-in / Just passing by", "Instagram", "Facebook", "WhatsApp", "Friend or family referral", "Google Search", "ChatGPT", "Other"];
 const TIMINGS = ["Morning", "Afternoon", "Evening", "No preference"];
 const PLANS = ["Online Self-Study", "Group Class", "1-to-1 Coaching", "Not decided yet"];
 
