@@ -68,7 +68,7 @@ export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
               </div>
               <div className="pc-price" style={plan.featured ? { color: "#fff" } : undefined}>
                 {plan.price === null ? (
-                  <span style={{ fontSize: "1.1rem", color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}>{plan.comingSoon ? "Coming soon" : "Fee on request"}</span>
+                  <span style={{ fontSize: "1.1rem", color: plan.featured ? "rgba(255,255,255,0.85)" : "var(--grey)" }}>{plan.comingSoon ? "Coming soon" : "Contact for more info"}</span>
                 ) : (
                   <>
                     ₹{perMonth(plan)!.toLocaleString("en-IN")}
@@ -102,12 +102,14 @@ export default function PlanPicker({ plans, wa, course, courseName, canPay }: {
                   </a>
                 </>
               ) : (
-                <a href={wa} target="_blank" rel="noopener noreferrer"
+                <a href={plan.comingSoon ? wa : `https://wa.me/917380261308?text=${encodeURIComponent(
+                     `Hi Pioneer Education, I'd like to know more about the ${courseName}${plan.level ? ` ${plan.level}` : ""} ${plan.name} (${plan.term === "3m" ? "3 months" : "1 month"}).`)}`}
+                   target="_blank" rel="noopener noreferrer"
                    className={plan.featured ? "btn" : "btn btn-outline"}
                    style={plan.featured
                      ? { width: "100%", justifyContent: "center", background: "#fff", color: "var(--coral-dark)" }
                      : { width: "100%", justifyContent: "center" }}>
-                  {plan.comingSoon ? "Ask to be told when it starts" : "Ask on WhatsApp"}
+                  {plan.comingSoon ? "Ask to be told when it starts" : "💬 WhatsApp 73802 61308"}
                 </a>
               )}
             </div>

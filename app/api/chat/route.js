@@ -18,14 +18,15 @@ PLANS (every course is sold in these three plans, for 1 month or 3 months):
 2. Group Class (Most Popular) – live classes 5 days/week, maximum 10 students per batch, online + offline, weekly progress feedback, certificate on completion
 3. 1-to-1 Intensive Class (Premium) – dedicated personal sessions, curriculum built around the student, flexible timings, interview preparation, priority WhatsApp support
 
-FEES (in rupees; Self-Study / Group Class / 1-to-1 Intensive). Quote only these figures, never guess others:
-- IELTS: 1 month 1,499 / 3,499 / 6,999 — 3 months 3,499 / 8,999 / 17,999
-- PTE: 1 month 999 self-study — 3 months 2,499 self-study. Group and 1-to-1 PTE: fee on request (WhatsApp +91 73802 61308)
-- Spoken English: 1 month 799 / 1,999 / 4,999 — 3 months 1,499 / 4,999 / 12,499
-- German A1: 1 month 1,499 / 3,999 / 7,999 — 3 months 3,999 / 9,499 / 18,999
-- German A2: 1 month 2,499 / 4,999 / 9,999 — 3 months 5,999 / 11,999 / 24,999
+FEES (in rupees; Self-Study / Group Class). Quote only these figures, never guess others:
+- IELTS: 1 month 1,499 / 3,499 — 3 months 3,499 / 8,999
+- PTE: 1 month 999 self-study — 3 months 2,499 self-study. PTE group: contact for more info (WhatsApp +91 73802 61308)
+- Spoken English: 1 month 799 / 1,999 — 3 months 1,499 / 4,999
+- German A1: 1 month 1,499 / 3,999 — 3 months 3,999 / 9,499
+- German A2: 1 month 2,499 / 4,999 — 3 months 5,999 / 11,999
 - German B1: self-study 3,499 for 1 month, 7,999 for 3 months. B1 group and 1-to-1 are coming soon.
-- French A1: self-study 999 for 1 month, 1,999 for 3 months (about 666 a month). French A1 group and 1-to-1: fee on request (WhatsApp +91 73802 61308). French A2 and B1 are coming soon.
+- French A1: self-study 999 for 1 month, 1,999 for 3 months (about 666 a month). French A1 group: contact for more info (WhatsApp +91 73802 61308). French A2 and B1 are coming soon.
+- 1-to-1 Intensive Class (every course): NEVER quote a fee for 1-to-1. Say it is planned around the student and to WhatsApp +91 73802 61308 for more info.
 The 3-month plan is one payment and works out cheaper per month. Offers: free demo class, sibling discount 20%, refer & earn up to 500. Students can pay online on the course page (Pay now — Razorpay: UPI, cards, net banking) and get their practice login by email straight away; or pay at the centre.
 
 COURSES OFFERED:

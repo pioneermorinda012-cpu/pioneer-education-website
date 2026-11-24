@@ -10,7 +10,7 @@ export type Plan = {
   level?: string;
   /**
    * The fee in rupees for the whole term. A number shows the price; null
-   * shows "Fee on request" — or "Coming soon" when comingSoon is set.
+   * shows "Contact for more info" — or "Coming soon" when comingSoon is set.
    */
   price: number | null;
   comingSoon?: boolean;
@@ -48,7 +48,7 @@ export type Course = {
 
 /**
  * The three plans every course is sold under, for one term (and one level,
- * for German). Each fee is a number, null for "Fee on request", or "soon"
+ * for German). Each fee is a number, null for "Contact for more info", or "soon"
  * for "Coming soon".
  */
 type Fee = number | null | "soon";
@@ -83,7 +83,9 @@ function tierPlans(term: Term, fees: [Fee, Fee, Fee], level?: string): Plan[] {
     { tier: "one", name: "1-to-1 Intensive Class" },
   ] as const;
   return tiers.map((t, i) => {
-    const fee = fees[i];
+    /* 1-to-1 is priced per student: no fee is shown on any course, the card
+       says "Contact for more info" and links to WhatsApp instead. */
+    const fee = t.tier === "one" && fees[i] !== "soon" ? null : fees[i];
     return {
       name: t.name,
       tier: t.tier,
@@ -124,7 +126,7 @@ export const COURSES: Course[] = [
       "Anyone needing a specific band score for immigration",
     ],
     duration: "4–5 hours daily, weekday batches with evening options",
-    plans: plans([1499, 3499, 6999], [3499, 8999, 17999]),
+    plans: plans([1499, 3499, null], [3499, 8999, null]),
     // demoVideo: "https://youtu.be/…",      explainVideo: "https://youtu.be/…",
     faqs: [
       { q: "How long does the course take?", a: "Most students prepare in 6–10 weeks depending on their starting level and target band." },
@@ -179,7 +181,7 @@ export const COURSES: Course[] = [
     duration: "Beginner to Advanced, self-paced batches",
     // The ₹999 Razorpay page (pages.razorpay.com/pl_NHIt9P9D83nsDm) was the old
     // price, so it is not shown until a link for the new fee is added.
-    plans: plans([799, 1999, 4999], [1499, 4999, 12499]),
+    plans: plans([799, 1999, null], [1499, 4999, null]),
     faqs: [
       { q: "I understand English but can't speak it — is this for me?", a: "Yes, this is exactly who the course is designed for." },
       { q: "Do I need any prior English knowledge?", a: "No, we have a dedicated beginner track that starts from the basics." },
@@ -206,8 +208,8 @@ export const COURSES: Course[] = [
     ],
     duration: "Structured A1 → A2 → B1 progression, typically 6–9 months total",
     plans: [
-      ...plans([1499, 3999, 7999], [3999, 9499, 18999], "A1"),
-      ...plans([2499, 4999, 9999], [5999, 11999, 24999], "A2"),
+      ...plans([1499, 3999, null], [3999, 9499, null], "A1"),
+      ...plans([2499, 4999, null], [5999, 11999, null], "A2"),
       ...plans([3499, "soon", "soon"], [7999, "soon", "soon"], "B1"),
     ],
     faqs: [

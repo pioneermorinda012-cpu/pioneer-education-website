@@ -355,7 +355,7 @@ export default function Home() {
             <h3>{c.name}</h3>
             <div className="pc-price" style={{fontSize: '1.5rem', margin: '2px 0 12px'}}>
               {from === null
-                ? <span style={{fontSize: '1rem'}}>Fee on request</span>
+                ? <span style={{fontSize: '1rem'}}>Contact for more info</span>
                 : <>From ₹{from.toLocaleString("en-IN")}<span>/month</span></>}
             </div>
             <ul className="course-feats">
