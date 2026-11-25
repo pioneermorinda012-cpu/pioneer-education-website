@@ -37,6 +37,18 @@ const GROUPS = [
 ] as const;
 type Group = "all" | "none" | (typeof GROUPS)[number]["key"];
 
+/* Which month of their course a student is in, counted from the day their
+   login was made, and the day the next month starts. Made 12 Oct: on 25 Nov
+   that is month 2, next month from 12 Dec. */
+function courseMonth(iso: string): { n: number; next: string } {
+  const start = new Date(iso), now = new Date();
+  let n = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  if (now.getDate() < start.getDate()) n -= 1;
+  n = Math.max(0, n);
+  const next = new Date(start); next.setMonth(start.getMonth() + n + 1);
+  return { n: n + 1, next: next.toISOString() };
+}
+
 const shortDate = (iso: string) =>
   new Date(iso).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric", timeZone: "Asia/Kolkata" });
 
@@ -69,7 +81,9 @@ export default function TeacherPage() {
   const [q, setQ] = useState("");
   const [until, setUntilMap] = useState<Record<string, Record<string, string>>>({});
   const [editing, setEditing] = useState<{ id: string; areas: string[]; clear: string[] } | null>(null);
-  const [tab, setTab] = useState<"results" | "writing" | "people">("results");
+  const [tab, setTab] = useState<"results" | "sent" | "writing" | "people">("results");
+  type Sent = { id: string; student_id: string; submitted_at: string; title: string; score: string; name: string; code: string; batch: string | null };
+  const [sent, setSent] = useState<Sent[] | null>(null);
   type Wr = {
     id: string; student_id: string; kind: string; question: string; words: number;
     status: string; auto_band: number | null; teacher_band: number | null; submitted_at: string;
@@ -110,6 +124,14 @@ export default function TeacherPage() {
     if (d.error) setErr(d.error);
   }, []);
   useEffect(() => { if (tab === "writing" && state === "in") loadWritings(); }, [tab, state, loadWritings]);
+
+  const loadSent = useCallback(async () => {
+    const res = await fetch("/api/practice/teacher?shared=1", { cache: "no-store" });
+    const d = await res.json().catch(() => ({}));
+    setSent(d.shared ?? []);
+    if (d.error) setErr(d.error);
+  }, []);
+  useEffect(() => { if (tab === "sent" && state === "in") loadSent(); }, [tab, state, loadSent]);
 
   async function post(payload: Record<string, unknown>) {
     setErr(""); setBusy(true);
@@ -471,6 +493,8 @@ export default function TeacherPage() {
       <nav className="pr-skills" aria-label="View">
         <a onClick={() => setTab("results")} aria-current={tab === "results" ? "page" : undefined}
            style={{ cursor: "pointer" }}>Results</a>
+        <a onClick={() => setTab("sent")} aria-current={tab === "sent" ? "page" : undefined}
+           style={{ cursor: "pointer" }}>Sent results</a>
         <a onClick={() => setTab("writing")} aria-current={tab === "writing" ? "page" : undefined}
            style={{ cursor: "pointer" }}>Writing to check</a>
         <a onClick={() => setTab("people")} aria-current={tab === "people" ? "page" : undefined}
@@ -568,6 +592,7 @@ export default function TeacherPage() {
                     <div className="fx">
                       <span>{r.st.code}</span>
                       {r.st.batch && <span>{r.st.batch}</span>}
+                      {r.st.created_at && <span>since {shortDate(r.st.created_at)} · month {courseMonth(r.st.created_at).n}</span>}
                       <span>{r.count} test{r.count === 1 ? "" : "s"}</span>
                       {r.when && <span>last {new Date(r.when).toLocaleDateString()}</span>}
                     </div>
@@ -595,6 +620,41 @@ export default function TeacherPage() {
             </div>
           </section>
         </>
+      )}
+
+      {tab === "sent" && (
+        <section className="pr-set">
+          <h2>Sent results</h2>
+          <div className="pr-note" style={{ marginBottom: 12 }}>
+            Exercises students sent with <b>Send my result</b>, newest first. Open one to see their page exactly as they left it.
+          </div>
+          {sent === null ? (
+            <div className="pr-note">Loading…</div>
+          ) : (
+            <div className="pr-rows">
+              {sent.filter((x) => !q || (x.name + " " + x.code + " " + x.title).toLowerCase().includes(q.toLowerCase())).length === 0 && (
+                <div className="pr-row"><div className="nm">{sent.length ? "No results match." : "No student has sent a result yet."}</div></div>
+              )}
+              {sent.filter((x) => !q || (x.name + " " + x.code + " " + x.title).toLowerCase().includes(q.toLowerCase())).map((x) => (
+                <div className="pr-row" key={x.id}>
+                  <div>
+                    <div className="nm">{x.name} · {x.title}</div>
+                    <div className="fx">
+                      {x.code && <span>{x.code}</span>}
+                      {x.batch && <span>{x.batch}</span>}
+                      {x.score && <span>{x.score}</span>}
+                      <span>{new Date(x.submitted_at).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "numeric", minute: "2-digit", timeZone: "Asia/Kolkata" })}</span>
+                    </div>
+                  </div>
+                  <a className="btn btn-outline" href={`/practice/shared/${x.id}`} target="_blank" rel="noopener"
+                     style={{ padding: "7px 13px", fontSize: "0.8rem", minHeight: 38 }}>
+                    Open
+                  </a>
+                </div>
+              ))}
+            </div>
+          )}
+        </section>
       )}
 
       {tab === "writing" && (
@@ -786,6 +846,11 @@ export default function TeacherPage() {
                     <div className="nm">{s2.full_name} {!s2.active && <span className="pr-off">off</span>}</div>
                     <div className="fx">
                       <span>{s2.code}</span>
+                      {s2.created_at && (
+                        <span title={`Login made ${shortDate(s2.created_at)}. Month ${courseMonth(s2.created_at).n + 1} starts ${shortDate(courseMonth(s2.created_at).next)}.`}>
+                          login made {shortDate(s2.created_at)} · <b>month {courseMonth(s2.created_at).n}</b> · next month {shortDate(courseMonth(s2.created_at).next)}
+                        </span>
+                      )}
                       {s2.email && <span>{s2.email}</span>}
                       {s2.phone && <span>{s2.phone}</span>}
                       {s2.batch && <span>{s2.batch}</span>}

@@ -97,3 +97,27 @@ export async function getShared(id: string): Promise<Shared | null> {
     html: str(a.html),
   };
 }
+
+export type SharedRow = {
+  id: string; student_id: string; submitted_at: string;
+  title: string; score: string; page: string;
+  name: string; code: string; batch: string | null;
+};
+
+/** Newest sent results first, without the saved pages (they are large). */
+export async function recentShared(limit = 300): Promise<SharedRow[]> {
+  const rows = (await rest(
+    "attempts?select=id,student_id,submitted_at,title:answers->>title,score:answers->>score,page:answers->>page," +
+    `name:answers->>name,students(full_name,code,batch)&skill=eq.${SKILL}&order=submitted_at.desc&limit=${limit}`,
+  )) as {
+    id: string; student_id: string; submitted_at: string; title: string | null; score: string | null; page: string | null;
+    name: string | null; students?: { full_name?: string; code?: string; batch?: string | null } | null;
+  }[] | null;
+  return (Array.isArray(rows) ? rows : []).map((r) => ({
+    id: r.id, student_id: r.student_id, submitted_at: r.submitted_at,
+    title: (r.title ?? "").replace(/\s*·\s*Pioneer Education\s*$/, "") || "Exercise",
+    score: r.score ?? "", page: r.page ?? "",
+    name: r.students?.full_name || r.name || "Student",
+    code: r.students?.code ?? "", batch: r.students?.batch ?? null,
+  }));
+}

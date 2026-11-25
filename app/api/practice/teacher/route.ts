@@ -11,6 +11,7 @@ import { audience, pushReady, sendEach } from "@/lib/push";
 import crypto from "node:crypto";
 import { hit, peek, visitor, wait } from "@/lib/ratelimit";
 import { markWriting, recentWritings, writingById, writingsForStudent, writingsReady } from "@/lib/writings";
+import { recentShared, sharedReady } from "@/lib/shared-results";
 import {
   hashPin, signSession, readSession, TEACHER_COOKIE, type Session,
 } from "@/lib/session";
@@ -107,6 +108,16 @@ export async function GET(req: NextRequest) {
       return NextResponse.json({ configured: true, authed: true, ready: true, missing, devices: subs.length, students: on.size, byGroup });
     } catch (e) {
       return NextResponse.json({ configured: true, authed: true, ready: true, missing, error: String((e as Error).message).slice(0, 200) });
+    }
+  }
+
+  /* ?shared=1: results students sent with "Send my result", newest first. */
+  if (req.nextUrl.searchParams.get("shared")) {
+    if (!sharedReady()) return NextResponse.json({ configured: true, authed: true, shared: [] });
+    try {
+      return NextResponse.json({ configured: true, authed: true, shared: await recentShared() });
+    } catch (e) {
+      return NextResponse.json({ configured: true, authed: true, shared: [], error: String((e as Error).message).slice(0, 200) });
     }
   }
 
