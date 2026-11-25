@@ -1,0 +1,499 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/:path*",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self'; object-src 'none'; base-uri 'self'"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), geolocation=(), microphone=(self), payment=(self)"
+        }
+      ],
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))?(?:/)?$"
+    }
+  ],
+  "onMatchHeaders": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/courses/[slug]",
+      "regex": "^/courses/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPslug": "nxtPslug"
+      },
+      "namedRegex": "^/courses/(?<nxtPslug>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/english/course/[lesson]",
+      "regex": "^/practice/english/course/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPlesson": "nxtPlesson"
+      },
+      "namedRegex": "^/practice/english/course/(?<nxtPlesson>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/english/[id]",
+      "regex": "^/practice/english/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/english/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/french/[id]",
+      "regex": "^/practice/french/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/french/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/german/[id]",
+      "regex": "^/practice/german/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/german/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/lab/[id]",
+      "regex": "^/practice/lab/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/lab/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/learn/[id]",
+      "regex": "^/practice/learn/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/learn/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/pte/[id]",
+      "regex": "^/practice/pte/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/pte/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/results/writing/[id]",
+      "regex": "^/practice/results/writing/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/results/writing/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/results/[id]",
+      "regex": "^/practice/results/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/results/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/teacher/writing/[id]",
+      "regex": "^/practice/teacher/writing/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/teacher/writing/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/test/[id]",
+      "regex": "^/practice/test/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/test/(?<nxtPid>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/practice/writing/[id]",
+      "regex": "^/practice/writing/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/practice/writing/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about",
+      "regex": "^/about(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about(?:/)?$"
+    },
+    {
+      "page": "/admission",
+      "regex": "^/admission(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admission(?:/)?$"
+    },
+    {
+      "page": "/api/chat",
+      "regex": "^/api/chat(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/chat(?:/)?$"
+    },
+    {
+      "page": "/api/cron/reminders",
+      "regex": "^/api/cron/reminders(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/cron/reminders(?:/)?$"
+    },
+    {
+      "page": "/api/lead",
+      "regex": "^/api/lead(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/lead(?:/)?$"
+    },
+    {
+      "page": "/api/pay/start",
+      "regex": "^/api/pay/start(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/pay/start(?:/)?$"
+    },
+    {
+      "page": "/api/practice/explain",
+      "regex": "^/api/practice/explain(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/explain(?:/)?$"
+    },
+    {
+      "page": "/api/practice/forgot",
+      "regex": "^/api/practice/forgot(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/forgot(?:/)?$"
+    },
+    {
+      "page": "/api/practice/leaderboard",
+      "regex": "^/api/practice/leaderboard(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/leaderboard(?:/)?$"
+    },
+    {
+      "page": "/api/practice/login",
+      "regex": "^/api/practice/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/login(?:/)?$"
+    },
+    {
+      "page": "/api/practice/logout",
+      "regex": "^/api/practice/logout(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/logout(?:/)?$"
+    },
+    {
+      "page": "/api/practice/progress",
+      "regex": "^/api/practice/progress(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/progress(?:/)?$"
+    },
+    {
+      "page": "/api/practice/push",
+      "regex": "^/api/practice/push(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/push(?:/)?$"
+    },
+    {
+      "page": "/api/practice/reset",
+      "regex": "^/api/practice/reset(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/reset(?:/)?$"
+    },
+    {
+      "page": "/api/practice/submit",
+      "regex": "^/api/practice/submit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/submit(?:/)?$"
+    },
+    {
+      "page": "/api/practice/teacher",
+      "regex": "^/api/practice/teacher(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/teacher(?:/)?$"
+    },
+    {
+      "page": "/api/practice/tutor",
+      "regex": "^/api/practice/tutor(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/tutor(?:/)?$"
+    },
+    {
+      "page": "/api/practice/writing",
+      "regex": "^/api/practice/writing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/practice/writing(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/claim",
+      "regex": "^/api/razorpay/claim(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/claim(?:/)?$"
+    },
+    {
+      "page": "/api/razorpay/webhook",
+      "regex": "^/api/razorpay/webhook(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/razorpay/webhook(?:/)?$"
+    },
+    {
+      "page": "/delete-account",
+      "regex": "^/delete\\-account(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/delete\\-account(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/manifest.webmanifest",
+      "regex": "^/manifest\\.webmanifest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/manifest\\.webmanifest(?:/)?$"
+    },
+    {
+      "page": "/payment/thank-you",
+      "regex": "^/payment/thank\\-you(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/payment/thank\\-you(?:/)?$"
+    },
+    {
+      "page": "/practice",
+      "regex": "^/practice(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice(?:/)?$"
+    },
+    {
+      "page": "/practice/english",
+      "regex": "^/practice/english(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/english(?:/)?$"
+    },
+    {
+      "page": "/practice/english/course",
+      "regex": "^/practice/english/course(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/english/course(?:/)?$"
+    },
+    {
+      "page": "/practice/forgot",
+      "regex": "^/practice/forgot(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/forgot(?:/)?$"
+    },
+    {
+      "page": "/practice/french",
+      "regex": "^/practice/french(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/french(?:/)?$"
+    },
+    {
+      "page": "/practice/german",
+      "regex": "^/practice/german(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/german(?:/)?$"
+    },
+    {
+      "page": "/practice/learn",
+      "regex": "^/practice/learn(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/learn(?:/)?$"
+    },
+    {
+      "page": "/practice/locked",
+      "regex": "^/practice/locked(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/locked(?:/)?$"
+    },
+    {
+      "page": "/practice/pte",
+      "regex": "^/practice/pte(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/pte(?:/)?$"
+    },
+    {
+      "page": "/practice/reset",
+      "regex": "^/practice/reset(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/reset(?:/)?$"
+    },
+    {
+      "page": "/practice/results",
+      "regex": "^/practice/results(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/results(?:/)?$"
+    },
+    {
+      "page": "/practice/sign-in",
+      "regex": "^/practice/sign\\-in(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/sign\\-in(?:/)?$"
+    },
+    {
+      "page": "/practice/teacher",
+      "regex": "^/practice/teacher(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/teacher(?:/)?$"
+    },
+    {
+      "page": "/practice/writing",
+      "regex": "^/practice/writing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/practice/writing(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    },
+    {
+      "page": "/videos",
+      "regex": "^/videos(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/videos(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer",
+      "regex": "^/writing\\-analyzer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/academic",
+      "regex": "^/writing\\-analyzer/academic(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/academic(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/academic/task1",
+      "regex": "^/writing\\-analyzer/academic/task1(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/academic/task1(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/academic/task2",
+      "regex": "^/writing\\-analyzer/academic/task2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/academic/task2(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/gt",
+      "regex": "^/writing\\-analyzer/gt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/gt(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/gt/task1",
+      "regex": "^/writing\\-analyzer/gt/task1(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/gt/task1(?:/)?$"
+    },
+    {
+      "page": "/writing-analyzer/gt/task2",
+      "regex": "^/writing\\-analyzer/gt/task2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/writing\\-analyzer/gt/task2(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

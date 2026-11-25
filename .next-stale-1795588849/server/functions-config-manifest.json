@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/cron/reminders": {
+      "maxDuration": 60
+    },
+    "/api/lead": {},
+    "/api/pay/start": {},
+    "/api/practice/explain": {
+      "maxDuration": 60
+    },
+    "/api/practice/forgot": {},
+    "/api/practice/login": {},
+    "/api/practice/logout": {},
+    "/api/practice/progress": {},
+    "/api/practice/push": {},
+    "/api/practice/reset": {},
+    "/api/practice/teacher": {},
+    "/api/practice/tutor": {
+      "maxDuration": 60
+    },
+    "/api/practice/writing": {},
+    "/api/razorpay/claim": {},
+    "/api/razorpay/webhook": {}
+  }
+}

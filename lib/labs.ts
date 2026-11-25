@@ -14,6 +14,11 @@ export type LabItem = {
   title: string;
   blurb: string;
   need: Area[];
+  /** "task" = a single-question-type trainer, listed under the Reading tests
+   *  separately from the four big labs. Absent means one of the labs. */
+  kind?: "task";
+  /** how many questions it holds, shown in the list */
+  count?: number;
 };
 
 export const LABS: LabItem[] = [
@@ -27,6 +32,29 @@ export const LABS: LabItem[] = [
     blurb: "Parts 1, 2 and 3: extending answers, Band 8 samples to listen to, and Part 2 cue cards with a timer." },
   { id: "speaking-formulas", file: "speaking-formulas.html", title: "31 Speaking Formulas", need: ["academic", "gt"],
     blurb: "31 ready-to-use answer patterns for Parts 1, 2 and 3 — each with a model answer to listen to, power phrases, a mistake to avoid and a practice question." },
+
+  /* Task-type trainers. One question type at a time, over nine Pioneer
+   * passages, so a student who keeps losing marks on one style can drill that
+   * style alone instead of sitting a whole paper to meet it four times.
+   * Every answer is proved against a line of the passage. */
+  { id: "task-true-false", file: "task-true-false.html", kind: "task", count: 72,
+    title: "True / False / Not Given", need: ["academic", "gt"],
+    blurb: "The question type that costs the most marks. FALSE and NOT GIVEN are highlighted in different colours, so you can see why a line that looked right was not enough." },
+  { id: "task-matching-information", file: "task-matching-information.html", kind: "task", count: 54,
+    title: "Matching Information", need: ["academic", "gt"],
+    blurb: "Which paragraph contains the following information? Deliberately out of passage order, as the real test has it." },
+  { id: "task-summary-completion", file: "task-summary-completion.html", kind: "task", count: 54,
+    title: "Summary Completion", need: ["academic", "gt"],
+    blurb: "Type the missing words. Tells you whether you lost the mark to the word limit, to spelling, or to the wrong word." },
+  { id: "task-matching-headings", file: "task-matching-headings.html", kind: "task", count: 49,
+    title: "Matching Headings", need: ["academic", "gt"],
+    blurb: "Choose the heading that covers the whole paragraph. The unused headings are built as traps, and each answer names the one that was aimed at you." },
+  { id: "task-multiple-choice", file: "task-multiple-choice.html", kind: "task", count: 45,
+    title: "Multiple Choice", need: ["academic", "gt"],
+    blurb: "Choose A, B, C or D — with a one-line reason why each of the other three is wrong." },
 ];
+
+/** The task-type trainers, in the order they are listed under the Reading tests. */
+export const TASKS: LabItem[] = LABS.filter((l) => l.kind === "task");
 
 export const labItem = (id: string) => LABS.find((l) => l.id === id) ?? null;

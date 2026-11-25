@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[34107,["/_next/static/chunks/2vixieqf870-x.js","/_next/static/chunks/35bbhmw5af-98.js","/_next/static/chunks/2g4gv_etzhnr-.js"],"default"]
+3:"$Sreact.suspense"
+4:I[52927,["/_next/static/chunks/2vixieqf870-x.js","/_next/static/chunks/35bbhmw5af-98.js","/_next/static/chunks/2g4gv_etzhnr-.js"],"default"]
+5:I[97367,["/_next/static/chunks/2vixieqf870-x.js","/_next/static/chunks/35bbhmw5af-98.js"],"OutletBoundary"]
+0:{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{"ctaHref":"https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I%20have%20just%20paid%20online.%20Please%20confirm%20my%20admission."}],["$","section",null,{"children":["$","div",null,{"className":"wrap","style":{"maxWidth":680},"children":[["$","div",null,{"className":"section-eyebrow","children":"Payment received"}],["$","$3",null,{"fallback":["$","h1",null,{"style":{"fontFamily":"Fraunces, serif","fontSize":"2.2rem","color":"var(--navy)","margin":"0 0 16px"},"children":"Thank you — welcome to Pioneer Education."}],"children":["$","$L4",null,{"waHref":"https://wa.me/917380261308?text=Hi%20Pioneer%20Education%2C%20I%20have%20just%20paid%20online.%20Please%20confirm%20my%20admission."}]}]]}]}]],[["$","script","script-0",{"src":"/_next/static/chunks/2g4gv_etzhnr-.js","async":true}]],["$","$L5",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"sEjQGYcdWbqmupNWpuSc2"}
+6:null

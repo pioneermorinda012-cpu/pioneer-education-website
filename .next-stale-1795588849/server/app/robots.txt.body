@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /practice
+Disallow: /practice/
+
+Sitemap: https://www.pioneermorinda.com/sitemap.xml

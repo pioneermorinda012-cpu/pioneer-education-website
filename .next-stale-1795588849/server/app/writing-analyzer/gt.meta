@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/writing-analyzer/layout,_N_T_/writing-analyzer/gt/layout,_N_T_/writing-analyzer/gt/page,_N_T_/writing-analyzer/gt"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/writing-analyzer/gt/__PAGE__",
+    "/writing-analyzer/gt",
+    "/writing-analyzer",
+    "/_index",
+    "/_head"
+  ]
+}

@@ -31,7 +31,7 @@ export async function GET(
 
   const back =
     item.id === "listening" ? { href: "/practice?skill=AL", label: "← Listening tests" } :
-    item.id === "reading" ? { href: `/practice?skill=${allows(session, ["academic"]) ? "AR" : "GR"}`, label: "← Reading tests" } :
+    item.id === "reading" || item.kind === "task" ? { href: `/practice?skill=${allows(session, ["academic"]) ? "AR" : "GR"}`, label: "← Reading tests" } :
     item.id === "writing" ? { href: "/practice/writing?task=2", label: "← Writing" } :
     { href: "/practice/speaking", label: "← Speaking" };
 

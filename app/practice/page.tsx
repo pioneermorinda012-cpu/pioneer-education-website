@@ -6,7 +6,7 @@ import { requireStudent } from "@/lib/guard";
 import { allows, homeFor, SKILL_AREAS } from "@/lib/access";
 import { redirect } from "next/navigation";
 import PracticeNav from "@/components/practice/PracticeNav";
-import { labItem } from "@/lib/labs";
+import { labItem, TASKS } from "@/lib/labs";
 
 export const dynamic = "force-dynamic";
 
@@ -85,6 +85,35 @@ export default async function PracticeHome({
           </div>
         );
       })()}
+
+      {/* One question type at a time. A student who keeps losing marks on, say,
+          True / False / Not Given can drill that alone over nine passages
+          instead of sitting a whole paper to meet it four times. */}
+      {(active === "AR" || active === "GR") && (
+        <section className="pr-set">
+          <h2>Practise one question type</h2>
+          <div className="pr-rows">
+            {TASKS.map((t) => (
+              <div className="pr-row" key={t.id}>
+                <div>
+                  <div className="nm">{t.title}</div>
+                  <div className="fx">{t.blurb}</div>
+                  <div className="fx">
+                    <span>{t.count} questions</span>
+                    <span>9 passages</span>
+                    <span>marks itself</span>
+                  </div>
+                </div>
+                <div className="go">
+                  <Link className="btn btn-outline" href={`/practice/lab/${t.id}`} prefetch={false}>
+                    Open
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {mine.length === 0 && (
         <div className="pr-note">

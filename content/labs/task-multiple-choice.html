@@ -1,0 +1,756 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multiple Choice — Pioneer Education</title><style>
+:root{--orange:#e8590c;--black:#1b1b1b;--grey:#5c6672;--bg:#f2f4f7;--line:#dde3ea;
+ --navy:#1d3557;--good:#1f8a3b;--bad:#c92a2a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--black);line-height:1.65;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--black);color:#fff;padding:13px 20px;border-bottom:4px solid var(--orange);
+ position:sticky;top:0;z-index:50;display:flex;justify-content:space-between;
+ align-items:center;gap:14px;flex-wrap:wrap}
+header .n{font-weight:800;letter-spacing:.5px}
+header .n span{color:var(--orange)}
+header .s{font-size:.74rem;color:#c9c9c9}
+header .tot{font-size:.8rem;background:#2d2d2d;border-radius:999px;padding:6px 14px;font-weight:700}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 16px 90px}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px}
+h1{font-size:1.4rem;margin:0 0 8px}
+.lede{color:var(--grey);font-size:.95rem;margin:0 0 10px}
+.how{background:#fff8ec;border:1px solid #f0d5b8;border-radius:10px;padding:16px 18px;margin-top:14px}
+.how h3{margin:0 0 8px;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:#9a5b12}
+.how ol{margin:0;padding-left:20px}
+.how li{margin:5px 0;font-size:.93rem}
+.how b{color:#8a4b06}
+.picker{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pk{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 15px;
+ font:700 .84rem/1 inherit;cursor:pointer;color:var(--black)}
+.pk.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.pk .tick{color:var(--good);font-weight:800}
+.pk.on .tick{color:#9fe3b4}
+.pas{display:none}.pas.on{display:block}
+.ptitle{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.ptitle h2{margin:0;font-size:1.18rem}
+.ptitle .meta{font-size:.76rem;color:var(--grey)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start;margin-top:14px}
+.ppane{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;
+ position:sticky;top:78px;max-height:calc(100vh - 104px);overflow:auto}
+.para{display:grid;grid-template-columns:26px 1fr;gap:10px;margin-bottom:12px}
+.pl{font-weight:800;color:var(--orange);font-size:.95rem}
+.para p{margin:0;font-size:.93rem}
+mark.ev{background:none;color:inherit;transition:background .2s}
+mark.ev.on{background:#fff3cd;box-shadow:0 0 0 3px #fff3cd;border-radius:2px}
+mark.ev.flash{background:#ffe08a;box-shadow:0 0 0 3px #ffe08a}
+/* a NOT GIVEN trap is coloured differently from a proof, so the eye learns the difference */
+mark.ev.on.ngx{background:#e3ecf8;box-shadow:0 0 0 3px #e3ecf8;border-bottom:2px dashed #6b8fc2}
+mark.ev.flash.ngx{background:#c9dcf4;box-shadow:0 0 0 3px #c9dcf4}
+.key{font-size:.82rem;color:var(--grey);margin-top:9px;display:flex;gap:16px;flex-wrap:wrap}
+.key i{font-style:normal;padding:1px 7px;border-radius:3px}
+.key .p{background:#fff3cd}
+.key .t{background:#e3ecf8;border-bottom:2px dashed #6b8fc2}
+.hlist{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:14px}
+.hlist h4{margin:0 0 9px;font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--grey)}
+.hlist ul{margin:0;padding:0;list-style:none}
+.hlist li{display:grid;grid-template-columns:34px 1fr;gap:8px;font-size:.9rem;padding:2px 0}
+.hlist .r{font-weight:800;color:var(--orange);text-align:right}
+.hlist li.used{opacity:.45;text-decoration:line-through}
+.summ{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.summ h4{margin:0 0 9px;font-size:1rem;color:var(--navy)}
+.summ p{margin:0;font-size:.95rem;line-height:2.1}
+/* inline-flex keeps the number and its box on one line whatever the line-height does */
+.gapwrap{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;vertical-align:middle}
+.gapwrap b{font-size:.7rem;color:#fff;background:var(--navy);border-radius:4px;
+ padding:1px 5px;font-weight:800}
+input.gap{border:0;border-bottom:2px solid var(--navy);background:#fff;width:104px;
+ font:600 .9rem/1 inherit;padding:5px 7px;border-radius:4px 4px 0 0;color:var(--black)}
+input.gap:focus{outline:2px solid var(--orange);outline-offset:1px}
+input.gap.ok{border-bottom-color:var(--good);background:#e4f5e9;color:var(--good)}
+input.gap.bad{border-bottom-color:var(--bad);background:#fdecec;color:var(--bad)}
+.qpane{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+.instr{background:#eef3fa;border:1px solid #d3e0f0;border-radius:9px;padding:12px 14px;
+ font-size:.9rem;margin-bottom:14px}
+.instr b{display:block;margin-bottom:3px}
+.q{border-bottom:1px solid var(--line);padding:13px 0}
+.q:last-of-type{border-bottom:0}
+.q.hide{display:none}
+.stem{font-size:.95rem;margin-bottom:9px;display:flex;gap:9px}
+.stem .num{font-weight:800;color:var(--navy);min-width:20px}
+.opts{display:flex;gap:7px;flex-wrap:wrap;margin-left:29px}
+.opts.col{flex-direction:column;align-items:flex-start}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;
+ font:600 .88rem/1.35 inherit;cursor:pointer;text-align:left;color:var(--black)}
+.opt.wide{border-radius:9px;width:100%}
+.opt.sel{border-color:var(--navy);background:#eaf0f8}
+.q.done .opt{cursor:default}
+.q.done .opt.right{border-color:var(--good);background:#e4f5e9;color:var(--good)}
+.q.done .opt.chosen.wrong{border-color:var(--bad);background:#fdecec;color:var(--bad)}
+.fb{display:none;margin:9px 0 0 29px;font-size:.88rem}
+.q.done .fb{display:block}
+.fb .tag{font-weight:800}
+.fb .why{color:var(--grey);margin-top:4px}
+.fb .why i{color:var(--bad);font-style:normal;font-weight:700}
+.pin{background:none;border:0;color:var(--navy);font:700 .82rem/1 inherit;cursor:pointer;
+ padding:4px 0;margin-top:6px;text-decoration:underline}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px;
+ padding-top:14px;border-top:1px solid var(--line)}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:9px;padding:10px 18px;
+ font:700 .9rem/1 inherit;cursor:pointer}
+.btn.o{background:var(--orange)}
+.btn.g{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.btn:hover{filter:brightness(1.07)}
+.score{font-weight:800;font-size:.95rem}
+.score.s0{color:var(--bad)}.score.s1{color:#b8860b}.score.s2{color:var(--good)}
+.gloss{margin-top:14px;font-size:.88rem}
+.gloss summary{cursor:pointer;font-weight:700;color:var(--navy)}
+.gloss dl{margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px}
+.gloss dt{font-weight:700}.gloss dd{margin:0;color:var(--grey)}
+@media(max-width:860px){.cols{grid-template-columns:1fr}
+ .ppane{position:static;max-height:none}}
+@media print{header{position:static}.pk,.btn,.pin,.picker{display:none}
+ .pas{display:block!important;break-before:page}.ppane{position:static;max-height:none}
+ .cols{grid-template-columns:1fr}.fb{display:block!important}mark.ev{background:#fff3cd!important}}
+</style></head><body>
+<header><div><div class="n">PIONEER <span>EDUCATION</span></div>
+<div class="s">Task trainer · Multiple Choice · Morinda · 98559-91214</div></div>
+<div class="tot" id="tot">45 questions</div></header>
+<div class="wrap">
+ <div class="card">
+  <h1>Multiple Choice</h1>
+  <p class="lede">Nine Pioneer passages, 45 questions, one task type. Every wrong option comes with the reason it is wrong, which is where the marks actually are — and the sentence that proves the right answer lights up inside the passage.</p>
+  <div class="how"><h3>How to get these right</h3><ol><li><b>Cover the options and answer the question yourself first.</b> Then look for the option that matches your own answer. Reading A–D first makes all four sound possible.</li><li><b>The question tells you where to look.</b> “According to paragraph C…” means the answer is in C and nowhere else. Questions follow the order of the passage.</li><li><b>Three options are wrong for a reason.</b> Usually: true but answers a different question, true of a different paragraph, almost right but one word too strong, or simply not in the passage.</li><li><b>Watch for <i>NOT</i> and <i>EXCEPT</i>.</b> In those questions three options are in the passage and you are hunting the one that is missing.</li><li><b>Distrust options with <i>all</i>, <i>never</i>, <i>only</i>, <i>every</i>.</b> Writers rarely make absolute claims, so an absolute option is usually the trap.</li><li><b>Prove it with one sentence.</b> If you cannot point at the line that makes your option right, you have not found the answer yet.</li></ol></div>
+  <div class="picker"><button class="pk" data-k="machines">Man and Machines<span class="tick"></span></button><button class="pk" data-k="bread">Man Does Not Live by Bread Alone<span class="tick"></span></button><button class="pk" data-k="knowledge">The Pleasures of Gaining Knowledge<span class="tick"></span></button><button class="pk" data-k="reading">The Pleasures of Reading<span class="tick"></span></button><button class="pk" data-k="humanity">Service of Humanity<span class="tick"></span></button><button class="pk" data-k="sport">Sportsmanship<span class="tick"></span></button><button class="pk" data-k="tv">Television as a Means of Entertainment and Education<span class="tick"></span></button><button class="pk" data-k="global">The Impact of Globalization<span class="tick"></span></button><button class="pk" data-k="prices">The Problem of Rising Prices<span class="tick"></span></button></div>
+ </div>
+ 
+<section class="pas" data-k="machines">
+ <div class="card">
+  <div class="ptitle"><h2>Man and Machines</h2>
+   <span class="meta">444 words · paragraphs A–E ·
+    questions 1–5</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>We are living in an age that may be described as the age of the machine. <mark class="ev q1" data-q="1">Man&#x27;s curiosity has led to the invention of thousands of machines. </mark>We today find ourselves surrounded by machines. We begin to make use of machines as soon as we wake up in the morning. We continue to take advantage of them till we go to sleep at night. Right from a fountain pen to an aircraft-all are manufactured by machinery.</p></div><div class="para"><span class="pl">B</span><p>Machines have, to a large extent, eliminated human labor. Machines are being employed in the agricultural processes. <mark class="ev q2" data-q="2">The sowing of seeds, the harvesting of crops, and many other agricultural activities are carried out with machines. </mark>Industry in the country is also mechanized. Our clothes and shoes are manufactured by machines. The tinned food, milk, butter, and so many other articles are processed and packed by machines.</p></div><div class="para"><span class="pl">C</span><p>Our means of communication, transport, and printing are dependent on machinery. The telegraph, the telephone, the wireless, the fax, and the IT system operate with machines. Cables are laid at the bottom of the seas with machines. The motorcar, the railway engine, the airplane, and the ship are all machines. Newspapers, magazines, and books are printed by machines that work at an amazing speed. In our households, we have several machines which we use daily. We have the cooking range, the washing machine, the refrigerator, the air-conditioner, etc. We wake to the alarm of a clock, we bathe with water heated by a machine; we eat food cooked with the help of machinery. In brief, machines have entered every field of life.</p></div><div class="para"><span class="pl">D</span><p>Machines have made man&#x27;s life comfortable and delightful. They have opened up unknown regions of the earth. They have linked together remote areas. <mark class="ev q3" data-q="3">Distances mean nothing these days. </mark>Long distances can be covered in no time. Machines have enabled man to land on the moon. They have made it possible for a man to explore space. Weather satellites and communication satellites are doing wonderful jobs. Machines have made man the master of the earth and the forces of nature.</p></div><div class="para"><span class="pl">E</span><p><mark class="ev q4" data-q="4">Machines were made to serve man but they are rapidly becoming his masters. </mark>Man is becoming more and more dependent on machines. <mark class="ev q5" data-q="5">This supremacy of machines over man is a danger to mankind. </mark>Today man is entirely at the mercy of machines. They have dulled his sensibilities and blunted his mind and imagination. Man is fast losing his creative power. Not only this, machines threaten to destroy the world and mankind. Unfortunately, if the Nuclear War breaks out, mankind will be wiped out. Before the enormous powers of machines, man is a helpless creature. Since machines have come, they will stay.</p></div><details class="gloss"><summary>Important words from this passage (6)</summary><dl><dt>Curiosity</dt><dd>an eager wish to know or learn about something</dd><dt>Sow</dt><dd>to put seeds in or on the ground so that plants will grow</dd><dt>Bathe</dt><dd>to swim, especially in the sea, a river, or a lake</dd><dt>Supremacy</dt><dd>the leading or controlling position</dd><dt>Blunt</dt><dd>A blunt pencil, knife, etc. is not sharp and therefore not able to write, cut, etc, well.</dd><dt>Threaten</dt><dd>to tell someone that you will kill or hurt them or cause problems if they do not do what you want</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 1–5</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="A" data-n="1">
+ <div class="stem"><span class="num">1</span><span>According to paragraph A, what has led to the invention of so many machines?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Man&#x27;s curiosity</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;The need for more food</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Government policy</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;A fear of hard work</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Man&#x27;s curiosity has led to the invention of thousands of machines”
+   <button class="pin" data-k="machines" data-n="1">📍 Show it in the passage</button>
+   <div><i>B</i> — Food production is mentioned later, in paragraph B, and never as the cause.</div><div><i>C</i> — Government is not mentioned anywhere in the passage.</div><div><i>D</i> — Machines are said to have removed labour, but a fear of work is never given as the reason they were invented.</div></div></div>
+</div><div class="q" data-a="B" data-n="2">
+ <div class="stem"><span class="num">2</span><span>Which of these does the writer give as an example of machines in agriculture?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Packing butter</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Sowing seeds</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Laying cables</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Printing newspapers</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “The sowing of seeds, the harvesting of crops”
+   <button class="pin" data-k="machines" data-n="2">📍 Show it in the passage</button>
+   <div><i>A</i> — Butter is in the same paragraph, but it is listed under processing and packing, not farming.</div><div><i>C</i> — Cables at the bottom of the sea belong to communication, in paragraph C.</div><div><i>D</i> — Printing is also in paragraph C.</div></div></div>
+</div><div class="q" data-a="B" data-n="3">
+ <div class="stem"><span class="num">3</span><span>What does the writer say about distance in paragraph D?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;It still limits trade</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;It has become meaningless</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;It is increasing</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;It only affects air travel</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Distances mean nothing these days”
+   <button class="pin" data-k="machines" data-n="3">📍 Show it in the passage</button>
+   <div><i>A</i> — Trade is not discussed.</div><div><i>C</i> — The opposite: remote areas have been linked together.</div><div><i>D</i> — Aircraft are one example, but the claim is made about distance in general.</div></div></div>
+</div><div class="q" data-a="B" data-n="4">
+ <div class="stem"><span class="num">4</span><span>What is the writer&#x27;s main worry in the final paragraph?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Machines cost too much</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Machines are becoming man&#x27;s master</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Machines are poorly built</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Machines work too slowly</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “they are rapidly becoming his masters”
+   <button class="pin" data-k="machines" data-n="4">📍 Show it in the passage</button>
+   <div><i>A</i> — Cost is never mentioned.</div><div><i>C</i> — Quality is never mentioned.</div><div><i>D</i> — The passage says the opposite — machines work at an amazing speed.</div></div></div>
+</div><div class="q" data-a="C" data-n="5">
+ <div class="stem"><span class="num">5</span><span>Which statement best expresses the writer&#x27;s overall view of machines?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They are entirely good for mankind</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They are entirely harmful</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They are useful but have become dangerous</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They are no longer important</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “This supremacy of machines over man is a danger to mankind”
+   <button class="pin" data-k="machines" data-n="5">📍 Show it in the passage</button>
+   <div><i>A</i> — This ignores the whole final paragraph.</div><div><i>B</i> — This ignores paragraph D, which praises what machines have achieved.</div><div><i>D</i> — The passage argues the reverse — machines have entered every field of life.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="machines">Check answers</button>
+     <button class="btn g only" data-k="machines">Show mistakes only</button>
+     <button class="btn g reset" data-k="machines">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="bread">
+ <div class="card">
+  <div class="ptitle"><h2>Man Does Not Live by Bread Alone</h2>
+   <span class="meta">457 words · paragraphs A–E ·
+    questions 6–10</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>Food is one of the basic needs of man. Inability to get food can threaten the existence of all living beings. The scarcity of food creates havoc in the lives of men and animals. However, food is not the only concern of human beings. <mark class="ev q6" data-q="6">Man is superior to all living beings because God has given him intellect. </mark>This faculty fills him with certain cravings. These cravings need fulfilment. <mark class="ev q7" data-q="7">If they are not fulfilled, they produce in his frustration and mental tension. </mark>Sometimes it results in a nervous breakdown also.</p></div><div class="para"><span class="pl">B</span><p>Man is curious to know more and more about things around him. In his quest for knowledge, he has discovered many things. His knowledge has enabled him to conquer land, sea and space. He has solved not a few mysteries of nature. He feels the need to get recognition and admiration from others for his successful efforts. Apart from knowledge man yearns for wealth and fame. Satisfaction of physical needs alone is sufficient for him.</p></div><div class="para"><span class="pl">C</span><p>For the sake of daily existence, man also yearns for entertainment. Recreation keeps him physically and mentally fit and fine. <mark class="ev q8" data-q="8">Food satisfies the appetite but entertainment satisfies the senses. </mark>The entertainment media provide man with the escape from the rigours of life. They take him to the world of imagination. Celebration of fairs and festivals also transports him to the world of rest and relief. This adds a new charm to life. Food, however, necessary for human life, can&#x27;t give him any such enjoyments. Man is an inborn lover of beauty. He appreciates beauty in all its forms and colours. Nature has given that beauty to the world which fills the beholder with the sense of vigour and pleasure. Sense of beauty makes him run after different forms of beauty. Musical notes and dance parties delight the audience. Drawing, sketching and painting also release the stress and strain of routine life. In his quest for beauty, he has become a creative artist.</p></div><div class="para"><span class="pl">D</span><p>Besides food, man-years to be loved and appreciated. <mark class="ev q9" data-q="9">A relationship between man and man lasts long if it is based on mutual love and understanding. </mark>The love of God motivates people to be kind and selfless. In every relationship man expects the other to exchange love and understanding. The feeling of love is so great in man that the lack of it makes him a brute. In the absence of love, man is likely to create problems for society.</p></div><div class="para"><span class="pl">E</span><p>A man also aspires to fulfil his spiritual needs. Food satisfies man&#x27;s physical needs. Meditation, prayers and recitation of a scripture help man to fulfil his spiritual needs. Therefore, it can be said that man does not live by bread alone. <mark class="ev q10" data-q="10">He has many other needs, which he seeks to satisfy somehow.</mark></p></div><details class="gloss"><summary>Important words from this passage (5)</summary><dl><dt>Inability</dt><dd>lack of ability to do something</dd><dt>Threaten</dt><dd>to tell someone that you will kill or hurt them or cause problems if they do not do what you want</dd><dt>Existence</dt><dd>the fact of something or someone existing</dd><dt>Havoc</dt><dd>confusion and lack of order, especially causing damage or trouble</dd><dt>Superior</dt><dd>better than average or better than other people or things of the same type</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 6–10</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="6">
+ <div class="stem"><span class="num">6</span><span>Why, according to paragraph A, is man superior to other living beings?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;He can find food more easily</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;He has been given intellect</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;He lives longer</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;He can control animals</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “God has given him intellect”
+   <button class="pin" data-k="bread" data-n="6">📍 Show it in the passage</button>
+   <div><i>A</i> — Food is presented as a need shared by all living beings, not an advantage.</div><div><i>C</i> — Lifespan is not mentioned.</div><div><i>D</i> — Control of animals is not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="7">
+ <div class="stem"><span class="num">7</span><span>What does the writer say happens when a person&#x27;s cravings are not fulfilled?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;He works harder</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;He becomes frustrated and tense</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;He loses his appetite</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;He turns to other people</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “they produce in his frustration and mental tension”
+   <button class="pin" data-k="bread" data-n="7">📍 Show it in the passage</button>
+   <div><i>A</i> — Effort is not discussed here.</div><div><i>C</i> — Appetite appears in paragraph C, in a different context.</div><div><i>D</i> — The need for others is in paragraph D, and is not given as a result of unmet cravings.</div></div></div>
+</div><div class="q" data-a="A" data-n="8">
+ <div class="stem"><span class="num">8</span><span>According to paragraph C, what does entertainment do that food cannot?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;It satisfies the senses</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;It satisfies hunger</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;It costs nothing</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;It lasts forever</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Food satisfies the appetite but entertainment satisfies the senses”
+   <button class="pin" data-k="bread" data-n="8">📍 Show it in the passage</button>
+   <div><i>B</i> — That is exactly what food does, according to the same sentence.</div><div><i>C</i> — Cost is never mentioned.</div><div><i>D</i> — Duration is never mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="9">
+ <div class="stem"><span class="num">9</span><span>What does the writer say a relationship needs if it is to last?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Money</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Mutual love and understanding</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Shared interests</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Family approval</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “based on mutual love and understanding”
+   <button class="pin" data-k="bread" data-n="9">📍 Show it in the passage</button>
+   <div><i>A</i> — Wealth is mentioned in paragraph B, but about personal ambition, not relationships.</div><div><i>C</i> — Not mentioned.</div><div><i>D</i> — Not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="10">
+ <div class="stem"><span class="num">10</span><span>What is the writer&#x27;s conclusion?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Food is man&#x27;s only real need</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Man has many needs besides food</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Spiritual needs matter more than all others</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Man should eat less</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “He has many other needs, which he seeks to satisfy somehow”
+   <button class="pin" data-k="bread" data-n="10">📍 Show it in the passage</button>
+   <div><i>A</i> — The title and the whole argument say the opposite.</div><div><i>C</i> — Spiritual needs are one item in a list — the writer never ranks them highest.</div><div><i>D</i> — No advice about eating is given.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="bread">Check answers</button>
+     <button class="btn g only" data-k="bread">Show mistakes only</button>
+     <button class="btn g reset" data-k="bread">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="knowledge">
+ <div class="card">
+  <div class="ptitle"><h2>The Pleasures of Gaining Knowledge</h2>
+   <span class="meta">429 words · paragraphs A–E ·
+    questions 11–15</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>When man first appeared on the earth, he was a helpless creature. He was entirely at the mercy of nature. He wandered from place to place in search of food. He lived under the fear of wild animals. He had no means to protect himself. <mark class="ev q11" data-q="11">Soon he started using his brain. </mark>He began to make tools. Hunting developed into an organized occupation. He improved social interaction. Soon he discovered fire and learnt its proper use against dangerous animals. The invention of the wheel quickened the pace of human progress.</p></div><div class="para"><span class="pl">B</span><p>Gradually man started living in communities. He took up agriculture as a means of subsistence. <mark class="ev q12" data-q="12">He put up settlements on the river banks. </mark>He discovered organized agriculture. As a result, villages sprang up. Villages transformed into towns then states and finally countries. His success and security encouraged him to think of new ideas. He began to analyze, rationalise and store things in his memory. As a result, his mind became a storehouse of knowledge.</p></div><div class="para"><span class="pl">C</span><p>With his sharpened memory, a man began to harness the forces of nature for his benefit. Life became easy for him. He gained self-confidence. He wanted to probe the mysteries of nature. His spirit of adventure made him restless. The quest for knowledge drove him on. What was the only pastime with him in the past became an obsession in future. He tried to conquer natural forces one by one. <mark class="ev q13" data-q="13">Excellence in the field of science and technology has helped him to conquer several fatal diseases. </mark>This has resulted in longer life and low mortality. The discovery of new medicines has reduced the suffering of mankind. Improved methods of agriculture have increased crop yield.</p></div><div class="para"><span class="pl">D</span><p>In his quest for knowledge, man has made his life on the earth quite miserable. He has polluted his environment. Urbanization has harmed villages. Cultivable land is decreasing day by day. Polluted air, land, and water have created health problems for him. He has made destructive weapons. These weapons can destroy human civilization in no time. <mark class="ev q14" data-q="14">His intellect has certainly become a threat to his very existence.</mark></p></div><div class="para"><span class="pl">E</span><p>The power of knowledge has turned man&#x27;s head. He should know that true knowledge is the knowledge of the self. It is this knowledge that gives man moral and spiritual strength. <mark class="ev q15" data-q="15">It makes him noble and sympathetic Knowledge gained by senses is superficial. </mark>It creates in man pride and dissatisfaction. It does not make things happen according to as he wants. Despite man&#x27;s tall claims about knowledge, he is a helpless victim of nature. Knowledge gained by man has not made him wise and humble.</p></div><details class="gloss"><summary>Important words from this passage (8)</summary><dl><dt>Mercy</dt><dd>Kindness is shown by somebody/ something who has the power to make somebody suffer</dd><dt>Probe</dt><dd>to ask questions to find out secret or hidden information</dd><dt>Obsession</dt><dd>a person or thing that you think about too much</dd><dt>Conquer</dt><dd>to overcome by mental or moral diseases</dd><dt>Fatal diseases</dt><dd>deadly or capable of causing death</dd><dt>Intellect</dt><dd>the power of knowing as</dd><dt>Spiritual strength</dt><dd>power you need to live a life of purpose And fulfillment</dd><dt>Sympathetic</dt><dd>showing that you understand other people’s feelings, especially their problems</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 11–15</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="11">
+ <div class="stem"><span class="num">11</span><span>What was early man&#x27;s first step towards progress, according to paragraph A?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;He began to farm</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;He started using his brain</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;He built villages</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;He formed communities</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Soon he started using his brain”
+   <button class="pin" data-k="knowledge" data-n="11">📍 Show it in the passage</button>
+   <div><i>A</i> — Farming comes in paragraph B, much later.</div><div><i>C</i> — Villages are in paragraph B.</div><div><i>D</i> — Communities are in paragraph B.</div></div></div>
+</div><div class="q" data-a="C" data-n="12">
+ <div class="stem"><span class="num">12</span><span>Where did early man build his settlements?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;In forests</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;On hilltops</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;On river banks</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Beside the sea</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “He put up settlements on the river banks”
+   <button class="pin" data-k="knowledge" data-n="12">📍 Show it in the passage</button>
+   <div><i>A</i> — Forests are not mentioned.</div><div><i>B</i> — Hills are not mentioned.</div><div><i>D</i> — The sea appears only in paragraph B&#x27;s mention of conquering it — not as a settlement site.</div></div></div>
+</div><div class="q" data-a="A" data-n="13">
+ <div class="stem"><span class="num">13</span><span>According to paragraph C, what has excellence in science and technology helped man to do?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Conquer several fatal diseases</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;End all pollution</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Travel to other planets</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Put a stop to war</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “helped him to conquer several fatal diseases”
+   <button class="pin" data-k="knowledge" data-n="13">📍 Show it in the passage</button>
+   <div><i>B</i> — Pollution is listed in paragraph D as a problem he created, not solved.</div><div><i>C</i> — Space travel is not mentioned in this passage.</div><div><i>D</i> — Weapons are mentioned in paragraph D, as a danger.</div></div></div>
+</div><div class="q" data-a="A" data-n="14">
+ <div class="stem"><span class="num">14</span><span>What does the writer name as a threat to man&#x27;s existence?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;His own intellect</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Wild animals</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;The loss of farmland</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Disease</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “His intellect has certainly become a threat to his very existence”
+   <button class="pin" data-k="knowledge" data-n="14">📍 Show it in the passage</button>
+   <div><i>B</i> — Wild animals threatened early man, in paragraph A, not man today.</div><div><i>C</i> — Decreasing farmland is listed as one problem, but the threat named is his intellect.</div><div><i>D</i> — The passage says fatal diseases have been conquered.</div></div></div>
+</div><div class="q" data-a="B" data-n="15">
+ <div class="stem"><span class="num">15</span><span>What does the writer say about knowledge gained through the senses?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;It is the highest form of knowledge</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;It is superficial</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;It makes man humble</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;It cannot be stored</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Knowledge gained by senses is superficial”
+   <button class="pin" data-k="knowledge" data-n="15">📍 Show it in the passage</button>
+   <div><i>A</i> — The writer gives that place to knowledge of the self.</div><div><i>C</i> — The opposite — it creates pride and dissatisfaction.</div><div><i>D</i> — Storing knowledge is discussed in paragraph B, about memory.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="knowledge">Check answers</button>
+     <button class="btn g only" data-k="knowledge">Show mistakes only</button>
+     <button class="btn g reset" data-k="knowledge">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="reading">
+ <div class="card">
+  <div class="ptitle"><h2>The Pleasures of Reading</h2>
+   <span class="meta">360 words · paragraphs A–F ·
+    questions 16–20</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>Everybody seeks pleasure in daily life. Some try to find it in games and movies. Others look for it in trips and travels. Still, others search for it in gossips and group discussions. <mark class="ev q16" data-q="16">But the reading of books gives us such pleasure as is pure and lasting. </mark>Books are indeed a great blessing for mankind.</p></div><div class="para"><span class="pl">B</span><p>Books are the fountain-head of knowledge. They contain the thoughts and experiences of their writers. Reading books makes a man a thinking being. It adds to his knowledge and enriches his thoughts. He looks at things critically. <mark class="ev q17" data-q="17">He can know good from bad, right from wrong, and truth from falsehood. </mark>The experiences of the writers become his own experiences. He acts cautiously in similar circumstances.</p></div><div class="para"><span class="pl">C</span><p>Books are the source of entertainment. They delight man when he is sad. Reading books helps him to forget the sorrows of life. Loneliness is no trouble for a person who loves to read books. Books divide man&#x27;s sorrows and multiply his joys. They guide him in youth and amuse him in old age.</p></div><div class="para"><span class="pl">D</span><p>Books are man&#x27;s never-failing friends. When a man falls on evil days, his friends and relatives turn their back on him. <mark class="ev q18" data-q="18">But books stand by him through thick and thin. </mark>He can read them at any time and any place. Books give a man that treasure which fire can&#x27;t consume and thieves can&#x27;t steal.</p></div><div class="para"><span class="pl">E</span><p>The reading of good books builds man&#x27;s character. Books give him sound moral advice. Man learns discipline and moral principles by reading. He tries to live up to certain ideals. He can make any sacrifice to uphold human values. Bacon has rightly said that reading makes a full man. <mark class="ev q19" data-q="19">But it all depends on the choice of books. </mark>Bad books do positive harm to man. Therefore, only good books should be read.</p></div><div class="para"><span class="pl">F</span><p>Reading naturally leads us to the great task of selecting the right kind of books. The choice of books is not an easy affair. <mark class="ev q20" data-q="20">Biographies, histories, and travel books make intellectual reading. </mark>Novels, stories, and plays make amusing reading. Detective novels and cheap stories pollute our minds. We should read literary books - books which can be chewed and digested.</p></div><details class="gloss"><summary>Important words from this passage (3)</summary><dl><dt>Seek</dt><dd>to try to find or get something, especially something that is not a physical object</dd><dt>Cautious</dt><dd>someone who is cautious avoids risks</dd><dt>Amuse</dt><dd>to entertain someone, especially by humorous speech or action or by making them laugh or smile</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 16–20</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="16">
+ <div class="stem"><span class="num">16</span><span>How does the writer describe the pleasure that comes from reading?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Cheap and easy</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Pure and lasting</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Rare and difficult</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Short but intense</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “such pleasure as is pure and lasting”
+   <button class="pin" data-k="reading" data-n="16">📍 Show it in the passage</button>
+   <div><i>A</i> — Cost and effort are never mentioned.</div><div><i>C</i> — The writer says books are a blessing available to all.</div><div><i>D</i> — The word used is lasting, which is the opposite of short.</div></div></div>
+</div><div class="q" data-a="B" data-n="17">
+ <div class="stem"><span class="num">17</span><span>According to paragraph B, what does reading enable a person to do?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Earn more money</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Tell right from wrong</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Travel widely</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Speak well in public</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “He can know good from bad, right from wrong”
+   <button class="pin" data-k="reading" data-n="17">📍 Show it in the passage</button>
+   <div><i>A</i> — Money is not mentioned.</div><div><i>C</i> — Travel books appear in paragraph F, as a category of reading, not as actual travel.</div><div><i>D</i> — Speaking is not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="18">
+ <div class="stem"><span class="num">18</span><span>What does the writer say books do when a person suffers misfortune?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They are forgotten</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They stand by him</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They lose their value</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They are sold</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “books stand by him through thick and thin”
+   <button class="pin" data-k="reading" data-n="18">📍 Show it in the passage</button>
+   <div><i>A</i> — It is friends and relatives who turn their backs, not books.</div><div><i>C</i> — The opposite is argued.</div><div><i>D</i> — Selling books is not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="19">
+ <div class="stem"><span class="num">19</span><span>What does the writer say decides whether reading benefits a person?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;How fast he reads</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;The choice of books</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Where he reads</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;How many books he owns</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “But it all depends on the choice of books”
+   <button class="pin" data-k="reading" data-n="19">📍 Show it in the passage</button>
+   <div><i>A</i> — Speed is not mentioned.</div><div><i>C</i> — The writer says books can be read at any time and any place, so place does not matter.</div><div><i>D</i> — Quantity is not mentioned.</div></div></div>
+</div><div class="q" data-a="C" data-n="20">
+ <div class="stem"><span class="num">20</span><span>Which kind of reading does the writer call intellectual?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Novels and plays</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Detective stories</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Biographies, histories and travel books</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Newspapers and magazines</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Biographies, histories, and travel books make intellectual reading”
+   <button class="pin" data-k="reading" data-n="20">📍 Show it in the passage</button>
+   <div><i>A</i> — Those are called amusing reading in the same paragraph.</div><div><i>B</i> — Those are said to pollute the mind.</div><div><i>D</i> — Newspapers are not mentioned in this passage.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="reading">Check answers</button>
+     <button class="btn g only" data-k="reading">Show mistakes only</button>
+     <button class="btn g reset" data-k="reading">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="humanity">
+ <div class="card">
+  <div class="ptitle"><h2>Service of Humanity</h2>
+   <span class="meta">408 words · paragraphs A–E ·
+    questions 21–25</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>India has a long history of social service, social reform, and voluntary agencies working for the service of humanity. Throughout the world, India is known for the hospitality and services of humanity. <mark class="ev q21" data-q="21">It is not new, rather, the voluntary organizations committed to the service of humanity were established in India during the freedom struggle to fight against British oppression and for the emancipation of the downtrodden and the unprivileged. </mark>Some were established to fight the atrocities committed by the Indians on their less privileged counterparts.</p></div><div class="para"><span class="pl">B</span><p>In 1823, Raja Ram Mohan Roy established the Brahmo Saman to work for the evolution of a casteless society. <mark class="ev q22" data-q="22">Annie Besant founded the Theosophical Society in India which preached universal brotherhood. </mark>Swami Vivekananda trained workers for selfless national service. Many associates and followers of Mahatma Gandhi established voluntary agencies to work closely with the government programmers on social and economic issues.</p></div><div class="para"><span class="pl">C</span><p>All these organizations work for the service of humanity. <mark class="ev q24" data-q="24">It is a proven truth that such organizations cannot survive without the pat of government. </mark>But state-level, District level, and local-level private organizations are fully engaged to serve humanity in different manners. <mark class="ev q23" data-q="23">In Punjab, Pingalwara, an organization to serve the disabled, the poor, the destitute was founded by Bhagat Puran Singh in Amritsar many years ago. </mark>Till his last breath, he continued to serve his mission and after his death, it continues. Many handicapped people are being taken care of.</p></div><div class="para"><span class="pl">D</span><p>Mother Teresa was also a champion of the cause of the downtrodden. She established the &#x27;Missionaries of Charity. She also established organizations for mentally and physically challenged children. She spent her whole life with such children and dedicated her life to a noble cause. People for Animals is also active in taking care of animals. They set up animal shelters for stray dogs, cats, and cows. They undertake vaccination programs for dogs. They are performing a great service for the neglected animals by providing them food and treatment.</p></div><div class="para"><span class="pl">E</span><p>The work of such people, who are engaged in the service of humanity, is highly admirable. The government should also encourage such people by funding them so that such missions continue to remain active. The affluent should also come out to help such people and organizations. people who have dedicated their lives to serve humanity are inspired to do their best despite all the odds that face them. <mark class="ev q25" data-q="25">They have risen above the greed for material assets and have found happiness in giving and sharing.</mark></p></div><details class="gloss"><summary>Important words from this passage (11)</summary><dl><dt>Downtrodden</dt><dd>treated badly and unfairly</dd><dt>Emancipation</dt><dd>the process of giving people social or political freedom and rights</dd><dt>Privilege</dt><dd>an advantage that only a person or group of people has, usually because of their position or because they are rich</dd><dt>Evolution</dt><dd>how living things change and develop over millions of years</dd><dt>Preach</dt><dd>(especially of a priest or minister in a church) to give a religious speech</dd><dt>Pat</dt><dd>to touch someone or something gently and usually repeatedly with the hand flat</dd><dt>Stray</dt><dd>to travel along a route that was not originally intended, or to move outside a limited area</dd><dt>Vaccination</dt><dd>the process or an act of giving someone a vaccine ( a substance put into a person&#x27;s body to prevent them from getting a disease)</dd><dt>Neglected</dt><dd>not receiving enough care or attention</dd><dt>Admirable</dt><dd>deserving respect or approval</dd><dt>Affluent</dt><dd>having a lot of money or owning a lot of things</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 21–25</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="21">
+ <div class="stem"><span class="num">21</span><span>Why were India&#x27;s early voluntary organizations set up?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;To make a profit</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;To fight British oppression and free the downtrodden</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;To promote tourism</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;To run schools</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “to fight against British oppression and for the emancipation of the downtrodden”
+   <button class="pin" data-k="humanity" data-n="21">📍 Show it in the passage</button>
+   <div><i>A</i> — These are described as voluntary bodies.</div><div><i>C</i> — Hospitality is mentioned, but not tourism.</div><div><i>D</i> — Education is not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="22">
+ <div class="stem"><span class="num">22</span><span>What did the Theosophical Society preach?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;A casteless society</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Universal brotherhood</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Selfless national service</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Economic reform</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Theosophical Society in India which preached universal brotherhood”
+   <button class="pin" data-k="humanity" data-n="22">📍 Show it in the passage</button>
+   <div><i>A</i> — That was the Brahmo Saman, founded by Raja Ram Mohan Roy.</div><div><i>C</i> — That was Swami Vivekananda&#x27;s work.</div><div><i>D</i> — Economic issues are linked to Gandhi&#x27;s followers, in the same paragraph.</div></div></div>
+</div><div class="q" data-a="C" data-n="23">
+ <div class="stem"><span class="num">23</span><span>Who founded Pingalwara?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Mother Teresa</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Swami Vivekananda</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Bhagat Puran Singh</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Raja Ram Mohan Roy</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “founded by Bhagat Puran Singh in Amritsar”
+   <button class="pin" data-k="humanity" data-n="23">📍 Show it in the passage</button>
+   <div><i>A</i> — She founded the Missionaries of Charity.</div><div><i>B</i> — He trained workers for national service.</div><div><i>D</i> — He founded the Brahmo Saman in 1823.</div></div></div>
+</div><div class="q" data-a="B" data-n="24">
+ <div class="stem"><span class="num">24</span><span>What does the writer say about organizations that serve humanity?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They fund themselves entirely</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They cannot survive without government support</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They are all based in Punjab</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They are run by the government</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “cannot survive without the pat of government”
+   <button class="pin" data-k="humanity" data-n="24">📍 Show it in the passage</button>
+   <div><i>A</i> — The passage says the opposite.</div><div><i>C</i> — Pingalwara is in Punjab, but state, district and local bodies are mentioned across India.</div><div><i>D</i> — They work closely with government programmes — that is not the same as being run by it.</div></div></div>
+</div><div class="q" data-a="C" data-n="25">
+ <div class="stem"><span class="num">25</span><span>What does the writer say about people who dedicate their lives to service?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They come to regret it</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They are seeking fame</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They find happiness in giving and sharing</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They become wealthy</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “found happiness in giving and sharing”
+   <button class="pin" data-k="humanity" data-n="25">📍 Show it in the passage</button>
+   <div><i>A</i> — The writer calls their work highly admirable.</div><div><i>B</i> — They are described as having risen above greed.</div><div><i>D</i> — They are said to have risen above the greed for material assets.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="humanity">Check answers</button>
+     <button class="btn g only" data-k="humanity">Show mistakes only</button>
+     <button class="btn g reset" data-k="humanity">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="sport">
+ <div class="card">
+  <div class="ptitle"><h2>Sportsmanship</h2>
+   <span class="meta">449 words · paragraphs A–E ·
+    questions 26–30</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p><mark class="ev q26" data-q="26">Sportsmanship does not only mean playing games according to the rules of the game but it also means playing the game of life in accordance with the spirit learnt on the playing field. </mark>A true sportsman observes all these rules in life. A man who gives evidence of having a sporting spirit in the wider sphere of life but has not attained excellence in games is still a sportsman. Usually, those who play games develop into true sportsmen because their character is moulded by the training they are given on the field.</p></div><div class="para"><span class="pl">B</span><p>Sportsmanship means fair play. <mark class="ev q27" data-q="27">In a game, if a player plays foul, his side is penalised. </mark>Similarly, in the bigger game of life, one must be fair in one&#x27;s dealings with others. Frankness, openness of heart, honesty and fairness are the qualities that a sportsman must have. One should not indulge in fraud or cheating if one wants to establish himself as a sportsman. He never hits anyone below the belt or exploits others.</p></div><div class="para"><span class="pl">C</span><p>Sportsmanship also stands for obedience to the leader. In a game, the players have to obey their captain. <mark class="ev q28" data-q="28">A team without order and obedience can never see the face of victory. </mark>They must have full confidence in the captain. In life also, a true sportsman yields to his superiors as he has respect for discipline in his heart and he knows that this is an essential feature of sportsmanship.</p></div><div class="para"><span class="pl">D</span><p>Team spirit is also an important component of sportsmanship. In a game, the various players co-operate with each other. Without co-operation success in a game for the team is impossible. In co-operation lies one&#x27;s strength. Sportsmanship demands unity, cheerfulness even in the face of defeat. A loser in a game must accept his defeat without any grudge against the winner. This is the reason, a sportsman is generous to his enemies. <mark class="ev q29" data-q="29">He easily forgives those who have wronged him or been unjust to him and is never depressed by his setbacks. </mark>Failure never disheartens a sportsman, rather, it inspires him to greater efforts.</p></div><div class="para"><span class="pl">E</span><p>Recognition of the need for teamwork, fair play and respect for discipline are the dominant features of a sportsman. Sportsmanship is always worthy of admiration as it promotes human happiness. Life would be very attractive if all of us develop the spirit of sportsmanship. The pages of history reveal that the value of sportsmanship has always been appreciated and recognised. <mark class="ev q30" data-q="30">Sometimes it is found with regret that our sportsmen lack in the spirit of sportsmanship as they become victims to politics. </mark>But a true sportsman is he who plays the game with full dedication, without bothering of winning and losing. Victories and failures are to be taken in the same stride.</p></div><details class="gloss"><summary>Important words from this passage (9)</summary><dl><dt>Evidence</dt><dd>one or more reasons for believing that something is or not true</dd><dt>Attain</dt><dd>to reach or succeed in getting something SPORTSMANSHIP</dd><dt>Mould</dt><dd>a soft, green or grey growth that develops on old food or an object that has been left for too long in warm, wet air</dd><dt>Penalise</dt><dd>to cause someone a disadvantage</dd><dt>Indulge</dt><dd>to allow yourself or another person to have something enjoyable, especially more than is good for you</dd><dt>Exploit</dt><dd>to use something in a way that helps you</dd><dt>Grudge</dt><dd>a strong feeling of anger and dislike for a person who you feel has treated you badly, especially one that lasts for a long time</dd><dt>Dominant</dt><dd>more important or strong</dd><dt>Stride</dt><dd>an important positive development</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 26–30</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="26">
+ <div class="stem"><span class="num">26</span><span>What does sportsmanship mean, according to paragraph A?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Winning every game you play</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Playing the game of life in the spirit learnt on the field</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Training harder than your opponent</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Obeying the referee during a match</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “playing the game of life in accordance with the spirit learnt on the playing field”
+   <button class="pin" data-k="sport" data-n="26">📍 Show it in the passage</button>
+   <div><i>A</i> — The final paragraph says a true sportsman plays without bothering about winning and losing.</div><div><i>C</i> — Training is mentioned as what moulds character, not as the meaning of the word.</div><div><i>D</i> — Following the rules is only half of the definition given.</div></div></div>
+</div><div class="q" data-a="B" data-n="27">
+ <div class="stem"><span class="num">27</span><span>What happens to a player who plays foul?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;He is praised for effort</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;His side is penalised</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;He is made captain</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Nothing happens</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “if a player plays foul, his side is penalised”
+   <button class="pin" data-k="sport" data-n="27">📍 Show it in the passage</button>
+   <div><i>A</i> — Nothing of the sort is said.</div><div><i>C</i> — Captaincy is discussed in paragraph C, about obedience.</div><div><i>D</i> — The passage states a clear consequence.</div></div></div>
+</div><div class="q" data-a="B" data-n="28">
+ <div class="stem"><span class="num">28</span><span>Why must a team obey its captain?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;To avoid being punished</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Because without order and obedience it cannot win</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Because the captain is the best player</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Because the rules of the game demand it</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “A team without order and obedience can never see the face of victory”
+   <button class="pin" data-k="sport" data-n="28">📍 Show it in the passage</button>
+   <div><i>A</i> — Punishment relates to playing foul, in paragraph B.</div><div><i>C</i> — Ability is never given as the reason.</div><div><i>D</i> — The reason given is winning, not the rulebook.</div></div></div>
+</div><div class="q" data-a="C" data-n="29">
+ <div class="stem"><span class="num">29</span><span>How does a true sportsman treat those who have wronged him?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;He avoids them</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;He takes revenge</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;He forgives them easily</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;He reports them</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “He easily forgives those who have wronged him”
+   <button class="pin" data-k="sport" data-n="29">📍 Show it in the passage</button>
+   <div><i>A</i> — He is described as generous to his enemies.</div><div><i>B</i> — The opposite of what the passage says.</div><div><i>D</i> — Not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="30">
+ <div class="stem"><span class="num">30</span><span>What does the writer regret about sportsmen today?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They train too little</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They become victims to politics</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They play too many games</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They earn too much money</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “they become victims to politics”
+   <button class="pin" data-k="sport" data-n="30">📍 Show it in the passage</button>
+   <div><i>A</i> — Training is mentioned positively, in paragraph A.</div><div><i>C</i> — Not mentioned.</div><div><i>D</i> — Money is never mentioned in this passage.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="sport">Check answers</button>
+     <button class="btn g only" data-k="sport">Show mistakes only</button>
+     <button class="btn g reset" data-k="sport">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="tv">
+ <div class="card">
+  <div class="ptitle"><h2>Television as a Means of Entertainment and Education</h2>
+   <span class="meta">413 words · paragraphs A–F ·
+    questions 31–35</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>Television, a miracle of science, was invented by J.L. Baird. <mark class="ev q31" data-q="31">It was introduced in India in Delhi on September 15, 1959. </mark>With its help, one can see a live telecast of various events on the screen while sitting in the comfort of one&#x27;s own house. Television has come a long way since the &#x27;Doordarshan&#x27; days. It first became popular in homes during the 1982 Delhi Asian Games. Today, several stations have been set up all over the country. Millions of people in cities and rural areas watch television every day.</p></div><div class="para"><span class="pl">B</span><p>Television is an important medium of instruction, education and entertainment. It is a boon for the students, particularly for the students of developing countries. <mark class="ev q32" data-q="32">Educational programmes can reach out to the students living in the farthest and remotest parts of the country. </mark>Informative programmes like UGC&#x27;s special instructions on all the subjects meant for students pursuing distance education benefit every student. Programmes featuring debate and discussion enhance one&#x27;s knowledge and reasoning skills.</p></div><div class="para"><span class="pl">C</span><p>It also mobilises public opinion which is a must for every democracy. It helps to focus attention on social and political evils prevailing in society. It also popularises the government&#x27;s plans and policies. The students become aware of the various events going on in the country and around the world.</p></div><div class="para"><span class="pl">D</span><p>Television, at the same time, has become an addiction for children. <mark class="ev q33" data-q="33">Educational programmes no longer interest them and they prefer watching films, music and serials Constant viewing of programmes by students harm them both mentally and physically. </mark>Many programmes contain a lot of vulgar stuff and promote sex, violence, contract killings, murders, accepting bribes etc. These scenes influence the impressionable minds of the children immediately. Regular sitting before the television makes them lazy and their eyesight is also damaged. Surveys point out that some children who get involved in crimes get ideas from television serials or films.</p></div><div class="para"><span class="pl">E</span><p>However, the choice lies with the viewers. <mark class="ev q34" data-q="34">It is just like a knife which can be used for cutting fruits and vegetables and also for stabbing a person. </mark>Students should watch only those programmes which help them in gaining relevant knowledge. <mark class="ev q35" data-q="35">Parents must guide their children. </mark>They should also watch informative programmes with their children and encourage them to play games and participate in co-curricular activities.</p></div><div class="para"><span class="pl">F</span><p>A few years back, Television was considered a luxury. Now it has become a part of every household, be it rich or poor. It is the most powerful medium of mass communication and a source of global education.</p></div><details class="gloss"><summary>Important words from this passage (4)</summary><dl><dt>Remote</dt><dd>far away in the distance</dd><dt>Enhance</dt><dd>to improve the quality, amount or strength of something</dd><dt>Impressionable</dt><dd>easily influenced by other people, especially because you are young</dd><dt>Stab</dt><dd>to injure someone with a sharp-pointed object such as a knife</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 31–35</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="31">
+ <div class="stem"><span class="num">31</span><span>When was television introduced in India?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;In 1982</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;On 15 September 1959</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;In 1947</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;In the 1990s</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “introduced in India in Delhi on September 15, 1959”
+   <button class="pin" data-k="tv" data-n="31">📍 Show it in the passage</button>
+   <div><i>A</i> — 1982 is when it became popular in homes, during the Delhi Asian Games — not when it arrived.</div><div><i>C</i> — This date does not appear in the passage.</div><div><i>D</i> — This decade does not appear in the passage.</div></div></div>
+</div><div class="q" data-a="B" data-n="32">
+ <div class="stem"><span class="num">32</span><span>Why does the writer call television a boon for students in developing countries?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;It is cheap to buy</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Educational programmes reach the remotest parts of the country</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;It can replace teachers</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;It is entertaining</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Educational programmes can reach out to the students living in the farthest and remotest parts”
+   <button class="pin" data-k="tv" data-n="32">📍 Show it in the passage</button>
+   <div><i>A</i> — Cost is mentioned only in the last paragraph, about luxury.</div><div><i>C</i> — Replacing teachers is never suggested.</div><div><i>D</i> — Entertainment is listed separately from the benefit to students.</div></div></div>
+</div><div class="q" data-a="B" data-n="33">
+ <div class="stem"><span class="num">33</span><span>What effect does constant viewing have on children, according to paragraph D?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;It improves their reasoning</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;It harms them mentally and physically</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;It makes them read more</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;It has no measurable effect</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “harm them both mentally and physically”
+   <button class="pin" data-k="tv" data-n="33">📍 Show it in the passage</button>
+   <div><i>A</i> — Reasoning skills are improved by debate programmes, in paragraph B — not by constant viewing.</div><div><i>C</i> — Reading is not mentioned.</div><div><i>D</i> — Laziness and damaged eyesight are both named.</div></div></div>
+</div><div class="q" data-a="C" data-n="34">
+ <div class="stem"><span class="num">34</span><span>What does the writer compare television to?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;A window</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;A teacher</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;A knife</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;A friend</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “It is just like a knife”
+   <button class="pin" data-k="tv" data-n="34">📍 Show it in the passage</button>
+   <div><i>A</i> — Not used in this passage.</div><div><i>B</i> — Education is discussed, but no such comparison is made.</div><div><i>D</i> — Not used in this passage.</div></div></div>
+</div><div class="q" data-a="B" data-n="35">
+ <div class="stem"><span class="num">35</span><span>What does the writer advise parents to do?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Ban television at home</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Guide their children and watch programmes with them</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Buy more television sets</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Allow children to watch anything</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “Parents must guide their children”
+   <button class="pin" data-k="tv" data-n="35">📍 Show it in the passage</button>
+   <div><i>A</i> — The writer says the choice lies with the viewers, not that television should be banned.</div><div><i>C</i> — Never suggested.</div><div><i>D</i> — The opposite of the advice given.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="tv">Check answers</button>
+     <button class="btn g only" data-k="tv">Show mistakes only</button>
+     <button class="btn g reset" data-k="tv">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="global">
+ <div class="card">
+  <div class="ptitle"><h2>The Impact of Globalization</h2>
+   <span class="meta">465 words · paragraphs A–E ·
+    questions 36–40</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>The concept of globalization indicates the aspiring toward oneness by all countries. It implies the desire to be a part of one uniform world order. It means the desire to reduce all physical and mental distances to zero. <mark class="ev q36" data-q="36">It means the desire to advance ways and means of communication enough to make people live together as a global family Indeed over the last two decades the world has witnessed a great change. </mark>There has been a progressive transition from the traditional to the modern, from old to the new, and from national to global. These changes are manifested in almost all spheres-social, economic, political, cultural, and ethical. In short, as seen in the East, this change in society is largely due to the influence of the western world.</p></div><div class="para"><span class="pl">B</span><p>The world, today, has become unipolar and globalization is supposed to have brought numerous benefits to the developing nations. <mark class="ev q37" data-q="37">Globalization, it is believed, has reduced the yawning disparities among industrialized countries and third-world countries. </mark>This has been done by acceptance by the developing countries the models of economic management of the advanced countries.</p></div><div class="para"><span class="pl">C</span><p>But globalization has not improved the world economic situation. It has only increased the economic disparities between the nations. <mark class="ev q38" data-q="38">This is seen in the disparities in consumption in the globalized world, the rich people spend eighty percent on private consumption while the poor spend only four percent. </mark>The gap between the rich and the poor is growing at a great pace. The western countries, acting through the IMF and World Trade Organization have mismanaged the processes of privatization, liberalization, and stabilization. Globalization is not working for the stability of the world economy, it is not working for many of the world&#x27;s poor because liberalized economic policies and decentralization processes which are unleashed as a result of globalization are not backed up with adequate social security measures.</p></div><div class="para"><span class="pl">D</span><p>Besides, globalization has harmed many spheres. It has brought consumerism and materialism and the degradation of the environment. It has led to the rapid erosion of values and general cynicism about institutions. Another unfortunate development is the alienation of the younger generation as expressed in their rejection of tradition and loss of faith in social political and cultural traditions. <mark class="ev q39" data-q="39">It has also led to the spread of international terrorism.</mark></p></div><div class="para"><span class="pl">E</span><p><mark class="ev q40" data-q="40">If the present state of rising inequalities, social tensions, and psychological dysfunction is to be improved, a new world order must be discovered. </mark>Such a world can only be discovered by understanding man&#x27;s relation to his worlds, man&#x27;s relation to the ecosystem. We must create a society that has a reasonable standard of living with peace and harmony. To be free from consumerism and materialism, we should aim at a globalized economy in which weaker sections of society and their interests are sufficiently protected by adequate social security measures.</p></div><details class="gloss"><summary>Important words from this passage (6)</summary><dl><dt>Yawning</dt><dd>used to describe a difference or amount that is extremely large and difficult to reduce</dd><dt>Disparities</dt><dd>a lack of equality or similarity, especially in a way that is not fair</dd><dt>Decentralization</dt><dd>the act or process of decentralizing an organization or government (= moving control from a single place to several smaller ones):</dd><dt>Erosion</dt><dd>the fact of soil, stone, etc. being gradually damaged and removed by the waves, rain, or wind</dd><dt>Cynical</dt><dd>believing that people are only interested in themselves and are not sincere</dd><dt>Dysfunction</dt><dd>a problem or fault in a part of the body or a machine</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 36–40</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="36">
+ <div class="stem"><span class="num">36</span><span>According to paragraph A, what does globalization mean?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Economic growth alone</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;The desire to live together as one global family</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Western control of the East</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;The removal of trade barriers</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “make people live together as a global family”
+   <button class="pin" data-k="global" data-n="36">📍 Show it in the passage</button>
+   <div><i>A</i> — Economics is one of several spheres listed, not the definition.</div><div><i>C</i> — Western influence is mentioned as a cause of change, not as the meaning of the word.</div><div><i>D</i> — Trade barriers are not mentioned.</div></div></div>
+</div><div class="q" data-a="A" data-n="37">
+ <div class="stem"><span class="num">37</span><span>What is globalization believed to have done for developing nations?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Reduced the disparities with industrialized countries</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Increased their populations</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Cleared their debts</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Improved their schools</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “has reduced the yawning disparities among industrialized countries”
+   <button class="pin" data-k="global" data-n="37">📍 Show it in the passage</button>
+   <div><i>B</i> — Population is not mentioned in this passage.</div><div><i>C</i> — Debt is not mentioned.</div><div><i>D</i> — Education is not mentioned.</div></div></div>
+</div><div class="q" data-a="C" data-n="38">
+ <div class="stem"><span class="num">38</span><span>What share of spending does the writer give for poor people?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Eighty percent</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Forty percent</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Four percent</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Fourteen percent</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “the poor spend only four percent”
+   <button class="pin" data-k="global" data-n="38">📍 Show it in the passage</button>
+   <div><i>A</i> — That is the figure given for rich people.</div><div><i>B</i> — This figure does not appear.</div><div><i>D</i> — This figure does not appear — read the number carefully.</div></div></div>
+</div><div class="q" data-a="C" data-n="39">
+ <div class="stem"><span class="num">39</span><span>Which of these is NOT given as a harm caused by globalization?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Damage to the environment</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;International terrorism</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;A shortage of food</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Loss of faith in institutions</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “It has also led to the spread of international terrorism”
+   <button class="pin" data-k="global" data-n="39">📍 Show it in the passage</button>
+   <div><i>A</i> — Degradation of the environment is listed in paragraph D.</div><div><i>B</i> — The spread of international terrorism is listed in paragraph D.</div><div><i>D</i> — General cynicism about institutions is listed in paragraph D.</div></div></div>
+</div><div class="q" data-a="B" data-n="40">
+ <div class="stem"><span class="num">40</span><span>What does the writer say is needed?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;More liberalization</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;A new world order</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;A return to tradition</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Stronger western institutions</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “a new world order must be discovered”
+   <button class="pin" data-k="global" data-n="40">📍 Show it in the passage</button>
+   <div><i>A</i> — Liberalized policies are blamed for part of the problem.</div><div><i>C</i> — Rejection of tradition is described as unfortunate, but no return to it is proposed.</div><div><i>D</i> — The IMF and WTO are criticised for mismanagement.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="global">Check answers</button>
+     <button class="btn g only" data-k="global">Show mistakes only</button>
+     <button class="btn g reset" data-k="global">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+<section class="pas" data-k="prices">
+ <div class="card">
+  <div class="ptitle"><h2>The Problem of Rising Prices</h2>
+   <span class="meta">480 words · paragraphs A–G ·
+    questions 41–45</span></div>
+  <div class="cols">
+   <div class="ppane"><div class="para"><span class="pl">A</span><p>Rising prices are one of the formidable problems that India is facing today. It has made life unbearable. It has broken the back of common people. Despite working hard they find it hard to make both their ends meet. There is widespread discontent among them. There are protest rallies and angry demonstrations but there is no relief. The number of people below the poverty line is increasing day by day. The distressed people often say that the British rule was better than the present rule.</p></div><div class="para"><span class="pl">B</span><p><mark class="ev q41" data-q="41">The worst hit in this matter is the middle class. </mark>The condition of the middle-class people has worsened. Most of the people of this class are salaried men. They get a fixed pay. But prices have risen higher and higher. Taxes have increased many times. It has become difficult for middle-class people to live up to some standard. The prices of grains, pulses, and clothes have shot up. The middle class is on the verge of starvation.</p></div><div class="para"><span class="pl">C</span><p>One of the major factors for the rise in prices is the faulty policies of the Government of India. There are inflationary trends in the Indian economy. There is deficit financing in the provisions of the budget each year. <mark class="ev q42" data-q="42">There is no check on the government expenditure. </mark>The purchasing power of money has come down. Consumerism is on the increase.</p></div><div class="para"><span class="pl">D</span><p>Price-line is linked with the demand and supply principle. <mark class="ev q43" data-q="43">With the uncontrolled growth of the population demand is increasing. </mark>But supply can&#x27;t keep pace with it. With the explosion of the population at our door, any talk of controlling the demand for essentials of life is like putting the cart before the horse Policymakers and planners know fully well the harm that an uncontrolled population can cause to the system All efforts to check the growth of population have proved futile.</p></div><div class="para"><span class="pl">E</span><p>Black money is also responsible for an unchecked rise in prices. Black money which has been generated over the years has increased the rich-poor gap. There is a ‘parallel economy’ working in the country. It has distorted all talk of &#x27;socio-economic equality’ and rule of law. With bags full of &#x27;black money and &#x27;five-star culture, all talk of controlling price-rise sounds ridiculous.</p></div><div class="para"><span class="pl">F</span><p>Artificial scarcities created by &#x27;bandhs, strikes, curfews&#x27; also hike prices. Agitations and protests in the area of supply disturb the supply line. Black marketeers and hoarders take undue advantage of this situation. They hoard goods and sell them at higher than normal rates. <mark class="ev q44" data-q="44">Experience shows that once the prices go up, they refuse to come down even if the situation has improved.</mark></p></div><div class="para"><span class="pl">G</span><p>The government should pay serious attention to check rising prices. It should remodel its economic policies and make them result-oriented. <mark class="ev q45" data-q="45">The growth of population and generation of black money should be curbed. </mark>Articles of daily use should be made available at fair-price shops Those who create artificial scarcities should be firmly dealt with.</p></div><details class="gloss"><summary>Important words from this passage (5)</summary><dl><dt>Protest</dt><dd>a strong complaint expressing disagreement, disapproval, or opposition</dd><dt>Explosion</dt><dd>the fact of something such as a bomb exploding</dd><dt>Futile</dt><dd>(of actions) having no effect or achieving nothing</dd><dt>Agitation</dt><dd>to make someone feel worried or angry</dd><dt>Deal</dt><dd>an agreement or an arrangement, especially in business</dd></dl></details></div>
+   <div class="qpane">
+    <div class="instr"><b>Questions 41–45</b>Choose the correct letter, <b style='display:inline'>A</b>, <b style='display:inline'>B</b>, <b style='display:inline'>C</b> or <b style='display:inline'>D</b>.</div>
+    <div class="q" data-a="B" data-n="41">
+ <div class="stem"><span class="num">41</span><span>Which group does the writer say suffers most from rising prices?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Farmers</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;The middle class</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Government employees only</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Traders</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “The worst hit in this matter is the middle class”
+   <button class="pin" data-k="prices" data-n="41">📍 Show it in the passage</button>
+   <div><i>A</i> — Farmers are not discussed as a group.</div><div><i>C</i> — Salaried men are mentioned, but as part of the middle class, not as government staff.</div><div><i>D</i> — Traders appear in paragraph F, as people who gain.</div></div></div>
+</div><div class="q" data-a="B" data-n="42">
+ <div class="stem"><span class="num">42</span><span>What does the writer identify as a major failing of government?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Wages that are too high</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;No check on government expenditure</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Taxing the rich too heavily</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Poorly maintained roads</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “There is no check on the government expenditure”
+   <button class="pin" data-k="prices" data-n="42">📍 Show it in the passage</button>
+   <div><i>A</i> — Salaries are described as fixed, which is presented as the problem for workers.</div><div><i>C</i> — Taxes are said to have increased, but the complaint is about the burden, not about the rich.</div><div><i>D</i> — Roads are not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="43">
+ <div class="stem"><span class="num">43</span><span>Why can supply not keep up with demand?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Because of poor weather</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Because of uncontrolled population growth</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Because too much is exported</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Because factories have closed</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “With the uncontrolled growth of the population demand is increasing”
+   <button class="pin" data-k="prices" data-n="43">📍 Show it in the passage</button>
+   <div><i>A</i> — Weather is not mentioned.</div><div><i>C</i> — Exports are not mentioned.</div><div><i>D</i> — Factory closures are not mentioned.</div></div></div>
+</div><div class="q" data-a="B" data-n="44">
+ <div class="stem"><span class="num">44</span><span>What does the writer say about prices once they have risen?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;They fall again quickly</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;They refuse to come down</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;They stay high for one season</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;They rise again every year</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “once the prices go up, they refuse to come down”
+   <button class="pin" data-k="prices" data-n="44">📍 Show it in the passage</button>
+   <div><i>A</i> — The opposite is stated.</div><div><i>C</i> — No time limit is given — the point is that the rise is permanent.</div><div><i>D</i> — A yearly pattern is not described.</div></div></div>
+</div><div class="q" data-a="C" data-n="45">
+ <div class="stem"><span class="num">45</span><span>Which measure does the writer NOT recommend?</span></div>
+ <div class="opts col"><button class="opt wide" data-v="A"><b>A</b> &nbsp;Curbing black money</button><button class="opt wide" data-v="B"><b>B</b> &nbsp;Setting up fair-price shops</button><button class="opt wide" data-v="C"><b>C</b> &nbsp;Raising taxes</button><button class="opt wide" data-v="D"><b>D</b> &nbsp;Dealing firmly with those who create artificial scarcities</button></div>
+ <div class="fb"><span class="tag"></span>
+  <div class="why">Proof: “The growth of population and generation of black money should be curbed”
+   <button class="pin" data-k="prices" data-n="45">📍 Show it in the passage</button>
+   <div><i>A</i> — This is recommended in the final paragraph.</div><div><i>B</i> — This is recommended in the final paragraph.</div><div><i>D</i> — This is recommended in the final paragraph.</div></div></div>
+</div>
+    <div class="bar">
+     <button class="btn check" data-k="prices">Check answers</button>
+     <button class="btn g only" data-k="prices">Show mistakes only</button>
+     <button class="btn g reset" data-k="prices">Clear</button>
+     <span class="score"></span></div>
+   </div></div></div></section>
+</div>
+<script>
+const KEY="mcq", N=45;
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+/* passage picker */
+function show(k){
+  $$('.pk').forEach(b=>b.classList.toggle('on', b.dataset.k===k));
+  $$('.pas').forEach(p=>p.classList.toggle('on', p.dataset.k===k));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+$$('.pk').forEach(b=>b.onclick=()=>show(b.dataset.k));
+
+/* choosing an answer */
+document.addEventListener('click',e=>{
+  const o=e.target.closest('.opt'); if(!o) return;
+  const q=o.closest('.q'); if(q.classList.contains('done')) return;
+  $$('.opt',q).forEach(x=>x.classList.remove('sel'));
+  o.classList.add('sel');
+  save(q.closest('.pas').dataset.k);
+});
+
+/* marking typed answers: case, punctuation and extra spaces are forgiven; spelling is not */
+const LIMIT=2;
+function norm(s){ return (s||'').toLowerCase().replace(/[^a-z0-9 ]/g,' ')
+                                .replace(/\s+/g,' ').trim(); }
+function lev(a,b){            // edit distance, to tell a misspelling from a wrong word
+  const m=a.length,n=b.length; if(Math.abs(m-n)>2) return 9;
+  let prev=[...Array(n+1).keys()];
+  for(let i=1;i<=m;i++){ const cur=[i];
+    for(let j=1;j<=n;j++) cur[j]=Math.min(prev[j]+1, cur[j-1]+1,
+                                          prev[j-1]+(a[i-1]===b[j-1]?0:1));
+    prev=cur; }
+  return prev[n];
+}
+
+/* light up the sentence behind a question; a NOT GIVEN trap gets its own colour */
+function lite(pas,q,flash){
+  const ng = q.dataset.a==='NOT GIVEN';
+  const ms = $$('mark.q'+q.dataset.n, pas);
+  ms.forEach(m=>{ m.classList.add('on'); if(ng) m.classList.add('ngx');
+                  if(flash) m.classList.add('flash'); });
+  return ms;
+}
+
+/* marking one passage */
+function mark(k){
+  const pas=$(`.pas[data-k="${k}"]`), qs=$$('.q',pas);
+  let got=0, done=0;
+  qs.forEach(q=>{
+    const sel=$('.opt.sel',q), right=q.dataset.a;
+    q.classList.add('done');
+    const tag=$('.tag',q);
+    let ok;
+    if(q.dataset.type==='text'){
+      // typed answers: spelling and the word limit are part of the test
+      const acc=JSON.parse(q.dataset.ac), inp=$(`input.gap[data-n="${q.dataset.n}"]`,pas);
+      const given=norm(inp.value), words=given?given.split(' ').length:0;
+      ok = acc.some(a=>norm(a)===given) && given!=='';
+      if(given) done++;
+      inp.classList.add(ok?'ok':'bad'); inp.readOnly=true;
+      const near = !ok && given && acc.some(a=>lev(norm(a),given)<=2);
+      tag.innerHTML = ok ? '<span style="color:#1f8a3b">Correct</span>'
+        : (!given   ? '<span style="color:#c92a2a">No answer</span>'
+        : words>LIMIT? `<span style="color:#c92a2a">Too many words</span> &middot; the limit is `+
+                       `<b>${LIMIT===2?'TWO':LIMIT}</b>, you wrote ${words}`
+        : near      ? '<span style="color:#c92a2a">Right word, wrong spelling</span>'
+                    : '<span style="color:#c92a2a">Not right</span>')
+        + ` &middot; the answer is <b>${acc[0]}</b>`;
+    } else {
+      $$('.opt',q).forEach(o=>{
+        if(o.dataset.v===right) o.classList.add('right');
+        if(o===sel){ o.classList.add('chosen'); if(o.dataset.v!==right) o.classList.add('wrong'); }
+      });
+      if(sel) done++;
+      ok = !!sel && sel.dataset.v===right;
+      tag.innerHTML = ok ? '<span style="color:#1f8a3b">Correct</span>'
+            : (sel ? '<span style="color:#c92a2a">Not right</span>'
+                   : '<span style="color:#c92a2a">No answer</span>')
+              + ` &middot; the answer is <b>${right}</b>`;
+    }
+    if(ok) got++;
+    q.dataset.ok = ok ? '1' : '0';
+    // show the proof for anything not answered correctly
+    if(!ok) lite(pas,q,false);
+  });
+  const sc=$('.score',pas);
+  sc.textContent=`${got} out of ${qs.length} correct`;
+  sc.className='score '+(got===qs.length?'s2':got>=qs.length*0.6?'s1':'s0');
+  $(`.pk[data-k="${k}"] .tick`).textContent=' ✓';
+  save(k);
+  total();
+}
+
+function total(){
+  let g=0,t=0;
+  $$('.pas').forEach(p=>{ $$('.q.done',p).forEach(q=>{t++; if(q.dataset.ok==='1')g++;}); });
+  $('#tot').textContent = t ? `${g}/${t} correct so far` : `${N} questions`;
+}
+
+function reset(k){
+  const pas=$(`.pas[data-k="${k}"]`);
+  $$('.q',pas).forEach(q=>{
+    q.classList.remove('done','hide'); delete q.dataset.ok;
+    $$('.opt',q).forEach(o=>o.classList.remove('sel','right','wrong','chosen'));
+  });
+  $$('input.gap',pas).forEach(i=>{ i.value=''; i.readOnly=false; i.classList.remove('ok','bad'); });
+  $$('mark.ev',pas).forEach(m=>m.classList.remove('on','flash','ngx'));
+  $('.score',pas).textContent=''; $(`.pk[data-k="${k}"] .tick`).textContent='';
+  $('.only',pas).textContent='Show mistakes only';
+  try{ localStorage.removeItem(SKEY+':'+k); }catch(e){}
+  total();
+}
+
+function only(k,btn){
+  const pas=$(`.pas[data-k="${k}"]`);
+  const on=btn.textContent.indexOf('Show')===0;
+  $$('.q',pas).forEach(q=>q.classList.toggle('hide', on && q.dataset.ok==='1'));
+  btn.textContent = on ? 'Show all questions' : 'Show mistakes only';
+}
+
+/* point at the sentence that proves an answer */
+function pin(k,n){
+  const pas=$(`.pas[data-k="${k}"]`), q=$(`.q[data-n="${n}"]`,pas);
+  const ms=lite(pas,q,true);
+  if(!ms.length) return;
+  ms[0].scrollIntoView({behavior:'smooth',block:'center'});
+  setTimeout(()=>ms.forEach(m=>m.classList.remove('flash')),1500);
+}
+
+/* Keep a student's work when the page is closed.
+ * Wrapped in try/catch throughout: in private mode, or with site data blocked,
+ * localStorage throws, and the page must still work exactly as before.
+ * On the Pioneer site the lab wrapper mirrors these keys to the student's
+ * account, so the work follows them to another phone. */
+const SKEY='pioneer-task-'+KEY;
+function save(k){
+  try{
+    const pas=$(`.pas[data-k="${k}"]`), a={};
+    $$('.q',pas).forEach(q=>{
+      const n=q.dataset.n;
+      if(q.dataset.type==='text'){ const i=$(`input.gap[data-n="${n}"]`,pas); if(i&&i.value) a[n]=i.value; }
+      else { const s=$('.opt.sel',q); if(s) a[n]=s.dataset.v; }
+    });
+    const done=!!$('.q.done',pas);
+    if(!done && !Object.keys(a).length) localStorage.removeItem(SKEY+':'+k);
+    else localStorage.setItem(SKEY+':'+k, JSON.stringify({a:a,done:done}));
+  }catch(e){}
+}
+function restore(){
+  $$('.pas').forEach(pas=>{
+    let st=null;
+    try{ st=JSON.parse(localStorage.getItem(SKEY+':'+pas.dataset.k)||'null'); }catch(e){}
+    if(!st||!st.a) return;
+    $$('.q',pas).forEach(q=>{
+      const v=st.a[q.dataset.n]; if(v==null) return;
+      if(q.dataset.type==='text'){ const i=$(`input.gap[data-n="${q.dataset.n}"]`,pas); if(i) i.value=v; }
+      else { const o=$(`.opt[data-v="${v}"]`,q); if(o) o.classList.add('sel'); }
+    });
+    if(st.done) mark(pas.dataset.k);
+  });
+}
+document.addEventListener('input',e=>{
+  const i=e.target.closest('input.gap'); if(i) save(i.closest('.pas').dataset.k);
+});
+
+$$('.btn.check').forEach(b=>b.onclick=()=>mark(b.dataset.k));
+$$('.btn.reset').forEach(b=>b.onclick=()=>reset(b.dataset.k));
+$$('.btn.only').forEach(b=>b.onclick=()=>only(b.dataset.k,b));
+$$('.pin').forEach(b=>b.onclick=()=>pin(b.dataset.k,b.dataset.n));
+show("machines");
+restore();
+total();
+</script></body></html>
