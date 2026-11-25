@@ -20,6 +20,24 @@ export const COURSE: CourseStage[] = [
   "level": "A1",
   "units": [
    {
+    "key": "nouns",
+    "title": "Nouns",
+    "lessons": [
+     {
+      "id": "nouns-1",
+      "title": "What Is a Noun? Kinds of Nouns",
+      "test": false,
+      "questions": 86
+     },
+     {
+      "id": "nouns-2",
+      "title": "Abstract & Collective Nouns",
+      "test": false,
+      "questions": 36
+     }
+    ]
+   },
+   {
     "key": "be",
     "title": "The verb “to be” & Present Simple",
     "lessons": [
@@ -781,6 +799,7 @@ export const COURSE: CourseStage[] = [
 
 /** YouTube link per lesson id. Empty: the lesson shows no video. */
 export const VIDEOS: Record<string, string> = {
+  "nouns-1": "https://youtu.be/1sTsVvlCUyw", // Nouns
   "articles-1": "https://youtu.be/QN1dnhJxu1s", // HOW TO USE ARTICLES IN ENGLISH AND IELTS
   "plural-1": "https://youtu.be/0ZQ0-pCTOo8", // How to use singular plural
   "pronouns-1": "https://youtu.be/mJY9Ip3vcKs", // HOW TO USE PRONOUNS IN ENGLISH
