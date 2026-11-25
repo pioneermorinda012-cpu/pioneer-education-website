@@ -8,7 +8,9 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   if (pathname === "/practice/sign-in" || pathname === "/practice/forgot" || pathname === "/practice/reset" ||
-      pathname.startsWith("/practice/teacher")) {
+      pathname.startsWith("/practice/teacher") ||
+      // a frozen result checks who is asking itself, and offers the teacher sign-in
+      pathname.startsWith("/practice/shared/")) {
     return NextResponse.next();
   }
 

@@ -50,7 +50,7 @@ save(0,0,Q);
 var el=document.getElementById("stat");if(el&&window.MutationObserver)new MutationObserver(read).observe(el,{childList:true,characterData:true,subtree:true});
 })();</script>`;
   const next = item.next
-    ? `<a href="/practice/english/course/${item.next.id}" style="position:fixed;right:14px;bottom:14px;z-index:2147483647;
+    ? `<a data-pp-ui data-pp-next href="/practice/english/course/${item.next.id}" style="position:fixed;right:14px;bottom:14px;z-index:2147483647;
   max-width:calc(100vw - 150px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   background:#DB6A0C;color:#fff;font:700 13px/1 -apple-system,Segoe UI,Roboto,Arial,sans-serif;
   padding:11px 15px;border-radius:100px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)">Next: ${esc(item.next.title)} →</a>`
@@ -62,6 +62,6 @@ var el=document.getElementById("stat");if(el&&window.MutationObserver)new Mutati
     html, trainer: COURSE_TRAINER, session,
     back: { href: `/practice/english/course#${item.unit.key}`, label: "← Course" },
     // room at the bottom so the two buttons never cover the last question
-    css: "body{padding-bottom:70px}",
+    css: "body{padding-bottom:120px}",
   });
 }
