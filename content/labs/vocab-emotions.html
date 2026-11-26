@@ -1,0 +1,226 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pioneer Education — Emotions Vocabulary</title><style>
+:root{--orange:#e8590c;--black:#1b1b1b;--grey:#5c6672;--bg:#f2f4f7;--line:#dde3ea;
+ --card:#fff;--navy:#1d3557}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--black);line-height:1.6;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--black);color:#fff;padding:15px 20px;border-bottom:4px solid var(--orange);
+ position:sticky;top:0;z-index:40}
+header .n{font-weight:800;letter-spacing:.5px}
+header .n span{color:var(--orange)}
+header .s{font-size:.74rem;color:#c9c9c9}
+.wrap{max-width:1000px;margin:0 auto;padding:18px 16px 80px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:16px}
+h1{font-size:1.35rem;margin:0 0 6px}
+.lede{color:var(--grey);font-size:.94rem;margin:0 0 10px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;
+ font:700 .86rem/1 inherit;cursor:pointer;color:var(--black)}
+.tab.on{color:#fff}
+.fam{display:none}.fam.on{display:block}
+.famhead{border-left:5px solid var(--fc);padding-left:12px;margin-bottom:16px}
+.famhead h2{margin:0;font-size:1.2rem}
+.famhead p{margin:3px 0 0;color:var(--grey);font-size:.92rem}
+.ladder{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:18px}
+.ladder .t{font:700 .72rem/1.6 inherit;letter-spacing:.08em;text-transform:uppercase;color:var(--grey);margin-bottom:10px}
+.rung{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:center;margin:5px 0}
+.rung .lbl{font-size:.72rem;color:var(--grey);text-align:right}
+.rung .bar{display:flex;gap:6px;flex-wrap:wrap}
+.pip{background:var(--fc);color:#fff;border-radius:6px;padding:4px 11px;font:700 .83rem/1.5 inherit;
+ cursor:pointer;opacity:calc(.45 + var(--k)*.14)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.wc{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:14px;cursor:pointer;
+ transition:border-color .15s}
+.wc:hover{border-color:var(--fc)}
+.wc .w{font-weight:800;font-size:1.02rem;color:var(--fc)}
+.wc .s{font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--grey);margin-top:2px}
+.wc .back{display:none;margin-top:9px;border-top:1px dashed var(--line);padding-top:9px}
+.wc.open .back{display:block}
+.wc .m{font-size:.9rem}
+.wc .e{font-size:.88rem;color:var(--grey);font-style:italic;margin-top:6px}
+.wc .hint{font-size:.74rem;color:var(--grey);margin-top:8px}
+.wc.open .hint{display:none}
+.btn{background:var(--navy);color:#fff;border:0;border-radius:9px;padding:11px 20px;
+ font:700 .92rem/1 inherit;cursor:pointer}
+.btn.o{background:var(--orange)}
+.btn:hover{filter:brightness(1.08)}
+.quiz .q{border-bottom:1px solid var(--line);padding:14px 0}
+.quiz .q:last-of-type{border-bottom:0}
+.quiz .stem{font-size:.97rem;margin-bottom:9px}
+.quiz .stem b{background:#fff3cd;border-radius:4px;padding:1px 10px;color:#8a6100}
+.quiz .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.opts{display:flex;gap:8px;flex-wrap:wrap}
+.opt{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 15px;
+ font:600 .87rem/1 inherit;cursor:pointer}
+.opt.sel{border-color:var(--navy);background:#eaf0f8}
+.opt.ok{border-color:#1f8a3b;background:#e4f5e9;color:#1f8a3b}
+.opt.no{border-color:#c92a2a;background:#fdecec;color:#c92a2a}
+.why{font-size:.85rem;color:var(--grey);margin-top:7px;display:none}
+.q.done .why{display:block}
+.result{background:#fff8ec;border:1px solid #f0d5b8;border-radius:10px;padding:14px 16px;
+ font-weight:700;margin-top:14px;display:none}
+.tip{background:#eef3fa;border:1px solid #d3e0f0;border-radius:10px;padding:13px 16px;font-size:.9rem;margin-top:14px}
+.tip b{display:block;margin-bottom:4px}
+@media(max-width:560px){.rung{grid-template-columns:1fr}.rung .lbl{text-align:left}}
+@media print{header{position:static}.tab,.btn{display:none}.fam{display:block!important}
+ .wc .back{display:block}.wc .hint{display:none}}
+</style></head><body>
+<header><div class="n">PIONEER <span>EDUCATION</span></div>
+<div class="s">Emotions vocabulary · 54 words · Morinda · 98559-91214</div></header>
+<div class="wrap">
+  <div class="card">
+    <h1>Big feelings, and the right word for each</h1>
+    <p class="lede">Fifty-four words for five families of emotion. The useful part is not the
+    list — it is the <b>strength</b>. “Peeved”, “annoyed” and “infuriated” are all anger, and using
+    the wrong one makes an answer sound strange rather than advanced.</p>
+    <p class="lede">Pick a family, read the ladder from mild to very strong, then tap any word to
+    see what it means and how to use it. The quiz at the bottom asks you to tell close words apart,
+    which is the only test that matters.</p>
+    <div class="tabs"><button class="tab" data-f="Enjoyment">Enjoyment</button><button class="tab" data-f="Sadness">Sadness</button><button class="tab" data-f="Fear">Fear</button><button class="tab" data-f="Anger">Anger</button><button class="tab" data-f="Disgust">Disgust</button></div>
+  </div>
+  
+<div class="fam" data-f="Enjoyment" style="--fc:#1f8a3b">
+  <div class="card">
+    <div class="famhead"><h2>Enjoyment</h2><p>Feeling good, safe, close to people, or absorbed in something.</p></div>
+    <div class="ladder"><div class="t">How strong is each word?</div><div class="rung"><div class="lbl">very mild •</div><div class="bar"><button class="pip" style="--k:1" data-i="En0">contentment</button><button class="pip" style="--k:1" data-i="En1">peace</button></div></div><div class="rung"><div class="lbl">mild ••</div><div class="bar"><button class="pip" style="--k:2" data-i="En2">relief</button><button class="pip" style="--k:2" data-i="En3">satisfaction</button><button class="pip" style="--k:2" data-i="En4">amusement</button></div></div><div class="rung"><div class="lbl">medium •••</div><div class="bar"><button class="pip" style="--k:3" data-i="En5">compassion</button><button class="pip" style="--k:3" data-i="En6">happiness</button><button class="pip" style="--k:3" data-i="En7">pride</button></div></div><div class="rung"><div class="lbl">strong ••••</div><div class="bar"><button class="pip" style="--k:4" data-i="En8">excitement</button></div></div><div class="rung"><div class="lbl">very strong •••••</div><div class="bar"><button class="pip" style="--k:5" data-i="En9">joy</button><button class="pip" style="--k:5" data-i="En10">love</button></div></div></div>
+    <div class="grid"><div class="wc" id="wc-En0" data-f="Enjoyment"><div class="w">contentment</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">quiet satisfaction with what you have</div><div class="e">“There&#x27;s a real contentment in sitting with family after dinner.”</div></div></div><div class="wc" id="wc-En1" data-f="Enjoyment"><div class="w">peace</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">calm, with nothing troubling you</div><div class="e">“I find a sense of peace walking by the canal in the evening.”</div></div></div><div class="wc" id="wc-En2" data-f="Enjoyment"><div class="w">relief</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">the good feeling when a worry ends</div><div class="e">“The relief when the results came out was enormous.”</div></div></div><div class="wc" id="wc-En3" data-f="Enjoyment"><div class="w">satisfaction</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">the feeling that something was done well</div><div class="e">“I get great satisfaction from finishing a difficult task.”</div></div></div><div class="wc" id="wc-En4" data-f="Enjoyment"><div class="w">amusement</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">mild enjoyment at something funny</div><div class="e">“He watched his nephew&#x27;s dancing with obvious amusement.”</div></div></div><div class="wc" id="wc-En5" data-f="Enjoyment"><div class="w">compassion</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">warm concern for someone who is suffering</div><div class="e">“She treats her patients with real compassion.”</div></div></div><div class="wc" id="wc-En6" data-f="Enjoyment"><div class="w">happiness</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">a general good feeling about life</div><div class="e">“Happiness, for me, is a quiet Sunday with nothing planned.”</div></div></div><div class="wc" id="wc-En7" data-f="Enjoyment"><div class="w">pride</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">pleasure at your own or someone&#x27;s achievement</div><div class="e">“My parents couldn&#x27;t hide their pride at the ceremony.”</div></div></div><div class="wc" id="wc-En8" data-f="Enjoyment"><div class="w">excitement</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">lively, energetic anticipation</div><div class="e">“There was a buzz of excitement in the class before the trip.”</div></div></div><div class="wc" id="wc-En9" data-f="Enjoyment"><div class="w">joy</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">very strong, lifting happiness</div><div class="e">“The joy on her face when she opened the letter was something to see.”</div></div></div><div class="wc" id="wc-En10" data-f="Enjoyment"><div class="w">love</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">deep attachment and care for someone</div><div class="e">“Love for her grandchildren is what keeps her going.”</div></div></div></div>
+    <div class="tip"><b>Using these in the test</b>
+    Examiners notice range. Replacing “happy”, “sad” or “angry” with the right word
+    at the right strength is worth more than a long sentence. Say the strength out loud
+    as you learn: <i>peeved</i> is not <i>infuriated</i>, and using the strong word for a
+    small problem sounds odd rather than advanced.</div>
+  </div>
+</div>
+<div class="fam" data-f="Sadness" style="--fc:#2b5c8a">
+  <div class="card">
+    <div class="famhead"><h2>Sadness</h2><p>Low feeling, sometimes after a loss, sometimes for no clear reason.</p></div>
+    <div class="ladder"><div class="t">How strong is each word?</div><div class="rung"><div class="lbl">very mild •</div><div class="bar"><button class="pip" style="--k:1" data-i="Sa0">unhappy</button></div></div><div class="rung"><div class="lbl">mild ••</div><div class="bar"><button class="pip" style="--k:2" data-i="Sa1">disappointed</button><button class="pip" style="--k:2" data-i="Sa2">gloomy</button><button class="pip" style="--k:2" data-i="Sa3">troubled</button></div></div><div class="rung"><div class="lbl">medium •••</div><div class="bar"><button class="pip" style="--k:3" data-i="Sa4">lonely</button><button class="pip" style="--k:3" data-i="Sa5">lost</button><button class="pip" style="--k:3" data-i="Sa6">resigned</button></div></div><div class="rung"><div class="lbl">strong ••••</div><div class="bar"><button class="pip" style="--k:4" data-i="Sa7">grieved</button><button class="pip" style="--k:4" data-i="Sa8">miserable</button></div></div><div class="rung"><div class="lbl">very strong •••••</div><div class="bar"><button class="pip" style="--k:5" data-i="Sa9">hopeless</button><button class="pip" style="--k:5" data-i="Sa10">heartbroken</button></div></div></div>
+    <div class="grid"><div class="wc" id="wc-Sa0" data-f="Sadness"><div class="w">unhappy</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">not satisfied or content</div><div class="e">“I was unhappy in that job but it took a year to admit it.”</div></div></div><div class="wc" id="wc-Sa1" data-f="Sadness"><div class="w">disappointed</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">let down because something did not happen</div><div class="e">“I was disappointed with my score, though not surprised.”</div></div></div><div class="wc" id="wc-Sa2" data-f="Sadness"><div class="w">gloomy</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">in low spirits; expecting the worst</div><div class="e">“He has been gloomy ever since the result.”</div></div></div><div class="wc" id="wc-Sa3" data-f="Sadness"><div class="w">troubled</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">worried and unsettled by something</div><div class="e">“She looked troubled, so I asked what had happened.”</div></div></div><div class="wc" id="wc-Sa4" data-f="Sadness"><div class="w">lonely</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">sad because you are without company</div><div class="e">“The first month in a new city is always lonely.”</div></div></div><div class="wc" id="wc-Sa5" data-f="Sadness"><div class="w">lost</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">without direction; not knowing what to do</div><div class="e">“After school finished I felt completely lost for a while.”</div></div></div><div class="wc" id="wc-Sa6" data-f="Sadness"><div class="w">resigned</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">sadly accepting something you cannot change</div><div class="e">“He&#x27;s resigned to the fact that he won&#x27;t get the transfer.”</div></div></div><div class="wc" id="wc-Sa7" data-f="Sadness"><div class="w">grieved</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">deeply sad, usually after a death</div><div class="e">“The whole village grieved when he passed away.”</div></div></div><div class="wc" id="wc-Sa8" data-f="Sadness"><div class="w">miserable</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">extremely unhappy, over a long period</div><div class="e">“Three weeks of rain made everyone miserable.”</div></div></div><div class="wc" id="wc-Sa9" data-f="Sadness"><div class="w">hopeless</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">feeling nothing will ever improve</div><div class="e">“He felt hopeless after the third rejection.”</div></div></div><div class="wc" id="wc-Sa10" data-f="Sadness"><div class="w">heartbroken</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">overwhelmed with sadness, usually over a person</div><div class="e">“She was heartbroken when her best friend moved abroad.”</div></div></div></div>
+    <div class="tip"><b>Using these in the test</b>
+    Examiners notice range. Replacing “happy”, “sad” or “angry” with the right word
+    at the right strength is worth more than a long sentence. Say the strength out loud
+    as you learn: <i>peeved</i> is not <i>infuriated</i>, and using the strong word for a
+    small problem sounds odd rather than advanced.</div>
+  </div>
+</div>
+<div class="fam" data-f="Fear" style="--fc:#7a5cb5">
+  <div class="card">
+    <div class="famhead"><h2>Fear</h2><p>What you feel when you sense a threat — mild or severe.</p></div>
+    <div class="ladder"><div class="t">How strong is each word?</div><div class="rung"><div class="lbl">very mild •</div><div class="bar"><button class="pip" style="--k:1" data-i="Fe0">doubtful</button><button class="pip" style="--k:1" data-i="Fe1">confused</button></div></div><div class="rung"><div class="lbl">mild ••</div><div class="bar"><button class="pip" style="--k:2" data-i="Fe2">nervous</button><button class="pip" style="--k:2" data-i="Fe3">worried</button></div></div><div class="rung"><div class="lbl">medium •••</div><div class="bar"><button class="pip" style="--k:3" data-i="Fe4">stressed</button><button class="pip" style="--k:3" data-i="Fe5">anxious</button></div></div><div class="rung"><div class="lbl">strong ••••</div><div class="bar"><button class="pip" style="--k:4" data-i="Fe6">desperate</button><button class="pip" style="--k:4" data-i="Fe7">panicked</button></div></div><div class="rung"><div class="lbl">very strong •••••</div><div class="bar"><button class="pip" style="--k:5" data-i="Fe8">terrified</button><button class="pip" style="--k:5" data-i="Fe9">horrified</button></div></div></div>
+    <div class="grid"><div class="wc" id="wc-Fe0" data-f="Fear"><div class="w">doubtful</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">unsure that something will work out</div><div class="e">“I&#x27;m doubtful about whether the bus will come on time.”</div></div></div><div class="wc" id="wc-Fe1" data-f="Fear"><div class="w">confused</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">unable to understand or decide</div><div class="e">“I was confused by the instructions on the form.”</div></div></div><div class="wc" id="wc-Fe2" data-f="Fear"><div class="w">nervous</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">slightly afraid before something important</div><div class="e">“I always get nervous before a speaking test.”</div></div></div><div class="wc" id="wc-Fe3" data-f="Fear"><div class="w">worried</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">thinking anxiously about a possible problem</div><div class="e">“My mother gets worried whenever I travel at night.”</div></div></div><div class="wc" id="wc-Fe4" data-f="Fear"><div class="w">stressed</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">under pressure you find hard to manage</div><div class="e">“I was badly stressed during the final month of revision.”</div></div></div><div class="wc" id="wc-Fe5" data-f="Fear"><div class="w">anxious</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">tense and uneasy, often without a clear cause</div><div class="e">“I get anxious in large crowds.”</div></div></div><div class="wc" id="wc-Fe6" data-f="Fear"><div class="w">desperate</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">so worried you will try anything</div><div class="e">“He was desperate to find a job before the rent was due.”</div></div></div><div class="wc" id="wc-Fe7" data-f="Fear"><div class="w">panicked</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">suddenly unable to think clearly from fear</div><div class="e">“I panicked when I realised I&#x27;d left my documents at home.”</div></div></div><div class="wc" id="wc-Fe8" data-f="Fear"><div class="w">terrified</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">extremely afraid</div><div class="e">“I&#x27;m terrified of heights — even a balcony bothers me.”</div></div></div><div class="wc" id="wc-Fe9" data-f="Fear"><div class="w">horrified</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">shocked and appalled by something</div><div class="e">“We were horrified by the pictures from the accident.”</div></div></div></div>
+    <div class="tip"><b>Using these in the test</b>
+    Examiners notice range. Replacing “happy”, “sad” or “angry” with the right word
+    at the right strength is worth more than a long sentence. Say the strength out loud
+    as you learn: <i>peeved</i> is not <i>infuriated</i>, and using the strong word for a
+    small problem sounds odd rather than advanced.</div>
+  </div>
+</div>
+<div class="fam" data-f="Anger" style="--fc:#c1440e">
+  <div class="card">
+    <div class="famhead"><h2>Anger</h2><p>Usually a response to unfairness, or to being trapped or threatened.</p></div>
+    <div class="ladder"><div class="t">How strong is each word?</div><div class="rung"><div class="lbl">very mild •</div><div class="bar"><button class="pip" style="--k:1" data-i="An0">peeved</button><button class="pip" style="--k:1" data-i="An1">annoyed</button></div></div><div class="rung"><div class="lbl">mild ••</div><div class="bar"><button class="pip" style="--k:2" data-i="An2">irritated</button><button class="pip" style="--k:2" data-i="An3">contrary</button></div></div><div class="rung"><div class="lbl">medium •••</div><div class="bar"><button class="pip" style="--k:3" data-i="An4">frustrated</button><button class="pip" style="--k:3" data-i="An5">insulted</button><button class="pip" style="--k:3" data-i="An6">cheated</button></div></div><div class="rung"><div class="lbl">strong ••••</div><div class="bar"><button class="pip" style="--k:4" data-i="An7">mad</button><button class="pip" style="--k:4" data-i="An8">bitter</button></div></div><div class="rung"><div class="lbl">very strong •••••</div><div class="bar"><button class="pip" style="--k:5" data-i="An9">vengeful</button><button class="pip" style="--k:5" data-i="An10">infuriated</button></div></div></div>
+    <div class="grid"><div class="wc" id="wc-An0" data-f="Anger"><div class="w">peeved</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">slightly annoyed</div><div class="e">“I was a bit peeved that nobody told me the time had changed.”</div></div></div><div class="wc" id="wc-An1" data-f="Anger"><div class="w">annoyed</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">mildly angry</div><div class="e">“I&#x27;m annoyed with myself for forgetting the deadline.”</div></div></div><div class="wc" id="wc-An2" data-f="Anger"><div class="w">irritated</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">bothered repeatedly by something small</div><div class="e">“The constant noise from upstairs left me irritated all evening.”</div></div></div><div class="wc" id="wc-An3" data-f="Anger"><div class="w">contrary</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">deliberately disagreeing with everyone</div><div class="e">“He&#x27;s being contrary just for the sake of it.”</div></div></div><div class="wc" id="wc-An4" data-f="Anger"><div class="w">frustrated</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">angry because you are blocked from your goal</div><div class="e">“I get frustrated when the internet cuts out mid-class.”</div></div></div><div class="wc" id="wc-An5" data-f="Anger"><div class="w">insulted</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">angry because you were disrespected</div><div class="e">“She was insulted by the way he spoke to her in front of others.”</div></div></div><div class="wc" id="wc-An6" data-f="Anger"><div class="w">cheated</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">angry at being treated dishonestly</div><div class="e">“We felt cheated when the fee went up after we&#x27;d paid.”</div></div></div><div class="wc" id="wc-An7" data-f="Anger"><div class="w">mad</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">openly angry (informal)</div><div class="e">“Dad was mad when he saw the state of the kitchen.”</div></div></div><div class="wc" id="wc-An8" data-f="Anger"><div class="w">bitter</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">angry and resentful long after the event</div><div class="e">“He&#x27;s still bitter about being passed over for promotion.”</div></div></div><div class="wc" id="wc-An9" data-f="Anger"><div class="w">vengeful</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">wanting to hurt someone in return</div><div class="e">“Anger is normal; being vengeful about it is not.”</div></div></div><div class="wc" id="wc-An10" data-f="Anger"><div class="w">infuriated</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">extremely angry</div><div class="e">“I was infuriated by how casually they cancelled.”</div></div></div></div>
+    <div class="tip"><b>Using these in the test</b>
+    Examiners notice range. Replacing “happy”, “sad” or “angry” with the right word
+    at the right strength is worth more than a long sentence. Say the strength out loud
+    as you learn: <i>peeved</i> is not <i>infuriated</i>, and using the strong word for a
+    small problem sounds odd rather than advanced.</div>
+  </div>
+</div>
+<div class="fam" data-f="Disgust" style="--fc:#5c6f1f">
+  <div class="card">
+    <div class="famhead"><h2>Disgust</h2><p>A reaction to something unpleasant that you want to get away from.</p></div>
+    <div class="ladder"><div class="t">How strong is each word?</div><div class="rung"><div class="lbl">very mild •</div><div class="bar"><button class="pip" style="--k:1" data-i="Di0">uncomfortable</button><button class="pip" style="--k:1" data-i="Di1">dislike</button></div></div><div class="rung"><div class="lbl">mild ••</div><div class="bar"><button class="pip" style="--k:2" data-i="Di2">disapproving</button><button class="pip" style="--k:2" data-i="Di3">aversion</button></div></div><div class="rung"><div class="lbl">medium •••</div><div class="bar"><button class="pip" style="--k:3" data-i="Di4">disturbed</button><button class="pip" style="--k:3" data-i="Di5">offended</button><button class="pip" style="--k:3" data-i="Di6">withdrawal</button></div></div><div class="rung"><div class="lbl">strong ••••</div><div class="bar"><button class="pip" style="--k:4" data-i="Di7">nauseated</button><button class="pip" style="--k:4" data-i="Di8">revulsion</button></div></div><div class="rung"><div class="lbl">very strong •••••</div><div class="bar"><button class="pip" style="--k:5" data-i="Di9">horrified</button><button class="pip" style="--k:5" data-i="Di10">loathing</button></div></div></div>
+    <div class="grid"><div class="wc" id="wc-Di0" data-f="Disgust"><div class="w">uncomfortable</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">slightly uneasy, not at ease</div><div class="e">“I felt uncomfortable being the only one who disagreed.”</div></div></div><div class="wc" id="wc-Di1" data-f="Disgust"><div class="w">dislike</div><div class="s">very mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">not liking something</div><div class="e">“I have a strong dislike of crowded markets.”</div></div></div><div class="wc" id="wc-Di2" data-f="Disgust"><div class="w">disapproving</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">showing you think something is wrong</div><div class="e">“My grandmother gave me a disapproving look.”</div></div></div><div class="wc" id="wc-Di3" data-f="Disgust"><div class="w">aversion</div><div class="s">mild</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">a settled dislike that makes you avoid something</div><div class="e">“He has an aversion to anything with coriander in it.”</div></div></div><div class="wc" id="wc-Di4" data-f="Disgust"><div class="w">disturbed</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">upset and unsettled by something</div><div class="e">“I was disturbed by what I read in the report.”</div></div></div><div class="wc" id="wc-Di5" data-f="Disgust"><div class="w">offended</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">hurt and annoyed by something disrespectful</div><div class="e">“She was offended by the joke, and rightly so.”</div></div></div><div class="wc" id="wc-Di6" data-f="Disgust"><div class="w">withdrawal</div><div class="s">medium</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">pulling back from people or a situation</div><div class="e">“His withdrawal from the group worried his friends.”</div></div></div><div class="wc" id="wc-Di7" data-f="Disgust"><div class="w">nauseated</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">feeling physically sick with disgust</div><div class="e">“The smell in the alley left me nauseated.”</div></div></div><div class="wc" id="wc-Di8" data-f="Disgust"><div class="w">revulsion</div><div class="s">strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">a strong feeling of being repelled</div><div class="e">“He stepped back in revulsion.”</div></div></div><div class="wc" id="wc-Di9" data-f="Disgust"><div class="w">horrified</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">shocked and appalled</div><div class="e">“We were horrified to learn the river was that polluted.”</div></div></div><div class="wc" id="wc-Di10" data-f="Disgust"><div class="w">loathing</div><div class="s">very strong</div><div class="hint">tap to see the meaning</div><div class="back"><div class="m">intense hatred and disgust</div><div class="e">“She has a real loathing of dishonesty.”</div></div></div></div>
+    <div class="tip"><b>Using these in the test</b>
+    Examiners notice range. Replacing “happy”, “sad” or “angry” with the right word
+    at the right strength is worth more than a long sentence. Say the strength out loud
+    as you learn: <i>peeved</i> is not <i>infuriated</i>, and using the strong word for a
+    small problem sounds odd rather than advanced.</div>
+  </div>
+</div>
+  <div class="card">
+    <h1>Quick quiz</h1>
+    <p class="lede">Twelve sentences with the word removed. The three wrong answers always come from
+    the <b>same family</b>, so you have to judge the strength, not just the meaning. The coloured dot
+    tells you which family. The answer explains itself once you choose.</p>
+    <div class="quiz" id="quiz"></div>
+    <div class="result" id="res"></div>
+    <p style="margin-top:14px"><button class="btn o" id="newquiz">New quiz</button></p>
+  </div>
+</div>
+<script>
+const D={"Enjoyment": [{"w": "contentment", "s": 1, "m": "quiet satisfaction with what you have", "e": "There's a real contentment in sitting with family after dinner."}, {"w": "peace", "s": 1, "m": "calm, with nothing troubling you", "e": "I find a sense of peace walking by the canal in the evening."}, {"w": "relief", "s": 2, "m": "the good feeling when a worry ends", "e": "The relief when the results came out was enormous."}, {"w": "satisfaction", "s": 2, "m": "the feeling that something was done well", "e": "I get great satisfaction from finishing a difficult task."}, {"w": "amusement", "s": 2, "m": "mild enjoyment at something funny", "e": "He watched his nephew's dancing with obvious amusement."}, {"w": "compassion", "s": 3, "m": "warm concern for someone who is suffering", "e": "She treats her patients with real compassion."}, {"w": "happiness", "s": 3, "m": "a general good feeling about life", "e": "Happiness, for me, is a quiet Sunday with nothing planned."}, {"w": "pride", "s": 3, "m": "pleasure at your own or someone's achievement", "e": "My parents couldn't hide their pride at the ceremony."}, {"w": "excitement", "s": 4, "m": "lively, energetic anticipation", "e": "There was a buzz of excitement in the class before the trip."}, {"w": "joy", "s": 5, "m": "very strong, lifting happiness", "e": "The joy on her face when she opened the letter was something to see."}, {"w": "love", "s": 5, "m": "deep attachment and care for someone", "e": "Love for her grandchildren is what keeps her going."}], "Sadness": [{"w": "unhappy", "s": 1, "m": "not satisfied or content", "e": "I was unhappy in that job but it took a year to admit it."}, {"w": "disappointed", "s": 2, "m": "let down because something did not happen", "e": "I was disappointed with my score, though not surprised."}, {"w": "gloomy", "s": 2, "m": "in low spirits; expecting the worst", "e": "He has been gloomy ever since the result."}, {"w": "troubled", "s": 2, "m": "worried and unsettled by something", "e": "She looked troubled, so I asked what had happened."}, {"w": "lonely", "s": 3, "m": "sad because you are without company", "e": "The first month in a new city is always lonely."}, {"w": "lost", "s": 3, "m": "without direction; not knowing what to do", "e": "After school finished I felt completely lost for a while."}, {"w": "resigned", "s": 3, "m": "sadly accepting something you cannot change", "e": "He's resigned to the fact that he won't get the transfer."}, {"w": "grieved", "s": 4, "m": "deeply sad, usually after a death", "e": "The whole village grieved when he passed away."}, {"w": "miserable", "s": 4, "m": "extremely unhappy, over a long period", "e": "Three weeks of rain made everyone miserable."}, {"w": "hopeless", "s": 5, "m": "feeling nothing will ever improve", "e": "He felt hopeless after the third rejection."}, {"w": "heartbroken", "s": 5, "m": "overwhelmed with sadness, usually over a person", "e": "She was heartbroken when her best friend moved abroad."}], "Fear": [{"w": "doubtful", "s": 1, "m": "unsure that something will work out", "e": "I'm doubtful about whether the bus will come on time."}, {"w": "confused", "s": 1, "m": "unable to understand or decide", "e": "I was confused by the instructions on the form."}, {"w": "nervous", "s": 2, "m": "slightly afraid before something important", "e": "I always get nervous before a speaking test."}, {"w": "worried", "s": 2, "m": "thinking anxiously about a possible problem", "e": "My mother gets worried whenever I travel at night."}, {"w": "stressed", "s": 3, "m": "under pressure you find hard to manage", "e": "I was badly stressed during the final month of revision."}, {"w": "anxious", "s": 3, "m": "tense and uneasy, often without a clear cause", "e": "I get anxious in large crowds."}, {"w": "desperate", "s": 4, "m": "so worried you will try anything", "e": "He was desperate to find a job before the rent was due."}, {"w": "panicked", "s": 4, "m": "suddenly unable to think clearly from fear", "e": "I panicked when I realised I'd left my documents at home."}, {"w": "terrified", "s": 5, "m": "extremely afraid", "e": "I'm terrified of heights — even a balcony bothers me."}, {"w": "horrified", "s": 5, "m": "shocked and appalled by something", "e": "We were horrified by the pictures from the accident."}], "Anger": [{"w": "peeved", "s": 1, "m": "slightly annoyed", "e": "I was a bit peeved that nobody told me the time had changed."}, {"w": "annoyed", "s": 1, "m": "mildly angry", "e": "I'm annoyed with myself for forgetting the deadline."}, {"w": "irritated", "s": 2, "m": "bothered repeatedly by something small", "e": "The constant noise from upstairs left me irritated all evening."}, {"w": "contrary", "s": 2, "m": "deliberately disagreeing with everyone", "e": "He's being contrary just for the sake of it."}, {"w": "frustrated", "s": 3, "m": "angry because you are blocked from your goal", "e": "I get frustrated when the internet cuts out mid-class."}, {"w": "insulted", "s": 3, "m": "angry because you were disrespected", "e": "She was insulted by the way he spoke to her in front of others."}, {"w": "cheated", "s": 3, "m": "angry at being treated dishonestly", "e": "We felt cheated when the fee went up after we'd paid."}, {"w": "mad", "s": 4, "m": "openly angry (informal)", "e": "Dad was mad when he saw the state of the kitchen."}, {"w": "bitter", "s": 4, "m": "angry and resentful long after the event", "e": "He's still bitter about being passed over for promotion."}, {"w": "vengeful", "s": 5, "m": "wanting to hurt someone in return", "e": "Anger is normal; being vengeful about it is not."}, {"w": "infuriated", "s": 5, "m": "extremely angry", "e": "I was infuriated by how casually they cancelled."}], "Disgust": [{"w": "uncomfortable", "s": 1, "m": "slightly uneasy, not at ease", "e": "I felt uncomfortable being the only one who disagreed."}, {"w": "dislike", "s": 1, "m": "not liking something", "e": "I have a strong dislike of crowded markets."}, {"w": "disapproving", "s": 2, "m": "showing you think something is wrong", "e": "My grandmother gave me a disapproving look."}, {"w": "aversion", "s": 2, "m": "a settled dislike that makes you avoid something", "e": "He has an aversion to anything with coriander in it."}, {"w": "disturbed", "s": 3, "m": "upset and unsettled by something", "e": "I was disturbed by what I read in the report."}, {"w": "offended", "s": 3, "m": "hurt and annoyed by something disrespectful", "e": "She was offended by the joke, and rightly so."}, {"w": "withdrawal", "s": 3, "m": "pulling back from people or a situation", "e": "His withdrawal from the group worried his friends."}, {"w": "nauseated", "s": 4, "m": "feeling physically sick with disgust", "e": "The smell in the alley left me nauseated."}, {"w": "revulsion", "s": 4, "m": "a strong feeling of being repelled", "e": "He stepped back in revulsion."}, {"w": "horrified", "s": 5, "m": "shocked and appalled", "e": "We were horrified to learn the river was that polluted."}, {"w": "loathing", "s": 5, "m": "intense hatred and disgust", "e": "She has a real loathing of dishonesty."}]}, C={"Enjoyment": "#1f8a3b", "Sadness": "#2b5c8a", "Fear": "#7a5cb5", "Anger": "#c1440e", "Disgust": "#5c6f1f"};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LAD={1:'very mild',2:'mild',3:'medium',4:'strong',5:'very strong'};
+
+/* tabs */
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{
+  document.querySelectorAll('.tab').forEach(x=>{x.classList.remove('on');x.style.background='#fff';x.style.borderColor='#dde3ea';});
+  t.classList.add('on'); t.style.background=C[t.dataset.f]; t.style.borderColor=C[t.dataset.f];
+  document.querySelectorAll('.fam').forEach(f=>f.classList.toggle('on', f.dataset.f===t.dataset.f));
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+document.querySelector('.tab').click();
+
+/* flip cards */
+document.addEventListener('click',e=>{
+  const c=e.target.closest('.wc'); if(c) c.classList.toggle('open');
+  const p=e.target.closest('.pip');
+  if(p){ const card=document.getElementById('wc-'+p.dataset.i);
+    if(card){ card.classList.add('open'); card.scrollIntoView({behavior:'smooth',block:'center'});
+      card.style.borderColor=C[card.dataset.f];
+      setTimeout(()=>card.style.borderColor='',1400); } }
+});
+
+/* quiz: blank the example sentence, offer near-neighbours from the same family */
+function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function buildQuiz(){
+  const pool=[];
+  for(const [fam,list] of Object.entries(D))
+    list.forEach(w=>pool.push({...w,fam}));
+  const picked=shuffle(pool.slice()).slice(0,12);
+  let h='';
+  picked.forEach((item,qi)=>{
+    const sameFam=D[item.fam].filter(x=>x.w!==item.w);
+    const distract=shuffle(sameFam.slice()).slice(0,3).map(x=>x.w);
+    const opts=shuffle([item.w,...distract]);
+    const blanked=esc(item.e).replace(new RegExp('\\b'+item.w+'\\b','i'),'<b>&nbsp;?&nbsp;</b>');
+    /* the family is shown as a colour, not a name: "Enjoyment" would give away "joy" */
+    h+=`<div class="q" data-a="${esc(item.w)}" data-i="${qi}" data-fam="${esc(item.fam)}">
+      <div class="stem"><span class="dot" style="background:${C[item.fam]}" title="${esc(item.fam)}"></span>${blanked}</div>
+      <div class="opts">${opts.map(o=>`<button class="opt" data-v="${esc(o)}">${esc(o)}</button>`).join('')}</div>
+      <div class="why"><b style="color:${C[item.fam]}">${esc(item.w)}</b> — ${esc(item.m)}
+        · ${item.fam}, ${LAD[item.s]}</div></div>`;
+  });
+  document.getElementById('quiz').innerHTML=h;
+  document.getElementById('res').style.display='none';
+}
+document.getElementById('newquiz').onclick=buildQuiz;
+buildQuiz();
+
+document.getElementById('quiz').addEventListener('click',e=>{
+  const o=e.target.closest('.opt'); if(!o) return;
+  const q=o.closest('.q'); if(q.classList.contains('done')) return;
+  q.classList.add('done');
+  const right=q.dataset.a;
+  q.querySelectorAll('.opt').forEach(b=>{
+    if(b.dataset.v===right) b.classList.add('ok');
+    else if(b===o) b.classList.add('no');
+    b.disabled=true;
+  });
+  const qs=[...document.querySelectorAll('#quiz .q')];
+  if(qs.every(x=>x.classList.contains('done'))){
+    const got=qs.filter(x=>x.querySelector('.opt.ok.sel, .opt.ok') && x.querySelector('.opt.no')===null).length;
+    const r=document.getElementById('res');
+    r.textContent=`You got ${got} out of ${qs.length}. `+
+      (got===qs.length?'Every one — now try it without looking at the cards.':
+       got>=qs.length*0.7?'Good. Re-read the ones you missed, then take a new quiz.':
+       'Go back through the strength ladders, then take a new quiz.');
+    r.style.display='block';
+  }
+});
+</script>
+</body></html>

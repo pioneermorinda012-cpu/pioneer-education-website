@@ -1,6 +1,6 @@
 import { requireStudent } from "@/lib/guard";
 import PracticeNav from "@/components/practice/PracticeNav";
-import { labItem, type LabItem } from "@/lib/labs";
+import { labItem, SPEAKING_EXTRAS, type LabItem } from "@/lib/labs";
 
 export const dynamic = "force-dynamic";
 
@@ -9,7 +9,8 @@ export const dynamic = "force-dynamic";
  * free Part 1 question bank. */
 export default async function Speaking() {
   const session = await requireStudent("/practice/speaking", ["academic", "gt"]);
-  const items = [labItem("speaking-formulas"), labItem("speaking")].filter((x): x is LabItem => x !== null);
+  const items = [labItem("speaking-formulas"), labItem("speaking"), ...SPEAKING_EXTRAS]
+    .filter((x): x is LabItem => x !== null);
 
   return (
     <div className="wrap">

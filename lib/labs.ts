@@ -14,9 +14,10 @@ export type LabItem = {
   title: string;
   blurb: string;
   need: Area[];
-  /** "task" = a single-question-type trainer, listed under the Reading tests
-   *  separately from the four big labs. Absent means one of the labs. */
-  kind?: "task";
+  /** "task" = a single-question-type reading trainer, listed under the Reading
+   *  tests. "speak" = Part 2 / vocabulary material listed on the Speaking page.
+   *  Absent means one of the four big labs. */
+  kind?: "task" | "speak";
   /** how many questions it holds, shown in the list */
   count?: number;
 };
@@ -52,9 +53,25 @@ export const LABS: LabItem[] = [
   { id: "task-multiple-choice", file: "task-multiple-choice.html", kind: "task", count: 45,
     title: "Multiple Choice", need: ["academic", "gt"],
     blurb: "Choose A, B, C or D — with a one-line reason why each of the other three is wrong." },
+
+  /* Speaking Part 2 packs and the vocabulary that feeds them. Each cue card
+   * carries its vocabulary above it, and every bullet has one basic line and
+   * one advanced line, so a student can build an answer at their own level. */
+  { id: "speaking-part2-people", file: "speaking-part2-people.html", kind: "speak", count: 18,
+    title: "Part 2: People", need: ["academic", "gt"],
+    blurb: "18 cue cards about people, each with its vocabulary above it and two ways to say every bullet — one simple, one for Band 7." },
+  { id: "speaking-part2-places", file: "speaking-part2-places.html", kind: "speak", count: 12,
+    title: "Part 2: Places", need: ["academic", "gt"],
+    blurb: "12 cue cards about places, in the same format: the words first, then a basic line and an advanced line for each bullet." },
+  { id: "vocab-emotions", file: "vocab-emotions.html", kind: "speak", count: 54,
+    title: "Emotions Vocabulary", need: ["academic", "gt"],
+    blurb: "54 words for five families of feeling, arranged from mild to very strong — so you stop saying happy and sad, and stop saying infuriated about a late bus." },
 ];
 
 /** The task-type trainers, in the order they are listed under the Reading tests. */
 export const TASKS: LabItem[] = LABS.filter((l) => l.kind === "task");
+
+/** The Speaking Part 2 packs and vocabulary, in the order the Speaking page lists them. */
+export const SPEAKING_EXTRAS: LabItem[] = LABS.filter((l) => l.kind === "speak");
 
 export const labItem = (id: string) => LABS.find((l) => l.id === id) ?? null;
